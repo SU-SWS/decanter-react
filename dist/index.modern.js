@@ -1,13 +1,13 @@
 import React from 'react';
 
-const BrandBar = props => {
-  const defaultClasses = {
+var BrandBar = function BrandBar(props) {
+  var defaultClasses = {
     wrapper: 'su-brand-bar',
     container: '',
     link: '',
     sr: ''
   };
-  const classes = Object.assign(defaultClasses, props.classes);
+  var classes = Object.assign(defaultClasses, props.classes);
   return /*#__PURE__*/React.createElement("div", {
     className: classes.wrapper
   }, /*#__PURE__*/React.createElement("div", {
@@ -18,11 +18,10 @@ const BrandBar = props => {
   }, "Stanford University")));
 };
 
-var styles = {"test":"_styles-module__test__3RkHN"};
+var styles = {"test":"_3RkHN"};
 
-const ExampleComponent = ({
-  text
-}) => {
+var ExampleComponent = function ExampleComponent(_ref) {
+  var text = _ref.text;
   return /*#__PURE__*/React.createElement("div", {
     className: styles.test
   }, "Example Component: ", text);

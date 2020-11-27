@@ -20,7 +20,7 @@ var BrandBar = function BrandBar(props) {
   }, "Stanford University")));
 };
 
-var styles = {"test":"_styles-module__test__3RkHN"};
+var styles = {"test":"_3RkHN"};
 
 var ExampleComponent = function ExampleComponent(_ref) {
   var text = _ref.text;

@@ -1,4 +1,5 @@
 import 'decanter/dist/decanter.css'
+import "decanter-react/dist/index.css"
 import './index.css'
 
 import React from 'react'
