@@ -40,7 +40,13 @@
   },
   "homepage": "https://github.com/SU-SWS/decanter-react#readme",
   "dependencies": {
-    "decanter": "git://github.com/su-sws/decanter.git#v7"
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
+    "decanter": "git://github.com/su-sws/decanter.git#v7",
+    "deepmerge": "^4.2.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",

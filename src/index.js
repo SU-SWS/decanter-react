@@ -1,7 +1,7 @@
+import { Alert } from './Alert'
 import { BrandBar } from './BrandBar'
-import { ExampleComponent } from './ExampleComponent'
 
 export {
-  BrandBar,
-  ExampleComponent
+  Alert,
+  BrandBar
 }
