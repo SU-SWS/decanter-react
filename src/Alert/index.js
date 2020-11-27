@@ -1,17 +1,25 @@
 import React from 'react'
 import { DismissButton } from './DismissButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell } from '@fortawesome/free-regular-svg-icons'
+import {
+  faBell,
+  faCheckCircle,
+  faQuestionCircle,
+  faExclamationTriangle,
+  faTimesCircle
+} from '@fortawesome/free-solid-svg-icons'
+import styles from './index.module.css'
 
 export const Alert = (props) => {
   // Default look and feel
   const defaultClasses = {
     wrapper: 'su-alert',
-    dismissButtonWrapper: '',
+    dismissButtonWrapper: 'su-order-3',
     dismissButton: '',
-    headerWrapper: '',
+    headerWrapper: 'su-order-1',
     label: 'su-inline-block ',
-    bodyWrapper: '',
+    bodyWrapper: styles.alertBodyWrapperDark,
+    icon: faBell,
     bodyHeading: '',
     footerWrapper: ''
   }
@@ -20,24 +28,29 @@ export const Alert = (props) => {
   const variants = {
     success: {
       wrapper: 'su-alert su-bg-palo-verde',
-      bodyWrapper: 'su-text-white',
+      bodyWrapper: styles.alertBodyWrapper,
       headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white'
+      footerWrapper: 'su-text-white',
+      icon: faCheckCircle
     },
     warning: {
-      wrapper: 'su-alert su-bg-illuminating-dark'
+      wrapper: 'su-alert su-bg-illuminating-dark',
+      bodyWrapper: styles.alertBodyWrapperDark,
+      icon: faExclamationTriangle
     },
     error: {
       wrapper: 'su-alert su-bg-digital-red',
-      bodyWrapper: 'su-text-white',
+      bodyWrapper: styles.alertBodyWrapper,
       headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white'
+      footerWrapper: 'su-text-white',
+      icon: faTimesCircle
     },
     info: {
       wrapper: 'su-alert su-bg-bright-blue',
-      bodyWrapper: 'su-text-white',
+      bodyWrapper: styles.alertBodyWrapper,
       headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white'
+      footerWrapper: 'su-text-white',
+      icon: faQuestionCircle
     }
   }
 
@@ -63,11 +76,11 @@ export const Alert = (props) => {
 
   return (
     <div className={classes.wrapper}>
-      <div className='su-cc'>
+      <div className='su-cc su-flex su-flex-wrap'>
         {props.dismiss && dismiss}
         <div className={classes.headerWrapper}>
           <span className={classes.headerIcon}>
-            {props.icon ?? <FontAwesomeIcon icon={faBell} />}
+            {props.icon ?? <FontAwesomeIcon icon={classes.icon} />}
           </span>
           <span className={classes.label}>{props.label ?? 'Information'}</span>
         </div>

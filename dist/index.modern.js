@@ -2566,11 +2566,6 @@ var convertCurry = convert.bind(null, React.createElement);
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-var faBell = {
-  prefix: 'far',
-  iconName: 'bell',
-  icon: [448, 512, [], "f0f3", "M439.39 362.29c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71zM67.53 368c21.22-27.97 44.42-74.33 44.53-159.42 0-.2-.06-.38-.06-.58 0-61.86 50.14-112 112-112s112 50.14 112 112c0 .2-.06.38-.06.58.11 85.1 23.31 131.46 44.53 159.42H67.53zM224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64z"]
-};
 var faTimesCircle = {
   prefix: 'far',
   iconName: 'times-circle',
@@ -2595,38 +2590,76 @@ const DismissButton = props => {
   }));
 };
 
+/*!
+ * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+var faBell = {
+  prefix: 'fas',
+  iconName: 'bell',
+  icon: [448, 512, [], "f0f3", "M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"]
+};
+var faCheckCircle = {
+  prefix: 'fas',
+  iconName: 'check-circle',
+  icon: [512, 512, [], "f058", "M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"]
+};
+var faExclamationTriangle = {
+  prefix: 'fas',
+  iconName: 'exclamation-triangle',
+  icon: [576, 512, [], "f071", "M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"]
+};
+var faQuestionCircle = {
+  prefix: 'fas',
+  iconName: 'question-circle',
+  icon: [512, 512, [], "f059", "M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zM262.655 90c-54.497 0-89.255 22.957-116.549 63.758-3.536 5.286-2.353 12.415 2.715 16.258l34.699 26.31c5.205 3.947 12.621 3.008 16.665-2.122 17.864-22.658 30.113-35.797 57.303-35.797 20.429 0 45.698 13.148 45.698 32.958 0 14.976-12.363 22.667-32.534 33.976C247.128 238.528 216 254.941 216 296v4c0 6.627 5.373 12 12 12h56c6.627 0 12-5.373 12-12v-1.333c0-28.462 83.186-29.647 83.186-106.667 0-58.002-60.165-102-116.531-102zM256 338c-25.365 0-46 20.635-46 46 0 25.364 20.635 46 46 46s46-20.636 46-46c0-25.365-20.635-46-46-46z"]
+};
+var faTimesCircle$1 = {
+  prefix: 'fas',
+  iconName: 'times-circle',
+  icon: [512, 512, [], "f057", "M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"]
+};
+
+var styles$1 = {"alertBodyWrapper":"_index-module__alertBodyWrapper__37-z8","alertBodyWrapperDark":"_index-module__alertBodyWrapperDark__39QGx"};
+
 const Alert = props => {
   const defaultClasses = {
     wrapper: 'su-alert',
-    dismissButtonWrapper: '',
+    dismissButtonWrapper: 'su-order-3',
     dismissButton: '',
-    headerWrapper: '',
+    headerWrapper: 'su-order-1',
     label: 'su-inline-block ',
-    bodyWrapper: '',
+    bodyWrapper: styles$1.alertBodyWrapperDark,
+    icon: faBell,
     bodyHeading: '',
     footerWrapper: ''
   };
   const variants = {
     success: {
       wrapper: 'su-alert su-bg-palo-verde',
-      bodyWrapper: 'su-text-white',
+      bodyWrapper: styles$1.alertBodyWrapper,
       headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white'
+      footerWrapper: 'su-text-white',
+      icon: faCheckCircle
     },
     warning: {
-      wrapper: 'su-alert su-bg-illuminating-dark'
+      wrapper: 'su-alert su-bg-illuminating-dark',
+      bodyWrapper: styles$1.alertBodyWrapperDark,
+      icon: faExclamationTriangle
     },
     error: {
       wrapper: 'su-alert su-bg-digital-red',
-      bodyWrapper: 'su-text-white',
+      bodyWrapper: styles$1.alertBodyWrapper,
       headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white'
+      footerWrapper: 'su-text-white',
+      icon: faTimesCircle$1
     },
     info: {
       wrapper: 'su-alert su-bg-bright-blue',
-      bodyWrapper: 'su-text-white',
+      bodyWrapper: styles$1.alertBodyWrapper,
       headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white'
+      footerWrapper: 'su-text-white',
+      icon: faQuestionCircle
     }
   };
   const classes = Object.assign(defaultClasses, variants[props.variant]);
@@ -2645,13 +2678,13 @@ const Alert = props => {
   return /*#__PURE__*/React.createElement("div", {
     className: classes.wrapper
   }, /*#__PURE__*/React.createElement("div", {
-    className: "su-cc"
+    className: "su-cc su-flex su-flex-wrap"
   }, props.dismiss && dismiss, /*#__PURE__*/React.createElement("div", {
     className: classes.headerWrapper
   }, /*#__PURE__*/React.createElement("span", {
     className: classes.headerIcon
   }, props.icon ?? /*#__PURE__*/React.createElement(FontAwesomeIcon, {
-    icon: faBell
+    icon: classes.icon
   })), /*#__PURE__*/React.createElement("span", {
     className: classes.label
   }, props.label ?? 'Information')), /*#__PURE__*/React.createElement("div", {
