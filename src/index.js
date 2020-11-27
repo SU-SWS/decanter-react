@@ -1,6 +1,7 @@
-import React from 'react'
-import styles from './styles.module.css'
+import { BrandBar } from './BrandBar'
+import { ExampleComponent } from './ExampleComponent'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export {
+  BrandBar,
+  ExampleComponent
 }

@@ -37,6 +37,5 @@ styleguide
 .lando.yml
 
 # Developer studio.
-dev/*/test.*
-dev/dist
-dev/index.html
+example/build
+example/package-lock.json
