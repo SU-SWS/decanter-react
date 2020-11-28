@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { DismissButton } from './DismissButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -10,18 +10,50 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import styles from './index.module.css'
 
+/**
+ * Alert Component.
+ *
+ * @param {object} props
+ */
 export const Alert = (props) => {
+  // Removes the alert from display when clicked.
+  const [isDismissed, setDismissed] = useState(false)
+
   // Default look and feel
   const defaultClasses = {
     wrapper: 'su-alert',
-    dismissButtonWrapper: 'su-order-3',
+    dismissButtonWrapper: [
+      'su-order-3',
+      'su-rs-m-l-1',
+      'su-h-full',
+      'su-items-end',
+      'su-flex-shrink',
+      'su-text-right',
+      'su-w-full',
+      'sm:su-w-auto'
+    ].join(' '),
     dismissButton: '',
-    headerWrapper: 'su-order-1',
-    label: 'su-inline-block ',
+    headerWrapper: [
+      'su-order-1',
+      'su-rs-m-r-1',
+      'su-flex-shrink',
+      'su-mb-4',
+      'xs:su-w-full',
+      'lg:su-w-max'
+    ].join(' '),
+    label: [
+      'su-inline-block',
+      'su-uppercase',
+      'su-font-semibold',
+      'su-text-170rem',
+      'su-h-full',
+      styles.label
+    ].join(' '),
     bodyWrapper: styles.alertBodyWrapperDark,
     icon: faBell,
+    iconClass: 'su-mr-2 su-inline-block su-max-w-xs',
     bodyHeading: '',
-    footerWrapper: ''
+    footerWrapper: 'su-rs-m-t-0'
   }
 
   // Variant styles.
@@ -29,8 +61,8 @@ export const Alert = (props) => {
     success: {
       wrapper: 'su-alert su-bg-palo-verde',
       bodyWrapper: styles.alertBodyWrapper,
-      headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white',
+      headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
+      footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
       icon: faCheckCircle
     },
     warning: {
@@ -41,21 +73,23 @@ export const Alert = (props) => {
     error: {
       wrapper: 'su-alert su-bg-digital-red',
       bodyWrapper: styles.alertBodyWrapper,
-      headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white',
+      headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
+      footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
       icon: faTimesCircle
     },
     info: {
       wrapper: 'su-alert su-bg-bright-blue',
       bodyWrapper: styles.alertBodyWrapper,
-      headerWrapper: 'su-text-white',
-      footerWrapper: 'su-text-white',
+      headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
+      footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
       icon: faQuestionCircle
     }
   }
 
   // Merge with passed in props.
-  const classes = Object.assign(defaultClasses, variants[props.variant])
+  let classes = Object.assign(defaultClasses, props.classes)
+  // Merge with variant setting from props.
+  classes = Object.assign(classes, variants[props.variant])
 
   // The dismiss button component.
   // Toggle to dark based on variant.
@@ -68,19 +102,31 @@ export const Alert = (props) => {
     dismissVariant = 'dark'
   }
 
+  // DismissButtton component.
   const dismiss = (
     <div className={classes.dismissButtonWrapper}>
-      <DismissButton variant={dismissVariant} />
+      <DismissButton variant={dismissVariant} callback={setDismissed} />
     </div>
   )
 
+  // Don't show if dismissed.
+  if (isDismissed) {
+    return null
+  }
+
+  // The goods!
   return (
     <div className={classes.wrapper}>
-      <div className='su-cc su-flex su-flex-wrap'>
+      <div className='su-cc su-flex su-flex-wrap sm:su-items-center'>
         {props.dismiss && dismiss}
         <div className={classes.headerWrapper}>
           <span className={classes.headerIcon}>
-            {props.icon ?? <FontAwesomeIcon icon={classes.icon} />}
+            {props.icon ?? (
+              <FontAwesomeIcon
+                icon={classes.icon}
+                className={classes.iconClass}
+              />
+            )}
           </span>
           <span className={classes.label}>{props.label ?? 'Information'}</span>
         </div>

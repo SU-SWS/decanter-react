@@ -9,6 +9,12 @@ const App = () => {
     </React.Fragment>
   )
 
+  const actionLink = (
+    <a href='#' className='su-link su-link--action'>
+      Action Link
+    </a>
+  )
+
   return (
     <React.Fragment>
       <h2>Brand Bars:</h2>
@@ -24,7 +30,12 @@ const App = () => {
       <h2>Alerts:</h2>
       <hr />
       <h5>Default</h5>
-      <Alert dismiss='true' heading='Alert Heading' body={alertText} />
+      <Alert
+        dismiss='true'
+        heading='Alert Heading'
+        body={alertText}
+        footer={actionLink}
+      />
       <h5>Success</h5>
       <Alert
         variant='success'
@@ -32,6 +43,7 @@ const App = () => {
         label='Success'
         heading='Alert Heading'
         body={alertText}
+        footer={actionLink}
       />
       <h5>Warning</h5>
       <Alert
@@ -40,6 +52,7 @@ const App = () => {
         label='Warning'
         heading='Alert Heading'
         body={alertText}
+        footer={actionLink}
       />
       <h5>Info</h5>
       <Alert
@@ -48,6 +61,7 @@ const App = () => {
         label='Information'
         heading='Alert Heading'
         body={alertText}
+        footer={actionLink}
       />
       <h5>Error</h5>
       <Alert
@@ -56,6 +70,7 @@ const App = () => {
         label='Error'
         heading='Alert Heading'
         body={alertText}
+        footer={actionLink}
       />
     </React.Fragment>
   )
