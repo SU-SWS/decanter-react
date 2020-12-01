@@ -154,6 +154,116 @@ var BrandBar = function BrandBar(props) {
   }, "Stanford University")));
 };
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+var styles$1 = {"animatedRight":"_index-module__animatedRight__z5xM_","linkIcon":"_index-module__linkIcon__179dM","animatedDown":"_index-module__animatedDown__27NzJ","animatedUp":"_index-module__animatedUp__4tFhT","animatedLeft":"_index-module__animatedLeft__1lgfX","animatedTopRight":"_index-module__animatedTopRight__2odX1"};
+
+var StyledLink = function StyledLink(props) {
+  var defaultClasses = {
+    wrapper: 'su-link'
+  };
+  var variants = {
+    action: {
+      icon: /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
+        icon: freeSolidSvgIcons.faAngleRight,
+        className: styles$1.linkIcon
+      })
+    },
+    download: {
+      icon: /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
+        icon: freeSolidSvgIcons.faDownload,
+        className: styles$1.linkIcon
+      })
+    },
+    external: {
+      icon: /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
+        icon: freeSolidSvgIcons.faArrowRight,
+        className: styles$1.linkIcon
+      })
+    },
+    internal: {
+      icon: /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
+        icon: freeSolidSvgIcons.faLock,
+        className: styles$1.linkIcon
+      })
+    },
+    jump: {
+      icon: /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
+        icon: freeSolidSvgIcons.faAngleDown,
+        className: styles$1.linkIcon
+      })
+    },
+    more: {
+      icon: /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
+        icon: freeSolidSvgIcons.faAngleDoubleRight,
+        className: styles$1.linkIcon
+      })
+    },
+    video: {
+      icon: /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
+        icon: freeSolidSvgIcons.faVideo,
+        className: styles$1.linkIcon
+      })
+    },
+    button: {
+      wrapper: 'su-button'
+    },
+    buttonSecondary: {
+      wrapper: 'su-button su-button--secondary'
+    },
+    buttonBig: {
+      wrapper: 'su-button su-button--big'
+    }
+  };
+  var classes = Object.assign(defaultClasses, props.classes);
+  classes = Object.assign(classes, variants[props.variant]);
+
+  if (props.animate !== undefined) {
+    switch (props.animate) {
+      case 'down':
+        classes.wrapper += ' ' + styles$1.animatedDown;
+        break;
+
+      case 'left':
+        classes.wrapper += ' ' + styles$1.animatedLeft;
+        break;
+
+      case 'up':
+        classes.wrapper += ' ' + styles$1.animatedUp;
+        break;
+
+      case 'topRight':
+        classes.wrapper += ' ' + styles$1.animatedTopRight;
+        break;
+
+      default:
+        classes.wrapper += ' ' + styles$1.animatedRight;
+    }
+  }
+
+  return /*#__PURE__*/React__default.createElement("a", _extends({
+    className: classes.wrapper,
+    href: props.href
+  }, props.attributes), props.children, classes.icon && classes.icon);
+};
+
 exports.Alert = Alert;
 exports.BrandBar = BrandBar;
+exports.StyledLink = StyledLink;
 //# sourceMappingURL=index.js.map

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, BrandBar } from 'decanter-react'
+import { Alert, BrandBar, StyledLink } from 'decanter-react'
 
 const App = () => {
   const alertText = (
@@ -10,9 +10,9 @@ const App = () => {
   )
 
   const actionLink = (
-    <a href='#' className='su-link su-link--action'>
-      Action Link
-    </a>
+    <StyledLink href='https://stanford.edu' variant='action'>
+      Action Link Example
+    </StyledLink>
   )
 
   return (
@@ -72,6 +72,50 @@ const App = () => {
         body={alertText}
         footer={actionLink}
       />
+      <h2>Links:</h2>
+      <hr />
+      <h5>Default</h5>
+      <StyledLink href='https://stanford.edu'>Link Text Example</StyledLink>
+      <h5>Action</h5>
+      <StyledLink href='https://stanford.edu' variant='action' animate>
+        Action Link Example
+      </StyledLink>
+      <h5>Download</h5>
+      <StyledLink href='https://stanford.edu' variant='download' animate='down'>
+        Download Link Example
+      </StyledLink>
+      <h5>External</h5>
+      <StyledLink
+        href='https://stanford.edu'
+        variant='external'
+        animate='topRight'
+      >
+        External Link Example
+      </StyledLink>
+      <h5>Jump</h5>
+      <StyledLink href='https://stanford.edu' variant='jump' animate='down'>
+        Jump Link Example
+      </StyledLink>
+      <h5>More</h5>
+      <StyledLink href='https://stanford.edu' variant='more' animate>
+        More Link Example
+      </StyledLink>
+      <h5>Video</h5>
+      <StyledLink href='https://stanford.edu' variant='video' animate>
+        Video Link Example
+      </StyledLink>
+      <h5>Button</h5>
+      <StyledLink href='https://stanford.edu' variant='button'>
+        Button Link Example
+      </StyledLink>
+      <h5>Button Secondary</h5>
+      <StyledLink href='https://stanford.edu' variant='buttonSecondary'>
+        Button Secondary Link Example
+      </StyledLink>
+      <h5>Button Big</h5>
+      <StyledLink href='https://stanford.edu' variant='buttonBig'>
+        Button Big Link Example
+      </StyledLink>
     </React.Fragment>
   )
 }

@@ -1,0 +1,33 @@
+.animatedRight:hover .linkIcon,
+.animatedRight:focus .linkIcon {
+  transform: translateX(0.2em);
+}
+
+.animatedDown:hover .linkIcon,
+.animatedDown:focus .linkIcon {
+  transform: translateY(0.2em);
+}
+
+.animatedUp:hover .linkIcon,
+.animatedUp:focus .linkIcon {
+  transform: translateY(-0.2em);
+}
+
+.animatedLeft:hover .linkIcon,
+.animatedLeft:focus .linkIcon {
+  transform: translateX(-0.2em);
+}
+
+.animatedTopRight:hover .linkIcon,
+.animatedTopRight:focus .linkIcon {
+  transform: translate3d(0.15em, -0.15em, 0);
+}
+
+.linkIcon {
+  margin-right: .3em;
+  margin-bottom: -0.03em;
+  margin-left: .4em;
+  height: 0.8em;
+  width: 1em;
+  transition: transform 0.2s ease-in-out;
+}
