@@ -10,7 +10,7 @@ const App = () => {
   )
 
   const actionLink = (
-    <StyledLink href='https://stanford.edu' variant='action'>
+    <StyledLink href='https://stanford.edu' variant='action' animate>
       Action Link Example
     </StyledLink>
   )
