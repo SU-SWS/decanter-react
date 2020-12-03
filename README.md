@@ -25,6 +25,7 @@ Usage
 import React, { Component } from 'react'
 
 import MyComponent from 'decanter-react'
+import 'decanter/dist/index.css'
 import 'decanter-react/dist/index.css'
 
 class Example extends Component {
