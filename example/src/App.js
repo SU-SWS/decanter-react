@@ -30,48 +30,49 @@ const App = () => {
       <h2>Alerts:</h2>
       <hr />
       <h5>Default</h5>
-      <Alert
-        dismiss='true'
-        heading='Alert Heading'
-        body={alertText}
-        footer={actionLink}
-      />
+      <Alert dismiss='true' heading='Alert Heading' footer={actionLink}>
+        {alertText}
+      </Alert>
       <h5>Success</h5>
       <Alert
         variant='success'
         dismiss='true'
         label='Success'
         heading='Alert Heading'
-        body={alertText}
         footer={actionLink}
-      />
+      >
+        {alertText}
+      </Alert>
       <h5>Warning</h5>
       <Alert
         variant='warning'
         dismiss='true'
         label='Warning'
         heading='Alert Heading'
-        body={alertText}
         footer={actionLink}
-      />
+      >
+        {alertText}
+      </Alert>
       <h5>Info</h5>
       <Alert
         variant='info'
         dismiss='true'
         label='Information'
         heading='Alert Heading'
-        body={alertText}
         footer={actionLink}
-      />
+      >
+        {alertText}
+      </Alert>
       <h5>Error</h5>
       <Alert
         variant='error'
         dismiss='true'
         label='Error'
         heading='Alert Heading'
-        body={alertText}
         footer={actionLink}
-      />
+      >
+        {alertText}
+      </Alert>
       <h2>Links:</h2>
       <hr />
       <h5>Default</h5>

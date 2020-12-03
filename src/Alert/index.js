@@ -132,7 +132,7 @@ export const Alert = (props) => {
         </div>
         <div className={classes.bodyWrapper}>
           <h3 className={classes.bodyHeading}>{props.heading}</h3>
-          <div className={classes.body}>{props.body}</div>
+          <div className={classes.body}>{props.children}</div>
           <div className={classes.footerWrapper}>{props.footer}</div>
         </div>
       </div>

@@ -3,41 +3,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { faBell, faCheckCircle, faExclamationTriangle, faTimesCircle as faTimesCircle$1, faQuestionCircle, faAngleRight, faDownload, faArrowRight, faLock, faAngleDown, faAngleDoubleRight, faVideo } from '@fortawesome/free-solid-svg-icons';
 
-var DismissButton = function DismissButton(props) {
-  var _props$ariaLabel, _props$dismissText, _props$icon;
-
-  var wrapper = ['su-dismiss-button', 'su-bg-transparent', 'hover:su-bg-transparent', 'focus:su-bg-transparent', 'su-uppercase', 'su-font-semibold', 'su-p-0', 'su-text-170rem'];
-  var defaultClasses = {
+const DismissButton = props => {
+  const wrapper = ['su-dismiss-button', 'su-bg-transparent', 'hover:su-bg-transparent', 'focus:su-bg-transparent', 'su-uppercase', 'su-font-semibold', 'su-p-0', 'su-text-170rem'];
+  const defaultClasses = {
     wrapper: wrapper.join(' ')
   };
-  var variants = {
+  const variants = {
     dark: {
       wrapper: defaultClasses.wrapper + ' ' + 'su-text-black hover:su-text-black focus:su-text-black'
     }
   };
-  var classes = Object.assign(defaultClasses, variants[props.variant]);
+  const classes = Object.assign(defaultClasses, variants[props.variant]);
   return /*#__PURE__*/React.createElement("button", {
-    "aria-label": (_props$ariaLabel = props.ariaLabel) != null ? _props$ariaLabel : 'Dismiss alert',
+    "aria-label": props.ariaLabel ?? 'Dismiss alert',
     className: classes.wrapper,
-    onClick: function onClick() {
-      return props.callback(true);
-    }
-  }, (_props$dismissText = props.dismissText) != null ? _props$dismissText : 'Dismiss', (_props$icon = props.icon) != null ? _props$icon : /*#__PURE__*/React.createElement(FontAwesomeIcon, {
+    onClick: () => props.callback(true)
+  }, props.dismissText ?? 'Dismiss', props.icon ?? /*#__PURE__*/React.createElement(FontAwesomeIcon, {
     icon: faTimesCircle,
     className: "su-ml-2"
   }));
 };
 
-var styles = {"alertBodyWrapper":"_37-z8","alertBodyWrapperDark":"_39QGx","label":"_3omFw"};
+var styles = {"alertBodyWrapper":"_index-module__alertBodyWrapper__37-z8","alertBodyWrapperDark":"_index-module__alertBodyWrapperDark__39QGx","label":"_index-module__label__3omFw"};
 
-var Alert = function Alert(props) {
-  var _props$icon, _props$label;
-
-  var _useState = useState(false),
-      isDismissed = _useState[0],
-      setDismissed = _useState[1];
-
-  var defaultClasses = {
+const Alert = props => {
+  const [isDismissed, setDismissed] = useState(false);
+  const defaultClasses = {
     wrapper: 'su-alert',
     dismissButtonWrapper: ['su-order-3', 'su-rs-m-l-1', 'su-h-full', 'su-items-end', 'su-flex-shrink', 'su-text-right', 'su-w-full', 'sm:su-w-auto'].join(' '),
     dismissButton: '',
@@ -49,7 +40,7 @@ var Alert = function Alert(props) {
     bodyHeading: '',
     footerWrapper: 'su-rs-m-t-0'
   };
-  var variants = {
+  const variants = {
     success: {
       wrapper: 'su-alert su-bg-palo-verde',
       bodyWrapper: styles.alertBodyWrapper,
@@ -77,16 +68,16 @@ var Alert = function Alert(props) {
       icon: faQuestionCircle
     }
   };
-  var classes = Object.assign(defaultClasses, props.classes);
+  let classes = Object.assign(defaultClasses, props.classes);
   classes = Object.assign(classes, variants[props.variant]);
-  var dismissDarkVariant = ['warning'];
-  var dismissVariant = 'light';
+  const dismissDarkVariant = ['warning'];
+  let dismissVariant = 'light';
 
   if (props.variant === undefined || dismissDarkVariant.includes(props.variant)) {
     dismissVariant = 'dark';
   }
 
-  var dismiss = /*#__PURE__*/React.createElement("div", {
+  const dismiss = /*#__PURE__*/React.createElement("div", {
     className: classes.dismissButtonWrapper
   }, /*#__PURE__*/React.createElement(DismissButton, {
     variant: dismissVariant,
@@ -105,29 +96,29 @@ var Alert = function Alert(props) {
     className: classes.headerWrapper
   }, /*#__PURE__*/React.createElement("span", {
     className: classes.headerIcon
-  }, (_props$icon = props.icon) != null ? _props$icon : /*#__PURE__*/React.createElement(FontAwesomeIcon, {
+  }, props.icon ?? /*#__PURE__*/React.createElement(FontAwesomeIcon, {
     icon: classes.icon,
     className: classes.iconClass
   })), /*#__PURE__*/React.createElement("span", {
     className: classes.label
-  }, (_props$label = props.label) != null ? _props$label : 'Information')), /*#__PURE__*/React.createElement("div", {
+  }, props.label ?? 'Information')), /*#__PURE__*/React.createElement("div", {
     className: classes.bodyWrapper
   }, /*#__PURE__*/React.createElement("h3", {
     className: classes.bodyHeading
   }, props.heading), /*#__PURE__*/React.createElement("div", {
     className: classes.body
-  }, props.body), /*#__PURE__*/React.createElement("div", {
+  }, props.children), /*#__PURE__*/React.createElement("div", {
     className: classes.footerWrapper
   }, props.footer))));
 };
 
-var BrandBar = function BrandBar(props) {
-  var defaultClasses = {
+const BrandBar = props => {
+  const defaultClasses = {
     wrapper: 'su-brand-bar su-bg-cardinal-red',
     container: 'su-cc',
     link: 'su-logo su-text-white hover:su-text-white focus:su-text-white'
   };
-  var variants = {
+  const variants = {
     bright: {
       wrapper: 'su-brand-bar su-bg-digital-red'
     },
@@ -139,7 +130,7 @@ var BrandBar = function BrandBar(props) {
       link: 'su-logo su-text-black hover:su-text-black focus:su-text-black'
     }
   };
-  var classes = Object.assign(defaultClasses, props.classes);
+  let classes = Object.assign(defaultClasses, props.classes);
   classes = Object.assign(classes, variants[props.variant]);
   return /*#__PURE__*/React.createElement("div", {
     className: classes.wrapper
@@ -151,31 +142,13 @@ var BrandBar = function BrandBar(props) {
   }, "Stanford University")));
 };
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
+var styles$1 = {"animatedRight":"_index-module__animatedRight__z5xM_","linkIcon":"_index-module__linkIcon__179dM","animatedDown":"_index-module__animatedDown__27NzJ","animatedUp":"_index-module__animatedUp__4tFhT","animatedLeft":"_index-module__animatedLeft__1lgfX","animatedTopRight":"_index-module__animatedTopRight__2odX1"};
 
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-var styles$1 = {"animatedRight":"_z5xM_","linkIcon":"_179dM","animatedDown":"_27NzJ","animatedUp":"_4tFhT","animatedLeft":"_1lgfX","animatedTopRight":"_2odX1"};
-
-var StyledLink = function StyledLink(props) {
-  var defaultClasses = {
+const StyledLink = props => {
+  const defaultClasses = {
     wrapper: 'su-link'
   };
-  var variants = {
+  const variants = {
     action: {
       icon: /*#__PURE__*/React.createElement(FontAwesomeIcon, {
         icon: faAngleRight,
@@ -228,7 +201,7 @@ var StyledLink = function StyledLink(props) {
       wrapper: 'su-button su-button--big'
     }
   };
-  var classes = Object.assign(defaultClasses, props.classes);
+  let classes = Object.assign(defaultClasses, props.classes);
   classes = Object.assign(classes, variants[props.variant]);
 
   if (props.animate !== undefined) {
@@ -254,7 +227,7 @@ var StyledLink = function StyledLink(props) {
     }
   }
 
-  return /*#__PURE__*/React.createElement("a", _extends({
+  return /*#__PURE__*/React.createElement("a", Object.assign({
     className: classes.wrapper,
     href: props.href
   }, props.attributes), props.children, classes.icon && classes.icon);
