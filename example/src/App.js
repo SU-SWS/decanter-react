@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, BrandBar, StyledLink } from 'decanter-react'
+import { Alert, BrandBar, GlobalFooter, Hero, StyledLink } from 'decanter-react'
 
 const App = () => {
   const alertText = (
@@ -14,6 +14,8 @@ const App = () => {
       Action Link Example
     </StyledLink>
   )
+
+  const img = (<img src="https://placeimg.com/2000/1333/any" alt="Example Hero Image" />)
 
   return (
     <React.Fragment>
@@ -117,6 +119,22 @@ const App = () => {
       <StyledLink href='https://stanford.edu' variant='buttonBig'>
         Button Big Link Example
       </StyledLink>
+      <h2>Heros:</h2>
+      <hr />
+      <h5>Hero with default image and content</h5>
+      <Hero media={img}>This is content</Hero>
+      <h5>Hero with image and card</h5>
+      <Hero media={img}>TODO: CARD GOES HERE</Hero>
+      <h5>Hero with image and caption</h5>
+      <Hero media={img} caption="This is a fine caption" />
+      <h2>Global Footers:</h2>
+      <hr />
+      <h5>Default</h5>
+      <GlobalFooter />
+      <h5>Bright</h5>
+      <GlobalFooter variant='bright' />
+      <h5>Dark</h5>
+      <GlobalFooter variant='dark' />
     </React.Fragment>
   )
 }

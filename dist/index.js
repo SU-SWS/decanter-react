@@ -154,6 +154,118 @@ var BrandBar = function BrandBar(props) {
   }, "Stanford University")));
 };
 
+var GlobalFooter = function GlobalFooter(props) {
+  var defaultClasses = {
+    wrapper: 'su-global-footer'
+  };
+  var variants = {
+    bright: {
+      wrapper: 'su-global-footer su-bg-digital-red'
+    },
+    dark: {
+      wrapper: 'su-global-footer su-bg-black'
+    }
+  };
+  var classes = Object.assign(defaultClasses, props.classes);
+  classes = Object.assign(classes, variants[props.variant]);
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: classes.wrapper
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: "su-global-footer__container",
+    title: "Common Stanford resources"
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: "su-global-footer__brand"
+  }, /*#__PURE__*/React__default.createElement("a", {
+    className: "su-logo",
+    href: "https://www.stanford.edu"
+  }, "Stanford", /*#__PURE__*/React__default.createElement("br", null), "University")), /*#__PURE__*/React__default.createElement("div", {
+    className: "su-global-footer__content"
+  }, /*#__PURE__*/React__default.createElement("nav", {
+    "aria-label": "global footer menu"
+  }, /*#__PURE__*/React__default.createElement("ul", {
+    className: "su-global-footer__menu su-global-footer__menu--global"
+  }, /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://www.stanford.edu"
+  }, "Stanford Home", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://visit.stanford.edu/plan/"
+  }, "Maps & Directions", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://www.stanford.edu/search/"
+  }, "Search Stanford", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://emergency.stanford.edu"
+  }, "Emergency Info", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)")))), /*#__PURE__*/React__default.createElement("ul", {
+    className: "su-global-footer__menu su-global-footer__menu--policy"
+  }, /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://www.stanford.edu/site/terms/",
+    title: "Terms of use for sites"
+  }, "Terms of Use", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://www.stanford.edu/site/privacy/",
+    title: "Privacy and cookie policy"
+  }, "Privacy", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://uit.stanford.edu/security/copyright-infringement",
+    title: "Report alleged copyright infringement"
+  }, "Copyright", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4",
+    title: "Ownership and use of Stanford trademarks and images"
+  }, "Trademarks", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/",
+    title: "Non-discrimination policy"
+  }, "Non-Discrimination", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
+    href: "https://www.stanford.edu/site/accessibility",
+    title: "Report web accessibility issues"
+  }, "Accessibility", /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, "(link is external)"))))), /*#__PURE__*/React__default.createElement("div", {
+    className: "su-global-footer__copyright"
+  }, /*#__PURE__*/React__default.createElement("span", null, "\xA9 Stanford University."), /*#__PURE__*/React__default.createElement("span", null, "\xA0 Stanford, California 94305.")))));
+};
+
+var Hero = function Hero(props) {
+  var _props$children, _props$caption;
+
+  var defaultClasses = {
+    wrapper: 'su-hero',
+    mediaWrapper: 'su-hero-media',
+    contentWrapper: 'su-hero-content',
+    captionWrapper: 'su-hero-caption'
+  };
+  var variants = {
+    dark: {
+      wrapper: 'su-hero su-bg-black'
+    }
+  };
+  var classes = Object.assign(defaultClasses, props.classes);
+  classes = Object.assign(classes, variants[props.variant]);
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: classes.wrapper
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: classes.mediaWrapper
+  }, props.media), (_props$children = props.children) != null ? _props$children : /*#__PURE__*/React__default.createElement("div", {
+    className: classes.contentWrapper
+  }, props.children), (_props$caption = props.caption) != null ? _props$caption : /*#__PURE__*/React__default.createElement("div", {
+    className: classes.captionWrapper
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: classes.captionContainer
+  }, props.caption)));
+};
+
 function _extends() {
   _extends = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -265,5 +377,7 @@ var StyledLink = function StyledLink(props) {
 
 exports.Alert = Alert;
 exports.BrandBar = BrandBar;
+exports.GlobalFooter = GlobalFooter;
+exports.Hero = Hero;
 exports.StyledLink = StyledLink;
 //# sourceMappingURL=index.js.map
