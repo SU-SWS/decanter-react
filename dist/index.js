@@ -2,8 +2,8 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = require('react');
 var React__default = _interopDefault(React);
+var fa = require('react-icons/fa');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
-var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
 
 var DismissButton = function DismissButton(props) {
@@ -25,13 +25,12 @@ var DismissButton = function DismissButton(props) {
     onClick: function onClick() {
       return props.callback(true);
     }
-  }, (_props$dismissText = props.dismissText) != null ? _props$dismissText : 'Dismiss', (_props$icon = props.icon) != null ? _props$icon : /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, {
-    icon: freeRegularSvgIcons.faTimesCircle,
-    className: "su-ml-2"
+  }, (_props$dismissText = props.dismissText) != null ? _props$dismissText : 'Dismiss', (_props$icon = props.icon) != null ? _props$icon : /*#__PURE__*/React__default.createElement(fa.FaTimesCircle, {
+    className: "su-inline-block su-align-bottom su-ml-2"
   }));
 };
 
-var styles = {"alertBodyWrapper":"_index-module__alertBodyWrapper__37-z8","alertBodyWrapperDark":"_index-module__alertBodyWrapperDark__39QGx","label":"_index-module__label__3omFw"};
+var styles = {"alertBodyWrapper":"_37-z8","alertBodyWrapperDark":"_39QGx","label":"_3omFw"};
 
 var Alert = function Alert(props) {
   var _props$icon, _props$label;
@@ -284,7 +283,7 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-var styles$1 = {"animatedRight":"_index-module__animatedRight__z5xM_","linkIcon":"_index-module__linkIcon__179dM","animatedDown":"_index-module__animatedDown__27NzJ","animatedUp":"_index-module__animatedUp__4tFhT","animatedLeft":"_index-module__animatedLeft__1lgfX","animatedTopRight":"_index-module__animatedTopRight__2odX1"};
+var styles$1 = {"animatedRight":"_z5xM_","linkIcon":"_179dM","animatedDown":"_27NzJ","animatedUp":"_4tFhT","animatedLeft":"_1lgfX","animatedTopRight":"_2odX1"};
 
 var StyledLink = function StyledLink(props) {
   var defaultClasses = {

@@ -1,6 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
+import { FaTimesCircle } from 'react-icons/fa'
 
 export const DismissButton = (props) => {
   // Default look and feel.
@@ -38,9 +37,9 @@ export const DismissButton = (props) => {
       onClick={() => props.callback(true)}
     >
       {props.dismissText ?? 'Dismiss'}
-      {props.icon ?? (
-        <FontAwesomeIcon icon={faTimesCircle} className='su-ml-2' />
-      )}
+      {props.icon ??
+        <FaTimesCircle className='su-inline-block su-align-bottom su-ml-2' />
+      }
     </button>
   )
 }

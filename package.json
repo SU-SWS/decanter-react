@@ -46,7 +46,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
     "decanter": "git://github.com/su-sws/decanter.git#v7",
-    "deepmerge": "^4.2.2"
+    "deepmerge": "^4.2.2",
+    "react-icons": "^4.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
