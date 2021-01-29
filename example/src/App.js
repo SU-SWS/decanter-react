@@ -15,7 +15,7 @@ const App = () => {
     </StyledLink>
   )
 
-  const img = (<img src="https://placeimg.com/2000/1333/any" alt="Example Hero Image" />)
+  const img = (<img src="https://placeimg.com/2000/1333/any" alt="Example Hero" />)
 
   return (
     <React.Fragment>

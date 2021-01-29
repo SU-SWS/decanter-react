@@ -1,4 +1,4 @@
-import { Alert } from './Alert'
+import { Alert } from './Alert/Alert'
 import { BrandBar } from './BrandBar'
 import { GlobalFooter } from './GlobalFooter'
 import { Hero } from './Hero'
