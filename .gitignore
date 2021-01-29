@@ -39,3 +39,6 @@ styleguide
 # Developer studio.
 example/build
 example/package-lock.json
+
+# Storybook
+storybook-static
