@@ -19,7 +19,8 @@ export const BrandBar = (props) => {
     },
     white: {
       wrapper: 'su-brand-bar su-bg-white su-text-black',
-      link: 'su-logo su-text-black hover:su-text-black focus:su-text-black'
+      link: 'su-logo su-text-cardinal-red hover:su-text-cardinal-red' +
+        ' focus:su-text-cardinal-red'
     }
   }
 

@@ -1202,7 +1202,7 @@ var Alert = function Alert(props) {
 };
 Alert.propTypes = {
   classes: propTypes.object,
-  children: propTypes.element,
+  children: propTypes.node,
   icon: propTypes.element,
   variant: propTypes.oneOf(Object.keys(variants)),
   dismiss: propTypes.bool,
@@ -1211,14 +1211,10 @@ Alert.propTypes = {
   footer: propTypes.node
 };
 Alert.defaultProps = {
-  classes: null,
-  children: null,
-  icon: null,
   variant: 'info',
   dismiss: true,
   label: 'Information',
-  heading: 'Alert Heading',
-  footer: null
+  heading: 'Alert Heading'
 };
 
 var BrandBar = function BrandBar(props) {
@@ -1236,7 +1232,7 @@ var BrandBar = function BrandBar(props) {
     },
     white: {
       wrapper: 'su-brand-bar su-bg-white su-text-black',
-      link: 'su-logo su-text-black hover:su-text-black focus:su-text-black'
+      link: 'su-logo su-text-cardinal-red hover:su-text-cardinal-red' + ' focus:su-text-cardinal-red'
     }
   };
   var classes = Object.assign(defaultClasses, props.classes);
