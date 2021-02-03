@@ -39,25 +39,25 @@ export const GlobalFooter = (props) => {
               <li>
                 <a href='https://www.stanford.edu'>
                   Stanford Home
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
               <li>
                 <a href='https://visit.stanford.edu/plan/'>
                   Maps &amp; Directions
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
               <li>
                 <a href='https://www.stanford.edu/search/'>
                   Search Stanford
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
               <li>
                 <a href='https://emergency.stanford.edu'>
                   Emergency Info
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
             </ul>
@@ -68,7 +68,7 @@ export const GlobalFooter = (props) => {
                   title='Terms of use for sites'
                 >
                   Terms of Use
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
               <li>
@@ -77,7 +77,7 @@ export const GlobalFooter = (props) => {
                   title='Privacy and cookie policy'
                 >
                   Privacy
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
               <li>
@@ -86,7 +86,7 @@ export const GlobalFooter = (props) => {
                   title='Report alleged copyright infringement'
                 >
                   Copyright
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
               <li>
@@ -95,7 +95,7 @@ export const GlobalFooter = (props) => {
                   title='Ownership and use of Stanford trademarks and images'
                 >
                   Trademarks
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
               <li>
@@ -104,7 +104,7 @@ export const GlobalFooter = (props) => {
                   title='Non-discrimination policy'
                 >
                   Non-Discrimination
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
               <li>
@@ -113,7 +113,7 @@ export const GlobalFooter = (props) => {
                   title='Report web accessibility issues'
                 >
                   Accessibility
-                  <span className='su-sr-only'>(link is external)</span>
+                  <span className='su-sr-only-element'>(link is external)</span>
                 </a>
               </li>
             </ul>

@@ -1217,22 +1217,22 @@ Alert.defaultProps = {
   heading: 'Alert Heading'
 };
 
-var BrandBar = function BrandBar(props) {
+var IdentityBar = function IdentityBar(props) {
   var defaultClasses = {
-    wrapper: 'su-brand-bar su-bg-cardinal-red',
+    wrapper: 'su-identity-bar su-bg-cardinal-red',
     container: 'su-cc',
     link: 'su-logo su-text-white hover:su-text-white focus:su-text-white'
   };
   var variants = {
     bright: {
-      wrapper: 'su-brand-bar su-bg-digital-red'
+      wrapper: 'su-identity-bar su-bg-digital-red'
     },
     dark: {
-      wrapper: 'su-brand-bar su-bg-black'
+      wrapper: 'su-identity-bar su-bg-black'
     },
     white: {
-      wrapper: 'su-brand-bar su-bg-white su-text-black',
-      link: 'su-logo su-text-cardinal-red hover:su-text-cardinal-red' + ' focus:su-text-cardinal-red'
+      wrapper: 'su-identity-bar su-bg-white su-text-cardinal-red',
+      link: 'su-logo su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red'
     }
   };
   var classes = Object.assign(defaultClasses, props.classes);
@@ -1280,51 +1280,51 @@ var GlobalFooter = function GlobalFooter(props) {
   }, /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu"
   }, "Stanford Home", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://visit.stanford.edu/plan/"
   }, "Maps & Directions", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu/search/"
   }, "Search Stanford", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://emergency.stanford.edu"
   }, "Emergency Info", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)")))), /*#__PURE__*/React__default.createElement("ul", {
     className: "su-global-footer__menu su-global-footer__menu--policy"
   }, /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu/site/terms/",
     title: "Terms of use for sites"
   }, "Terms of Use", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu/site/privacy/",
     title: "Privacy and cookie policy"
   }, "Privacy", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://uit.stanford.edu/security/copyright-infringement",
     title: "Report alleged copyright infringement"
   }, "Copyright", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4",
     title: "Ownership and use of Stanford trademarks and images"
   }, "Trademarks", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/",
     title: "Non-discrimination policy"
   }, "Non-Discrimination", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu/site/accessibility",
     title: "Report web accessibility issues"
   }, "Accessibility", /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
+    className: "su-sr-only-element"
   }, "(link is external)"))))), /*#__PURE__*/React__default.createElement("div", {
     className: "su-global-footer__copyright"
   }, /*#__PURE__*/React__default.createElement("span", null, "\xA9 Stanford University."), /*#__PURE__*/React__default.createElement("span", null, "\xA0 Stanford, California 94305.")))));
@@ -1469,8 +1469,8 @@ var StyledLink = function StyledLink(props) {
 };
 
 exports.Alert = Alert;
-exports.BrandBar = BrandBar;
 exports.GlobalFooter = GlobalFooter;
 exports.Hero = Hero;
+exports.IdentityBar = IdentityBar;
 exports.StyledLink = StyledLink;
 //# sourceMappingURL=index.js.map
