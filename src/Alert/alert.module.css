@@ -37,11 +37,3 @@
 .alertBodyWrapperDark a:focus {
   text-decoration: none;
 }
-
-/**
- * Label
- */
-
-.label::after {
-  content: ":";
-}

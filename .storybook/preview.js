@@ -4,8 +4,7 @@ export const parameters = {
   html: {
     prettier: {
       tabWidth: 2,
-      useTabs: false,
-      htmlWhitespaceSensitivity: 'strict',
+      useTabs: false
     },
   },
 }

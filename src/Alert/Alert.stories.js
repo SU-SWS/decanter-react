@@ -7,7 +7,7 @@ export default {
 }
 
 // Set up an Alert Template.
-const AlertTemplate = ({content, ...rest}) => <Alert {...rest}>{content}</Alert>
+const AlertTemplate = ({ content, ...rest }) => <Alert {...rest}>{content}</Alert>
 
 // Some default text.
 const alertText = (
