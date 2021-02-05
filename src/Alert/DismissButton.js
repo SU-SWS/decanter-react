@@ -3,39 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
 
 export const DismissButton = (props) => {
-  // Default look and feel.
-  const wrapper = [
-    'su-dismiss-button',
-    'su-bg-transparent',
-    'hover:su-bg-transparent',
-    'focus:su-bg-transparent',
-    'su-uppercase',
-    'su-font-semibold',
-    'su-p-0',
-    'su-text-170rem'
-  ]
-  const defaultClasses = {
-    wrapper: wrapper.join(' ')
-  }
-
-  // Variants.
-  const variants = {
-    dark: {
-      wrapper:
-        defaultClasses.wrapper +
-        ' ' +
-        'su-text-black hover:su-text-black focus:su-text-black'
-    }
-  }
-
-  // Merge with passed in props.
-  const classes = Object.assign(defaultClasses, variants[props.variant])
+  const callback = () => props.callback(true)
 
   return (
     <button
       aria-label={props.ariaLabel ?? 'Dismiss alert'}
-      className={classes.wrapper}
-      onClick={() => props.callback(true)}
+      className='su-dismiss-button su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-uppercase su-font-semibold su-p-0 su-text-170rem su-order-3 su-rs-m-l-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto'
+      onClick={callback}
     >
       {props.dismissText ?? 'Dismiss'}
       {props.icon ?? (
