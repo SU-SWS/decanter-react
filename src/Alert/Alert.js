@@ -7,7 +7,6 @@ import { AlertInfo } from './AlertInfo'
 import { AlertSuccess } from './AlertSuccess'
 import { AlertWarning } from './AlertWarning'
 
-
 /**
  * Alert Component.
  *

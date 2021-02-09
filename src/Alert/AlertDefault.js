@@ -11,75 +11,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import styles from './alert.module.css'
 
-// Default look and feel
-// /////////////////////////////////////////////////////////////////////////////
-const defaultClasses = {
-  wrapper: 'su-alert',
-  dismissButtonWrapper: [
-    'su-order-3',
-    'su-rs-m-l-1',
-    'su-h-full',
-    'su-items-end',
-    'su-flex-shrink',
-    'su-text-right',
-    'su-w-full',
-    'sm:su-w-auto'
-  ].join(' '),
-  dismissButton: '',
-  headerWrapper: [
-    'su-order-1',
-    'su-rs-m-r-1',
-    'su-flex-shrink',
-    'su-mb-4',
-    'xs:su-w-full',
-    'lg:su-w-max'
-  ].join(' '),
-  label: [
-    'su-inline-block',
-    'su-uppercase',
-    'su-font-semibold',
-    'su-text-170rem',
-    'su-h-full',
-    styles.label
-  ].join(' '),
-  bodyWrapper: styles.alertBodyWrapperDark,
-  icon: faBell,
-  iconClass: 'su-mr-2 su-inline-block su-max-w-xs',
-  bodyHeading: '',
-  footerWrapper: 'su-rs-m-t-0'
-}
-
-// Variant styles.
-// /////////////////////////////////////////////////////////////////////////////
-const variants = {
-  success: {
-    wrapper: 'su-alert su-bg-palo-verde',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faCheckCircle
-  },
-  warning: {
-    wrapper: 'su-alert su-bg-illuminating-dark',
-    bodyWrapper: styles.alertBodyWrapperDark,
-    icon: faExclamationTriangle
-  },
-  error: {
-    wrapper: 'su-alert su-bg-digital-red',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faTimesCircle
-  },
-  info: {
-    wrapper: 'su-alert su-bg-bright-blue',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faQuestionCircle
-  }
-}
-
 /**
  * Alert Component.
  *
@@ -143,19 +74,15 @@ export const AlertDefault = (props) => {
   )
 }
 
-/**
- * Prop Types Information.
- */
-
+// Prop Types.
+// -----------------------------------------------------------------------------
 AlertDefault.propTypes = {
-  // An array of classes to merge with the classes array.
-  classes: PropTypes.object,
   // The primary content
   children: PropTypes.node,
   // FA Icon name.
   icon: PropTypes.element,
   // One of the default variant sets.
-  variant: PropTypes.oneOf(Object.keys(variants)),
+  variant: PropTypes.oneOf(['error', 'info', 'success', 'warning']),
   // Show the dismiss button or not.
   dismiss: PropTypes.bool,
   // Add a label.
@@ -166,6 +93,8 @@ AlertDefault.propTypes = {
   footer: PropTypes.node
 }
 
+// Default Props.
+// -----------------------------------------------------------------------------
 AlertDefault.defaultProps = {
   variant: 'info',
   dismiss: true,
