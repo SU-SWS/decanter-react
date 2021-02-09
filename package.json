@@ -48,8 +48,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
     "decanter": "git://github.com/su-sws/decanter.git#v7",
-    "deepmerge": "^4.2.2",
-    "twin.macro": "^2.2.0"
+    "deepmerge": "^4.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -81,7 +80,8 @@
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.4",
     "storybook-addon-designs": "^5.4.3",
-    "storybook-dark-mode": "^1.0.4"
+    "storybook-dark-mode": "^1.0.4",
+    "tailwindcss-classnames": "^2.0.1"
   },
   "files": [
     "dist"

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Alert } from './Alert'
+import { withDesign } from 'storybook-addon-designs'
 
 export default {
   title: 'Composite/Alert',
+  decorators: [withDesign],
   component: Alert
 }
 
@@ -19,7 +21,14 @@ const alertText = (
 
 // Default State
 export const Default = AlertTemplate.bind({})
-Default.args = { content: alertText }
+
+Default.args = { content: alertText };
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
+  }
+}
 
 // Success Variant.
 export const Success = AlertTemplate.bind({})
@@ -29,6 +38,12 @@ Success.args = {
   label: 'Success',
   heading: 'Success Heading',
   content: alertText
+}
+Success.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
+  }
 }
 
 // Error Variant.
@@ -40,6 +55,12 @@ Error.args = {
   heading: 'Error Heading',
   content: alertText
 }
+Error.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
+  }
+}
 
 // Info Variant.
 export const Info = AlertTemplate.bind({})
@@ -50,6 +71,12 @@ Info.args = {
   heading: 'Info Heading',
   content: alertText
 }
+Info.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
+  }
+}
 
 // Warning Variant.
 export const Warning = AlertTemplate.bind({})
@@ -59,4 +86,10 @@ Warning.args = {
   label: 'Warning',
   heading: 'Warning Heading',
   content: alertText
+}
+Warning.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
+  }
 }

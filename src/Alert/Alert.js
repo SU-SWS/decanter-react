@@ -13,7 +13,6 @@ import { AlertWarning } from './AlertWarning'
  * @param {object} props
  */
 export const Alert = (props) => {
-
   // Define variants.
   const variants = {
     error: <AlertError {...props} />,
