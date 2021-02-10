@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
-import { faBell, faCheckCircle, faExclamationTriangle, faTimesCircle as faTimesCircle$1, faQuestionCircle, faAngleRight, faDownload, faArrowRight, faLock, faAngleDown, faAngleDoubleRight, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faDownload, faArrowRight, faLock, faAngleDown, faAngleDoubleRight, faVideo } from '@fortawesome/free-solid-svg-icons';
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -1080,139 +1079,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-var DismissButton = function DismissButton(props) {
-  var _props$ariaLabel, _props$dismissText, _props$icon;
-
-  var wrapper = ['su-dismiss-button', 'su-bg-transparent', 'hover:su-bg-transparent', 'focus:su-bg-transparent', 'su-uppercase', 'su-font-semibold', 'su-p-0', 'su-text-170rem'];
-  var defaultClasses = {
-    wrapper: wrapper.join(' ')
-  };
-  var variants = {
-    dark: {
-      wrapper: defaultClasses.wrapper + ' ' + 'su-text-black hover:su-text-black focus:su-text-black'
-    }
-  };
-  var classes = Object.assign(defaultClasses, variants[props.variant]);
-  return /*#__PURE__*/React.createElement("button", {
-    "aria-label": (_props$ariaLabel = props.ariaLabel) != null ? _props$ariaLabel : 'Dismiss alert',
-    className: classes.wrapper,
-    onClick: function onClick() {
-      return props.callback(true);
-    }
-  }, (_props$dismissText = props.dismissText) != null ? _props$dismissText : 'Dismiss', (_props$icon = props.icon) != null ? _props$icon : /*#__PURE__*/React.createElement(FontAwesomeIcon, {
-    icon: faTimesCircle,
-    className: "su-ml-2"
-  }));
-};
-
-var styles = {"alertBodyWrapper":"_M_r3S","alertBodyWrapperDark":"_3K4n5","label":"_2fyB9"};
-
-var defaultClasses = {
-  wrapper: 'su-alert',
-  dismissButtonWrapper: ['su-order-3', 'su-rs-m-l-1', 'su-h-full', 'su-items-end', 'su-flex-shrink', 'su-text-right', 'su-w-full', 'sm:su-w-auto'].join(' '),
-  dismissButton: '',
-  headerWrapper: ['su-order-1', 'su-rs-m-r-1', 'su-flex-shrink', 'su-mb-4', 'xs:su-w-full', 'lg:su-w-max'].join(' '),
-  label: ['su-inline-block', 'su-uppercase', 'su-font-semibold', 'su-text-170rem', 'su-h-full', styles.label].join(' '),
-  bodyWrapper: styles.alertBodyWrapperDark,
-  icon: faBell,
-  iconClass: 'su-mr-2 su-inline-block su-max-w-xs',
-  bodyHeading: '',
-  footerWrapper: 'su-rs-m-t-0'
-};
-var variants = {
-  success: {
-    wrapper: 'su-alert su-bg-palo-verde',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faCheckCircle
-  },
-  warning: {
-    wrapper: 'su-alert su-bg-illuminating-dark',
-    bodyWrapper: styles.alertBodyWrapperDark,
-    icon: faExclamationTriangle
-  },
-  error: {
-    wrapper: 'su-alert su-bg-digital-red',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faTimesCircle$1
-  },
-  info: {
-    wrapper: 'su-alert su-bg-bright-blue',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faQuestionCircle
-  }
-};
 var Alert = function Alert(props) {
-  var _props$icon, _props$label;
-
-  var _useState = useState(false),
-      isDismissed = _useState[0],
-      setDismissed = _useState[1];
-
-  var classes = Object.assign(defaultClasses, props.classes);
-  classes = Object.assign(classes, variants[props.variant]);
-  var dismissDarkVariant = ['warning'];
-  var dismissVariant = 'light';
-
-  if (props.variant === undefined || dismissDarkVariant.includes(props.variant)) {
-    dismissVariant = 'dark';
-  }
-
-  var dismiss = /*#__PURE__*/React.createElement("div", {
-    className: classes.dismissButtonWrapper
-  }, /*#__PURE__*/React.createElement(DismissButton, {
-    variant: dismissVariant,
-    callback: setDismissed
-  }));
-
-  if (isDismissed) {
-    return null;
-  }
-
-  return /*#__PURE__*/React.createElement("div", {
-    className: classes.wrapper
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "su-cc su-flex su-flex-wrap sm:su-items-center"
-  }, props.dismiss && dismiss, /*#__PURE__*/React.createElement("div", {
-    className: classes.headerWrapper
-  }, /*#__PURE__*/React.createElement("span", {
-    className: classes.headerIcon
-  }, (_props$icon = props.icon) != null ? _props$icon : /*#__PURE__*/React.createElement(FontAwesomeIcon, {
-    icon: classes.icon,
-    className: classes.iconClass
-  })), /*#__PURE__*/React.createElement("span", {
-    className: classes.label
-  }, (_props$label = props.label) != null ? _props$label : 'Information')), /*#__PURE__*/React.createElement("div", {
-    className: classes.bodyWrapper
-  }, /*#__PURE__*/React.createElement("h3", {
-    className: classes.bodyHeading
-  }, props.heading), /*#__PURE__*/React.createElement("div", {
-    className: classes.body
-  }, props.children), /*#__PURE__*/React.createElement("div", {
-    className: classes.footerWrapper
-  }, props.footer))));
+  return /*#__PURE__*/React.createElement("p", null, "Hi");
 };
 Alert.propTypes = {
-  classes: propTypes.object,
-  children: propTypes.node,
-  icon: propTypes.element,
-  variant: propTypes.oneOf(Object.keys(variants)),
-  dismiss: propTypes.bool,
-  label: propTypes.string,
-  heading: propTypes.string,
-  footer: propTypes.node
+  children: propTypes.node
 };
-Alert.defaultProps = {
-  variant: 'info',
-  dismiss: true,
-  label: 'Information',
-  heading: 'Alert Heading'
-};
+Alert.defaultProps = {};
 
 var BrandBar = function BrandBar(props) {
   var defaultClasses = {
@@ -1374,7 +1247,7 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-var styles$1 = {"animatedRight":"_z5xM_","linkIcon":"_179dM","animatedDown":"_27NzJ","animatedUp":"_4tFhT","animatedLeft":"_1lgfX","animatedTopRight":"_2odX1"};
+var styles = {"animatedRight":"_z5xM_","linkIcon":"_179dM","animatedDown":"_27NzJ","animatedUp":"_4tFhT","animatedLeft":"_1lgfX","animatedTopRight":"_2odX1"};
 
 var StyledLink = function StyledLink(props) {
   var defaultClasses = {
@@ -1384,43 +1257,43 @@ var StyledLink = function StyledLink(props) {
     action: {
       icon: /*#__PURE__*/React.createElement(FontAwesomeIcon, {
         icon: faAngleRight,
-        className: styles$1.linkIcon
+        className: styles.linkIcon
       })
     },
     download: {
       icon: /*#__PURE__*/React.createElement(FontAwesomeIcon, {
         icon: faDownload,
-        className: styles$1.linkIcon
+        className: styles.linkIcon
       })
     },
     external: {
       icon: /*#__PURE__*/React.createElement(FontAwesomeIcon, {
         icon: faArrowRight,
-        className: styles$1.linkIcon
+        className: styles.linkIcon
       })
     },
     internal: {
       icon: /*#__PURE__*/React.createElement(FontAwesomeIcon, {
         icon: faLock,
-        className: styles$1.linkIcon
+        className: styles.linkIcon
       })
     },
     jump: {
       icon: /*#__PURE__*/React.createElement(FontAwesomeIcon, {
         icon: faAngleDown,
-        className: styles$1.linkIcon
+        className: styles.linkIcon
       })
     },
     more: {
       icon: /*#__PURE__*/React.createElement(FontAwesomeIcon, {
         icon: faAngleDoubleRight,
-        className: styles$1.linkIcon
+        className: styles.linkIcon
       })
     },
     video: {
       icon: /*#__PURE__*/React.createElement(FontAwesomeIcon, {
         icon: faVideo,
-        className: styles$1.linkIcon
+        className: styles.linkIcon
       })
     },
     button: {
@@ -1439,23 +1312,23 @@ var StyledLink = function StyledLink(props) {
   if (props.animate !== undefined) {
     switch (props.animate) {
       case 'down':
-        classes.wrapper += ' ' + styles$1.animatedDown;
+        classes.wrapper += ' ' + styles.animatedDown;
         break;
 
       case 'left':
-        classes.wrapper += ' ' + styles$1.animatedLeft;
+        classes.wrapper += ' ' + styles.animatedLeft;
         break;
 
       case 'up':
-        classes.wrapper += ' ' + styles$1.animatedUp;
+        classes.wrapper += ' ' + styles.animatedUp;
         break;
 
       case 'topRight':
-        classes.wrapper += ' ' + styles$1.animatedTopRight;
+        classes.wrapper += ' ' + styles.animatedTopRight;
         break;
 
       default:
-        classes.wrapper += ' ' + styles$1.animatedRight;
+        classes.wrapper += ' ' + styles.animatedRight;
     }
   }
 
