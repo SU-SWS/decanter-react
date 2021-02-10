@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { classnames } from 'tailwindcss-classnames'
-import { Button } from './Button'
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { Button } from './Button';
 
 /**
  * Alert Component.
@@ -14,7 +14,7 @@ export const Alert = (props) => {
 
   // Lever
   if (props.isSuccess) {
-    props.classes.wrapper = classnames(props.classes.wrapper, 'su-bg-palo-alto')
+    props.classes.wrapper = classnames(props.classes.wrapper, 'su-bg-digital-red')
     props.classes.body = classnames(props.classes.body, 'su-bg-white')
   }
 
