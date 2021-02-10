@@ -9,7 +9,7 @@ export default {
 }
 
 // Set up an Alert Template.
-const AlertTemplate = ({ content, ...rest }) => <Alert {...rest}>{content}</Alert>
+const AlertTemplate = ({ children, ...rest }) => <Alert {...rest}>{children}</Alert>
 
 // Some default text.
 const alertText = (
@@ -22,7 +22,10 @@ const alertText = (
 // Default State
 export const Default = AlertTemplate.bind({})
 
-Default.args = { content: alertText };
+Default.args = {
+  children: alertText
+}
+
 Default.parameters = {
   design: {
     type: 'figma',
