@@ -12,11 +12,11 @@ export const IdentityBar = (props) => {
   if (props.color === 'digital-red') {
     props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-digital-red');
     props.classes.logo = classNames(props.classes.logo,
-      'su-text-white hover:su-text-white active:su-text-white focus:su-text-white');
+      'su-text-white hover:su-text-white focus:su-text-white');
   } else if (props.color === 'black') {
     props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-black');
     props.classes.logo = classNames(props.classes.logo,
-      'su-text-white hover:su-text-white active:su-text-white focus:su-text-white');
+      'su-text-white hover:su-text-white focus:su-text-white');
   } else if (props.color === 'black') {
     props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-white');
     props.classes.logo = classNames(props.classes.logo,
@@ -24,7 +24,7 @@ export const IdentityBar = (props) => {
   } else {
     props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-cardinal-red');
     props.classes.logo = classNames(props.classes.logo,
-      'su-text-white hover:su-text-white active:su-text-white focus:su-text-white');
+      'su-text-white hover:su-text-white focus:su-text-white');
   }
 
   return (
