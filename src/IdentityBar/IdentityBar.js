@@ -11,11 +11,11 @@ export const IdentityBar = (props) => {
   // Color Lever
   if (props.color === 'digital-red') {
     props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-digital-red');
-    props.classes.wrapper = classNames(props.classes.logo,
+    props.classes.logo = classNames(props.classes.logo,
       'su-text-white hover:su-text-white active:su-text-white focus:su-text-white');
   } else if (props.color === 'black') {
     props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-black');
-    props.classes.wrapper = classNames(props.classes.logo,
+    props.classes.logo = classNames(props.classes.logo,
       'su-text-white hover:su-text-white active:su-text-white focus:su-text-white');
   } else if (props.color === 'black') {
     props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-white');
@@ -23,7 +23,7 @@ export const IdentityBar = (props) => {
       'su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
   } else {
     props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-cardinal-red');
-    props.classes.wrapper = classNames(props.classes.logo,
+    props.classes.logo = classNames(props.classes.logo,
       'su-text-white hover:su-text-white active:su-text-white focus:su-text-white');
   }
 
