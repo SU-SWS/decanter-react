@@ -1,6 +1,7 @@
 import React from 'react'
 import { Alert } from './Alert'
 import { withDesign } from 'storybook-addon-designs'
+import { alertTypes } from './Alert.levers'
 
 export default {
   title: 'Composite/Alert',
@@ -26,6 +27,17 @@ Default.args = {
   children: alertText
 }
 
+// Make sure the enum types work.
+Default.argTypes = {
+  type: {
+    control: {
+      type: 'select',
+      options: alertTypes
+    }
+  }
+}
+
+// Connect a Figma Preview.
 Default.parameters = {
   design: {
     type: 'figma',

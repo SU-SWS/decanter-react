@@ -12,8 +12,20 @@ export const Alert = ({ classes = {}, ...rest }) => {
   // Levers
   // ///////////////////////////////////////////////////////////////////////////
   if (rest?.type && alertTypes.includes(rest.type)) {
-    if (rest.type == 'success') {
-      classes.wrapper = classnames(classes?.wrapper, 'su-bg-palo-alto')
+    if (rest.type === 'success') {
+      classes.wrapper = classnames(classes?.wrapper, 'su-bg-palo-verde')
+    }
+
+    if (rest.type === 'warning') {
+      classes.wrapper = classnames(classes?.wrapper, 'su-bg-illuminating-dark')
+    }
+
+    if (rest.type === 'info') {
+      classes.wrapper = classnames(classes?.wrapper, 'su-bg-bright-blue')
+    }
+
+    if (rest.type === 'error') {
+      classes.wrapper = classnames(classes?.wrapper, 'su-bg-digital-red')
     }
   }
 
@@ -35,7 +47,7 @@ export const Alert = ({ classes = {}, ...rest }) => {
 Alert.propTypes = {
   // The primary content
   children: PropTypes.node,
-  type: PropTypes.oneOf(alertTypes),
+  state: PropTypes.oneOf(alertTypes),
   isLargeIcon: PropTypes.bool,
   hasDissmiss: PropTypes.bool,
   classes: PropTypes.object
