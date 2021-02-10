@@ -10,27 +10,32 @@ export const Alert = ({ classes = {}, ...rest }) => {
   const classnames = require('classnames')
 
   // Levers
-  // ///////////////////////////////////////////////////////////////////////////
+  // ---------------------------------------------------------------------------
+
+  // Props.type
   if (rest?.type && alertTypes.includes(rest.type)) {
-    if (rest.type === 'success') {
-      classes.wrapper = classnames(classes?.wrapper, 'su-bg-palo-verde')
-    }
 
-    if (rest.type === 'warning') {
-      classes.wrapper = classnames(classes?.wrapper, 'su-bg-illuminating-dark')
-    }
+    switch (rest.type) {
+      case 'success':
+        classes.wrapper = classnames(classes?.wrapper, 'su-bg-palo-verde')
+        break
 
-    if (rest.type === 'info') {
-      classes.wrapper = classnames(classes?.wrapper, 'su-bg-bright-blue')
-    }
+      case 'warning':
+        classes.wrapper = classnames(classes?.wrapper, 'su-bg-illuminating-dark')
+        break
 
-    if (rest.type === 'error') {
-      classes.wrapper = classnames(classes?.wrapper, 'su-bg-digital-red')
+      case 'info':
+        classes.wrapper = classnames(classes?.wrapper, 'su-bg-bright-blue')
+        break
+
+      case 'error':
+        classes.wrapper = classnames(classes?.wrapper, 'su-bg-digital-red')
+        break
     }
   }
 
   // Render
-  // ///////////////////////////////////////////////////////////////////////////
+  // ---------------------------------------------------------------------------
   return (
     <div className={classnames('su-alert', classes?.wrapper)}>
       <div className={classnames('su-cc', classes?.container)}>
