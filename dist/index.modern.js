@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faDownload, faArrowRight, faLock, faAngleDown, faAngleDoubleRight, faVideo } from '@fortawesome/free-solid-svg-icons';
 
@@ -1087,34 +1088,36 @@ Alert.propTypes = {
 };
 Alert.defaultProps = {};
 
-var BrandBar = function BrandBar(props) {
-  var defaultClasses = {
-    wrapper: 'su-brand-bar su-bg-cardinal-red',
-    container: 'su-cc',
-    link: 'su-logo su-text-white hover:su-text-white focus:su-text-white'
-  };
-  var variants = {
-    bright: {
-      wrapper: 'su-brand-bar su-bg-digital-red'
-    },
-    dark: {
-      wrapper: 'su-brand-bar su-bg-black'
-    },
-    white: {
-      wrapper: 'su-brand-bar su-bg-white su-text-black',
-      link: 'su-logo su-text-black hover:su-text-black focus:su-text-black'
-    }
-  };
-  var classes = Object.assign(defaultClasses, props.classes);
-  classes = Object.assign(classes, variants[props.variant]);
+var IdentityBar = function IdentityBar(props) {
+  var _props$classes, _props$classes2;
+
+  if (props.color === 'digital-red') {
+    props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-digital-red');
+    props.classes.logo = classNames(props.classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+  } else if (props.color === 'black') {
+    props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-black');
+    props.classes.logo = classNames(props.classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+  } else if (props.color === 'black') {
+    props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-white');
+    props.classes.logo = classNames(props.classes.logo, 'su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
+  } else {
+    props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-cardinal-red');
+    props.classes.logo = classNames(props.classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+  }
+
   return /*#__PURE__*/React.createElement("div", {
-    className: classes.wrapper
+    className: classNames('su-identity-bar su-pt-5 su-pb-1', props === null || props === void 0 ? void 0 : (_props$classes = props.classes) === null || _props$classes === void 0 ? void 0 : _props$classes.wrapper)
   }, /*#__PURE__*/React.createElement("div", {
-    className: classes.container
+    className: "su-cc"
   }, /*#__PURE__*/React.createElement("a", {
-    className: classes.link,
-    href: "https://stanford.edu"
+    className: classNames('su-logo su-text-20', props === null || props === void 0 ? void 0 : (_props$classes2 = props.classes) === null || _props$classes2 === void 0 ? void 0 : _props$classes2.logo)
   }, "Stanford University")));
+};
+IdentityBar.propTypes = {
+  color: propTypes.oneOf(['cardinal-red', 'digital-red', 'black', 'white'])
+};
+IdentityBar.defaultProps = {
+  color: 'cardinal-red'
 };
 
 var GlobalFooter = function GlobalFooter(props) {
@@ -1338,5 +1341,5 @@ var StyledLink = function StyledLink(props) {
   }, props.attributes), props.children, classes.icon && classes.icon);
 };
 
-export { Alert, BrandBar, GlobalFooter, Hero, StyledLink };
+export { Alert, GlobalFooter, Hero, IdentityBar, StyledLink };
 //# sourceMappingURL=index.modern.js.map
