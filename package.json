@@ -62,6 +62,7 @@
     "@whitespace/storybook-addon-html": "^4.2.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.2.2",
+    "classnames": "^2.2.6",
     "create-react-library": "^3.1.1",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",

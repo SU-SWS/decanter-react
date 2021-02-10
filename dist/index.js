@@ -5,6 +5,39 @@ var classNames = _interopDefault(require('classnames'));
 var reactFontawesome = require('@fortawesome/react-fontawesome');
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -1082,13 +1115,43 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-var Alert = function Alert(props) {
-  return /*#__PURE__*/React.createElement("p", null, "Hi");
+var Alert = function Alert(_ref) {
+  var classes = _ref.classes,
+      rest = _objectWithoutPropertiesLoose(_ref, ["classes"]);
+
+  var classnames = require('classnames');
+
+  console.log(rest);
+
+  if (rest !== null && rest !== void 0 && rest.isSuccess) {
+    classes.wrapper = classnames(classes === null || classes === void 0 ? void 0 : classes.wrapper, 'su-bg-palo-alto');
+  }
+
+  return /*#__PURE__*/React.createElement("div", {
+    className: classnames('su-alert', classes === null || classes === void 0 ? void 0 : classes.wrapper)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: classnames('su-cc', classes === null || classes === void 0 ? void 0 : classes.container)
+  }, /*#__PURE__*/React.createElement("div", {
+    className: classnames('su-type-2', classes === null || classes === void 0 ? void 0 : classes.body)
+  }, "Stuff and things.")));
 };
 Alert.propTypes = {
-  children: propTypes.node
+  children: propTypes.node,
+  isSuccess: propTypes.bool,
+  isError: propTypes.bool,
+  isWarning: propTypes.bool,
+  isInfo: propTypes.bool,
+  isLargeIcon: propTypes.bool,
+  hasDissmiss: propTypes.bool
 };
-Alert.defaultProps = {};
+Alert.defaultProps = {
+  isSuccess: false,
+  isError: false,
+  isInfo: false,
+  isWarning: false,
+  isLargeIcon: false,
+  hasDissmiss: true
+};
 
 var IdentityBar = function IdentityBar(props) {
   var _props$classes, _props$classes2;
@@ -1233,24 +1296,6 @@ var Hero = function Hero(props) {
     className: classes.captionContainer
   }, props.caption)));
 };
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
 
 var styles = {"animatedRight":"_z5xM_","linkIcon":"_179dM","animatedDown":"_27NzJ","animatedUp":"_4tFhT","animatedLeft":"_1lgfX","animatedTopRight":"_2odX1"};
 
