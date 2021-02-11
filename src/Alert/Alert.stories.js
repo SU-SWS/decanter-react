@@ -1,11 +1,15 @@
 import React from 'react'
 import { Alert } from './Alert'
+import { Button } from '../Button/Button'
+
 import { withDesign } from 'storybook-addon-designs'
+import { alertTypes } from './Alert.levers'
 
 export default {
   title: 'Composite/Alert',
   decorators: [withDesign],
-  component: Alert
+  component: Alert,
+  subcomponents: { Button },
 }
 
 // Set up an Alert Template.
@@ -20,12 +24,24 @@ const alertText = (
 )
 
 // Default State
+// /////////////////////////////////////////////////////////////////////////////
 export const Default = AlertTemplate.bind({})
 
 Default.args = {
   children: alertText
 }
 
+// Make sure the enum types work.
+Default.argTypes = {
+  type: {
+    control: {
+      type: 'select',
+      options: alertTypes
+    }
+  }
+}
+
+// Connect a Figma Preview.
 Default.parameters = {
   design: {
     type: 'figma',
