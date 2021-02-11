@@ -2,93 +2,106 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { alertTypes } from './Alert.levers'
 import { Button } from '../Button/Button'
+import Icon from 'react-hero-icon'
 
 /**
  * Alert Component.
  *
  * @param {object} props
  */
-export const Alert = ({ classes = {}, ...props }) => {
+export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
+  // Defaults & Variables
   const classnames = require('classnames')
+  const levers = {}
+  const iconProps = { height: 24, width: 24 }
 
   // Levers
   // ---------------------------------------------------------------------------
+  levers.wrapper = classnames('su-bg-white')
 
   // Props.type
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
       case 'success':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-palo-verde')
-        classes.header = classnames(classes.header, 'su-color-white')
-        classes.body = classnames(classes.body, 'su-color-white')
+        levers.wrapper = classnames('su-bg-palo-verde su-text-white')
         break
 
       case 'warning':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-illuminating-dark')
+        levers.wrapper = classnames('su-bg-illuminating-dark')
         break
 
       case 'info':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-blue')
+        levers.wrapper = classnames('su-bg-digital-blue su-text-white')
         break
 
       case 'error':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-red')
+        levers.wrapper = classnames('su-bg-digital-red su-text-white')
         break
     }
   }
 
+  // Is large Icon.
+  if (props.isLargeIcon) {
+    iconProps.height = 48
+    iconProps.width = 48
+  }
+
+
   // Partials
-  // const dismiss = props?.dismiss || <Button label='Dismiss' />
+  // ---------------------------------------------------------------------------
+
+  const icon = props.icon ?? (<Icon icon='bell' type='outline' className={classnames(levers.icon, classes.icon)} {...iconProps} />)
+  const dismissBtn = props.dismissBtn ?? (<Button label='Dismiss' className={classnames(levers.dismiss, classes.dismiss)} />)
 
   // Render
   // ---------------------------------------------------------------------------
   return (
-    <div className={classnames('su-alert', classes.wrapper)}>
-      <div className={classnames('su-cc su-flex su-flex-wrap sm:su-items-center', classes.container)}>
+    <div className={classnames('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
+      <div className={classnames('su-cc su-flex su-flex-wrap su-py-10 sm:su-items-center', levers.container, classes.container)}>
 
         {props.hasDismiss && (
-          <div className={classnames('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', classes.dismissWrapper)}>
-            <Button label='Dismiss' />
+          <div className={classnames('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
+            {dismissBtn}
           </div>
         )}
 
         {/* Header Container. */}
-        <div className={classnames('su-order-1 su-rs-mr-1 su-flex-shrink su-mb-4 xs:su-w-full lg:su-w-max', classes.headerWrapper)}>
+        <div className={classnames('su-order-1 su-rs-mr-1 su-flex-shrink su-mb-4 xs:su-w-full lg:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
           {props.hasIcon && (
-            <span className={classnames('', classes.headerIcon)}>
-              {props.icon}
+            <span className={classnames('su-mr-5 su-inline-block su-mw-2', levers.headerIcon, classes.headerIcon)}>
+              {icon}
             </span>
           )}
 
           {props.hasLabel && (
-            <span className={classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem su-h-full', classes.label)}>{props.label ?? 'Information'}</span>
+            <span className={classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem su-h-full', levers.label, classes.label)}>{props.label ?? 'Information'}</span>
           )}
         </div>
 
         {/* Body Container. */}
-        <div className={classnames('su-order-2 su-flex-1 su-flex-grow ', classes?.bodyWrapper)}>
+        <div className={classnames('su-order-2 su-flex-1 su-flex-grow ', levers.bodyWrapper, classes.bodyWrapper)}>
 
           {props.heading && (
-            <h3 className={classnames('', classes.bodyHeading)}>{props.heading}</h3>
+            <h3 className={classnames('', levers.bodyHeading, classes.bodyHeading)}>{props.heading}</h3>
           )}
 
-          <div className={classnames('', classes.body)}>{props.children}</div>
+          <div className={classnames('', levers.body, classes.body)}>{props.children}</div>
 
           {props.footer && (
-            <div className={classnames('su-rs-mt-0', classes.footerWrapper)}>{props.footer}</div>
+            <div className={classnames('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)}>{props.footer}</div>
           )}
         </div>
       </div>
     </div>
   )
-}
+})
 
 // Prop Types.
 // -----------------------------------------------------------------------------
 Alert.propTypes = {
   // Nodes and content.
   children: PropTypes.node,
-  dismiss: PropTypes.node,
+  dismissBtn: PropTypes.node,
   icon: PropTypes.node,
   label: PropTypes.string,
   heading: PropTypes.string,

@@ -9,7 +9,7 @@ export default {
   title: 'Composite/Alert',
   decorators: [withDesign],
   component: Alert,
-  subcomponents: { Button },
+  subcomponents: { Button }
 }
 
 // Set up an Alert Template.
