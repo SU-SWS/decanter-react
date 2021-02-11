@@ -1,12 +1,15 @@
 import React from 'react'
 import { Alert } from './Alert'
+import { Button } from '../Button/Button'
+
 import { withDesign } from 'storybook-addon-designs'
 import { alertTypes } from './Alert.levers'
 
 export default {
   title: 'Composite/Alert',
   decorators: [withDesign],
-  component: Alert
+  component: Alert,
+  subcomponents: { Button },
 }
 
 // Set up an Alert Template.
