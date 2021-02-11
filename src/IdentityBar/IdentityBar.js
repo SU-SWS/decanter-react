@@ -19,25 +19,23 @@ export const IdentityBar = ({ classes = {}, ...props }) => {
     switch (props.color) {
       case 'white':
         classes.wrapper = classnames(classes.wrapper, 'su-bg-white');
-        classes.logo = classnames(classes.header, 'su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
+        classes.logo = classnames(classes.logo,
+          'su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
         break;
 
       case 'cardinal-red':
         classes.wrapper = classnames(classes.wrapper, 'su-bg-cardinal-red');
-        classes.logo = classNames(classes.logo,
-          'su-text-white hover:su-text-white focus:su-text-white');
+        classes.logo = classNames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
         break;
 
       case 'digital-red':
         classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-red');
-        classes.logo = classNames(classes.logo,
-          'su-text-white hover:su-text-white focus:su-text-white');
+        classes.logo = classNames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
         break;
 
       case 'black':
         classes.wrapper = classnames(classes.wrapper, 'su-bg-black');
-        classes.logo = classNames(classes.logo,
-          'su-text-white hover:su-text-white focus:su-text-white');
+        classes.logo = classNames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
         break;
     }
   }
