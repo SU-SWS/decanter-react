@@ -1,19 +1,19 @@
-import React from 'react'
-import { Alert } from './Alert'
-import { Button } from '../Button/Button'
+import React from 'react';
+import { Alert } from './Alert';
+import { Button } from '../Button/Button';
 
-import { withDesign } from 'storybook-addon-designs'
-import { alertTypes } from './Alert.levers'
+import { withDesign } from 'storybook-addon-designs';
+import { alertTypes } from './Alert.levers';
 
 export default {
   title: 'Composite/Alert',
   decorators: [withDesign],
   component: Alert,
-  subcomponents: { Button },
-}
+  subcomponents: { Button }
+};
 
 // Set up an Alert Template.
-const AlertTemplate = ({ children, ...rest }) => <Alert {...rest}>{children}</Alert>
+const AlertTemplate = ({ children, ...rest }) => <Alert {...rest}>{children}</Alert>;
 
 // Some default text.
 const alertText = (
@@ -21,15 +21,15 @@ const alertText = (
     This is the details of the alert message. This is a&nbsp;
     <a href='https://news.stanford.edu'>link within an alert.</a>
   </React.Fragment>
-)
+);
 
 // Default State
 // /////////////////////////////////////////////////////////////////////////////
-export const Default = AlertTemplate.bind({})
+export const Default = AlertTemplate.bind({});
 
 Default.args = {
   children: alertText
-}
+};
 
 // Make sure the enum types work.
 Default.argTypes = {
@@ -39,7 +39,7 @@ Default.argTypes = {
       options: alertTypes
     }
   }
-}
+};
 
 // Connect a Figma Preview.
 Default.parameters = {
@@ -47,4 +47,4 @@ Default.parameters = {
     type: 'figma',
     url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
   }
-}
+};

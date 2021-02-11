@@ -1113,71 +1113,161 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
+var classnames = require('classnames');
+
+var alertTypes = ['info', 'warning', 'error', 'success'];
+var lightText = classnames('su-color-white');
+
+var Button = function Button(_ref) {
+  var primary = _ref.primary,
+      backgroundColor = _ref.backgroundColor,
+      size = _ref.size,
+      label = _ref.label,
+      props = _objectWithoutPropertiesLoose(_ref, ["primary", "backgroundColor", "size", "label"]);
+
+  var mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  return /*#__PURE__*/React.createElement("button", _extends({
+    type: "button",
+    className: ['storybook-button', "storybook-button--" + size, mode].join(' '),
+    style: backgroundColor && {
+      backgroundColor: backgroundColor
+    }
+  }, props), label);
+};
+Button.propTypes = {
+  primary: propTypes.bool,
+  backgroundColor: propTypes.string,
+  size: propTypes.oneOf(['small', 'medium', 'large']),
+  label: propTypes.string.isRequired,
+  onClick: propTypes.func
+};
+Button.defaultProps = {
+  backgroundColor: null,
+  primary: false,
+  size: 'medium',
+  onClick: undefined
+};
+
 var Alert = function Alert(_ref) {
-  var classes = _ref.classes,
-      rest = _objectWithoutPropertiesLoose(_ref, ["classes"]);
+  var _props$label;
+
+  var _ref$classes = _ref.classes,
+      classes = _ref$classes === void 0 ? {} : _ref$classes,
+      props = _objectWithoutPropertiesLoose(_ref, ["classes"]);
 
   var classnames = require('classnames');
 
-  console.log(rest);
+  if (props.type && alertTypes.includes(props.type)) {
+    switch (props.type) {
+      case 'success':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-palo-verde');
+        classes.header = classnames(classes.header, 'su-color-white');
+        classes.body = classnames(classes.body, 'su-color-white');
+        break;
 
-  if (rest !== null && rest !== void 0 && rest.isSuccess) {
-    classes.wrapper = classnames(classes === null || classes === void 0 ? void 0 : classes.wrapper, 'su-bg-palo-alto');
+      case 'warning':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-illuminating-dark');
+        break;
+
+      case 'info':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-blue');
+        break;
+
+      case 'error':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-red');
+        break;
+    }
   }
 
   return /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-alert', classes === null || classes === void 0 ? void 0 : classes.wrapper)
+    className: classnames('su-alert', classes.wrapper)
   }, /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-cc', classes === null || classes === void 0 ? void 0 : classes.container)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-type-2', classes === null || classes === void 0 ? void 0 : classes.body)
-  }, "Stuff and things.")));
+    className: classnames('su-cc su-flex su-flex-wrap sm:su-items-center', classes.container)
+  }, props.hasDismiss && /*#__PURE__*/React.createElement("div", {
+    className: classnames('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', classes.dismissWrapper)
+  }, /*#__PURE__*/React.createElement(Button, {
+    label: "Dismiss"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: classnames('su-order-1 su-rs-mr-1 su-flex-shrink su-mb-4 xs:su-w-full lg:su-w-max', classes.headerWrapper)
+  }, props.hasIcon && /*#__PURE__*/React.createElement("span", {
+    className: classnames('', classes.headerIcon)
+  }, props.icon), props.hasLabel && /*#__PURE__*/React.createElement("span", {
+    className: classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem su-h-full', classes.label)
+  }, (_props$label = props.label) != null ? _props$label : 'Information')), /*#__PURE__*/React.createElement("div", {
+    className: classnames('su-order-2 su-flex-1 su-flex-grow ', classes === null || classes === void 0 ? void 0 : classes.bodyWrapper)
+  }, props.heading && /*#__PURE__*/React.createElement("h3", {
+    className: classnames('', classes.bodyHeading)
+  }, props.heading), /*#__PURE__*/React.createElement("div", {
+    className: classnames('', classes.body)
+  }, props.children), props.footer && /*#__PURE__*/React.createElement("div", {
+    className: classnames('su-rs-mt-0', classes.footerWrapper)
+  }, props.footer))));
 };
 Alert.propTypes = {
   children: propTypes.node,
-  isSuccess: propTypes.bool,
-  isError: propTypes.bool,
-  isWarning: propTypes.bool,
-  isInfo: propTypes.bool,
+  dismiss: propTypes.node,
+  icon: propTypes.node,
+  label: propTypes.string,
+  heading: propTypes.string,
+  footer: propTypes.node,
+  state: propTypes.oneOf(alertTypes),
   isLargeIcon: propTypes.bool,
-  hasDissmiss: propTypes.bool
+  hasDismiss: propTypes.bool,
+  hasIcon: propTypes.bool,
+  hasLabel: propTypes.bool,
+  classes: propTypes.object
 };
 Alert.defaultProps = {
-  isSuccess: false,
-  isError: false,
-  isInfo: false,
-  isWarning: false,
   isLargeIcon: false,
-  hasDissmiss: true
+  hasDismiss: true,
+  hasLabel: true,
+  hasIcon: true
 };
 
-var IdentityBar = function IdentityBar(props) {
-  var _props$classes, _props$classes2;
+var IdentityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
 
-  if (props.color === 'digital-red') {
-    props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-digital-red');
-    props.classes.logo = classNames(props.classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
-  } else if (props.color === 'black') {
-    props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-black');
-    props.classes.logo = classNames(props.classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
-  } else if (props.color === 'black') {
-    props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-white');
-    props.classes.logo = classNames(props.classes.logo, 'su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
-  } else {
-    props.classes.wrapper = classNames(props.classes.wrapper, 'su-bg-cardinal-red');
-    props.classes.logo = classNames(props.classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+var IdentityBar = function IdentityBar(_ref) {
+  var _ref$classes = _ref.classes,
+      classes = _ref$classes === void 0 ? {} : _ref$classes,
+      props = _objectWithoutPropertiesLoose(_ref, ["classes"]);
+
+  var classnames = require('classnames');
+
+  if (props.color && IdentityBarColors.includes(props.color)) {
+    switch (props.color) {
+      case 'white':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-white');
+        classes.logo = classnames(classes.header, 'su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
+        break;
+
+      case 'cardinal-red':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-cardinal-red');
+        classes.logo = classNames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        break;
+
+      case 'digital-red':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-red');
+        classes.logo = classNames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        break;
+
+      case 'black':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-black');
+        classes.logo = classNames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        break;
+    }
   }
 
   return /*#__PURE__*/React.createElement("div", {
-    className: classNames('su-identity-bar su-pt-5 su-pb-1', props === null || props === void 0 ? void 0 : (_props$classes = props.classes) === null || _props$classes === void 0 ? void 0 : _props$classes.wrapper)
+    className: classNames('su-identity-bar su-pt-5 su-pb-1', classes.wrapper)
   }, /*#__PURE__*/React.createElement("div", {
     className: "su-cc"
   }, /*#__PURE__*/React.createElement("a", {
-    className: classNames('su-logo su-text-20', props === null || props === void 0 ? void 0 : (_props$classes2 = props.classes) === null || _props$classes2 === void 0 ? void 0 : _props$classes2.logo)
+    className: classNames('su-logo su-text-20', classes.logo)
   }, "Stanford University")));
 };
 IdentityBar.propTypes = {
-  color: propTypes.oneOf(['cardinal-red', 'digital-red', 'black', 'white'])
+  color: propTypes.oneOf(['cardinal-red', 'digital-red', 'black', 'white']),
+  classes: propTypes.object
 };
 IdentityBar.defaultProps = {
   color: 'cardinal-red'
