@@ -35,6 +35,6 @@ Default.argTypes = {
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
+    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A23'
   }
 };

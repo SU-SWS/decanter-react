@@ -1,63 +1,73 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { GlobalFooterColors } from './GlobalFooter.levers';
+import { SrOnlyLabel } from '../SrOnlyLabel/SrOnlyLabel';
 
-export const GlobalFooter = (props) => {
-  // Defaults.
-  const defaultClasses = {
-    wrapper: 'su-global-footer'
-  }
+/** s
+ * Stanford Global Footer Component.
+ *
+ * @param {object} props
+ */
+export const GlobalFooter = ({ classes = {}, ...props }) => {
+  // Defaults & Variables
+  const classnames = require('classnames');
+  const levers = {};
 
-  // Variant Sets.
-  const variants = {
-    bright: {
-      wrapper: 'su-global-footer su-bg-digital-red'
-    },
-    dark: {
-      wrapper: 'su-global-footer su-bg-black'
+  // props.color
+  if (props.color && GlobalFooterColors.includes(props.color)) {
+    switch (props.color) {
+      case 'cardinal-red':
+        levers.wrapper = classnames('su-bg-cardinal-red');
+        break;
+
+      case 'digital-red':
+        levers.wrapper = classnames('su-bg-digital-red');
+        break;
+
+      case 'black':
+        levers.wrapper = classnames('su-bg-black');
+        break;
     }
   }
 
-  // Merge with passed in props.
-  let classes = Object.assign(defaultClasses, props.classes)
-  classes = Object.assign(classes, variants[props.variant])
-
   return (
-    <div className={classes.wrapper}>
+    <div className={classnames('su-global-footer su-rs-py-1 su-link-white hover:su-link-white focus:su-link-white', levers.wrapper)}>
       <div
-        className='su-global-footer__container'
+        className='su-cc'
         title='Common Stanford resources'
       >
-        <div className='su-global-footer__brand'>
-          <a className='su-logo' href='https://www.stanford.edu'>
+        <div className='su-flex su-flex-col lg:sm-flex-row'>
+          <a className='su-logo su-type-3' href='https://www.stanford.edu'>
             Stanford
             <br />
             University
           </a>
         </div>
-        <div className='su-global-footer__content'>
-          <nav aria-label='global footer menu'>
+        <div className='su-global-footer__content su-text-left sm:su-text-center lg:su-text-left su-flex-grow'>
+          <nav aria-label='global footer menu' className='su-flex su-mb-10'>
             <ul className='su-global-footer__menu su-global-footer__menu--global'>
               <li>
                 <a href='https://www.stanford.edu'>
                   Stanford Home
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
               <li>
                 <a href='https://visit.stanford.edu/plan/'>
                   Maps &amp; Directions
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
               <li>
                 <a href='https://www.stanford.edu/search/'>
                   Search Stanford
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
               <li>
                 <a href='https://emergency.stanford.edu'>
                   Emergency Info
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
             </ul>
@@ -68,7 +78,7 @@ export const GlobalFooter = (props) => {
                   title='Terms of use for sites'
                 >
                   Terms of Use
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
               <li>
@@ -77,7 +87,7 @@ export const GlobalFooter = (props) => {
                   title='Privacy and cookie policy'
                 >
                   Privacy
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
               <li>
@@ -86,7 +96,7 @@ export const GlobalFooter = (props) => {
                   title='Report alleged copyright infringement'
                 >
                   Copyright
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
               <li>
@@ -95,7 +105,7 @@ export const GlobalFooter = (props) => {
                   title='Ownership and use of Stanford trademarks and images'
                 >
                   Trademarks
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
               <li>
@@ -104,7 +114,7 @@ export const GlobalFooter = (props) => {
                   title='Non-discrimination policy'
                 >
                   Non-Discrimination
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
               <li>
@@ -113,7 +123,7 @@ export const GlobalFooter = (props) => {
                   title='Report web accessibility issues'
                 >
                   Accessibility
-                  <span className='su-sr-only'>(link is external)</span>
+                  {SrOnlyLabel}
                 </a>
               </li>
             </ul>
@@ -125,5 +135,23 @@ export const GlobalFooter = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+// Prop Types.
+// -----------------------------------------------------------------------------
+GlobalFooter.propTypes = {
+  /**
+   * Which background color theme?
+   */
+  color: PropTypes.oneOf(GlobalFooterColors),
+
+  // The CSS Classname property
+  classes: PropTypes.object
+};
+
+// Default Props.
+// -----------------------------------------------------------------------------
+GlobalFooter.defaultProps = {
+  color: 'cardinal-red'
+};
