@@ -23,7 +23,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
       case 'success':
-        levers.wrapper = classnames('su-bg-palo-verde su-text-white')
+        levers.wrapper = classnames('su-bg-palo-verde su-text-white su-link-white')
         break
 
       case 'warning':
@@ -31,11 +31,11 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
         break
 
       case 'info':
-        levers.wrapper = classnames('su-bg-digital-blue su-text-white')
+        levers.wrapper = classnames('su-bg-digital-blue su-text-white su-link-white')
         break
 
       case 'error':
-        levers.wrapper = classnames('su-bg-digital-red su-text-white')
+        levers.wrapper = classnames('su-bg-digital-red su-text-white su-link-white')
         break
     }
   }
@@ -45,7 +45,6 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
     iconProps.height = 48
     iconProps.width = 48
   }
-
 
   // Partials
   // ---------------------------------------------------------------------------
@@ -100,9 +99,9 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 // -----------------------------------------------------------------------------
 Alert.propTypes = {
   // Nodes and content.
-  children: PropTypes.node,
-  dismissBtn: PropTypes.node,
-  icon: PropTypes.node,
+  children: PropTypes.element,
+  dismissBtn: PropTypes.element,
+  icon: PropTypes.element,
   label: PropTypes.string,
   heading: PropTypes.string,
   footer: PropTypes.node,

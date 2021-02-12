@@ -1,9 +1,9 @@
 import React from 'react'
 import { Alert } from './Alert'
 import { Button } from '../Button/Button'
-
 import { withDesign } from 'storybook-addon-designs'
 import { alertTypes } from './Alert.levers'
+import { Paragraph, Long, Short } from '../../.storybook/stories/Paragraph.stories'
 
 export default {
   title: 'Composite/Alert',
@@ -15,20 +15,13 @@ export default {
 // Set up an Alert Template.
 const AlertTemplate = ({ children, ...rest }) => <Alert {...rest}>{children}</Alert>
 
-// Some default text.
-const alertText = (
-  <React.Fragment>
-    This is the details of the alert message. This is a&nbsp;
-    <a href='https://news.stanford.edu'>link within an alert.</a>
-  </React.Fragment>
-)
-
 // Default State
 // /////////////////////////////////////////////////////////////////////////////
 export const Default = AlertTemplate.bind({})
 
 Default.args = {
-  children: alertText
+  children: (<Short {...Short.args} />),
+  heading: 'Alert Lorem Ipsum'
 }
 
 // Make sure the enum types work.
