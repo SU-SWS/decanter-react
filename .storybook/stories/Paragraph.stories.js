@@ -13,7 +13,7 @@ const Paragraph = ({children, ...props}) => {
 }
 
 Paragraph.propTypes = {
-  color: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.string
 }
 

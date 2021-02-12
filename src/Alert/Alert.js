@@ -111,6 +111,14 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 
 // Prop Types.
 // -----------------------------------------------------------------------------
+
+// Redundant.
+const classType = PropTypes.oneOfType(
+  PropTypes.string,
+  PropTypes.object,
+  PropTypes.array
+)
+
 Alert.propTypes = {
   // Nodes and content.
   children: PropTypes.element,
@@ -130,16 +138,16 @@ Alert.propTypes = {
   // The CSS Classname property
   classes: PropTypes.shape(
     {
-      wrapper: PropTypes.string,
-      container: PropTypes.string,
-      dismissWrapper: PropTypes.string,
-      headerWrapper: PropTypes.string,
-      headerIcon: PropTypes.string,
-      label: PropTypes.string,
-      bodyWrapper: PropTypes.string,
-      bodyHeading: PropTypes.string,
-      body: PropTypes.string,
-      footerWrapper: PropTypes.string
+      wrapper: classType,
+      container: classType,
+      dismissWrapper: classType,
+      headerWrapper: classType,
+      headerIcon: classType,
+      label: classType,
+      bodyWrapper: classType,
+      bodyHeading: classType,
+      body: classType,
+      footerWrapper: classType
     }
   )
 }
