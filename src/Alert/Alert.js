@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { alertTypes } from './Alert.levers'
+import { alertTypes, lightText, darkText } from './Alert.levers'
 import { Button } from '../Button/Button'
 import Icon from 'react-hero-icon'
 
@@ -26,6 +26,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
     switch (props.type) {
       case 'success':
         levers.wrapper = classnames('su-bg-palo-verde su-text-white su-link-white')
+        levers.body = classnames(lightText)
         break
 
       case 'warning':
@@ -34,10 +35,12 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 
       case 'info':
         levers.wrapper = classnames('su-bg-digital-blue su-text-white su-link-white')
+        levers.body = classnames(lightText)
         break
 
       case 'error':
         levers.wrapper = classnames('su-bg-digital-red su-text-white su-link-white')
+        levers.body = classnames(lightText)
         break
     }
   }
