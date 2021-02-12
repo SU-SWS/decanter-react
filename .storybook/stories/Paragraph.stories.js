@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import DOMPurify from 'dompurify'
 
 export const textShort = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 export const textLong = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
@@ -19,9 +20,13 @@ Paragraph.propTypes = {
 export default {
   title: 'Elements/Paragraph',
   component: Paragraph,
+  excludeStories: ['textShort', 'textLong', 'textMixed'],
 };
 
-const Template = (args) => <Paragraph {...args} />;
+// Safety first.
+const Template = (args) => <Paragraph {...args} />
+// I too, live dangerously.
+const DangerTemplate = ({children, ...args}) => (<div {...args} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />);
 
 export const Default = Template.bind({})
 Default.args = {
@@ -35,9 +40,9 @@ Short.args = {
   children: textShort
 }
 
-export const Long = Template.bind({});
-Long.args = {
+export const MixedContent = DangerTemplate.bind({});
+MixedContent.args = {
   className: '',
-  children: textLong,
+  children: textMixed
 }
 

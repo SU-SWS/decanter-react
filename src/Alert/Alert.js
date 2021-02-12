@@ -31,6 +31,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 
       case 'warning':
         levers.wrapper = classnames('su-bg-illuminating-dark')
+        levers.body = classnames(darkText)
         break
 
       case 'info':
