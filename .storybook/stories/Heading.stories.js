@@ -23,22 +23,19 @@ const Heading = ({children, level, ...props}) => {
   }
 }
 
-export default {
-  title: 'Elements/Headings',
-  component: Heading
-};
-
 Heading.propTypes = {
   className: PropTypes.string,
   level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]).isRequired,
   children: PropTypes.string.isRequired
 }
 
+export default {
+  title: 'Elements/Headings',
+  component: Heading
+}
+
 // Safety first.
 const Template = (args) => <Heading {...args} />
-// I too, live dangerously.
-const DangerTemplate = ({children, ...args}) => (<div {...args} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />);
-
 export const Default = Template.bind({})
 Default.args = {
   className: '',
