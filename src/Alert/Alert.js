@@ -8,6 +8,8 @@ import Icon from 'react-hero-icon'
  * Alert Component.
  *
  * @param {object} props
+ * @param {object} ref
+ *
  */
 export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
   // Defaults & Variables
@@ -73,7 +75,9 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
           )}
 
           {props.hasLabel && (
-            <span className={classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem su-h-full', levers.label, classes.label)}>{props.label ?? 'Information'}</span>
+            <span className={classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem su-h-full', levers.label, classes.label)}>
+              {props.label ?? 'Information'}
+            </span>
           )}
         </div>
 
@@ -81,13 +85,19 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
         <div className={classnames('su-order-2 su-flex-1 su-flex-grow ', levers.bodyWrapper, classes.bodyWrapper)}>
 
           {props.heading && (
-            <h3 className={classnames('', levers.bodyHeading, classes.bodyHeading)}>{props.heading}</h3>
+            <h3 className={classnames('su-type-3', levers.bodyHeading, classes.bodyHeading)}>
+              {props.heading}
+            </h3>
           )}
 
-          <div className={classnames('', levers.body, classes.body)}>{props.children}</div>
+          <div className={classnames('su-text-normal', levers.body, classes.body)}>
+            {props.children}
+          </div>
 
           {props.footer && (
-            <div className={classnames('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)}>{props.footer}</div>
+            <div className={classnames('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)}>
+              {props.footer}
+            </div>
           )}
         </div>
       </div>
@@ -107,14 +117,27 @@ Alert.propTypes = {
   footer: PropTypes.node,
 
   // State and Levers.
-  state: PropTypes.oneOf(alertTypes),
+  type: PropTypes.oneOf(alertTypes),
   isLargeIcon: PropTypes.bool,
   hasDismiss: PropTypes.bool,
   hasIcon: PropTypes.bool,
   hasLabel: PropTypes.bool,
 
   // The CSS Classname property
-  classes: PropTypes.object
+  classes: PropTypes.shape(
+    {
+      wrapper: PropTypes.string,
+      container: PropTypes.string,
+      dismissWrapper: PropTypes.string,
+      headerWrapper: PropTypes.string,
+      headerIcon: PropTypes.string,
+      label: PropTypes.string,
+      bodyWrapper: PropTypes.string,
+      bodyHeading: PropTypes.string,
+      body: PropTypes.string,
+      footerWrapper: PropTypes.string
+    }
+  )
 }
 
 // Default Props.

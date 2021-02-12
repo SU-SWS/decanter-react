@@ -17,5 +17,8 @@ module.exports = {
     "@storybook/addon-a11y",
     // https://storybook.js.org/addons/storybook-dark-mode
     "storybook-dark-mode"
-  ]
+  ],
+  reactOptions: {
+    fastRefresh: true,
+  }
 }
