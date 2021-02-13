@@ -1119,35 +1119,32 @@ if (process.env.NODE_ENV !== 'production') {
 var classnames = require('classnames');
 
 var alertTypes = ['info', 'warning', 'error', 'success'];
-var lightText = classnames('su-color-white');
+var lightText = classnames('su-color-white su-link-color-black-true hover:su-link-no-underline');
+var darkText = classnames('su-color-black-true');
 
-var Button = function Button(_ref) {
-  var primary = _ref.primary,
-      backgroundColor = _ref.backgroundColor,
-      size = _ref.size,
+var Button = React.forwardRef(function (_ref, ref) {
+  var _ref$classes = _ref.classes,
+      classes = _ref$classes === void 0 ? {} : _ref$classes,
       label = _ref.label,
-      props = _objectWithoutPropertiesLoose(_ref, ["primary", "backgroundColor", "size", "label"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["classes", "label"]);
 
-  var mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  var classnames = require('classnames');
+
+  var levers = {};
   return /*#__PURE__*/React.createElement("button", _extends({
-    type: "button",
-    className: ['storybook-button', "storybook-button--" + size, mode].join(' '),
-    style: backgroundColor && {
-      backgroundColor: backgroundColor
-    }
-  }, props), label);
-};
-Button.propTypes = {
-  primary: propTypes.bool,
-  backgroundColor: propTypes.string,
-  size: propTypes.oneOf(['small', 'medium', 'large']),
+    className: classnames('su-', levers.button, classes.button),
+    ref: ref,
+    onClick: props.onClick,
+    type: props.type
+  }, props === null || props === void 0 ? void 0 : props.attr), label);
+});
+Button.PropTypes = {
+  type: propTypes.oneOf(['button', 'reset', 'submit']),
+  attr: propTypes.object,
   label: propTypes.string.isRequired,
   onClick: propTypes.func
 };
 Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
   onClick: undefined
 };
 
@@ -6563,10 +6560,10 @@ function transformIconName(iconName) {
 }
 });
 
-unwrapExports(icon);
+var Icon = unwrapExports(icon);
 
-var Alert = function Alert(_ref) {
-  var _props$label;
+var Alert = React.forwardRef(function (_ref, ref) {
+  var _props$icon, _props$dismissBtn, _props$label;
 
   var _ref$classes = _ref.classes,
       classes = _ref$classes === void 0 ? {} : _ref$classes,
@@ -6574,67 +6571,99 @@ var Alert = function Alert(_ref) {
 
   var classnames = require('classnames');
 
-  var icon = "<Icon icon='bell' type='outline' />";
+  var levers = {};
+  var iconProps = {
+    height: 24,
+    width: 24
+  };
+  levers.wrapper = classnames('su-bg-white');
 
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
       case 'success':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-palo-verde');
-        classes.header = classnames(classes.header, 'su-color-white');
-        classes.body = classnames(classes.body, 'su-color-white');
+        levers.wrapper = classnames('su-bg-palo-verde su-text-white su-link-white');
+        levers.body = classnames(lightText);
         break;
 
       case 'warning':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-illuminating-dark');
+        levers.wrapper = classnames('su-bg-illuminating-dark');
+        levers.body = classnames(darkText);
         break;
 
       case 'info':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-blue');
+        levers.wrapper = classnames('su-bg-digital-blue su-text-white su-link-white');
+        levers.body = classnames(lightText);
         break;
 
       case 'error':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-red');
+        levers.wrapper = classnames('su-bg-digital-red su-text-white su-link-white');
+        levers.body = classnames(lightText);
         break;
     }
   }
 
+  if (props.isLargeIcon) {
+    iconProps.height = 48;
+    iconProps.width = 48;
+  }
+
+  var icon = (_props$icon = props.icon) != null ? _props$icon : /*#__PURE__*/React.createElement(Icon, _extends({
+    icon: "bell",
+    type: "outline",
+    className: classnames(levers.icon, classes.icon)
+  }, iconProps));
+  var dismissBtn = (_props$dismissBtn = props.dismissBtn) != null ? _props$dismissBtn : /*#__PURE__*/React.createElement(Button, {
+    label: "Dismiss",
+    className: classnames(levers.dismiss, classes.dismiss)
+  });
   return /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-alert', classes.wrapper)
+    className: classnames('su-alert', levers.wrapper, classes.wrapper),
+    ref: ref
   }, /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-cc su-flex su-flex-wrap sm:su-items-center', classes.container)
+    className: classnames('su-cc su-flex su-flex-wrap su-py-10 sm:su-items-center', levers.container, classes.container)
   }, props.hasDismiss && /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', classes.dismissWrapper)
-  }, /*#__PURE__*/React.createElement(Button, {
-    label: "Dismiss"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-order-1 su-rs-mr-1 su-flex-shrink su-mb-4 xs:su-w-full lg:su-w-max', classes.headerWrapper)
+    className: classnames('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
+  }, dismissBtn), /*#__PURE__*/React.createElement("div", {
+    className: classnames('su-order-1 su-rs-mr-1 su-flex-shrink su-mb-4 xs:su-w-full lg:su-w-max', levers.headerWrapper, classes.headerWrapper)
   }, props.hasIcon && /*#__PURE__*/React.createElement("span", {
-    className: classnames('', classes.headerIcon)
+    className: classnames('su-mr-5 su-inline-block su-mw-2', levers.headerIcon, classes.headerIcon)
   }, icon), props.hasLabel && /*#__PURE__*/React.createElement("span", {
-    className: classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem su-h-full', classes.label)
+    className: classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem su-h-full', levers.label, classes.label)
   }, (_props$label = props.label) != null ? _props$label : 'Information')), /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-order-2 su-flex-1 su-flex-grow ', classes === null || classes === void 0 ? void 0 : classes.bodyWrapper)
+    className: classnames('su-order-2 su-flex-1 su-flex-grow ', levers.bodyWrapper, classes.bodyWrapper)
   }, props.heading && /*#__PURE__*/React.createElement("h3", {
-    className: classnames('', classes.bodyHeading)
+    className: classnames('su-type-3', levers.bodyHeading, classes.bodyHeading)
   }, props.heading), /*#__PURE__*/React.createElement("div", {
-    className: classnames('', classes.body)
+    className: classnames('su-text-normal', levers.body, classes.body)
   }, props.children), props.footer && /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-rs-mt-0', classes.footerWrapper)
+    className: classnames('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)
   }, props.footer))));
-};
+});
+var classType = propTypes.oneOfType(propTypes.string, propTypes.object, propTypes.array);
 Alert.propTypes = {
-  children: propTypes.node,
-  dismiss: propTypes.node,
-  icon: propTypes.node,
+  children: propTypes.element,
+  dismissBtn: propTypes.element,
+  icon: propTypes.element,
   label: propTypes.string,
   heading: propTypes.string,
   footer: propTypes.node,
-  state: propTypes.oneOf(alertTypes),
+  type: propTypes.oneOf(alertTypes),
   isLargeIcon: propTypes.bool,
   hasDismiss: propTypes.bool,
   hasIcon: propTypes.bool,
   hasLabel: propTypes.bool,
-  classes: propTypes.object
+  classes: propTypes.shape({
+    wrapper: classType,
+    container: classType,
+    dismissWrapper: classType,
+    headerWrapper: classType,
+    headerIcon: classType,
+    label: classType,
+    bodyWrapper: classType,
+    bodyHeading: classType,
+    body: classType,
+    footerWrapper: classType
+  })
 };
 Alert.defaultProps = {
   isLargeIcon: false,
@@ -6643,117 +6672,163 @@ Alert.defaultProps = {
   hasIcon: true
 };
 
-var BrandBar = function BrandBar(props) {
-  var defaultClasses = {
-    wrapper: 'su-brand-bar su-bg-cardinal-red',
-    container: 'su-cc',
-    link: 'su-logo su-text-white hover:su-text-white focus:su-text-white'
-  };
-  var variants = {
-    bright: {
-      wrapper: 'su-brand-bar su-bg-digital-red'
-    },
-    dark: {
-      wrapper: 'su-brand-bar su-bg-black'
-    },
-    white: {
-      wrapper: 'su-brand-bar su-bg-white su-text-black',
-      link: 'su-logo su-text-black hover:su-text-black focus:su-text-black'
+var IdentityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
+
+var IdentityBar = function IdentityBar(_ref) {
+  var _ref$classes = _ref.classes,
+      classes = _ref$classes === void 0 ? {} : _ref$classes,
+      props = _objectWithoutPropertiesLoose(_ref, ["classes"]);
+
+  var classnames = require('classnames');
+
+  if (props.color && IdentityBarColors.includes(props.color)) {
+    switch (props.color) {
+      case 'white':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-white');
+        classes.logo = classnames(classes.logo, 'su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
+        break;
+
+      case 'cardinal-red':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-cardinal-red');
+        classes.logo = classnames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        break;
+
+      case 'digital-red':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-red');
+        classes.logo = classnames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        break;
+
+      case 'black':
+        classes.wrapper = classnames(classes.wrapper, 'su-bg-black');
+        classes.logo = classnames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        break;
     }
-  };
-  var classes = Object.assign(defaultClasses, props.classes);
-  classes = Object.assign(classes, variants[props.variant]);
+  }
+
   return /*#__PURE__*/React.createElement("div", {
-    className: classes.wrapper
+    className: classnames('su-identity-bar su-pt-5 su-pb-1', classes.wrapper)
   }, /*#__PURE__*/React.createElement("div", {
-    className: classes.container
+    className: "su-cc"
   }, /*#__PURE__*/React.createElement("a", {
-    className: classes.link,
-    href: "https://stanford.edu"
+    className: classnames('su-logo su-text-20', classes.logo)
   }, "Stanford University")));
 };
+IdentityBar.propTypes = {
+  color: propTypes.oneOf(IdentityBarColors),
+  classes: propTypes.object
+};
+IdentityBar.defaultProps = {
+  color: 'cardinal-red'
+};
 
-var GlobalFooter = function GlobalFooter(props) {
-  var defaultClasses = {
-    wrapper: 'su-global-footer'
-  };
-  var variants = {
-    bright: {
-      wrapper: 'su-global-footer su-bg-digital-red'
-    },
-    dark: {
-      wrapper: 'su-global-footer su-bg-black'
+var GlobalFooterColors = ['cardinal-red', 'digital-red', 'black'];
+
+var SrOnlyLabel = function SrOnlyLabel(props) {
+  var _props$srText;
+
+  return /*#__PURE__*/React.createElement("span", {
+    className: "su-sr-only"
+  }, (_props$srText = props.srText) != null ? _props$srText : '(link is external)');
+};
+
+var GlobalFooter = function GlobalFooter(_ref) {
+  var props = _objectWithoutPropertiesLoose(_ref, ["classes"]);
+
+  var classnames = require('classnames');
+
+  var levers = {};
+
+  if (props.color && GlobalFooterColors.includes(props.color)) {
+    switch (props.color) {
+      case 'cardinal-red':
+        levers.wrapper = classnames('su-bg-cardinal-red');
+        break;
+
+      case 'digital-red':
+        levers.wrapper = classnames('su-bg-digital-red');
+        break;
+
+      case 'black':
+        levers.wrapper = classnames('su-bg-black');
+        break;
     }
-  };
-  var classes = Object.assign(defaultClasses, props.classes);
-  classes = Object.assign(classes, variants[props.variant]);
+  }
+
   return /*#__PURE__*/React.createElement("div", {
-    className: classes.wrapper
+    className: classnames('su-global-footer su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper)
   }, /*#__PURE__*/React.createElement("div", {
-    className: "su-global-footer__container",
+    className: "su-cc su-flex su-flex-col lg:su-flex-row",
     title: "Common Stanford resources"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "su-global-footer__brand"
+    className: "su-text-center su-mt-5 su-mb-9"
   }, /*#__PURE__*/React.createElement("a", {
-    className: "su-logo",
+    className: "su-logo su-type-3",
     href: "https://www.stanford.edu"
   }, "Stanford", /*#__PURE__*/React.createElement("br", null), "University")), /*#__PURE__*/React.createElement("div", {
-    className: "su-global-footer__content"
+    className: "lg:su-pl-45 xl:su-pl-50 su-text-left sm:su-text-center lg:su-text-left su-flex-grow"
   }, /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "global footer menu"
+    "aria-label": "global footer menu",
+    className: "su-flex su-flex-row sm:su-flex-col su-justify-center sm:su-items-center lg:su-items-start su-mb-10 su-link-no-underline hover:su-link-underline focus:su-link-underline"
   }, /*#__PURE__*/React.createElement("ul", {
-    className: "su-global-footer__menu su-global-footer__menu--global"
-  }, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+    className: "su-list-unstyled su-mb-10 sm:su-mb-4 su-mr-19 sm:su-mr-0 su-p-0 su-text-15 md:su-text-17 2xl:su-text-18 su-flex su-flex-col sm:su-flex-row"
+  }, /*#__PURE__*/React.createElement("li", {
+    className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://www.stanford.edu"
-  }, "Stanford Home", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Stanford Home", SrOnlyLabel)), /*#__PURE__*/React.createElement("li", {
+    className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://visit.stanford.edu/plan/"
-  }, "Maps & Directions", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Maps & Directions", SrOnlyLabel)), /*#__PURE__*/React.createElement("li", {
+    className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://www.stanford.edu/search/"
-  }, "Search Stanford", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Search Stanford", SrOnlyLabel)), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
     href: "https://emergency.stanford.edu"
-  }, "Emergency Info", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)")))), /*#__PURE__*/React.createElement("ul", {
-    className: "su-global-footer__menu su-global-footer__menu--policy"
-  }, /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Emergency Info", SrOnlyLabel))), /*#__PURE__*/React.createElement("ul", {
+    className: "su-list-unstyled su-mb-10 sm:su-mb-0 su-ml-19 sm:su-ml-0 su-p-0 su-text-15 sm:su-text-14 md:su-text-15 xl:su-text-16 su-flex su-flex-col sm:su-flex-row sm:su-link-regular"
+  }, /*#__PURE__*/React.createElement("li", {
+    className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://www.stanford.edu/site/terms/",
     title: "Terms of use for sites"
-  }, "Terms of Use", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Terms of Use", SrOnlyLabel)), /*#__PURE__*/React.createElement("li", {
+    className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://www.stanford.edu/site/privacy/",
     title: "Privacy and cookie policy"
-  }, "Privacy", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Privacy", SrOnlyLabel)), /*#__PURE__*/React.createElement("li", {
+    className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://uit.stanford.edu/security/copyright-infringement",
     title: "Report alleged copyright infringement"
-  }, "Copyright", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Copyright", SrOnlyLabel)), /*#__PURE__*/React.createElement("li", {
+    className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4",
     title: "Ownership and use of Stanford trademarks and images"
-  }, "Trademarks", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Trademarks", SrOnlyLabel)), /*#__PURE__*/React.createElement("li", {
+    className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
+  }, /*#__PURE__*/React.createElement("a", {
     href: "http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/",
     title: "Non-discrimination policy"
-  }, "Non-Discrimination", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Non-Discrimination", SrOnlyLabel)), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
     href: "https://www.stanford.edu/site/accessibility",
     title: "Report web accessibility issues"
-  }, "Accessibility", /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, "(link is external)"))))), /*#__PURE__*/React.createElement("div", {
-    className: "su-global-footer__copyright"
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 Stanford University."), /*#__PURE__*/React.createElement("span", null, "\xA0 Stanford, California 94305.")))));
+  }, "Accessibility", SrOnlyLabel)))), /*#__PURE__*/React.createElement("div", {
+    className: "su-text-13 sm:su-text-14 su-text-center lg:su-text-left"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "su-whitespace-no-wrap"
+  }, "\xA9 Stanford University."), /*#__PURE__*/React.createElement("span", {
+    className: "su-whitespace-no-wrap"
+  }, "\xA0 Stanford, California 94305.")))));
+};
+GlobalFooter.propTypes = {
+  color: propTypes.oneOf(GlobalFooterColors),
+  classes: propTypes.object
+};
+GlobalFooter.defaultProps = {
+  color: 'cardinal-red'
 };
 
 var Hero = function Hero(props) {
@@ -6876,5 +6951,5 @@ var StyledLink = function StyledLink(props) {
   }, props.attributes), props.children, classes.icon && classes.icon);
 };
 
-export { Alert, BrandBar, GlobalFooter, Hero, StyledLink };
+export { Alert, GlobalFooter, Hero, IdentityBar, SrOnlyLabel, StyledLink };
 //# sourceMappingURL=index.modern.js.map

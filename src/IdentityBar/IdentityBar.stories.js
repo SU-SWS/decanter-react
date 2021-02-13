@@ -23,7 +23,7 @@ Default.args = {
 
 // Make sure the enum types work.
 Default.argTypes = {
-  type: {
+  color: {
     control: {
       type: 'select',
       options: IdentityBarColors
