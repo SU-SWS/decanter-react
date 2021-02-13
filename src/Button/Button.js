@@ -1,39 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './button.css';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = React.forwardRef(({ classes = {}, label, ...props }, ref) => {
+
+  // Defaults & Variables.
+  // ---------------------------------------------------------------------------
+  const classnames = require('classnames')
+  const levers = {}
+
+  // Levers
+  // ---------------------------------------------------------------------------
+
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
+      className={classnames('su-', levers.button, classes.button)}
+      ref={ref}
+      onClick={props.onClick}
+      type={props.type}
+      {...props?.attr}
     >
       {label}
     </button>
-  );
-};
+  )
+})
 
-Button.propTypes = {
+Button.PropTypes = {
   /**
-   * Is this the principal call to action on the page?
+   * HTML Element type
    */
-  primary: PropTypes.bool,
+  type: PropTypes.oneOf(['button', 'reset', 'submit']),
   /**
-   * What background color to use
+   * HTML Attributes to go on the button.
    */
-  backgroundColor: PropTypes.string,
+  attr: PropTypes.object,
   /**
-   * How large should the button be?
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Button contents
+   * Label to use for the button.
    */
   label: PropTypes.string.isRequired,
   /**
@@ -43,8 +47,5 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
   onClick: undefined,
 };

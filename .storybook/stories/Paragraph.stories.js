@@ -13,7 +13,7 @@ const Paragraph = ({children, ...props}) => {
 }
 
 Paragraph.propTypes = {
-  color: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.string
 }
 
@@ -40,9 +40,62 @@ Short.args = {
   children: textShort
 }
 
+export const Type1 = Template.bind({});
+Type1.args = {
+  className: 'su-type-1',
+  children: 'Heading Example'
+}
+
+export const Type2 = Template.bind({});
+Type2.args = {
+  className: 'su-type-2',
+  children: 'Heading Example'
+}
+
+export const Type3 = Template.bind({});
+Type3.args = {
+  className: 'su-type-3',
+  children: 'Heading Example'
+}
+
+export const Type4 = Template.bind({});
+Type4.args = {
+  className: 'su-type-4',
+  children: 'Heading Example'
+}
+
+export const Type5 = Template.bind({});
+Type5.args = {
+  className: 'su-type-5',
+  children: 'Heading Example'
+}
+
+export const Type6 = Template.bind({});
+Type6.args = {
+  className: 'su-type-6',
+  children: 'Heading Example'
+}
+
 export const MixedContent = DangerTemplate.bind({});
 MixedContent.args = {
   className: '',
   children: textMixed
 }
 
+export const Splash = Template.bind({})
+Splash.args = {
+  ...Short.args,
+  className: 'su-splash-text'
+}
+
+export const Intro = Template.bind({})
+Intro.args = {
+  ...Short.args,
+  className: 'su-intro-text'
+}
+
+export const Big = Template.bind({})
+Big.args = {
+  ...Short.args,
+  className: 'su-big-paragraph'
+}
