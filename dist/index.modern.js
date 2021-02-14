@@ -6755,7 +6755,7 @@ var GlobalFooter = function GlobalFooter(_ref) {
   }
 
   return /*#__PURE__*/React.createElement("div", {
-    className: classnames('su-global-footer su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper)
+    className: classnames('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper)
   }, /*#__PURE__*/React.createElement("div", {
     className: "su-cc su-flex su-flex-col lg:su-flex-row",
     title: "Common Stanford resources"
