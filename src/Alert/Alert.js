@@ -35,7 +35,13 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 
   // Is Label Top
   if (props.isLabelTop) {
-    levers.label = classnames('su-rs-mb-neg1 su-inline-block')
+    levers.label = classnames('su-rs-mb-neg1', { 'su-inline-block': !props.isIconTop })
+    classes.icon = classnames(classes.icon, 'su-inline-block')
+  }
+
+  // Is Icon Top but no label top.
+  if (props.isIconTop && !props.isLabelTop) {
+    levers.headerIcon = classnames(levers.headerIcon, 'su-block su-rs-mb-neg1')
   }
 
   // Props.type
