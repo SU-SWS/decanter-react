@@ -72,13 +72,11 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
   const icon = props.icon ?? defaultIcon
   const DefaultDismiss = (
     <Button
-      className={
-        classnames(
-          'su-p-0 su-text-20 su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-uppercase su-font-semibold su-inline-block',
-          levers.dismiss,
-          classes.dismiss
-        )
-      }
+      className={classnames(
+        'su-p-0 su-text-20 su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-uppercase su-font-semibold su-inline-block',
+        levers.dismiss,
+        classes.dismiss
+      )}
       aria-label='Dismiss Alert'
       onClick={() => { setDismissed(true) }}
     >
@@ -120,7 +118,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
         </div>
 
         {/* Body Container. */}
-        <div className={classnames('su-order-2 su-flex-1 su-flex-grow ', levers.bodyWrapper, classes.bodyWrapper)}>
+        <div className={classnames('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
 
           {props.heading && (
             <h3 className={classnames('su-type-3', levers.bodyHeading, classes.bodyHeading)}>

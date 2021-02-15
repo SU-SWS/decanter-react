@@ -4,7 +4,7 @@ import propTypes from 'prop-types'
 /**
  * Primary UI component for user interaction
  */
-export const Button = React.forwardRef(({ className = {}, children, onClick, type, ...props }, ref) => {
+export const Button = React.forwardRef(({ className, children, onClick, type, ...props }, ref) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const classnames = require('classnames')
