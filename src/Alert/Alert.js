@@ -33,6 +33,11 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
   // Default Icon.
   let defaultIcon = <Icon icon='bell' type='outline' className={classnames({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />
 
+  // Is Label Top
+  if (props.isLabelTop) {
+    levers.label = classnames('su-rs-mb-neg1 su-inline-block')
+  }
+
   // Props.type
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
@@ -127,7 +132,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
           )}
 
           {(props.hasLabel && props.isLabelTop) && (
-            <span className={classnames('su-uppercase su-font-semibold su-text-170rem su-rs-mb-neg1', levers.label, classes.label)}>
+            <span className={classnames('su-uppercase su-font-semibold su-text-170rem', levers.label, classes.label)}>
               {props.label ?? 'Information'}
             </span>
           )}
