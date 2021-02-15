@@ -30,7 +30,7 @@ Heading.propTypes = {
 }
 
 export default {
-  title: 'Elements/Headings',
+  title: 'HTML Elements/Headings',
   component: Heading
 }
 

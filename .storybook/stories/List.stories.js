@@ -36,7 +36,7 @@ List.PropTypes = {
 }
 
 export default {
-  title: 'Elements/List',
+  title: 'HTML Elements/List',
   component: List,
 };
 

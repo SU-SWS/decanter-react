@@ -18,7 +18,7 @@ Paragraph.propTypes = {
 }
 
 export default {
-  title: 'Elements/Paragraph',
+  title: 'HTML Elements/Paragraph',
   component: Paragraph,
   excludeStories: ['textShort', 'textLong', 'textMixed'],
 };

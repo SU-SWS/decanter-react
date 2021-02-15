@@ -16,7 +16,7 @@ Blockquote.PropTypes = {
 }
 
 export default {
-  title: 'Elements/Blockquote',
+  title: 'HTML Elements/Blockquote',
   component: Blockquote
 };
 

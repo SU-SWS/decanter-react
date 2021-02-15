@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react'
+import propTypes from 'prop-types'
 import { alertTypes, lightText, darkText } from './Alert.levers'
 import { Button } from '../Button/Button'
 import Icon from 'react-hero-icon'
@@ -7,8 +7,9 @@ import Icon from 'react-hero-icon'
 /**
  * Alert Component.
  *
- * @param {object} props
- * @param {object} ref
+ * For displaying a notification that keeps people informed of a status, or for
+ * displaying a validation message that alerts someone of an important piece of
+ * information.
  *
  */
 export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
@@ -16,35 +17,12 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
   const classnames = require('classnames')
   const levers = {}
   const iconProps = { height: 24, width: 24 }
+  const [isDismissed, setDismissed] = useState(false)
 
   // Levers
   // ---------------------------------------------------------------------------
-  levers.wrapper = classnames('su-bg-white')
-
-  // Props.type
-  if (props.type && alertTypes.includes(props.type)) {
-    switch (props.type) {
-      case 'success':
-        levers.wrapper = classnames('su-bg-palo-verde su-text-white su-link-white')
-        levers.body = classnames(lightText)
-        break
-
-      case 'warning':
-        levers.wrapper = classnames('su-bg-illuminating-dark')
-        levers.body = classnames(darkText)
-        break
-
-      case 'info':
-        levers.wrapper = classnames('su-bg-digital-blue su-text-white su-link-white')
-        levers.body = classnames(lightText)
-        break
-
-      case 'error':
-        levers.wrapper = classnames('su-bg-digital-red su-text-white su-link-white')
-        levers.body = classnames(lightText)
-        break
-    }
-  }
+  levers.wrapper = classnames('su-bg-foggy-light')
+  levers.dismiss = classnames(darkText, 'hover:su-text-black focus:su-text-black')
 
   // Is large Icon.
   if (props.isLargeIcon) {
@@ -52,11 +30,67 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
     iconProps.width = 48
   }
 
+  // Default Icon.
+  let defaultIcon = <Icon icon='bell' type='outline' className={classnames('', classes.icon)} {...iconProps} />
+
+  // Props.type
+  if (props.type && alertTypes.includes(props.type)) {
+    switch (props.type) {
+      case 'success':
+        levers.wrapper = classnames('su-bg-palo-verde su-text-white su-link-white')
+        levers.body = classnames(lightText)
+        levers.dismiss = classnames(lightText)
+        defaultIcon = <Icon icon='check-circle' type='outline' className={classnames(classes.icon)} {...iconProps} />
+        break
+
+      case 'warning':
+        levers.wrapper = classnames('su-bg-illuminating-dark')
+        levers.body = classnames(darkText)
+        levers.dismiss = classnames(darkText, 'hover:su-text-black')
+        defaultIcon = <Icon icon='exclamation-circle' type='outline' className={classnames(classes.icon)} {...iconProps} />
+        break
+
+      case 'info':
+        levers.wrapper = classnames('su-bg-digital-blue su-text-white su-link-white')
+        levers.body = classnames(lightText)
+        levers.dismiss = classnames(lightText)
+        defaultIcon = <Icon icon='information-circle' type='outline' className={classnames(classes.icon)} {...iconProps} />
+        break
+
+      case 'error':
+        levers.wrapper = classnames('su-bg-digital-red su-text-white su-link-white')
+        levers.body = classnames(lightText)
+        levers.dismiss = classnames(lightText)
+        defaultIcon = <Icon icon='ban' type='outline' className={classnames(classes.icon)} {...iconProps} />
+        break
+    }
+  }
+
   // Partials
   // ---------------------------------------------------------------------------
 
-  const icon = props.icon ?? (<Icon icon='bell' type='outline' className={classnames(levers.icon, classes.icon)} {...iconProps} />)
-  const dismissBtn = props.dismissBtn ?? (<Button label='Dismiss' className={classnames(levers.dismiss, classes.dismiss)} />)
+  const icon = props.icon ?? defaultIcon
+  const DefaultDismiss = (
+    <Button
+      className={
+        classnames(
+          'su-p-0 su-text-20 su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-uppercase su-font-semibold su-inline-block',
+          levers.dismiss,
+          classes.dismiss
+        )
+      }
+      aria-label='Dismiss Alert'
+      onClick={() => { setDismissed(true) }}
+    >
+      Dismiss <Icon icon='x-circle' type='outline' className={classnames('su-inline-block su--mt-3 su-h-25 su-w-25')} />
+    </Button>
+  )
+  const dismissBtn = props.dismissBtn ?? DefaultDismiss
+
+  // Dismissed State.
+  if (isDismissed === true) {
+    return null
+  }
 
   // Render
   // ---------------------------------------------------------------------------
@@ -71,15 +105,15 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
         )}
 
         {/* Header Container. */}
-        <div className={classnames('su-order-1 su-rs-mr-1 su-flex-shrink su-mb-4 xs:su-w-full lg:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
+        <div className={classnames('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
           {props.hasIcon && (
-            <span className={classnames('su-mr-5 su-inline-block su-mw-2', levers.headerIcon, classes.headerIcon)}>
+            <span className={classnames('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
               {icon}
             </span>
           )}
 
           {props.hasLabel && (
-            <span className={classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem su-h-full', levers.label, classes.label)}>
+            <span className={classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem', levers.label, classes.label)}>
               {props.label ?? 'Information'}
             </span>
           )}
@@ -112,42 +146,75 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 // Prop Types.
 // -----------------------------------------------------------------------------
 
-// Redundant.
-const classType = PropTypes.oneOfType(
-  PropTypes.string,
-  PropTypes.object,
-  PropTypes.array
-)
-
 Alert.propTypes = {
   // Nodes and content.
-  children: PropTypes.element,
-  dismissBtn: PropTypes.element,
-  icon: PropTypes.element,
-  label: PropTypes.string,
-  heading: PropTypes.string,
-  footer: PropTypes.node,
+  children: propTypes.element,
+  dismissBtn: propTypes.element,
+  icon: propTypes.element,
+  label: propTypes.string,
+  heading: propTypes.string,
+  footer: propTypes.node,
 
   // State and Levers.
-  type: PropTypes.oneOf(alertTypes),
-  isLargeIcon: PropTypes.bool,
-  hasDismiss: PropTypes.bool,
-  hasIcon: PropTypes.bool,
-  hasLabel: PropTypes.bool,
+  type: propTypes.oneOf(alertTypes),
+  isLargeIcon: propTypes.bool,
+  hasDismiss: propTypes.bool,
+  hasIcon: propTypes.bool,
+  hasLabel: propTypes.bool,
 
   // The CSS Classname property
-  classes: PropTypes.shape(
+  classes: propTypes.shape(
     {
-      wrapper: classType,
-      container: classType,
-      dismissWrapper: classType,
-      headerWrapper: classType,
-      headerIcon: classType,
-      label: classType,
-      bodyWrapper: classType,
-      bodyHeading: classType,
-      body: classType,
-      footerWrapper: classType
+      wrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      container: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      dismissWrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      headerWrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      headerIcon: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      label: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      bodyWrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      bodyHeading: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      body: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      footerWrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ])
     }
   )
 }
