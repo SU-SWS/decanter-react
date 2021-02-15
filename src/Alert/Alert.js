@@ -37,7 +37,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
       case 'success':
-        levers.wrapper = classnames('su-bg-palo-verde su-text-white su-link-white')
+        levers.wrapper = classnames('su-bg-digital-green su-text-white su-link-white')
         levers.body = classnames(lightText)
         levers.dismiss = classnames(lightText)
         defaultIcon = <Icon icon='check-circle' type='outline' className={classnames(classes.icon)} {...iconProps} />
