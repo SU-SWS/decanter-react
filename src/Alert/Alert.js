@@ -31,7 +31,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
   }
 
   // Default Icon.
-  let defaultIcon = <Icon icon='bell' type='outline' className={classnames({'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />
+  let defaultIcon = <Icon icon='bell' type='outline' className={classnames({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />
 
   // Props.type
   if (props.type && alertTypes.includes(props.type)) {
