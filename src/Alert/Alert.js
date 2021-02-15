@@ -26,8 +26,8 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 
   // Is large Icon.
   if (props.isLargeIcon) {
-    iconProps.height = 48
-    iconProps.width = 48
+    iconProps.height = 72
+    iconProps.width = 72
   }
 
   // Default Icon.
