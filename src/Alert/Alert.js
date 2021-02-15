@@ -26,12 +26,12 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 
   // Is large Icon.
   if (props.isLargeIcon) {
-    iconProps.height = 72
-    iconProps.width = 72
+    iconProps.height = 60
+    iconProps.width = 60
   }
 
   // Default Icon.
-  let defaultIcon = <Icon icon='bell' type='solid' className={classnames('', classes.icon)} {...iconProps} />
+  let defaultIcon = <Icon icon='bell' type='outline' className={classnames({'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />
 
   // Props.type
   if (props.type && alertTypes.includes(props.type)) {
@@ -104,13 +104,13 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 
         {/* Header Container. */}
         <div className={classnames('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
-          {props.hasIcon && (
+          {(props.hasIcon && !props.isIconTop) && (
             <span className={classnames('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
               {icon}
             </span>
           )}
 
-          {props.hasLabel && (
+          {(props.hasLabel && !props.isLabelTop) && (
             <span className={classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem', levers.label, classes.label)}>
               {props.label ?? 'Information'}
             </span>
@@ -119,6 +119,18 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
 
         {/* Body Container. */}
         <div className={classnames('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
+
+          {(props.hasIcon && props.isIconTop) && (
+            <span className={classnames('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
+              {icon}
+            </span>
+          )}
+
+          {(props.hasLabel && props.isLabelTop) && (
+            <span className={classnames('su-uppercase su-font-semibold su-text-170rem su-rs-mb-neg1', levers.label, classes.label)}>
+              {props.label ?? 'Information'}
+            </span>
+          )}
 
           {props.heading && (
             <h3 className={classnames('su-type-3', levers.bodyHeading, classes.bodyHeading)}>
@@ -156,6 +168,8 @@ Alert.propTypes = {
   // State and Levers.
   type: propTypes.oneOf(alertTypes),
   isLargeIcon: propTypes.bool,
+  isLabelTop: propTypes.bool,
+  isIconTop: propTypes.bool,
   hasDismiss: propTypes.bool,
   hasIcon: propTypes.bool,
   hasLabel: propTypes.bool,
@@ -221,6 +235,8 @@ Alert.propTypes = {
 // -----------------------------------------------------------------------------
 Alert.defaultProps = {
   isLargeIcon: false,
+  isLabelTop: false,
+  isIconTop: false,
   hasDismiss: true,
   hasLabel: true,
   hasIcon: true
