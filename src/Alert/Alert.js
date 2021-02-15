@@ -31,7 +31,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
   }
 
   // Default Icon.
-  let defaultIcon = <Icon icon='bell' type='outline' className={classnames('', classes.icon)} {...iconProps} />
+  let defaultIcon = <Icon icon='bell' type='solid' className={classnames('', classes.icon)} {...iconProps} />
 
   // Props.type
   if (props.type && alertTypes.includes(props.type)) {
@@ -40,28 +40,28 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
         levers.wrapper = classnames('su-bg-digital-green su-text-white su-link-white')
         levers.body = classnames(lightText)
         levers.dismiss = classnames(lightText)
-        defaultIcon = <Icon icon='check-circle' type='outline' className={classnames(classes.icon)} {...iconProps} />
+        defaultIcon = <Icon icon='check-circle' type='solid' className={classnames(classes.icon)} {...iconProps} />
         break
 
       case 'warning':
         levers.wrapper = classnames('su-bg-illuminating-dark')
         levers.body = classnames(darkText)
         levers.dismiss = classnames(darkText, 'hover:su-text-black')
-        defaultIcon = <Icon icon='exclamation-circle' type='outline' className={classnames(classes.icon)} {...iconProps} />
+        defaultIcon = <Icon icon='exclamation-circle' type='solid' className={classnames(classes.icon)} {...iconProps} />
         break
 
       case 'info':
         levers.wrapper = classnames('su-bg-digital-blue su-text-white su-link-white')
         levers.body = classnames(lightText)
         levers.dismiss = classnames(lightText)
-        defaultIcon = <Icon icon='information-circle' type='outline' className={classnames(classes.icon)} {...iconProps} />
+        defaultIcon = <Icon icon='information-circle' type='solid' className={classnames(classes.icon)} {...iconProps} />
         break
 
       case 'error':
         levers.wrapper = classnames('su-bg-digital-red su-text-white su-link-white')
         levers.body = classnames(lightText)
         levers.dismiss = classnames(lightText)
-        defaultIcon = <Icon icon='ban' type='outline' className={classnames(classes.icon)} {...iconProps} />
+        defaultIcon = <Icon icon='ban' type='solid' className={classnames(classes.icon)} {...iconProps} />
         break
     }
   }
@@ -80,7 +80,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
       aria-label='Dismiss Alert'
       onClick={() => { setDismissed(true) }}
     >
-      Dismiss <Icon icon='x-circle' type='outline' className={classnames('su-inline-block su--mt-3 su-h-25 su-w-25')} />
+      Dismiss <Icon icon='x-circle' type='solid' className={classnames('su-inline-block su--mt-3 su-h-25 su-w-25')} />
     </Button>
   )
   const dismissBtn = props.dismissBtn ?? DefaultDismiss
