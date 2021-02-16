@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from './Button';
 
 export default {
-  title: 'Example/Button',
+  title: 'Simple/Button',
   component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -15,12 +15,12 @@ const Template = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
-  label: 'Button',
+  label: 'Primary Button',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button',
+  label: 'Secondary Button',
 };
 
 export const Large = Template.bind({});

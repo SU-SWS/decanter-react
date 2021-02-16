@@ -1,8 +1,11 @@
 import React from 'react'
 import propTypes from 'prop-types'
+import { buttonStyles, buttonSizes } from './Button.levers'
 
 /**
- * Primary UI component for user interaction
+ * Button Component
+ *
+ * HTML button element
  */
 export const Button = ({ className, children, onClick, type, ref, ...props }) => {
   // Defaults & Variables.
@@ -12,6 +15,7 @@ export const Button = ({ className, children, onClick, type, ref, ...props }) =>
 
   // Levers
   // ---------------------------------------------------------------------------
+  levers.button = classnames(buttonStyles, buttonSizes);
 
   return (
     <button

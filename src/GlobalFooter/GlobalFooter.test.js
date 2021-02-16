@@ -11,8 +11,4 @@ describe('GlobalFooter', () => {
     expect(GlobalFooter).toBeTruthy()
   })
 
-  // Default is rendered.
-  it('renders the GlobalFooter in the default state', () => {
-    render(<GlobalFooter />)
-  })
 })
