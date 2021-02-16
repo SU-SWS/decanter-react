@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import propTypes from 'prop-types'
 import { alertTypes, lightText, darkText } from './Alert.levers'
 import { Button } from '../Button/Button'
@@ -12,12 +12,14 @@ import Icon from 'react-hero-icon'
  * information.
  *
  */
-export const Alert = React.forwardRef(({ classes = {}, children, ...props }, ref = null) => {
+export const Alert = React.forwardRef(({ classes = {}, children, ...props }, ref) => {
   // Defaults & Variables
   const classnames = require('classnames')
   const levers = {}
   const iconProps = { height: 24, width: 24 }
   const [isDismissed, setDismissed] = useState(false)
+  // Optional ref.
+  ref = ref ?? useRef(null)
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -250,5 +252,6 @@ Alert.defaultProps = {
   isIconTop: false,
   hasDismiss: true,
   hasLabel: true,
-  hasIcon: true
+  hasIcon: true,
+  ref: null
 }
