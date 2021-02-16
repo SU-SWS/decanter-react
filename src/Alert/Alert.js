@@ -12,7 +12,7 @@ import Icon from 'react-hero-icon'
  * information.
  *
  */
-export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
+export const Alert = React.forwardRef(({ classes = {}, children, ...props }, ref = null) => {
   // Defaults & Variables
   const classnames = require('classnames')
   const levers = {}
@@ -150,7 +150,7 @@ export const Alert = React.forwardRef(({ classes = {}, ...props }, ref) => {
           )}
 
           <div className={classnames('su-text-normal', levers.body, classes.body)}>
-            {props.children}
+            {children}
           </div>
 
           {props.footer && (

@@ -1,7 +1,9 @@
 import React from 'react'
-import styles from './index.module.css'
 
 export const StyledLink = (props) => {
+
+  const styles = {}
+
   // Defaults.
   const defaultClasses = {
     wrapper: 'su-link'
@@ -35,23 +37,23 @@ export const StyledLink = (props) => {
   if (props.animate !== undefined) {
     switch (props.animate) {
       case 'down':
-        classes.wrapper += ' ' + styles.animatedDown
+        classes.wrapper += ' ' + styles?.animatedDown
         break
 
       case 'left':
-        classes.wrapper += ' ' + styles.animatedLeft
+        classes.wrapper += ' ' + styles?.animatedLeft
         break
 
       case 'up':
-        classes.wrapper += ' ' + styles.animatedUp
+        classes.wrapper += ' ' + styles?.animatedUp
         break
 
       case 'topRight':
-        classes.wrapper += ' ' + styles.animatedTopRight
+        classes.wrapper += ' ' + styles?.animatedTopRight
         break
 
       default:
-        classes.wrapper += ' ' + styles.animatedRight
+        classes.wrapper += ' ' + styles?.animatedRight
     }
   }
 

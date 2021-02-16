@@ -1,7 +1,7 @@
 import React from 'react'
+import { withDesign } from 'storybook-addon-designs'
 import { Alert } from './Alert'
 import { Button } from '../Button/Button'
-import { withDesign } from 'storybook-addon-designs'
 import { alertTypes } from './Alert.levers'
 import { textMixed } from '../../.storybook/stories/Paragraph.stories'
 import DOMPurify from 'dompurify'
@@ -33,11 +33,11 @@ export default {
 }
 
 // Set up an Alert Template.
-const AlertTemplate = ({ children, ...rest }) => {
+const AlertTemplate = ({ children, ...props }) => {
   // We do this to mimic sending in CMS content or another React component.
   const content = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />
   return (
-    <Alert {...rest}>{content}</Alert>
+    <Alert {...props}>{content}</Alert>
   )
 }
 
@@ -47,6 +47,9 @@ export const Default = AlertTemplate.bind({})
 Default.args = {
   children: textMixed,
   heading: 'Alert Lorem Ipsum'
+}
+Default.parameters = {
+  jest: ['Alert.test.js']
 }
 
 export const Info = AlertTemplate.bind({})

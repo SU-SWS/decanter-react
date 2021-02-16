@@ -7,6 +7,8 @@ module.exports = {
   "addons": [
     // Default core extention
     "@storybook/addon-essentials",
+    // https://www.npmjs.com/package/@storybook/addon-jest
+    "@storybook/addon-jest",
     // This came out of the box. Better find out what it is.
     "@storybook/addon-links",
     // https://storybook.js.org/addons/@whitespace/storybook-addon-html
