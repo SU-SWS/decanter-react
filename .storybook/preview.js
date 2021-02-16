@@ -1,7 +1,10 @@
 // Decanter Styles.
 import 'decanter/dist/decanter.css'
 import 'decanter/dist/decanter.js'
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { addDecorator } from '@storybook/react'
+import { withTests } from '@storybook/addon-jest'
+import results from './.jest-test-results.json';
 
 // Our Breakpoints
 const customViewports = {
@@ -58,4 +61,100 @@ export const parameters = {
       ...customViewports
     },
   },
+  backgrounds: {
+    default: 'White',
+    values: [
+      {
+        name: 'White',
+        value: '#FFFFFF',
+      },
+      {
+        name: 'Black',
+        value: '#2E2D29',
+      },
+      {
+        name: 'True Black',
+        value: '#000000',
+      },
+      {
+        name: 'Cardinal Red',
+        value: '#8C1515',
+      },
+      {
+        name: 'Digital Red',
+        value: '#B1040E',
+      },
+      {
+        name: 'Digital Blue',
+        value: '#006CB8',
+      },
+      {
+        name: 'Digital Green',
+        value: '#008566',
+      },
+      {
+        name: 'Palo Alto',
+        value: '#175E54',
+      },
+      {
+        name: 'Palo Verde',
+        value: '#279989',
+      },
+      {
+        name: 'Olive',
+        value: '#8F993E',
+      },
+      {
+        name: 'Bay',
+        value: '#6fa287',
+      },
+      {
+        name: 'Sky',
+        value: '#4298B5',
+      },
+      {
+        name: 'Lagunita',
+        value: '#007C92',
+      },
+      {
+        name: 'Poppy',
+        value: '#E98300',
+      },
+      {
+        name: 'Spirited',
+        value: '#E04F39',
+      },
+      {
+        name: 'illuminating',
+        value: '#FEDD5C',
+      },
+      {
+        name: 'Plum',
+        value: '#620059',
+      },
+      {
+        name: 'Brick',
+        value: '#651C32',
+      },
+      {
+        name: 'Archway',
+        value: '#5D4B3C',
+      },
+      {
+        name: 'Stone',
+        value: '#5D4B3C',
+      },
+      {
+        name: 'Foggy',
+        value: '#DAD7CB',
+      },
+    ],
+  }
 }
+
+// Add the test results decoration.
+addDecorator(
+  withTests({
+    results,
+  })
+);

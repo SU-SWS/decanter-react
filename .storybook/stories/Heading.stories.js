@@ -30,8 +30,9 @@ Heading.propTypes = {
 }
 
 export default {
-  title: 'Elements/Headings',
-  component: Heading
+  title: 'HTML Elements/Headings',
+  component: Heading,
+  decorators: [(Story) => <div className="su-cc su-rs-my-2"><Story/></div>]
 }
 
 // Safety first.
@@ -42,6 +43,7 @@ Default.args = {
   level: 1,
   children: defaultText
 }
+Default.storyName = "H 1"
 
 export const H2 = Template.bind({});
 H2.args = {

@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import propTypes from 'prop-types'
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = React.forwardRef(({ classes = {}, label, ...props }, ref) => {
-
+export const Button = ({ className, children, onClick, type, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const classnames = require('classnames')
@@ -16,36 +15,40 @@ export const Button = React.forwardRef(({ classes = {}, label, ...props }, ref) 
 
   return (
     <button
-      className={classnames('su-', levers.button, classes.button)}
+      className={classnames('su-button', levers.button, className)}
       ref={ref}
-      onClick={props.onClick}
-      type={props.type}
-      {...props?.attr}
+      onClick={onClick}
+      type={type}
+      {...props}
     >
-      {label}
+      {children}
     </button>
   )
-})
+}
 
-Button.PropTypes = {
-  /**
-   * HTML Element type
-   */
-  type: PropTypes.oneOf(['button', 'reset', 'submit']),
-  /**
-   * HTML Attributes to go on the button.
-   */
-  attr: PropTypes.object,
-  /**
-   * Label to use for the button.
-   */
-  label: PropTypes.string.isRequired,
-  /**
-   * Optional click handler
-   */
-  onClick: PropTypes.func,
-};
+Button.propTypes = {
+  // HTML Button type.
+  type: propTypes.oneOf(['button', 'reset', 'submit']),
+
+  // Optional click handler
+  onClick: propTypes.func,
+
+  // CSS Classes.
+  className: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.array,
+    propTypes.object
+  ]),
+
+  // Children
+  children: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.element,
+    propTypes.node
+  ])
+}
 
 Button.defaultProps = {
   onClick: undefined,
-};
+  type: 'submit'
+}
