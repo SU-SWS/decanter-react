@@ -33,11 +33,11 @@ export default {
 }
 
 // Set up an Alert Template.
-const AlertTemplate = ({ children, ...props }) => {
+const AlertTemplate = ({ children, ...rest }) => {
   // We do this to mimic sending in CMS content or another React component.
   const content = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />
   return (
-    <Alert {...props}>{content}</Alert>
+    <Alert {...rest}>{content}</Alert>
   )
 }
 

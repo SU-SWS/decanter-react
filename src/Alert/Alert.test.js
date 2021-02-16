@@ -6,7 +6,6 @@ import { Alert } from './Alert'
 
 // Component is a component.
 describe('Alert', () => {
-
   // Is a component with valid syntax.
   it('is truthy', () => {
     expect(Alert).toBeTruthy()
@@ -14,9 +13,9 @@ describe('Alert', () => {
 
   // Default is rendered.
   it('renders the Alert in the default state', () => {
-    render(<p>This is content</p>)
-    screen.getByText('This is content') // full string match
+    render(<Alert heading='Test Heading'>Test Children</Alert>)
+    screen.getByText('Test Heading') // full string match
+    screen.getByText('Test Children') // full string match
+    screen.getByText('Dismiss') // full string match
   })
-
 })
-

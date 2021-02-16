@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const StyledLink = (props) => {
-
   const styles = {}
 
   // Defaults.
