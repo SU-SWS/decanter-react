@@ -16,7 +16,9 @@ module.exports = {
     // https://www.npmjs.com/package/@storybook/addon-a11y
     "@storybook/addon-a11y",
     // https://storybook.js.org/addons/storybook-dark-mode
-    "storybook-dark-mode"
+    "storybook-dark-mode",
+    // https://storybook.js.org/addons/storybook-addon-pseudo-states
+    "storybook-addon-pseudo-states"
   ],
   reactOptions: {
     fastRefresh: true,

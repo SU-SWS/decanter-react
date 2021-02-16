@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-const Blockquote = ({children, ...props}) => {
+const BlockquoteComponent = ({children, ...props}) => {
   return (
     <blockquote {...props}>
       <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
@@ -11,18 +11,19 @@ const Blockquote = ({children, ...props}) => {
   )
 }
 
-Blockquote.PropTypes = {
+BlockquoteComponent.PropTypes = {
   className: PropTypes.string,
 }
 
 export default {
   title: 'HTML Elements/Blockquote',
-  component: Blockquote
+  component: BlockquoteComponent,
+  decorators: [(Story) => <div className="su-cc su-rs-my-2"><Story/></div>]
 };
 
 // Safety first.
-const Template = (args) => <Blockquote {...args} />
-export const Default = Template.bind({})
-Default.args = {
+const Template = (args) => <BlockquoteComponent {...args} />
+export const Blockquote = Template.bind({})
+Blockquote.args = {
   className: '',
 }

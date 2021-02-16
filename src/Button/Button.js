@@ -42,5 +42,6 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  onClick: undefined
+  onClick: undefined,
+  type: 'submit'
 }

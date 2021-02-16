@@ -10,7 +10,26 @@ export default {
   title: 'Composite/Alert',
   decorators: [withDesign],
   component: Alert,
-  subcomponents: { Button }
+  subcomponents: { Button },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
+    },
+    docs: {
+      description: {
+        component: 'For displaying a notification that keeps people informed of a status, or for displaying a validation message that alerts someone of an important piece of information.'
+      }
+    }
+  },
+  argTypes: {
+    type: {
+      control: {
+        type: 'select',
+        options: alertTypes
+      }
+    }
+  }
 }
 
 // Set up an Alert Template.
@@ -25,7 +44,6 @@ const AlertTemplate = ({ children, ...rest }) => {
 // Default State
 // /////////////////////////////////////////////////////////////////////////////
 export const Default = AlertTemplate.bind({})
-
 Default.args = {
   children: textMixed,
   heading: 'Alert Lorem Ipsum'
@@ -38,11 +56,27 @@ Info.args = {
   type: 'info'
 }
 
+// Supports Markdown.
+Info.parameters = {
+  docs: {
+    description: {
+      story: 'Informational style.'
+    }
+  }
+}
+
 export const Error = AlertTemplate.bind({})
 Error.args = {
   children: textMixed,
   heading: 'Alert Lorem Ipsum',
   type: 'error'
+}
+Error.parameters = {
+  docs: {
+    description: {
+      story: 'Error Message.'
+    }
+  }
 }
 
 export const Warning = AlertTemplate.bind({})
@@ -51,6 +85,13 @@ Warning.args = {
   heading: 'Alert Lorem Ipsum',
   type: 'warning'
 }
+Warning.parameters = {
+  docs: {
+    description: {
+      story: 'Warning Message.'
+    }
+  }
+}
 
 export const Success = AlertTemplate.bind({})
 Success.args = {
@@ -58,10 +99,16 @@ Success.args = {
   heading: 'Alert Lorem Ipsum',
   type: 'success'
 }
+Success.parameters = {
+  docs: {
+    description: {
+      story: 'Successful Transaction Message.'
+    }
+  }
+}
 
 export const LabelsOnTop = AlertTemplate.bind({})
 LabelsOnTop.args = {
-  storyName: 'Labels on Top',
   children: textMixed,
   heading: 'Alert Lorem Ipsum',
   isIconTop: true,
@@ -70,61 +117,24 @@ LabelsOnTop.args = {
 
 export const NoDismiss = AlertTemplate.bind({})
 NoDismiss.args = {
-  storyName: 'No Dismiss Button',
   children: textMixed,
   heading: 'Alert Lorem Ipsum',
   hasDismiss: false
 }
+NoDismiss.storyName = 'No Dismiss Button'
 
 export const BigIcon = AlertTemplate.bind({})
 BigIcon.args = {
-  storyName: 'Big Icon + No Label',
   children: textMixed,
   heading: 'Alert Lorem Ipsum',
   hasLabel: false,
   isLargeIcon: true
 }
+BigIcon.storyName = 'Big Icon + No Label'
 
 export const NoHeader = AlertTemplate.bind({})
 NoHeader.args = {
-  storyName: 'No Header',
   children: textMixed,
   isLabelTop: true,
   isLargeIcon: true
 }
-
-// Make sure the enum types work.
-Default.argTypes = {
-  type: {
-    control: {
-      type: 'select',
-      options: alertTypes
-    }
-  }
-}
-
-Info.argTypes = { ...Default.argTypes }
-Error.argTypes = { ...Default.argTypes }
-Warning.argTypes = { ...Default.argTypes }
-Success.argTypes = { ...Default.argTypes }
-LabelsOnTop.argTypes = { ...Default.argTypes }
-NoDismiss.argTypes = { ...Default.argTypes }
-BigIcon.argTypes = { ...Default.argTypes }
-NoHeader.argTypes = { ...Default.argTypes }
-
-// Connect a Figma Preview.
-Default.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0'
-  }
-}
-
-Info.parameters = { ...Default.parameters }
-Error.parameters = { ...Default.parameters }
-Warning.parameters = { ...Default.parameters }
-Success.parameters = { ...Default.parameters }
-LabelsOnTop.parameters = { ...Default.parameters }
-NoDismiss.parameters = { ...Default.parameters }
-BigIcon.parameters = { ...Default.parameters }
-NoHeader.parameters = { ...Default.parameters }

@@ -38,6 +38,7 @@ List.PropTypes = {
 export default {
   title: 'HTML Elements/List',
   component: List,
+  decorators: [(Story) => <div className="su-cc su-rs-my-2"><Story/></div>]
 };
 
 // Safety first.

@@ -78,6 +78,7 @@
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.4",
     "storybook-addon-designs": "^5.4.3",
+    "storybook-addon-pseudo-states": "^1.0.0-rc.3",
     "storybook-dark-mode": "^1.0.4",
     "tailwindcss-classnames": "^2.0.1"
   },

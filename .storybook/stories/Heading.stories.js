@@ -42,6 +42,7 @@ Default.args = {
   level: 1,
   children: defaultText
 }
+Default.storyName = "H 1"
 
 export const H2 = Template.bind({});
 H2.args = {
