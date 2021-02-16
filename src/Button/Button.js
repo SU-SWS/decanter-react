@@ -4,7 +4,7 @@ import propTypes from 'prop-types'
 /**
  * Primary UI component for user interaction
  */
-export const Button = React.forwardRef(({ className, children, onClick, type, ...props }, ref) => {
+export const Button = ({ className, children, onClick, type, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const classnames = require('classnames')
@@ -24,7 +24,7 @@ export const Button = React.forwardRef(({ className, children, onClick, type, ..
       {children}
     </button>
   )
-})
+}
 
 Button.propTypes = {
   // HTML Button type.
@@ -38,6 +38,13 @@ Button.propTypes = {
     propTypes.string,
     propTypes.array,
     propTypes.object
+  ]),
+
+  // Children
+  children: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.element,
+    propTypes.node
   ])
 }
 

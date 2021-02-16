@@ -169,10 +169,11 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
 
 Alert.propTypes = {
   // Nodes and content.
-  children: propTypes.oneOfType(
+  children: propTypes.oneOfType([
+    propTypes.node,
     propTypes.element,
     propTypes.string
-  ),
+  ]),
   dismissBtn: propTypes.element,
   icon: propTypes.element,
   label: propTypes.string,
