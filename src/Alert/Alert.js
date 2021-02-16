@@ -1,174 +1,259 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { DismissButton } from './DismissButton'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faBell,
-  faCheckCircle,
-  faQuestionCircle,
-  faExclamationTriangle,
-  faTimesCircle
-} from '@fortawesome/free-solid-svg-icons'
-import styles from './alert.module.css'
-
-// Default look and feel
-// /////////////////////////////////////////////////////////////////////////////
-const defaultClasses = {
-  wrapper: 'su-alert',
-  dismissButtonWrapper: [
-    'su-order-3',
-    'su-rs-m-l-1',
-    'su-h-full',
-    'su-items-end',
-    'su-flex-shrink',
-    'su-text-right',
-    'su-w-full',
-    'sm:su-w-auto'
-  ].join(' '),
-  dismissButton: '',
-  headerWrapper: [
-    'su-order-1',
-    'su-rs-m-r-1',
-    'su-flex-shrink',
-    'su-mb-4',
-    'xs:su-w-full',
-    'lg:su-w-max'
-  ].join(' '),
-  label: [
-    'su-inline-block',
-    'su-uppercase',
-    'su-font-semibold',
-    'su-text-170rem',
-    'su-h-full',
-    styles.label
-  ].join(' '),
-  bodyWrapper: styles.alertBodyWrapperDark,
-  icon: faBell,
-  iconClass: 'su-mr-2 su-inline-block su-max-w-xs',
-  bodyHeading: '',
-  footerWrapper: 'su-rs-m-t-0'
-}
-
-// Variant styles.
-// /////////////////////////////////////////////////////////////////////////////
-const variants = {
-  success: {
-    wrapper: 'su-alert su-bg-palo-verde',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faCheckCircle
-  },
-  warning: {
-    wrapper: 'su-alert su-bg-illuminating-dark',
-    bodyWrapper: styles.alertBodyWrapperDark,
-    icon: faExclamationTriangle
-  },
-  error: {
-    wrapper: 'su-alert su-bg-digital-red',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faTimesCircle
-  },
-  info: {
-    wrapper: 'su-alert su-bg-bright-blue',
-    bodyWrapper: styles.alertBodyWrapper,
-    headerWrapper: defaultClasses.headerWrapper + ' su-text-white',
-    footerWrapper: defaultClasses.footerWrapper + ' su-text-white',
-    icon: faQuestionCircle
-  }
-}
+import propTypes from 'prop-types'
+import { alertTypes, lightText, darkText } from './Alert.levers'
+import { Button } from '../Button/Button'
+import Icon from 'react-hero-icon'
 
 /**
  * Alert Component.
  *
- * @param {object} props
+ * For displaying a notification that keeps people informed of a status, or for
+ * displaying a validation message that alerts someone of an important piece of
+ * information.
+ *
  */
-export const Alert = (props) => {
-  // Removes the alert from display when clicked.
+export const Alert = ({ classes = {}, children, ref, ...props }) => {
+  // Defaults & Variables
+  const classnames = require('classnames')
+  const levers = {}
+  const iconProps = { height: 24, width: 24 }
   const [isDismissed, setDismissed] = useState(false)
 
-  // Merge with passed in props.
-  let classes = Object.assign(defaultClasses, props.classes)
-  // Merge with variant setting from props.
-  classes = Object.assign(classes, variants[props.variant])
+  // Levers
+  // ---------------------------------------------------------------------------
+  levers.wrapper = classnames('su-bg-foggy-light')
+  levers.dismiss = classnames(darkText, 'hover:su-text-black focus:su-text-black')
 
-  // The dismiss button component.
-  // Toggle to dark based on variant.
-  const dismissDarkVariant = ['warning']
-  let dismissVariant = 'light'
-  if (
-    props.variant === undefined ||
-    dismissDarkVariant.includes(props.variant)
-  ) {
-    dismissVariant = 'dark'
+  // Is large Icon.
+  if (props.isLargeIcon) {
+    iconProps.height = 60
+    iconProps.width = 60
   }
 
-  // DismissButtton component.
-  const dismiss = (
-    <div className={classes.dismissButtonWrapper}>
-      <DismissButton variant={dismissVariant} callback={setDismissed} />
-    </div>
-  )
+  // Default Icon.
+  let defaultIcon = <Icon icon='bell' type='outline' className={classnames({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />
 
-  // Don't show if dismissed.
-  if (isDismissed) {
+  // Is Label Top
+  if (props.isLabelTop) {
+    levers.label = classnames('su-rs-mb-neg1', { 'su-inline-block': !props.isIconTop })
+    classes.icon = classnames(classes.icon, 'su-inline-block')
+  }
+
+  // Is Icon Top but no label top.
+  if (props.isIconTop && !props.isLabelTop) {
+    levers.headerIcon = classnames(levers.headerIcon, 'su-block su-rs-mb-neg1')
+  }
+
+  // Props.type
+  if (props.type && alertTypes.includes(props.type)) {
+    switch (props.type) {
+      case 'success':
+        levers.wrapper = classnames('su-bg-digital-green su-text-white su-link-white')
+        levers.body = classnames(lightText)
+        levers.dismiss = classnames(lightText)
+        defaultIcon = <Icon icon='check-circle' type='solid' className={classnames(classes.icon)} {...iconProps} />
+        break
+
+      case 'warning':
+        levers.wrapper = classnames('su-bg-illuminating-dark')
+        levers.body = classnames(darkText)
+        levers.dismiss = classnames(darkText, 'hover:su-text-black')
+        defaultIcon = <Icon icon='exclamation-circle' type='solid' className={classnames(classes.icon)} {...iconProps} />
+        break
+
+      case 'info':
+        levers.wrapper = classnames('su-bg-digital-blue su-text-white su-link-white')
+        levers.body = classnames(lightText)
+        levers.dismiss = classnames(lightText)
+        defaultIcon = <Icon icon='information-circle' type='solid' className={classnames(classes.icon)} {...iconProps} />
+        break
+
+      case 'error':
+        levers.wrapper = classnames('su-bg-digital-red su-text-white su-link-white')
+        levers.body = classnames(lightText)
+        levers.dismiss = classnames(lightText)
+        defaultIcon = <Icon icon='ban' type='solid' className={classnames(classes.icon)} {...iconProps} />
+        break
+    }
+  }
+
+  // Partials
+  // ---------------------------------------------------------------------------
+
+  const icon = props.icon ?? defaultIcon
+  const DefaultDismiss = (
+    <Button
+      className={classnames(
+        'su-p-0 su-text-17 su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-uppercase su-font-bold su-inline-block su-tracking-widest',
+        levers.dismiss,
+        classes.dismiss
+      )}
+      aria-label='Dismiss Alert'
+      onClick={() => { setDismissed(true) }}
+    >
+      Dismiss <Icon icon='x-circle' type='solid' className={classnames('su-inline-block su--mt-3 su-h-25 su-w-25')} />
+    </Button>
+  )
+  const dismissBtn = props.dismissBtn ?? DefaultDismiss
+
+  // Dismissed State.
+  if (isDismissed === true) {
     return null
   }
 
-  // The goods!
+  // Render
+  // ---------------------------------------------------------------------------
   return (
-    <div className={classes.wrapper}>
-      <div className='su-cc su-flex su-flex-wrap sm:su-items-center'>
-        {props.dismiss && dismiss}
-        <div className={classes.headerWrapper}>
-          <span className={classes.headerIcon}>
-            {props.icon ?? (
-              <FontAwesomeIcon
-                icon={classes.icon}
-                className={classes.iconClass}
-              />
-            )}
-          </span>
-          <span className={classes.label}>{props.label ?? 'Information'}</span>
+    <div className={classnames('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
+      <div className={classnames('su-cc su-flex su-flex-wrap su-rs-pt-1 su-rs-pb-neg1 sm:su-items-center', levers.container, classes.container)}>
+
+        {props.hasDismiss && (
+          <div className={classnames('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
+            {dismissBtn}
+          </div>
+        )}
+
+        {/* Header Container. */}
+        <div className={classnames('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
+          {(props.hasIcon && !props.isIconTop) && (
+            <span className={classnames('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
+              {icon}
+            </span>
+          )}
+
+          {(props.hasLabel && !props.isLabelTop) && (
+            <span className={classnames('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+              {props.label ?? 'Information'}
+            </span>
+          )}
         </div>
-        <div className={classes.bodyWrapper}>
-          <h3 className={classes.bodyHeading}>{props.heading}</h3>
-          <div className={classes.body}>{props.children}</div>
-          <div className={classes.footerWrapper}>{props.footer}</div>
+
+        {/* Body Container. */}
+        <div className={classnames('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
+
+          {(props.hasIcon && props.isIconTop) && (
+            <span className={classnames('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
+              {icon}
+            </span>
+          )}
+
+          {(props.hasLabel && props.isLabelTop) && (
+            <span className={classnames('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+              {props.label ?? 'Information'}
+            </span>
+          )}
+
+          {props.heading && (
+            <h3 className={classnames('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)}>
+              {props.heading}
+            </h3>
+          )}
+
+          <div className={classnames('su-text-normal', levers.body, classes.body)}>
+            {children}
+          </div>
+
+          {props.footer && (
+            <div className={classnames('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)}>
+              {props.footer}
+            </div>
+          )}
         </div>
       </div>
     </div>
   )
 }
 
-/**
- * Prop Types Information.
- */
+// Prop Types.
+// -----------------------------------------------------------------------------
 
 Alert.propTypes = {
-  // An array of classes to merge with the classes array.
-  classes: PropTypes.object,
-  // The primary content
-  children: PropTypes.node,
-  // FA Icon name.
-  icon: PropTypes.element,
-  // One of the default variant sets.
-  variant: PropTypes.oneOf(Object.keys(variants)),
-  // Show the dismiss button or not.
-  dismiss: PropTypes.bool,
-  // Add a label.
-  label: PropTypes.string,
-  // Add a heading.
-  heading: PropTypes.string,
-  // Add content to the footer region.
-  footer: PropTypes.node
+  // Nodes and content.
+  children: propTypes.oneOfType([
+    propTypes.node,
+    propTypes.element,
+    propTypes.string
+  ]),
+  dismissBtn: propTypes.element,
+  icon: propTypes.element,
+  label: propTypes.string,
+  heading: propTypes.string,
+  footer: propTypes.node,
+
+  // State and Levers.
+  type: propTypes.oneOf(alertTypes),
+  isLargeIcon: propTypes.bool,
+  isLabelTop: propTypes.bool,
+  isIconTop: propTypes.bool,
+  hasDismiss: propTypes.bool,
+  hasIcon: propTypes.bool,
+  hasLabel: propTypes.bool,
+
+  // The CSS Classname property
+  classes: propTypes.shape(
+    {
+      wrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      container: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      dismissWrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      headerWrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      headerIcon: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      label: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      bodyWrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      bodyHeading: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      body: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ]),
+      footerWrapper: propTypes.oneOfType([
+        propTypes.string,
+        propTypes.object,
+        propTypes.array
+      ])
+    }
+  )
 }
 
+// Default Props.
+// -----------------------------------------------------------------------------
 Alert.defaultProps = {
-  variant: 'info',
-  dismiss: true,
-  label: 'Information',
-  heading: 'Alert Heading'
+  isLargeIcon: false,
+  isLabelTop: false,
+  isIconTop: false,
+  hasDismiss: true,
+  hasLabel: true,
+  hasIcon: true,
+  ref: null
 }
