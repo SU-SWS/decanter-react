@@ -7,7 +7,7 @@ import { buttonStyles, buttonSizes } from './Button.levers'
  *
  * HTML button element
  */
-export const Button = ({ className, children, onClick, type, ref, ...props }) => {
+export const Button = ({ classes, children, onClick, style, size, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const classnames = require('classnames')
@@ -19,10 +19,9 @@ export const Button = ({ className, children, onClick, type, ref, ...props }) =>
 
   return (
     <button
-      className={classnames('su-button', levers.button, className)}
+      className={classnames('su-button', levers.button, classes)}
       ref={ref}
       onClick={onClick}
-      type={type}
       {...props}
     >
       {children}
@@ -33,12 +32,14 @@ export const Button = ({ className, children, onClick, type, ref, ...props }) =>
 Button.propTypes = {
   // HTML Button type.
   type: propTypes.oneOf(['button', 'reset', 'submit']),
+  style: propTypes.oneOf(['primary', 'secondary', 'disabled']),
+  size: propTypes.oneOf(['default', 'big', 'small']),
 
   // Optional click handler
   onClick: propTypes.func,
 
   // CSS Classes.
-  className: propTypes.oneOfType([
+  classes: propTypes.oneOfType([
     propTypes.string,
     propTypes.array,
     propTypes.object
@@ -52,7 +53,12 @@ Button.propTypes = {
   ])
 }
 
+// Default Props.
+// -----------------------------------------------------------------------------
 Button.defaultProps = {
   onClick: undefined,
-  type: 'submit'
+  type: 'button',
+  style: 'primary',
+  size: 'default',
+  ref: null
 }

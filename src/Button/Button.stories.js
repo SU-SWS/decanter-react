@@ -1,36 +1,59 @@
 import React from 'react';
-
 import { Button } from './Button';
+import { buttonStyles, buttonSizes } from "./Button.levers";
+import DOMPurify from 'dompurify'
 
 export default {
   title: 'Simple/Button',
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    style: {
+      control: {
+        type: 'select',
+        options: buttonStyles
+      }
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: buttonSizes
+      }
+    }
+  }
 };
 
-const Template = (args) => <Button {...args} />;
+const ButtonTemplate = ({ children, ...rest }) => {
+  // We do this to mimic sending in CMS content or another React component.
+  const content = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />
+  return (
+    <Button {...rest}>{content}</Button>
+  )
+}
 
-export const Primary = Template.bind({});
+export const Primary = ButtonTemplate.bind({});
 Primary.args = {
-  primary: true,
-  label: 'Primary Button',
+  style: 'primary',
+  size: 'default',
+  children: 'Primary Button',
 };
 
-export const Secondary = Template.bind({});
+export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
-  label: 'Secondary Button',
+  style: 'secondary',
+  size: 'default',
+  children: 'Secondary Button',
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
+export const Big = ButtonTemplate.bind({});
+Big.args = {
+  style: 'primary',
+  size: 'big',
+  children: 'Big Button',
 };
 
-export const Small = Template.bind({});
+export const Small = ButtonTemplate.bind({});
 Small.args = {
+  style: 'primary',
   size: 'small',
-  label: 'Button',
+  children: 'Small Button',
 };
