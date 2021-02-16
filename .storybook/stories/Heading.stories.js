@@ -31,7 +31,8 @@ Heading.propTypes = {
 
 export default {
   title: 'HTML Elements/Headings',
-  component: Heading
+  component: Heading,
+  decorators: [(Story) => <div className="su-cc su-rs-my-2"><Story/></div>]
 }
 
 // Safety first.
