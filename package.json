@@ -2,28 +2,19 @@
   "name": "decanter-react",
   "version": "1.0.0-dev",
   "description": "Decanter React Library",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
-  "source": "src/index.js",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "engines": {
     "node": ">=14"
   },
   "scripts": {
-    "build": "microbundle-crl --no-compress --format modern,cjs",
-    "build:storybook": "build-storybook",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
-    "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
+    "build": "build-storybook",
+    "test": "run-s test:unit test:lint",
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build",
     "storybook": "start-storybook -p 6006"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0"
   },
   "repository": {
     "type": "git",
@@ -45,8 +36,11 @@
     "decanter": "git://github.com/su-sws/decanter.git#v7",
     "react-hero-icon": "^0.0.7"
   },
+  "peerDependencies": {
+    "react": "^16.14.0 || ^17.0.1",
+    "react-dom": "^16.14.0 || ^17.0.1"
+  },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
     "@storybook/addon-a11y": "^6.1.17",
     "@storybook/addon-actions": "^6.1.15",
     "@storybook/addon-essentials": "^6.1.15",
@@ -55,34 +49,19 @@
     "@storybook/node-logger": "^6.1.15",
     "@storybook/react": "^6.1.15",
     "@whitespace/storybook-addon-html": "^4.2.0",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.2.2",
     "classnames": "^2.2.6",
-    "create-react-library": "^3.1.1",
     "cross-env": "^7.0.2",
     "dompurify": "^2.2.6",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-standard": "^4.0.1",
-    "gh-pages": "^2.2.0",
-    "microbundle-crl": "^0.13.10",
-    "npm-run-all": "^4.1.5",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-scripts": "3.4.4",
     "storybook-addon-designs": "^5.4.3",
     "storybook-addon-pseudo-states": "^1.0.0-rc.3",
-    "storybook-dark-mode": "^1.0.4",
-    "tailwindcss-classnames": "^2.0.1"
-  },
-  "files": [
-    "dist"
-  ]
+    "storybook-dark-mode": "^1.0.4"
+  }
 }

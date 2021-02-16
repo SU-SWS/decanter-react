@@ -1,14 +1,4 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faAngleRight,
-  faArrowRight,
-  faAngleDown,
-  faDownload,
-  faLock,
-  faAngleDoubleRight, // Needs a double replacement.
-  faVideo
-} from '@fortawesome/free-solid-svg-icons'
 import styles from './index.module.css'
 
 export const StyledLink = (props) => {
@@ -19,32 +9,13 @@ export const StyledLink = (props) => {
 
   // Variant Sets.
   const variants = {
-    action: {
-      icon: <FontAwesomeIcon icon={faAngleRight} className={styles.linkIcon} />
-    },
-    download: {
-      icon: <FontAwesomeIcon icon={faDownload} className={styles.linkIcon} />
-    },
-    external: {
-      icon: <FontAwesomeIcon icon={faArrowRight} className={styles.linkIcon} />
-    },
-    internal: {
-      icon: <FontAwesomeIcon icon={faLock} className={styles.linkIcon} />
-    },
-    jump: {
-      icon: <FontAwesomeIcon icon={faAngleDown} className={styles.linkIcon} />
-    },
-    more: {
-      icon: (
-        <FontAwesomeIcon
-          icon={faAngleDoubleRight}
-          className={styles.linkIcon}
-        />
-      )
-    },
-    video: {
-      icon: <FontAwesomeIcon icon={faVideo} className={styles.linkIcon} />
-    },
+    action: {},
+    download: {},
+    external: {},
+    internal: {},
+    jump: {},
+    more: {},
+    video: {},
     button: {
       wrapper: 'su-button'
     },
