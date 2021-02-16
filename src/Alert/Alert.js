@@ -84,7 +84,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   const DefaultDismiss = (
     <Button
       className={classnames(
-        'su-p-0 su-text-20 su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-uppercase su-font-semibold su-inline-block',
+        'su-p-0 su-text-17 su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-uppercase su-font-bold su-inline-block su-tracking-widest',
         levers.dismiss,
         classes.dismiss
       )}
@@ -105,7 +105,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // ---------------------------------------------------------------------------
   return (
     <div className={classnames('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
-      <div className={classnames('su-cc su-flex su-flex-wrap su-py-10 sm:su-items-center', levers.container, classes.container)}>
+      <div className={classnames('su-cc su-flex su-flex-wrap su-rs-pt-1 su-rs-pb-neg1 sm:su-items-center', levers.container, classes.container)}>
 
         {props.hasDismiss && (
           <div className={classnames('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
@@ -122,7 +122,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
           )}
 
           {(props.hasLabel && !props.isLabelTop) && (
-            <span className={classnames('su-inline-block su-uppercase su-font-semibold su-text-170rem', levers.label, classes.label)}>
+            <span className={classnames('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
               {props.label ?? 'Information'}
             </span>
           )}
@@ -138,13 +138,13 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
           )}
 
           {(props.hasLabel && props.isLabelTop) && (
-            <span className={classnames('su-uppercase su-font-semibold su-text-170rem', levers.label, classes.label)}>
+            <span className={classnames('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
               {props.label ?? 'Information'}
             </span>
           )}
 
           {props.heading && (
-            <h3 className={classnames('su-type-3', levers.bodyHeading, classes.bodyHeading)}>
+            <h3 className={classnames('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)}>
               {props.heading}
             </h3>
           )}
