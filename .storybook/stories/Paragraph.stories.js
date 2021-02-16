@@ -41,40 +41,46 @@ Short.args = {
   children: textShort
 }
 
+export const Type0 = Template.bind({});
+Type0.args = {
+  className: 'su-type-0',
+  children: 'Modular Typography 0'
+}
+
 export const Type1 = Template.bind({});
 Type1.args = {
   className: 'su-type-1',
-  children: 'Heading Example'
+  children: 'Modular Typography 1'
 }
 
 export const Type2 = Template.bind({});
 Type2.args = {
   className: 'su-type-2',
-  children: 'Heading Example'
+  children: 'Modular Typography 2'
 }
 
 export const Type3 = Template.bind({});
 Type3.args = {
   className: 'su-type-3',
-  children: 'Heading Example'
+  children: 'Modular Typography 3'
 }
 
 export const Type4 = Template.bind({});
 Type4.args = {
   className: 'su-type-4',
-  children: 'Heading Example'
+  children: 'Modular Typography 4'
 }
 
 export const Type5 = Template.bind({});
 Type5.args = {
   className: 'su-type-5',
-  children: 'Heading Example'
+  children: 'Modular Typography 5'
 }
 
 export const Type6 = Template.bind({});
 Type6.args = {
   className: 'su-type-6',
-  children: 'Heading Example'
+  children: 'Modular Typography 6'
 }
 
 export const MixedContent = DangerTemplate.bind({});
