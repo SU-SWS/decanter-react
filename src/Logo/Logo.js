@@ -43,7 +43,7 @@ export const Logo = ({ className, ...props }) => {
         break;
 
       case 'stacked':
-        logoText = 'Stanford \n University';
+        logoText = (<>Stanford <br /> University</>);
         break;
     }
   }
