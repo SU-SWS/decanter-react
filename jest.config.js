@@ -1,9 +1,5 @@
 module.exports = {
   "verbose": true,
-  "roots": [
-    "<rootDir>/node_modules",
-    "<rootDir>/src"
-  ],
   "testPathIgnorePatterns": [
     "/node_modules/",
     "/docs/"

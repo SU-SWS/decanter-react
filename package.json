@@ -13,10 +13,10 @@
     "prebuild": "npm run test:gen",
     "build": "build-storybook",
     "lint": "eslint .",
-    "test": "jest --no-cache",
+    "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --no-cache",
-    "test:gen": "jest --no-cache --json --outputFile=./.storybook/.jest-test-results.json",
+    "test:coverage": "jest --coverage",
+    "test:gen": "jest --json --outputFile=./.storybook/.jest-test-results.json",
     "predev": "npm run test:gen",
     "dev": "start-storybook -p 6006"
   },
