@@ -1,5 +1,6 @@
 import React from 'react';
 import { GlobalFooter } from './GlobalFooter';
+import { Logo } from '../Logo/Logo';
 import { SrOnlyLabel } from "../SrOnlyLabel/SrOnlyLabel";
 import { withDesign } from 'storybook-addon-designs';
 import { GlobalFooterColors } from './GlobalFooter.levers';
@@ -8,7 +9,7 @@ export default {
   title: 'Stanford Identity/Global Footer',
   decorators: [withDesign],
   component: GlobalFooter,
-  subcomponents: { SrOnlyLabel },
+  subcomponents: { SrOnlyLabel, Logo },
   argTypes: {
     color: {
       control: {
