@@ -47,8 +47,12 @@ const customViewports = {
 
 // Configuration.
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: { expanded: true },
+  actions: {
+    argTypesRegex: '^on.*'
+  },
+  controls: {
+    expanded: true
+  },
   html: {
     prettier: {
       tabWidth: 2,

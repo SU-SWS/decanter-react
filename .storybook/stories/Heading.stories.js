@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { centered } from "./Decorators"
 
 const defaultText = "Lorem Ipsum Dolor Sit Amit"
 
@@ -32,7 +33,7 @@ Heading.propTypes = {
 export default {
   title: 'HTML Elements/Headings',
   component: Heading,
-  decorators: [(Story) => <div className="su-cc su-rs-my-2"><Story/></div>]
+  decorators: centered
 }
 
 // Safety first.

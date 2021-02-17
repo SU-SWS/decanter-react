@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { centered } from "./Decorators"
 
 const BlockquoteComponent = ({children, ...props}) => {
   return (
@@ -11,14 +12,14 @@ const BlockquoteComponent = ({children, ...props}) => {
   )
 }
 
-BlockquoteComponent.PropTypes = {
+BlockquoteComponent.propTypes = {
   className: PropTypes.string,
 }
 
 export default {
   title: 'HTML Elements/Blockquote',
   component: BlockquoteComponent,
-  decorators: [(Story) => <div className="su-cc su-rs-my-2"><Story/></div>]
+  decorators: centered
 };
 
 // Safety first.
