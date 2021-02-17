@@ -3,7 +3,8 @@ name: "Run Jest Tests"
 # Trigger the workflow on merge of pull request or direct push,
 # but only for the main branch
 on:
-  [ push, pull_request ]
+  pull_request :
+    types: [ opened, edited, synchronize, reopened]
 
 jobs:
   tests:
