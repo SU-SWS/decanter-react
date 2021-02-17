@@ -65,6 +65,7 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
       ref={ref}
       onClick={onClick}
       type={type}
+      disabled={isDisabled}
       {...props}
     >
       {children}

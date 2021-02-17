@@ -24,6 +24,9 @@ export default {
         type: 'select',
         options: buttonTypes
       }
+    },
+    onClick: {
+      action: 'clicked'
     }
   }
 };
