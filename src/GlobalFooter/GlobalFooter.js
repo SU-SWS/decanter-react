@@ -34,7 +34,7 @@ export const GlobalFooter = ({ className, ...props }) => {
     <div className={classnames('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className)}>
       <div className='su-cc su-flex su-flex-col lg:su-flex-row' title='Common Stanford resources'>
         <div className='su-text-center su-mt-5 su-mb-9'>
-          <Logo className={classnames('su-type-3')} color={levers.logo} type="stacked" />
+          <Logo className={classnames('su-type-3')} type="stacked" />
         </div>
         <div className='lg:su-pl-45 xl:su-pl-50 su-text-left sm:su-text-center lg:su-text-left su-flex-grow'>
           <nav
