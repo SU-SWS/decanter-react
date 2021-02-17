@@ -2,17 +2,17 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import { SrOnlyText } from './SrOnlyText'
+import { Logo } from './Logo'
 
 // Component is a component.
-describe('SrOnlyText', () => {
+describe('Logo', () => {
   // Is a component with valid syntax.
   it('is truthy', () => {
-    expect(SrOnlyText).toBeTruthy()
+    expect(Logo).toBeTruthy()
   })
 
   // Default is rendered.
-  it('renders the SrOnlyText in the default state', () => {
-    render(<SrOnlyText />)
+  it('renders the Logo in the default state', () => {
+    render(<Logo />)
   })
 })
