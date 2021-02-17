@@ -24,7 +24,7 @@ const Template = (args) => <Video {...args} />
 export const Controls = Template.bind({})
 Controls.args = {
   className: '',
-  controls: 'true',
+  controls: true,
   autoplay: false,
   loop: false,
   muted: false,
@@ -36,7 +36,7 @@ export const NoControls = Template.bind({})
 NoControls.args = {
   className: '',
   controls: false,
-  autoplay: 'true',
+  autoplay: true,
   loop: false,
   muted: false,
   preload: 'none',
@@ -45,7 +45,7 @@ NoControls.args = {
 export const WithPoster = Template.bind({})
 WithPoster.args = {
   className: '',
-  controls: 'true',
+  controls: true,
   autoplay: false,
   loop: false,
   muted: false,
@@ -55,11 +55,11 @@ WithPoster.args = {
 
 Video.propTypes = {
   className: PropTypes.string,
-  autoplay: PropTypes.oneOf(['true', 'false']),
-  loop: PropTypes.oneOf(['true', 'false']),
-  muted: PropTypes.oneOf(['true', 'false']),
+  autoplay: PropTypes.bool,
+  loop: PropTypes.bool,
+  muted: PropTypes.bool,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
-  controls: PropTypes.oneOf(['true', 'false']),
+  controls: PropTypes.bool,
   poster: PropTypes.string
 }
 
@@ -68,6 +68,6 @@ Video.defaultProps = {
   loop: false,
   muted: false,
   preload: 'none',
-  controls: 'true',
+  controls: true,
   poster: false
 }
