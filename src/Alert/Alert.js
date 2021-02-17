@@ -180,7 +180,11 @@ Alert.propTypes = {
   icon: PropTypes.element,
   label: PropTypes.string,
   heading: PropTypes.string,
-  footer: PropTypes.node,
+  footer: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.string
+  ]),
 
   // State and Levers.
   type: PropTypes.oneOf(alertTypes),

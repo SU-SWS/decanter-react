@@ -42,14 +42,12 @@ const ButtonTemplate = ({ children, ...rest }) => {
 export const Primary = ButtonTemplate.bind({});
 Primary.args = {
   variant: 'primary',
-  size: 'default',
   children: 'Primary Button',
 };
 
 export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
   variant: 'secondary',
-  size: 'default',
   children: 'Secondary Button',
 };
 
@@ -70,7 +68,6 @@ Small.args = {
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
   variant: 'primary',
-  size: 'default',
   isDisabled: true,
   children: 'Disabled Button',
 };

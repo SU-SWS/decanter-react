@@ -132,8 +132,9 @@ BigIcon.args = {
 }
 BigIcon.storyName = 'Big Icon + No Label'
 
-export const NoHeader = AlertTemplate.bind({})
-NoHeader.args = {
+export const WithHeader = AlertTemplate.bind({})
+WithHeader.args = {
+  heading: 'Alert Lorem Ipsum',
   children: textMixed,
   isLabelTop: true,
   isLargeIcon: true
