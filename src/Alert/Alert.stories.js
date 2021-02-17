@@ -20,7 +20,10 @@ export default {
       description: {
         component: 'For displaying a notification that keeps people informed of a status, or for displaying a validation message that alerts someone of an important piece of information.'
       }
-    }
+    },
+    jest: [
+      'Alert.test.js'
+    ]
   },
   argTypes: {
     type: {
@@ -46,9 +49,6 @@ const AlertTemplate = ({ children, ...rest }) => {
 export const Default = AlertTemplate.bind({})
 Default.args = {
   children: textMixed
-}
-Default.parameters = {
-  jest: ['Alert.test.js']
 }
 
 export const Info = AlertTemplate.bind({})
