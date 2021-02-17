@@ -104,6 +104,12 @@ Intro.args = {
 
 export const Big = Template.bind({})
 Big.args = {
-  ...Short.args,
+  ...Default.args,
   className: 'su-big-paragraph'
+}
+
+export const Card = Template.bind({})
+Card.args = {
+  ...Default.args,
+  className: 'su-card-paragraph'
 }

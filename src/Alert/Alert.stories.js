@@ -20,7 +20,10 @@ export default {
       description: {
         component: 'For displaying a notification that keeps people informed of a status, or for displaying a validation message that alerts someone of an important piece of information.'
       }
-    }
+    },
+    jest: [
+      'Alert.test.js'
+    ]
   },
   argTypes: {
     type: {
@@ -45,17 +48,12 @@ const AlertTemplate = ({ children, ...rest }) => {
 // /////////////////////////////////////////////////////////////////////////////
 export const Default = AlertTemplate.bind({})
 Default.args = {
-  children: textMixed,
-  heading: 'Alert Lorem Ipsum'
-}
-Default.parameters = {
-  jest: ['Alert.test.js']
+  children: textMixed
 }
 
 export const Info = AlertTemplate.bind({})
 Info.args = {
   children: textMixed,
-  heading: 'Alert Lorem Ipsum',
   type: 'info'
 }
 
@@ -71,8 +69,8 @@ Info.parameters = {
 export const Error = AlertTemplate.bind({})
 Error.args = {
   children: textMixed,
-  heading: 'Alert Lorem Ipsum',
-  type: 'error'
+  type: 'error',
+  label: 'error'
 }
 Error.parameters = {
   docs: {
@@ -85,8 +83,8 @@ Error.parameters = {
 export const Warning = AlertTemplate.bind({})
 Warning.args = {
   children: textMixed,
-  heading: 'Alert Lorem Ipsum',
-  type: 'warning'
+  type: 'warning',
+  label: 'warning'
 }
 Warning.parameters = {
   docs: {
@@ -99,8 +97,8 @@ Warning.parameters = {
 export const Success = AlertTemplate.bind({})
 Success.args = {
   children: textMixed,
-  heading: 'Alert Lorem Ipsum',
-  type: 'success'
+  type: 'success',
+  label: 'success'
 }
 Success.parameters = {
   docs: {
@@ -113,7 +111,6 @@ Success.parameters = {
 export const LabelsOnTop = AlertTemplate.bind({})
 LabelsOnTop.args = {
   children: textMixed,
-  heading: 'Alert Lorem Ipsum',
   isIconTop: true,
   isLabelTop: true
 }
@@ -135,8 +132,9 @@ BigIcon.args = {
 }
 BigIcon.storyName = 'Big Icon + No Label'
 
-export const NoHeader = AlertTemplate.bind({})
-NoHeader.args = {
+export const WithHeader = AlertTemplate.bind({})
+WithHeader.args = {
+  heading: 'Alert Lorem Ipsum',
   children: textMixed,
   isLabelTop: true,
   isLargeIcon: true
