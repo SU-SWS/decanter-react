@@ -20,7 +20,7 @@ export default {
 };
 
 // Set up an Alert Template.
-const IdentityBarTemplate = ({ ...rest }) => <IdentityBar {...rest} />;
+const IdentityBarTemplate = (props) => <IdentityBar {...props} />;
 
 export const Default = IdentityBarTemplate.bind({});
 Default.args = {
