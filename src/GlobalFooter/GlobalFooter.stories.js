@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalFooter } from './GlobalFooter';
 import { Logo } from '../Logo/Logo';
-import { SrOnlyLabel } from "../SrOnlyLabel/SrOnlyLabel";
+import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import { withDesign } from 'storybook-addon-designs';
 import { GlobalFooterColors } from './GlobalFooter.levers';
 
@@ -9,7 +9,7 @@ export default {
   title: 'Stanford Identity/Global Footer',
   decorators: [withDesign],
   component: GlobalFooter,
-  subcomponents: { SrOnlyLabel, Logo },
+  subcomponents: { SrOnlyText, Logo },
   argTypes: {
     color: {
       control: {
@@ -20,7 +20,7 @@ export default {
   }
 };
 
-// Set up an Alert Template.
+// Set up a Global Footer Template.
 const GlobalFooterTemplate = ({ children, ...rest }) => <GlobalFooter {...rest} />;
 
 export const Default = GlobalFooterTemplate.bind({});

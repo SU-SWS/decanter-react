@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-export const SrOnlyLabel = (props) => {
+export const SrOnlyText = (props) => {
   return (
     <span className='su-sr-only'>{props.srText ?? '(link is external)'}</span>
   );
@@ -9,15 +9,15 @@ export const SrOnlyLabel = (props) => {
 
 // Prop Types.
 // -----------------------------------------------------------------------------
-SrOnlyLabel.propTypes = {
+SrOnlyText.propTypes = {
   /**
-   * Text label for screen reader only
+   * Text for screen reader only
    */
   srText: PropTypes.string
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
-SrOnlyLabel.defaultProps = {
+SrOnlyText.defaultProps = {
   srText: '(link is external)'
 };

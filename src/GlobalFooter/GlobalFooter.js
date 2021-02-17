@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { GlobalFooterColors } from './GlobalFooter.levers';
 import { Logo } from '../Logo/Logo';
-import { SrOnlyLabel } from '../SrOnlyLabel/SrOnlyLabel';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
 
 /**
  * Stanford Global Footer Component.
@@ -47,25 +47,25 @@ export const GlobalFooter = ({ className, ...props }) => {
               <li className='sm:su-mr-10 md:su-mr-20 lg:su-mr-27'>
                 <a href='https://www.stanford.edu'>
                   Stanford Home
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
               <li className='sm:su-mr-10 md:su-mr-20 lg:su-mr-27'>
                 <a href='https://visit.stanford.edu/plan/'>
                   Maps &amp; Directions
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
               <li className='sm:su-mr-10 md:su-mr-20 lg:su-mr-27'>
                 <a href='https://www.stanford.edu/search/'>
                   Search Stanford
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
               <li>
                 <a href='https://emergency.stanford.edu'>
                   Emergency Info
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
             </ul>
@@ -75,37 +75,37 @@ export const GlobalFooter = ({ className, ...props }) => {
               <li className='sm:su-mr-10 md:su-mr-20 lg:su-mr-27'>
                 <a href='https://www.stanford.edu/site/terms/' title='Terms of use for sites'>
                   Terms of Use
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
               <li className='sm:su-mr-10 md:su-mr-20 lg:su-mr-27'>
                 <a href='https://www.stanford.edu/site/privacy/' title='Privacy and cookie policy'>
                   Privacy
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
               <li className='sm:su-mr-10 md:su-mr-20 lg:su-mr-27'>
                 <a href='https://uit.stanford.edu/security/copyright-infringement' title='Report alleged copyright infringement'>
                   Copyright
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
               <li className='sm:su-mr-10 md:su-mr-20 lg:su-mr-27'>
                 <a href='https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4' title='Ownership and use of Stanford trademarks and images'>
                   Trademarks
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
               <li className='sm:su-mr-10 md:su-mr-20 lg:su-mr-27'>
                 <a href='http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/' title='Non-discrimination policy'>
                   Non-Discrimination
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
               <li>
                 <a href='https://www.stanford.edu/site/accessibility' title='Report web accessibility issues'>
                   Accessibility
-                  <SrOnlyLabel />
+                  <SrOnlyText />
                 </a>
               </li>
             </ul>
