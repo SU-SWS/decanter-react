@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from './Button';
-import { buttonVariants, buttonSizes } from "./Button.levers";
+import { buttonVariants, buttonSizes, buttonTypes } from "./Button.levers";
 import DOMPurify from 'dompurify'
 
 export default {
@@ -9,14 +9,20 @@ export default {
   argTypes: {
     variant: {
       control: {
-        type: 'radio',
+        type: 'select',
         options: buttonVariants
       }
     },
     size: {
       control: {
-        type: 'radio',
+        type: 'select',
         options: buttonSizes
+      }
+    },
+    type: {
+      control: {
+        type: 'select',
+        options: buttonTypes
       }
     }
   }

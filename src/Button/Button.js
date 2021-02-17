@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { buttonVariants, buttonSizes } from './Button.levers'
+import { buttonVariants, buttonSizes, buttonTypes } from "./Button.levers";
 
 /**
  * Button Component
@@ -37,15 +37,15 @@ export const Button = ({ className, children, onClick, ref, ...props }) => {
   if (props.size && buttonSizes.includes(props.size)) {
     switch (props.size) {
       case 'default':
-        levers.size = classnames('su-px-26 su-py-12 su-text-20')
+        levers.size = classnames('su-px-27 su-py-12 su-text-20')
         break
 
       case 'big':
-        levers.size = classnames('su-px-30 su-py-16 su-text-22')
+        levers.size = classnames('su-px-34 su-py-15 su-text-22')
         break
 
       case 'small':
-        levers.size = classnames('su-px-20 su-py-1 su-text-18')
+        levers.size = classnames('su-px-20 su-py-10 su-text-18')
         break
 
       case 'minimal':
@@ -56,7 +56,7 @@ export const Button = ({ className, children, onClick, ref, ...props }) => {
 
   return (
     <button
-      className={classnames('su-button su-font-semibold', levers.variant, levers.size, className)}
+      className={classnames('su-button', levers.variant, levers.size, className)}
       ref={ref}
       onClick={onClick}
       type={props.type}
@@ -69,7 +69,7 @@ export const Button = ({ className, children, onClick, ref, ...props }) => {
 
 Button.propTypes = {
   // HTML Button type.
-  type: PropTypes.oneOf(['button', 'reset', 'submit']),
+  type: PropTypes.oneOf(buttonTypes),
   variant: PropTypes.oneOf(buttonVariants),
   size: PropTypes.oneOf(buttonSizes),
   isDisabled: PropTypes.bool,
