@@ -9,13 +9,13 @@ export default {
   argTypes: {
     style: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: buttonStyles
       }
     },
     size: {
       control: {
-        type: 'select',
+        type: 'radio',
         options: buttonSizes
       }
     }

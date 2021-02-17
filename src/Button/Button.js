@@ -7,7 +7,7 @@ import { buttonStyles, buttonSizes } from './Button.levers'
  *
  * HTML button element
  */
-export const Button = ({ classes, children, onClick, style, size, ref, ...props }) => {
+export const Button = ({ className, children, onClick, style, size, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const classnames = require('classnames')
@@ -15,13 +15,43 @@ export const Button = ({ classes, children, onClick, style, size, ref, ...props 
 
   // Levers
   // ---------------------------------------------------------------------------
-  levers.button = classnames(buttonStyles, buttonSizes);
+
+  // Props.style
+  if (props.style && buttonStyles.includes(props.style)) {
+    switch (props.style) {
+      case 'primary':
+        levers.style = classnames('su-bg-digital-red su-text-white')
+        break
+
+      case 'secondary':
+        levers.style = classnames('su-bg-transparent su-text-digital-red')
+        break
+    }
+  }
+
+  // Props.size
+  if (props.size && buttonSizes.includes(props.size)) {
+    switch (props.size) {
+      case 'default':
+        levers.size = classnames('su-px-26 su-py-12 su-text-20')
+        break
+
+      case 'big':
+        levers.size = classnames('su-px-30 su-py-16 su-text-22')
+        break
+
+      case 'small':
+        levers.size = classnames('su-px-20 su-py-1 su-text-18')
+        break
+    }
+  }
 
   return (
     <button
-      className={classnames('su-button', levers.button, classes)}
+      className={classnames('su-button su-font-semibold', levers.style, levers.size, className)}
       ref={ref}
       onClick={onClick}
+      type={props.type}
       {...props}
     >
       {children}
@@ -34,12 +64,13 @@ Button.propTypes = {
   type: propTypes.oneOf(['button', 'reset', 'submit']),
   style: propTypes.oneOf(buttonStyles),
   size: propTypes.oneOf(buttonSizes),
+  isDisabled: propTypes.bool,
 
   // Optional click handler
   onClick: propTypes.func,
 
   // CSS Classes.
-  classes: propTypes.oneOfType([
+  className: propTypes.oneOfType([
     propTypes.string,
     propTypes.array,
     propTypes.object
@@ -60,5 +91,6 @@ Button.defaultProps = {
   type: 'button',
   style: 'primary',
   size: 'default',
+  isDisabled: false,
   ref: null
 }

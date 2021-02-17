@@ -1,9 +1,7 @@
-const classnames = require('classnames')
-
 /**
  * Styles for the button.
  */
-export const buttonStyles = ['primary', 'secondary', 'disabled']
+export const buttonStyles = ['primary', 'secondary']
 
 /**
  * Size of the button
