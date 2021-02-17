@@ -37,9 +37,9 @@ NoControls.args = {
   className: '',
   controls: false,
   autoplay: true,
-  loop: false,
-  muted: false,
-  preload: 'none',
+  loop: true,
+  muted: true,
+  preload: 'auto',
 }
 
 export const WithPoster = Template.bind({})
