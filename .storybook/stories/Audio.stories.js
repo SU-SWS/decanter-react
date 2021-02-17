@@ -22,28 +22,28 @@ const Template = (args) => <Audio {...args} />
 export const Controls = Template.bind({})
 Controls.args = {
   className: '',
-  controls: 'true',
+  controls: true,
   autoplay: false,
-  loop: 'false',
-  muted: 'false',
+  loop: false,
+  muted: false,
   preload: 'none',
 }
 
 export const NoControls = Template.bind({})
 NoControls.args = {
   className: '',
-  controls: 'false',
-  autoplay: 'true',
-  loop: 'false',
-  muted: 'false',
+  controls: false,
+  autoplay: true,
+  loop: false,
+  muted: false,
   preload: 'none',
 }
 
 Audio.propTypes = {
   className: PropTypes.string,
   autoplay: PropTypes.bool,
-  loop: PropTypes.oneOf(['true', 'false']),
-  muted: PropTypes.oneOf(['true', 'false']),
+  loop: PropTypes.bool,
+  muted: PropTypes.bool,
   preload: PropTypes.oneOf(['auto', 'metadata', 'none']),
   src: PropTypes.string,
   controls: PropTypes.bool,
@@ -51,9 +51,9 @@ Audio.propTypes = {
 
 Audio.defaultProps = {
   autoplay: false,
-  loop: 'false',
-  muted: 'false',
+  loop: false,
+  muted: false,
   preload: 'none',
-  controls: 'true',
+  controls: true,
   src: 'https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3',
 }

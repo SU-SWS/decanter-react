@@ -70,6 +70,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-test-renderer": "^16.14.0",
+    "realpath-native": "^3.0.0",
     "storybook-addon-designs": "^5.4.3",
     "storybook-addon-pseudo-states": "^1.0.0-rc.3",
     "storybook-dark-mode": "^1.0.4"
