@@ -10,7 +10,6 @@
     "node": ">=14"
   },
   "scripts": {
-    "prebuild": "npm run test:gen",
     "build": "build-storybook",
     "lint": "eslint .",
     "test": "jest",
@@ -46,7 +45,6 @@
     "@storybook/addon-a11y": "^6.1.17",
     "@storybook/addon-actions": "^6.1.15",
     "@storybook/addon-essentials": "^6.1.15",
-    "@storybook/addon-jest": "^6.1.18",
     "@storybook/addon-links": "^6.1.15",
     "@storybook/addon-viewport": "^6.1.17",
     "@storybook/node-logger": "^6.1.15",
