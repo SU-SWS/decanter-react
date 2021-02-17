@@ -1,12 +1,14 @@
 import React from 'react';
 import { IdentityBar } from './IdentityBar';
+import { Logo } from '../Logo/Logo';
 import { withDesign } from 'storybook-addon-designs';
 import { IdentityBarColors } from './IdentityBar.levers';
 
 export default {
   title: 'Stanford Identity/Identity Bar',
   decorators: [withDesign],
-  component: IdentityBar
+  component: IdentityBar,
+  subcomponents: { Logo }
 };
 
 // Set up an Alert Template.
