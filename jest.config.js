@@ -9,9 +9,5 @@ module.exports = {
     "js",
     "jsx",
     "json"
-  ],
-  "moduleDirectories": [
-    "node_modules",
-    "src"
   ]
 }

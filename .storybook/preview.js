@@ -2,9 +2,6 @@
 import 'decanter/dist/decanter.css'
 import 'decanter/dist/decanter.js'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { addDecorator } from '@storybook/react'
-import { withTests } from '@storybook/addon-jest'
-import results from './.jest-test-results.json';
 
 // Our Breakpoints
 const customViewports = {
@@ -47,8 +44,12 @@ const customViewports = {
 
 // Configuration.
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: { expanded: true },
+  actions: {
+    argTypesRegex: '^on.*'
+  },
+  controls: {
+    expanded: true
+  },
   html: {
     prettier: {
       tabWidth: 2,
@@ -151,10 +152,3 @@ export const parameters = {
     ],
   }
 }
-
-// Add the test results decoration.
-addDecorator(
-  withTests({
-    results,
-  })
-);

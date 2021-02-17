@@ -9,10 +9,7 @@ export default {
       description: {
         component: 'For adding text for screen readers that is not visible.'
       }
-    },
-    jest: [
-      'SrOnlyText.test.js'
-    ]
+    }
   }
 }
 

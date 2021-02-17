@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { centered } from "./Decorators"
 
 const List = ({type, ...props}) => {
   switch (type) {
@@ -31,14 +32,14 @@ const List = ({type, ...props}) => {
   }
 }
 
-List.PropTypes = {
+List.propTypes = {
   className: PropTypes.string
 }
 
 export default {
   title: 'HTML Elements/List',
   component: List,
-  decorators: [(Story) => <div className="su-cc su-rs-my-2"><Story/></div>]
+  decorators: centered
 };
 
 // Safety first.

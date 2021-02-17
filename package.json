@@ -10,14 +10,11 @@
     "node": ">=14"
   },
   "scripts": {
-    "prebuild": "npm run test:gen",
     "build": "build-storybook",
     "lint": "eslint .",
-    "test": "jest --no-cache",
+    "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --no-cache",
-    "test:gen": "jest --no-cache --json --outputFile=./.storybook/.jest-test-results.json",
-    "predev": "npm run test:gen",
+    "test:coverage": "jest --coverage",
     "dev": "start-storybook -p 6006"
   },
   "repository": {
@@ -46,7 +43,6 @@
     "@storybook/addon-a11y": "^6.1.17",
     "@storybook/addon-actions": "^6.1.15",
     "@storybook/addon-essentials": "^6.1.15",
-    "@storybook/addon-jest": "^6.1.18",
     "@storybook/addon-links": "^6.1.15",
     "@storybook/addon-viewport": "^6.1.17",
     "@storybook/node-logger": "^6.1.15",
