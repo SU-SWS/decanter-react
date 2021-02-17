@@ -17,6 +17,15 @@ export default {
         options: GlobalFooterColors
       }
     },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A23'
+    },
+    jest: [
+      'GlobalFooter.test.js'
+    ]
   }
 };
 
@@ -38,12 +47,4 @@ DigitalRed.storyName = 'Digital Red'
 export const Black = GlobalFooterTemplate.bind({});
 Black.args = {
   color: 'black',
-};
-
-// Connect a Figma Preview.
-Default.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A23'
-  }
 };

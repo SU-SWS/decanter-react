@@ -16,6 +16,15 @@ export default {
         options: IdentityBarColors
       }
     },
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A23'
+    },
+    jest: [
+      'IdentityBar.test.js'
+    ]
   }
 };
 
@@ -42,12 +51,4 @@ Black.args = {
 export const White = IdentityBarTemplate.bind({});
 White.args = {
   color: 'white',
-};
-
-// Connect a Figma Preview.
-Default.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A23'
-  }
 };

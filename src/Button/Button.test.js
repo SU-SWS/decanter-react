@@ -2,17 +2,18 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
-import { SrOnlyText } from './SrOnlyText'
+import { Button } from './Button'
 
 // Component is a component.
-describe('SrOnlyText', () => {
+describe('Button', () => {
   // Is a component with valid syntax.
   it('is truthy', () => {
-    expect(SrOnlyText).toBeTruthy()
+    expect(Button).toBeTruthy()
   })
 
   // Default is rendered.
-  it('renders the SrOnlyText in the default state', () => {
-    render(<SrOnlyText />)
+  it('renders the Button in the default state', () => {
+    render(<Button>Test Children</Button>)
+    screen.getByText('Test Children') // full string match
   })
 })

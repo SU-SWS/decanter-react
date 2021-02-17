@@ -18,6 +18,11 @@ export default {
         options: LogoTypes
       }
     },
+  },
+  parameters: {
+    jest: [
+      'Logo.test.js'
+    ]
   }
 };
 

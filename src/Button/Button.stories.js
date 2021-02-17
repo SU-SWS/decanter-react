@@ -28,6 +28,11 @@ export default {
     onClick: {
       action: 'clicked'
     }
+  },
+  parameters: {
+    jest: [
+      'Button.test.js'
+    ]
   }
 };
 
