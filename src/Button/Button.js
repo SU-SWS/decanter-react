@@ -33,7 +33,7 @@ Button.propTypes = {
   // HTML Button type.
   type: propTypes.oneOf(['button', 'reset', 'submit']),
   style: propTypes.oneOf(buttonStyles),
-  size: propTypes.oneOf(['default', 'big', 'small']),
+  size: propTypes.oneOf(buttonSizes),
 
   // Optional click handler
   onClick: propTypes.func,
