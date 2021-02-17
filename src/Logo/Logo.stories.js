@@ -22,7 +22,7 @@ export default {
 };
 
 // Set up an Alert Template.
-const LogoTemplate = ({ children, ...rest }) => <Logo {...rest} />;
+const LogoTemplate = (props) => <Logo {...props} />;
 
 export const Red = LogoTemplate.bind({});
 Red.args = {
