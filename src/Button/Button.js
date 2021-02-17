@@ -20,15 +20,15 @@ export const Button = ({ className, children, onClick, ref, ...props }) => {
   if (props.variant && buttonVariants.includes(props.variant)) {
     switch (props.variant) {
       case 'primary':
-        levers.variant = classnames('su-bg-digital-red su-text-white')
+        levers.variant = classnames('su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black')
         break
 
       case 'secondary':
-        levers.variant = classnames('su-bg-transparent su-text-digital-red')
+        levers.variant = classnames('su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-text-digital-red hover:su-text-black focus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black')
         break
 
       case 'none':
-        levers.variant = classnames('su-bg-transparent su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent')
+        levers.variant = classnames('su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent')
         break
     }
   }
@@ -37,7 +37,7 @@ export const Button = ({ className, children, onClick, ref, ...props }) => {
   if (props.size && buttonSizes.includes(props.size)) {
     switch (props.size) {
       case 'default':
-        levers.size = classnames('su-px-27 su-py-12 su-text-20')
+        levers.size = classnames('su-px-26 su-py-10 su-text-20')
         break
 
       case 'big':
@@ -45,7 +45,7 @@ export const Button = ({ className, children, onClick, ref, ...props }) => {
         break
 
       case 'small':
-        levers.size = classnames('su-px-20 su-py-10 su-text-18')
+        levers.size = classnames('su-px-19 su-py-9 su-text-18')
         break
 
       case 'minimal':
