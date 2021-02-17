@@ -32,7 +32,7 @@ export const Button = ({ classes, children, onClick, style, size, ref, ...props 
 Button.propTypes = {
   // HTML Button type.
   type: propTypes.oneOf(['button', 'reset', 'submit']),
-  style: propTypes.oneOf(['primary', 'secondary', 'disabled']),
+  style: propTypes.oneOf(buttonStyles),
   size: propTypes.oneOf(['default', 'big', 'small']),
 
   // Optional click handler
