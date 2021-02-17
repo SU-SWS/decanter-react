@@ -85,6 +85,6 @@
       "jsx",
       "json"
     ],
-    "moduleDirectories": ["node_modules"]
+    "moduleDirectories": ["node_modules", "src"]
   }
 }
