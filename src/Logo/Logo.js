@@ -7,7 +7,7 @@ import { LogoColors, LogoTypes } from './Logo.levers';
  *
  */
 export const Logo = ({ className, ...props }) => {
-  const classnames = require('classnames');
+  const classnames = require('classnames/dedupe');
   const levers = {};
   let logoText;
 

@@ -10,7 +10,7 @@ import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
  */
 export const GlobalFooter = ({ className, ...props }) => {
   // Defaults & Variables
-  const classnames = require('classnames');
+  const classnames = require('classnames/dedupe');
   const levers = {};
 
   // props.color

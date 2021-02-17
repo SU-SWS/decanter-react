@@ -14,7 +14,7 @@ import Icon from 'react-hero-icon'
  */
 export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // Defaults & Variables
-  const classnames = require('classnames')
+  const classnames = require('classnames/dedupe')
   const levers = {}
   const iconProps = { height: 24, width: 24 }
   const [isDismissed, setDismissed] = useState(false)

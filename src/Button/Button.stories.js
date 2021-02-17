@@ -39,6 +39,11 @@ const ButtonTemplate = ({ children, ...rest }) => {
   )
 }
 
+export const Default = ButtonTemplate.bind({});
+Default.args = {
+  children: '🦸‍♀️ Be <span class="su-font-bold">BOLD</span> 🦸‍♂️',
+};
+
 export const Primary = ButtonTemplate.bind({});
 Primary.args = {
   variant: 'primary',
@@ -78,4 +83,3 @@ Minimal.args = {
   size: 'minimal',
   children: 'Minimal Button',
 };
-

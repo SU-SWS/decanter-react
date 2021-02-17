@@ -8,7 +8,7 @@ import { Logo } from '../Logo/Logo';
  *
  */
 export const IdentityBar = ({ className, ...props }) => {
-  const classnames = require('classnames');
+  const classnames = require('classnames/dedupe');
   const levers = {};
 
   // Levers
