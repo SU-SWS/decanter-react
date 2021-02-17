@@ -1,7 +1,7 @@
 /**
  * Styles for the button.
  */
-export const buttonStyles = ['primary', 'secondary']
+export const buttonVariants = ['primary', 'secondary']
 
 /**
  * Size of the button

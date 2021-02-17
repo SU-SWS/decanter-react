@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IdentityBarColors } from './IdentityBar.levers';
-import propTypes from "prop-types";
 
 /**
  * Stanford Identity Bar Component.
@@ -59,10 +58,10 @@ IdentityBar.propTypes = {
   /**
    * Custom CSS classes, e.g., to control position
    */
-  className: propTypes.oneOfType([
-    propTypes.string,
-    propTypes.array,
-    propTypes.object
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
   ]),
 };
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { alertTypes, lightText, darkText } from './Alert.levers'
 import { Button } from '../Button/Button'
 import Icon from 'react-hero-icon'
@@ -169,78 +169,78 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
 
 Alert.propTypes = {
   // Nodes and content.
-  children: propTypes.oneOfType([
-    propTypes.node,
-    propTypes.element,
-    propTypes.string
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.string
   ]),
-  dismissBtn: propTypes.element,
-  icon: propTypes.element,
-  label: propTypes.string,
-  heading: propTypes.string,
-  footer: propTypes.node,
+  dismissBtn: PropTypes.element,
+  icon: PropTypes.element,
+  label: PropTypes.string,
+  heading: PropTypes.string,
+  footer: PropTypes.node,
 
   // State and Levers.
-  type: propTypes.oneOf(alertTypes),
-  isLargeIcon: propTypes.bool,
-  isLabelTop: propTypes.bool,
-  isIconTop: propTypes.bool,
-  hasDismiss: propTypes.bool,
-  hasIcon: propTypes.bool,
-  hasLabel: propTypes.bool,
+  type: PropTypes.oneOf(alertTypes),
+  isLargeIcon: PropTypes.bool,
+  isLabelTop: PropTypes.bool,
+  isIconTop: PropTypes.bool,
+  hasDismiss: PropTypes.bool,
+  hasIcon: PropTypes.bool,
+  hasLabel: PropTypes.bool,
 
   // The CSS Classname property
-  classes: propTypes.shape(
+  classes: PropTypes.shape(
     {
-      wrapper: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      wrapper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      container: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      container: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      dismissWrapper: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      dismissWrapper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      headerWrapper: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      headerWrapper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      headerIcon: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      headerIcon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      label: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      label: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      bodyWrapper: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      bodyWrapper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      bodyHeading: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      bodyHeading: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      body: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      body: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ]),
-      footerWrapper: propTypes.oneOfType([
-        propTypes.string,
-        propTypes.object,
-        propTypes.array
+      footerWrapper: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
       ])
     }
   )

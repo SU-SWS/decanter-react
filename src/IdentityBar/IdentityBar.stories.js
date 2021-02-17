@@ -1,6 +1,5 @@
 import React from 'react';
 import { IdentityBar } from './IdentityBar';
-
 import { withDesign } from 'storybook-addon-designs';
 import { IdentityBarColors } from './IdentityBar.levers';
 

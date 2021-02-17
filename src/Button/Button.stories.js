@@ -1,16 +1,16 @@
 import React from 'react';
 import { Button } from './Button';
-import { buttonStyles, buttonSizes } from "./Button.levers";
+import { buttonVariants, buttonSizes } from "./Button.levers";
 import DOMPurify from 'dompurify'
 
 export default {
   title: 'Simple/Button',
   component: Button,
   argTypes: {
-    style: {
+    variant: {
       control: {
         type: 'radio',
-        options: buttonStyles
+        options: buttonVariants
       }
     },
     size: {
@@ -32,28 +32,28 @@ const ButtonTemplate = ({ children, ...rest }) => {
 
 export const Primary = ButtonTemplate.bind({});
 Primary.args = {
-  style: 'primary',
+  variant: 'primary',
   size: 'default',
   children: 'Primary Button',
 };
 
 export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
-  style: 'secondary',
+  variant: 'secondary',
   size: 'default',
   children: 'Secondary Button',
 };
 
 export const Big = ButtonTemplate.bind({});
 Big.args = {
-  style: 'primary',
+  variant: 'primary',
   size: 'big',
   children: 'Big Button',
 };
 
 export const Small = ButtonTemplate.bind({});
 Small.args = {
-  style: 'primary',
+  variant: 'primary',
   size: 'small',
   children: 'Small Button',
 };

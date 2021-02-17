@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { GlobalFooterColors } from './GlobalFooter.levers';
 import { SrOnlyLabel } from '../SrOnlyLabel/SrOnlyLabel';
 
-/** s
+/**
  * Stanford Global Footer Component.
  *
- * @param {object} props
  */
-export const GlobalFooter = ({ classes = {}, ...props }) => {
+export const GlobalFooter = ({ className, ...props }) => {
   // Defaults & Variables
   const classnames = require('classnames');
   const levers = {};
@@ -31,7 +30,7 @@ export const GlobalFooter = ({ classes = {}, ...props }) => {
   }
 
   return (
-    <div className={classnames('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper)}>
+    <div className={classnames('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className)}>
       <div className='su-cc su-flex su-flex-col lg:su-flex-row' title='Common Stanford resources'>
         <div className='su-text-center su-mt-5 su-mb-9'>
           <a className='su-logo su-type-3' href='https://www.stanford.edu'>Stanford<br />University</a>
@@ -131,7 +130,11 @@ GlobalFooter.propTypes = {
   /**
    * Custom CSS classes, e.g., to control position
    */
-  classes: PropTypes.object
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
+  ]),
 };
 
 // Default Props.

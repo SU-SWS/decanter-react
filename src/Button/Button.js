@@ -1,13 +1,13 @@
 import React from 'react'
-import propTypes from 'prop-types'
-import { buttonStyles, buttonSizes } from './Button.levers'
+import PropTypes from 'prop-types'
+import { buttonVariants, buttonSizes } from './Button.levers'
 
 /**
  * Button Component
  *
  * HTML button element
  */
-export const Button = ({ className, children, onClick, style, size, ref, ...props }) => {
+export const Button = ({ className, children, onClick, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const classnames = require('classnames')
@@ -16,15 +16,15 @@ export const Button = ({ className, children, onClick, style, size, ref, ...prop
   // Levers
   // ---------------------------------------------------------------------------
 
-  // Props.style
-  if (props.style && buttonStyles.includes(props.style)) {
-    switch (props.style) {
+  // Props.variant
+  if (props.variant && buttonVariants.includes(props.variant)) {
+    switch (props.variant) {
       case 'primary':
-        levers.style = classnames('su-bg-digital-red su-text-white')
+        levers.variant = classnames('su-bg-digital-red su-text-white')
         break
 
       case 'secondary':
-        levers.style = classnames('su-bg-transparent su-text-digital-red')
+        levers.variant = classnames('su-bg-transparent su-text-digital-red')
         break
     }
   }
@@ -48,7 +48,7 @@ export const Button = ({ className, children, onClick, style, size, ref, ...prop
 
   return (
     <button
-      className={classnames('su-button su-font-semibold', levers.style, levers.size, className)}
+      className={classnames('su-button su-font-semibold', levers.variant, levers.size, className)}
       ref={ref}
       onClick={onClick}
       type={props.type}
@@ -61,26 +61,26 @@ export const Button = ({ className, children, onClick, style, size, ref, ...prop
 
 Button.propTypes = {
   // HTML Button type.
-  type: propTypes.oneOf(['button', 'reset', 'submit']),
-  style: propTypes.oneOf(buttonStyles),
-  size: propTypes.oneOf(buttonSizes),
-  isDisabled: propTypes.bool,
+  type: PropTypes.oneOf(['button', 'reset', 'submit']),
+  variant: PropTypes.oneOf(buttonVariants),
+  size: PropTypes.oneOf(buttonSizes),
+  isDisabled: PropTypes.bool,
 
   // Optional click handler
-  onClick: propTypes.func,
+  onClick: PropTypes.func,
 
   // CSS Classes.
-  className: propTypes.oneOfType([
-    propTypes.string,
-    propTypes.array,
-    propTypes.object
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
   ]),
 
   // Children
-  children: propTypes.oneOfType([
-    propTypes.string,
-    propTypes.element,
-    propTypes.node
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node
   ])
 }
 
@@ -89,7 +89,7 @@ Button.propTypes = {
 Button.defaultProps = {
   onClick: undefined,
   type: 'button',
-  style: 'primary',
+  variant: 'primary',
   size: 'default',
   isDisabled: false,
   ref: null

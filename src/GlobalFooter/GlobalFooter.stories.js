@@ -1,13 +1,14 @@
 import React from 'react';
 import { GlobalFooter } from './GlobalFooter';
-
+import { SrOnlyLabel } from "../SrOnlyLabel/SrOnlyLabel";
 import { withDesign } from 'storybook-addon-designs';
 import { GlobalFooterColors } from './GlobalFooter.levers';
 
 export default {
   title: 'Stanford Identity/Global Footer',
   decorators: [withDesign],
-  component: GlobalFooter
+  component: GlobalFooter,
+  subcomponents: SrOnlyLabel
 };
 
 // Set up an Alert Template.
