@@ -128,7 +128,9 @@ GlobalFooter.propTypes = {
    */
   color: PropTypes.oneOf(GlobalFooterColors),
 
-  // The CSS Classname property
+  /**
+   * Custom CSS classes, e.g., to control position
+   */
   classes: PropTypes.object
 };
 

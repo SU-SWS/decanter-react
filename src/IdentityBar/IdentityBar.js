@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IdentityBarColors } from './IdentityBar.levers';
+import propTypes from "prop-types";
 
 /**
  * Stanford Identity Bar Component.
  *
- * @param {object} props
  */
-export const IdentityBar = ({ classes = {}, ...props }) => {
+export const IdentityBar = ({ className, ...props }) => {
   const classnames = require('classnames');
+  const levers = {};
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -17,32 +18,31 @@ export const IdentityBar = ({ classes = {}, ...props }) => {
   if (props.color && IdentityBarColors.includes(props.color)) {
     switch (props.color) {
       case 'white':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-white');
-        classes.logo = classnames(classes.logo,
-          'su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
+        levers.wrapper = classnames('su-bg-white');
+        levers.logo = classnames('su-text-cardinal-red hover:su-text-cardinal-red focus:su-text-cardinal-red');
         break;
 
       case 'cardinal-red':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-cardinal-red');
-        classes.logo = classnames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        levers.wrapper = classnames('su-bg-cardinal-red');
+        levers.logo = classnames('su-text-white hover:su-text-white focus:su-text-white');
         break;
 
       case 'digital-red':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-digital-red');
-        classes.logo = classnames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        levers.wrapper = classnames('su-bg-digital-red');
+        levers.logo = classnames('su-text-white hover:su-text-white focus:su-text-white');
         break;
 
       case 'black':
-        classes.wrapper = classnames(classes.wrapper, 'su-bg-black');
-        classes.logo = classnames(classes.logo, 'su-text-white hover:su-text-white focus:su-text-white');
+        levers.wrapper = classnames('su-bg-black');
+        levers.logo = classnames('su-text-white hover:su-text-white focus:su-text-white');
         break;
     }
   }
 
   return (
-    <div className={classnames('su-identity-bar su-pt-5 su-pb-1', classes.wrapper)}>
+    <div className={classnames('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)}>
       <div className='su-cc'>
-        <a className={classnames('su-logo su-text-20', classes.logo)}>Stanford University</a>
+        <a className={classnames('su-logo su-text-20', levers.logo)}>Stanford University</a>
       </div>
     </div>
   );
@@ -56,8 +56,14 @@ IdentityBar.propTypes = {
    */
   color: PropTypes.oneOf(IdentityBarColors),
 
-  // The CSS Classname property
-  classes: PropTypes.object
+  /**
+   * Custom CSS classes, e.g., to control position
+   */
+  className: propTypes.oneOfType([
+    propTypes.string,
+    propTypes.array,
+    propTypes.object
+  ]),
 };
 
 // Default Props.
