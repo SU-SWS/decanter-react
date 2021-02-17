@@ -18,8 +18,7 @@
     "test:coverage": "jest --coverage",
     "test:gen": "jest --json --outputFile=./.storybook/.jest-test-results.json",
     "predev": "npm run test:gen",
-    "dev": "start-storybook -p 6006",
-    "storybook": "npm run dev"
+    "dev": "start-storybook -p 6006"
   },
   "repository": {
     "type": "git",
