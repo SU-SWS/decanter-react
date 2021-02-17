@@ -55,7 +55,7 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
 
   return (
     <button
-      className={classnames('su-button', levers.variant, levers.size, className)}
+      className={classnames('su-button', ...levers, className)}
       ref={ref}
       onClick={onClick}
       type={type}
