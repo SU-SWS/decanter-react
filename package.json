@@ -13,10 +13,10 @@
     "prebuild": "npm run test:gen",
     "build": "build-storybook",
     "lint": "eslint .",
-    "test": "jest",
+    "test": "jest --no-cache",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:gen": "jest --json --outputFile=./.storybook/.jest-test-results.json",
+    "test:coverage": "jest --coverage --no-cache",
+    "test:gen": "jest --no-cache --json --outputFile=./.storybook/.jest-test-results.json",
     "predev": "npm run test:gen",
     "dev": "start-storybook -p 6006"
   },
@@ -73,18 +73,5 @@
     "storybook-addon-designs": "^5.4.3",
     "storybook-addon-pseudo-states": "^1.0.0-rc.3",
     "storybook-dark-mode": "^1.0.4"
-  },
-  "jest": {
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/docs/"
-    ],
-    "testRegex": "(/test/.*|\\.(test|spec))\\.(js|jsx)$",
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json"
-    ],
-    "moduleDirectories": ["node_modules", "src"]
   }
 }
