@@ -16,8 +16,8 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
   // Levers
   // ---------------------------------------------------------------------------
 
-  // Props.variant
-  if (variant && buttonVariants.includes(variant)) {
+  // Props.variant & if button not disabled
+  if (variant && buttonVariants.includes(variant) && !isDisabled) {
     switch (variant) {
       case 'primary':
         levers.variant = classnames('su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black');
@@ -37,11 +37,11 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
   if (size && buttonSizes.includes(size)) {
     switch (size) {
       case 'big':
-        levers.size = classnames('su-px-34 su-py-15 su-text-22');
+        levers.size = classnames('su-px-34 su-py-15 su-text-20 md:su-text-24');
         break;
 
       case 'small':
-        levers.size = classnames('su-px-19 su-py-9 su-text-18');
+        levers.size = classnames('su-px-19 su-py-9 su-text-16 md:su-text-18');
         break;
 
       case 'minimal':
@@ -49,13 +49,19 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
         break;
 
       default:
-        levers.size = classnames('su-px-26 su-py-10 su-text-20');
+        levers.size = classnames('su-px-26 su-py-10 su-text-16 md:su-text-20');
     }
   }
 
+  // Is disabled
+  if (isDisabled) {
+    levers.disabled = classnames('su-bg-black-20 su-text-black su-pointer-events-none')
+  }
+
+
   return (
     <button
-      className={classnames('su-button', ...levers, className)}
+      className={classnames('su-button', levers.variant, levers.size, levers.disabled, className)}
       ref={ref}
       onClick={onClick}
       type={type}

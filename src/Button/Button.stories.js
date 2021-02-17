@@ -64,6 +64,14 @@ Small.args = {
   children: 'Small Button',
 };
 
+export const Disabled = ButtonTemplate.bind({});
+Disabled.args = {
+  variant: 'primary',
+  size: 'default',
+  isDisabled: true,
+  children: 'Disabled Button',
+};
+
 export const Minimal = ButtonTemplate.bind({});
 Minimal.args = {
   variant: 'none',
