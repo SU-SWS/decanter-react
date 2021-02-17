@@ -8,28 +8,35 @@ export default {
   title: 'Stanford Identity/Global Footer',
   decorators: [withDesign],
   component: GlobalFooter,
-  subcomponents: { SrOnlyLabel }
+  subcomponents: { SrOnlyLabel },
+  argTypes: {
+    color: {
+      control: {
+        type: 'select',
+        options: GlobalFooterColors
+      }
+    },
+  }
 };
 
 // Set up an Alert Template.
 const GlobalFooterTemplate = ({ children, ...rest }) => <GlobalFooter {...rest} />;
 
-// Default State
-// /////////////////////////////////////////////////////////////////////////////
 export const Default = GlobalFooterTemplate.bind({});
-
 Default.args = {
-  color: 'cardinal-red'
+  color: 'cardinal-red',
 };
+Default.storyName = 'Cardinal Red'
 
-// Make sure the enum types work.
-Default.argTypes = {
-  color: {
-    control: {
-      type: 'select',
-      options: GlobalFooterColors
-    }
-  }
+export const DigitalRed = GlobalFooterTemplate.bind({});
+DigitalRed.args = {
+  color: 'digital-red',
+};
+DigitalRed.storyName = 'Digital Red'
+
+export const Black = GlobalFooterTemplate.bind({});
+Black.args = {
+  color: 'black',
 };
 
 // Connect a Figma Preview.

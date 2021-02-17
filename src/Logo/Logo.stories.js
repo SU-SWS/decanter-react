@@ -6,7 +6,7 @@ export default {
   title: 'Stanford Identity/Logo',
   component: Logo,
   argTypes: {
-    variant: {
+    color: {
       control: {
         type: 'select',
         options: LogoColors
@@ -30,6 +30,7 @@ Red.args = {
   type: 'short',
   className: 'su-type-3'
 };
+Red.storyName = 'Cardinal Red'
 
 export const Black = LogoTemplate.bind({});
 Black.args = {

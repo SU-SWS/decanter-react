@@ -8,28 +8,40 @@ export default {
   title: 'Stanford Identity/Identity Bar',
   decorators: [withDesign],
   component: IdentityBar,
-  subcomponents: { Logo }
+  subcomponents: { Logo },
+  argTypes: {
+    color: {
+      control: {
+        type: 'select',
+        options: IdentityBarColors
+      }
+    },
+  }
 };
 
 // Set up an Alert Template.
-const IdentityBarTemplate = ({ children, ...rest }) => <IdentityBar {...rest} />;
+const IdentityBarTemplate = ({ ...rest }) => <IdentityBar {...rest} />;
 
-// Default State
-// /////////////////////////////////////////////////////////////////////////////
 export const Default = IdentityBarTemplate.bind({});
-
 Default.args = {
-  color: 'cardinal-red'
+  color: 'cardinal-red',
+};
+Default.storyName = 'Cardinal Red'
+
+export const DigitalRed = IdentityBarTemplate.bind({});
+DigitalRed.args = {
+  color: 'digital-red',
+};
+DigitalRed.storyName = 'Digital Red'
+
+export const Black = IdentityBarTemplate.bind({});
+Black.args = {
+  color: 'black',
 };
 
-// Make sure the enum types work.
-Default.argTypes = {
-  color: {
-    control: {
-      type: 'select',
-      options: IdentityBarColors
-    }
-  }
+export const White = IdentityBarTemplate.bind({});
+White.args = {
+  color: 'white',
 };
 
 // Connect a Figma Preview.
