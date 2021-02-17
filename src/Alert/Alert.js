@@ -84,12 +84,14 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   const DefaultDismiss = (
     <Button
       className={classnames(
-        'su-p-0 su-text-17 su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-uppercase su-font-bold su-inline-block su-tracking-widest',
+        'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest',
         levers.dismiss,
         classes.dismiss
       )}
       aria-label='Dismiss Alert'
       onClick={() => { setDismissed(true) }}
+      variant='none'
+      size='minimal'
     >
       Dismiss <Icon icon='x-circle' type='solid' className={classnames('su-inline-block su--mt-3 su-h-25 su-w-25')} />
     </Button>

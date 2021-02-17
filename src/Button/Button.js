@@ -26,6 +26,10 @@ export const Button = ({ className, children, onClick, ref, ...props }) => {
       case 'secondary':
         levers.variant = classnames('su-bg-transparent su-text-digital-red')
         break
+
+      case 'none':
+        levers.variant = classnames('su-bg-transparent su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent')
+        break
     }
   }
 
@@ -42,6 +46,10 @@ export const Button = ({ className, children, onClick, ref, ...props }) => {
 
       case 'small':
         levers.size = classnames('su-px-20 su-py-1 su-text-18')
+        break
+
+      case 'minimal':
+        levers.size = classnames('su-p-0')
         break
     }
   }

@@ -8,7 +8,7 @@ export default {
   title: 'Stanford Identity/Global Footer',
   decorators: [withDesign],
   component: GlobalFooter,
-  subcomponents: SrOnlyLabel
+  subcomponents: { SrOnlyLabel }
 };
 
 // Set up an Alert Template.

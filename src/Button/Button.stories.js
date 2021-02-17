@@ -57,3 +57,11 @@ Small.args = {
   size: 'small',
   children: 'Small Button',
 };
+
+export const Minimal = ButtonTemplate.bind({});
+Minimal.args = {
+  variant: 'none',
+  size: 'minimal',
+  children: 'Minimal Button',
+};
+
