@@ -97,7 +97,6 @@ Button.defaultProps = {
   onClick: undefined,
   type: 'button',
   variant: 'primary',
-  size: 'default',
   isDisabled: false,
   ref: null
 };
