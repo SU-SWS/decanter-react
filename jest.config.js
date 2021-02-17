@@ -1,9 +1,8 @@
 module.exports = {
   "verbose": true,
   "roots": [
-    "<rootDir>",
-    "/opt/build/repo",
-    "/opt/buildhome"
+    "<rootDir>/node_modules",
+    "<rootDir>/src"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/",
