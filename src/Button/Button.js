@@ -56,7 +56,7 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
   // Is disabled
   if (isDisabled) {
     levers.disabled = classnames('su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none')
-    levers.variant = classnames(levers.variant, 'su-border-none', {'su-bg-digital-red': false, 'su-border-solid': false, 'su-text-digital-red': false, 'su-text-white': false})
+    levers.variant = classnames(levers.variant, {'su-bg-digital-red': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false})
   }
 
   return (
