@@ -22,6 +22,8 @@ module.exports = {
   plugins: [new CleanWebpackPlugin()],
   externals: [
     'react',
-    'react-dom'
+    'react-dom',
+    'classnames',
+    'react-hero-icon'
   ]
 };
