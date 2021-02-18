@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { alertTypes, lightText, darkText } from './Alert.levers'
 import { Button } from '../Button/Button'
 import Icon from 'react-hero-icon'
+import { classNames as classnames } from 'classnames/dedupe'
 
 /**
  * Alert Component.
@@ -14,7 +15,6 @@ import Icon from 'react-hero-icon'
  */
 export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // Defaults & Variables
-  const classnames = require('classnames/dedupe')
   const levers = {}
   const iconProps = { height: 24, width: 24 }
   const [isDismissed, setDismissed] = useState(false)

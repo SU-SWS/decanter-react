@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { GlobalFooterColors } from './GlobalFooter.levers';
 import { Logo } from '../Logo/Logo';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { classNames as classnames } from 'classnames/dedupe'
 
 /**
  * Stanford Global Footer Component.
@@ -10,7 +11,6 @@ import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
  */
 export const GlobalFooter = ({ className, ...props }) => {
   // Defaults & Variables
-  const classnames = require('classnames/dedupe');
   const levers = {};
 
   // props.color

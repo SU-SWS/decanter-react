@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LogoColors, LogoTypes } from './Logo.levers';
+import { classNames as classnames } from 'classnames/dedupe'
 
 /**
  * Stanford Wordmark Logo Component.
  *
  */
 export const Logo = ({ className, ...props }) => {
-  const classnames = require('classnames/dedupe');
   const levers = {};
   let logoText;
 

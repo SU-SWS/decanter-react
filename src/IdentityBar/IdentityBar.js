@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { IdentityBarColors } from './IdentityBar.levers';
 import { Logo } from '../Logo/Logo';
+import { classNames as classnames } from 'classnames/dedupe'
 
 /**
  * Stanford Identity Bar Component.
  *
  */
 export const IdentityBar = ({ className, ...props }) => {
-  const classnames = require('classnames/dedupe');
   const levers = {};
 
   // Levers

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { buttonVariants, buttonSizes, buttonTypes } from './Button.levers';
+import { classNames as classnames } from 'classnames/dedupe'
 
 /**
  * Button Component
@@ -10,7 +11,6 @@ import { buttonVariants, buttonSizes, buttonTypes } from './Button.levers';
 export const Button = ({ className, children, onClick, ref, variant, size, type, isDisabled, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
-  const classnames = require('classnames/dedupe');
   const levers = {};
 
   // Levers
