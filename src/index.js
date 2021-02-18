@@ -6,4 +6,12 @@ import { Logo } from './Logo/Logo';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
 import { StyledLink } from './StyledLink';
 
-export { Alert, Button, IdentityBar, GlobalFooter, Logo, SrOnlyText, StyledLink };
+module.exports = {
+  'Alert': Alert,
+  'Button': Button,
+  'IdentityBar': IdentityBar,
+  'GlobalFooter': GlobalFooter,
+  'Logo': Logo,
+  'SrOnlyText': SrOnlyText,
+  'StyledLink': StyledLink
+};

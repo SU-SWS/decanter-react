@@ -35,7 +35,7 @@ module.exports = {
   plugins: [new CleanWebpackPlugin()],
   externals: {
     react: 'React',
-   'react-dom': 'ReactDOM',
+    'react-dom': 'ReactDOM',
     'prop-types': 'propTypes'
   }
 };

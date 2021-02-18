@@ -3,8 +3,7 @@
   "version": "1.0.0-dev",
   "description": "Decanter React Library",
   "main": "dist/decanter-react.js",
-  "module": "dist/decanter-react.js",
-  "exports": "./src/index.js",
+  "module": "src/decanter-react.js",
   "engines": {
     "node": ">=14"
   },
