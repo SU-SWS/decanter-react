@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'decanter-react.js',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs',
     library: 'decanterReact'
   },
   module: {
@@ -15,7 +15,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/react']
+          }
         }
       }
     ]
