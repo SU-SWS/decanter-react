@@ -3,8 +3,7 @@
   "version": "1.0.0-dev",
   "description": "Decanter React Library",
   "module": "src/index.js",
-  "main": "dist/index.js",
-  "source": "src/index.js",
+  "main": "dist/decanter-react.js",
   "files": [
     "dist"
   ],
