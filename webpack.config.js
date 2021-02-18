@@ -7,7 +7,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'decanter-react.js',
     libraryTarget: 'umd',
-    library: 'decanterReact'
   },
   module: {
     rules: [
@@ -25,6 +24,7 @@ module.exports = {
   },
   plugins: [new CleanWebpackPlugin()],
   externals: [
-    'react-hero-icon'
+    'react',
+    'react-dom'
   ]
 };
