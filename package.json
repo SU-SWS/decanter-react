@@ -4,9 +4,6 @@
   "description": "Decanter React Library",
   "module": "src/index.js",
   "main": "dist/decanter-react.js",
-  "files": [
-    "dist"
-  ],
   "engines": {
     "node": ">=14"
   },
