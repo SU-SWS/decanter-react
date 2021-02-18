@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'decanter-react.js',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs',
   },
   module: {
     rules: [
