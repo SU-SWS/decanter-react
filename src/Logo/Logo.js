@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types';
 import { LogoColors, LogoTypes } from './Logo.levers';
 
@@ -9,7 +9,8 @@ import { LogoColors, LogoTypes } from './Logo.levers';
 export const Logo = ({ className, ...props }) => {
   const classnames = require('classnames/dedupe');
   const levers = {};
-  let logoText;
+  let logoText, text1, text2;
+  let withBreak = false;
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -43,7 +44,9 @@ export const Logo = ({ className, ...props }) => {
         break;
 
       case 'stacked':
-        logoText = (<>Stanford<br />University</>);
+        text1 = 'Stanford';
+        text2 = "University";
+        withBreak = true
         break;
     }
   }
@@ -53,6 +56,9 @@ export const Logo = ({ className, ...props }) => {
        href='https://www.stanford.edu'
     >
       {logoText}
+      {withBreak && (text1)}
+      {withBreak && (<br />)}
+      {withBreak && (text2)}
     </a>
   );
 };
