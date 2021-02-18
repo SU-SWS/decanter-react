@@ -7,6 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'decanter-react.js',
     libraryTarget: 'umd',
+    library: 'decanterReact',
   },
   module: {
     rules: [
@@ -33,8 +34,8 @@ module.exports = {
   },
   plugins: [new CleanWebpackPlugin()],
   externals: {
-    'react': 'react',
-    'react-dom': 'react-dom',
-    'prop-types': 'prop-types'
+    react: 'React',
+   'react-dom': 'ReactDOM',
+    'prop-types': 'propTypes'
   }
 };
