@@ -1,6 +1,15 @@
-export { Alert } from './Alert/Alert';
-export { Button } from './Button/Button';
-export { IdentityBar } from './IdentityBar/IdentityBar';
-export { GlobalFooter } from './GlobalFooter/GlobalFooter';
-export { Logo } from './Logo/Logo';
-export { SrOnlyText } from './SrOnlyText/SrOnlyText';
+import { Alert } from './Alert/Alert';
+import { Button } from './Button/Button';
+import { IdentityBar } from './IdentityBar/IdentityBar';
+import { GlobalFooter } from './GlobalFooter/GlobalFooter';
+import { Logo } from './Logo/Logo';
+import { SrOnlyText } from './SrOnlyText/SrOnlyText';
+
+module.exports = {
+  'Alert' : Alert,
+  'Button' : Button,
+  'IdentityBar' : IdentityBar,
+  'GlobalFooter' : GlobalFooter,
+  'Logo' : Logo,
+  'SrOnlyText' : SrOnlyText
+}
