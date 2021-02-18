@@ -6,12 +6,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    libraryTarget: 'umd',
-    library: {
-      root: 'decanter',
-      amd: 'decanter-react',
-      commonjs: 'decanter-react'
-    },
+    libraryTarget: 'window',
+    library: 'decanter-react',
+    libraryExport: 'default'
   },
   module: {
     rules: [
