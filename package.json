@@ -2,8 +2,10 @@
   "name": "decanter-react",
   "version": "1.0.0-dev",
   "description": "Decanter React Library",
-  "main": "dist/decanter-react.js",
-  "module": "src/index.js",
+  // "main": "dist/decanter-react.js",
+  // "module": "src/index.js",
+  "main": "src/index.js",
+  "type": "module",
   "engines": {
     "node": ">=14"
   },
