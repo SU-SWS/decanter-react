@@ -36,9 +36,8 @@ styleguide
 # Ignore as they are customized on the user end.
 .lando.yml
 
-# Developer studio.
-example/build
-example/package-lock.json
+# Dist stuff.
+dist/*.LICENSE.txt
 
 # Storybook
 storybook-static
