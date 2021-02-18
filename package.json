@@ -2,12 +2,13 @@
   "name": "decanter-react",
   "version": "1.0.0-dev",
   "description": "Decanter React Library",
+  "module": "src/index.js",
   "main": "dist/decanter-react.js",
   "engines": {
     "node": ">=14"
   },
   "scripts": {
-    "package": "webpack --mode=production",
+    "package": "webpack -c scripts/webpack.config.js --mode=production",
     "build": "build-storybook",
     "lint": "eslint .",
     "test": "jest",
@@ -74,7 +75,6 @@
     "storybook-addon-designs": "^5.4.3",
     "storybook-addon-pseudo-states": "^1.0.0-rc.3",
     "storybook-dark-mode": "^1.0.4",
-    "webpack": "^5.22.0",
     "webpack-cli": "^4.5.0"
   }
 }
