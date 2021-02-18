@@ -6,13 +6,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'decanter-react.js',
-    libraryTarget: 'commonjs',
+    libraryTarget: 'umd',
     library: 'decanterReact'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
