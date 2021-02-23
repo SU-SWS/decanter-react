@@ -2,9 +2,19 @@
   "name": "decanter-react",
   "version": "1.0.0-dev",
   "description": "Decanter React Library",
-  "main": "dist/decanter-reacct.js",
-  "module": "dist/decanter-react.modern.js",
   "source": "src/index.js",
+  "main": "dist/decanter-react.js",
+  "module": "dist/decanter-react.module.js",
+  "esmodule": "./dist/decanter-react.modern.js",
+  "umd:main": "dist/decanter-react.umd.js",
+  "exports": {
+    ".": {
+      "browser": "./dist/decanter-react.modern.js",
+      "import": "./dist/decanter-react.module.js",
+      "require": "./dist/decanter-react.js",
+      "umd": "./dist/decanter-react.umd.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -12,7 +22,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "package": "microbundle-crl -o dist/ --no-compress --format modern,cjs --jsx React.createElement --jsxFragment React.Fragment --sourcemap false",
+    "package": "microbundle-crl -o dist/ --no-compress --jsx React.createElement --jsxFragment React.Fragment --sourcemap false --external=classNames",
     "build": "build-storybook",
     "lint": "eslint .",
     "test": "jest",
@@ -52,11 +62,11 @@
     "@babel/preset-react": "^7.12.13",
     "@storybook/addon-a11y": "^6.1.17",
     "@storybook/addon-actions": "^6.1.15",
-    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-essentials": "^5.3.21",
     "@storybook/addon-links": "^6.1.15",
     "@storybook/addon-viewport": "^6.1.17",
     "@storybook/node-logger": "^6.1.15",
-    "@storybook/react": "^6.1.15",
+    "@storybook/react": "^4.0.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@whitespace/storybook-addon-html": "^4.2.0",
