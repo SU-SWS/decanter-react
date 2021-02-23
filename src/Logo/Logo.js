@@ -51,16 +51,21 @@ export const Logo = ({ className, ...props }) => {
     }
   }
 
+  // return (
+  //   <a className={classnames('su-logo', levers.logo, className)}
+  //      href='https://www.stanford.edu'
+  //   >
+  //     {logoText}
+  //   </a>
+  // );
+
   return (
-    <a className={classnames('su-logo', levers.logo, className)}
-       href='https://www.stanford.edu'
-    >
-      {logoText}
-      {withBreak && (text1)}
-      {withBreak && (<br />)}
-      {withBreak && (text2)}
-    </a>
-  );
+    <>
+      <p>I Am </p>
+      <p>Fragment</p>
+    </>
+  )
+
 };
 
 // Prop Types.
