@@ -9,8 +9,7 @@ import { LogoColors, LogoTypes } from './Logo.levers';
 export const Logo = ({ className, ...props }) => {
   const classnames = require('classnames/dedupe');
   const levers = {};
-  let logoText, text1, text2;
-  let withBreak = false;
+  let logoText;
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -44,28 +43,18 @@ export const Logo = ({ className, ...props }) => {
         break;
 
       case 'stacked':
-        text1 = 'Stanford';
-        text2 = "University";
-        withBreak = true
+        logoText = (<>Stanford <br /> University</>);
         break;
     }
   }
 
-  // return (
-  //   <a className={classnames('su-logo', levers.logo, className)}
-  //      href='https://www.stanford.edu'
-  //   >
-  //     {logoText}
-  //   </a>
-  // );
-
   return (
-    <>
-      <p>I Am </p>
-      <p>Fragment</p>
-    </>
-  )
-
+    <a className={classnames('su-logo', levers.logo, className)}
+       href='https://www.stanford.edu'
+    >
+      {logoText}
+    </a>
+  );
 };
 
 // Prop Types.

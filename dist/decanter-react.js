@@ -6865,11 +6865,13 @@ var LogoColors = ['cardinal-red', 'black', 'white'];
 var LogoTypes = ['short', 'full', 'stacked'];
 
 var Logo = function Logo(_ref) {
-  var props = _objectWithoutPropertiesLoose(_ref, ["className"]);
+  var className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["className"]);
 
   var classnames = require('classnames/dedupe');
 
   var levers = {};
+  var logoText;
 
   if (props.color && LogoColors.includes(props.color)) {
     switch (props.color) {
@@ -6887,7 +6889,26 @@ var Logo = function Logo(_ref) {
     }
   }
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement("p", null, "I Am "), /*#__PURE__*/React__default.createElement("p", null, "Fragment"));
+  if (props.type && LogoTypes.includes(props.type)) {
+    switch (props.type) {
+      case 'short':
+        logoText = 'Stanford';
+        break;
+
+      case 'full':
+        logoText = 'Stanford University';
+        break;
+
+      case 'stacked':
+        logoText = /*#__PURE__*/React__default.createElement(React__default.Fragment, null, "Stanford ", /*#__PURE__*/React__default.createElement("br", null), " University");
+        break;
+    }
+  }
+
+  return /*#__PURE__*/React__default.createElement("a", {
+    href: "https://www.stanford.edu",
+    className: dedupe(classnames('su-logo', levers.logo, className))
+  }, logoText);
 };
 Logo.propTypes = {
   color: propTypes.oneOf(LogoColors),
