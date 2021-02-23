@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ContainerDisplays, ContainerElements, ContainerWidths } from './Container.levers';
+import { containerDisplays, containerElements, containerWidths } from './Container.levers';
 
 /**
  * Container component.
@@ -9,13 +9,12 @@ import { ContainerDisplays, ContainerElements, ContainerWidths } from './Contain
 export const Container = ({ className, children, ref, ...props }) => {
   const classnames = require('classnames/dedupe');
   const levers = {};
-  const Element = levers.element || 'div';
 
   // Levers
   // ---------------------------------------------------------------------------
 
   // props.display
-  if (props.display && ContainerDisplays.includes(props.display)) {
+  if (props.display && containerDisplays.includes(props.display)) {
     switch (props.display) {
       case 'block':
         levers.display = classnames('su-block');
@@ -32,7 +31,9 @@ export const Container = ({ className, children, ref, ...props }) => {
   }
 
   // props.element
-  if (props.element && ContainerElements.includes(props.element)) {
+  const Element = props.element ?? 'div';
+
+  if (props.element && containerElements.includes(props.element)) {
     switch (props.element) {
       case 'div':
         levers.element = 'div';
@@ -65,14 +66,14 @@ export const Container = ({ className, children, ref, ...props }) => {
   }
 
   // props.width
-  if (props.width && ContainerWidths.includes(props.width)) {
+  if (props.width && containerWidths.includes(props.width)) {
     switch (props.width) {
       case 'full':
-        levers.width = classnames('su-w-full');
+        levers.width = classnames('su-w-full'); // width: 100%
         break;
 
       case 'screen':
-        levers.width = classnames('su-w-screen');
+        levers.width = classnames('su-w-screen'); // width: 100vw
         break;
 
       case 'centered-container':
@@ -94,14 +95,14 @@ Container.propTypes = {
   /**
    * Which HTML element?
    */
-  element: PropTypes.oneOf(ContainerElement),
+  element: PropTypes.oneOf(containerElements),
 
   /**
    * What type of CSS display?
    */
-  display: PropTypes.oneOf(ContainerDisplay),
+  display: PropTypes.oneOf(containerDisplays),
 
-  width: PropTypes.oneOf(ContainerWidth),
+  width: PropTypes.oneOf(containerWidths),
 
   /**
    * Custom CSS classes, e.g., to control position
