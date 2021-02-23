@@ -25,7 +25,7 @@ export const Container = ({ className, children, ref, ...props }) => {
         break;
 
       case 'grid':
-        levers.wrapper = classnames('su-grid');
+        levers.display = classnames('su-grid');
         break;
     }
   }
