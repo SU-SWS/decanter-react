@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import clsxd from 'clsx-dedupe';
 import { gridGap, gridColsXs, gridColsSm, gridColsMd, gridColsLg, gridColsXl, gridCols2Xl } from './Grid.levers';
 
 /**
@@ -7,7 +8,6 @@ import { gridGap, gridColsXs, gridColsSm, gridColsMd, gridColsLg, gridColsXl, gr
  *
  */
 export const Grid = ({ className, children, ref, ...props }) => {
-  const classnames = require('classnames/dedupe');
   const levers = {};
 
   // Levers
@@ -17,42 +17,42 @@ export const Grid = ({ className, children, ref, ...props }) => {
   if (props.gap && gridGap.includes(props.gap)) {
 
     if (props.gap) {
-      levers.gap = classnames(`su-grid-gap`);
+      levers.gap = 'su-grid-gap';
     }
   }
 
   // props.xs
   if (props.xs && gridColsXs.includes(props.xs)) {
-    levers.xs = classnames(`xs:su-grid-cols-${props.xs}`);
+    levers.xs = `xs:su-grid-cols-${props.xs}`;
   }
 
   // props.sm
   if (props.sm && gridColsSm.includes(props.sm)) {
-    levers.sm = classnames(`sm:su-grid-cols-${props.sm}`);
+    levers.sm = `sm:su-grid-cols-${props.sm}`;
   }
 
   // props.md
   if (props.md && gridColsMd.includes(props.md)) {
-    levers.md = classnames(`md:su-grid-cols-${props.md}`);
+    levers.md = `md:su-grid-cols-${props.md}`;
   }
 
   // props.lg
   if (props.lg && gridColsLg.includes(props.lg)) {
-    levers.lg = classnames(`lg:su-grid-cols-${props.lg}`);
+    levers.lg = `lg:su-grid-cols-${props.lg}`;
   }
 
   // props.xl
   if (props.xl && gridColsXl.includes(props.xl)) {
-    levers.xl = classnames(`xl:su-grid-cols-${props.xxl}`);
+    levers.xl = `xl:su-grid-cols-${props.xl}`;
   }
 
   // props.xxl
   if (props.xxl && gridCols2Xl.includes(props.xxl)) {
-    levers.xxl = classnames(`2xl:su-grid-cols-${props.xxl}`);
+    levers.xxl = `2xl:su-grid-cols-${props.xxl}`;
   }
 
   return (
-    <div className={classnames('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)}>
+    <div className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)}>
       {children}
     </div>
   );

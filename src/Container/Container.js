@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import clsxd from 'clsx-dedupe';
 import { containerElements, containerWidths } from './Container.levers';
 
 /**
@@ -7,7 +8,6 @@ import { containerElements, containerWidths } from './Container.levers';
  *
  */
 export const Container = ({ className, children, ref, ...props }) => {
-  const classnames = require('classnames/dedupe');
   const levers = {};
 
   // Levers
@@ -24,21 +24,21 @@ export const Container = ({ className, children, ref, ...props }) => {
   if (props.width && containerWidths.includes(props.width)) {
     switch (props.width) {
       case 'full':
-        levers.width = classnames('su-w-full'); // width: 100%
+        levers.width = 'su-w-full'; // width: 100%
         break;
 
       case 'screen':
-        levers.width = classnames('su-w-screen'); // width: 100vw
+        levers.width = 'su-w-screen'; // width: 100vw
         break;
 
       case 'centered-container':
-        levers.width = classnames('su-cc');
+        levers.width = 'su-cc';
         break;
     }
   }
 
   return (
-    <Element className={classnames(levers.width, className)}>
+    <Element className={clsxd(levers.width, className)}>
       {children}
     </Element>
   );
