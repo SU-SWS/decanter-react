@@ -23,7 +23,6 @@ export const gridColsLg = Array.from({length: 12}, (_, i) => i + 1);
  */
 export const gridColsXl = Array.from({length: 12}, (_, i) => i + 1);
 
-
 /**
  * Available number of grid columns at 2XL breakpoint (1 to 12)
  */

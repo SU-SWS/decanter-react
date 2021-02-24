@@ -19,7 +19,7 @@ export const Grid = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <div className={classnames('su-grid', levers.xxl, className)}>
+    <div className={classnames('su-grid su-grid-gap', levers.xxl, className)}>
       {children}
     </div>
   );
