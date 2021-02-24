@@ -53,7 +53,7 @@ export const Grid = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <div className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)}>
+    <div className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref}>
       {children}
     </div>
   );

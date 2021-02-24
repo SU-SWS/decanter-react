@@ -38,7 +38,7 @@ export const Container = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <Element className={clsxd(levers.width, className)}>
+    <Element className={clsxd(levers.width, className)} ref={ref}>
       {children}
     </Element>
   );
