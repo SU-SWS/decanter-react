@@ -18,22 +18,22 @@ export const IdentityBar = ({ className, ...props }) => {
   if (props.color && IdentityBarColors.includes(props.color)) {
     switch (props.color) {
       case 'white':
-        levers.wrapper = clsxd('su-bg-white');
+        levers.wrapper = 'su-bg-white';
         levers.logo = "cardinal-red";
         break;
 
       case 'cardinal-red':
-        levers.wrapper = clsxd('su-bg-cardinal-red');
+        levers.wrapper = 'su-bg-cardinal-red';
         levers.logo = "white";
         break;
 
       case 'digital-red':
-        levers.wrapper = clsxd('su-bg-digital-red');
+        levers.wrapper = 'su-bg-digital-red';
         levers.logo = "white";
         break;
 
       case 'black':
-        levers.wrapper = clsxd('su-bg-black');
+        levers.wrapper = 'su-bg-black';
         levers.logo = "white";
         break;
     }
@@ -42,7 +42,7 @@ export const IdentityBar = ({ className, ...props }) => {
   return (
     <div className={clsxd('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)}>
       <div className='su-cc'>
-        <Logo className={clsxd('su-text-20')} color={levers.logo} type="full" />
+        <Logo className='su-text-20' color={levers.logo} type="full" />
       </div>
     </div>
   );
