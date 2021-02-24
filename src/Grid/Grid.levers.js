@@ -4,9 +4,9 @@
 export const gridGap = [true, false];
 
 /**
- * Available number of grid columns at XS breakpoint (1 to 6)
+ * Available number of grid columns at XS breakpoint (1 to 12)
  */
-export const gridColsXs = Array.from({length: 6}, (_, i) => i + 1);
+export const gridColsXs = Array.from({length: 12}, (_, i) => i + 1);
 
 /**
  * Available number of grid columns at SM breakpoint (1 to 12)
