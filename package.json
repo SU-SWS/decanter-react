@@ -52,7 +52,7 @@
   },
   "peerDependencies": {
     "clsx": "^1.1.1",
-    "clsx-dedupe": "^0.0.7",
+    "clsx-dedupe": "^0.0.8",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
@@ -73,7 +73,7 @@
     "@whitespace/storybook-addon-html": "^4.2.0",
     "babel-jest": "^26.6.3",
     "clsx": "^1.1.1",
-    "clsx-dedupe": "0.0.7",
+    "clsx-dedupe": "0.0.8",
     "cross-env": "^7.0.2",
     "dompurify": "^2.2.6",
     "eslint": "^7.20.0",
