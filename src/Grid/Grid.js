@@ -5,6 +5,7 @@ import { gridGap, gridColsXs, gridColsSm, gridColsMd, gridColsLg, gridColsXl, gr
 
 /**
  * CSS Grid component.
+ * Options with number of columns for each breakpoint and whether to use responsive grid gaps.
  *
  */
 export const Grid = ({ className, children, ref, ...props }) => {
