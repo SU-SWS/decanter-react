@@ -16,10 +16,7 @@ export const Grid = ({ className, children, ref, ...props }) => {
 
   // props.gap
   if (props.gap && gridGap.includes(props.gap)) {
-
-    if (props.gap) {
-      levers.gap = 'su-grid-gap';
-    }
+    levers.gap = 'su-grid-gap';
   }
 
   // props.xs

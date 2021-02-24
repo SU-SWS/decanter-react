@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlexBox } from './FlexBox';
-import { flexDirection, flexWrap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
+import { flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
 
 export default {
   title: 'Layout/FlexBox',
@@ -16,6 +16,12 @@ export default {
       control: {
         type: 'inline-radio',
         options: flexWrap
+      }
+    },
+    gap: {
+      control: {
+        type: 'boolean',
+        options: flexGap
       }
     },
     justifyContent: {
@@ -61,8 +67,8 @@ const FlexBoxMultiTemplate = ({ children, ...rest }) => {
       <div className="su-w-1/3 su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10">1</div>
       <div className="su-w-1/6 su-text-center su-bg-plum su-type-3 su-font-bold su-p-10">2</div>
       <div className="su-w-1/6 su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10">3</div>
-      <div className="su-w-1/3 su-text-center su-bg-plum su-type-3 su-font-bold su-p-10">4</div>
-      <div className="su-w-1/6 su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10">5</div>
+      <div className="su-w-1/4 su-text-center su-bg-plum su-type-3 su-font-bold su-p-10">4</div>
+      <div className="su-w-1/5 su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10">5</div>
       <div className="su-w-1/6 su-text-center su-bg-plum su-type-3 su-font-bold su-p-10">6</div>
     </FlexBox>
   )

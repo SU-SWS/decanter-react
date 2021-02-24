@@ -9,6 +9,11 @@ export const flexDirection = ['row', 'row-reverse', 'col', 'col-reverse'];
 export const flexWrap = ['wrap', 'wrap-reverse', 'nowrap'];
 
 /**
+ * Gap or not
+ */
+export const flexGap = [true, false];
+
+/**
  * Flex Justify Content options.
  */
 export const flexJustifyContent = ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly'];
