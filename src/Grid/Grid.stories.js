@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from './Grid';
-import { gridCols2Xl } from './Grid.levers';
+import { gridCols2Xl} from './Grid.levers';
 import DOMPurify from 'dompurify'
 
 export default {
@@ -42,6 +42,7 @@ const GridTemplate = ({ children, ...rest }) => {
 
 export const Default = GridTemplate.bind({});
 Default.args = {
+  gap: true,
   xxl: 4,
   children: [
     '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">1</span>',

@@ -1,4 +1,9 @@
 /**
+ * Grid gap or not
+ */
+export const gridGap = [true, false];
+
+/**
  * Available number of grid columns at XS breakpoint (1 to 12)
  */
 export const gridColsXs = Array.from({length: 12}, (_, i) => i + 1);
