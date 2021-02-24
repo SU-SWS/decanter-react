@@ -2,6 +2,21 @@ import React from 'react';
 import { Grid } from './Grid';
 import DOMPurify from 'dompurify'
 
+export const cellContent = [
+  '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">1</span>',
+  '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">2</span>',
+  '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">3</span>',
+  '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">4</span>',
+  '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">5</span>',
+  '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">6</span>',
+  '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">7</span>',
+  '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">8</span>',
+  '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">9</span>',
+  '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">10</span>',
+  '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">11</span>',
+  '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">12</span>'
+]
+
 export default {
   title: 'Layout/CSS Grid',
   component: Grid,
@@ -77,19 +92,7 @@ Default.args = {
   lg: 2,
   xl: 4,
   xxl: 4,
-  children: [
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">1</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">2</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">3</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">4</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">5</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">6</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">7</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">8</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">9</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">10</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">11</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">12</span>'],
+  children: cellContent,
   className: 'su-bg-illuminating-light'
 };
 Default.storyName = '4-Column Grid with Responsive Gaps'
@@ -103,19 +106,7 @@ NoGap.args = {
   lg: 3,
   xl: 3,
   xxl: 3,
-  children: [
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">1</span>',
-    '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">2</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">3</span>',
-    '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">4</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">5</span>',
-    '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">6</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">7</span>',
-    '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">8</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">9</span>',
-    '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">10</span>',
-    '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">11</span>',
-    '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">12</span>'],
+  children: cellContent,
   className: 'su-bg-illuminating-light'
 };
 NoGap.storyName = '3-Column Grid with No Gap'
