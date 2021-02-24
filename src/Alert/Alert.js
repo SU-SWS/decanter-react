@@ -93,7 +93,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
       variant='none'
       size='minimal'
     >
-      Dismiss <Icon icon='x-circle' type='solid' className={clsxd('su-inline-block su--mt-3 su-h-25 su-w-25')} />
+      Dismiss <Icon icon='x-circle' type='solid' className={clsxd('su-inline-block su-h-25 su-w-25')} />
     </Button>
   )
   const dismissBtn = props.dismissBtn ?? DefaultDismiss
@@ -107,10 +107,10 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // ---------------------------------------------------------------------------
   return (
     <div className={clsxd('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
-      <div className={clsxd('su-cc su-flex su-flex-wrap su-rs-pt-1 su-rs-pb-neg1 sm:su-items-center', levers.container, classes.container)}>
+      <div className={clsxd('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)}>
 
         {props.hasDismiss && (
-          <div className={clsxd('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
+          <div className={clsxd('su-order-3 su-rs-ml-1 su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
             {dismissBtn}
           </div>
         )}
