@@ -21,7 +21,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
 
   // Levers
   // ---------------------------------------------------------------------------
-  levers.wrapper = clsxd('su-bg-foggy-light')
+  levers.wrapper = 'su-bg-foggy-light'
   levers.dismiss = clsxd(darkText, 'hover:su-text-black focus:su-text-black')
 
   // Is large Icon.
@@ -48,30 +48,30 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
       case 'success':
-        levers.wrapper = clsxd('su-bg-digital-green su-text-white su-link-white')
-        levers.body = clsxd(lightText)
-        levers.dismiss = clsxd(lightText)
+        levers.wrapper = 'su-bg-digital-green su-text-white su-link-white'
+        levers.body = lightText
+        levers.dismiss = lightText
         defaultIcon = <Icon icon='check-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />
         break
 
       case 'warning':
-        levers.wrapper = clsxd('su-bg-illuminating-dark')
-        levers.body = clsxd(darkText)
+        levers.wrapper = 'su-bg-illuminating-dark'
+        levers.body = darkText
         levers.dismiss = clsxd(darkText, 'hover:su-text-black')
         defaultIcon = <Icon icon='exclamation-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />
         break
 
       case 'info':
-        levers.wrapper = clsxd('su-bg-digital-blue su-text-white su-link-white')
-        levers.body = clsxd(lightText)
-        levers.dismiss = clsxd(lightText)
+        levers.wrapper = 'su-bg-digital-blue su-text-white su-link-white'
+        levers.body = lightText
+        levers.dismiss = lightText
         defaultIcon = <Icon icon='information-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />
         break
 
       case 'error':
-        levers.wrapper = clsxd('su-bg-digital-red su-text-white su-link-white')
-        levers.body = clsxd(lightText)
-        levers.dismiss = clsxd(lightText)
+        levers.wrapper = 'su-bg-digital-red su-text-white su-link-white'
+        levers.body = lightText
+        levers.dismiss = lightText
         defaultIcon = <Icon icon='ban' type='solid' className={clsxd(classes.icon)} {...iconProps} />
         break
     }
@@ -93,7 +93,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
       variant='none'
       size='minimal'
     >
-      Dismiss <Icon icon='x-circle' type='solid' className={clsxd('su-inline-block su-h-25 su-w-25')} />
+      Dismiss <Icon icon='x-circle' type='solid' className={'su-inline-block su-h-25 su-w-25'} />
     </Button>
   )
   const dismissBtn = props.dismissBtn ?? DefaultDismiss
