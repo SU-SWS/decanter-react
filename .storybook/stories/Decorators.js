@@ -1,3 +1,4 @@
+import React from 'react'
 /**
  * This file is to contain common decorators for componets.
  */
