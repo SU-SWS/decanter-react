@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid } from './Grid';
 import DOMPurify from 'dompurify'
 
-export const cellContent = [
+const cellContent = [
   '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">1</span>',
   '<span class="su-text-center su-bg-poppy-dark su-type-3 su-font-bold su-p-10 su-block">2</span>',
   '<span class="su-text-center su-bg-poppy-light su-type-3 su-font-bold su-p-10 su-block">3</span>',
