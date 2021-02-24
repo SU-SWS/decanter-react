@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { GlobalFooterColors } from './GlobalFooter.levers';
 import { Logo } from '../Logo/Logo';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
-import clsx from 'clsx';
+import clsxd from 'clsx-dedupe';
 
 /**
  * Stanford Global Footer Component.
@@ -17,24 +17,24 @@ export const GlobalFooter = ({ className, ...props }) => {
   if (props.color && GlobalFooterColors.includes(props.color)) {
     switch (props.color) {
       case 'cardinal-red':
-        levers.wrapper = clsx('su-bg-cardinal-red');
+        levers.wrapper = clsxd('su-bg-cardinal-red');
         break;
 
       case 'digital-red':
-        levers.wrapper = clsx('su-bg-digital-red');
+        levers.wrapper = clsxd('su-bg-digital-red');
         break;
 
       case 'black':
-        levers.wrapper = clsx('su-bg-black');
+        levers.wrapper = clsxd('su-bg-black');
         break;
     }
   }
 
   return (
-    <div className={clsx('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className)}>
+    <div className={clsxd('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className)}>
       <div className='su-cc su-flex su-flex-col lg:su-flex-row' title='Common Stanford resources'>
         <div className='su-text-center su-mt-5 su-mb-9'>
-          <Logo className={clsx('su-type-3')} type="stacked" />
+          <Logo className={clsxd('su-type-3')} type="stacked" />
         </div>
         <div className='lg:su-pl-45 xl:su-pl-50 su-text-left sm:su-text-center lg:su-text-left su-flex-grow'>
           <nav

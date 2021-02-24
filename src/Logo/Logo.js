@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import { LogoColors, LogoTypes } from './Logo.levers';
-import clsx from 'clsx';
+import clsxd from 'clsx-dedupe';
 
 /**
  * Stanford Wordmark Logo Component.
@@ -18,15 +18,15 @@ export const Logo = ({ className, ...props }) => {
   if (props.color && LogoColors.includes(props.color)) {
     switch (props.color) {
       case 'cardinal-red':
-        levers.logo = clsx('su-text-cardinal-red');
+        levers.logo = clsxd('su-text-cardinal-red');
         break;
 
       case 'black':
-        levers.logo = clsx('su-text-black hover:su-text-black focus:su-text-black');
+        levers.logo = clsxd('su-text-black hover:su-text-black focus:su-text-black');
         break;
 
       case 'white':
-        levers.logo = clsx('su-text-white hover:su-text-white focus:su-text-white');
+        levers.logo = clsxd('su-text-white hover:su-text-white focus:su-text-white');
         break;
     }
   }
@@ -49,7 +49,7 @@ export const Logo = ({ className, ...props }) => {
   }
 
   return (
-    <a className={clsx('su-logo', levers.logo, className)}
+    <a className={clsxd('su-logo', levers.logo, className)}
        href='https://www.stanford.edu'
     >
       {logoText}

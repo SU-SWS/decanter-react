@@ -4,11 +4,6 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "@babel/plugin-transform-react-jsx",
-    ["transform-jsx-classnames",
-      {
-        "dedupe": true
-      }
-    ]
+    "@babel/plugin-transform-react-jsx"
   ]
 }
