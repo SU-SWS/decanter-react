@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid } from './Grid';
+import { gridColsXs, gridColsSm, gridColsMd, gridColsLg, gridColsXl, gridCols2Xl } from "./Grid.levers";
 import DOMPurify from 'dompurify'
 
 const cellContent = [
@@ -25,7 +26,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: 12,
+        max: gridColsXs[gridColsXs.length-1],
         step: 1
       }
     },
@@ -33,7 +34,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: 12,
+        max: gridColsSm[gridColsSm.length-1],
         step: 1
       }
     },
@@ -41,7 +42,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: 12,
+        max: gridColsMd[gridColsMd.length-1],
         step: 1
       }
     },
@@ -49,7 +50,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: 12,
+        max: gridColsLg[gridColsLg.length-1],
         step: 1
       }
     },
@@ -57,7 +58,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: 12,
+        max: gridColsXl[gridColsXl.length-1],
         step: 1
       }
     },
@@ -65,7 +66,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: 12,
+        max: gridCols2Xl[gridCols2Xl.length-1],
         step: 1
       }
     },
