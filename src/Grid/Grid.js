@@ -23,7 +23,7 @@ export const Grid = ({ className, children, ref, ...props }) => {
 
   // props.xs
   if (props.xs && gridColsXs.includes(props.xs)) {
-    levers.xs = `xs:su-grid-cols-${props.xs}`;
+    levers.xs = `su-grid-cols-${props.xs}`;
   }
 
   // props.sm
