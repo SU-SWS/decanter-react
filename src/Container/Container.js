@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { containerElements, containerWidths } from './Container.levers';
 
 /**
- * Container component.
+ * Container component with width and HTML element options.
  *
  */
 export const Container = ({ className, children, ref, ...props }) => {
@@ -51,8 +51,12 @@ Container.propTypes = {
    * Which HTML element?
    */
   element: PropTypes.oneOf(containerElements),
-
   width: PropTypes.oneOf(containerWidths),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.string
+  ]),
 
   /**
    * Custom CSS classes, e.g., to control position
