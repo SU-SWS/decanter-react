@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { alertTypes, lightText, darkText } from './Alert.levers';
 import { Button } from '../Button/Button';
 import Icon from 'react-hero-icon';
-import clsxd from 'clsx-dedupe/dist/clsx-dedupe.module';
+import clsxd from 'clsx-dedupe';
 
 /**
  * Alert Component.
