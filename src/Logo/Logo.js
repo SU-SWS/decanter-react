@@ -18,15 +18,15 @@ export const Logo = ({ className, ...props }) => {
   if (props.color && LogoColors.includes(props.color)) {
     switch (props.color) {
       case 'cardinal-red':
-        levers.logo = clsxd('su-text-cardinal-red');
+        levers.logo = 'su-text-cardinal-red';
         break;
 
       case 'black':
-        levers.logo = clsxd('su-text-black hover:su-text-black focus:su-text-black');
+        levers.logo = 'su-text-black hover:su-text-black focus:su-text-black';
         break;
 
       case 'white':
-        levers.logo = clsxd('su-text-white hover:su-text-white focus:su-text-white');
+        levers.logo = 'su-text-white hover:su-text-white focus:su-text-white';
         break;
     }
   }
