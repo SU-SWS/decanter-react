@@ -31,6 +31,6 @@ export const flexAlignContent = ['start', 'end', 'center', 'space-between', 'spa
 /**
  * Flex Align Items options.
  */
-export const flexAlignItems = ['flex-start', 'flex-end', 'center', 'baseline', 'stretch'];
+export const flexAlignItems = ['start', 'end', 'center', 'baseline', 'stretch'];
 
 
