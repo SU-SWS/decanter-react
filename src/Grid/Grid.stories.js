@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid } from './Grid';
-import { gridCols2Xl} from './Grid.levers';
 import DOMPurify from 'dompurify'
 
 export default {
@@ -8,14 +7,6 @@ export default {
   component: Grid,
   argTypes: {
     xs: {
-      control: {
-        type: 'range',
-        min: 1,
-        max: 12,
-        step: 1
-      }
-    },
-    sm: {
       control: {
         type: 'range',
         min: 1,
