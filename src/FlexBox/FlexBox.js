@@ -93,7 +93,7 @@ export const FlexBox = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <div className={clsxd(levers.direction, levers.wrap, levers.justifyContent, levers.alignContent, levers.alignItems, className)} ref={ref}>
+    <div className={clsxd('su-flex', levers.direction, levers.wrap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className)} ref={ref}>
       {children}
     </div>
   );
@@ -130,8 +130,8 @@ FlexBox.propTypes = {
 FlexBox.defaultProps = {
   direction: 'row',
   wrap: 'wrap',
-  justifyContent: 'start',
+  justifyContent: 'space-between',
   justifyItems: 'auto',
-  alignContent: 'start',
+  alignContent: 'center',
   alignItems: 'start'
 };
