@@ -70,18 +70,9 @@ const GridTemplate = ({ children, ...rest }) => {
   // We do this to mimic sending in CMS content or another React component.
   const content =
     <>
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[0]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[1]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[2]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[3]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[4]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[5]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[6]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[7]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[8]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[9]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[10]) }} />
-      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children[11]) }} />
+      {children.map(child => (
+        <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(child) }} />
+      ))}
     </>
   return (
     <Grid {...rest}>{content}</Grid>
