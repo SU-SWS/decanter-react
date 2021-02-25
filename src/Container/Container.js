@@ -14,7 +14,7 @@ export const Container = ({ className, children, ref, ...props }) => {
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = "";
+  let Element = '';
 
   if (props.element && containerElements.includes(props.element)) {
     Element = props.element ?? 'div';
@@ -65,7 +65,7 @@ Container.propTypes = {
     PropTypes.string,
     PropTypes.array,
     PropTypes.object
-  ]),
+  ])
 };
 
 // Default Props.
