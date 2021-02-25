@@ -3,7 +3,7 @@ import { IdentityBar } from './IdentityBar';
 import { Container } from '../Container/Container';
 import { Logo } from '../Logo/Logo';
 import { withDesign } from 'storybook-addon-designs';
-import { IdentityBarColors } from './IdentityBar.levers';
+import { identityBarColors } from './IdentityBar.levers';
 
 export default {
   title: 'Stanford Identity/Identity Bar',
@@ -14,7 +14,7 @@ export default {
     color: {
       control: {
         type: 'select',
-        options: IdentityBarColors
+        options: identityBarColors
       }
     }
   },

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import { LogoColors, LogoTypes } from './Logo.levers';
+import { logoColors, logoTypes } from './Logo.levers';
 import clsxd from 'clsx-dedupe';
 
 /**
@@ -15,7 +15,7 @@ export const Logo = ({ className, ...props }) => {
   // ---------------------------------------------------------------------------
 
   // props.color
-  if (props.color && LogoColors.includes(props.color)) {
+  if (props.color && logoColors.includes(props.color)) {
     switch (props.color) {
       case 'cardinal-red':
         levers.logo = 'su-text-cardinal-red';
@@ -32,7 +32,7 @@ export const Logo = ({ className, ...props }) => {
   }
 
   // props.type
-  if (props.type && LogoTypes.includes(props.type)) {
+  if (props.type && logoTypes.includes(props.type)) {
     switch (props.type) {
       case 'short':
         logoText = 'Stanford';
@@ -60,8 +60,8 @@ export const Logo = ({ className, ...props }) => {
 // Prop Types.
 // -----------------------------------------------------------------------------
 Logo.propTypes = {
-  color: PropTypes.oneOf(LogoColors),
-  type: PropTypes.oneOf(LogoTypes),
+  color: PropTypes.oneOf(logoColors),
+  type: PropTypes.oneOf(logoTypes),
 
   /**
    * Custom CSS classes, e.g., to change font size

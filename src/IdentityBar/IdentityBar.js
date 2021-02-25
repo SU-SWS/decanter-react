@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IdentityBarColors } from './IdentityBar.levers';
+import { identityBarColors } from './IdentityBar.levers';
 import { Container } from '../Container/Container';
 import { Logo } from '../Logo/Logo';
 import clsxd from 'clsx-dedupe';
@@ -16,7 +16,7 @@ export const IdentityBar = ({ className, ...props }) => {
   // ---------------------------------------------------------------------------
 
   // props.color
-  if (props.color && IdentityBarColors.includes(props.color)) {
+  if (props.color && identityBarColors.includes(props.color)) {
     switch (props.color) {
       case 'white':
         levers.wrapper = 'su-bg-white';
@@ -53,7 +53,7 @@ IdentityBar.propTypes = {
   /**
    * Which background color theme?
    */
-  color: PropTypes.oneOf(IdentityBarColors),
+  color: PropTypes.oneOf(identityBarColors),
 
   /**
    * Custom CSS classes, e.g., to control position

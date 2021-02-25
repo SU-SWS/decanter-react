@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { GlobalFooterColors } from './GlobalFooter.levers';
+import { globalFooterColors } from './GlobalFooter.levers';
 import { Logo } from '../Logo/Logo';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
-import { Container } from '../Container/Container'
+import { Container } from '../Container/Container';
 import { FlexBox } from "../FlexBox/FlexBox";
 import clsxd from 'clsx-dedupe';
 
@@ -17,7 +17,7 @@ export const GlobalFooter = ({ className, ...props }) => {
   const levers = {};
 
   // props.color
-  if (props.color && GlobalFooterColors.includes(props.color)) {
+  if (props.color && globalFooterColors.includes(props.color)) {
     switch (props.color) {
       case 'cardinal-red':
         levers.wrapper = 'su-bg-cardinal-red';
@@ -129,7 +129,7 @@ GlobalFooter.propTypes = {
   /**
    * Which background color theme?
    */
-  color: PropTypes.oneOf(GlobalFooterColors),
+  color: PropTypes.oneOf(globalFooterColors),
 
   /**
    * Custom CSS classes, e.g., to control position

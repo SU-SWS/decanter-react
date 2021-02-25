@@ -58,8 +58,8 @@ const FlexBoxTemplate = ({ children, ...rest }) => {
       <div className="su-w-1/6 su-text-center su-bg-plum su-type-3 su-font-bold su-p-10">2</div>
       <div className="su-w-1/3 su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10">3</div>
     </FlexBox>
-  )
-}
+  );
+};
 
 const FlexBoxMultiTemplate = ({ children, ...rest }) => {
   return (
@@ -71,15 +71,15 @@ const FlexBoxMultiTemplate = ({ children, ...rest }) => {
       <div className="su-w-1/5 su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10">5</div>
       <div className="su-w-1/6 su-text-center su-bg-plum su-type-3 su-font-bold su-p-10">6</div>
     </FlexBox>
-  )
-}
+  );
+};
 
 export const Default = FlexBoxTemplate.bind({});
 Default.args = {
   gap: true,
   className: 'su-bg-foggy-light su-text-white'
 };
-Default.storyName = 'Single Row'
+Default.storyName = 'Single Row';
 
 export const SpaceBetween = FlexBoxTemplate.bind({});
 SpaceBetween.args = {
@@ -87,7 +87,7 @@ SpaceBetween.args = {
   justifyContent: 'space-between',
   className: 'su-bg-foggy-light su-text-white'
 };
-SpaceBetween.storyName = 'Single Row with Space Between Items'
+SpaceBetween.storyName = 'Single Row with Space Between Items';
 
 export const MultipleRows = FlexBoxMultiTemplate.bind({});
 MultipleRows.args = {
@@ -96,7 +96,7 @@ MultipleRows.args = {
   justifyContent: 'start',
   className: 'su-bg-foggy-light su-text-white'
 };
-MultipleRows.storyName = 'Multiple Rows'
+MultipleRows.storyName = 'Multiple Rows';
 
 export const MultipleRowsCenter = FlexBoxMultiTemplate.bind({});
 MultipleRowsCenter.args = {
@@ -105,7 +105,7 @@ MultipleRowsCenter.args = {
   justifyContent: 'center',
   className: 'su-bg-foggy-light su-text-white'
 };
-MultipleRowsCenter.storyName = 'Multiple Rows with Centered Items'
+MultipleRowsCenter.storyName = 'Multiple Rows with Centered Items';
 
 export const ColumnCenter = FlexBoxMultiTemplate.bind({});
 ColumnCenter.args = {
@@ -114,4 +114,4 @@ ColumnCenter.args = {
   alignItems: 'center',
   className: 'su-bg-foggy-light su-text-white'
 };
-ColumnCenter.storyName = 'Centered Items in Single Column'
+ColumnCenter.storyName = 'Centered Items in Single Column';

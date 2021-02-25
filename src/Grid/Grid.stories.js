@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from './Grid';
 import { gridColsXs, gridColsSm, gridColsMd, gridColsLg, gridColsXl, gridCols2Xl } from "./Grid.levers";
-import DOMPurify from 'dompurify'
+import DOMPurify from 'dompurify';
 
 const cellContent = [
   '<span class="su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10 su-block">1</span>',
@@ -16,7 +16,7 @@ const cellContent = [
   '<span class="su-text-center su-bg-plum su-type-3 su-font-bold su-p-10 su-block">10</span>',
   '<span class="su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10 su-block">11</span>',
   '<span class="su-text-center su-bg-plum su-type-3 su-font-bold su-p-10 su-block">12</span>'
-]
+];
 
 export default {
   title: 'Layout/CSS Grid',
@@ -81,8 +81,8 @@ const GridTemplate = ({ children, ...rest }) => {
         <div key={index} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(child) }} />
       ))}
     </Grid>
-  )
-}
+  );
+};
 
 export const Default = GridTemplate.bind({});
 Default.args = {
@@ -96,7 +96,7 @@ Default.args = {
   children: cellContent,
   className: 'su-bg-black-10 su-text-white'
 };
-Default.storyName = '4-Column Grid with Responsive Gaps'
+Default.storyName = '4-Column Grid with Responsive Gaps';
 
 export const NoGap = GridTemplate.bind({});
 NoGap.args = {
@@ -110,4 +110,4 @@ NoGap.args = {
   children: cellContent,
   className: 'su-bg-black-10 su-text-white'
 };
-NoGap.storyName = '3-Column Grid with No Gap'
+NoGap.storyName = '3-Column Grid with No Gap';

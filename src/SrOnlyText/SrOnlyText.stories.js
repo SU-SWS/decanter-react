@@ -11,7 +11,7 @@ export default {
       }
     }
   }
-}
+};
 
 // Set up the Template.
 const SrOnlyTextTemplate = ({ ...rest }) => <SrOnlyText {...rest} />;
@@ -20,4 +20,4 @@ export const Default = SrOnlyTextTemplate.bind({});
 Default.args = {
   srText: 'This text is for screen readers only',
 };
-Default.storyName = 'Example'
+Default.storyName = 'Example';
