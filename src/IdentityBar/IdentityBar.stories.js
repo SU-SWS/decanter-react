@@ -1,6 +1,6 @@
 import React from 'react';
 import { IdentityBar } from './IdentityBar';
-import { Container } from '../Container/Container'
+import { Container } from '../Container/Container';
 import { Logo } from '../Logo/Logo';
 import { withDesign } from 'storybook-addon-designs';
 import { IdentityBarColors } from './IdentityBar.levers';
@@ -16,7 +16,7 @@ export default {
         type: 'select',
         options: IdentityBarColors
       }
-    },
+    }
   },
   parameters: {
     design: {
@@ -31,22 +31,22 @@ const IdentityBarTemplate = (props) => <IdentityBar {...props} />;
 
 export const Default = IdentityBarTemplate.bind({});
 Default.args = {
-  color: 'cardinal-red',
+  color: 'cardinal-red'
 };
-Default.storyName = 'Cardinal Red'
+Default.storyName = 'Cardinal Red';
 
 export const DigitalRed = IdentityBarTemplate.bind({});
 DigitalRed.args = {
-  color: 'digital-red',
+  color: 'digital-red'
 };
-DigitalRed.storyName = 'Digital Red'
+DigitalRed.storyName = 'Digital Red';
 
 export const Black = IdentityBarTemplate.bind({});
 Black.args = {
-  color: 'black',
+  color: 'black'
 };
 
 export const White = IdentityBarTemplate.bind({});
 White.args = {
-  color: 'white',
+  color: 'white'
 };

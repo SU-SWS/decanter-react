@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IdentityBarColors } from './IdentityBar.levers';
-import { Container } from '../Container/Container'
+import { Container } from '../Container/Container';
 import { Logo } from '../Logo/Logo';
 import clsxd from 'clsx-dedupe';
 
@@ -20,22 +20,22 @@ export const IdentityBar = ({ className, ...props }) => {
     switch (props.color) {
       case 'white':
         levers.wrapper = 'su-bg-white';
-        levers.logo = "cardinal-red";
+        levers.logo = 'cardinal-red';
         break;
 
       case 'cardinal-red':
         levers.wrapper = 'su-bg-cardinal-red';
-        levers.logo = "white";
+        levers.logo = 'white';
         break;
 
       case 'digital-red':
         levers.wrapper = 'su-bg-digital-red';
-        levers.logo = "white";
+        levers.logo = 'white';
         break;
 
       case 'black':
         levers.wrapper = 'su-bg-black';
-        levers.logo = "white";
+        levers.logo = 'white';
         break;
     }
   }
@@ -62,7 +62,7 @@ IdentityBar.propTypes = {
     PropTypes.string,
     PropTypes.array,
     PropTypes.object
-  ]),
+  ])
 };
 
 // Default Props.
