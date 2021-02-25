@@ -34,8 +34,6 @@ const textLong = "<p>It is a long established fact that a reader will be distrac
 
 export const Default = ContainerTemplate.bind({});
 Default.args = {
-  element: 'div',
-  width: 'centered-container',
   children: textLong,
   className: 'su-bg-illuminating-light su-rs-py-6'
 };
