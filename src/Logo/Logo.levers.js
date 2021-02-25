@@ -1,9 +1,9 @@
 /**
  * Default colors for the color prop.
  */
-export const LogoColors = ['cardinal-red', 'black', 'white'];
+export const logoColors = ['cardinal-red', 'black', 'white'];
 
 /**
  * The three different logo types.
  */
-export const LogoTypes = ['short', 'full', 'stacked'];
+export const logoTypes = ['short', 'full', 'stacked'];

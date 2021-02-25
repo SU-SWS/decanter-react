@@ -1,20 +1,22 @@
 import React from 'react';
 import { GlobalFooter } from './GlobalFooter';
+import { Container } from '../Container/Container';
+import { FlexBox } from "../FlexBox/FlexBox";
 import { Logo } from '../Logo/Logo';
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import { withDesign } from 'storybook-addon-designs';
-import { GlobalFooterColors } from './GlobalFooter.levers';
+import { globalFooterColors } from './GlobalFooter.levers';
 
 export default {
   title: 'Stanford Identity/Global Footer',
   decorators: [withDesign],
   component: GlobalFooter,
-  subcomponents: { SrOnlyText, Logo },
+  subcomponents: { SrOnlyText, Logo, Container, FlexBox },
   argTypes: {
     color: {
       control: {
         type: 'select',
-        options: GlobalFooterColors
+        options: globalFooterColors
       }
     },
   },
@@ -33,13 +35,13 @@ export const Default = GlobalFooterTemplate.bind({});
 Default.args = {
   color: 'cardinal-red',
 };
-Default.storyName = 'Cardinal Red'
+Default.storyName = 'Cardinal Red';
 
 export const DigitalRed = GlobalFooterTemplate.bind({});
 DigitalRed.args = {
   color: 'digital-red',
 };
-DigitalRed.storyName = 'Digital Red'
+DigitalRed.storyName = 'Digital Red';
 
 export const Black = GlobalFooterTemplate.bind({});
 Black.args = {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 export const SrOnlyText = (props) => {
-  const txt = props.srText ?? '(link is external)'
+  const txt = props.srText ?? '(link is external)';
   return (
     <span className='su-sr-only'>{txt}</span>
   );

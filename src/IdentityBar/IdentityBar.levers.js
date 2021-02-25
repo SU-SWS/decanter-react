@@ -1,4 +1,4 @@
 /**
  * Default colors for the color prop.
  */
-export const IdentityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
+export const identityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];

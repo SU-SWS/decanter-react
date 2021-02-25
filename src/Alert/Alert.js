@@ -15,72 +15,72 @@ import clsxd from 'clsx-dedupe';
  */
 export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // Defaults & Variables
-  const levers = {}
-  const iconProps = { height: 24, width: 24 }
-  const [isDismissed, setDismissed] = useState(false)
+  const levers = {};
+  const iconProps = { height: 24, width: 24 };
+  const [isDismissed, setDismissed] = useState(false);
 
   // Levers
   // ---------------------------------------------------------------------------
-  levers.wrapper = 'su-bg-foggy-light'
-  levers.dismiss = clsxd(darkText, 'hover:su-text-black focus:su-text-black')
+  levers.wrapper = 'su-bg-foggy-light';
+  levers.dismiss = clsxd(darkText, 'hover:su-text-black focus:su-text-black');
 
   // Is large Icon.
   if (props.isLargeIcon) {
-    iconProps.height = 60
-    iconProps.width = 60
+    iconProps.height = 60;
+    iconProps.width = 60;
   }
 
   // Default Icon.
-  let defaultIcon = <Icon icon='bell' type='outline' className={clsxd({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />
+  let defaultIcon = <Icon icon='bell' type='outline' className={clsxd({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />;
 
   // Is Label Top
   if (props.isLabelTop) {
-    levers.label = clsxd('su-rs-mb-neg1', { 'su-inline-block': !props.isIconTop })
-    classes.icon = clsxd(classes.icon, 'su-inline-block')
+    levers.label = clsxd('su-rs-mb-neg1', { 'su-inline-block': !props.isIconTop });
+    classes.icon = clsxd(classes.icon, 'su-inline-block');
   }
 
   // Is Icon Top but no label top.
   if (props.isIconTop && !props.isLabelTop) {
-    levers.headerIcon = clsxd(levers.headerIcon, 'su-block su-rs-mb-neg1')
+    levers.headerIcon = clsxd(levers.headerIcon, 'su-block su-rs-mb-neg1');
   }
 
   // Props.type
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
       case 'success':
-        levers.wrapper = 'su-bg-digital-green su-text-white su-link-white'
-        levers.body = lightText
-        levers.dismiss = lightText
-        defaultIcon = <Icon icon='check-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />
-        break
+        levers.wrapper = 'su-bg-digital-green su-text-white su-link-white';
+        levers.body = lightText;
+        levers.dismiss = lightText;
+        defaultIcon = <Icon icon='check-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        break;
 
       case 'warning':
-        levers.wrapper = 'su-bg-illuminating-dark'
-        levers.body = darkText
-        levers.dismiss = clsxd(darkText, 'hover:su-text-black')
-        defaultIcon = <Icon icon='exclamation-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />
-        break
+        levers.wrapper = 'su-bg-illuminating-dark';
+        levers.body = darkText;
+        levers.dismiss = clsxd(darkText, 'hover:su-text-black');
+        defaultIcon = <Icon icon='exclamation-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        break;
 
       case 'info':
-        levers.wrapper = 'su-bg-digital-blue su-text-white su-link-white'
-        levers.body = lightText
-        levers.dismiss = lightText
-        defaultIcon = <Icon icon='information-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />
-        break
+        levers.wrapper = 'su-bg-digital-blue su-text-white su-link-white';
+        levers.body = lightText;
+        levers.dismiss = lightText;
+        defaultIcon = <Icon icon='information-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        break;
 
       case 'error':
-        levers.wrapper = 'su-bg-digital-red su-text-white su-link-white'
-        levers.body = lightText
-        levers.dismiss = lightText
-        defaultIcon = <Icon icon='ban' type='solid' className={clsxd(classes.icon)} {...iconProps} />
-        break
+        levers.wrapper = 'su-bg-digital-red su-text-white su-link-white';
+        levers.body = lightText;
+        levers.dismiss = lightText;
+        defaultIcon = <Icon icon='ban' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        break;
     }
   }
 
   // Partials
   // ---------------------------------------------------------------------------
 
-  const icon = props.icon ?? defaultIcon
+  const icon = props.icon ?? defaultIcon;
   const DefaultDismiss = (
     <Button
       className={clsxd(
@@ -89,18 +89,18 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
         classes.dismiss
       )}
       aria-label='Dismiss Alert'
-      onClick={() => { setDismissed(true) }}
+      onClick={() => { setDismissed(true); }}
       variant='none'
       size='minimal'
     >
       Dismiss <Icon icon='x-circle' type='solid' className={'su-inline-block su-h-25 su-w-25'} />
     </Button>
-  )
-  const dismissBtn = props.dismissBtn ?? DefaultDismiss
+  );
+  const dismissBtn = props.dismissBtn ?? DefaultDismiss;
 
   // Dismissed State.
   if (isDismissed === true) {
-    return null
+    return null;
   }
 
   // Render
@@ -163,8 +163,8 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 // Prop Types.
 // -----------------------------------------------------------------------------
@@ -250,7 +250,7 @@ Alert.propTypes = {
       ])
     }
   )
-}
+};
 
 // Default Props.
 // -----------------------------------------------------------------------------
@@ -262,4 +262,4 @@ Alert.defaultProps = {
   hasLabel: true,
   hasIcon: true,
   ref: null
-}
+};

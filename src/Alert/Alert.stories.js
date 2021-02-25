@@ -1,10 +1,10 @@
-import React from 'react'
-import { withDesign } from 'storybook-addon-designs'
-import { Alert } from './Alert'
-import { Button } from '../Button/Button'
-import { alertTypes } from './Alert.levers'
-import { textMixed } from '../../.storybook/stories/Paragraph.stories'
-import DOMPurify from 'dompurify'
+import React from 'react';
+import { withDesign } from 'storybook-addon-designs';
+import { Alert } from './Alert';
+import { Button } from '../Button/Button';
+import { alertTypes } from './Alert.levers';
+import { textMixed } from '../../.storybook/stories/Paragraph.stories';
+import DOMPurify from 'dompurify';
 
 export default {
   title: 'Composite/Alert',
@@ -30,29 +30,29 @@ export default {
       }
     }
   }
-}
+};
 
 // Set up an Alert Template.
 const AlertTemplate = ({ children, ...rest }) => {
   // We do this to mimic sending in CMS content or another React component.
-  const content = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />
+  const content = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />;
   return (
     <Alert {...rest}>{content}</Alert>
-  )
-}
+  );
+};
 
 // Default State
 // /////////////////////////////////////////////////////////////////////////////
-export const Default = AlertTemplate.bind({})
+export const Default = AlertTemplate.bind({});
 Default.args = {
   children: textMixed
-}
+};
 
-export const Info = AlertTemplate.bind({})
+export const Info = AlertTemplate.bind({});
 Info.args = {
   children: textMixed,
   type: 'info'
-}
+};
 
 // Supports Markdown.
 Info.parameters = {
@@ -61,78 +61,78 @@ Info.parameters = {
       story: 'Informational style.'
     }
   }
-}
+};
 
-export const Error = AlertTemplate.bind({})
+export const Error = AlertTemplate.bind({});
 Error.args = {
   children: textMixed,
   type: 'error',
   label: 'error'
-}
+};
 Error.parameters = {
   docs: {
     description: {
       story: 'Error Message.'
     }
   }
-}
+};
 
-export const Warning = AlertTemplate.bind({})
+export const Warning = AlertTemplate.bind({});
 Warning.args = {
   children: textMixed,
   type: 'warning',
   label: 'warning'
-}
+};
 Warning.parameters = {
   docs: {
     description: {
       story: 'Warning Message.'
     }
   }
-}
+};
 
-export const Success = AlertTemplate.bind({})
+export const Success = AlertTemplate.bind({});
 Success.args = {
   children: textMixed,
   type: 'success',
   label: 'success'
-}
+};
 Success.parameters = {
   docs: {
     description: {
       story: 'Successful Transaction Message.'
     }
   }
-}
+};
 
-export const LabelsOnTop = AlertTemplate.bind({})
+export const LabelsOnTop = AlertTemplate.bind({});
 LabelsOnTop.args = {
   children: textMixed,
   isIconTop: true,
   isLabelTop: true
-}
+};
 
-export const NoDismiss = AlertTemplate.bind({})
+export const NoDismiss = AlertTemplate.bind({});
 NoDismiss.args = {
   children: textMixed,
   heading: 'Alert Lorem Ipsum',
   hasDismiss: false
-}
-NoDismiss.storyName = 'No Dismiss Button'
+};
+NoDismiss.storyName = 'No Dismiss Button';
 
-export const BigIcon = AlertTemplate.bind({})
+export const BigIcon = AlertTemplate.bind({});
 BigIcon.args = {
   children: textMixed,
   heading: 'Alert Lorem Ipsum',
   hasLabel: false,
   isLargeIcon: true
-}
-BigIcon.storyName = 'Big Icon + No Label'
+};
+BigIcon.storyName = 'Big Icon + No Label';
 
-export const WithHeader = AlertTemplate.bind({})
+export const WithHeader = AlertTemplate.bind({});
 WithHeader.args = {
   heading: 'Alert Lorem Ipsum',
   children: textMixed,
   isLabelTop: true,
   isLargeIcon: true
-}
+};

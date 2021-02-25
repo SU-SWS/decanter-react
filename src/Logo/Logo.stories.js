@@ -1,6 +1,6 @@
 import React from 'react';
 import { Logo } from './Logo';
-import { LogoColors, LogoTypes } from "./Logo.levers";
+import { logoColors, logoTypes } from "./Logo.levers";
 
 export default {
   title: 'Stanford Identity/Logo',
@@ -9,13 +9,13 @@ export default {
     color: {
       control: {
         type: 'select',
-        options: LogoColors
+        options: logoColors
       }
     },
     type: {
       control: {
         type: 'select',
-        options: LogoTypes
+        options: logoTypes
       }
     },
   }
@@ -30,7 +30,7 @@ Red.args = {
   type: 'short',
   className: 'su-type-3'
 };
-Red.storyName = 'Cardinal Red'
+Red.storyName = 'Cardinal Red';
 
 export const Black = LogoTemplate.bind({});
 Black.args = {

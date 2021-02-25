@@ -2,13 +2,12 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
-import { GlobalFooter } from './GlobalFooter';
+import { FlexBox } from './FlexBox';
 
 // Component is a component.
-describe('GlobalFooter', () => {
+describe('FlexBox', () => {
   // Is a component with valid syntax.
   it('is truthy', () => {
-    expect(GlobalFooter).toBeTruthy();
+    expect(FlexBox).toBeTruthy();
   });
-
 });

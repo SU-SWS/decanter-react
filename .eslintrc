@@ -1,8 +1,10 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "plugins": [
+    "react"
+  ],
   "extends": [
-    "standard",
-    "standard-react"
+    "plugin:react/recommended"
   ],
   "env": {
     "node": true

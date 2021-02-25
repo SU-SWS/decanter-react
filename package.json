@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/SU-SWS/decanter-react#readme",
   "dependencies": {
-    "decanter": "git://github.com/su-sws/decanter.git#v7",
+    "decanter": "^7.0.0-alpha.1",
     "react-hero-icon": "^0.0.7"
   },
   "peerDependencies": {
@@ -57,7 +57,8 @@
     "react-dom": "^16.14.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
+    "@babel/core": "^7.13.1",
+    "@babel/eslint-parser": "^7.13.4",
     "@babel/plugin-transform-react-jsx": "^7.12.17",
     "@babel/preset-env": "^7.12.17",
     "@babel/preset-react": "^7.12.13",

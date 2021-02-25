@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './Button';
 import { buttonVariants, buttonSizes, buttonTypes } from "./Button.levers";
-import DOMPurify from 'dompurify'
+import DOMPurify from 'dompurify';
 
 export default {
   title: 'Simple/Button',
@@ -33,11 +33,11 @@ export default {
 
 const ButtonTemplate = ({ children, ...rest }) => {
   // We do this to mimic sending in CMS content or another React component.
-  const content = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />
+  const content = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />;
   return (
     <Button {...rest}>{content}</Button>
-  )
-}
+  );
+};
 
 export const Default = ButtonTemplate.bind({});
 Default.args = {
