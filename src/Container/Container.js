@@ -31,7 +31,7 @@ export const Container = ({ className, children, ref, ...props }) => {
         levers.width = 'su-w-screen'; // width: 100vw
         break;
 
-      case 'centered-container':
+      case 'site':
         levers.width = 'su-cc';
         break;
     }
@@ -72,5 +72,5 @@ Container.propTypes = {
 // -----------------------------------------------------------------------------
 Container.defaultProps = {
   element: 'div',
-  width: 'centered-container'
+  width: 'site'
 };

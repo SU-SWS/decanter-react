@@ -6,4 +6,4 @@ export const containerElements = ['div', 'section', 'article', 'main', 'footer',
 /**
  * Widths of the container.
  */
-export const containerWidths = ['full', 'screen', 'centered-container'];
+export const containerWidths = ['full', 'screen', 'site'];
