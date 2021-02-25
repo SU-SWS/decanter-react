@@ -1,5 +1,6 @@
 import React from 'react';
 import { IdentityBar } from './IdentityBar';
+import { Container } from '../Container/Container'
 import { Logo } from '../Logo/Logo';
 import { withDesign } from 'storybook-addon-designs';
 import { IdentityBarColors } from './IdentityBar.levers';
@@ -8,7 +9,7 @@ export default {
   title: 'Stanford Identity/Identity Bar',
   decorators: [withDesign],
   component: IdentityBar,
-  subcomponents: { Logo },
+  subcomponents: { Logo, Container },
   argTypes: {
     color: {
       control: {

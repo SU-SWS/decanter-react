@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { IdentityBarColors } from './IdentityBar.levers';
+import { Container } from '../Container/Container'
 import { Logo } from '../Logo/Logo';
 import clsxd from 'clsx-dedupe';
 
@@ -40,11 +41,9 @@ export const IdentityBar = ({ className, ...props }) => {
   }
 
   return (
-    <div className={clsxd('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)}>
-      <div className='su-cc'>
-        <Logo className='su-text-20' color={levers.logo} type="full" />
-      </div>
-    </div>
+    <Container width='centered-container' className={clsxd('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)}>
+      <Logo className='su-text-20' color={levers.logo} type="full" />
+    </Container>
   );
 };
 

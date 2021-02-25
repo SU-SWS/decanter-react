@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { GlobalFooterColors } from './GlobalFooter.levers';
 import { Logo } from '../Logo/Logo';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { Container } from '../Container/Container'
+import { FlexBox } from "../FlexBox/FlexBox";
 import clsxd from 'clsx-dedupe';
+
 
 /**
  * Stanford Global Footer Component.
@@ -31,8 +34,8 @@ export const GlobalFooter = ({ className, ...props }) => {
   }
 
   return (
-    <div className={clsxd('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className)}>
-      <div className='su-cc su-flex su-flex-col lg:su-flex-row' title='Common Stanford resources'>
+    <Container className={clsxd('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className)} width='centered-container'>
+      <FlexBox direction='col' className='lg:su-flex-row' title='Common Stanford resources'>
         <div className='su-text-center su-mt-5 su-mb-9'>
           <Logo className='su-type-3' type="stacked" />
         </div>
@@ -115,8 +118,8 @@ export const GlobalFooter = ({ className, ...props }) => {
             <span className='su-whitespace-no-wrap'>&nbsp; Stanford, California 94305.</span>
           </div>
         </div>
-      </div>
-    </div>
+      </FlexBox>
+    </Container>
   );
 };
 

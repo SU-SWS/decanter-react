@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsxd from 'clsx-dedupe';
 import { flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
-import { gridGap } from "../Grid/Grid.levers";
 
 /**
  * FlexBox component.
@@ -136,10 +135,5 @@ FlexBox.propTypes = {
 // -----------------------------------------------------------------------------
 FlexBox.defaultProps = {
   direction: 'row',
-  wrap: 'wrap',
-  gap: true,
-  justifyContent: 'start',
-  justifyItems: 'auto',
-  alignContent: 'center',
-  alignItems: 'start'
+  gap: false,
 };

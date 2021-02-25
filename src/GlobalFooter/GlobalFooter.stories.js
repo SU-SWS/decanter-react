@@ -1,5 +1,7 @@
 import React from 'react';
 import { GlobalFooter } from './GlobalFooter';
+import { Container } from '../Container/Container'
+import { FlexBox } from "../FlexBox/FlexBox";
 import { Logo } from '../Logo/Logo';
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import { withDesign } from 'storybook-addon-designs';
@@ -9,7 +11,7 @@ export default {
   title: 'Stanford Identity/Global Footer',
   decorators: [withDesign],
   component: GlobalFooter,
-  subcomponents: { SrOnlyText, Logo },
+  subcomponents: { SrOnlyText, Logo, Container, FlexBox },
   argTypes: {
     color: {
       control: {
