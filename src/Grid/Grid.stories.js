@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from './Grid';
-import { gridColsXs, gridColsSm, gridColsMd, gridColsLg, gridColsXl, gridCols2Xl } from "./Grid.levers";
+import { gridNumCols } from "./Grid.levers";
 import DOMPurify from 'dompurify';
 
 const cellContent = [
@@ -26,7 +26,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: gridColsXs[gridColsXs.length-1],
+        max: gridNumCols[gridNumCols.length-1],
         step: 1
       }
     },
@@ -34,7 +34,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: gridColsSm[gridColsSm.length-1],
+        max: gridNumCols[gridNumCols.length-1],
         step: 1
       }
     },
@@ -42,7 +42,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: gridColsMd[gridColsMd.length-1],
+        max: gridNumCols[gridNumCols.length-1],
         step: 1
       }
     },
@@ -50,7 +50,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: gridColsLg[gridColsLg.length-1],
+        max: gridNumCols[gridNumCols.length-1],
         step: 1
       }
     },
@@ -58,7 +58,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: gridColsXl[gridColsXl.length-1],
+        max: gridNumCols[gridNumCols.length-1],
         step: 1
       }
     },
@@ -66,7 +66,7 @@ export default {
       control: {
         type: 'range',
         min: 1,
-        max: gridCols2Xl[gridCols2Xl.length-1],
+        max: gridNumCols[gridNumCols.length-1],
         step: 1
       }
     },

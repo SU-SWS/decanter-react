@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsxd from 'clsx-dedupe';
-import { gridGap, gridColsXs, gridColsSm, gridColsMd, gridColsLg, gridColsXl, gridCols2Xl } from './Grid.levers';
+import { gridGap, gridNumCols } from './Grid.levers';
 
 /**
  * CSS Grid component.
@@ -20,32 +20,32 @@ export const Grid = ({ className, children, ref, ...props }) => {
   }
 
   // props.xs
-  if (props.xs && gridColsXs.includes(props.xs)) {
+  if (props.xs && gridNumCols.includes(props.xs)) {
     levers.xs = `su-grid-cols-${props.xs}`;
   }
 
   // props.sm
-  if (props.sm && gridColsSm.includes(props.sm)) {
+  if (props.sm && gridNumCols.includes(props.sm)) {
     levers.sm = `sm:su-grid-cols-${props.sm}`;
   }
 
   // props.md
-  if (props.md && gridColsMd.includes(props.md)) {
+  if (props.md && gridNumCols.includes(props.md)) {
     levers.md = `md:su-grid-cols-${props.md}`;
   }
 
   // props.lg
-  if (props.lg && gridColsLg.includes(props.lg)) {
+  if (props.lg && gridNumCols.includes(props.lg)) {
     levers.lg = `lg:su-grid-cols-${props.lg}`;
   }
 
   // props.xl
-  if (props.xl && gridColsXl.includes(props.xl)) {
+  if (props.xl && gridNumCols.includes(props.xl)) {
     levers.xl = `xl:su-grid-cols-${props.xl}`;
   }
 
   // props.xxl
-  if (props.xxl && gridCols2Xl.includes(props.xxl)) {
+  if (props.xxl && gridNumCols.includes(props.xxl)) {
     levers.xxl = `2xl:su-grid-cols-${props.xxl}`;
   }
 
@@ -67,32 +67,32 @@ Grid.propTypes = {
   /**
    * Number of columns at XS breakpoint
    */
-  xs: PropTypes.oneOf(gridColsXs),
+  xs: PropTypes.oneOf(gridNumCols),
 
   /**
    * Number of columns at SM breakpoint
    */
-  sm: PropTypes.oneOf(gridColsSm),
+  sm: PropTypes.oneOf(gridNumCols),
 
   /**
    * Number of columns at MD breakpoint
    */
-  md: PropTypes.oneOf(gridColsMd),
+  md: PropTypes.oneOf(gridNumCols),
 
   /**
    * Number of columns at LG breakpoint
    */
-  lg: PropTypes.oneOf(gridColsLg),
+  lg: PropTypes.oneOf(gridNumCols),
 
   /**
    * Number of columns at XL breakpoint
    */
-  xl: PropTypes.oneOf(gridColsXl),
+  xl: PropTypes.oneOf(gridNumCols),
 
   /**
    * Number of columns at 2XL breakpoint
    */
-  xxl: PropTypes.oneOf(gridCols2Xl),
+  xxl: PropTypes.oneOf(gridNumCols),
 
   children: PropTypes.oneOfType([
     PropTypes.node,
