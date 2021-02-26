@@ -1,7 +1,8 @@
 import React from 'react';
 import { Grid } from './Grid';
-import { gridNumCols } from "./Grid.levers";
+import { gridNumCols, gridElements } from "./Grid.levers";
 import DOMPurify from 'dompurify';
+import { containerElements } from "../Container/Container.levers";
 
 const cellContent = [
   '<span class="su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10 su-block">1</span>',
@@ -22,6 +23,12 @@ export default {
   title: 'Layout/CSS Grid',
   component: Grid,
   argTypes: {
+    element: {
+      control: {
+        type: 'select',
+        options: gridElements
+      }
+    },
     xs: {
       control: {
         type: 'range',
@@ -88,11 +95,8 @@ export const Default = GridTemplate.bind({});
 Default.args = {
   gap: true,
   xs: 1,
-  sm: 1,
   md: 2,
-  lg: 2,
   xl: 4,
-  xxl: 4,
   children: cellContent,
   className: 'su-bg-black-10 su-text-white'
 };
@@ -102,11 +106,8 @@ export const NoGap = GridTemplate.bind({});
 NoGap.args = {
   gap: false,
   xs: 1,
-  sm: 1,
   md: 2,
   lg: 3,
-  xl: 3,
-  xxl: 3,
   children: cellContent,
   className: 'su-bg-black-10 su-text-white'
 };

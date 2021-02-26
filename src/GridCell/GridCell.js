@@ -15,10 +15,10 @@ export const GridCell = ({ className, children, ref, ...props }) => {
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = '';
+  let Element = 'div';
 
   if (props.element && gridCellElements.includes(props.element)) {
-    Element = props.element ?? 'div';
+    Element = props.element;
   }
 
   // props.colSpan

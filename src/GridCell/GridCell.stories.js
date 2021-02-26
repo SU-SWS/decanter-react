@@ -43,7 +43,7 @@ export default {
 const GridCellTemplate = ({ children, ...rest }) => {
   return (
     <Grid xs={12} gap={true} className='su-bg-foggy-light su-text-white su-text-center su-type-1 su-font-bold'>
-      <GridCell {...rest}>1</GridCell>
+      <GridCell {...rest}>{children}</GridCell>
       <div className='su-bg-black-40 su-py-10'>2</div>
       <div className='su-bg-black-40 su-py-10'>3</div>
       <div className='su-bg-black-40 su-py-10'>4</div>
@@ -62,7 +62,7 @@ const GridCellTemplate = ({ children, ...rest }) => {
 const GridColTemplate = ({ children, ...rest }) => {
   return (
     <Grid xs={12} gap={true} className='su-bg-foggy-light su-text-white su-text-center su-type-2 su-font-bold'>
-      <GridCell {...rest}>1</GridCell>
+      <GridCell {...rest}>{children}</GridCell>
       <div className='su-bg-black-40 su-p-10 su-col-span-2'>2</div>
       <div className='su-bg-black-40 su-p-10 su-col-span-2'>3</div>
       <div className='su-bg-black-40 su-p-10 su-col-span-2'>4</div>
@@ -76,7 +76,7 @@ const GridColTemplate = ({ children, ...rest }) => {
 const GridRowTemplate = ({ children, ...rest }) => {
   return (
     <Grid xs={2} gap={true} className='su-grid-rows-4 su-bg-foggy-light su-text-white su-text-center su-type-2 su-font-bold'>
-      <GridCell {...rest}>1</GridCell>
+      <GridCell {...rest}>{children}</GridCell>
       <div className='su-bg-black-40 su-p-10'>2</div>
       <div className='su-bg-black-40 su-p-10'>3</div>
       <div className='su-bg-black-40 su-p-10'>4</div>
@@ -89,7 +89,7 @@ const GridRowTemplate = ({ children, ...rest }) => {
 const GridStartTemplate = ({ children, ...rest }) => {
   return (
     <Grid xs={12} gap={true} className='su-bg-foggy-light su-text-white su-text-center su-type-2 su-font-bold'>
-      <GridCell {...rest}>1</GridCell>
+      <GridCell {...rest}>{children}</GridCell>
       <div className='su-bg-black-40 su-p-10'>2</div>
       <div className='su-bg-black-40 su-p-10'>3</div>
       <div className='su-bg-black-40 su-p-10'>4</div>
@@ -101,6 +101,7 @@ const GridStartTemplate = ({ children, ...rest }) => {
 
 export const Default = GridCellTemplate.bind({});
 Default.args = {
+  children: '1',
   className: 'su-bg-spirited su-p-10'
 };
 Default.storyName = 'Grid Cell in a 12-column Grid';
@@ -108,6 +109,7 @@ Default.storyName = 'Grid Cell in a 12-column Grid';
 export const GridColCell = GridColTemplate.bind({});
 GridColCell.args = {
   colSpan: 6,
+  children: '1',
   className: 'su-bg-spirited su-p-10'
 };
 GridColCell.storyName = 'Grid Cell Spanning 6 of 12 Columns';
@@ -116,6 +118,7 @@ export const GridStartCell = GridStartTemplate.bind({});
 GridStartCell.args = {
   colStart: 3,
   colSpan: 8,
+  children: '1',
   className: 'su-bg-spirited su-p-10'
 };
 GridStartCell.storyName = 'Grid Cell Starting at Line 2 & Spanning 8 Columns';
@@ -123,6 +126,7 @@ GridStartCell.storyName = 'Grid Cell Starting at Line 2 & Spanning 8 Columns';
 export const GridRowCell = GridRowTemplate.bind({});
 GridRowCell.args = {
   rowSpan: 3,
+  children: '1',
   className: 'su-bg-spirited su-p-10'
 };
 GridRowCell.storyName = 'Grid Cell Spanning 3 Rows';

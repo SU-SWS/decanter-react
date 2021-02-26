@@ -1,4 +1,9 @@
 /**
+ * Available HTML elements of the flex box.
+ */
+export const flexElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
+
+/**
  * Flex Directions.
  */
 export const flexDirection = ['row', 'row-reverse', 'col', 'col-reverse'];
