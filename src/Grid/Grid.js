@@ -113,5 +113,4 @@ Grid.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Grid.defaultProps = {
-  gap: true
 };

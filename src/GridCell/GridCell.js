@@ -23,11 +23,11 @@ export const GridCell = ({ className, children, ref, ...props }) => {
 
   // props.colSpan
   if (props.colSpan && gridColSpan.includes(props.colSpan)) {
-    if (props.colSpan !== 'auto') {
-      levers.colSpan = `su-col-span-${props.colSpan}`;
+    if (props.colSpan === 'auto') {
+      levers.colSpan = `su-col-auto`;
     }
     else {
-      levers.colSpan = `su-col-auto`;
+      levers.colSpan = `su-col-span-${props.colSpan}`;
     }
   }
 
@@ -39,11 +39,11 @@ export const GridCell = ({ className, children, ref, ...props }) => {
   // props.rowSpan
   if (props.rowSpan && gridRowSpan.includes(props.rowSpan)) {
     levers.rowSpan = `su-row-span-${props.rowSpan}`;
-    if (props.rowSpan !== 'auto') {
-      levers.rowSpan = `su-row-span-${props.rowSpan}`;
+    if (props.rowSpan === 'auto') {
+      levers.rowSpan = `su-row-auto`;
     }
     else {
-      levers.rowSpan = `su-row-auto`;
+      levers.rowSpan = `su-row-span-${props.rowSpan}`;
     }
   }
 

@@ -42,19 +42,19 @@ export default {
 
 const GridCellTemplate = ({ children, ...rest }) => {
   return (
-    <Grid xs={12} gap={true} className='su-bg-foggy-light su-text-white su-text-center su-type-2 su-font-bold'>
+    <Grid xs={12} gap={true} className='su-bg-foggy-light su-text-white su-text-center su-type-1 su-font-bold'>
       <GridCell {...rest}>1</GridCell>
-      <div className='su-bg-black-40 su-p-10'>2</div>
-      <div className='su-bg-black-40 su-p-10'>3</div>
-      <div className='su-bg-black-40 su-p-10'>4</div>
-      <div className='su-bg-black-40 su-p-10'>5</div>
-      <div className='su-bg-black-40 su-p-10'>6</div>
-      <div className='su-bg-black-40 su-p-10'>7</div>
-      <div className='su-bg-black-40 su-p-10'>8</div>
-      <div className='su-bg-black-40 su-p-10'>9</div>
-      <div className='su-bg-black-40 su-p-10'>10</div>
-      <div className='su-bg-black-40 su-p-10'>11</div>
-      <div className='su-bg-black-40 su-p-10'>12</div>
+      <div className='su-bg-black-40 su-py-10'>2</div>
+      <div className='su-bg-black-40 su-py-10'>3</div>
+      <div className='su-bg-black-40 su-py-10'>4</div>
+      <div className='su-bg-black-40 su-py-10'>5</div>
+      <div className='su-bg-black-40 su-py-10'>6</div>
+      <div className='su-bg-black-40 su-py-10'>7</div>
+      <div className='su-bg-black-40 su-py-10'>8</div>
+      <div className='su-bg-black-40 su-py-10'>9</div>
+      <div className='su-bg-black-40 su-py-10'>10</div>
+      <div className='su-bg-black-40 su-py-10'>11</div>
+      <div className='su-bg-black-40 su-py-10'>12</div>
     </Grid>
   );
 };
@@ -86,6 +86,19 @@ const GridRowTemplate = ({ children, ...rest }) => {
   );
 };
 
+const GridStartTemplate = ({ children, ...rest }) => {
+  return (
+    <Grid xs={12} gap={true} className='su-bg-foggy-light su-text-white su-text-center su-type-2 su-font-bold'>
+      <GridCell {...rest}>1</GridCell>
+      <div className='su-bg-black-40 su-p-10'>2</div>
+      <div className='su-bg-black-40 su-p-10'>3</div>
+      <div className='su-bg-black-40 su-p-10'>4</div>
+      <div className='su-bg-black-40 su-p-10'>5</div>
+      <div className='su-bg-black-40 su-p-10'>6</div>
+    </Grid>
+  );
+};
+
 export const Default = GridCellTemplate.bind({});
 Default.args = {
   className: 'su-bg-spirited su-p-10'
@@ -98,6 +111,14 @@ GridColCell.args = {
   className: 'su-bg-spirited su-p-10'
 };
 GridColCell.storyName = 'Grid Cell Spanning 6 of 12 Columns';
+
+export const GridStartCell = GridStartTemplate.bind({});
+GridStartCell.args = {
+  colStart: 3,
+  colSpan: 8,
+  className: 'su-bg-spirited su-p-10'
+};
+GridStartCell.storyName = 'Grid Cell Starting at Line 2 & Spanning 8 Columns';
 
 export const GridRowCell = GridRowTemplate.bind({});
 GridRowCell.args = {
