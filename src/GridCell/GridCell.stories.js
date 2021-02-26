@@ -63,17 +63,12 @@ const GridColTemplate = ({ children, ...rest }) => {
   return (
     <Grid xs={12} gap={true} className='su-bg-foggy-light su-text-white su-text-center su-type-2 su-font-bold'>
       <GridCell {...rest}>1</GridCell>
-      <div className='su-bg-black-40 su-p-10'>2</div>
-      <div className='su-bg-black-40 su-p-10'>3</div>
-      <div className='su-bg-black-40 su-p-10'>4</div>
-      <div className='su-bg-black-40 su-p-10'>5</div>
-      <div className='su-bg-black-40 su-p-10'>6</div>
-      <div className='su-bg-black-40 su-p-10'>7</div>
-      <div className='su-bg-black-40 su-p-10'>8</div>
-      <div className='su-bg-black-40 su-p-10'>9</div>
-      <div className='su-bg-black-40 su-p-10'>10</div>
-      <div className='su-bg-black-40 su-p-10'>11</div>
-      <div className='su-bg-black-40 su-p-10'>12</div>
+      <div className='su-bg-black-40 su-p-10 su-col-span-2'>2</div>
+      <div className='su-bg-black-40 su-p-10 su-col-span-2'>3</div>
+      <div className='su-bg-black-40 su-p-10 su-col-span-2'>4</div>
+      <div className='su-bg-black-40 su-p-10 su-col-span-4'>5</div>
+      <div className='su-bg-black-40 su-p-10 su-col-span-4'>6</div>
+      <div className='su-bg-black-40 su-p-10 su-col-span-4'>7</div>
     </Grid>
   );
 };
@@ -102,7 +97,7 @@ GridColCell.args = {
   colSpan: 6,
   className: 'su-bg-spirited su-p-10'
 };
-GridColCell.storyName = 'Grid Cell Spanning 6 Columns';
+GridColCell.storyName = 'Grid Cell Spanning 6 of 12 Columns';
 
 export const GridRowCell = GridRowTemplate.bind({});
 GridRowCell.args = {
