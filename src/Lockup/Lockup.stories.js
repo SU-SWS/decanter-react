@@ -3,6 +3,8 @@ import { Lockup } from './Lockup';
 import { Logo } from '../Logo/Logo';
 import { withDesign } from 'storybook-addon-designs';
 import { lockupColors } from './Lockup.levers';
+import { FlexBox } from "../FlexBox/FlexBox";
+import { IdentityBar } from "../IdentityBar/IdentityBar";
 
 export default {
   title: 'Stanford Identity/Department Branding',
@@ -26,13 +28,13 @@ export default {
 };
 
 // Set up the Lockup template.
-const LockupTemplate = ({ line1, ...rest }) => <Lockup {...rest}>{line1}</Lockup>;
+const LockupTemplate = (props) => <Lockup {...props} />;
 
 export const Default = LockupTemplate.bind({});
 Default.args = {
   color: 'default',
   line1: 'Department',
-  url: '/'
+  url: 'https://decanter.stanford.edu'
 };
 Default.storyName = 'Default';
 
@@ -40,6 +42,5 @@ export const White = LockupTemplate.bind({});
 White.args = {
   color: 'white',
   line1: 'Department',
-  url: '/'
 };
-White.storyName = 'White';
+White.storyName = 'White (For Dark Background)';

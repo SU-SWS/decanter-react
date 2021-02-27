@@ -33,8 +33,8 @@ export const Lockup = ({ className, line1, ...props }) => {
   }
 
   return (
-    <a className={clsxd('su-lockup su-no-underline', className)}
-       href={props.url}
+    <a className={clsxd('su-lockup su-no-underline su-inline-block', className)}
+       href={props.url ?? '/'}
     >
       <FlexBox className='su-flex-col md:su-flex-row'>
         <Logo color={levers.logo} isLink={false} className='su-type-4' />
@@ -67,5 +67,4 @@ Lockup.propTypes = {
 // -----------------------------------------------------------------------------
 Lockup.defaultProps = {
   color: 'default',
-  line1: 'Department'
 };
