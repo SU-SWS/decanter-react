@@ -48,9 +48,9 @@ const FlexCellTemplate = ({ children, ...rest }) => {
   return (
     <FlexBox gap={true} className='su-bg-foggy-light su-text-white su-text-center su-font-bold'>
       <FlexCell {...rest}>{children}</FlexCell>
-      <div className='su-bg-black-40 su-p-10'>Short</div>
-      <div className='su-bg-black-40 su-p-10'>Longer item</div>
-      <div className='su-bg-black-40 su-p-10'>This item is even longer</div>
+      <div className='su-bg-black-60 su-p-10'>Short</div>
+      <div className='su-bg-black-60 su-p-10'>Longer item</div>
+      <div className='su-bg-black-60 su-p-10'>This item is even longer</div>
     </FlexBox>
   );
 };
@@ -59,9 +59,9 @@ const FlexColTemplate = ({ children, ...rest }) => {
   return (
     <FlexBox gap={true} className='su-bg-foggy-light su-text-white su-text-center su-font-bold'>
       <FlexCell {...rest}>{children}</FlexCell>
-      <div className='su-bg-black-40 su-p-10 su-w-2/12'>2-of-12</div>
-      <div className='su-bg-black-40 su-p-10 su-w-2/12'>2-of-12</div>
-      <div className='su-bg-black-40 su-p-10 su-w-2/12'>2-of-12</div>
+      <div className='su-bg-black-60 su-p-10 su-w-2/12'>2-of-12</div>
+      <div className='su-bg-black-60 su-p-10 su-w-2/12'>2-of-12</div>
+      <div className='su-bg-black-60 su-p-10 su-w-2/12'>2-of-12</div>
     </FlexBox>
   );
 };
