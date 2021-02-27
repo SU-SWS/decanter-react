@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Logo } from '../Logo/Logo';
+import { FlexBox } from '../FlexBox/FlexBox';
 import { lockupColors } from './Lockup.levers';
 import clsxd from 'clsx-dedupe';
 
@@ -19,22 +20,27 @@ export const Lockup = ({ className, line1, ...props }) => {
     switch (props.color) {
       case 'default':
         levers.logo = 'cardinal-red';
-        levers.text = 'su-link-black';
+        levers.text = 'su-text-black';
+        levers.bar = 'su-bg-black';
         break;
 
       case 'white':
         levers.logo = 'white';
-        levers.text = 'su-link-white';
+        levers.text = 'su-text-white';
+        levers.bar = 'su-bg-white';
         break;
     }
   }
 
   return (
-    <a className={clsxd('su-lockup', levers.link, className)}
+    <a className={clsxd('su-lockup su-no-underline', className)}
        href={props.url}
     >
-      <Logo color={levers.logo} isLink={false} />
-      <div>{line1}</div>
+      <FlexBox className='su-flex-col md:su-flex-row'>
+        <Logo color={levers.logo} isLink={false} className='su-type-4' />
+        <div className={clsxd('su-hidden md:su-block su-h-40 su-w-01em su-bg-black su-mx-6 su--mt-7', levers.bar)} aria-hidden='true' />
+        <div className={clsxd('su-type-2 su-font-regular', levers.text)}>{line1}</div>
+      </FlexBox>
     </a>
   );
 };
@@ -61,5 +67,5 @@ Lockup.propTypes = {
 // -----------------------------------------------------------------------------
 Lockup.defaultProps = {
   color: 'default',
-  line1: 'Example Department'
+  line1: 'Department'
 };

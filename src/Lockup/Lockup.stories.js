@@ -31,7 +31,7 @@ const LockupTemplate = ({ line1, ...rest }) => <Lockup {...rest}>{line1}</Lockup
 export const Default = LockupTemplate.bind({});
 Default.args = {
   color: 'default',
-  line1: 'Example Department',
+  line1: 'Department',
   url: '/'
 };
 Default.storyName = 'Default';
@@ -39,7 +39,7 @@ Default.storyName = 'Default';
 export const White = LockupTemplate.bind({});
 White.args = {
   color: 'white',
-  line1: 'Example Department',
+  line1: 'Department',
   url: '/'
 };
 White.storyName = 'White';
