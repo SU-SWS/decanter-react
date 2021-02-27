@@ -121,7 +121,7 @@ GridStartCell.args = {
   children: '1',
   className: 'su-bg-spirited su-p-10'
 };
-GridStartCell.storyName = 'Grid Cell Starting at Line 2 & Spanning 8 Columns';
+GridStartCell.storyName = 'Grid Cell Starting at Line 3 & Spanning 8 Columns';
 
 export const GridRowCell = GridRowTemplate.bind({});
 GridRowCell.args = {

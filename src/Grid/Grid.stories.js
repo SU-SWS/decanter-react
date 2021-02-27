@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid } from './Grid';
+import { GridCell } from "../GridCell/GridCell";
 import { gridNumCols, gridElements } from "./Grid.levers";
 import DOMPurify from 'dompurify';
-import { containerElements } from "../Container/Container.levers";
 
 const cellContent = [
   '<span class="su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10 su-block">1</span>',
@@ -91,6 +91,17 @@ const GridTemplate = ({ children, ...rest }) => {
   );
 };
 
+const GridPageTemplate = ({ ...rest }) => {
+  return (
+    <Grid {...rest}>
+      <GridCell element='header' colSpan={12} className='su-bg-sky su-p-20'>Header</GridCell>
+      <GridCell element='aside' colSpan={4} className='su-bg-plum-light su-p-20'>Sidebar</GridCell>
+      <GridCell element='main' colSpan={8}  className='su-bg-plum su-p-20 su-h-200'>Main</GridCell>
+      <GridCell element='footer' colSpan={12} className='su-bg-palo-verde su-p-20'>Footer</GridCell>
+    </Grid>
+  );
+};
+
 export const Default = GridTemplate.bind({});
 Default.args = {
   gap: true,
@@ -112,3 +123,11 @@ NoGap.args = {
   className: 'su-bg-black-10 su-text-white'
 };
 NoGap.storyName = '3-Column Grid with No Gap';
+
+export const GridPage = GridPageTemplate.bind({});
+GridPage.args = {
+  gap: true,
+  xs: 12,
+  className: 'su-bg-foggy-light su-text-center su-text-white su-type-3 su-font-bold'
+};
+GridPage.storyName = 'Example Page Layout';

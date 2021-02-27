@@ -59,12 +59,9 @@ const FlexColTemplate = ({ children, ...rest }) => {
   return (
     <FlexBox gap={true} className='su-bg-foggy-light su-text-white su-text-center su-font-bold'>
       <FlexCell {...rest}>{children}</FlexCell>
-      <div className='su-bg-black-40 su-p-10 su-col-span-2'>2</div>
-      <div className='su-bg-black-40 su-p-10 su-col-span-2'>3</div>
-      <div className='su-bg-black-40 su-p-10 su-col-span-2'>4</div>
-      <div className='su-bg-black-40 su-p-10 su-col-span-4'>5</div>
-      <div className='su-bg-black-40 su-p-10 su-col-span-4'>6</div>
-      <div className='su-bg-black-40 su-p-10 su-col-span-4'>7</div>
+      <div className='su-bg-black-40 su-p-10 su-w-2/12'>2-of-12</div>
+      <div className='su-bg-black-40 su-p-10 su-w-2/12'>2-of-12</div>
+      <div className='su-bg-black-40 su-p-10 su-w-2/12'>2-of-12</div>
     </FlexBox>
   );
 };
@@ -74,12 +71,12 @@ Default.args = {
   className: 'su-bg-spirited su-p-10',
   children: 'Flex Cell'
 };
-Default.storyName = 'Flex Cell in a 12-column Flex';
+Default.storyName = 'Default Auto-width Flex Cell';
 
 export const FlexColCell = FlexColTemplate.bind({});
 FlexColCell.args = {
   width: 6,
-  children: '6-of-12 Columns',
+  children: '6-of-12',
   className: 'su-bg-spirited su-p-10'
 };
 FlexColCell.storyName = 'Flex Cell Spanning 6 of 12 Columns';
