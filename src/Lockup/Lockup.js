@@ -36,9 +36,9 @@ export const Lockup = ({ className, line1, ...props }) => {
     <a className={clsxd('su-lockup su-no-underline su-inline-block', className)}
        href={props.url ?? '/'}
     >
-      <FlexBox className='su-flex-col md:su-flex-row'>
+      <FlexBox direction='col' className='md:su-flex-row su-body-basefont-21'>
         <Logo color={levers.logo} isLink={false} className='su-type-4' />
-        <div className={clsxd('su-hidden md:su-block su-h-40 su-w-01em su-bg-black su-mx-6 su--mt-7', levers.bar)} aria-hidden='true' />
+        <div className={clsxd('su-hidden md:su-block su-h-40 su-w-01em su-mx-6 su--mt-7', levers.bar)} aria-hidden='true' />
         <div className={clsxd('su-type-2 su-font-regular', levers.text)}>{line1}</div>
       </FlexBox>
     </a>

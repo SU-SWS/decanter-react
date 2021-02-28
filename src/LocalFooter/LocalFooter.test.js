@@ -1,12 +1,12 @@
 import React from 'react';
-import { Lockup } from './Lockup';
+import { LocalFooter } from './LocalFooter';
 
 // Component is a component.
-describe('Lockup', () => {
+describe('LocalFooter', () => {
 
   // Is a component with valid syntax.
   it('is truthy', () => {
-    expect(Lockup).toBeTruthy();
+    expect(LocalFooter).toBeTruthy();
   });
 
 });

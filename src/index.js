@@ -5,8 +5,9 @@ import { FlexBox } from './FlexBox/FlexBox';
 import { GlobalFooter } from './GlobalFooter/GlobalFooter';
 import { Grid } from './Grid/Grid';
 import { IdentityBar } from './IdentityBar/IdentityBar';
+import { Lockup } from './Lockup/Lockup';
 import { Logo } from './Logo/Logo';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
 import { StyledLink } from './StyledLink';
 
-export { Alert, Button, Container, FlexBox, GlobalFooter, Grid, IdentityBar, Logo, SrOnlyText, StyledLink };
+export { Alert, Button, Container, FlexBox, GlobalFooter, Grid, IdentityBar, Lockup, Logo, SrOnlyText, StyledLink };
