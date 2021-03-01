@@ -13,7 +13,7 @@ export default {
   argTypes: {
     color: {
       control: {
-        type: 'select',
+        type: 'inline-radio',
         options: identityBarColors
       }
     }

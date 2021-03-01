@@ -60,7 +60,7 @@ export const LocalFooter = ({ className, children, ...props }) => {
       <FlexBox direction='col' gap={true} className='md:su-flex-row su-rs-mb-2'>
         <Lockup color={levers.lockup} line1={props.line1} url={props.url} />
       </FlexBox>
-      <Grid xs={1} md={2} xl={4} gap={true} className={clsxd('', levers.link, className)}>
+      <Grid xs={1} md={2} xl={4} gap={true} className={clsxd('su-card-paragraph su-link-regular', levers.link, className)}>
         {children}
       </Grid>
     </Container>

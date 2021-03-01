@@ -21,13 +21,13 @@ export const Lockup = ({ className, line1, ...props }) => {
       case 'default':
         levers.logo = 'cardinal-red';
         levers.text = 'su-text-black';
-        levers.bar = 'su-bg-black';
+        levers.bar = 'su-border-black';
         break;
 
       case 'white':
         levers.logo = 'white';
         levers.text = 'su-text-white';
-        levers.bar = 'su-bg-white';
+        levers.bar = 'su-border-white';
         break;
     }
   }
@@ -36,10 +36,9 @@ export const Lockup = ({ className, line1, ...props }) => {
     <a className={clsxd('su-lockup su-no-underline su-inline-block', className)}
        href={props.url ?? '/'}
     >
-      <FlexBox direction='col' className='md:su-flex-row su-body-basefont-21'>
-        <Logo color={levers.logo} isLink={false} className='su-type-4' />
-        <div className={clsxd('su-hidden md:su-block su-h-40 su-w-01em su-mx-6 su--mt-7', levers.bar)} aria-hidden='true' />
-        <div className={clsxd('su-type-2 su-font-regular', levers.text)}>{line1}</div>
+      <FlexBox direction='col' className='md:su-flex-row su-basefont-20'>
+        <Logo color={levers.logo} isLink={false} className={clsxd('su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid', levers.bar)} />
+        <div className={clsxd('su-text-25 md:su-text-m2 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6', levers.text)}>{line1}</div>
       </FlexBox>
     </a>
   );
