@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/SU-SWS/decanter-react#readme",
   "dependencies": {
-    "decanter": "SU-SWS/decanter#v7",
+    "decanter": "git://github.com/su-sws/decanter.git#v7",
     "react-hero-icon": "^0.0.7"
   },
   "peerDependencies": {
