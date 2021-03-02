@@ -19,6 +19,11 @@ export const headingWeights = ['light', 'regular', 'semibold', 'bold'];
 export const headingSizes = [0, 1, 2, 3, 4, 5, 6];
 
 /**
+ * Letter spacing/tracking
+ */
+export const headingTracking = ['tighter', 'tight', 'normal', 'wide', 'wider', 'widest'];
+
+/**
  * Text alignments.
  */
 export const headingAlign = ['left', 'center', 'right', 'justify'];

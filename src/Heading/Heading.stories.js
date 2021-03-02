@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading } from './Heading';
-import { headingFonts, headingLevels, headingWeights, headingSizes, headingAlign } from './Heading.levers';
+import { headingFonts, headingLevels, headingWeights, headingTracking, headingSizes, headingAlign } from './Heading.levers';
 
 export default {
   title: 'Simple/Heading',
@@ -22,6 +22,12 @@ export default {
       control: {
         type: 'inline-radio',
         options: headingFonts
+      }
+    },
+    tracking: {
+      control: {
+        type: 'inline-radio',
+        options: headingTracking
       }
     },
     align: {
@@ -130,8 +136,9 @@ export const Uppercase = HeadingTemplate.bind({});
 Uppercase.args = {
   level: 'h3',
   weight: 'semibold',
+  tracking: 'wider',
   uppercase: true,
-  size: 0,
+  className: 'su-text-18',
   children: 'Small Uppercase H3'
 };
 Uppercase.storyName = 'Small Uppercase H3';

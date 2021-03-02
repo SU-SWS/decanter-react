@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { headingLevels, headingFonts, headingAlign, headingWeights, headingSizes } from "./Heading.levers";
+import { headingLevels, headingFonts, headingAlign, headingWeights, headingTracking, headingSizes } from "./Heading.levers";
 import clsxd from 'clsx-dedupe';
 
 /**
@@ -36,6 +36,11 @@ export const Heading = ({ className, children, ref, ...props }) => {
     levers.weight = `su-font-${props.weight}`;
   }
 
+  // props.tracking
+  if (props.tracking && headingTracking.includes(props.tracking)) {
+    levers.tracking = `su-tracking-${props.tracking}`;
+  }
+
   // props.align
   if (props.align && headingAlign.includes(props.align)) {
     levers.align = `su-text-${props.align}`;
@@ -64,7 +69,7 @@ export const Heading = ({ className, children, ref, ...props }) => {
 
   return (
     <HeadingTag
-      className={clsxd('su-leading-display', levers.font, levers.weight, levers.size, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)}
+      className={clsxd('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)}
       ref={ref}
     >
       {children}
@@ -94,6 +99,11 @@ Heading.propTypes = {
    * Font weight.
    */
   weight: PropTypes.oneOf(headingWeights),
+
+  /**
+   * Letter spacing/tracking.
+   */
+  tracking: PropTypes.oneOf(headingTracking),
   uppercase: PropTypes.bool,
   italic: PropTypes.bool,
 
