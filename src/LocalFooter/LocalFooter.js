@@ -50,7 +50,7 @@ export const LocalFooter = ({ className, children, ...props }) => {
         break;
 
       case 'white':
-        levers.link = 'su-link-white hover:su-link-white focus:su-link-white';
+        levers.link = 'su-link-white hover:su-link-digital-red-light focus:su-link-digital-red-light';
         break;
     }
   }
@@ -59,6 +59,9 @@ export const LocalFooter = ({ className, children, ...props }) => {
     <Container width='site' className={clsxd('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, className)}>
       <FlexBox direction='col' gap={true} className='md:su-flex-row su-rs-mb-2'>
         <Lockup color={levers.lockup} line1={props.line1} url={props.url} />
+        {props.hasButton && (
+          {footerButton}
+        )}
       </FlexBox>
       <Grid xs={1} md={2} xl={4} gap={true} className={clsxd('su-card-paragraph su-link-regular', levers.link, className)}>
         {children}
