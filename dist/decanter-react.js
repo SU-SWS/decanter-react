@@ -2,6 +2,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = require('react');
 var React__default = _interopDefault(React);
+var clsxd = _interopDefault(require('clsx-dedupe'));
 var Icon = _interopDefault(require('react-hero-icon'));
 
 function _extends() {
@@ -36,52 +37,6 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
   return target;
 }
-
-var SPACE = /\s/;
-var MULTI_SPACE = /\s+/;
-var HAS_OWN = {}.hasOwnProperty;
-
-function process$1(ref, args) {
-  for (var i = 0, len = args.length, arg, str, j, len2, arr; i < len; ++i) {
-    if ((arg = args[i])) {
-      if ((str = typeof arg) === 'string') {
-        if (SPACE.test(arg)) {
-          for (j = 0, arr = arg.split(MULTI_SPACE), len2 = arr.length; j < len2; ++j) ref[arr[j]] = 0;
-        } else ref[arg] = 0;
-      } else if (Array.isArray(arg)) {
-        process$1(ref, arg);
-      } else if (str === 'object') {
-        for (str in arg) {
-          /* istanbul ignore next */
-          if (HAS_OWN.call(arg, str)) {
-            if (arg[str]) {
-              if (str) ref[str] = 0;
-            } else if (0 === ref[str]) {
-              delete ref[str];
-            }
-          }
-        }
-      } else if (str === 'number') {
-        ref[arg] = 0;
-      }
-    }
-  }
-  return ref
-}
-
-function O() {}
-O.prototype = Object.create(null);
-
-var dedupe = function () {
-  var s = '',
-    c,
-    classNames = process$1(new O(), arguments);
-  for (c in classNames) {
-    if (s) s += ' ';
-    s += c;
-  }
-  return s
-};
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -1160,50 +1115,9 @@ if (process.env.NODE_ENV !== 'production') {
 }
 });
 
-function toVal(mix) {
-	var k, y, str='';
-
-	if (typeof mix === 'string' || typeof mix === 'number') {
-		str += mix;
-	} else if (typeof mix === 'object') {
-		if (Array.isArray(mix)) {
-			for (k=0; k < mix.length; k++) {
-				if (mix[k]) {
-					if (y = toVal(mix[k])) {
-						str && (str += ' ');
-						str += y;
-					}
-				}
-			}
-		} else {
-			for (k in mix) {
-				if (mix[k]) {
-					str && (str += ' ');
-					str += k;
-				}
-			}
-		}
-	}
-
-	return str;
-}
-
-function clsx () {
-	var i=0, tmp, x, str='';
-	while (i < arguments.length) {
-		if (tmp = arguments[i++]) {
-			if (x = toVal(tmp)) {
-				str && (str += ' ');
-				str += x;
-			}
-		}
-	}
-	return str;
-}
-
 var alertTypes = ['info', 'warning', 'error', 'success'];
-var lightText = clsx('su-text-white hover:su-link-no-underline');
-var darkText = clsx('su-text-black su-link-black-true hover:su-link-no-underline');
+var lightText = 'su-text-white hover:su-link-no-underline';
+var darkText = 'su-text-black su-link-black-true hover:su-link-no-underline';
 
 var buttonVariants = ['primary', 'secondary', 'none'];
 var buttonSizes = ['big', 'small', 'minimal'];
@@ -1225,15 +1139,15 @@ var Button = function Button(_ref) {
   if (variant && buttonVariants.includes(variant)) {
     switch (variant) {
       case 'primary':
-        levers.variant = clsx('su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black');
+        levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
       case 'secondary':
-        levers.variant = clsx('su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-text-digital-red hover:su-text-black focus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black');
+        levers.variant = 'su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-text-digital-red hover:su-text-black focus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
       case 'none':
-        levers.variant = clsx('su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent');
+        levers.variant = 'su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent';
         break;
     }
   }
@@ -1241,25 +1155,25 @@ var Button = function Button(_ref) {
   if (size && buttonSizes.includes(size)) {
     switch (size) {
       case 'big':
-        levers.size = clsx('su-px-34 su-py-15 su-text-20 md:su-text-24');
+        levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
         break;
 
       case 'small':
-        levers.size = clsx('su-px-19 su-py-9 su-text-16 md:su-text-18');
+        levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
         break;
 
       case 'minimal':
-        levers.size = clsx('su-p-0');
+        levers.size = 'su-p-0';
         break;
 
       default:
-        levers.size = clsx('su-px-26 su-py-10 su-text-16 md:su-text-20');
+        levers.size = 'su-px-26 su-py-10 su-text-16 md:su-text-20';
     }
   }
 
   if (isDisabled) {
-    levers.disabled = clsx('su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none');
-    levers.variant = clsx(levers.variant, {
+    levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
+    levers.variant = clsxd(levers.variant, {
       'su-bg-digital-red': false,
       'su-text-digital-red': false,
       'su-border-digital-red': false,
@@ -1270,13 +1184,12 @@ var Button = function Button(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("button", _extends({
+    className: clsxd('su-button', levers.variant, levers.size, levers.disabled, className),
     ref: ref,
     onClick: onClick,
     type: type,
     disabled: isDisabled
-  }, props, {
-    className: dedupe(clsx('su-button', levers.variant, levers.size, levers.disabled, className))
-  }), children);
+  }, props), children);
 };
 Button.propTypes = {
   type: propTypes.oneOf(buttonTypes),
@@ -1313,8 +1226,8 @@ var Alert = function Alert(_ref) {
       isDismissed = _useState[0],
       setDismissed = _useState[1];
 
-  levers.wrapper = clsx('su-bg-foggy-light');
-  levers.dismiss = clsx(darkText, 'hover:su-text-black focus:su-text-black');
+  levers.wrapper = 'su-bg-foggy-light';
+  levers.dismiss = clsxd(darkText, 'hover:su-text-black focus:su-text-black');
 
   if (props.isLargeIcon) {
     iconProps.height = 60;
@@ -1323,89 +1236,84 @@ var Alert = function Alert(_ref) {
 
   var defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
     icon: "bell",
-    type: "outline"
-  }, iconProps, {
-    className: dedupe(clsx({
+    type: "outline",
+    className: clsxd({
       'su-inline-block': props.isIconTop
-    }, classes.icon))
-  }));
+    }, classes.icon)
+  }, iconProps));
 
   if (props.isLabelTop) {
-    levers.label = clsx('su-rs-mb-neg1', {
+    levers.label = clsxd('su-rs-mb-neg1', {
       'su-inline-block': !props.isIconTop
     });
-    classes.icon = clsx(classes.icon, 'su-inline-block');
+    classes.icon = clsxd(classes.icon, 'su-inline-block');
   }
 
   if (props.isIconTop && !props.isLabelTop) {
-    levers.headerIcon = clsx(levers.headerIcon, 'su-block su-rs-mb-neg1');
+    levers.headerIcon = clsxd(levers.headerIcon, 'su-block su-rs-mb-neg1');
   }
 
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
       case 'success':
-        levers.wrapper = clsx('su-bg-digital-green su-text-white su-link-white');
-        levers.body = clsx(lightText);
-        levers.dismiss = clsx(lightText);
+        levers.wrapper = 'su-bg-digital-green su-text-white su-link-white';
+        levers.body = lightText;
+        levers.dismiss = lightText;
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "check-circle",
-          type: "solid"
-        }, iconProps, {
-          className: dedupe(clsx(classes.icon))
-        }));
+          type: "solid",
+          className: clsxd(classes.icon)
+        }, iconProps));
         break;
 
       case 'warning':
-        levers.wrapper = clsx('su-bg-illuminating-dark');
-        levers.body = clsx(darkText);
-        levers.dismiss = clsx(darkText, 'hover:su-text-black');
+        levers.wrapper = 'su-bg-illuminating-dark';
+        levers.body = darkText;
+        levers.dismiss = clsxd(darkText, 'hover:su-text-black');
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "exclamation-circle",
-          type: "solid"
-        }, iconProps, {
-          className: dedupe(clsx(classes.icon))
-        }));
+          type: "solid",
+          className: clsxd(classes.icon)
+        }, iconProps));
         break;
 
       case 'info':
-        levers.wrapper = clsx('su-bg-digital-blue su-text-white su-link-white');
-        levers.body = clsx(lightText);
-        levers.dismiss = clsx(lightText);
+        levers.wrapper = 'su-bg-digital-blue su-text-white su-link-white';
+        levers.body = lightText;
+        levers.dismiss = lightText;
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "information-circle",
-          type: "solid"
-        }, iconProps, {
-          className: dedupe(clsx(classes.icon))
-        }));
+          type: "solid",
+          className: clsxd(classes.icon)
+        }, iconProps));
         break;
 
       case 'error':
-        levers.wrapper = clsx('su-bg-digital-red su-text-white su-link-white');
-        levers.body = clsx(lightText);
-        levers.dismiss = clsx(lightText);
+        levers.wrapper = 'su-bg-digital-red su-text-white su-link-white';
+        levers.body = lightText;
+        levers.dismiss = lightText;
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "ban",
-          type: "solid"
-        }, iconProps, {
-          className: dedupe(clsx(classes.icon))
-        }));
+          type: "solid",
+          className: clsxd(classes.icon)
+        }, iconProps));
         break;
     }
   }
 
   var icon = (_props$icon = props.icon) != null ? _props$icon : defaultIcon;
   var DefaultDismiss = /*#__PURE__*/React__default.createElement(Button, {
+    className: clsxd('su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest', levers.dismiss, classes.dismiss),
     "aria-label": "Dismiss Alert",
     onClick: function onClick() {
       setDismissed(true);
     },
     variant: "none",
-    size: "minimal",
-    className: dedupe(clsx('su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest', levers.dismiss, classes.dismiss))
+    size: "minimal"
   }, "Dismiss ", /*#__PURE__*/React__default.createElement(Icon, {
     icon: "x-circle",
     type: "solid",
-    className: dedupe(clsx('su-inline-block su--mt-3 su-h-25 su-w-25'))
+    className: 'su-inline-block su-h-25 su-w-25'
   }));
   var dismissBtn = (_props$dismissBtn = props.dismissBtn) != null ? _props$dismissBtn : DefaultDismiss;
 
@@ -1414,30 +1322,30 @@ var Alert = function Alert(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    ref: ref,
-    className: dedupe(clsx('su-alert', levers.wrapper, classes.wrapper))
+    className: clsxd('su-alert', levers.wrapper, classes.wrapper),
+    ref: ref
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: dedupe(clsx('su-cc su-flex su-flex-wrap su-rs-pt-1 su-rs-pb-neg1 sm:su-items-center', levers.container, classes.container))
+    className: clsxd('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
   }, props.hasDismiss && /*#__PURE__*/React__default.createElement("div", {
-    className: dedupe(clsx('su-order-3 su-rs-ml-1 su-h-full su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper))
+    className: clsxd('su-order-3 su-rs-ml-1 su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
   }, dismissBtn), /*#__PURE__*/React__default.createElement("div", {
-    className: dedupe(clsx('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper))
+    className: clsxd('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)
   }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
-    className: dedupe(clsx('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon))
+    className: clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
   }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
-    className: dedupe(clsx('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label))
+    className: clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
   }, (_props$label = props.label) != null ? _props$label : 'Information')), /*#__PURE__*/React__default.createElement("div", {
-    className: dedupe(clsx('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper))
+    className: clsxd('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)
   }, props.hasIcon && props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
-    className: dedupe(clsx('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon))
+    className: clsxd('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
   }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
-    className: dedupe(clsx('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label))
+    className: clsxd('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
   }, (_props$label2 = props.label) != null ? _props$label2 : 'Information'), props.heading && /*#__PURE__*/React__default.createElement("h3", {
-    className: dedupe(clsx('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading))
+    className: clsxd('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)
   }, props.heading), /*#__PURE__*/React__default.createElement("div", {
-    className: dedupe(clsx('su-text-normal', levers.body, classes.body))
+    className: clsxd('su-text-normal', levers.body, classes.body)
   }, children), props.footer && /*#__PURE__*/React__default.createElement("div", {
-    className: dedupe(clsx('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper))
+    className: clsxd('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)
   }, props.footer))));
 };
 Alert.propTypes = {
@@ -1477,10 +1385,179 @@ Alert.defaultProps = {
   ref: null
 };
 
-var IdentityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
+var containerElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
+var containerWidths = ['full', 'screen', 'site'];
 
-var LogoColors = ['cardinal-red', 'black', 'white'];
-var LogoTypes = ['short', 'full', 'stacked'];
+var Container = function Container(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      ref = _ref.ref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+
+  var levers = {};
+  var Element = 'div';
+
+  if (props.element && containerElements.includes(props.element)) {
+    Element = props.element;
+  }
+
+  if (props.width && containerWidths.includes(props.width)) {
+    switch (props.width) {
+      case 'full':
+        levers.width = 'su-w-full';
+        break;
+
+      case 'screen':
+        levers.width = 'su-w-screen';
+        break;
+
+      case 'site':
+        levers.width = 'su-cc';
+        break;
+    }
+  }
+
+  return /*#__PURE__*/React__default.createElement(Element, {
+    className: clsxd(levers.width, className),
+    ref: ref
+  }, children);
+};
+Container.propTypes = {
+  element: propTypes.oneOf(containerElements),
+  width: propTypes.oneOf(containerWidths),
+  children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+};
+Container.defaultProps = {
+  element: 'div',
+  width: 'site'
+};
+
+var flexElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
+var flexDirection = ['row', 'row-reverse', 'col', 'col-reverse'];
+var flexWrap = ['wrap', 'wrap-reverse', 'nowrap'];
+var flexGap = [true, false];
+var flexJustifyContent = ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly'];
+var flexJustifyItems = ['auto', 'start', 'end', 'center', 'stretch'];
+var flexAlignContent = ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly'];
+var flexAlignItems = ['start', 'end', 'center', 'baseline', 'stretch'];
+
+var FlexBox = function FlexBox(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      ref = _ref.ref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+
+  var levers = {};
+  var Element = 'div';
+
+  if (props.element && flexElements.includes(props.element)) {
+    Element = props.element;
+  }
+
+  if (props.direction && flexDirection.includes(props.direction)) {
+    levers.direction = "su-flex-" + props.direction;
+  }
+
+  if (props.wrap && flexWrap.includes(props.wrap)) {
+    levers.wrap = "su-flex-" + props.wrap;
+  }
+
+  if (props.gap && flexGap.includes(props.gap)) {
+    levers.gap = 'su-grid-gap';
+  }
+
+  if (props.justifyContent && flexJustifyContent.includes(props.justifyContent)) {
+    switch (props.justifyContent) {
+      case 'start':
+        levers.justifyContent = 'su-justify-start';
+        break;
+
+      case 'end':
+        levers.justifyContent = 'su-justify-end';
+        break;
+
+      case 'center':
+        levers.justifyContent = 'su-justify-center';
+        break;
+
+      case 'space-between':
+        levers.justifyContent = 'su-justify-between';
+        break;
+
+      case 'space-around':
+        levers.justifyContent = 'su-justify-around';
+        break;
+
+      case 'space-evenly':
+        levers.justifyContent = 'su-justify-evenly';
+        break;
+    }
+  }
+
+  if (props.justifyItems && flexJustifyItems.includes(props.justifyItems)) {
+    levers.justifyItems = "su-justify-items-" + props.justifyItems;
+  }
+
+  if (props.alignContent && flexAlignContent.includes(props.alignContent)) {
+    switch (props.alignContent) {
+      case 'start':
+        levers.alignContent = 'su-content-start';
+        break;
+
+      case 'end':
+        levers.alignContent = 'su-content-end';
+        break;
+
+      case 'center':
+        levers.alignContent = 'su-content-center';
+        break;
+
+      case 'space-between':
+        levers.alignContent = 'su-content-between';
+        break;
+
+      case 'space-around':
+        levers.alignContent = 'su-content-around';
+        break;
+
+      case 'space-evenly':
+        levers.alignContent = 'su-content-evenly';
+        break;
+    }
+  }
+
+  if (props.alignItems && flexAlignItems.includes(props.alignItems)) {
+    levers.alignItems = "su-items-" + props.alignItems;
+  }
+
+  return /*#__PURE__*/React__default.createElement(Element, {
+    className: clsxd('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
+    ref: ref
+  }, children);
+};
+FlexBox.propTypes = {
+  element: propTypes.oneOf(flexElements),
+  direction: propTypes.oneOf(flexDirection),
+  wrap: propTypes.oneOf(flexWrap),
+  gap: propTypes.bool,
+  justifyContent: propTypes.oneOf(flexJustifyContent),
+  justifyItems: propTypes.oneOf(flexJustifyItems),
+  alignContent: propTypes.oneOf(flexAlignContent),
+  alignItems: propTypes.oneOf(flexAlignItems),
+  children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+};
+FlexBox.defaultProps = {
+  element: 'div',
+  direction: 'row',
+  gap: false
+};
+
+var globalFooterColors = ['cardinal-red', 'digital-red', 'black'];
+
+var logoColors = ['cardinal-red', 'black', 'white'];
+var logoTypes = ['short', 'full', 'stacked'];
 
 var Logo = function Logo(_ref) {
   var className = _ref.className,
@@ -1489,23 +1566,23 @@ var Logo = function Logo(_ref) {
   var levers = {};
   var logoText;
 
-  if (props.color && LogoColors.includes(props.color)) {
+  if (props.color && logoColors.includes(props.color)) {
     switch (props.color) {
       case 'cardinal-red':
-        levers.logo = clsx('su-text-cardinal-red');
+        levers.logo = 'su-text-cardinal-red';
         break;
 
       case 'black':
-        levers.logo = clsx('su-text-black hover:su-text-black focus:su-text-black');
+        levers.logo = 'su-text-black hover:su-text-black focus:su-text-black';
         break;
 
       case 'white':
-        levers.logo = clsx('su-text-white hover:su-text-white focus:su-text-white');
+        levers.logo = 'su-text-white hover:su-text-white focus:su-text-white';
         break;
     }
   }
 
-  if (props.type && LogoTypes.includes(props.type)) {
+  if (props.type && logoTypes.includes(props.type)) {
     switch (props.type) {
       case 'short':
         logoText = 'Stanford';
@@ -1516,75 +1593,25 @@ var Logo = function Logo(_ref) {
         break;
 
       case 'stacked':
-        logoText = /*#__PURE__*/React__default.createElement(React__default.Fragment, null, "Stanford ", /*#__PURE__*/React__default.createElement("br", null), " University");
+        logoText = /*#__PURE__*/React__default.createElement(React__default.Fragment, null, "Stanford", /*#__PURE__*/React__default.createElement("br", null), "University");
         break;
     }
   }
 
   return /*#__PURE__*/React__default.createElement("a", {
-    href: "https://www.stanford.edu",
-    className: dedupe(clsx('su-logo', levers.logo, className))
+    className: clsxd('su-logo', levers.logo, className),
+    href: "https://www.stanford.edu"
   }, logoText);
 };
 Logo.propTypes = {
-  color: propTypes.oneOf(LogoColors),
-  type: propTypes.oneOf(LogoTypes),
+  color: propTypes.oneOf(logoColors),
+  type: propTypes.oneOf(logoTypes),
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
 };
 Logo.defaultProps = {
   color: 'cardinal-red',
   type: 'short'
 };
-
-var IdentityBar = function IdentityBar(_ref) {
-  var className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, ["className"]);
-
-  var levers = {};
-
-  if (props.color && IdentityBarColors.includes(props.color)) {
-    switch (props.color) {
-      case 'white':
-        levers.wrapper = clsx('su-bg-white');
-        levers.logo = "cardinal-red";
-        break;
-
-      case 'cardinal-red':
-        levers.wrapper = clsx('su-bg-cardinal-red');
-        levers.logo = "white";
-        break;
-
-      case 'digital-red':
-        levers.wrapper = clsx('su-bg-digital-red');
-        levers.logo = "white";
-        break;
-
-      case 'black':
-        levers.wrapper = clsx('su-bg-black');
-        levers.logo = "white";
-        break;
-    }
-  }
-
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: dedupe(clsx('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className))
-  }, /*#__PURE__*/React__default.createElement("div", {
-    className: "su-cc"
-  }, /*#__PURE__*/React__default.createElement(Logo, {
-    color: levers.logo,
-    type: "full",
-    className: dedupe(clsx('su-text-20'))
-  })));
-};
-IdentityBar.propTypes = {
-  color: propTypes.oneOf(IdentityBarColors),
-  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
-};
-IdentityBar.defaultProps = {
-  color: 'cardinal-red'
-};
-
-var GlobalFooterColors = ['cardinal-red', 'digital-red', 'black'];
 
 var SrOnlyText = function SrOnlyText(props) {
   var _props$srText;
@@ -1607,32 +1634,34 @@ var GlobalFooter = function GlobalFooter(_ref) {
 
   var levers = {};
 
-  if (props.color && GlobalFooterColors.includes(props.color)) {
+  if (props.color && globalFooterColors.includes(props.color)) {
     switch (props.color) {
       case 'cardinal-red':
-        levers.wrapper = clsx('su-bg-cardinal-red');
+        levers.wrapper = 'su-bg-cardinal-red';
         break;
 
       case 'digital-red':
-        levers.wrapper = clsx('su-bg-digital-red');
+        levers.wrapper = 'su-bg-digital-red';
         break;
 
       case 'black':
-        levers.wrapper = clsx('su-bg-black');
+        levers.wrapper = 'su-bg-black';
         break;
     }
   }
 
-  return /*#__PURE__*/React__default.createElement("div", {
-    className: dedupe(clsx('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className))
-  }, /*#__PURE__*/React__default.createElement("div", {
-    className: "su-cc su-flex su-flex-col lg:su-flex-row",
+  return /*#__PURE__*/React__default.createElement(Container, {
+    className: clsxd('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className),
+    width: "site"
+  }, /*#__PURE__*/React__default.createElement(FlexBox, {
+    direction: "col",
+    className: "lg:su-flex-row",
     title: "Common Stanford resources"
   }, /*#__PURE__*/React__default.createElement("div", {
     className: "su-text-center su-mt-5 su-mb-9"
   }, /*#__PURE__*/React__default.createElement(Logo, {
-    type: "stacked",
-    className: dedupe(clsx('su-type-3'))
+    className: "su-type-3",
+    type: "stacked"
   })), /*#__PURE__*/React__default.createElement("div", {
     className: "lg:su-pl-45 xl:su-pl-50 su-text-left sm:su-text-center lg:su-text-left su-flex-grow"
   }, /*#__PURE__*/React__default.createElement("nav", {
@@ -1693,10 +1722,130 @@ var GlobalFooter = function GlobalFooter(_ref) {
   }, "\xA0 Stanford, California 94305.")))));
 };
 GlobalFooter.propTypes = {
-  color: propTypes.oneOf(GlobalFooterColors),
+  color: propTypes.oneOf(globalFooterColors),
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
 };
 GlobalFooter.defaultProps = {
+  color: 'cardinal-red'
+};
+
+var gridElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
+var gridGap = [true, false];
+var gridNumCols = Array.from({
+  length: 12
+}, function (_, i) {
+  return i + 1;
+});
+
+var Grid = function Grid(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      ref = _ref.ref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+
+  var levers = {};
+  var Element = 'div';
+
+  if (props.element && gridElements.includes(props.element)) {
+    Element = props.element;
+  }
+
+  if (props.gap && gridGap.includes(props.gap)) {
+    levers.gap = 'su-grid-gap';
+  }
+
+  if (props.xs && gridNumCols.includes(props.xs)) {
+    levers.xs = "su-grid-cols-" + props.xs;
+  }
+
+  if (props.sm && gridNumCols.includes(props.sm)) {
+    levers.sm = "sm:su-grid-cols-" + props.sm;
+  }
+
+  if (props.md && gridNumCols.includes(props.md)) {
+    levers.md = "md:su-grid-cols-" + props.md;
+  }
+
+  if (props.lg && gridNumCols.includes(props.lg)) {
+    levers.lg = "lg:su-grid-cols-" + props.lg;
+  }
+
+  if (props.xl && gridNumCols.includes(props.xl)) {
+    levers.xl = "xl:su-grid-cols-" + props.xl;
+  }
+
+  if (props.xxl && gridNumCols.includes(props.xxl)) {
+    levers.xxl = "2xl:su-grid-cols-" + props.xxl;
+  }
+
+  return /*#__PURE__*/React__default.createElement(Element, {
+    className: clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
+    ref: ref
+  }, children);
+};
+Grid.propTypes = {
+  element: propTypes.oneOf(gridElements),
+  gap: propTypes.bool,
+  xs: propTypes.oneOf(gridNumCols),
+  sm: propTypes.oneOf(gridNumCols),
+  md: propTypes.oneOf(gridNumCols),
+  lg: propTypes.oneOf(gridNumCols),
+  xl: propTypes.oneOf(gridNumCols),
+  xxl: propTypes.oneOf(gridNumCols),
+  children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+};
+Grid.defaultProps = {
+  element: 'div',
+  gap: false
+};
+
+var identityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
+
+var IdentityBar = function IdentityBar(_ref) {
+  var className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["className"]);
+
+  var levers = {};
+
+  if (props.color && identityBarColors.includes(props.color)) {
+    switch (props.color) {
+      case 'white':
+        levers.wrapper = 'su-bg-white';
+        levers.logo = 'cardinal-red';
+        break;
+
+      case 'cardinal-red':
+        levers.wrapper = 'su-bg-cardinal-red';
+        levers.logo = 'white';
+        break;
+
+      case 'digital-red':
+        levers.wrapper = 'su-bg-digital-red';
+        levers.logo = 'white';
+        break;
+
+      case 'black':
+        levers.wrapper = 'su-bg-black';
+        levers.logo = 'white';
+        break;
+    }
+  }
+
+  return /*#__PURE__*/React__default.createElement(Container, {
+    width: "site",
+    className: clsxd('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)
+  }, /*#__PURE__*/React__default.createElement(Logo, {
+    className: "su-text-20",
+    color: levers.logo,
+    type: "full"
+  }));
+};
+IdentityBar.propTypes = {
+  color: propTypes.oneOf(identityBarColors),
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+};
+IdentityBar.defaultProps = {
   color: 'cardinal-red'
 };
 
@@ -1750,15 +1899,17 @@ var StyledLink = function StyledLink(props) {
   }
 
   return /*#__PURE__*/React__default.createElement("a", _extends({
+    className: classes.wrapper,
     href: props.href
-  }, props.attributes, {
-    className: dedupe(classes.wrapper)
-  }), props.children, classes.icon && classes.icon);
+  }, props.attributes), props.children, classes.icon && classes.icon);
 };
 
 exports.Alert = Alert;
 exports.Button = Button;
+exports.Container = Container;
+exports.FlexBox = FlexBox;
 exports.GlobalFooter = GlobalFooter;
+exports.Grid = Grid;
 exports.IdentityBar = IdentityBar;
 exports.Logo = Logo;
 exports.SrOnlyText = SrOnlyText;
