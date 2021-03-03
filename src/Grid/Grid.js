@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsxd from 'clsx-dedupe';
-import { gridGap, gridNumCols } from './Grid.levers';
+import { gridGap, gridNumCols, gridElements } from './Grid.levers';
 
 /**
  * CSS Grid component.
@@ -13,6 +13,13 @@ export const Grid = ({ className, children, ref, ...props }) => {
 
   // Levers
   // ---------------------------------------------------------------------------
+
+  // props.element
+  let Element = 'div';
+
+  if (props.element && gridElements.includes(props.element)) {
+    Element = props.element;
+  }
 
   // props.gap
   if (props.gap && gridGap.includes(props.gap)) {
@@ -50,15 +57,20 @@ export const Grid = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <div className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref}>
+    <Element className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref}>
       {children}
-    </div>
+    </Element>
   );
 };
 
 // Prop Types.
 // -----------------------------------------------------------------------------
 Grid.propTypes = {
+  /**
+   * Which HTML element?
+   */
+  element: PropTypes.oneOf(gridElements),
+
   /**
    * Grid gap or not?
    */
@@ -70,7 +82,7 @@ Grid.propTypes = {
   xs: PropTypes.oneOf(gridNumCols),
 
   /**
-   * Number of columns at SM breakpoint
+   * Number of columns at SM breakpoint and up
    */
   sm: PropTypes.oneOf(gridNumCols),
 
@@ -113,4 +125,6 @@ Grid.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Grid.defaultProps = {
+  element: 'div',
+  gap: false
 };

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsxd from 'clsx-dedupe';
 import { flexElements, flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
-import { gridElements } from "../Grid/Grid.levers";
 
 /**
  * FlexBox component.
@@ -18,7 +17,7 @@ export const FlexBox = ({ className, children, ref, ...props }) => {
   // props.element
   let Element = 'div';
 
-  if (props.element && gridElements.includes(props.element)) {
+  if (props.element && flexElements.includes(props.element)) {
     Element = props.element;
   }
 
