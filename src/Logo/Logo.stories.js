@@ -3,7 +3,7 @@ import { Logo } from './Logo';
 import { logoColors, logoTypes } from "./Logo.levers";
 
 export default {
-  title: 'Stanford Identity/Logo',
+  title: 'Stanford Identity/Stanford Logo',
   component: Logo,
   argTypes: {
     color: {

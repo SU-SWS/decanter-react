@@ -63,7 +63,7 @@ export const LocalFooter = ({ className, children, ...props }) => {
           {footerButton}
         )}
       </FlexBox>
-      <Grid xs={1} md={2} xl={4} gap={true} className={clsxd('su-card-paragraph su-link-regular', levers.link, className)}>
+      <Grid xs={1} md={2} xl={4} gap={true} className={clsxd('su-text-18 su-link-regular', levers.link, className)}>
         {children}
       </Grid>
     </Container>

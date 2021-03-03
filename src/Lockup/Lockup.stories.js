@@ -5,7 +5,7 @@ import { withDesign } from 'storybook-addon-designs';
 import { lockupColors } from './Lockup.levers';
 
 export default {
-  title: 'Stanford Identity/Department Branding',
+  title: 'Stanford Identity/Lockup (Department Branding)',
   decorators: [withDesign],
   component: Lockup,
   subcomponents: { Logo },
