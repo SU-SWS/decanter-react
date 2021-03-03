@@ -13,6 +13,7 @@ const cellContent = [
 export default {
   title: 'Stanford Identity/Local Footer',
   component: LocalFooter,
+  subcomponents: { Lockup },
   argTypes: {
     color: {
       control: {

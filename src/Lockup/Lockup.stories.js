@@ -33,14 +33,16 @@ Default.args = {
   line1: 'Department',
   url: 'https://decanter.stanford.edu'
 };
-Default.storyName = 'Default';
+Default.storyName = 'Option N';
 
-export const White = LockupTemplate.bind({});
-White.args = {
-  color: 'white',
-  line1: 'Department'
+export const L = LockupTemplate.bind({});
+L.args = {
+  line1: 'Finance',
+  classes: {
+    line1: 'su-uppercase su-font-semibold'
+  }
 };
-White.storyName = 'White (For Dark Background)';
+L.storyName = 'Option L';
 
 export const NotLink = LockupTemplate.bind({});
 NotLink.args = {
@@ -48,3 +50,10 @@ NotLink.args = {
   isLink: false
 };
 NotLink.storyName = 'Unlinked Logo';
+
+export const White = LockupTemplate.bind({});
+White.args = {
+  color: 'white',
+  line1: 'Department'
+};
+White.storyName = 'White Logo (For Dark Background)';
