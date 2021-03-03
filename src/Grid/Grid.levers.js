@@ -1,4 +1,9 @@
 /**
+ * Available HTML elements of the grid.
+ */
+export const gridElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
+
+/**
  * Grid gap or not
  */
 export const gridGap = [true, false];

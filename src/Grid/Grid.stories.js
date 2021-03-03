@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from './Grid';
-import { gridNumCols } from "./Grid.levers";
+import { GridCell } from "../GridCell/GridCell";
+import { gridNumCols, gridElements } from "./Grid.levers";
 import DOMPurify from 'dompurify';
 
 const cellContent = [
@@ -22,6 +23,12 @@ export default {
   title: 'Layout/CSS Grid',
   component: Grid,
   argTypes: {
+    element: {
+      control: {
+        type: 'select',
+        options: gridElements
+      }
+    },
     xs: {
       control: {
         type: 'range',
@@ -84,15 +91,23 @@ const GridTemplate = ({ children, ...rest }) => {
   );
 };
 
+const GridPageTemplate = ({ ...rest }) => {
+  return (
+    <Grid {...rest}>
+      <GridCell element='header' colSpan={12} className='su-bg-sky su-p-20'>Header</GridCell>
+      <GridCell element='aside' colSpan={12} className='md:su-col-span-4 su-bg-plum-light su-p-20'>Sidebar</GridCell>
+      <GridCell element='main' colSpan={12}  className='su-row-start-2 md:su-row-start-auto md:su-col-span-8 su-bg-plum su-p-20 su-h-200'>Main</GridCell>
+      <GridCell element='footer' colSpan={12} className='su-bg-palo-verde su-p-20'>Footer</GridCell>
+    </Grid>
+  );
+};
+
 export const Default = GridTemplate.bind({});
 Default.args = {
   gap: true,
   xs: 1,
-  sm: 1,
   md: 2,
-  lg: 2,
   xl: 4,
-  xxl: 4,
   children: cellContent,
   className: 'su-bg-black-10 su-text-white'
 };
@@ -102,12 +117,17 @@ export const NoGap = GridTemplate.bind({});
 NoGap.args = {
   gap: false,
   xs: 1,
-  sm: 1,
   md: 2,
   lg: 3,
-  xl: 3,
-  xxl: 3,
   children: cellContent,
   className: 'su-bg-black-10 su-text-white'
 };
 NoGap.storyName = '3-Column Grid with No Gap';
+
+export const GridPage = GridPageTemplate.bind({});
+GridPage.args = {
+  gap: true,
+  xs: 12,
+  className: 'su-bg-foggy-light su-text-center su-text-white su-type-3 su-font-bold'
+};
+GridPage.storyName = 'Example Page Layout';

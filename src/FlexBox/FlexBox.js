@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsxd from 'clsx-dedupe';
-import { flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
+import { flexElements, flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
 
 /**
  * FlexBox component.
@@ -13,6 +13,13 @@ export const FlexBox = ({ className, children, ref, ...props }) => {
 
   // Levers
   // ---------------------------------------------------------------------------
+
+  // props.element
+  let Element = 'div';
+
+  if (props.element && flexElements.includes(props.element)) {
+    Element = props.element;
+  }
 
   // props.direction
   if (props.direction && flexDirection.includes(props.direction)) {
@@ -98,15 +105,19 @@ export const FlexBox = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <div className={clsxd('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className)} ref={ref}>
+    <Element className={clsxd('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className)} ref={ref}>
       {children}
-    </div>
+    </Element>
   );
 };
 
 // Prop Types.
 // -----------------------------------------------------------------------------
 FlexBox.propTypes = {
+  /**
+   * Which HTML element?
+   */
+  element: PropTypes.oneOf(flexElements),
   direction: PropTypes.oneOf(flexDirection),
   wrap: PropTypes.oneOf(flexWrap),
   gap: PropTypes.bool,
@@ -134,6 +145,7 @@ FlexBox.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 FlexBox.defaultProps = {
+  element: 'div',
   direction: 'row',
   gap: false,
 };
