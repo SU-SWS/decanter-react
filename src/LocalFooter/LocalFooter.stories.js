@@ -28,6 +28,11 @@ export default {
         options: localFooterLinkColors
       }
     },
+    hasButton: {
+      control: {
+        type: 'boolean'
+      }
+    },
   }
 };
 
@@ -71,3 +76,16 @@ Black.args = {
   line1: 'Make a Gift'
 };
 Black.storyName = 'Black';
+
+export const Button = LocalFooterTemplate.bind({});
+Button.args = {
+  color: 'light grey',
+  link: 'blue',
+  children: cellContent,
+  line1: 'Make a Gift',
+  url: '/',
+  hasButton: true,
+  buttonText: 'Web Login',
+  buttonUrl: '/'
+};
+Button.storyName = 'With Login Button';
