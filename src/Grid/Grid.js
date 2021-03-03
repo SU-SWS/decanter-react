@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsxd from 'clsx-dedupe';
 import { gridGap, gridNumCols, gridElements } from './Grid.levers';
-import { containerElements } from "../Container/Container.levers";
 
 /**
  * CSS Grid component.
