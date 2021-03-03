@@ -4,6 +4,7 @@ import { localFooterColors, localFooterLinkColors } from './LocalFooter.levers';
 import { Container } from '../Container/Container';
 import { Grid } from '../Grid/Grid';
 import { FlexBox } from "../FlexBox/FlexBox";
+import { FlexCell } from "../FlexCell/FlexCell";
 import { Lockup } from "../Lockup/Lockup";
 import clsxd from 'clsx-dedupe';
 
@@ -58,11 +59,15 @@ export const LocalFooter = ({ className, children, ...props }) => {
   return (
     <Container width='site' className={clsxd('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, className)}>
       <FlexBox direction='col' gap={true} className='md:su-flex-row su-rs-mb-2' justifyContent={'space-between'}>
-        <Lockup color={levers.lockup} line1={props.line1} url={props.url} />
+        <FlexCell grow={true}>
+          <Lockup color={levers.lockup} line1={props.line1} url={props.url} />
+        </FlexCell>
         {props.hasButton && (
-          <a href={props.buttonUrl} className='su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded su-shadow-md'>
-            {props.buttonText ?? 'Web Login'}
-          </a>
+          <FlexCell grow={false}>
+            <a href={props.buttonUrl} className='su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded su-shadow-md'>
+              {props.buttonText ?? 'Web Login'}
+            </a>
+          </FlexCell>
         )}
       </FlexBox>
       <Grid xs={1} md={2} xl={4} gap={true} className={clsxd('su-text-18 su-link-regular', levers.link, className)}>
