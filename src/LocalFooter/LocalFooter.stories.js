@@ -1,5 +1,6 @@
 import React from 'react';
 import { LocalFooter } from './LocalFooter';
+import { Lockup } from '../Lockup/Lockup';
 import { localFooterColors, localFooterLinkColors } from "./LocalFooter.levers";
 import DOMPurify from 'dompurify';
 
