@@ -48,6 +48,7 @@ export const Logo = ({ className, ...props }) => {
     }
   }
 
+  // props.isLink
   // Render logo as link or simple div
   if (props.isLink) {
     return (
