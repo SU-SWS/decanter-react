@@ -14,10 +14,10 @@ export const Container = ({ className, children, ref, ...props }) => {
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = '';
+  let Element = 'div';
 
   if (props.element && containerElements.includes(props.element)) {
-    Element = props.element ?? 'div';
+    Element = props.element;
   }
 
   // props.width

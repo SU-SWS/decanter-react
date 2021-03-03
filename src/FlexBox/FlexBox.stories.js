@@ -1,11 +1,17 @@
 import React from 'react';
 import { FlexBox } from './FlexBox';
-import { flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
+import { flexElements, flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
 
 export default {
   title: 'Layout/FlexBox',
   component: FlexBox,
   argTypes: {
+    element: {
+      control: {
+        type: 'select',
+        options: flexElements
+      }
+    },
     direction: {
       control: {
         type: 'inline-radio',
