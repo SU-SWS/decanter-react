@@ -8,7 +8,7 @@ import { gridGap, gridNumCols, gridElements } from './Grid.levers';
  * Options with number of columns for each breakpoint and whether to use responsive grid gaps.
  *
  */
-export const Grid = ({ element, gap, xs, sm, md, lg, xl, xxl, className, children, ref, ...props}) => {
+export const Grid = ({ element, gap, xs, sm, md, lg, xl, xxl, className, children, ref, ...props }) => {
   const levers = {};
 
   // Levers
