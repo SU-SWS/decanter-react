@@ -7,7 +7,7 @@ import { containerElements, containerWidths } from './Container.levers';
  * Container component with width and HTML element options.
  *
  */
-export const Container = ({ className, children, ref, ...props }) => {
+export const Container = ({ className, element, width, children, ref, ...props }) => {
   const levers = {};
 
   // Levers
@@ -16,13 +16,13 @@ export const Container = ({ className, children, ref, ...props }) => {
   // props.element
   let Element = 'div';
 
-  if (props.element && containerElements.includes(props.element)) {
-    Element = props.element;
+  if (element && containerElements.includes(element)) {
+    Element = element;
   }
 
   // props.width
-  if (props.width && containerWidths.includes(props.width)) {
-    switch (props.width) {
+  if (width && containerWidths.includes(width)) {
+    switch (width) {
       case 'full':
         levers.width = 'su-w-full'; // width: 100%
         break;
@@ -38,7 +38,7 @@ export const Container = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <Element className={clsxd(levers.width, className)} ref={ref}>
+    <Element className={clsxd(levers.width, className)} ref={ref} {...props}>
       {children}
     </Element>
   );
@@ -57,7 +57,10 @@ Container.propTypes = {
     PropTypes.element,
     PropTypes.string
   ]),
-
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
+  ]),
   /**
    * Custom CSS classes, e.g., to control position
    */

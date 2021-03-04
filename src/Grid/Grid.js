@@ -8,7 +8,7 @@ import { gridGap, gridNumCols, gridElements } from './Grid.levers';
  * Options with number of columns for each breakpoint and whether to use responsive grid gaps.
  *
  */
-export const Grid = ({ className, children, ref, ...props }) => {
+export const Grid = ({ element, gap, xs, sm, md, lg, xl, xxl, className, children, ref, ...props }) => {
   const levers = {};
 
   // Levers
@@ -17,47 +17,47 @@ export const Grid = ({ className, children, ref, ...props }) => {
   // props.element
   let Element = 'div';
 
-  if (props.element && gridElements.includes(props.element)) {
-    Element = props.element;
+  if (element && gridElements.includes(element)) {
+    Element = element;
   }
 
   // props.gap
-  if (props.gap && gridGap.includes(props.gap)) {
+  if (gap && gridGap.includes(gap)) {
     levers.gap = 'su-grid-gap';
   }
 
   // props.xs
-  if (props.xs && gridNumCols.includes(props.xs)) {
-    levers.xs = `su-grid-cols-${props.xs}`;
+  if (xs && gridNumCols.includes(xs)) {
+    levers.xs = `su-grid-cols-${xs}`;
   }
 
   // props.sm
-  if (props.sm && gridNumCols.includes(props.sm)) {
-    levers.sm = `sm:su-grid-cols-${props.sm}`;
+  if (sm && gridNumCols.includes(sm)) {
+    levers.sm = `sm:su-grid-cols-${sm}`;
   }
 
   // props.md
-  if (props.md && gridNumCols.includes(props.md)) {
-    levers.md = `md:su-grid-cols-${props.md}`;
+  if (md && gridNumCols.includes(md)) {
+    levers.md = `md:su-grid-cols-${md}`;
   }
 
   // props.lg
-  if (props.lg && gridNumCols.includes(props.lg)) {
-    levers.lg = `lg:su-grid-cols-${props.lg}`;
+  if (lg && gridNumCols.includes(lg)) {
+    levers.lg = `lg:su-grid-cols-${lg}`;
   }
 
   // props.xl
-  if (props.xl && gridNumCols.includes(props.xl)) {
-    levers.xl = `xl:su-grid-cols-${props.xl}`;
+  if (xl && gridNumCols.includes(xl)) {
+    levers.xl = `xl:su-grid-cols-${xl}`;
   }
 
   // props.xxl
-  if (props.xxl && gridNumCols.includes(props.xxl)) {
-    levers.xxl = `2xl:su-grid-cols-${props.xxl}`;
+  if (xxl && gridNumCols.includes(xxl)) {
+    levers.xxl = `2xl:su-grid-cols-${xxl}`;
   }
 
   return (
-    <Element className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref}>
+    <Element className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref} {...props}>
       {children}
     </Element>
   );
@@ -119,6 +119,13 @@ Grid.propTypes = {
     PropTypes.string,
     PropTypes.array,
     PropTypes.object
+  ]),
+  /**
+   * React useRef()
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
   ]),
 };
 

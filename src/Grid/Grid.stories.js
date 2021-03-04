@@ -131,3 +131,15 @@ GridPage.args = {
   className: 'su-bg-foggy-light su-text-center su-text-white su-type-3 su-font-bold'
 };
 GridPage.storyName = 'Example Page Layout';
+
+export const CustomProps = GridPageTemplate.bind({});
+CustomProps.args = {
+  gap: true,
+  xs: 12,
+  className: 'su-bg-foggy-light su-text-center su-text-white su-type-3 su-font-bold',
+  id: 'my-id',
+  rel: 'no-follow',
+  'data-stuff': 'some-value',
+  'title': 'Hi, I am a title'
+};
+CustomProps.storyName = 'With Custom Props';

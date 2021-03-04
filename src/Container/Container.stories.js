@@ -56,3 +56,15 @@ Screenwidth.args = {
   className: 'su-bg-foggy su-rs-py-6'
 };
 Screenwidth.storyName = '100% Viewport Width';
+
+export const CustomProps = ContainerTemplate.bind({});
+CustomProps.args = {
+  element: 'section',
+  width: 'screen',
+  children: textLong,
+  className: 'su-bg-foggy su-rs-py-6',
+  id: 'my-id',
+  'data-stuff': 'some value',
+  rel: 'no-follow'
+};
+CustomProps.storyName = 'With Custom Props';
