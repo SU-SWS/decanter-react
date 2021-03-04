@@ -65,7 +65,7 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
         </FlexCell>
         {props.hasButton && (
           <FlexCell grow={false}>
-            <a href={props.buttonUrl} className={clsxd('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded su-shadow-md', classes.button)}>
+            <a href={props.buttonUrl} className={clsxd('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)}>
               {props.buttonText ?? 'Web Login'}
               <Icon icon='lock-closed' type='solid' className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)}/>
             </a>

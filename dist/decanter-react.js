@@ -1143,11 +1143,11 @@ var Button = function Button(_ref) {
         break;
 
       case 'secondary':
-        levers.variant = 'su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent su-text-digital-red hover:su-text-black focus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
       case 'none':
-        levers.variant = 'su-bg-transparent hover:su-bg-transparent focus:su-bg-transparent';
+        levers.variant = 'su-bg-transparent hocus:su-bg-transparent';
         break;
     }
   }
@@ -1559,12 +1559,96 @@ FlexBox.propTypes = {
   alignContent: propTypes.oneOf(flexAlignContent),
   alignItems: propTypes.oneOf(flexAlignItems),
   children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
-  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
+  ref: propTypes.oneOfType([propTypes.func, propTypes.shape({
+    current: propTypes.any
+  })])
 };
 FlexBox.defaultProps = {
   element: 'div',
   direction: 'row',
   gap: false
+};
+
+var headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+var headingFonts = ['sans', 'serif', 'slab'];
+var headingWeights = ['light', 'regular', 'semibold', 'bold'];
+var headingSizes = [0, 1, 2, 3, 4, 5, 6];
+var headingTracking = ['tighter', 'tight', 'normal', 'wide', 'wider', 'widest'];
+var headingAlign = ['left', 'center', 'right', 'justify'];
+
+var Heading = function Heading(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      ref = _ref.ref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+
+  var levers = {};
+  var HeadingTag = 'h3';
+
+  if (props.defaultLevel && headingLevels.includes(props.defaultLevel)) {
+    HeadingTag = props.defaultLevel;
+  }
+
+  if (props.level && headingLevels.includes(props.level)) {
+    HeadingTag = props.level;
+  }
+
+  if (props.font && headingFonts.includes(props.font)) {
+    levers.font = "su-font-" + props.font;
+  }
+
+  if (props.weight && headingWeights.includes(props.weight)) {
+    levers.weight = "su-font-" + props.weight;
+  }
+
+  if (props.tracking && headingTracking.includes(props.tracking)) {
+    levers.tracking = "su-tracking-" + props.tracking;
+  }
+
+  if (props.align && headingAlign.includes(props.align)) {
+    levers.align = "su-text-" + props.align;
+  }
+
+  if (props.size !== null && headingSizes.includes(props.size)) {
+    levers.size = "su-type-" + props.size;
+  }
+
+  if (props.uppercase) {
+    levers.uppercase = "su-uppercase";
+  }
+
+  if (props.italic) {
+    levers.italic = "su-italic";
+  }
+
+  if (props.srOnly) {
+    levers.srOnly = "su-sr-only";
+  }
+
+  return /*#__PURE__*/React__default.createElement(HeadingTag, {
+    className: clsxd('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
+    ref: ref
+  }, children);
+};
+Heading.propTypes = {
+  level: propTypes.oneOf(headingLevels),
+  defaultLevel: propTypes.oneOf(headingLevels),
+  font: propTypes.oneOf(headingFonts),
+  size: propTypes.oneOf(headingSizes),
+  align: propTypes.oneOf(headingAlign),
+  weight: propTypes.oneOf(headingWeights),
+  tracking: propTypes.oneOf(headingTracking),
+  uppercase: propTypes.bool,
+  italic: propTypes.bool,
+  srOnly: propTypes.bool,
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
+  children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node])
+};
+Heading.defaultProps = {
+  font: 'sans',
+  weight: 'bold',
+  ref: null
 };
 
 var globalFooterColors = ['cardinal-red', 'digital-red', 'black'];
@@ -1586,11 +1670,11 @@ var Logo = function Logo(_ref) {
         break;
 
       case 'black':
-        levers.logo = 'su-text-black hover:su-text-black focus:su-text-black';
+        levers.logo = 'su-text-black hocus:su-text-black';
         break;
 
       case 'white':
-        levers.logo = 'su-text-white hover:su-text-white focus:su-text-white';
+        levers.logo = 'su-text-white hocus:su-text-white';
         break;
     }
   }
@@ -1611,19 +1695,27 @@ var Logo = function Logo(_ref) {
     }
   }
 
-  return /*#__PURE__*/React__default.createElement("a", {
-    className: clsxd('su-logo', levers.logo, className),
-    href: "https://www.stanford.edu"
+  if (props.isLink) {
+    return /*#__PURE__*/React__default.createElement("a", {
+      className: clsxd('su-logo', levers.logo, className),
+      href: "https://www.stanford.edu"
+    }, logoText);
+  }
+
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: clsxd('su-logo', levers.logo, className)
   }, logoText);
 };
 Logo.propTypes = {
   color: propTypes.oneOf(logoColors),
   type: propTypes.oneOf(logoTypes),
+  isLink: propTypes.bool,
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
 };
 Logo.defaultProps = {
   color: 'cardinal-red',
-  type: 'short'
+  type: 'short',
+  isLink: true
 };
 
 var SrOnlyText = function SrOnlyText(props) {
@@ -1664,7 +1756,7 @@ var GlobalFooter = function GlobalFooter(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(Container, {
-    className: clsxd('su-global-footer su-body-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className),
+    className: clsxd('su-global-footer su-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className),
     width: "site"
   }, /*#__PURE__*/React__default.createElement(FlexBox, {
     direction: "col",
@@ -1814,7 +1906,10 @@ Grid.propTypes = {
   xl: propTypes.oneOf(gridNumCols),
   xxl: propTypes.oneOf(gridNumCols),
   children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
-  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
+  ref: propTypes.oneOfType([propTypes.func, propTypes.shape({
+    current: propTypes.any
+  })])
 };
 Grid.defaultProps = {
   element: 'div',
@@ -1868,6 +1963,242 @@ IdentityBar.propTypes = {
 };
 IdentityBar.defaultProps = {
   color: 'cardinal-red'
+};
+
+var localFooterColors = ['light grey', 'white', 'black'];
+var localFooterLinkColors = ['blue', 'red', 'white'];
+
+var flexCellElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav'];
+var flexCellWidth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'full', 'auto'];
+var flexCellFlex = [1, 'auto', 'initial', 'none'];
+var flexCellGrow = [true, false];
+var flexCellShrink = [true, false];
+var flexCellOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'first', 'last', 'none'];
+
+var FlexCell = function FlexCell(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      ref = _ref.ref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+
+  var levers = {};
+  var Element = 'div';
+
+  if (props.element && flexCellElements.includes(props.element)) {
+    Element = props.element;
+  }
+
+  if (props.width && flexCellWidth.includes(props.width)) {
+    if (typeof props.width === 'string') {
+      levers.width = "su-w-" + props.width;
+    } else {
+      levers.width = "su-w-" + props.width + "/12";
+    }
+  }
+
+  if (props.flex && flexCellFlex.includes(props.flex)) {
+    levers.flex = "su-flex-" + props.flex;
+  }
+
+  if (flexCellGrow.includes(props.grow)) {
+    if (props.grow) {
+      levers.grow = "su-flex-grow";
+    } else {
+      levers.grow = "su-flex-grow-0";
+    }
+  }
+
+  if (flexCellShrink.includes(props.shrink)) {
+    if (props.shrink) {
+      levers.shrink = "su-flex-shrink";
+    } else {
+      levers.shrink = "su-flex-shrink-0";
+    }
+  }
+
+  if (props.order && flexCellOrder.includes(props.order)) {
+    levers.order = "su-order-" + props.order;
+  }
+
+  return /*#__PURE__*/React__default.createElement(Element, {
+    className: clsxd(levers.width, levers.flex, levers.grow, levers.shrink, levers.order, className),
+    ref: ref
+  }, children);
+};
+FlexCell.propTypes = {
+  element: propTypes.oneOf(flexCellElements),
+  width: propTypes.oneOf(flexCellWidth),
+  flex: propTypes.oneOf(flexCellFlex),
+  grow: propTypes.bool,
+  shrink: propTypes.bool,
+  children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+};
+FlexCell.defaultProps = {
+  element: 'div'
+};
+
+var lockupColors = ['default', 'white'];
+
+var Lockup = function Lockup(_ref) {
+  var _ref$classes = _ref.classes,
+      classes = _ref$classes === void 0 ? {} : _ref$classes,
+      line1 = _ref.line1,
+      props = _objectWithoutPropertiesLoose(_ref, ["classes", "line1"]);
+
+  var levers = {};
+
+  if (props.color && lockupColors.includes(props.color)) {
+    switch (props.color) {
+      case 'default':
+        levers.logo = 'cardinal-red';
+        levers.text = 'su-text-black';
+        levers.bar = 'su-border-black';
+        break;
+
+      case 'white':
+        levers.logo = 'white';
+        levers.text = 'su-text-white';
+        levers.bar = 'su-border-white';
+        break;
+    }
+  }
+
+  var LockupContent = /*#__PURE__*/React__default.createElement(FlexBox, {
+    direction: "col",
+    className: "md:su-flex-row su-basefont-19"
+  }, /*#__PURE__*/React__default.createElement(Logo, {
+    color: levers.logo,
+    isLink: false,
+    className: clsxd('su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid', levers.bar)
+  }), /*#__PURE__*/React__default.createElement("div", {
+    className: clsxd('su-text-25 md:su-text-m2 su--mt-3 md:su-mt-0 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6', levers.text, classes.line1)
+  }, line1));
+
+  if (props.isLink) {
+    var _props$url;
+
+    return /*#__PURE__*/React__default.createElement("a", {
+      className: clsxd('su-lockup su-no-underline su-inline-block', classes.wrapper),
+      href: (_props$url = props.url) != null ? _props$url : '/'
+    }, LockupContent);
+  }
+
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: clsxd('su-lockup su-no-underline su-inline-block', classes.wrapper)
+  }, LockupContent);
+};
+Lockup.propTypes = {
+  color: propTypes.oneOf(lockupColors),
+  url: propTypes.string,
+  isLink: propTypes.bool,
+  classes: propTypes.shape({
+    wrapper: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
+    line1: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
+  }),
+  line1: propTypes.string
+};
+Lockup.defaultProps = {
+  color: 'default',
+  isLink: true
+};
+
+var LocalFooter = function LocalFooter(_ref) {
+  var _props$buttonText;
+
+  var _ref$classes = _ref.classes,
+      classes = _ref$classes === void 0 ? {} : _ref$classes,
+      children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["classes", "children"]);
+
+  var levers = {};
+
+  if (props.color && localFooterColors.includes(props.color)) {
+    switch (props.color) {
+      case 'light grey':
+        levers.wrapper = 'su-bg-foggy-light su-text-black';
+        levers.lockup = 'default';
+        break;
+
+      case 'white':
+        levers.wrapper = 'su-bg-white su-text-black';
+        levers.lockup = 'default';
+        break;
+
+      case 'black':
+        levers.wrapper = 'su-bg-black su-text-white';
+        levers.lockup = 'white';
+        break;
+    }
+  }
+
+  if (props.link && localFooterLinkColors.includes(props.link)) {
+    switch (props.link) {
+      case 'blue':
+        levers.link = '';
+        break;
+
+      case 'red':
+        levers.link = 'su-link-digital-red hover:su-link-black focus:su-link-black';
+        break;
+
+      case 'white':
+        levers.link = 'su-link-white hover:su-link-digital-red-light focus:su-link-digital-red-light';
+        break;
+    }
+  }
+
+  return /*#__PURE__*/React__default.createElement(Container, {
+    width: "site",
+    className: clsxd('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)
+  }, /*#__PURE__*/React__default.createElement(FlexBox, {
+    direction: "col",
+    gap: true,
+    className: clsxd('md:su-flex-row su-rs-mb-2', classes.header),
+    justifyContent: 'space-between'
+  }, /*#__PURE__*/React__default.createElement(FlexCell, {
+    grow: true
+  }, /*#__PURE__*/React__default.createElement(Lockup, {
+    color: levers.lockup,
+    line1: props.line1,
+    url: props.url
+  })), props.hasButton && /*#__PURE__*/React__default.createElement(FlexCell, {
+    grow: false
+  }, /*#__PURE__*/React__default.createElement("a", {
+    href: props.buttonUrl,
+    className: clsxd('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)
+  }, (_props$buttonText = props.buttonText) != null ? _props$buttonText : 'Web Login', /*#__PURE__*/React__default.createElement(Icon, {
+    icon: "lock-closed",
+    type: "solid",
+    className: clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)
+  })))), /*#__PURE__*/React__default.createElement(Grid, {
+    xs: 1,
+    md: 2,
+    xl: 4,
+    gap: true,
+    className: clsxd('su-text-18 su-link-regular', levers.link, classes.content)
+  }, children));
+};
+LocalFooter.propTypes = {
+  color: propTypes.oneOf(localFooterColors),
+  link: propTypes.oneOf(localFooterLinkColors),
+  url: propTypes.string,
+  line1: propTypes.string,
+  hasButton: propTypes.bool,
+  buttonText: propTypes.string,
+  buttonUrl: propTypes.string,
+  children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
+  classes: propTypes.shape({
+    wrapper: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
+    header: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
+    button: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
+    icon: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
+    content: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
+  })
+};
+LocalFooter.defaultProps = {
+  color: 'light grey',
+  link: 'blue'
 };
 
 var StyledLink = function StyledLink(props) {
@@ -1931,7 +2262,10 @@ exports.Container = Container;
 exports.FlexBox = FlexBox;
 exports.GlobalFooter = GlobalFooter;
 exports.Grid = Grid;
+exports.Heading = Heading;
 exports.IdentityBar = IdentityBar;
+exports.LocalFooter = LocalFooter;
+exports.Lockup = Lockup;
 exports.Logo = Logo;
 exports.SrOnlyText = SrOnlyText;
 exports.StyledLink = StyledLink;
