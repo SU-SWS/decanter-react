@@ -8,7 +8,7 @@ import { flexElements, flexDirection, flexWrap, flexGap, flexJustifyContent, fle
  * Options for flex direction, wrapping and box alignments.
  *
  */
-export const FlexBox = ({ className, children, ref, ...props }) => {
+export const FlexBox = ({ element, direction, wrap, gap, justifyContent, justifyItems, alignContent, alignItems, className, children, ref, ...props }) => {
   const levers = {};
 
   // Levers
@@ -17,28 +17,28 @@ export const FlexBox = ({ className, children, ref, ...props }) => {
   // props.element
   let Element = 'div';
 
-  if (props.element && flexElements.includes(props.element)) {
-    Element = props.element;
+  if (element && flexElements.includes(element)) {
+    Element = element;
   }
 
   // props.direction
-  if (props.direction && flexDirection.includes(props.direction)) {
-    levers.direction = `su-flex-${props.direction}`;
+  if (direction && flexDirection.includes(direction)) {
+    levers.direction = `su-flex-${direction}`;
   }
 
   // props.wrap
-  if (props.wrap && flexWrap.includes(props.wrap)) {
-    levers.wrap = `su-flex-${props.wrap}`;
+  if (wrap && flexWrap.includes(wrap)) {
+    levers.wrap = `su-flex-${wrap}`;
   }
 
   // props.gap
-  if (props.gap && flexGap.includes(props.gap)) {
+  if (gap && flexGap.includes(gap)) {
     levers.gap = 'su-grid-gap';
   }
 
   // props.justifyContent
-  if (props.justifyContent && flexJustifyContent.includes(props.justifyContent)) {
-    switch (props.justifyContent) {
+  if (justifyContent && flexJustifyContent.includes(justifyContent)) {
+    switch (justifyContent) {
       case 'start':
         levers.justifyContent = 'su-justify-start';
         break;
@@ -66,13 +66,13 @@ export const FlexBox = ({ className, children, ref, ...props }) => {
   }
 
   // props.justifyItems
-  if (props.justifyItems && flexJustifyItems.includes(props.justifyItems)) {
-    levers.justifyItems = `su-justify-items-${props.justifyItems}`;
+  if (justifyItems && flexJustifyItems.includes(justifyItems)) {
+    levers.justifyItems = `su-justify-items-${justifyItems}`;
   }
 
   // props.alignContent
-  if (props.alignContent && flexAlignContent.includes(props.alignContent)) {
-    switch (props.alignContent) {
+  if (alignContent && flexAlignContent.includes(alignContent)) {
+    switch (alignContent) {
       case 'start':
         levers.alignContent = 'su-content-start';
         break;
@@ -100,12 +100,12 @@ export const FlexBox = ({ className, children, ref, ...props }) => {
   }
 
   // props.alignItems
-  if (props.alignItems && flexAlignItems.includes(props.alignItems)) {
-    levers.alignItems = `su-items-${props.alignItems}`;
+  if (alignItems && flexAlignItems.includes(alignItems)) {
+    levers.alignItems = `su-items-${alignItems}`;
   }
 
   return (
-    <Element className={clsxd('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className)} ref={ref}>
+    <Element className={clsxd('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className)} ref={ref} {...props}>
       {children}
     </Element>
   );
