@@ -140,6 +140,13 @@ FlexBox.propTypes = {
     PropTypes.array,
     PropTypes.object
   ]),
+  /**
+   * React useRef()
+   */
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
+  ]),
 };
 
 // Default Props.
