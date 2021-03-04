@@ -121,3 +121,14 @@ ColumnCenter.args = {
   className: 'su-bg-foggy-light su-text-white'
 };
 ColumnCenter.storyName = 'Centered Items in Single Column';
+
+export const CustomProps = FlexBoxMultiTemplate.bind({});
+CustomProps.args = {
+  gap: true,
+  className: 'su-bg-foggy-light su-text-white',
+  id: 'my-id',
+  rel: 'no-follow',
+  'data-stuff': 'some-value',
+  'title': 'Hi, I am a title'
+};
+CustomProps.storyName = 'With Custom Props';

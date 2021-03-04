@@ -1390,19 +1390,21 @@ var containerWidths = ['full', 'screen', 'site'];
 
 var Container = function Container(_ref) {
   var className = _ref.className,
+      element = _ref.element,
+      width = _ref.width,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "element", "width", "children", "ref"]);
 
   var levers = {};
   var Element = 'div';
 
-  if (props.element && containerElements.includes(props.element)) {
-    Element = props.element;
+  if (element && containerElements.includes(element)) {
+    Element = element;
   }
 
-  if (props.width && containerWidths.includes(props.width)) {
-    switch (props.width) {
+  if (width && containerWidths.includes(width)) {
+    switch (width) {
       case 'full':
         levers.width = 'su-w-full';
         break;
@@ -1417,15 +1419,18 @@ var Container = function Container(_ref) {
     }
   }
 
-  return /*#__PURE__*/React__default.createElement(Element, {
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: clsxd(levers.width, className),
     ref: ref
-  }, children);
+  }, props), children);
 };
 Container.propTypes = {
   element: propTypes.oneOf(containerElements),
   width: propTypes.oneOf(containerWidths),
   children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
+  ref: propTypes.oneOfType([propTypes.func, propTypes.shape({
+    current: propTypes.any
+  })]),
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
 };
 Container.defaultProps = {
@@ -1443,32 +1448,40 @@ var flexAlignContent = ['start', 'end', 'center', 'space-between', 'space-around
 var flexAlignItems = ['start', 'end', 'center', 'baseline', 'stretch'];
 
 var FlexBox = function FlexBox(_ref) {
-  var className = _ref.className,
+  var element = _ref.element,
+      direction = _ref.direction,
+      wrap = _ref.wrap,
+      gap = _ref.gap,
+      justifyContent = _ref.justifyContent,
+      justifyItems = _ref.justifyItems,
+      alignContent = _ref.alignContent,
+      alignItems = _ref.alignItems,
+      className = _ref.className,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"]);
 
   var levers = {};
   var Element = 'div';
 
-  if (props.element && flexElements.includes(props.element)) {
-    Element = props.element;
+  if (element && flexElements.includes(element)) {
+    Element = element;
   }
 
-  if (props.direction && flexDirection.includes(props.direction)) {
-    levers.direction = "su-flex-" + props.direction;
+  if (direction && flexDirection.includes(direction)) {
+    levers.direction = "su-flex-" + direction;
   }
 
-  if (props.wrap && flexWrap.includes(props.wrap)) {
-    levers.wrap = "su-flex-" + props.wrap;
+  if (wrap && flexWrap.includes(wrap)) {
+    levers.wrap = "su-flex-" + wrap;
   }
 
-  if (props.gap && flexGap.includes(props.gap)) {
+  if (gap && flexGap.includes(gap)) {
     levers.gap = 'su-grid-gap';
   }
 
-  if (props.justifyContent && flexJustifyContent.includes(props.justifyContent)) {
-    switch (props.justifyContent) {
+  if (justifyContent && flexJustifyContent.includes(justifyContent)) {
+    switch (justifyContent) {
       case 'start':
         levers.justifyContent = 'su-justify-start';
         break;
@@ -1495,12 +1508,12 @@ var FlexBox = function FlexBox(_ref) {
     }
   }
 
-  if (props.justifyItems && flexJustifyItems.includes(props.justifyItems)) {
-    levers.justifyItems = "su-justify-items-" + props.justifyItems;
+  if (justifyItems && flexJustifyItems.includes(justifyItems)) {
+    levers.justifyItems = "su-justify-items-" + justifyItems;
   }
 
-  if (props.alignContent && flexAlignContent.includes(props.alignContent)) {
-    switch (props.alignContent) {
+  if (alignContent && flexAlignContent.includes(alignContent)) {
+    switch (alignContent) {
       case 'start':
         levers.alignContent = 'su-content-start';
         break;
@@ -1527,14 +1540,14 @@ var FlexBox = function FlexBox(_ref) {
     }
   }
 
-  if (props.alignItems && flexAlignItems.includes(props.alignItems)) {
-    levers.alignItems = "su-items-" + props.alignItems;
+  if (alignItems && flexAlignItems.includes(alignItems)) {
+    levers.alignItems = "su-items-" + alignItems;
   }
 
-  return /*#__PURE__*/React__default.createElement(Element, {
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: clsxd('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
     ref: ref
-  }, children);
+  }, props), children);
 };
 FlexBox.propTypes = {
   element: propTypes.oneOf(flexElements),
@@ -1738,50 +1751,58 @@ var gridNumCols = Array.from({
 });
 
 var Grid = function Grid(_ref) {
-  var className = _ref.className,
+  var element = _ref.element,
+      gap = _ref.gap,
+      xs = _ref.xs,
+      sm = _ref.sm,
+      md = _ref.md,
+      lg = _ref.lg,
+      xl = _ref.xl,
+      xxl = _ref.xxl,
+      className = _ref.className,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["element", "gap", "xs", "sm", "md", "lg", "xl", "xxl", "className", "children", "ref"]);
 
   var levers = {};
   var Element = 'div';
 
-  if (props.element && gridElements.includes(props.element)) {
-    Element = props.element;
+  if (element && gridElements.includes(element)) {
+    Element = element;
   }
 
-  if (props.gap && gridGap.includes(props.gap)) {
+  if (gap && gridGap.includes(gap)) {
     levers.gap = 'su-grid-gap';
   }
 
-  if (props.xs && gridNumCols.includes(props.xs)) {
-    levers.xs = "su-grid-cols-" + props.xs;
+  if (xs && gridNumCols.includes(xs)) {
+    levers.xs = "su-grid-cols-" + xs;
   }
 
-  if (props.sm && gridNumCols.includes(props.sm)) {
-    levers.sm = "sm:su-grid-cols-" + props.sm;
+  if (sm && gridNumCols.includes(sm)) {
+    levers.sm = "sm:su-grid-cols-" + sm;
   }
 
-  if (props.md && gridNumCols.includes(props.md)) {
-    levers.md = "md:su-grid-cols-" + props.md;
+  if (md && gridNumCols.includes(md)) {
+    levers.md = "md:su-grid-cols-" + md;
   }
 
-  if (props.lg && gridNumCols.includes(props.lg)) {
-    levers.lg = "lg:su-grid-cols-" + props.lg;
+  if (lg && gridNumCols.includes(lg)) {
+    levers.lg = "lg:su-grid-cols-" + lg;
   }
 
-  if (props.xl && gridNumCols.includes(props.xl)) {
-    levers.xl = "xl:su-grid-cols-" + props.xl;
+  if (xl && gridNumCols.includes(xl)) {
+    levers.xl = "xl:su-grid-cols-" + xl;
   }
 
-  if (props.xxl && gridNumCols.includes(props.xxl)) {
-    levers.xxl = "2xl:su-grid-cols-" + props.xxl;
+  if (xxl && gridNumCols.includes(xxl)) {
+    levers.xxl = "2xl:su-grid-cols-" + xxl;
   }
 
-  return /*#__PURE__*/React__default.createElement(Element, {
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
     ref: ref
-  }, children);
+  }, props), children);
 };
 Grid.propTypes = {
   element: propTypes.oneOf(gridElements),
