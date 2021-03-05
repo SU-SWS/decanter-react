@@ -183,5 +183,4 @@ GridCell.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 GridCell.defaultProps = {
-  element: 'div'
 };

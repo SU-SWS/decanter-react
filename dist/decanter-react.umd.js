@@ -1592,11 +1592,51 @@
       Element = props.element;
     }
 
-    if (props.width && flexCellWidth.includes(props.width)) {
-      if (typeof props.width === 'string') {
-        levers.width = "su-w-" + props.width;
+    if (props.xs && flexCellWidth.includes(props.xs)) {
+      if (typeof props.xs === 'string') {
+        levers.xs = "su-w-" + props.xs;
       } else {
-        levers.width = "su-w-" + props.width + "/12";
+        levers.xs = "su-w-" + props.xs + "/12";
+      }
+    }
+
+    if (props.sm && flexCellWidth.includes(props.sm)) {
+      if (typeof props.sm === 'string') {
+        levers.sm = "sm:su-w-" + props.sm;
+      } else {
+        levers.sm = "sm:su-w-" + props.sm + "/12";
+      }
+    }
+
+    if (props.md && flexCellWidth.includes(props.md)) {
+      if (typeof props.md === 'string') {
+        levers.md = "md:su-w-" + props.md;
+      } else {
+        levers.md = "md:su-w-" + props.md + "/12";
+      }
+    }
+
+    if (props.lg && flexCellWidth.includes(props.lg)) {
+      if (typeof props.lg === 'string') {
+        levers.lg = "lg:su-w-" + props.lg;
+      } else {
+        levers.lg = "lg:su-w-" + props.lg + "/12";
+      }
+    }
+
+    if (props.xl && flexCellWidth.includes(props.xl)) {
+      if (typeof props.xl === 'string') {
+        levers.xl = "xl:su-w-" + props.xl;
+      } else {
+        levers.xl = "xl:su-w-" + props.xl + "/12";
+      }
+    }
+
+    if (props.xxl && flexCellWidth.includes(props.xxl)) {
+      if (typeof props.xxl === 'string') {
+        levers.xxl = "xxl:su-w-" + props.xxl;
+      } else {
+        levers.xxl = "xxl:su-w-" + props.xxl + "/12";
       }
     }
 
@@ -1625,22 +1665,25 @@
     }
 
     return /*#__PURE__*/React__default.createElement(Element, {
-      className: clsxd(levers.width, levers.flex, levers.grow, levers.shrink, levers.order, className),
+      className: clsxd(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className),
       ref: ref
     }, children);
   };
   FlexCell.propTypes = {
     element: propTypes.oneOf(flexCellElements),
-    width: propTypes.oneOf(flexCellWidth),
+    xs: propTypes.oneOf(flexCellWidth),
+    sm: propTypes.oneOf(flexCellWidth),
+    md: propTypes.oneOf(flexCellWidth),
+    lg: propTypes.oneOf(flexCellWidth),
+    xl: propTypes.oneOf(flexCellWidth),
+    xxl: propTypes.oneOf(flexCellWidth),
     flex: propTypes.oneOf(flexCellFlex),
     grow: propTypes.bool,
     shrink: propTypes.bool,
     children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
     className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
   };
-  FlexCell.defaultProps = {
-    element: 'div'
-  };
+  FlexCell.defaultProps = {};
 
   var headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
   var headingFonts = ['sans', 'serif', 'slab'];
@@ -2092,9 +2135,7 @@
     children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
     className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
   };
-  GridCell.defaultProps = {
-    element: 'div'
-  };
+  GridCell.defaultProps = {};
 
   var identityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
 
