@@ -2168,7 +2168,7 @@ var IdentityBar = function IdentityBar(_ref) {
     width: "site",
     className: clsxd('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)
   }, /*#__PURE__*/React.createElement(Logo, {
-    className: "su-text-20",
+    className: "su-text-20 su-leading-none",
     color: levers.logo,
     type: "full"
   }));

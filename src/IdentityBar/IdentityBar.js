@@ -42,7 +42,7 @@ export const IdentityBar = ({ className, ...props }) => {
 
   return (
     <Container width='site' className={clsxd('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)}>
-      <Logo className='su-text-20' color={levers.logo} type="full" />
+      <Logo className='su-text-20 su-leading-none' color={levers.logo} type='full' />
     </Container>
   );
 };
