@@ -28,6 +28,11 @@ export default {
         options: localFooterLinkColors
       }
     },
+    isLogoLink: {
+      control: {
+        type: 'boolean'
+      }
+    },
     hasButton: {
       control: {
         type: 'boolean'
@@ -89,3 +94,16 @@ Button.args = {
   buttonUrl: '/'
 };
 Button.storyName = 'With Login Button';
+
+export const NotLink = LocalFooterTemplate.bind({});
+NotLink.args = {
+  color: 'light grey',
+  link: 'blue',
+  children: cellContent,
+  line1: 'Make a Gift',
+  isLogoLink: false,
+  hasButton: true,
+  buttonText: 'Web Login',
+  buttonUrl: '/'
+};
+NotLink.storyName = 'With Unlinked Logo';

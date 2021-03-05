@@ -2310,7 +2310,8 @@ var LocalFooter = function LocalFooter(_ref) {
   }, /*#__PURE__*/React__default.createElement(Lockup, {
     color: levers.lockup,
     line1: props.line1,
-    url: props.url
+    url: props.url,
+    isLink: props.isLogoLink
   })), props.hasButton && /*#__PURE__*/React__default.createElement(FlexCell, {
     grow: false
   }, /*#__PURE__*/React__default.createElement("a", {
@@ -2331,6 +2332,7 @@ var LocalFooter = function LocalFooter(_ref) {
 LocalFooter.propTypes = {
   color: propTypes.oneOf(localFooterColors),
   link: propTypes.oneOf(localFooterLinkColors),
+  isLogoLink: propTypes.bool,
   url: propTypes.string,
   line1: propTypes.string,
   hasButton: propTypes.bool,
@@ -2346,6 +2348,7 @@ LocalFooter.propTypes = {
   })
 };
 LocalFooter.defaultProps = {
+  isLogoLink: true,
   color: 'light grey',
   link: 'blue'
 };

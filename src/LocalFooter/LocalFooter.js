@@ -61,7 +61,7 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
     <Container width='site' className={clsxd('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)}>
       <FlexBox direction='col' gap={true} className={clsxd('md:su-flex-row su-rs-mb-2', classes.header)} justifyContent={'space-between'}>
         <FlexCell grow={true}>
-          <Lockup color={levers.lockup} line1={props.line1} url={props.url} />
+          <Lockup color={levers.lockup} line1={props.line1} url={props.url} isLink={props.isLogoLink} />
         </FlexCell>
         {props.hasButton && (
           <FlexCell grow={false}>
@@ -91,6 +91,11 @@ LocalFooter.propTypes = {
    * Which link color?
    */
   link: PropTypes.oneOf(localFooterLinkColors),
+
+  /**
+   * Is the logo a link?
+   */
+  isLogoLink: PropTypes.bool,
 
   /**
    * URL of the department logo.
@@ -158,6 +163,7 @@ LocalFooter.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 LocalFooter.defaultProps = {
+  isLogoLink: true,
   color: 'light grey',
   link: 'blue'
 };
