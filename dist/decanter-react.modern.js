@@ -2002,11 +2002,51 @@ var GridCell = function GridCell(_ref) {
     Element = props.element;
   }
 
-  if (props.colSpan && gridColSpan.includes(props.colSpan)) {
-    if (props.colSpan === 'auto') {
-      levers.colSpan = "su-col-auto";
+  if (props.xs && gridColSpan.includes(props.xs)) {
+    if (props.xs === 'auto') {
+      levers.xs = "su-col-auto";
     } else {
-      levers.colSpan = "su-col-span-" + props.colSpan;
+      levers.xs = "su-col-span-" + props.xs;
+    }
+  }
+
+  if (props.sm && gridColSpan.includes(props.sm)) {
+    if (props.sm === 'auto') {
+      levers.sm = "sm:su-col-auto";
+    } else {
+      levers.sm = "sm:su-col-span-" + props.sm;
+    }
+  }
+
+  if (props.md && gridColSpan.includes(props.md)) {
+    if (props.md === 'auto') {
+      levers.md = "md:su-col-auto";
+    } else {
+      levers.md = "md:su-col-span-" + props.md;
+    }
+  }
+
+  if (props.lg && gridColSpan.includes(props.lg)) {
+    if (props.lg === 'auto') {
+      levers.lg = "lg:su-col-auto";
+    } else {
+      levers.lg = "lg:su-col-span-" + props.lg;
+    }
+  }
+
+  if (props.xl && gridColSpan.includes(props.xl)) {
+    if (props.xl === 'auto') {
+      levers.xl = "xl:su-col-auto";
+    } else {
+      levers.xl = "xl:su-col-span-" + props.xl;
+    }
+  }
+
+  if (props.xxl && gridColSpan.includes(props.xxl)) {
+    if (props.xxl === 'auto') {
+      levers.xxl = "2xl:su-col-auto";
+    } else {
+      levers.xxl = "2xl:su-col-span-" + props.xxl;
     }
   }
 
@@ -2014,13 +2054,13 @@ var GridCell = function GridCell(_ref) {
     levers.colStart = "su-col-start-" + props.colStart;
   }
 
-  if (props.rowSpan && gridRowSpan.includes(props.rowSpan)) {
-    levers.rowSpan = "su-row-span-" + props.rowSpan;
+  if (props.row && gridRowSpan.includes(props.row)) {
+    levers.row = "su-row-span-" + props.row;
 
-    if (props.rowSpan === 'auto') {
-      levers.rowSpan = "su-row-auto";
+    if (props.row === 'auto') {
+      levers.row = "su-row-auto";
     } else {
-      levers.rowSpan = "su-row-span-" + props.rowSpan;
+      levers.row = "su-row-span-" + props.row;
     }
   }
 
@@ -2029,15 +2069,20 @@ var GridCell = function GridCell(_ref) {
   }
 
   return /*#__PURE__*/React.createElement(Element, {
-    className: clsxd(levers.colSpan, levers.colStart, levers.rowSpan, levers.rowStart, className),
+    className: clsxd(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className),
     ref: ref
   }, children);
 };
 GridCell.propTypes = {
   element: propTypes.oneOf(gridCellElements),
-  colSpan: propTypes.oneOf(gridColSpan),
+  xs: propTypes.oneOf(gridColSpan),
+  sm: propTypes.oneOf(gridColSpan),
+  md: propTypes.oneOf(gridColSpan),
+  lg: propTypes.oneOf(gridColSpan),
+  xl: propTypes.oneOf(gridColSpan),
+  xxl: propTypes.oneOf(gridColSpan),
   colStart: propTypes.oneOf(gridColLine),
-  rowSpan: propTypes.oneOf(gridRowSpan),
+  row: propTypes.oneOf(gridRowSpan),
   rowStart: propTypes.oneOf(gridRowLine),
   children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
