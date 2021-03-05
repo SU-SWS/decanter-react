@@ -1570,6 +1570,76 @@ FlexBox.defaultProps = {
   gap: false
 };
 
+var flexCellElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav'];
+var flexCellWidth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'full', 'auto'];
+var flexCellFlex = [1, 'auto', 'initial', 'none'];
+var flexCellGrow = [true, false];
+var flexCellShrink = [true, false];
+var flexCellOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'first', 'last', 'none'];
+
+var FlexCell = function FlexCell(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      ref = _ref.ref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+
+  var levers = {};
+  var Element = 'div';
+
+  if (props.element && flexCellElements.includes(props.element)) {
+    Element = props.element;
+  }
+
+  if (props.width && flexCellWidth.includes(props.width)) {
+    if (typeof props.width === 'string') {
+      levers.width = "su-w-" + props.width;
+    } else {
+      levers.width = "su-w-" + props.width + "/12";
+    }
+  }
+
+  if (props.flex && flexCellFlex.includes(props.flex)) {
+    levers.flex = "su-flex-" + props.flex;
+  }
+
+  if (flexCellGrow.includes(props.grow)) {
+    if (props.grow) {
+      levers.grow = "su-flex-grow";
+    } else {
+      levers.grow = "su-flex-grow-0";
+    }
+  }
+
+  if (flexCellShrink.includes(props.shrink)) {
+    if (props.shrink) {
+      levers.shrink = "su-flex-shrink";
+    } else {
+      levers.shrink = "su-flex-shrink-0";
+    }
+  }
+
+  if (props.order && flexCellOrder.includes(props.order)) {
+    levers.order = "su-order-" + props.order;
+  }
+
+  return /*#__PURE__*/React__default.createElement(Element, {
+    className: clsxd(levers.width, levers.flex, levers.grow, levers.shrink, levers.order, className),
+    ref: ref
+  }, children);
+};
+FlexCell.propTypes = {
+  element: propTypes.oneOf(flexCellElements),
+  width: propTypes.oneOf(flexCellWidth),
+  flex: propTypes.oneOf(flexCellFlex),
+  grow: propTypes.bool,
+  shrink: propTypes.bool,
+  children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+};
+FlexCell.defaultProps = {
+  element: 'div'
+};
+
 var headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 var headingFonts = ['sans', 'serif', 'slab'];
 var headingWeights = ['light', 'regular', 'semibold', 'bold'];
@@ -1916,6 +1986,69 @@ Grid.defaultProps = {
   gap: false
 };
 
+var gridCellElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav'];
+var gridColSpan = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'auto', 'full'];
+var gridColLine = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'auto'];
+var gridRowSpan = [1, 2, 3, 4, 5, 6, 'auto', 'full'];
+var gridRowLine = [1, 2, 3, 4, 5, 6, 'auto'];
+
+var GridCell = function GridCell(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      ref = _ref.ref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+
+  var levers = {};
+  var Element = 'div';
+
+  if (props.element && gridCellElements.includes(props.element)) {
+    Element = props.element;
+  }
+
+  if (props.colSpan && gridColSpan.includes(props.colSpan)) {
+    if (props.colSpan === 'auto') {
+      levers.colSpan = "su-col-auto";
+    } else {
+      levers.colSpan = "su-col-span-" + props.colSpan;
+    }
+  }
+
+  if (props.colStart && gridColLine.includes(props.colStart)) {
+    levers.colStart = "su-col-start-" + props.colStart;
+  }
+
+  if (props.rowSpan && gridRowSpan.includes(props.rowSpan)) {
+    levers.rowSpan = "su-row-span-" + props.rowSpan;
+
+    if (props.rowSpan === 'auto') {
+      levers.rowSpan = "su-row-auto";
+    } else {
+      levers.rowSpan = "su-row-span-" + props.rowSpan;
+    }
+  }
+
+  if (props.rowStart && gridRowLine.includes(props.rowStart)) {
+    levers.rowStart = "su-row-start-" + props.rowStart;
+  }
+
+  return /*#__PURE__*/React__default.createElement(Element, {
+    className: clsxd(levers.colSpan, levers.colStart, levers.rowSpan, levers.rowStart, className),
+    ref: ref
+  }, children);
+};
+GridCell.propTypes = {
+  element: propTypes.oneOf(gridCellElements),
+  colSpan: propTypes.oneOf(gridColSpan),
+  colStart: propTypes.oneOf(gridColLine),
+  rowSpan: propTypes.oneOf(gridRowSpan),
+  rowStart: propTypes.oneOf(gridRowLine),
+  children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
+};
+GridCell.defaultProps = {
+  element: 'div'
+};
+
 var identityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
 
 var IdentityBar = function IdentityBar(_ref) {
@@ -1967,76 +2100,6 @@ IdentityBar.defaultProps = {
 
 var localFooterColors = ['light grey', 'white', 'black'];
 var localFooterLinkColors = ['blue', 'red', 'white'];
-
-var flexCellElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav'];
-var flexCellWidth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'full', 'auto'];
-var flexCellFlex = [1, 'auto', 'initial', 'none'];
-var flexCellGrow = [true, false];
-var flexCellShrink = [true, false];
-var flexCellOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'first', 'last', 'none'];
-
-var FlexCell = function FlexCell(_ref) {
-  var className = _ref.className,
-      children = _ref.children,
-      ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
-
-  var levers = {};
-  var Element = 'div';
-
-  if (props.element && flexCellElements.includes(props.element)) {
-    Element = props.element;
-  }
-
-  if (props.width && flexCellWidth.includes(props.width)) {
-    if (typeof props.width === 'string') {
-      levers.width = "su-w-" + props.width;
-    } else {
-      levers.width = "su-w-" + props.width + "/12";
-    }
-  }
-
-  if (props.flex && flexCellFlex.includes(props.flex)) {
-    levers.flex = "su-flex-" + props.flex;
-  }
-
-  if (flexCellGrow.includes(props.grow)) {
-    if (props.grow) {
-      levers.grow = "su-flex-grow";
-    } else {
-      levers.grow = "su-flex-grow-0";
-    }
-  }
-
-  if (flexCellShrink.includes(props.shrink)) {
-    if (props.shrink) {
-      levers.shrink = "su-flex-shrink";
-    } else {
-      levers.shrink = "su-flex-shrink-0";
-    }
-  }
-
-  if (props.order && flexCellOrder.includes(props.order)) {
-    levers.order = "su-order-" + props.order;
-  }
-
-  return /*#__PURE__*/React__default.createElement(Element, {
-    className: clsxd(levers.width, levers.flex, levers.grow, levers.shrink, levers.order, className),
-    ref: ref
-  }, children);
-};
-FlexCell.propTypes = {
-  element: propTypes.oneOf(flexCellElements),
-  width: propTypes.oneOf(flexCellWidth),
-  flex: propTypes.oneOf(flexCellFlex),
-  grow: propTypes.bool,
-  shrink: propTypes.bool,
-  children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
-  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
-};
-FlexCell.defaultProps = {
-  element: 'div'
-};
 
 var lockupColors = ['default', 'white'];
 
@@ -2260,8 +2323,10 @@ exports.Alert = Alert;
 exports.Button = Button;
 exports.Container = Container;
 exports.FlexBox = FlexBox;
+exports.FlexCell = FlexCell;
 exports.GlobalFooter = GlobalFooter;
 exports.Grid = Grid;
+exports.GridCell = GridCell;
 exports.Heading = Heading;
 exports.IdentityBar = IdentityBar;
 exports.LocalFooter = LocalFooter;
