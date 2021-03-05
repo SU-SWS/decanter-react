@@ -13,7 +13,37 @@ export default {
         options: gridCellElements
       }
     },
-    colSpan: {
+    xs: {
+      control: {
+        type: 'select',
+        options: gridColSpan
+      }
+    },
+    sm: {
+      control: {
+        type: 'select',
+        options: gridColSpan
+      }
+    },
+    md: {
+      control: {
+        type: 'select',
+        options: gridColSpan
+      }
+    },
+    lg: {
+      control: {
+        type: 'select',
+        options: gridColSpan
+      }
+    },
+    xl: {
+      control: {
+        type: 'select',
+        options: gridColSpan
+      }
+    },
+    xxl: {
       control: {
         type: 'select',
         options: gridColSpan
@@ -25,7 +55,7 @@ export default {
         options: gridColLine
       }
     },
-    rowSpan: {
+    row: {
       control: {
         type: 'select',
         options: gridRowSpan
@@ -108,7 +138,7 @@ Default.storyName = 'Grid Cell in a 12-column Grid';
 
 export const GridColCell = GridColTemplate.bind({});
 GridColCell.args = {
-  colSpan: 6,
+  xs: 6,
   children: '1',
   className: 'su-bg-spirited su-p-10'
 };
@@ -116,8 +146,8 @@ GridColCell.storyName = 'Grid Cell Spanning 6 of 12 Columns';
 
 export const GridStartCell = GridStartTemplate.bind({});
 GridStartCell.args = {
+  xs: 8,
   colStart: 3,
-  colSpan: 8,
   children: '1',
   className: 'su-bg-spirited su-p-10'
 };
@@ -125,7 +155,7 @@ GridStartCell.storyName = 'Grid Cell Starting at Line 3 & Spanning 8 Columns';
 
 export const GridRowCell = GridRowTemplate.bind({});
 GridRowCell.args = {
-  rowSpan: 3,
+  row: 3,
   children: '1',
   className: 'su-bg-spirited su-p-10'
 };
