@@ -82,6 +82,7 @@ Heading.propTypes = {
   font: PropTypes.oneOf(headingFonts),
 
   /**
+   * Optional - to override the default size for the heading level selected.
    * Step 0 = base font size; each step up is a factor of 1.25 of the previous.
    */
   size: PropTypes.oneOf(headingSizes),

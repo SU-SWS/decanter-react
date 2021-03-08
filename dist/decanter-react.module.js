@@ -1680,7 +1680,7 @@ FlexCell.propTypes = {
 };
 FlexCell.defaultProps = {};
 
-var headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+var headingLevels = [1, 2, 3, 4, 5, 6];
 var headingFonts = ['sans', 'serif', 'slab'];
 var headingWeights = ['light', 'regular', 'semibold', 'bold'];
 var headingSizes = [0, 1, 2, 3, 4, 5, 6];
@@ -1689,61 +1689,66 @@ var headingAlign = ['left', 'center', 'right', 'justify'];
 
 var Heading = function Heading(_ref) {
   var className = _ref.className,
+      _ref$level = _ref.level,
+      level = _ref$level === void 0 ? 3 : _ref$level,
+      font = _ref.font,
+      weight = _ref.weight,
+      tracking = _ref.tracking,
+      align = _ref.align,
+      size = _ref.size,
+      uppercase = _ref.uppercase,
+      italic = _ref.italic,
+      srOnly = _ref.srOnly,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children", "ref"]);
 
   var levers = {};
-  var HeadingTag = 'h3';
+  var HeadingTag = '';
 
-  if (props.defaultLevel && headingLevels.includes(props.defaultLevel)) {
-    HeadingTag = props.defaultLevel;
+  if (level && headingLevels.includes(level)) {
+    HeadingTag = 'h' + level;
   }
 
-  if (props.level && headingLevels.includes(props.level)) {
-    HeadingTag = props.level;
+  if (font && headingFonts.includes(font)) {
+    levers.font = "su-font-" + font;
   }
 
-  if (props.font && headingFonts.includes(props.font)) {
-    levers.font = "su-font-" + props.font;
+  if (weight && headingWeights.includes(weight)) {
+    levers.weight = "su-font-" + weight;
   }
 
-  if (props.weight && headingWeights.includes(props.weight)) {
-    levers.weight = "su-font-" + props.weight;
+  if (tracking && headingTracking.includes(tracking)) {
+    levers.tracking = "su-tracking-" + tracking;
   }
 
-  if (props.tracking && headingTracking.includes(props.tracking)) {
-    levers.tracking = "su-tracking-" + props.tracking;
+  if (align && headingAlign.includes(align)) {
+    levers.align = "su-text-" + align;
   }
 
-  if (props.align && headingAlign.includes(props.align)) {
-    levers.align = "su-text-" + props.align;
+  if (size !== null && headingSizes.includes(size)) {
+    levers.size = "su-type-" + size;
   }
 
-  if (props.size !== null && headingSizes.includes(props.size)) {
-    levers.size = "su-type-" + props.size;
-  }
-
-  if (props.uppercase) {
+  if (uppercase) {
     levers.uppercase = "su-uppercase";
   }
 
-  if (props.italic) {
+  if (italic) {
     levers.italic = "su-italic";
   }
 
-  if (props.srOnly) {
+  if (srOnly) {
     levers.srOnly = "su-sr-only";
   }
 
-  return /*#__PURE__*/React.createElement(HeadingTag, {
+  return /*#__PURE__*/React.createElement(HeadingTag, _extends({
     className: clsxd('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
     ref: ref
-  }, children);
+  }, props), children);
 };
 Heading.propTypes = {
   level: propTypes.oneOf(headingLevels),
-  defaultLevel: propTypes.oneOf(headingLevels),
   font: propTypes.oneOf(headingFonts),
   size: propTypes.oneOf(headingSizes),
   align: propTypes.oneOf(headingAlign),
