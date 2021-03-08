@@ -96,7 +96,7 @@ const GridPageTemplate = ({ ...rest }) => {
     <Grid {...rest}>
       <GridCell element='header' xs={12} className='su-bg-sky su-p-20'>Header</GridCell>
       <GridCell element='aside' xs={12} md={4} className='su-bg-plum-light su-p-20'>Sidebar</GridCell>
-      <GridCell element='main' xs={12} md={8}  className='su-row-start-2 md:su-row-start-auto su-bg-plum su-p-20 su-h-200'>Main</GridCell>
+      <GridCell element='main' xs={12} md={8} className='su-row-start-2 md:su-row-start-auto su-bg-plum su-p-20 su-h-200'>Main</GridCell>
       <GridCell element='footer' xs={12} className='su-bg-palo-verde su-p-20'>Footer</GridCell>
     </Grid>
   );
