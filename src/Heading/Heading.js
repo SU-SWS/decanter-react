@@ -66,6 +66,7 @@ export const Heading = ({ className, level = 3, font, weight, tracking, align, s
     <HeadingTag
       className={clsxd('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)}
       ref={ref}
+      {...props}
     >
       {children}
     </HeadingTag>

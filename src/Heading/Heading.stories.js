@@ -138,3 +138,16 @@ Uppercase.args = {
   children: 'Small Uppercase H3'
 };
 Uppercase.storyName = 'Small Uppercase H3';
+
+export const CustomProps = HeadingTemplate.bind({});
+CustomProps.args = {
+  level: 3,
+  weight: 'bold',
+  tracking: 'wider',
+  uppercase: true,
+  children: 'Heading with Custom Props',
+  id: 'my-id',
+  color: 'lagunita',
+  leading: 'custom-leading'
+};
+CustomProps.storyName = 'With Custom Props';
