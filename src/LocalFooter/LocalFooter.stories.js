@@ -91,7 +91,10 @@ Button.args = {
   url: '/',
   hasButton: true,
   buttonText: 'Web Login',
-  buttonUrl: '/'
+  buttonUrl: '/',
+  classes: {
+    content: 'content-grid'
+  }
 };
 Button.storyName = 'With Login Button';
 

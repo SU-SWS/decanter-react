@@ -8,14 +8,10 @@ export default {
   argTypes: {
     level: {
       control: {
-        type: 'inline-radio',
-        options: headingLevels
-      }
-    },
-    defaultLevel: {
-      control: {
-        type: 'inline-radio',
-        options: headingLevels
+        type: 'range',
+        min: 1,
+        max: headingLevels[headingLevels.length-1],
+        step: 1
       }
     },
     font: {
@@ -73,49 +69,49 @@ const HeadingTemplate = (props) => <Heading {...props} />;
 
 export const Default = HeadingTemplate.bind({});
 Default.args = {
-  level: 'h1',
+  level: 1,
   children: 'Heading Level 1'
 };
 Default.storyName = 'Default H1';
 
 export const H2 = HeadingTemplate.bind({});
 H2.args = {
-  level: 'h2',
+  level: 2,
   children: 'Heading Level 2'
 };
 H2.storyName = 'Default H2';
 
 export const H3 = HeadingTemplate.bind({});
 H3.args = {
-  level: 'h3',
+  level: 3,
   children: 'Heading Level 3'
 };
 H3.storyName = 'Default H3';
 
 export const H4 = HeadingTemplate.bind({});
 H4.args = {
-  level: 'h4',
+  level: 4,
   children: 'Heading Level 3'
 };
 H4.storyName = 'Default H4';
 
 export const H5 = HeadingTemplate.bind({});
 H5.args = {
-  level: 'h5',
+  level: 5,
   children: 'Heading Level 5'
 };
 H5.storyName = 'Default H5';
 
 export const H6 = HeadingTemplate.bind({});
 H6.args = {
-  level: 'h6',
+  level: 6,
   children: 'Heading Level 6'
 };
 H6.storyName = 'Default H6';
 
 export const Serif = HeadingTemplate.bind({});
 Serif.args = {
-  level: 'h2',
+  level: 2,
   font: 'serif',
   weight: 'semibold',
   children: 'Serif and Semibold H2'
@@ -124,7 +120,7 @@ Serif.storyName = 'Serif and Semibold H2';
 
 export const Slab = HeadingTemplate.bind({});
 Slab.args = {
-  level: 'h4',
+  level: 4,
   font: 'slab',
   weight: 'light',
   size: 6,
@@ -134,7 +130,7 @@ Slab.storyName = 'Large Slab Font & Light H4';
 
 export const Uppercase = HeadingTemplate.bind({});
 Uppercase.args = {
-  level: 'h3',
+  level: 3,
   weight: 'semibold',
   tracking: 'wider',
   uppercase: true,

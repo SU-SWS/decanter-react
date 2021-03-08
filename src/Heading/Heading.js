@@ -7,62 +7,57 @@ import clsxd from 'clsx-dedupe';
  * Heading Component
  *
  */
-export const Heading = ({ className, children, ref, ...props }) => {
+export const Heading = ({ className, level = 3, font, weight, tracking, align, size, uppercase, italic, srOnly, children, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
-  let HeadingTag = 'h3';
+  let HeadingTag = '';
 
   // Levers
   // ---------------------------------------------------------------------------
 
-  // props.defaultLevel
-  if (props.defaultLevel && headingLevels.includes(props.defaultLevel)) {
-    HeadingTag = props.defaultLevel;
-  }
-
   // props.level
-  if (props.level && headingLevels.includes(props.level)) {
-    HeadingTag = props.level;
+  if (level && headingLevels.includes(level)) {
+    HeadingTag = 'h' + level;
   }
 
   // props.font
-  if (props.font && headingFonts.includes(props.font)) {
-    levers.font = `su-font-${props.font}`;
+  if (font && headingFonts.includes(font)) {
+    levers.font = `su-font-${font}`;
   }
 
   // props.weight
-  if (props.weight && headingWeights.includes(props.weight)) {
-    levers.weight = `su-font-${props.weight}`;
+  if (weight && headingWeights.includes(weight)) {
+    levers.weight = `su-font-${weight}`;
   }
 
   // props.tracking
-  if (props.tracking && headingTracking.includes(props.tracking)) {
-    levers.tracking = `su-tracking-${props.tracking}`;
+  if (tracking && headingTracking.includes(tracking)) {
+    levers.tracking = `su-tracking-${tracking}`;
   }
 
   // props.align
-  if (props.align && headingAlign.includes(props.align)) {
-    levers.align = `su-text-${props.align}`;
+  if (align && headingAlign.includes(align)) {
+    levers.align = `su-text-${align}`;
   }
 
   // props.size
-  if (props.size !== null && headingSizes.includes(props.size)) {
-    levers.size = `su-type-${props.size}`;
+  if (size !== null && headingSizes.includes(size)) {
+    levers.size = `su-type-${size}`;
   }
 
   // props.uppercase
-  if (props.uppercase) {
+  if (uppercase) {
     levers.uppercase = `su-uppercase`;
   }
 
   // props.italic
-  if (props.italic) {
+  if (italic) {
     levers.italic = `su-italic`;
   }
 
   // props.srOnly
-  if (props.srOnly) {
+  if (srOnly) {
     levers.srOnly = `su-sr-only`;
   }
 
@@ -79,7 +74,7 @@ export const Heading = ({ className, children, ref, ...props }) => {
 
 Heading.propTypes = {
   level: PropTypes.oneOf(headingLevels),
-  defaultLevel: PropTypes.oneOf(headingLevels),
+
   /**
    * Font family - sans serif, serif or slab?
    */

@@ -72,4 +72,4 @@ NotLink.args = {
   className: 'su-type-3',
   isLink: false
 };
-NotLink.storyName = 'Cardinal Red (Not Linked)';
+NotLink.storyName = 'Unlinked Logo';
