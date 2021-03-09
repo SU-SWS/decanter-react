@@ -26,35 +26,21 @@ export const Grid = ({ element, gap, xs, sm, md, lg, xl, xxl, className, childre
     levers.gap = 'su-grid-gap';
   }
 
-  // props.xs
-  if (xs && gridNumCols.includes(xs)) {
-    levers.xs = `su-grid-cols-${xs}`;
-  }
+  let bps = {xs: xs, sm: sm, md: md, lg: lg, xl: xl, xxl: xxl};
 
-  // props.sm
-  if (sm && gridNumCols.includes(sm)) {
-    levers.sm = `sm:su-grid-cols-${sm}`;
-  }
-
-  // props.md
-  if (md && gridNumCols.includes(md)) {
-    levers.md = `md:su-grid-cols-${md}`;
-  }
-
-  // props.lg
-  if (lg && gridNumCols.includes(lg)) {
-    levers.lg = `lg:su-grid-cols-${lg}`;
-  }
-
-  // props.xl
-  if (xl && gridNumCols.includes(xl)) {
-    levers.xl = `xl:su-grid-cols-${xl}`;
-  }
-
-  // props.xxl
-  if (xxl && gridNumCols.includes(xxl)) {
-    levers.xxl = `2xl:su-grid-cols-${xxl}`;
-  }
+  Object.entries(bps).forEach(([key, value]) => {
+    if (value && gridNumCols.includes(value)) {
+      if (key === 'xs') {
+        levers[key] = `su-grid-cols-${value}`;
+      }
+      else if (key === 'xxl') {
+        levers[key] = `2xl:su-grid-cols-${value}`;
+      }
+      else {
+        levers[key] = `${key}:su-grid-cols-${value}`;
+      }
+    }
+  });
 
   return (
     <Element className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref} {...props}>
