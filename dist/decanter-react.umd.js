@@ -1669,8 +1669,7 @@
 
   var Heading = function Heading(_ref) {
     var className = _ref.className,
-        _ref$level = _ref.level,
-        level = _ref$level === void 0 ? 2 : _ref$level,
+        level = _ref.level,
         font = _ref.font,
         weight = _ref.weight,
         tracking = _ref.tracking,
@@ -1684,7 +1683,7 @@
         props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children", "ref"]);
 
     var levers = {};
-    var HeadingTag = '';
+    var HeadingTag = 'h2';
 
     if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
       HeadingTag = 'h' + level;
