@@ -1590,53 +1590,28 @@ var FlexCell = function FlexCell(_ref) {
     Element = props.element;
   }
 
-  if (props.xs && flexCellWidth.includes(props.xs)) {
-    if (typeof props.xs === 'string') {
-      levers.xs = "su-w-" + props.xs;
-    } else {
-      levers.xs = "su-w-" + props.xs + "/12";
+  var bps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+  bps.forEach(function (bp) {
+    if (props[bp] && flexCellWidth.includes(props[bp])) {
+      if (typeof props[bp] === 'string') {
+        if (bp === 'xs') {
+          levers[bp] = "su-w-" + props[bp];
+        } else if (bp === 'xxl') {
+          levers[bp] = "2xl:su-w-" + props[bp];
+        } else {
+          levers[bp] = bp + (":su-w-" + props[bp]);
+        }
+      } else if (typeof props[bp] === 'number') {
+        if (bp === 'xs') {
+          levers[bp] = "su-w-" + props[bp] + "/12";
+        } else if (bp === 'xxl') {
+          levers[bp] = "2xl:su-w-" + props[bp] + "/12";
+        } else {
+          levers[bp] = bp + (":su-w-" + props[bp] + "/12");
+        }
+      }
     }
-  }
-
-  if (props.sm && flexCellWidth.includes(props.sm)) {
-    if (typeof props.sm === 'string') {
-      levers.sm = "sm:su-w-" + props.sm;
-    } else {
-      levers.sm = "sm:su-w-" + props.sm + "/12";
-    }
-  }
-
-  if (props.md && flexCellWidth.includes(props.md)) {
-    if (typeof props.md === 'string') {
-      levers.md = "md:su-w-" + props.md;
-    } else {
-      levers.md = "md:su-w-" + props.md + "/12";
-    }
-  }
-
-  if (props.lg && flexCellWidth.includes(props.lg)) {
-    if (typeof props.lg === 'string') {
-      levers.lg = "lg:su-w-" + props.lg;
-    } else {
-      levers.lg = "lg:su-w-" + props.lg + "/12";
-    }
-  }
-
-  if (props.xl && flexCellWidth.includes(props.xl)) {
-    if (typeof props.xl === 'string') {
-      levers.xl = "xl:su-w-" + props.xl;
-    } else {
-      levers.xl = "xl:su-w-" + props.xl + "/12";
-    }
-  }
-
-  if (props.xxl && flexCellWidth.includes(props.xxl)) {
-    if (typeof props.xxl === 'string') {
-      levers.xxl = "xxl:su-w-" + props.xxl;
-    } else {
-      levers.xxl = "xxl:su-w-" + props.xxl + "/12";
-    }
-  }
+  });
 
   if (props.flex && flexCellFlex.includes(props.flex)) {
     levers.flex = "su-flex-" + props.flex;
@@ -1693,7 +1668,7 @@ var headingAlign = ['left', 'center', 'right', 'justify'];
 var Heading = function Heading(_ref) {
   var className = _ref.className,
       _ref$level = _ref.level,
-      level = _ref$level === void 0 ? 3 : _ref$level,
+      level = _ref$level === void 0 ? 2 : _ref$level,
       font = _ref.font,
       weight = _ref.weight,
       tracking = _ref.tracking,
@@ -1709,7 +1684,7 @@ var Heading = function Heading(_ref) {
   var levers = {};
   var HeadingTag = '';
 
-  if (level && headingLevels.includes(level)) {
+  if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
     HeadingTag = 'h' + level;
   }
 
@@ -1985,30 +1960,28 @@ var Grid = function Grid(_ref) {
     levers.gap = 'su-grid-gap';
   }
 
-  if (xs && gridNumCols.includes(xs)) {
-    levers.xs = "su-grid-cols-" + xs;
-  }
+  var bps = {
+    xs: xs,
+    sm: sm,
+    md: md,
+    lg: lg,
+    xl: xl,
+    xxl: xxl
+  };
+  Object.entries(bps).forEach(function (_ref2) {
+    var key = _ref2[0],
+        value = _ref2[1];
 
-  if (sm && gridNumCols.includes(sm)) {
-    levers.sm = "sm:su-grid-cols-" + sm;
-  }
-
-  if (md && gridNumCols.includes(md)) {
-    levers.md = "md:su-grid-cols-" + md;
-  }
-
-  if (lg && gridNumCols.includes(lg)) {
-    levers.lg = "lg:su-grid-cols-" + lg;
-  }
-
-  if (xl && gridNumCols.includes(xl)) {
-    levers.xl = "xl:su-grid-cols-" + xl;
-  }
-
-  if (xxl && gridNumCols.includes(xxl)) {
-    levers.xxl = "2xl:su-grid-cols-" + xxl;
-  }
-
+    if (value && (gridNumCols.includes(value) || gridNumCols.includes(Number(value)))) {
+      if (key === 'xs') {
+        levers[key] = "su-grid-cols-" + value;
+      } else if (key === 'xxl') {
+        levers[key] = "2xl:su-grid-cols-" + value;
+      } else {
+        levers[key] = key + ":su-grid-cols-" + value;
+      }
+    }
+  });
   return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
     ref: ref
@@ -2053,53 +2026,28 @@ var GridCell = function GridCell(_ref) {
     Element = props.element;
   }
 
-  if (props.xs && gridColSpan.includes(props.xs)) {
-    if (props.xs === 'auto') {
-      levers.xs = "su-col-auto";
-    } else {
-      levers.xs = "su-col-span-" + props.xs;
+  var bps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+  bps.forEach(function (bp) {
+    if (props[bp] && gridColSpan.includes(props[bp])) {
+      if (props[bp] === 'auto') {
+        if (bp === 'xs') {
+          levers[bp] = "su-col-auto";
+        } else if (bp === 'xxl') {
+          levers[bp] = "2xl:su-col-auto";
+        } else {
+          levers[bp] = bp + ":su-col-auto";
+        }
+      } else if (typeof props[bp] === 'number' || props[bp] === 'full') {
+        if (bp === 'xs') {
+          levers[bp] = "su-col-span-" + props[bp];
+        } else if (bp === 'xxl') {
+          levers[bp] = "2xl:su-col-span-" + props[bp];
+        } else {
+          levers[bp] = bp + (":su-col-span-" + props[bp]);
+        }
+      }
     }
-  }
-
-  if (props.sm && gridColSpan.includes(props.sm)) {
-    if (props.sm === 'auto') {
-      levers.sm = "sm:su-col-auto";
-    } else {
-      levers.sm = "sm:su-col-span-" + props.sm;
-    }
-  }
-
-  if (props.md && gridColSpan.includes(props.md)) {
-    if (props.md === 'auto') {
-      levers.md = "md:su-col-auto";
-    } else {
-      levers.md = "md:su-col-span-" + props.md;
-    }
-  }
-
-  if (props.lg && gridColSpan.includes(props.lg)) {
-    if (props.lg === 'auto') {
-      levers.lg = "lg:su-col-auto";
-    } else {
-      levers.lg = "lg:su-col-span-" + props.lg;
-    }
-  }
-
-  if (props.xl && gridColSpan.includes(props.xl)) {
-    if (props.xl === 'auto') {
-      levers.xl = "xl:su-col-auto";
-    } else {
-      levers.xl = "xl:su-col-span-" + props.xl;
-    }
-  }
-
-  if (props.xxl && gridColSpan.includes(props.xxl)) {
-    if (props.xxl === 'auto') {
-      levers.xxl = "2xl:su-col-auto";
-    } else {
-      levers.xxl = "2xl:su-col-span-" + props.xxl;
-    }
-  }
+  });
 
   if (props.colStart && gridColLine.includes(props.colStart)) {
     levers.colStart = "su-col-start-" + props.colStart;
