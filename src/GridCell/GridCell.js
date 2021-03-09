@@ -22,66 +22,39 @@ export const GridCell = ({ className, children, ref, ...props }) => {
   }
 
   // props.xs to props.xxl controls column span of the grid cell
-  // props.xs
-  if (props.xs && gridColSpan.includes(props.xs)) {
-    if (props.xs === 'auto') {
-      levers.xs = `su-col-auto`;
-    }
-    else {
-      levers.xs = `su-col-span-${props.xs}`;
-    }
-  }
 
+  // Available breakpoints
+  const bps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
-  // props.sm
-  if (props.sm && gridColSpan.includes(props.sm)) {
-    if (props.sm === 'auto') {
-      levers.sm = `sm:su-col-auto`;
+  // Looping over each breakpoint
+  bps.forEach(
+    (bp) => {
+      if (props[bp] && gridColSpan.includes(props[bp])) {
+        if (props[bp] === 'auto') {
+          if (bp === 'xs') {
+            levers[bp] = `su-col-auto`;
+          }
+          else if (bp === 'xxl') {
+            levers[bp] = `2xl:su-col-auto`;
+          }
+          else {
+            levers[bp] = bp + `:su-col-auto`;
+          }
+        }
+        else if ((typeof props[bp] === 'number') || props[bp] === 'full') {
+          if (bp === 'xs') {
+            levers[bp] = `su-col-span-${props[bp]}`;
+          }
+          else if (bp === 'xxl') {
+            levers[bp] = `2xl:su-col-span-${props[bp]}`;
+          }
+          else {
+            levers[bp] = bp + `:su-col-span-${props[bp]}`;
+          }
+        }
+      }
     }
-    else {
-      levers.sm = `sm:su-col-span-${props.sm}`;
-    }
-  }
-
-  // props.md
-  if (props.md && gridColSpan.includes(props.md)) {
-    if (props.md === 'auto') {
-      levers.md = `md:su-col-auto`;
-    }
-    else {
-      levers.md = `md:su-col-span-${props.md}`;
-    }
-  }
-
-  // props.lg
-  if (props.lg && gridColSpan.includes(props.lg)) {
-    if (props.lg === 'auto') {
-      levers.lg = `lg:su-col-auto`;
-    }
-    else {
-      levers.lg = `lg:su-col-span-${props.lg}`;
-    }
-  }
-
-  // props.xl
-  if (props.xl && gridColSpan.includes(props.xl)) {
-    if (props.xl === 'auto') {
-      levers.xl = `xl:su-col-auto`;
-    }
-    else {
-      levers.xl = `xl:su-col-span-${props.xl}`;
-    }
-  }
-
-  // props.xxl
-  if (props.xxl && gridColSpan.includes(props.xxl)) {
-    if (props.xxl === 'auto') {
-      levers.xxl = `2xl:su-col-auto`;
-    }
-    else {
-      levers.xxl = `2xl:su-col-span-${props.xxl}`;
-    }
-  }
+  );
 
   // props.colStart
   if (props.colStart && gridColLine.includes(props.colStart)) {
