@@ -16,8 +16,8 @@ export const Heading = ({ className, level = 2, font, weight, tracking, align, s
   // Levers
   // ---------------------------------------------------------------------------
 
-  // props.level
-  if (level && headingLevels.includes(level)) {
+  // props.level - allows number or string input
+  if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
     HeadingTag = 'h' + level;
   }
 

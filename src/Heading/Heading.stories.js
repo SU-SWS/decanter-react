@@ -141,7 +141,7 @@ Uppercase.storyName = 'Small Uppercase H3';
 
 export const CustomProps = HeadingTemplate.bind({});
 CustomProps.args = {
-  level: 3,
+  level: '3',
   weight: 'bold',
   tracking: 'wider',
   uppercase: true,

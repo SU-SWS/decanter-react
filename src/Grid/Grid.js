@@ -26,10 +26,11 @@ export const Grid = ({ element, gap, xs, sm, md, lg, xl, xxl, className, childre
     levers.gap = 'su-grid-gap';
   }
 
+  // Keys are the breakpoints (string); values are destructured props
   let bps = {xs: xs, sm: sm, md: md, lg: lg, xl: xl, xxl: xxl};
 
   Object.entries(bps).forEach(([key, value]) => {
-    if (value && gridNumCols.includes(value)) {
+    if (value && (gridNumCols.includes(value) || gridNumCols.includes(Number(value)))) {
       if (key === 'xs') {
         levers[key] = `su-grid-cols-${value}`;
       }
