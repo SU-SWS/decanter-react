@@ -22,65 +22,39 @@ export const FlexCell = ({ className, children, ref, ...props }) => {
   }
 
   // props.xs to props.xxl controls width (n-of-12 columns) of the flex cell
-  // props.xs
-  if (props.xs && flexCellWidth.includes(props.xs)) {
-    if (typeof props.xs === 'string') {
-      levers.xs = `su-w-${props.xs}`;
-    }
-    else {
-      levers.xs = `su-w-${props.xs}/12`;
-    }
-  }
 
-  // props.sm
-  if (props.sm && flexCellWidth.includes(props.sm)) {
-    if (typeof props.sm === 'string') {
-      levers.sm = `sm:su-w-${props.sm}`;
-    }
-    else {
-      levers.sm = `sm:su-w-${props.sm}/12`;
-    }
-  }
+  // Available breakpoints
+  const bps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
-  // props.md
-  if (props.md && flexCellWidth.includes(props.md)) {
-    if (typeof props.md === 'string') {
-      levers.md = `md:su-w-${props.md}`;
+  // Looping over each breakpoint
+  bps.forEach(
+    (bp) => {
+      if (props[bp] && flexCellWidth.includes(props[bp])) {
+        if (typeof props[bp] === 'string') {
+          if (bp === 'xs') {
+            levers[bp] = `su-w-${props[bp]}`;
+          }
+          else if (bp === 'xxl') {
+            levers[bp] = `2xl:su-w-${props[bp]}`;
+          }
+          else {
+            levers[bp] = bp + `:su-w-${props[bp]}`;
+          }
+        }
+        else if (typeof props[bp] === 'number') {
+          if (bp === 'xs') {
+            levers[bp] = `su-w-${props[bp]}/12`;
+          }
+          else if (bp === 'xxl') {
+            levers[bp] = `2xl:su-w-${props[bp]}/12`;
+          }
+          else {
+            levers[bp] = bp + `:su-w-${props[bp]}/12`;
+          }
+        }
+      }
     }
-    else {
-      levers.md = `md:su-w-${props.md}/12`;
-    }
-  }
-
-  // props.lg
-  if (props.lg && flexCellWidth.includes(props.lg)) {
-    if (typeof props.lg === 'string') {
-      levers.lg = `lg:su-w-${props.lg}`;
-    }
-    else {
-      levers.lg = `lg:su-w-${props.lg}/12`;
-    }
-  }
-
-  // props.xl
-  if (props.xl && flexCellWidth.includes(props.xl)) {
-    if (typeof props.xl === 'string') {
-      levers.xl = `xl:su-w-${props.xl}`;
-    }
-    else {
-      levers.xl = `xl:su-w-${props.xl}/12`;
-    }
-  }
-
-  // props.xxl
-  if (props.xxl && flexCellWidth.includes(props.xxl)) {
-    if (typeof props.xxl === 'string') {
-      levers.xxl = `xxl:su-w-${props.xxl}`;
-    }
-    else {
-      levers.xxl = `xxl:su-w-${props.xxl}/12`;
-    }
-  }
+  );
 
   // props.flex
   if (props.flex && flexCellFlex.includes(props.flex)) {
