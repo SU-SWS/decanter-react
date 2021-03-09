@@ -61,7 +61,6 @@ export const Heading = ({ className, level, font, weight, tracking, align, size,
     levers.srOnly = `su-sr-only`;
   }
 
-
   return (
     <HeadingTag
       className={clsxd('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)}
