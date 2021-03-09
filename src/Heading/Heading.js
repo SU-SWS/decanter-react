@@ -7,11 +7,11 @@ import clsxd from 'clsx-dedupe';
  * Heading Component
  *
  */
-export const Heading = ({ className, level = 2, font, weight, tracking, align, size, uppercase, italic, srOnly, children, ref, ...props }) => {
+export const Heading = ({ className, level, font, weight, tracking, align, size, uppercase, italic, srOnly, children, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
-  let HeadingTag = '';
+  let HeadingTag = 'h2';
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -60,7 +60,6 @@ export const Heading = ({ className, level = 2, font, weight, tracking, align, s
   if (srOnly) {
     levers.srOnly = `su-sr-only`;
   }
-
 
   return (
     <HeadingTag
