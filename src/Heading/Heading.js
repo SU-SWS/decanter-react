@@ -7,7 +7,7 @@ import clsxd from 'clsx-dedupe';
  * Heading Component
  *
  */
-export const Heading = ({ className, level = 2, font, weight, tracking, align, size, uppercase, italic, srOnly, children, ref, ...props }) => {
+export const Heading = ({ className, level, font, weight, tracking, align, size, uppercase, italic, srOnly, children, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
