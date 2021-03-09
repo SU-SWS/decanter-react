@@ -21,15 +21,40 @@ export const FlexCell = ({ className, children, ref, ...props }) => {
     Element = props.element;
   }
 
-  // props.width
-  if (props.width && flexCellWidth.includes(props.width)) {
-    if (typeof props.width === 'string') {
-      levers.width = `su-w-${props.width}`;
+  // props.xs to props.xxl controls width (n-of-12 columns) of the flex cell
+
+  // Available breakpoints
+  const bps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+
+  // Looping over each breakpoint
+  bps.forEach(
+    (bp) => {
+      if (props[bp] && flexCellWidth.includes(props[bp])) {
+        if (typeof props[bp] === 'string') {
+          if (bp === 'xs') {
+            levers[bp] = `su-w-${props[bp]}`;
+          }
+          else if (bp === 'xxl') {
+            levers[bp] = `2xl:su-w-${props[bp]}`;
+          }
+          else {
+            levers[bp] = bp + `:su-w-${props[bp]}`;
+          }
+        }
+        else if (typeof props[bp] === 'number') {
+          if (bp === 'xs') {
+            levers[bp] = `su-w-${props[bp]}/12`;
+          }
+          else if (bp === 'xxl') {
+            levers[bp] = `2xl:su-w-${props[bp]}/12`;
+          }
+          else {
+            levers[bp] = bp + `:su-w-${props[bp]}/12`;
+          }
+        }
+      }
     }
-    else {
-      levers.width = `su-w-${props.width}/12`;
-    }
-  }
+  );
 
   // props.flex
   if (props.flex && flexCellFlex.includes(props.flex)) {
@@ -62,7 +87,7 @@ export const FlexCell = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <Element className={clsxd(levers.width, levers.flex, levers.grow, levers.shrink, levers.order, className)} ref={ref}>
+    <Element className={clsxd(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className)} ref={ref}>
       {children}
     </Element>
   );
@@ -77,9 +102,34 @@ FlexCell.propTypes = {
   element: PropTypes.oneOf(flexCellElements),
 
   /**
-   * Width of the cell (n-of-12 Columns)
+   * Width of the cell (n-of-12 Columns) from device width 0 and up.
    */
-  width: PropTypes.oneOf(flexCellWidth),
+  xs: PropTypes.oneOf(flexCellWidth),
+
+  /**
+   * Width of the cell (n-of-12 Columns) from SM breakpoint and up.
+   */
+  sm: PropTypes.oneOf(flexCellWidth),
+
+  /**
+   * Width of the cell (n-of-12 Columns) from MD breakpoint and up.
+   */
+  md: PropTypes.oneOf(flexCellWidth),
+
+  /**
+   * Width of the cell (n-of-12 Columns) from LG breakpoint and up.
+   */
+  lg: PropTypes.oneOf(flexCellWidth),
+
+  /**
+   * Width of the cell (n-of-12 Columns) from XL breakpoint and up.
+   */
+  xl: PropTypes.oneOf(flexCellWidth),
+
+  /**
+   * Width of the cell (n-of-12 Columns) from 2XL breakpoint and up.
+   */
+  xxl: PropTypes.oneOf(flexCellWidth),
 
   /**
    * Flex property - for controlling how this cell both grow and shrink.
@@ -115,5 +165,4 @@ FlexCell.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 FlexCell.defaultProps = {
-  element: 'div'
 };

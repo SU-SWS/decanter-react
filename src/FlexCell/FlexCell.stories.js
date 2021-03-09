@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlexCell } from './FlexCell';
 import { FlexBox } from '../FlexBox/FlexBox';
-import { flexCellElements, flexCellWidth, flexCellFlex, flexCellGrow, flexCellShrink, flexCellOrder } from './FlexCell.levers';
+import { flexCellElements, flexCellWidth, flexCellFlex, flexCellOrder } from './FlexCell.levers';
 
 export default {
   title: 'Layout/FlexBox Cell',
@@ -13,7 +13,37 @@ export default {
         options: flexCellElements
       }
     },
-    width: {
+    xs: {
+      control: {
+        type: 'select',
+        options: flexCellWidth
+      }
+    },
+    sm: {
+      control: {
+        type: 'select',
+        options: flexCellWidth
+      }
+    },
+    md: {
+      control: {
+        type: 'select',
+        options: flexCellWidth
+      }
+    },
+    lg: {
+      control: {
+        type: 'select',
+        options: flexCellWidth
+      }
+    },
+    xl: {
+      control: {
+        type: 'select',
+        options: flexCellWidth
+      }
+    },
+    xxl: {
       control: {
         type: 'select',
         options: flexCellWidth
@@ -75,7 +105,7 @@ Default.storyName = 'Default Auto-width Flex Cell';
 
 export const FlexColCell = FlexColTemplate.bind({});
 FlexColCell.args = {
-  width: 6,
+  xs: 6,
   children: '6-of-12',
   className: 'su-bg-spirited su-p-10'
 };

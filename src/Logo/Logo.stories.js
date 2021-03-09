@@ -3,7 +3,7 @@ import { Logo } from './Logo';
 import { logoColors, logoTypes } from "./Logo.levers";
 
 export default {
-  title: 'Stanford Identity/Logo',
+  title: 'Stanford Identity/Stanford Logo',
   component: Logo,
   argTypes: {
     color: {
@@ -18,10 +18,15 @@ export default {
         options: logoTypes
       }
     },
+    isLink: {
+      control: {
+        type: 'boolean',
+      }
+    },
   }
 };
 
-// Set up an Alert Template.
+// Set up the Logo template.
 const LogoTemplate = (props) => <Logo {...props} />;
 
 export const Red = LogoTemplate.bind({});
@@ -59,3 +64,12 @@ Stacked.args = {
   type: 'stacked',
   className: 'su-type-3'
 };
+
+export const NotLink = LogoTemplate.bind({});
+NotLink.args = {
+  color: 'cardinal-red',
+  type: 'short',
+  className: 'su-type-3',
+  isLink: false
+};
+NotLink.storyName = 'Unlinked Logo';

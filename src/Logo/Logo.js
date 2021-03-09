@@ -22,11 +22,11 @@ export const Logo = ({ className, ...props }) => {
         break;
 
       case 'black':
-        levers.logo = 'su-text-black hover:su-text-black focus:su-text-black';
+        levers.logo = 'su-text-black hocus:su-text-black';
         break;
 
       case 'white':
-        levers.logo = 'su-text-white hover:su-text-white focus:su-text-white';
+        levers.logo = 'su-text-white hocus:su-text-white';
         break;
     }
   }
@@ -48,12 +48,22 @@ export const Logo = ({ className, ...props }) => {
     }
   }
 
+  // props.isLink
+  // Render logo as link or simple div
+  if (props.isLink) {
+    return (
+      <a className={clsxd('su-logo', levers.logo, className)}
+         href='https://www.stanford.edu'
+      >
+        {logoText}
+      </a>
+    );
+  }
+
   return (
-    <a className={clsxd('su-logo', levers.logo, className)}
-       href='https://www.stanford.edu'
-    >
+    <div className={clsxd('su-logo', levers.logo, className)}>
       {logoText}
-    </a>
+    </div>
   );
 };
 
@@ -62,6 +72,11 @@ export const Logo = ({ className, ...props }) => {
 Logo.propTypes = {
   color: PropTypes.oneOf(logoColors),
   type: PropTypes.oneOf(logoTypes),
+
+  /**
+   * Make the logo link to the Stanford homepage?
+   */
+  isLink: PropTypes.bool,
 
   /**
    * Custom CSS classes, e.g., to change font size
@@ -77,5 +92,6 @@ Logo.propTypes = {
 // -----------------------------------------------------------------------------
 Logo.defaultProps = {
   color: 'cardinal-red',
-  type: 'short'
+  type: 'short',
+  isLink: true
 };
