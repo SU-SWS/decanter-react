@@ -61,7 +61,8 @@ export const GridCell = ({ className, children, ref, ...props }) => {
     levers.colStart = `su-col-start-${props.colStart}`;
   }
 
-  // props.rowSpan
+  // props.row - controls row span of the cell
+  // If row span changes for different breakpoints, pass responsive TW classes through className
   if (props.row && gridRowSpan.includes(props.row)) {
     levers.row = `su-row-span-${props.row}`;
     if (props.row === 'auto') {
