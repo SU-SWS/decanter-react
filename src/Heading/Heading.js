@@ -11,7 +11,7 @@ export const Heading = ({ className, level, font, weight, tracking, align, size,
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
-  let HeadingTag = '';
+  let HeadingTag = 'h2';
 
   // Levers
   // ---------------------------------------------------------------------------
