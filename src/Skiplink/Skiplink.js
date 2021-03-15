@@ -27,7 +27,10 @@ Skiplink.propTypes = {
     PropTypes.object
   ]),
 
-
+  /**
+   * Skip link href of the target - starts with a #
+   */
+  anchorLink: PropTypes.string,
 
   // Children
   children: PropTypes.oneOfType([
