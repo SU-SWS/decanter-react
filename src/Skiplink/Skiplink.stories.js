@@ -17,9 +17,7 @@ export default {
 const SkiplinkTemplate = ({ ...rest }) => <Skiplink {...rest} />;
 
 export const Default = SkiplinkTemplate.bind({});
-Default.args = {
-};
-Default.storyName = 'Default anchor link and link text';
+Default.storyName = 'Default';
 
 export const Custom = SkiplinkTemplate.bind({});
 Custom.args = {
