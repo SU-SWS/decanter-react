@@ -28,11 +28,13 @@ Skiplink.propTypes = {
   ]),
 
   /**
-   * Skip link href of the target - starts with a #
+   * Skip link href of the target section id - starts with a # (default is "#main-content")
    */
   anchorLink: PropTypes.string,
 
-  // Children
+  /**
+   * Skip link text (default is "Skip to main content")
+   */
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
