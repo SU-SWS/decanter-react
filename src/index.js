@@ -1,6 +1,8 @@
 import { Alert } from './Alert/Alert';
 import { Button } from './Button/Button';
 import { Container } from './Container/Container';
+import { CtaLink } from "./CtaLink/CtaLink";
+import { CtaLinkButton } from "./CtaLink/CtaLinkButton";
 import { FlexBox } from './FlexBox/FlexBox';
 import { FlexCell } from './FlexCell/FlexCell';
 import { Heading } from './Heading/Heading';
@@ -12,6 +14,5 @@ import { LocalFooter } from './LocalFooter/LocalFooter';
 import { Lockup } from './Lockup/Lockup';
 import { Logo } from './Logo/Logo';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
-import { StyledLink } from './StyledLink';
 
-export { Alert, Button, Container, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, SrOnlyText, StyledLink };
+export { Alert, Button, Container, CtaLink, CtaLinkButton, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, SrOnlyText };

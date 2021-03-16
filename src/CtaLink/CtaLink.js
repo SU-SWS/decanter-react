@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CtaLinkVariants, CtaLinkDisplay, CtaLinkColors } from './CtaLink.levers';
+import { ctaLinkIcons, ctaLinkDisplay, ctaLinkColors } from './CtaLink.levers';
+import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
 
 /**
- * CtaLink Component
+ * CTA Link Component
  *
- * HTML CtaLink element
  */
-export const CtaLink = ({ className, element, display, link, color, icon, ref, ...props }) => {
+export const CtaLink = ({ className, text, element, display, link, color, icon, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -16,8 +16,25 @@ export const CtaLink = ({ className, element, display, link, color, icon, ref, .
   // Levers
   // ---------------------------------------------------------------------------
 
+  // display
+  if (display && ctaLinkDisplay.includes(display)) {
+    switch (display) {
+      case 'inline-block':
+        levers.display = 'su-inline-block';
+        break;
+
+      case 'block':
+        levers.display = 'su-block';
+        break;
+
+      case 'flex':
+        levers.display = 'su-flex';
+        break;
+    }
+  }
+
   // color
-  if (variant && CtaLinkVariants.includes(variant)) {
+  if (color && ctaLinkColors.includes(color)) {
     switch (color) {
       case 'red':
         levers.color = 'su-text-digital-red hocus:su-text-black';
@@ -33,55 +50,62 @@ export const CtaLink = ({ className, element, display, link, color, icon, ref, .
     }
   }
 
-  //
-  if (size && CtaLinkSizes.includes(size)) {
-    switch (size) {
-      case 'big':
-        levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
+  // icon
+  let LinkIcon = '';
+
+  if (icon && ctaLinkIcons.includes(icon)) {
+    switch (icon) {
+      case 'action':
+        LinkIcon = <Icon icon='chevron-right' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-1em su-w-1em su-ml-4 su--mt-2')}/>;
         break;
 
-      case 'small':
-        levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
+      case 'external':
+        LinkIcon = <Icon icon='arrow-up' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2 su-transform su-rotate-45')}/>;
         break;
 
-      case 'minimal':
-        levers.size = 'su-p-0';
+      case 'lock':
+        LinkIcon = <Icon icon='lock-closed' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-3')}/>;
         break;
 
-      default:
-        levers.size = 'su-px-26 su-py-10 su-text-16 md:su-text-20';
+      case 'download':
+        LinkIcon = <Icon icon='download' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-3')}/>;
+        break;
+
+      case 'video':
+        LinkIcon = <Icon icon='play' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-6 su--mt-3')}/>;
+        break;
+
+      case 'email':
+        LinkIcon = <Icon icon='mail' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-6 su--mt-2')}/>;
+        break;
+
+      case 'jump':
+        LinkIcon = <Icon icon='chevron-down' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-1em su-w-1em su-ml-4 su--mt-2')}/>;
+        break;
+
+      case 'none':
+        break;
     }
   }
 
-  // Is disabled
-  if (isDisabled) {
-    levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
-    levers.variant = clsxd(levers.variant, {'su-bg-digital-red': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
-  }
-
   return (
-    <CtaLink
-      className={clsxd('su-CtaLink', levers.variant, levers.size, levers.disabled, className)}
+    <a
+      className={clsxd('su-cta-link su-no-underline hover:su-underline focus:su-underline', levers.display, levers.color, className)}
+      href={link}
       ref={ref}
-      onClick={onClick}
-      type={type}
-      disabled={isDisabled}
       {...props}
     >
-      {children}
-    </CtaLink>
+      {text}
+      {LinkIcon}
+    </a>
   );
 };
 
 CtaLink.propTypes = {
   // HTML CtaLink type.
-  type: PropTypes.oneOf(CtaLinkTypes),
-  variant: PropTypes.oneOf(CtaLinkVariants),
-  size: PropTypes.oneOf(CtaLinkSizes),
-  isDisabled: PropTypes.bool,
-
-  // Optional click handler
-  onClick: PropTypes.func,
+  display: PropTypes.oneOf(ctaLinkDisplay),
+  color: PropTypes.oneOf(ctaLinkColors),
+  icon: PropTypes.oneOf(ctaLinkIcons),
 
   // CSS Classes.
   className: PropTypes.oneOfType([
@@ -91,7 +115,7 @@ CtaLink.propTypes = {
   ]),
 
   // Children
-  children: PropTypes.oneOfType([
+  text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
     PropTypes.node
@@ -101,8 +125,8 @@ CtaLink.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 CtaLink.defaultProps = {
-  onClick: undefined,
-  type: 'CtaLink',
-  isDisabled: false,
+  display: 'block',
+  icon: 'action',
+  color: 'blue',
   ref: null
 };

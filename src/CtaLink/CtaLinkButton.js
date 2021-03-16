@@ -10,8 +10,7 @@ import clsxd from 'clsx-dedupe';
  * For links that are styled to look like buttons.
  */
 export const CtaLinkButton = ({ className, children= {}, element, display, variant, link, size, icon, ref, ...props }) => {
-  // Defaults & Variables.
-  // ---------------------------------------------------------------------------
+
   const levers = {};
   let Element = 'a';
 
@@ -27,6 +26,10 @@ export const CtaLinkButton = ({ className, children= {}, element, display, varia
 
       case 'block':
         levers.display = 'su-block';
+        break;
+
+      case 'flex':
+        levers.display = 'su-flex';
         break;
     }
   }
@@ -67,7 +70,7 @@ export const CtaLinkButton = ({ className, children= {}, element, display, varia
 
   return (
     <Element
-      className={clsxd('su-w-fit su-font-regular su-no-underline hover:su-underline focus:su-underline su-leading-none su-transition-colors', levers.display, levers.variant, levers.size, className)}
+      className={clsxd('su-cta-btn su-w-fit su-font-regular su-no-underline hover:su-underline focus:su-underline su-leading-none su-transition-colors', levers.display, levers.variant, levers.size, className)}
       ref={ref}
       href={link}
       {...props}
