@@ -1,18 +1,18 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Button } from './Button';
+import { Skiplink } from './Skiplink';
 
 // Component is a component.
-describe('Button', () => {
+describe('Skiplink', () => {
   // Is a component with valid syntax.
   it('is truthy', () => {
-    expect(Button).toBeTruthy();
+    expect(Skiplink).toBeTruthy();
   });
 
   // Default is rendered.
-  it('renders the Button in the default state', () => {
-    render(<Button>Test Children</Button>);
+  it('renders the Skiplink in the default state', () => {
+    render(<Skiplink>Test Children</Skiplink>);
     screen.getByText('Test Children'); // full string match
   });
 });
