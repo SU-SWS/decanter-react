@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ctaLinkIcons, ctaLinkDisplay, ctaLinkColors } from './CtaLink.levers';
+import { ctaLinkIcons, ctaLinkDisplay, ctaLinkColors, ctaLinkAnimations } from './CtaLink.levers';
 import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
 
@@ -8,7 +8,7 @@ import clsxd from 'clsx-dedupe';
  * CTA Link Component
  *
  */
-export const CtaLink = ({ className, text, element, display, link, color, icon, ref, ...props }) => {
+export const CtaLink = ({ classes = {}, text, element, display, link, color, icon, animate, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -51,36 +51,49 @@ export const CtaLink = ({ className, text, element, display, link, color, icon, 
   }
 
   // icon
-  let LinkIcon = '';
+  //let LinkIcon = '';
+  let heroicon = '';
 
   if (icon && ctaLinkIcons.includes(icon)) {
     switch (icon) {
       case 'action':
-        LinkIcon = <Icon icon='chevron-right' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-1em su-w-1em su-ml-4 su--mt-2')}/>;
+        heroicon = 'chevron-right';
+        levers.icon = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+        break;
+
+      case 'more':
+        heroicon = 'arrow-narrow-right';
+        levers.icon = 'su-h-09em su-w-09em su-ml-5 su--mt-2';
         break;
 
       case 'external':
-        LinkIcon = <Icon icon='arrow-up' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2 su-transform su-rotate-45')}/>;
+        heroicon = 'arrow-up';
+        levers.icon = 'su-h-08em su-w-08em su-ml-4 su--mt-2 su-transform su-rotate-45 group-hocus:su-rotate-45';
         break;
 
       case 'lock':
-        LinkIcon = <Icon icon='lock-closed' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-3')}/>;
+        heroicon = 'lock-closed';
+        levers.icon = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
         break;
 
       case 'download':
-        LinkIcon = <Icon icon='download' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-3')}/>;
+        heroicon = 'download';
+        levers.icon = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
         break;
 
       case 'video':
-        LinkIcon = <Icon icon='play' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-6 su--mt-3')}/>;
+        heroicon = 'play';
+        levers.icon = 'su-h-08em su-w-08em su-ml-6 su--mt-3';
         break;
 
       case 'email':
-        LinkIcon = <Icon icon='mail' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-6 su--mt-2')}/>;
+        heroicon = 'mail';
+        levers.icon = 'su-h-08em su-w-08em su-ml-6 su--mt-2';
         break;
 
       case 'jump':
-        LinkIcon = <Icon icon='chevron-down' type='solid' aria-hidden={true} className={clsxd('su-inline-block su-h-1em su-w-1em su-ml-4 su--mt-2')}/>;
+        heroicon = 'chevron-down';
+        levers.icon = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
         break;
 
       case 'none':
@@ -88,38 +101,90 @@ export const CtaLink = ({ className, text, element, display, link, color, icon, 
     }
   }
 
+  // animate
+  if (animate && ctaLinkAnimations.includes(animate)) {
+    switch(animate) {
+      case 'right':
+        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-x-02em';
+        break;
+
+      case 'top-right':
+        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em';
+        break;
+
+      case 'down':
+        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-y-02em';
+        break;
+    }
+  }
+
   return (
     <a
-      className={clsxd('su-cta-link su-no-underline hover:su-underline focus:su-underline', levers.display, levers.color, className)}
+      className={clsxd('su-cta-link su-w-fit su-no-underline hover:su-underline focus:su-underline su-group', levers.display, levers.color, classes.link)}
       href={link}
       ref={ref}
       {...props}
     >
       {text}
-      {LinkIcon}
+      {icon &&
+        <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}/>
+      }
     </a>
   );
 };
 
 CtaLink.propTypes = {
-  // HTML CtaLink type.
+  /**
+   * Display type
+   */
   display: PropTypes.oneOf(ctaLinkDisplay),
+
+  /**
+   * Link color
+   */
   color: PropTypes.oneOf(ctaLinkColors),
+
+  /**
+   * Icon options
+   */
   icon: PropTypes.oneOf(ctaLinkIcons),
 
-  // CSS Classes.
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object
-  ]),
+  /**
+   * URL
+   */
+  link: PropTypes.string,
 
-  // Children
+  /**
+   * Icon animation on hover/focus
+   */
+  animate: PropTypes.oneOf(ctaLinkAnimations),
+
+  /**
+   * Link text
+   */
   text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
     PropTypes.node
-  ])
+  ]),
+
+  /**
+   * Additional CSS classes
+   */
+  classes: PropTypes.shape(
+    {
+      link: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
+      ]),
+      icon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
+      ]),
+    }
+  ),
 };
 
 // Default Props.

@@ -12,6 +12,11 @@ export const ctaLinkColors = ['red', 'blue', 'white', 'none'];
 export const ctaLinkDisplay = ['inline-block', 'block', 'flex'];
 
 /**
- * CTA link icon options
+ * Icon options
  */
-export const ctaLinkIcons = ['action', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
+export const ctaLinkIcons = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
+
+/**
+ * Icon animation options
+ */
+export const ctaLinkAnimations = ['right', 'top-right', 'down', 'none'];
