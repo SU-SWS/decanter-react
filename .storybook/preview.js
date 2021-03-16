@@ -1,6 +1,5 @@
 // Decanter Styles.
 import 'decanter/dist/decanter.css'
-import 'decanter/dist/decanter.js'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 // Our Breakpoints
