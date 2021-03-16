@@ -112,7 +112,7 @@ Jump.storyName = 'Jump';
 
 export const NoIcon = CtaLinkTemplate.bind({});
 NoIcon.args = {
-  text: 'No Icon',
+  text: 'Link with No Icon',
   icon: 'none',
   link: 'https://stanford.edu'
 };
@@ -130,13 +130,23 @@ NoAnimate.storyName = 'Red Link with No Animation';
 
 export const CustomProps = CtaLinkTemplate.bind({});
 CustomProps.args = {
-  text: 'External Link with Custom Props',
+  text: 'Link with Custom Props',
   color: 'red',
   icon: 'external',
   animate: 'top-right',
-  rel: 'no-follow',
+  rel: 'nofollow',
   target: '_blank',
   id: 'custom-id',
   link: 'https://stanford.edu'
 };
-CustomProps.storyName = 'External Link with Custom Props';
+CustomProps.storyName = 'Link with Custom Props';
+
+export const SrText = CtaLinkTemplate.bind({});
+SrText.args = {
+  text: 'Learn more',
+  srText: 'about Decanter React',
+  icon: 'more',
+  animate: 'right',
+  link: 'https://stanford.edu',
+};
+SrText.storyName = 'Link with Screen Reader Only Text';

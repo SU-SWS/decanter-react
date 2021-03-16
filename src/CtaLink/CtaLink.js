@@ -8,7 +8,7 @@ import clsxd from 'clsx-dedupe';
  * CTA Link Component
  *
  */
-export const CtaLink = ({ classes = {}, text, element, display, link, color, icon, animate, ref, ...props }) => {
+export const CtaLink = ({ classes = {}, text, srText, element, display, link, color, icon, animate, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -120,12 +120,15 @@ export const CtaLink = ({ classes = {}, text, element, display, link, color, ico
 
   return (
     <a
-      className={clsxd('su-cta-link su-w-fit su-no-underline hover:su-underline focus:su-underline su-group', levers.display, levers.color, classes.link)}
+      className={clsxd('su-cta-link su-text-19 md:su-text-20 su-w-fit su-no-underline hover:su-underline focus:su-underline su-group', levers.display, levers.color, classes.link)}
       href={link}
       ref={ref}
       {...props}
     >
       {text}
+      {srText &&
+        <span className='su-sr-only'> {srText}</span>
+      }
       {icon &&
         <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}/>
       }
