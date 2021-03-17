@@ -2302,6 +2302,24 @@ LocalFooter.defaultProps = {
   link: 'blue'
 };
 
+var Skiplink = function Skiplink(_ref) {
+  var anchorLink = _ref.anchorLink,
+      className = _ref.className,
+      children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["anchorLink", "className", "children"]);
+
+  return /*#__PURE__*/React.createElement("a", _extends({
+    href: anchorLink != null ? anchorLink : '#main-content',
+    className: clsxd('su-skiplink', className)
+  }, props), children != null ? children : 'Skip to main content');
+};
+Skiplink.propTypes = {
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
+  anchorLink: propTypes.string,
+  children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node])
+};
+Skiplink.defaultProps = {};
+
 var StyledLink = function StyledLink(props) {
   var styles = {};
   var defaultClasses = {
@@ -2357,4 +2375,4 @@ var StyledLink = function StyledLink(props) {
   }, props.attributes), props.children, classes.icon && classes.icon);
 };
 
-export { Alert, Button, Container, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, SrOnlyText, StyledLink };
+export { Alert, Button, Container, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, Skiplink, SrOnlyText, StyledLink };
