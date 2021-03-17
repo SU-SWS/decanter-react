@@ -24,7 +24,7 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
         break;
 
       case 'outline':
-        levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
       case 'none':
