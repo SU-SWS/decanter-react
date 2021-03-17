@@ -1,11 +1,12 @@
 import React from 'react';
-import { CtaLinkButton } from './CtaLinkButton';
-import { ctaLinkDisplay } from './CtaLink.levers';
+//import { CtaLinkButton } from './CtaLinkButton';
+import { CtaLink } from './CtaLink';
+import { ctaLinkDisplay, ctaLinkIcons, ctaLinkAnimations, ctaLinkColors } from "./CtaLink.levers";
 import { ctaLinkButtonVariants, ctaLinkButtonSizes } from "./CtaLinkButton.levers";
 
 export default {
   title: 'Simple/CTA Link Button',
-  component: CtaLinkButton,
+  component: CtaLink,
   argTypes: {
     variant: {
       control: {
@@ -25,48 +26,103 @@ export default {
         options: ctaLinkDisplay
       }
     },
+    icon: {
+      control: {
+        type: 'select',
+        options: ctaLinkIcons
+      }
+    },
+    animate: {
+      control: {
+        type: 'inline-radio',
+        options: ctaLinkAnimations
+      }
+    },
+    color: {
+      control: false,
+    },
+    isButton: {
+      control: false,
+    },
   }
 };
 
-const CtaLinkButtonTemplate = ({ children, ...rest }) => {
+const CtaLinkButtonTemplate = ({ ...rest }) => {
   return (
-    <CtaLinkButton {...rest}>{children}</CtaLinkButton>
+    <CtaLink {...rest} />
   );
 };
 
 export const Solid = CtaLinkButtonTemplate.bind({});
 Solid.args = {
-  children: 'Solid Link Button',
+  isButton: true,
+  variant: 'solid',
+  size: 'default',
+  icon: 'none',
+  text: 'Solid Link Button',
   link: 'https://stanford.edu'
 };
 
 export const Outline = CtaLinkButtonTemplate.bind({});
 Outline.args = {
+  isButton: true,
   variant: 'outline',
-  children: 'Outline Button',
+  size: 'default',
+  icon: 'none',
+  text: 'Outline Button',
   link: 'https://stanford.edu'
 };
 
 export const Ghost = CtaLinkButtonTemplate.bind({});
 Ghost.args = {
+  isButton: true,
   variant: 'ghost',
-  children: 'Ghost Button',
+  size: 'default',
+  icon: 'none',
+  text: 'Ghost Button',
   link: 'https://stanford.edu'
 };
 
-
 export const Big = CtaLinkButtonTemplate.bind({});
 Big.args = {
+  isButton: true,
   variant: 'solid',
   size: 'big',
-  children: 'Big Button',
+  icon: 'none',
+  text: 'Big Button',
   link: 'https://stanford.edu'
 };
 
 export const Small = CtaLinkButtonTemplate.bind({});
 Small.args = {
+  isButton: true,
   variant: 'outline',
   size: 'small',
-  children: 'Small Button',
+  icon: 'none',
+  text: 'Small Button',
   link: 'https://stanford.edu',
 };
+
+export const Action = CtaLinkButtonTemplate.bind({});
+Action.args = {
+  isButton: true,
+  variant: 'solid',
+  size: 'default',
+  icon: 'action',
+  animate: 'right',
+  text: 'Solid with Right Caret',
+  link: 'https://stanford.edu'
+};
+Action.storyName = 'With Right Caret';
+
+export const Download = CtaLinkButtonTemplate.bind({});
+Download.args = {
+  isButton: true,
+  variant: 'solid',
+  size: 'default',
+  icon: 'download',
+  animate: 'down',
+  text: 'Solid Download Button',
+  link: 'https://stanford.edu'
+};
+Download.storyName = 'With Download Icon';

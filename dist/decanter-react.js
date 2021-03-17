@@ -1119,8 +1119,8 @@ var alertTypes = ['info', 'warning', 'error', 'success'];
 var lightText = 'su-text-white hover:su-link-no-underline';
 var darkText = 'su-text-black su-link-black-true hover:su-link-no-underline';
 
-var buttonVariants = ['primary', 'secondary', 'none'];
-var buttonSizes = ['big', 'small', 'minimal'];
+var buttonVariants = ['solid', 'outline', 'none'];
+var buttonSizes = ['big', 'small', 'minimal', 'default'];
 var buttonTypes = ['button', 'submit', 'reset'];
 
 var Button = function Button(_ref) {
@@ -1138,11 +1138,11 @@ var Button = function Button(_ref) {
 
   if (variant && buttonVariants.includes(variant)) {
     switch (variant) {
-      case 'primary':
+      case 'solid':
         levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
-      case 'secondary':
+      case 'outline':
         levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
@@ -1166,8 +1166,8 @@ var Button = function Button(_ref) {
         levers.size = 'su-p-0';
         break;
 
-      default:
-        levers.size = 'su-px-26 su-py-10 su-text-16 md:su-text-20';
+      case 'default':
+        levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
     }
   }
 
@@ -1203,6 +1203,7 @@ Button.propTypes = {
 Button.defaultProps = {
   onClick: undefined,
   type: 'button',
+  size: 'default',
   isDisabled: false,
   ref: null
 };
@@ -1443,6 +1444,9 @@ var ctaLinkDisplay = ['inline-block', 'block', 'flex'];
 var ctaLinkIcons = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
 var ctaLinkAnimations = ['right', 'top-right', 'down', 'none'];
 
+var ctaLinkButtonVariants = ['solid', 'outline', 'ghost'];
+var ctaLinkButtonSizes = ['default', 'big', 'small'];
+
 var CtaLink = function CtaLink(_ref) {
   var _ref$classes = _ref.classes,
       classes = _ref$classes === void 0 ? {} : _ref$classes,
@@ -1451,10 +1455,13 @@ var CtaLink = function CtaLink(_ref) {
       display = _ref.display,
       link = _ref.link,
       color = _ref.color,
+      isButton = _ref.isButton,
+      variant = _ref.variant,
+      size = _ref.size,
       icon = _ref.icon,
       animate = _ref.animate,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "element", "display", "link", "color", "icon", "animate", "ref"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "element", "display", "link", "color", "isButton", "variant", "size", "icon", "animate", "ref"]);
 
   var levers = {};
 
@@ -1474,7 +1481,7 @@ var CtaLink = function CtaLink(_ref) {
     }
   }
 
-  if (color && ctaLinkColors.includes(color)) {
+  if (color && ctaLinkColors.includes(color) && isButton === false) {
     switch (color) {
       case 'red':
         levers.color = 'su-text-digital-red hocus:su-text-black';
@@ -1486,6 +1493,44 @@ var CtaLink = function CtaLink(_ref) {
 
       case 'white':
         levers.color = 'su-text-white hocus:su-text-white';
+        break;
+    }
+  }
+
+  if (isButton) {
+    levers.isButton = 'su-cta-btn su-font-regular su-leading-none';
+  } else {
+    levers.isButton = 'su-cta-link su-text-19 md:su-text-20';
+  }
+
+  if (variant && ctaLinkButtonVariants.includes(variant) && isButton === true) {
+    switch (variant) {
+      case 'solid':
+        levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        break;
+
+      case 'outline':
+        levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        break;
+
+      case 'ghost':
+        levers.variant = 'su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid';
+        break;
+    }
+  }
+
+  if (size && ctaLinkButtonSizes.includes(size) && isButton === true) {
+    switch (size) {
+      case 'default':
+        levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
+        break;
+
+      case 'big':
+        levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
+        break;
+
+      case 'small':
+        levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
         break;
     }
   }
@@ -1536,24 +1581,28 @@ var CtaLink = function CtaLink(_ref) {
     }
   }
 
+  if (animate && ctaLinkAnimations.includes(animate) && animate !== 'none') {
+    levers.animate = 'su-transition-transform group-hocus:su-transform ';
+  }
+
   if (animate && ctaLinkAnimations.includes(animate)) {
     switch (animate) {
       case 'right':
-        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-x-02em';
+        levers.animate += 'group-hocus:su-translate-x-02em';
         break;
 
       case 'top-right':
-        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em';
+        levers.animate += 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em';
         break;
 
       case 'down':
-        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-y-02em';
+        levers.animate += 'group-hocus:su-translate-y-02em';
         break;
     }
   }
 
   return /*#__PURE__*/React__default.createElement("a", _extends({
-    className: clsxd('su-cta-link su-text-19 md:su-text-20 su-w-fit su-no-underline hover:su-underline focus:su-underline su-group', levers.display, levers.color, classes.link),
+    className: clsxd(levers.isButton, 'su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.display, levers.color, levers.size, levers.variant, classes.link),
     href: link,
     ref: ref
   }, props), text, srText && /*#__PURE__*/React__default.createElement("span", {
@@ -1580,95 +1629,8 @@ CtaLink.propTypes = {
 CtaLink.defaultProps = {
   display: 'block',
   icon: 'action',
-  color: 'blue',
+  color: 'none',
   ref: null
-};
-
-var ctaLinkButtonVariants = ['solid', 'outline', 'ghost', 'none'];
-var ctaLinkButtonSizes = ['default', 'big', 'small'];
-
-var CtaLinkButton = function CtaLinkButton(_ref) {
-  var className = _ref.className,
-      _ref$children = _ref.children,
-      children = _ref$children === void 0 ? {} : _ref$children,
-      display = _ref.display,
-      variant = _ref.variant,
-      link = _ref.link,
-      size = _ref.size,
-      ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "element", "display", "variant", "link", "size", "icon", "ref"]);
-
-  var levers = {};
-  var Element = 'a';
-
-  if (display && ctaLinkDisplay.includes(display)) {
-    switch (display) {
-      case 'inline-block':
-        levers.display = 'su-inline-block';
-        break;
-
-      case 'block':
-        levers.display = 'su-block';
-        break;
-
-      case 'flex':
-        levers.display = 'su-flex';
-        break;
-    }
-  }
-
-  if (variant && ctaLinkButtonVariants.includes(variant)) {
-    switch (variant) {
-      case 'solid':
-        levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
-        break;
-
-      case 'outline':
-        levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
-        break;
-
-      case 'ghost':
-        levers.variant = 'su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid';
-        break;
-    }
-  }
-
-  if (size && ctaLinkButtonSizes.includes(size)) {
-    switch (size) {
-      case 'default':
-        levers.size = 'su-px-26 su-pt-10 su-pb-12 su-text-16 md:su-text-20';
-        break;
-
-      case 'big':
-        levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
-        break;
-
-      case 'small':
-        levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
-        break;
-    }
-  }
-
-  return /*#__PURE__*/React__default.createElement(Element, _extends({
-    className: clsxd('su-cta-btn su-w-fit su-font-regular su-no-underline hover:su-underline focus:su-underline su-leading-none su-transition-colors', levers.display, levers.variant, levers.size, className),
-    ref: ref,
-    href: link
-  }, props), children);
-};
-CtaLinkButton.propTypes = {
-  display: propTypes.oneOf(ctaLinkDisplay),
-  variant: propTypes.oneOf(ctaLinkButtonVariants),
-  size: propTypes.oneOf(ctaLinkButtonSizes),
-  link: propTypes.string,
-  element: propTypes.oneOfType([propTypes.string, propTypes.object]),
-  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
-  children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node])
-};
-CtaLinkButton.defaultProps = {
-  ref: null,
-  display: 'inline-block',
-  variant: 'solid',
-  size: 'default'
 };
 
 var flexElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
@@ -2560,7 +2522,6 @@ exports.Alert = Alert;
 exports.Button = Button;
 exports.Container = Container;
 exports.CtaLink = CtaLink;
-exports.CtaLinkButton = CtaLinkButton;
 exports.FlexBox = FlexBox;
 exports.FlexCell = FlexCell;
 exports.GlobalFooter = GlobalFooter;

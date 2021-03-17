@@ -1,7 +1,7 @@
 /**
  * Styles for the link button
  */
-export const ctaLinkButtonVariants = ['solid', 'outline', 'ghost', 'none'];
+export const ctaLinkButtonVariants = ['solid', 'outline', 'ghost'];
 
 /**
  * Size of the link button

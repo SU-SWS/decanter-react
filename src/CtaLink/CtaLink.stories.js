@@ -6,12 +6,6 @@ export default {
   title: 'Simple/CTA Link',
   component: CtaLink,
   argTypes: {
-    display: {
-      control: {
-        type: 'inline-radio',
-        options: ctaLinkDisplay
-      }
-    },
     color: {
       control: {
         type: 'inline-radio',
@@ -29,6 +23,21 @@ export default {
         type: 'inline-radio',
         options: ctaLinkAnimations
       }
+    },
+    display: {
+      control: {
+        type: 'inline-radio',
+        options: ctaLinkDisplay
+      }
+    },
+    isButton: {
+      control: false,
+    },
+    variant: {
+      control: false
+    },
+    size: {
+      control: false
     },
   }
 };
