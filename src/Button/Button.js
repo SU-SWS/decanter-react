@@ -50,6 +50,7 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
 
       case 'default':
         levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
+        break;
     }
   }
 

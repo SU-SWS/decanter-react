@@ -15,4 +15,4 @@ import { Logo } from './Logo/Logo';
 import { Skiplink } from './Skiplink/Skiplink';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
 
-export { Alert, Button, Container, CtaLink, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, Skiplink, LocalFooter, Lockup, Logo, SrOnlyText };
+export { Alert, Button, Container, CtaLink, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, Skiplink, SrOnlyText };

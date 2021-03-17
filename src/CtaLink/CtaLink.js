@@ -35,7 +35,7 @@ export const CtaLink = ({ classes = {}, text, srText, element, display, link, co
   }
 
   // color
-  if (color && ctaLinkColors.includes(color) && isButton === false) {
+  if (color && ctaLinkColors.includes(color) && !isButton) {
     switch (color) {
       case 'red':
         levers.color = 'su-text-digital-red hocus:su-text-black';
@@ -60,7 +60,7 @@ export const CtaLink = ({ classes = {}, text, srText, element, display, link, co
   }
 
   // variant
-  if (variant && ctaLinkButtonVariants.includes(variant) && isButton === true) {
+  if (variant && ctaLinkButtonVariants.includes(variant) && isButton) {
     switch (variant) {
       case 'solid':
         levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
@@ -77,7 +77,7 @@ export const CtaLink = ({ classes = {}, text, srText, element, display, link, co
   }
 
   // size
-  if (size && ctaLinkButtonSizes.includes(size) && isButton === true) {
+  if (size && ctaLinkButtonSizes.includes(size) && isButton) {
     switch (size) {
       case 'default':
         levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
@@ -94,7 +94,6 @@ export const CtaLink = ({ classes = {}, text, srText, element, display, link, co
   }
 
   // icon
-  //let LinkIcon = '';
   let heroicon = '';
 
   if (icon && ctaLinkIcons.includes(icon)) {
@@ -131,7 +130,7 @@ export const CtaLink = ({ classes = {}, text, srText, element, display, link, co
 
       case 'email':
         heroicon = 'mail';
-        levers.icon = 'su-h-08em su-w-08em su-ml-6 su--mt-2';
+        levers.icon = 'su-h-08em su-w-08em su-ml-7 su--mt-2';
         break;
 
       case 'jump':
@@ -151,7 +150,7 @@ export const CtaLink = ({ classes = {}, text, srText, element, display, link, co
     levers.animate = 'su-transition-transform group-hocus:su-transform ';
   }
 
-  // Specific classes for each type of animation
+  // Add specific classes for each type of animation
   if (animate && ctaLinkAnimations.includes(animate)) {
     switch(animate) {
       case 'right':
@@ -197,9 +196,19 @@ CtaLink.propTypes = {
   display: PropTypes.oneOf(ctaLinkDisplay),
 
   /**
-   * Link color
+   * Link color (for non-button link only)
    */
   color: PropTypes.oneOf(ctaLinkColors),
+
+  /**
+   * Variant/button style (for button option only)
+   */
+  variant: PropTypes.oneOf(ctaLinkButtonVariants),
+
+  /**
+   * Button size (for button option only)
+   */
+  size: PropTypes.oneOf(ctaLinkButtonSizes),
 
   /**
    * Icon options
@@ -207,14 +216,14 @@ CtaLink.propTypes = {
   icon: PropTypes.oneOf(ctaLinkIcons),
 
   /**
-   * URL
-   */
-  link: PropTypes.string,
-
-  /**
    * Icon animation on hover/focus
    */
   animate: PropTypes.oneOf(ctaLinkAnimations),
+
+  /**
+   * URL
+   */
+  link: PropTypes.string,
 
   /**
    * Link text
@@ -224,6 +233,11 @@ CtaLink.propTypes = {
     PropTypes.element,
     PropTypes.node
   ]),
+
+  /**
+   * Optional text for screen readers
+   */
+  srText: PropTypes.string,
 
   /**
    * Additional CSS classes
@@ -247,6 +261,7 @@ CtaLink.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 CtaLink.defaultProps = {
+  isButton: false,
   display: 'block',
   icon: 'action',
   color: 'none',

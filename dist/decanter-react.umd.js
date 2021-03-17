@@ -1170,6 +1170,7 @@
 
         case 'default':
           levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
+          break;
       }
     }
 
@@ -1483,7 +1484,7 @@
       }
     }
 
-    if (color && ctaLinkColors.includes(color) && isButton === false) {
+    if (color && ctaLinkColors.includes(color) && !isButton) {
       switch (color) {
         case 'red':
           levers.color = 'su-text-digital-red hocus:su-text-black';
@@ -1505,7 +1506,7 @@
       levers.isButton = 'su-cta-link su-text-19 md:su-text-20';
     }
 
-    if (variant && ctaLinkButtonVariants.includes(variant) && isButton === true) {
+    if (variant && ctaLinkButtonVariants.includes(variant) && isButton) {
       switch (variant) {
         case 'solid':
           levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
@@ -1521,7 +1522,7 @@
       }
     }
 
-    if (size && ctaLinkButtonSizes.includes(size) && isButton === true) {
+    if (size && ctaLinkButtonSizes.includes(size) && isButton) {
       switch (size) {
         case 'default':
           levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
@@ -1573,7 +1574,7 @@
 
         case 'email':
           heroicon = 'mail';
-          levers.icon = 'su-h-08em su-w-08em su-ml-6 su--mt-2';
+          levers.icon = 'su-h-08em su-w-08em su-ml-7 su--mt-2';
           break;
 
         case 'jump':
@@ -1619,16 +1620,20 @@
   CtaLink.propTypes = {
     display: propTypes.oneOf(ctaLinkDisplay),
     color: propTypes.oneOf(ctaLinkColors),
+    variant: propTypes.oneOf(ctaLinkButtonVariants),
+    size: propTypes.oneOf(ctaLinkButtonSizes),
     icon: propTypes.oneOf(ctaLinkIcons),
-    link: propTypes.string,
     animate: propTypes.oneOf(ctaLinkAnimations),
+    link: propTypes.string,
     text: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
+    srText: propTypes.string,
     classes: propTypes.shape({
       link: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
       icon: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
     })
   };
   CtaLink.defaultProps = {
+    isButton: false,
     display: 'block',
     icon: 'action',
     color: 'none',

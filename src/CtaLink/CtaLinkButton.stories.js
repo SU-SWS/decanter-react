@@ -126,3 +126,43 @@ Download.args = {
   link: 'https://stanford.edu'
 };
 Download.storyName = 'With Download Icon';
+
+export const NoAnimate = CtaLinkButtonTemplate.bind({});
+NoAnimate.args = {
+  isButton: true,
+  variant: 'solid',
+  size: 'default',
+  icon: 'email',
+  animate: 'none',
+  text: 'Contact us',
+  link: 'mailto:a@example.com'
+};
+NoAnimate.storyName = 'With Non-animated Icon';
+
+export const SrText = CtaLinkButtonTemplate.bind({});
+SrText.args = {
+  isButton: true,
+  variant: 'solid',
+  size: 'default',
+  icon: 'external',
+  animate: 'top-right',
+  text: 'Learn more',
+  srText: 'about Decanter',
+  link: 'https://stanford.edu'
+};
+SrText.storyName = 'With Screen Reader Only Text';
+
+export const Custom = CtaLinkButtonTemplate.bind({});
+Custom.args = {
+  isButton: true,
+  variant: 'solid',
+  size: 'default',
+  icon: 'external',
+  animate: 'top-right',
+  text: 'With Custom Props',
+  link: 'https://stanford.edu',
+  id: 'custom-id',
+  target: '_blank',
+  rel: 'nofollow'
+};
+Custom.storyName = 'With Custom Props';
