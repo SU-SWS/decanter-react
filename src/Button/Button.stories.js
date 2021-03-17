@@ -44,35 +44,35 @@ Default.args = {
   children: '🦸‍♀️ Be <span class="su-font-bold">BOLD</span> 🦸‍♂️',
 };
 
-export const Primary = ButtonTemplate.bind({});
-Primary.args = {
-  variant: 'primary',
-  children: 'Primary Button',
+export const Solid = ButtonTemplate.bind({});
+Solid.args = {
+  variant: 'solid',
+  children: 'Solid Button',
 };
 
-export const Secondary = ButtonTemplate.bind({});
-Secondary.args = {
-  variant: 'secondary',
-  children: 'Secondary Button',
+export const Outline = ButtonTemplate.bind({});
+Outline.args = {
+  variant: 'outline',
+  children: 'Outline Button',
 };
 
 export const Big = ButtonTemplate.bind({});
 Big.args = {
-  variant: 'primary',
+  variant: 'solid',
   size: 'big',
   children: 'Big Button',
 };
 
 export const Small = ButtonTemplate.bind({});
 Small.args = {
-  variant: 'primary',
+  variant: 'solid',
   size: 'small',
   children: 'Small Button',
 };
 
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
-  variant: 'primary',
+  variant: 'solid',
   isDisabled: true,
   children: 'Disabled Button',
 };

@@ -55,7 +55,7 @@ export const CtaLinkButton = ({ className, children= {}, element, display, varia
   if (size && ctaLinkButtonSizes.includes(size)) {
     switch (size) {
       case 'default':
-        levers.size = 'su-px-26 su-pt-10 su-pb-12 su-text-16 md:su-text-20';
+        levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
         break;
 
       case 'big':

@@ -16,14 +16,14 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
   // Levers
   // ---------------------------------------------------------------------------
 
-  // Props.variant
+  // variant
   if (variant && buttonVariants.includes(variant)) {
     switch (variant) {
-      case 'primary':
+      case 'solid':
         levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
-      case 'secondary':
+      case 'outline':
         levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
@@ -33,7 +33,7 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
     }
   }
 
-  // Props.size
+  // size
   if (size && buttonSizes.includes(size)) {
     switch (size) {
       case 'big':
@@ -48,8 +48,8 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
         levers.size = 'su-p-0';
         break;
 
-      default:
-        levers.size = 'su-px-26 su-py-10 su-text-16 md:su-text-20';
+      case 'default':
+        levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
     }
   }
 
@@ -103,6 +103,7 @@ Button.propTypes = {
 Button.defaultProps = {
   onClick: undefined,
   type: 'button',
+  size: 'default',
   isDisabled: false,
   ref: null
 };
