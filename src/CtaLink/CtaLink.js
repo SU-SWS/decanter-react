@@ -101,19 +101,31 @@ export const CtaLink = ({ classes = {}, text, srText, element, display, link, co
     }
   }
 
+
+
   // animate
+
+  // Common classes if animation is needed
+  if ((animate && ctaLinkAnimations.includes(animate)) && animate !== 'none') {
+    levers.animate = 'su-transition-transform group-hocus:su-transform ';
+  }
+
+  // Specific classes for each type of animation
   if (animate && ctaLinkAnimations.includes(animate)) {
     switch(animate) {
       case 'right':
-        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-x-02em';
+        levers.animate += 'group-hocus:su-translate-x-02em';
         break;
 
       case 'top-right':
-        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em';
+        levers.animate += 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em';
         break;
 
       case 'down':
-        levers.animate = 'su-transition-transform group-hocus:su-transform group-hocus:su-translate-y-02em';
+        levers.animate += 'group-hocus:su-translate-y-02em';
+        break;
+
+      case 'none':
         break;
     }
   }
