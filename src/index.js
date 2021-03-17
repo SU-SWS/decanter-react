@@ -13,6 +13,7 @@ import { IdentityBar } from './IdentityBar/IdentityBar';
 import { LocalFooter } from './LocalFooter/LocalFooter';
 import { Lockup } from './Lockup/Lockup';
 import { Logo } from './Logo/Logo';
+import { Skiplink } from './Skiplink/Skiplink';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
 
-export { Alert, Button, Container, CtaLink, CtaLinkButton, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, SrOnlyText };
+export { Alert, Button, Container, CtaLink, CtaLinkButton, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, Skiplink, LocalFooter, Lockup, Logo, SrOnlyText };
