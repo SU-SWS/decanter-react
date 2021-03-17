@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ctaLinkIcons, ctaLinkDisplay, ctaLinkColors, ctaLinkAnimations, ctaLinkButtonSizes, ctaLinkButtonVariants } from './CtaLink.levers';
+import { ctaLinkIcons, ctaLinkColors, ctaLinkAnimations, ctaLinkButtonSizes, ctaLinkButtonVariants } from './CtaLink.levers';
 import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
 
@@ -8,30 +8,13 @@ import clsxd from 'clsx-dedupe';
  * CTA Link Component
  *
  */
-export const CtaLink = ({ classes = {}, text, srText, display, link, color, isButton, variant, size, icon, animate, ref, ...props }) => {
+export const CtaLink = ({ classes = {}, text, srText, link, color, isButton, variant, size, icon, animate, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
 
   // Levers
   // ---------------------------------------------------------------------------
-
-  // display
-  if (display && ctaLinkDisplay.includes(display)) {
-    switch (display) {
-      case 'inline-block':
-        levers.display = 'su-inline-block';
-        break;
-
-      case 'block':
-        levers.display = 'su-block';
-        break;
-
-      case 'flex':
-        levers.display = 'su-flex';
-        break;
-    }
-  }
 
   // color
   if (color && ctaLinkColors.includes(color) && !isButton) {
@@ -50,12 +33,12 @@ export const CtaLink = ({ classes = {}, text, srText, display, link, color, isBu
     }
   }
 
-  // isButton
+  // isButton - different wrapper classes depending on whether it's displayed as a button
   if (isButton) {
-    levers.isButton = 'su-cta-btn su-font-regular su-leading-none';
+    levers.wrapper = 'su-cta-btn su-font-regular su-leading-none';
   }
   else {
-    levers.isButton = 'su-cta-link su-text-19 md:su-text-20';
+    levers.wrapper = 'su-cta-link su-text-19 md:su-text-20';
   }
 
   // variant
@@ -136,9 +119,6 @@ export const CtaLink = ({ classes = {}, text, srText, display, link, color, isBu
         heroicon = 'chevron-down';
         levers.icon = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
         break;
-
-      case 'none':
-        break;
     }
   }
 
@@ -146,33 +126,30 @@ export const CtaLink = ({ classes = {}, text, srText, display, link, color, isBu
 
   // Common classes if animation is needed
   if ((animate && ctaLinkAnimations.includes(animate)) && animate !== 'none') {
-    levers.animate = 'su-transition-transform group-hocus:su-transform ';
+    levers.animate = 'su-transition-transform group-hocus:su-transform';
   }
 
   // Add specific classes for each type of animation
   if (animate && ctaLinkAnimations.includes(animate)) {
     switch(animate) {
       case 'right':
-        levers.animate += 'group-hocus:su-translate-x-02em';
+        levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-x-02em');
         break;
 
       case 'top-right':
-        levers.animate += 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em';
+        levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em');
         break;
 
       case 'down':
-        levers.animate += 'group-hocus:su-translate-y-02em';
-        break;
-
-      case 'none':
+        levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-y-02em');
         break;
     }
   }
 
   return (
     <a
-      className={clsxd(levers.isButton, 'su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
-        levers.display, levers.color, levers.size, levers.variant, classes.link)}
+      className={clsxd('su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
+        levers.wrapper, levers.display, levers.color, levers.size, levers.variant, classes.link)}
       href={link}
       ref={ref}
       {...props}
@@ -189,11 +166,6 @@ export const CtaLink = ({ classes = {}, text, srText, display, link, color, isBu
 };
 
 CtaLink.propTypes = {
-  /**
-   * Display type
-   */
-  display: PropTypes.oneOf(ctaLinkDisplay),
-
   /**
    * Link color (for non-button link only)
    */
@@ -261,7 +233,6 @@ CtaLink.propTypes = {
 // -----------------------------------------------------------------------------
 CtaLink.defaultProps = {
   isButton: false,
-  display: 'block',
   icon: 'action',
   color: 'none',
   ref: null

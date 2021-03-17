@@ -1437,7 +1437,6 @@ Container.defaultProps = {
   width: 'site'
 };
 
-var ctaLinkDisplay = ['inline-block', 'block', 'flex'];
 var ctaLinkIcons = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
 var ctaLinkAnimations = ['right', 'top-right', 'down', 'none'];
 var ctaLinkColors = ['red', 'blue', 'white', 'none'];
@@ -1449,7 +1448,6 @@ var CtaLink = function CtaLink(_ref) {
       classes = _ref$classes === void 0 ? {} : _ref$classes,
       text = _ref.text,
       srText = _ref.srText,
-      display = _ref.display,
       link = _ref.link,
       color = _ref.color,
       isButton = _ref.isButton,
@@ -1458,25 +1456,9 @@ var CtaLink = function CtaLink(_ref) {
       icon = _ref.icon,
       animate = _ref.animate,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "display", "link", "color", "isButton", "variant", "size", "icon", "animate", "ref"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "link", "color", "isButton", "variant", "size", "icon", "animate", "ref"]);
 
   var levers = {};
-
-  if (display && ctaLinkDisplay.includes(display)) {
-    switch (display) {
-      case 'inline-block':
-        levers.display = 'su-inline-block';
-        break;
-
-      case 'block':
-        levers.display = 'su-block';
-        break;
-
-      case 'flex':
-        levers.display = 'su-flex';
-        break;
-    }
-  }
 
   if (color && ctaLinkColors.includes(color) && !isButton) {
     switch (color) {
@@ -1495,9 +1477,9 @@ var CtaLink = function CtaLink(_ref) {
   }
 
   if (isButton) {
-    levers.isButton = 'su-cta-btn su-font-regular su-leading-none';
+    levers.wrapper = 'su-cta-btn su-font-regular su-leading-none';
   } else {
-    levers.isButton = 'su-cta-link su-text-19 md:su-text-20';
+    levers.wrapper = 'su-cta-link su-text-19 md:su-text-20';
   }
 
   if (variant && ctaLinkButtonVariants.includes(variant) && isButton) {
@@ -1579,27 +1561,27 @@ var CtaLink = function CtaLink(_ref) {
   }
 
   if (animate && ctaLinkAnimations.includes(animate) && animate !== 'none') {
-    levers.animate = 'su-transition-transform group-hocus:su-transform ';
+    levers.animate = 'su-transition-transform group-hocus:su-transform';
   }
 
   if (animate && ctaLinkAnimations.includes(animate)) {
     switch (animate) {
       case 'right':
-        levers.animate += 'group-hocus:su-translate-x-02em';
+        levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-x-02em');
         break;
 
       case 'top-right':
-        levers.animate += 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em';
+        levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em');
         break;
 
       case 'down':
-        levers.animate += 'group-hocus:su-translate-y-02em';
+        levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-y-02em');
         break;
     }
   }
 
   return /*#__PURE__*/React.createElement("a", _extends({
-    className: clsxd(levers.isButton, 'su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.display, levers.color, levers.size, levers.variant, classes.link),
+    className: clsxd('su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.wrapper, levers.display, levers.color, levers.size, levers.variant, classes.link),
     href: link,
     ref: ref
   }, props), text, srText && /*#__PURE__*/React.createElement("span", {
@@ -1612,7 +1594,6 @@ var CtaLink = function CtaLink(_ref) {
   }));
 };
 CtaLink.propTypes = {
-  display: propTypes.oneOf(ctaLinkDisplay),
   color: propTypes.oneOf(ctaLinkColors),
   variant: propTypes.oneOf(ctaLinkButtonVariants),
   size: propTypes.oneOf(ctaLinkButtonSizes),
@@ -1628,7 +1609,6 @@ CtaLink.propTypes = {
 };
 CtaLink.defaultProps = {
   isButton: false,
-  display: 'block',
   icon: 'action',
   color: 'none',
   ref: null

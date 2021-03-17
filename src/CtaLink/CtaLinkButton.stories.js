@@ -1,6 +1,6 @@
 import React from 'react';
 import { CtaLink } from './CtaLink';
-import { ctaLinkDisplay, ctaLinkIcons, ctaLinkAnimations, ctaLinkButtonVariants, ctaLinkButtonSizes } from "./CtaLink.levers";
+import { ctaLinkIcons, ctaLinkAnimations, ctaLinkButtonVariants, ctaLinkButtonSizes } from "./CtaLink.levers";
 
 export default {
   title: 'Simple/CTA Link Button',
@@ -16,12 +16,6 @@ export default {
       control: {
         type: 'inline-radio',
         options: ctaLinkButtonSizes
-      }
-    },
-    display: {
-      control: {
-        type: 'inline-radio',
-        options: ctaLinkDisplay
       }
     },
     icon: {
@@ -157,10 +151,25 @@ Custom.args = {
   size: 'default',
   icon: 'external',
   animate: 'top-right',
+  text: 'With Custom Classes',
+  link: 'https://stanford.edu',
+  classes: {
+    link: 'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark su-border-lagunita-dark'
+  }
+};
+Custom.storyName = 'With Custom Classes';
+
+export const CustomProps = CtaLinkButtonTemplate.bind({});
+CustomProps.args = {
+  isButton: true,
+  variant: 'solid',
+  size: 'default',
+  icon: 'external',
+  animate: 'top-right',
   text: 'With Custom Props',
   link: 'https://stanford.edu',
   id: 'custom-id',
   target: '_blank',
   rel: 'nofollow'
 };
-Custom.storyName = 'With Custom Props';
+CustomProps.storyName = 'With Custom Props';

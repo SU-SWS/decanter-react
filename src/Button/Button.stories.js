@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from './Button';
 import { buttonVariants, buttonSizes, buttonTypes } from "./Button.levers";
 import DOMPurify from 'dompurify';
-import { SrText } from "../CtaLink/CtaLink.stories";
 
 export default {
   title: 'Simple/Button',

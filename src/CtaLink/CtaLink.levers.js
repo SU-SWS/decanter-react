@@ -2,11 +2,6 @@
 // ---------------------------------------------------------------------------
 
 /**
- * Display type
- */
-export const ctaLinkDisplay = ['inline-block', 'block', 'flex'];
-
-/**
  * Icon options
  */
 export const ctaLinkIcons = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
@@ -23,7 +18,6 @@ export const ctaLinkAnimations = ['right', 'top-right', 'down', 'none'];
  * Colors for the link
  */
 export const ctaLinkColors = ['red', 'blue', 'white', 'none'];
-
 
 // Levers for the button link option only
 // ---------------------------------------------------------------------------
