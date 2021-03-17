@@ -51,7 +51,7 @@ export const CtaLinkButton = ({ className, children= {}, element, display, varia
     }
   }
 
-  //
+  // size
   if (size && ctaLinkButtonSizes.includes(size)) {
     switch (size) {
       case 'default':

@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from './Button';
 import { buttonVariants, buttonSizes, buttonTypes } from "./Button.levers";
 import DOMPurify from 'dompurify';
+import { SrText } from "../CtaLink/CtaLink.stories";
 
 export default {
   title: 'Simple/Button',
@@ -9,19 +10,19 @@ export default {
   argTypes: {
     variant: {
       control: {
-        type: 'select',
+        type: 'inline-radio',
         options: buttonVariants
       }
     },
     size: {
       control: {
-        type: 'select',
+        type: 'inline-radio',
         options: buttonSizes
       }
     },
     type: {
       control: {
-        type: 'select',
+        type: 'inline-radio',
         options: buttonTypes
       }
     },
@@ -37,11 +38,6 @@ const ButtonTemplate = ({ children, ...rest }) => {
   return (
     <Button {...rest}>{content}</Button>
   );
-};
-
-export const Default = ButtonTemplate.bind({});
-Default.args = {
-  children: '🦸‍♀️ Be <span class="su-font-bold">BOLD</span> 🦸‍♂️',
 };
 
 export const Solid = ButtonTemplate.bind({});
@@ -83,3 +79,9 @@ Minimal.args = {
   size: 'minimal',
   children: 'Minimal Button',
 };
+
+export const Richtext = ButtonTemplate.bind({});
+Richtext.args = {
+  children: '🦸‍♀️ Be <span class="su-font-bold">BOLD</span> 🦸‍♂️',
+};
+Richtext.storyName = 'Button with Rich Text Content';
