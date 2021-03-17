@@ -1442,11 +1442,10 @@
     width: 'site'
   };
 
-  var ctaLinkColors = ['red', 'blue', 'white', 'none'];
   var ctaLinkDisplay = ['inline-block', 'block', 'flex'];
   var ctaLinkIcons = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
   var ctaLinkAnimations = ['right', 'top-right', 'down', 'none'];
-
+  var ctaLinkColors = ['red', 'blue', 'white', 'none'];
   var ctaLinkButtonVariants = ['solid', 'outline', 'ghost'];
   var ctaLinkButtonSizes = ['default', 'big', 'small'];
 
@@ -1464,7 +1463,7 @@
         icon = _ref.icon,
         animate = _ref.animate,
         ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "element", "display", "link", "color", "isButton", "variant", "size", "icon", "animate", "ref"]);
+        props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "display", "link", "color", "isButton", "variant", "size", "icon", "animate", "ref"]);
 
     var levers = {};
 

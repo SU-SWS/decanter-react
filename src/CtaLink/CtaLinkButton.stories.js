@@ -1,8 +1,6 @@
 import React from 'react';
-//import { CtaLinkButton } from './CtaLinkButton';
 import { CtaLink } from './CtaLink';
-import { ctaLinkDisplay, ctaLinkIcons, ctaLinkAnimations, ctaLinkColors } from "./CtaLink.levers";
-import { ctaLinkButtonVariants, ctaLinkButtonSizes } from "./CtaLinkButton.levers";
+import { ctaLinkDisplay, ctaLinkIcons, ctaLinkAnimations, ctaLinkButtonVariants, ctaLinkButtonSizes } from "./CtaLink.levers";
 
 export default {
   title: 'Simple/CTA Link Button',

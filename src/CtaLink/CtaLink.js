@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ctaLinkIcons, ctaLinkDisplay, ctaLinkColors, ctaLinkAnimations } from './CtaLink.levers';
-import { ctaLinkButtonSizes, ctaLinkButtonVariants } from "./CtaLinkButton.levers";
+import { ctaLinkIcons, ctaLinkDisplay, ctaLinkColors, ctaLinkAnimations, ctaLinkButtonSizes, ctaLinkButtonVariants } from './CtaLink.levers';
 import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
 
@@ -9,7 +8,7 @@ import clsxd from 'clsx-dedupe';
  * CTA Link Component
  *
  */
-export const CtaLink = ({ classes = {}, text, srText, element, display, link, color, isButton, variant, size, icon, animate, ref, ...props }) => {
+export const CtaLink = ({ classes = {}, text, srText, display, link, color, isButton, variant, size, icon, animate, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
