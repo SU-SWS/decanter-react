@@ -1129,12 +1129,11 @@
     var className = _ref.className,
         children = _ref.children,
         onClick = _ref.onClick,
-        ref = _ref.ref,
         variant = _ref.variant,
         size = _ref.size,
         type = _ref.type,
         isDisabled = _ref.isDisabled,
-        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "onClick", "ref", "variant", "size", "type", "isDisabled"]);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "onClick", "variant", "size", "type", "isDisabled"]);
 
     var levers = {};
 
@@ -1188,7 +1187,6 @@
 
     return /*#__PURE__*/React__default.createElement("button", _extends({
       className: clsxd('su-button', levers.variant, levers.size, levers.disabled, className),
-      ref: ref,
       onClick: onClick,
       type: type,
       disabled: isDisabled
@@ -1201,17 +1199,13 @@
     isDisabled: propTypes.bool,
     onClick: propTypes.func,
     className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
-    children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
-    ref: propTypes.oneOfType([propTypes.func, propTypes.shape({
-      current: propTypes.any
-    })])
+    children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node])
   };
   Button.defaultProps = {
     onClick: undefined,
     type: 'button',
     size: 'default',
-    isDisabled: false,
-    ref: null
+    isDisabled: false
   };
 
   var Alert = function Alert(_ref) {

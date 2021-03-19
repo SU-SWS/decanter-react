@@ -8,7 +8,7 @@ import clsxd from 'clsx-dedupe';
  *
  * HTML button element
  */
-export const Button = ({ className, children, onClick, ref, variant, size, type, isDisabled, ...props }) => {
+export const Button = ({ className, children, onClick, variant, size, type, isDisabled, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -63,7 +63,6 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
   return (
     <button
       className={clsxd('su-button', levers.variant, levers.size, levers.disabled, className)}
-      ref={ref}
       onClick={onClick}
       type={type}
       disabled={isDisabled}
@@ -97,11 +96,6 @@ Button.propTypes = {
     PropTypes.element,
     PropTypes.node
   ]),
-
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any })
-  ])
 };
 
 // Default Props.
@@ -111,5 +105,4 @@ Button.defaultProps = {
   type: 'button',
   size: 'default',
   isDisabled: false,
-  ref: null
 };
