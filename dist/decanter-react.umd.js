@@ -1121,8 +1121,8 @@
   var lightText = 'su-text-white hover:su-link-no-underline';
   var darkText = 'su-text-black su-link-black-true hover:su-link-no-underline';
 
-  var buttonVariants = ['primary', 'secondary', 'none'];
-  var buttonSizes = ['big', 'small', 'minimal'];
+  var buttonVariants = ['solid', 'outline', 'none'];
+  var buttonSizes = ['big', 'small', 'minimal', 'default'];
   var buttonTypes = ['button', 'submit', 'reset'];
 
   var Button = function Button(_ref) {
@@ -1140,12 +1140,12 @@
 
     if (variant && buttonVariants.includes(variant)) {
       switch (variant) {
-        case 'primary':
+        case 'solid':
           levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
           break;
 
-        case 'secondary':
-          levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        case 'outline':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
           break;
 
         case 'none':
@@ -1168,8 +1168,9 @@
           levers.size = 'su-p-0';
           break;
 
-        default:
-          levers.size = 'su-px-26 su-py-10 su-text-16 md:su-text-20';
+        case 'default':
+          levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
+          break;
       }
     }
 
@@ -1200,11 +1201,15 @@
     isDisabled: propTypes.bool,
     onClick: propTypes.func,
     className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
-    children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node])
+    children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
+    ref: propTypes.oneOfType([propTypes.func, propTypes.shape({
+      current: propTypes.any
+    })])
   };
   Button.defaultProps = {
     onClick: undefined,
     type: 'button',
+    size: 'default',
     isDisabled: false,
     ref: null
   };
@@ -1438,6 +1443,183 @@
   Container.defaultProps = {
     element: 'div',
     width: 'site'
+  };
+
+  var ctaLinkIcons = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
+  var ctaLinkAnimations = ['right', 'top-right', 'down', 'none'];
+  var ctaLinkColors = ['red', 'blue', 'white', 'none'];
+  var ctaLinkButtonVariants = ['solid', 'outline', 'ghost'];
+  var ctaLinkButtonSizes = ['default', 'big', 'small'];
+
+  var CtaLink = function CtaLink(_ref) {
+    var _ref$classes = _ref.classes,
+        classes = _ref$classes === void 0 ? {} : _ref$classes,
+        text = _ref.text,
+        srText = _ref.srText,
+        link = _ref.link,
+        color = _ref.color,
+        isButton = _ref.isButton,
+        variant = _ref.variant,
+        size = _ref.size,
+        icon = _ref.icon,
+        animate = _ref.animate,
+        ref = _ref.ref,
+        props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "link", "color", "isButton", "variant", "size", "icon", "animate", "ref"]);
+
+    var levers = {};
+
+    if (color && ctaLinkColors.includes(color) && !isButton) {
+      switch (color) {
+        case 'red':
+          levers.color = 'su-text-digital-red hocus:su-text-black';
+          break;
+
+        case 'blue':
+          levers.color = 'su-text-digital-blue hocus:su-text-black';
+          break;
+
+        case 'white':
+          levers.color = 'su-text-white hocus:su-text-white';
+          break;
+      }
+    }
+
+    if (isButton) {
+      levers.wrapper = 'su-cta-btn su-font-regular su-leading-none';
+    } else {
+      levers.wrapper = 'su-cta-link su-text-19 md:su-text-20';
+    }
+
+    if (variant && ctaLinkButtonVariants.includes(variant) && isButton) {
+      switch (variant) {
+        case 'solid':
+          levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+          break;
+
+        case 'outline':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+          break;
+
+        case 'ghost':
+          levers.variant = 'su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid';
+          break;
+      }
+    }
+
+    if (size && ctaLinkButtonSizes.includes(size) && isButton) {
+      switch (size) {
+        case 'default':
+          levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
+          break;
+
+        case 'big':
+          levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
+          break;
+
+        case 'small':
+          levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
+          break;
+      }
+    }
+
+    var heroicon = '';
+
+    if (icon && ctaLinkIcons.includes(icon)) {
+      switch (icon) {
+        case 'action':
+          heroicon = 'chevron-right';
+          levers.icon = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+          break;
+
+        case 'more':
+          heroicon = 'arrow-narrow-right';
+          levers.icon = 'su-h-09em su-w-09em su-ml-5 su--mt-2';
+          break;
+
+        case 'external':
+          heroicon = 'arrow-up';
+          levers.icon = 'su-h-08em su-w-08em su-ml-4 su--mt-2 su-transform su-rotate-45 group-hocus:su-rotate-45';
+          break;
+
+        case 'lock':
+          heroicon = 'lock-closed';
+          levers.icon = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
+          break;
+
+        case 'download':
+          heroicon = 'download';
+          levers.icon = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
+          break;
+
+        case 'video':
+          heroicon = 'play';
+          levers.icon = 'su-h-08em su-w-08em su-ml-6 su--mt-3';
+          break;
+
+        case 'email':
+          heroicon = 'mail';
+          levers.icon = 'su-h-08em su-w-08em su-ml-7 su--mt-2';
+          break;
+
+        case 'jump':
+          heroicon = 'chevron-down';
+          levers.icon = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+          break;
+      }
+    }
+
+    if (animate && ctaLinkAnimations.includes(animate) && animate !== 'none') {
+      levers.animate = 'su-transition-transform group-hocus:su-transform';
+    }
+
+    if (animate && ctaLinkAnimations.includes(animate)) {
+      switch (animate) {
+        case 'right':
+          levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-x-02em');
+          break;
+
+        case 'top-right':
+          levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em');
+          break;
+
+        case 'down':
+          levers.animate = clsxd(levers.animate, 'group-hocus:su-translate-y-02em');
+          break;
+      }
+    }
+
+    return /*#__PURE__*/React__default.createElement("a", _extends({
+      className: clsxd('su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.wrapper, levers.display, levers.color, levers.size, levers.variant, classes.link),
+      href: link,
+      ref: ref
+    }, props), text, srText && /*#__PURE__*/React__default.createElement("span", {
+      className: "su-sr-only"
+    }, " ", srText), icon && /*#__PURE__*/React__default.createElement(Icon, {
+      icon: heroicon,
+      type: "solid",
+      "aria-hidden": true,
+      className: clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)
+    }));
+  };
+  CtaLink.propTypes = {
+    color: propTypes.oneOf(ctaLinkColors),
+    variant: propTypes.oneOf(ctaLinkButtonVariants),
+    size: propTypes.oneOf(ctaLinkButtonSizes),
+    icon: propTypes.oneOf(ctaLinkIcons),
+    animate: propTypes.oneOf(ctaLinkAnimations),
+    link: propTypes.string,
+    text: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
+    srText: propTypes.string,
+    classes: propTypes.shape({
+      link: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
+      icon: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
+    })
+  };
+  CtaLink.defaultProps = {
+    isButton: false,
+    icon: 'action',
+    color: 'none',
+    ref: null
   };
 
   var flexElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
@@ -2325,64 +2507,10 @@
   };
   Skiplink.defaultProps = {};
 
-  var StyledLink = function StyledLink(props) {
-    var styles = {};
-    var defaultClasses = {
-      wrapper: 'su-link'
-    };
-    var variants = {
-      action: {},
-      download: {},
-      external: {},
-      internal: {},
-      jump: {},
-      more: {},
-      video: {},
-      button: {
-        wrapper: 'su-button'
-      },
-      buttonSecondary: {
-        wrapper: 'su-button su-button--secondary'
-      },
-      buttonBig: {
-        wrapper: 'su-button su-button--big'
-      }
-    };
-    var classes = Object.assign(defaultClasses, props.classes);
-    classes = Object.assign(classes, variants[props.variant]);
-
-    if (props.animate !== undefined) {
-      switch (props.animate) {
-        case 'down':
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedDown);
-          break;
-
-        case 'left':
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedLeft);
-          break;
-
-        case 'up':
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedUp);
-          break;
-
-        case 'topRight':
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedTopRight);
-          break;
-
-        default:
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedRight);
-      }
-    }
-
-    return /*#__PURE__*/React__default.createElement("a", _extends({
-      className: classes.wrapper,
-      href: props.href
-    }, props.attributes), props.children, classes.icon && classes.icon);
-  };
-
   exports.Alert = Alert;
   exports.Button = Button;
   exports.Container = Container;
+  exports.CtaLink = CtaLink;
   exports.FlexBox = FlexBox;
   exports.FlexCell = FlexCell;
   exports.GlobalFooter = GlobalFooter;
@@ -2395,6 +2523,5 @@
   exports.Logo = Logo;
   exports.Skiplink = Skiplink;
   exports.SrOnlyText = SrOnlyText;
-  exports.StyledLink = StyledLink;
 
 })));

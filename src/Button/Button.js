@@ -96,6 +96,11 @@ Button.propTypes = {
     PropTypes.string,
     PropTypes.element,
     PropTypes.node
+  ]),
+
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
   ])
 };
 
