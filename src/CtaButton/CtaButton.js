@@ -5,6 +5,7 @@ import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 import getIconOptions from "../common/icon/getIconOptions";
 import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
+import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
 
@@ -77,7 +78,7 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
     >
       {text}
       {srText &&
-      <span className='su-sr-only'> {srText}</span>
+      <SrOnlyText srText={' ' + srText} />
       }
       {icon &&
       <Icon icon={heroicon}

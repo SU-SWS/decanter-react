@@ -7,6 +7,7 @@ import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
+import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 
 /**
  * CTA Link Component
@@ -61,7 +62,7 @@ export const CtaLink = ({ classes = {}, text, srText, link, color, icon, animate
     >
       {text}
       {srText &&
-        <span className='su-sr-only'> {srText}</span>
+        <SrOnlyText srText={' ' + srText} />
       }
       {icon &&
         <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}/>
