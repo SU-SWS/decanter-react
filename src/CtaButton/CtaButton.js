@@ -63,7 +63,6 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
   }
 
   // animate
-
   // Add specific classes for each type of animation
   if (animate && iconAnimations.includes(animate)) {
     levers.animate = getIconAnimation(animate);
@@ -72,7 +71,7 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
   return (
     <a
       className={clsxd('su-cta-btn su-font-regular su-leading-none su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
-        levers.color, levers.size, levers.variant, classes.link)}
+        levers.size, levers.variant, classes.link)}
       href={link}
       {...props}
     >
@@ -81,7 +80,11 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
       <span className='su-sr-only'> {srText}</span>
       }
       {icon &&
-      <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}/>
+      <Icon icon={heroicon}
+            type='solid'
+            aria-hidden={true}
+            className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}
+      />
       }
     </a>
   );

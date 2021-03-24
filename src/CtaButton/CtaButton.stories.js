@@ -31,12 +31,6 @@ export default {
         options: iconAnimations
       }
     },
-    color: {
-      control: false,
-    },
-    isButton: {
-      control: false,
-    },
   }
 };
 

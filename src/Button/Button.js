@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { buttonVariants, buttonSizes, buttonTypes } from './Button.levers';
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
+import getIconOptions from "../common/icon/getIconOptions";
+import getIconClasses from "../common/icon/getIconClasses";
+import getIconAnimation from "../common/icon/getIconAnimation";
+import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
 
 /**
@@ -9,7 +13,7 @@ import clsxd from 'clsx-dedupe';
  *
  * HTML button element
  */
-export const Button = ({ className, children, onClick, variant, size, type, icon, animate, isDisabled, ...props }) => {
+export const Button = ({ classes = {}, children, onClick, variant, size, type, icon, animate, isDisabled, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -55,41 +59,99 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
     }
   }
 
+  // icon
+  let heroicon = '';
+
+  if (icon && iconOptions.includes(icon)) {
+    heroicon = getIconOptions(icon);
+    levers.icon = getIconClasses(icon);
+  }
+
+  // animate
+  // Add specific classes for each type of animation
+  if (animate && iconAnimations.includes(animate)) {
+    levers.animate = getIconAnimation(animate);
+  }
+
   // Is disabled
   if (isDisabled) {
     levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
-    levers.variant = clsxd(levers.variant, {'su-bg-digital-red': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
+    levers.variant = clsxd(levers.variant, {'su-bg-digital-red': false, 'su-bg-white': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
   }
 
   return (
     <button
-      className={clsxd('su-button', levers.variant, levers.size, levers.disabled, className)}
+      className={clsxd('su-button su-group', levers.variant, levers.size, levers.disabled, classes.wrapper)}
       onClick={onClick}
       type={type}
       disabled={isDisabled}
       {...props}
     >
       {children}
+      {icon &&
+      <Icon icon={heroicon}
+            type='solid'
+            aria-hidden={true}
+            className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}
+      />
+      }
     </button>
   );
 };
 
 Button.propTypes = {
-  // HTML Button type.
+  /**
+   * HTML button type attribute
+   */
   type: PropTypes.oneOf(buttonTypes),
+
+  /**
+   * Variant/button style
+   */
   variant: PropTypes.oneOf(buttonVariants),
+
+  /**
+   * Button size
+   */
   size: PropTypes.oneOf(buttonSizes),
+
+  /**
+   * Icon options
+   */
+  icon: PropTypes.oneOf(iconOptions),
+
+  /**
+   * Icon animation on hover/focus
+   */
+  animate: PropTypes.oneOf(iconAnimations),
+
+  /**
+   * Is the button disabled?
+   */
   isDisabled: PropTypes.bool,
 
-  // Optional click handler
+  /**
+   * Optional click handler
+   */
   onClick: PropTypes.func,
 
-  // CSS Classes.
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object
-  ]),
+  /**
+   * Additional CSS classes
+   */
+  classes: PropTypes.shape(
+    {
+      link: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
+      ]),
+      icon: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+        PropTypes.array
+      ]),
+    }
+  ),
 
   // Children
   children: PropTypes.oneOfType([

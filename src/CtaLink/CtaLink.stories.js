@@ -25,15 +25,6 @@ export default {
         options: iconAnimations
       }
     },
-    isButton: {
-      control: false,
-    },
-    variant: {
-      control: false
-    },
-    size: {
-      control: false
-    },
   }
 };
 
@@ -151,6 +142,6 @@ SrText.args = {
   srText: 'about Decanter React',
   icon: 'more',
   animate: 'right',
-  link: 'https://stanford.edu',
+  link: 'https://decanter.stanford.edu',
 };
 SrText.storyName = 'Link with Screen Reader Only Text';
