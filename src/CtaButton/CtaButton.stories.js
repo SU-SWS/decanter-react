@@ -1,33 +1,34 @@
 import React from 'react';
-import { CtaLink } from './CtaLink';
-import { ctaLinkIcons, ctaLinkAnimations, ctaLinkButtonVariants, ctaLinkButtonSizes } from "./CtaLink.levers";
+import { CtaButton } from "./CtaButton";
+import { ctaButtonVariants, ctaButtonSizes } from "./CtaButton.levers";
+import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 
 export default {
   title: 'Simple/CTA Link Button',
-  component: CtaLink,
+  component: CtaButton,
   argTypes: {
     variant: {
       control: {
         type: 'inline-radio',
-        options: ctaLinkButtonVariants
+        options: ctaButtonVariants
       }
     },
     size: {
       control: {
         type: 'inline-radio',
-        options: ctaLinkButtonSizes
+        options: ctaButtonSizes
       }
     },
     icon: {
       control: {
         type: 'select',
-        options: ctaLinkIcons
+        options: iconOptions
       }
     },
     animate: {
       control: {
         type: 'inline-radio',
-        options: ctaLinkAnimations
+        options: iconAnimations
       }
     },
     color: {
@@ -39,13 +40,13 @@ export default {
   }
 };
 
-const CtaLinkButtonTemplate = ({ ...rest }) => {
+const CtaButtonTemplate = ({ ...rest }) => {
   return (
-    <CtaLink {...rest} />
+    <CtaButton {...rest} />
   );
 };
 
-export const Solid = CtaLinkButtonTemplate.bind({});
+export const Solid = CtaButtonTemplate.bind({});
 Solid.args = {
   isButton: true,
   variant: 'solid',
@@ -55,9 +56,8 @@ Solid.args = {
   link: 'https://stanford.edu'
 };
 
-export const Outline = CtaLinkButtonTemplate.bind({});
+export const Outline = CtaButtonTemplate.bind({});
 Outline.args = {
-  isButton: true,
   variant: 'outline',
   size: 'default',
   icon: 'none',
@@ -65,9 +65,8 @@ Outline.args = {
   link: 'https://stanford.edu'
 };
 
-export const Ghost = CtaLinkButtonTemplate.bind({});
+export const Ghost = CtaButtonTemplate.bind({});
 Ghost.args = {
-  isButton: true,
   variant: 'ghost',
   size: 'default',
   icon: 'none',
@@ -75,9 +74,8 @@ Ghost.args = {
   link: 'https://stanford.edu'
 };
 
-export const Big = CtaLinkButtonTemplate.bind({});
+export const Big = CtaButtonTemplate.bind({});
 Big.args = {
-  isButton: true,
   variant: 'solid',
   size: 'big',
   icon: 'none',
@@ -85,9 +83,8 @@ Big.args = {
   link: 'https://stanford.edu'
 };
 
-export const Small = CtaLinkButtonTemplate.bind({});
+export const Small = CtaButtonTemplate.bind({});
 Small.args = {
-  isButton: true,
   variant: 'outline',
   size: 'small',
   icon: 'none',
@@ -95,9 +92,8 @@ Small.args = {
   link: 'https://stanford.edu',
 };
 
-export const Action = CtaLinkButtonTemplate.bind({});
+export const Action = CtaButtonTemplate.bind({});
 Action.args = {
-  isButton: true,
   variant: 'solid',
   size: 'default',
   icon: 'action',
@@ -107,9 +103,8 @@ Action.args = {
 };
 Action.storyName = 'With Right Caret';
 
-export const Download = CtaLinkButtonTemplate.bind({});
+export const Download = CtaButtonTemplate.bind({});
 Download.args = {
-  isButton: true,
   variant: 'solid',
   size: 'default',
   icon: 'download',
@@ -119,9 +114,8 @@ Download.args = {
 };
 Download.storyName = 'With Download Icon';
 
-export const NoAnimate = CtaLinkButtonTemplate.bind({});
+export const NoAnimate = CtaButtonTemplate.bind({});
 NoAnimate.args = {
-  isButton: true,
   variant: 'solid',
   size: 'default',
   icon: 'email',
@@ -131,9 +125,8 @@ NoAnimate.args = {
 };
 NoAnimate.storyName = 'With Non-animated Icon';
 
-export const SrText = CtaLinkButtonTemplate.bind({});
+export const SrText = CtaButtonTemplate.bind({});
 SrText.args = {
-  isButton: true,
   variant: 'solid',
   size: 'default',
   icon: 'external',
@@ -144,9 +137,8 @@ SrText.args = {
 };
 SrText.storyName = 'With Screen Reader Only Text';
 
-export const Custom = CtaLinkButtonTemplate.bind({});
+export const Custom = CtaButtonTemplate.bind({});
 Custom.args = {
-  isButton: true,
   variant: 'solid',
   size: 'default',
   icon: 'external',
@@ -159,9 +151,8 @@ Custom.args = {
 };
 Custom.storyName = 'With Custom Classes';
 
-export const CustomProps = CtaLinkButtonTemplate.bind({});
+export const CustomProps = CtaButtonTemplate.bind({});
 CustomProps.args = {
-  isButton: true,
   variant: 'solid',
   size: 'default',
   icon: 'external',

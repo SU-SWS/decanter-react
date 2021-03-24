@@ -1,6 +1,7 @@
 import React from 'react';
 import { CtaLink } from './CtaLink';
-import { ctaLinkIcons, ctaLinkColors, ctaLinkAnimations } from './CtaLink.levers';
+import { ctaLinkColors } from './CtaLink.levers';
+import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 
 export default {
   title: 'Simple/CTA Link',
@@ -15,13 +16,13 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: ctaLinkIcons
+        options: iconOptions
       }
     },
     animate: {
       control: {
         type: 'inline-radio',
-        options: ctaLinkAnimations
+        options: iconAnimations
       }
     },
     isButton: {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { buttonVariants, buttonSizes, buttonTypes } from './Button.levers';
+import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 import clsxd from 'clsx-dedupe';
 
 /**
@@ -8,7 +9,7 @@ import clsxd from 'clsx-dedupe';
  *
  * HTML button element
  */
-export const Button = ({ className, children, onClick, variant, size, type, isDisabled, ...props }) => {
+export const Button = ({ className, children, onClick, variant, size, type, icon, animate, isDisabled, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};

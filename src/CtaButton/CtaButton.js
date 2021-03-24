@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ctaLinkColors } from './CtaLink.levers';
+import { ctaButtonSizes, ctaButtonVariants } from './CtaButton.levers';
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 import getIconOptions from "../common/icon/getIconOptions";
 import getIconClasses from "../common/icon/getIconClasses";
@@ -9,10 +9,10 @@ import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
 
 /**
- * CTA Link Component
+ * CTA Link Button Component
  *
  */
-export const CtaLink = ({ classes = {}, text, srText, link, color, icon, animate, ...props }) => {
+export const CtaButton = ({ classes = {}, text, srText, link, variant, size, icon, animate, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -20,19 +20,36 @@ export const CtaLink = ({ classes = {}, text, srText, link, color, icon, animate
   // Levers
   // ---------------------------------------------------------------------------
 
-  // color
-  if (color && ctaLinkColors.includes(color)) {
-    switch (color) {
-      case 'red':
-        levers.color = 'su-text-digital-red hocus:su-text-black';
+  // variant
+  if (variant && ctaButtonVariants.includes(variant)) {
+    switch (variant) {
+      case 'solid':
+        levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
-      case 'blue':
-        levers.color = 'su-text-digital-blue hocus:su-text-black';
+      case 'outline':
+        levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
-      case 'white':
-        levers.color = 'su-text-white hocus:su-text-white';
+      case 'ghost':
+        levers.variant = 'su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid';
+        break;
+    }
+  }
+
+  // size
+  if (size && ctaButtonSizes.includes(size)) {
+    switch (size) {
+      case 'default':
+        levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
+        break;
+
+      case 'big':
+        levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
+        break;
+
+      case 'small':
+        levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
         break;
     }
   }
@@ -54,27 +71,32 @@ export const CtaLink = ({ classes = {}, text, srText, link, color, icon, animate
 
   return (
     <a
-      className={clsxd('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
+      className={clsxd('su-cta-btn su-font-regular su-leading-none su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
         levers.color, levers.size, levers.variant, classes.link)}
       href={link}
       {...props}
     >
       {text}
       {srText &&
-        <span className='su-sr-only'> {srText}</span>
+      <span className='su-sr-only'> {srText}</span>
       }
       {icon &&
-        <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}/>
+      <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}/>
       }
     </a>
   );
 };
 
-CtaLink.propTypes = {
+CtaButton.propTypes = {
   /**
-   * Link color (for non-button link only)
+   * Variant/button style
    */
-  color: PropTypes.oneOf(ctaLinkColors),
+  variant: PropTypes.oneOf(ctaButtonVariants),
+
+  /**
+   * Button size
+   */
+  size: PropTypes.oneOf(ctaButtonSizes),
 
   /**
    * Icon options
@@ -126,7 +148,6 @@ CtaLink.propTypes = {
 
 // Default Props.
 // -----------------------------------------------------------------------------
-CtaLink.defaultProps = {
-  icon: 'action',
-  color: 'none',
+CtaButton.defaultProps = {
+  variant: 'solid'
 };
