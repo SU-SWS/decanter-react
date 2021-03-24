@@ -25,11 +25,15 @@ export const Button = ({ classes = {}, children, onClick, variant, size, type, i
   if (variant && buttonVariants.includes(variant)) {
     switch (variant) {
       case 'solid':
-        levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
         break;
 
       case 'outline':
-        levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
+        break;
+
+      case 'ghost':
+        levers.variant = clsxd('su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid');
         break;
 
       case 'none':
@@ -81,7 +85,7 @@ export const Button = ({ classes = {}, children, onClick, variant, size, type, i
 
   return (
     <button
-      className={clsxd('su-button su-group', levers.variant, levers.size, levers.disabled, classes.wrapper)}
+      className={clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, classes.wrapper)}
       onClick={onClick}
       type={type}
       disabled={isDisabled}
@@ -166,6 +170,7 @@ Button.propTypes = {
 Button.defaultProps = {
   onClick: undefined,
   type: 'button',
+  variant: 'solid',
   size: 'default',
   isDisabled: false,
 };

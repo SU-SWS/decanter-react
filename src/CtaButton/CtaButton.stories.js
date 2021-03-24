@@ -133,17 +133,17 @@ SrText.storyName = 'With Screen Reader Only Text';
 
 export const Custom = CtaButtonTemplate.bind({});
 Custom.args = {
-  variant: 'solid',
-  size: 'default',
+  variant: 'unset',
+  size: 'unset',
   icon: 'external',
   animate: 'top-right',
   text: 'With Custom Classes',
   link: 'https://stanford.edu',
   classes: {
-    link: 'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark su-border-lagunita-dark'
+    link: 'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark hocus:su-bg-plum-dark su-border-lagunita-dark su-text-white hocus:su-text-white su-p-30'
   }
 };
-Custom.storyName = 'With Custom Classes';
+Custom.storyName = 'With Custom Styling';
 
 export const CustomProps = CtaButtonTemplate.bind({});
 CustomProps.args = {

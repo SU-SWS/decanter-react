@@ -70,7 +70,7 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
 
   return (
     <a
-      className={clsxd('su-cta-btn su-font-regular su-leading-none su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
+      className={clsxd('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
         levers.size, levers.variant, classes.link)}
       href={link}
       {...props}

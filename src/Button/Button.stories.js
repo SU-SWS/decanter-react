@@ -75,6 +75,12 @@ Outline.args = {
   children: 'Outline Button',
 };
 
+export const Ghost = ButtonTemplate.bind({});
+Ghost.args = {
+  variant: 'ghost',
+  children: 'Ghost Button',
+};
+
 export const Big = ButtonTemplate.bind({});
 Big.args = {
   variant: 'solid',
@@ -96,7 +102,7 @@ Action.args = {
   animate: 'right',
   children: 'Call to Action Button',
 };
-Action.storyName = 'With animated icon';
+Action.storyName = 'With Animated Icon';
 
 export const Download = ButtonTemplate.bind({});
 Download.args = {
@@ -105,7 +111,7 @@ Download.args = {
   animate: 'down',
   children: 'Download Button',
 };
-Download.storyName = 'With download icon';
+Download.storyName = 'With Download Icon';
 
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
@@ -114,15 +120,19 @@ Disabled.args = {
   children: 'Disabled Button',
 };
 
-export const Minimal = ButtonTemplate.bind({});
-Minimal.args = {
-  variant: 'none',
-  size: 'minimal',
-  children: 'Minimal Button',
+export const Custom = ButtonTemplate.bind({});
+Custom.args = {
+  variant: 'unset',
+  size: 'unset',
+  classes: {
+    wrapper: 'su-bg-plum-light su-text-illuminating-light su-font-slab su-text-20 su-p-30'
+  },
+  children: 'With Custom Styling',
 };
+Custom.storyName = 'With Custom Styling';
 
 export const Richtext = ButtonRichTextTemplate.bind({});
 Richtext.args = {
   children: '🦸‍♀️ Be <span class="su-font-bold">BOLD</span> 🦸‍♂️',
 };
-Richtext.storyName = 'Button with Rich Text Content';
+Richtext.storyName = 'With Rich Text Content';
