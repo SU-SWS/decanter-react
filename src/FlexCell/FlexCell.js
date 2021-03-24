@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 import { flexCellElements, flexCellWidth, flexCellFlex, flexCellGrow, flexCellShrink, flexCellOrder } from './FlexCell.levers';
 
 /**
@@ -87,7 +87,7 @@ export const FlexCell = ({ className, children, ref, ...props }) => {
   }
 
   return (
-    <Element className={clsxd(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className)} ref={ref}>
+    <Element className={dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className)} ref={ref}>
       {children}
     </Element>
   );

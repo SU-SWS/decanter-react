@@ -7,7 +7,7 @@ import { FlexBox } from "../FlexBox/FlexBox";
 import { FlexCell } from "../FlexCell/FlexCell";
 import { Lockup } from "../Lockup/Lockup";
 import Icon from 'react-hero-icon';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Stanford Local Footer Component.
@@ -58,21 +58,21 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
   }
 
   return (
-    <Container width='site' className={clsxd('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)}>
-      <FlexBox direction='col' gap={true} className={clsxd('md:su-flex-row su-rs-mb-2', classes.header)} justifyContent={'space-between'}>
+    <Container width='site' className={dcnb('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)}>
+      <FlexBox direction='col' gap={true} className={dcnb('md:su-flex-row su-rs-mb-2', classes.header)} justifyContent={'space-between'}>
         <FlexCell grow={true}>
           <Lockup color={levers.lockup} line1={props.line1} url={props.url} isLink={props.isLogoLink} />
         </FlexCell>
         {props.hasButton && (
           <FlexCell grow={false}>
-            <a href={props.buttonUrl} className={clsxd('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)}>
+            <a href={props.buttonUrl} className={dcnb('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)}>
               {props.buttonText ?? 'Web Login'}
-              <Icon icon='lock-closed' type='solid' className={clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)}/>
+              <Icon icon='lock-closed' type='solid' className={dcnb('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)}/>
             </a>
           </FlexCell>
         )}
       </FlexBox>
-      <Grid xs={1} md={2} xl={4} gap={true} className={clsxd('su-text-18 su-link-regular', levers.link, classes.content)}>
+      <Grid xs={1} md={2} xl={4} gap={true} className={dcnb('su-text-18 su-link-regular', levers.link, classes.content)}>
         {children}
       </Grid>
     </Container>

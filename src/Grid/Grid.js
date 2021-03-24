@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 import { gridGap, gridNumCols, gridElements } from './Grid.levers';
 
 /**
@@ -44,7 +44,7 @@ export const Grid = ({ element, gap, xs, sm, md, lg, xl, xxl, className, childre
   });
 
   return (
-    <Element className={clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref} {...props}>
+    <Element className={dcnb('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref} {...props}>
       {children}
     </Element>
   );

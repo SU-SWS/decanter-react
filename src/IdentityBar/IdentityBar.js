@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { identityBarColors } from './IdentityBar.levers';
 import { Container } from '../Container/Container';
 import { Logo } from '../Logo/Logo';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Stanford Identity Bar Component.
@@ -41,7 +41,7 @@ export const IdentityBar = ({ className, ...props }) => {
   }
 
   return (
-    <Container width='site' className={clsxd('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)}>
+    <Container width='site' className={dcnb('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)}>
       <Logo className='su-text-20 su-leading-none' color={levers.logo} type='full' />
     </Container>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 import { flexElements, flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
 
 /**
@@ -105,7 +105,7 @@ export const FlexBox = ({ element, direction, wrap, gap, justifyContent, justify
   }
 
   return (
-    <Element className={clsxd('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className)} ref={ref} {...props}>
+    <Element className={dcnb('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className)} ref={ref} {...props}>
       {children}
     </Element>
   );

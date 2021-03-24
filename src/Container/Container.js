@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 import { containerElements, containerWidths } from './Container.levers';
 
 /**
@@ -38,7 +38,7 @@ export const Container = ({ className, element, width, children, ref, ...props }
   }
 
   return (
-    <Element className={clsxd(levers.width, className)} ref={ref} {...props}>
+    <Element className={dcnb(levers.width, className)} ref={ref} {...props}>
       {children}
     </Element>
   );

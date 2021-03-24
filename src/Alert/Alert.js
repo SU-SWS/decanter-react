@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { alertTypes, lightText, darkText } from './Alert.levers';
 import { Button } from '../Button/Button';
 import Icon from 'react-hero-icon';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Alert Component.
@@ -22,7 +22,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // Levers
   // ---------------------------------------------------------------------------
   levers.wrapper = 'su-bg-foggy-light';
-  levers.dismiss = clsxd(darkText, 'hover:su-text-black focus:su-text-black');
+  levers.dismiss = dcnb(darkText, 'hover:su-text-black focus:su-text-black');
 
   // Is large Icon.
   if (props.isLargeIcon) {
@@ -31,17 +31,17 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   }
 
   // Default Icon.
-  let defaultIcon = <Icon icon='bell' type='outline' className={clsxd({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />;
+  let defaultIcon = <Icon icon='bell' type='outline' className={dcnb({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />;
 
   // Is Label Top
   if (props.isLabelTop) {
-    levers.label = clsxd('su-rs-mb-neg1', { 'su-inline-block': !props.isIconTop });
-    classes.icon = clsxd(classes.icon, 'su-inline-block');
+    levers.label = dcnb('su-rs-mb-neg1', { 'su-inline-block': !props.isIconTop });
+    classes.icon = dcnb(classes.icon, 'su-inline-block');
   }
 
   // Is Icon Top but no label top.
   if (props.isIconTop && !props.isLabelTop) {
-    levers.headerIcon = clsxd(levers.headerIcon, 'su-block su-rs-mb-neg1');
+    levers.headerIcon = dcnb(levers.headerIcon, 'su-block su-rs-mb-neg1');
   }
 
   // Props.type
@@ -51,28 +51,28 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
         levers.wrapper = 'su-bg-digital-green su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = lightText;
-        defaultIcon = <Icon icon='check-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='check-circle' type='solid' className={dcnb(classes.icon)} {...iconProps} />;
         break;
 
       case 'warning':
         levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
-        levers.dismiss = clsxd(darkText, 'hover:su-text-black');
-        defaultIcon = <Icon icon='exclamation-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        levers.dismiss = dcnb(darkText, 'hover:su-text-black');
+        defaultIcon = <Icon icon='exclamation-circle' type='solid' className={dcnb(classes.icon)} {...iconProps} />;
         break;
 
       case 'info':
         levers.wrapper = 'su-bg-digital-blue su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = lightText;
-        defaultIcon = <Icon icon='information-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='information-circle' type='solid' className={dcnb(classes.icon)} {...iconProps} />;
         break;
 
       case 'error':
         levers.wrapper = 'su-bg-digital-red su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = lightText;
-        defaultIcon = <Icon icon='ban' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='ban' type='solid' className={dcnb(classes.icon)} {...iconProps} />;
         break;
     }
   }
@@ -83,7 +83,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   const icon = props.icon ?? defaultIcon;
   const DefaultDismiss = (
     <Button
-      className={clsxd(
+      className={dcnb(
         'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest',
         levers.dismiss,
         classes.dismiss
@@ -106,57 +106,57 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // Render
   // ---------------------------------------------------------------------------
   return (
-    <div className={clsxd('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
-      <div className={clsxd('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)}>
+    <div className={dcnb('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
+      <div className={dcnb('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)}>
 
         {props.hasDismiss && (
-          <div className={clsxd('su-order-3 su-rs-ml-1 su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
+          <div className={dcnb('su-order-3 su-rs-ml-1 su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
             {dismissBtn}
           </div>
         )}
 
         {/* Header Container. */}
-        <div className={clsxd('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
+        <div className={dcnb('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
           {(props.hasIcon && !props.isIconTop) && (
-            <span className={clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
+            <span className={dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
               {icon}
             </span>
           )}
 
           {(props.hasLabel && !props.isLabelTop) && (
-            <span className={clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+            <span className={dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
               {props.label ?? 'Information'}
             </span>
           )}
         </div>
 
         {/* Body Container. */}
-        <div className={clsxd('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
+        <div className={dcnb('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
 
           {(props.hasIcon && props.isIconTop) && (
-            <span className={clsxd('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
+            <span className={dcnb('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
               {icon}
             </span>
           )}
 
           {(props.hasLabel && props.isLabelTop) && (
-            <span className={clsxd('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+            <span className={dcnb('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
               {props.label ?? 'Information'}
             </span>
           )}
 
           {props.heading && (
-            <h3 className={clsxd('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)}>
+            <h3 className={dcnb('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)}>
               {props.heading}
             </h3>
           )}
 
-          <div className={clsxd('su-text-normal', levers.body, classes.body)}>
+          <div className={dcnb('su-text-normal', levers.body, classes.body)}>
             {children}
           </div>
 
           {props.footer && (
-            <div className={clsxd('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)}>
+            <div className={dcnb('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)}>
               {props.footer}
             </div>
           )}

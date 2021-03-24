@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { headingLevels, headingFonts, headingAlign, headingWeights, headingTracking, headingSizes } from "./Heading.levers";
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Heading Component
@@ -63,7 +63,7 @@ export const Heading = ({ className, level, font, weight, tracking, align, size,
 
   return (
     <HeadingTag
-      className={clsxd('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)}
+      className={dcnb('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)}
       ref={ref}
       {...props}
     >

@@ -2,7 +2,6 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = require('react');
 var React__default = _interopDefault(React);
-var clsxd = _interopDefault(require('clsx-dedupe'));
 var Icon = _interopDefault(require('react-hero-icon'));
 
 function _extends() {
@@ -1123,6 +1122,8 @@ var buttonVariants = ['primary', 'secondary', 'none'];
 var buttonSizes = ['big', 'small', 'minimal'];
 var buttonTypes = ['button', 'submit', 'reset'];
 
+var e$1=/\s+/,f$1=Object.create,i=Array.isArray;function o(){}function a(r,t){var n;if(r)if("string"!=typeof r){if("object"==typeof r)if(i(r)){n=r.length;for(var f=0;f<n;f++)a(r[f],t);}else {var o;for(o in r)t[o]=!!r[o];}}else {n=(r=r.split(e$1)).length;for(var u=0;u<n;u++)t[r[u]]=!0;}}function u(){for(var r=arguments.length,t=new o,n=0;n<r;n++)a(arguments[n],t);var e,f="";for(e in t)t[e]&&e&&(f+=(f&&" ")+e);return f}o.prototype=f$1(null);
+
 var Button = function Button(_ref) {
   var className = _ref.className,
       children = _ref.children,
@@ -1173,7 +1174,7 @@ var Button = function Button(_ref) {
 
   if (isDisabled) {
     levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
-    levers.variant = clsxd(levers.variant, {
+    levers.variant = u(levers.variant, {
       'su-bg-digital-red': false,
       'su-text-digital-red': false,
       'su-border-digital-red': false,
@@ -1184,7 +1185,7 @@ var Button = function Button(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("button", _extends({
-    className: clsxd('su-button', levers.variant, levers.size, levers.disabled, className),
+    className: u('su-button', levers.variant, levers.size, levers.disabled, className),
     ref: ref,
     onClick: onClick,
     type: type,
@@ -1227,7 +1228,7 @@ var Alert = function Alert(_ref) {
       setDismissed = _useState[1];
 
   levers.wrapper = 'su-bg-foggy-light';
-  levers.dismiss = clsxd(darkText, 'hover:su-text-black focus:su-text-black');
+  levers.dismiss = u(darkText, 'hover:su-text-black focus:su-text-black');
 
   if (props.isLargeIcon) {
     iconProps.height = 60;
@@ -1237,20 +1238,20 @@ var Alert = function Alert(_ref) {
   var defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
     icon: "bell",
     type: "outline",
-    className: clsxd({
+    className: u({
       'su-inline-block': props.isIconTop
     }, classes.icon)
   }, iconProps));
 
   if (props.isLabelTop) {
-    levers.label = clsxd('su-rs-mb-neg1', {
+    levers.label = u('su-rs-mb-neg1', {
       'su-inline-block': !props.isIconTop
     });
-    classes.icon = clsxd(classes.icon, 'su-inline-block');
+    classes.icon = u(classes.icon, 'su-inline-block');
   }
 
   if (props.isIconTop && !props.isLabelTop) {
-    levers.headerIcon = clsxd(levers.headerIcon, 'su-block su-rs-mb-neg1');
+    levers.headerIcon = u(levers.headerIcon, 'su-block su-rs-mb-neg1');
   }
 
   if (props.type && alertTypes.includes(props.type)) {
@@ -1262,18 +1263,18 @@ var Alert = function Alert(_ref) {
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "check-circle",
           type: "solid",
-          className: clsxd(classes.icon)
+          className: u(classes.icon)
         }, iconProps));
         break;
 
       case 'warning':
         levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
-        levers.dismiss = clsxd(darkText, 'hover:su-text-black');
+        levers.dismiss = u(darkText, 'hover:su-text-black');
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "exclamation-circle",
           type: "solid",
-          className: clsxd(classes.icon)
+          className: u(classes.icon)
         }, iconProps));
         break;
 
@@ -1284,7 +1285,7 @@ var Alert = function Alert(_ref) {
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "information-circle",
           type: "solid",
-          className: clsxd(classes.icon)
+          className: u(classes.icon)
         }, iconProps));
         break;
 
@@ -1295,7 +1296,7 @@ var Alert = function Alert(_ref) {
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "ban",
           type: "solid",
-          className: clsxd(classes.icon)
+          className: u(classes.icon)
         }, iconProps));
         break;
     }
@@ -1303,7 +1304,7 @@ var Alert = function Alert(_ref) {
 
   var icon = (_props$icon = props.icon) != null ? _props$icon : defaultIcon;
   var DefaultDismiss = /*#__PURE__*/React__default.createElement(Button, {
-    className: clsxd('su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest', levers.dismiss, classes.dismiss),
+    className: u('su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest', levers.dismiss, classes.dismiss),
     "aria-label": "Dismiss Alert",
     onClick: function onClick() {
       setDismissed(true);
@@ -1322,30 +1323,30 @@ var Alert = function Alert(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-alert', levers.wrapper, classes.wrapper),
+    className: u('su-alert', levers.wrapper, classes.wrapper),
     ref: ref
   }, /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
+    className: u('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
   }, props.hasDismiss && /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-order-3 su-rs-ml-1 su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
+    className: u('su-order-3 su-rs-ml-1 su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
   }, dismissBtn), /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)
+    className: u('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)
   }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
-    className: clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
+    className: u('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
   }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
-    className: clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
+    className: u('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
   }, (_props$label = props.label) != null ? _props$label : 'Information')), /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)
+    className: u('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)
   }, props.hasIcon && props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
-    className: clsxd('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
+    className: u('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
   }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
-    className: clsxd('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
+    className: u('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
   }, (_props$label2 = props.label) != null ? _props$label2 : 'Information'), props.heading && /*#__PURE__*/React__default.createElement("h3", {
-    className: clsxd('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)
+    className: u('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)
   }, props.heading), /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-text-normal', levers.body, classes.body)
+    className: u('su-text-normal', levers.body, classes.body)
   }, children), props.footer && /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)
+    className: u('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)
   }, props.footer))));
 };
 Alert.propTypes = {
@@ -1420,7 +1421,7 @@ var Container = function Container(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(Element, _extends({
-    className: clsxd(levers.width, className),
+    className: u(levers.width, className),
     ref: ref
   }, props), children);
 };
@@ -1545,7 +1546,7 @@ var FlexBox = function FlexBox(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(Element, _extends({
-    className: clsxd('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
+    className: u('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
     ref: ref
   }, props), children);
 };
@@ -1638,7 +1639,7 @@ var FlexCell = function FlexCell(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(Element, {
-    className: clsxd(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className),
+    className: u(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className),
     ref: ref
   }, children);
 };
@@ -1720,7 +1721,7 @@ var Heading = function Heading(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(HeadingTag, _extends({
-    className: clsxd('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
+    className: u('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
     ref: ref
   }, props), children);
 };
@@ -1789,13 +1790,13 @@ var Logo = function Logo(_ref) {
 
   if (props.isLink) {
     return /*#__PURE__*/React__default.createElement("a", {
-      className: clsxd('su-logo', levers.logo, className),
+      className: u('su-logo', levers.logo, className),
       href: "https://www.stanford.edu"
     }, logoText);
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-logo', levers.logo, className)
+    className: u('su-logo', levers.logo, className)
   }, logoText);
 };
 Logo.propTypes = {
@@ -1848,7 +1849,7 @@ var GlobalFooter = function GlobalFooter(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(Container, {
-    className: clsxd('su-global-footer su-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className),
+    className: u('su-global-footer su-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className),
     width: "site"
   }, /*#__PURE__*/React__default.createElement(FlexBox, {
     direction: "col",
@@ -1982,7 +1983,7 @@ var Grid = function Grid(_ref) {
     }
   });
   return /*#__PURE__*/React__default.createElement(Element, _extends({
-    className: clsxd('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
+    className: u('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
     ref: ref
   }, props), children);
 };
@@ -2067,7 +2068,7 @@ var GridCell = function GridCell(_ref) {
   }
 
   return /*#__PURE__*/React__default.createElement(Element, {
-    className: clsxd(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className),
+    className: u(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className),
     ref: ref
   }, children);
 };
@@ -2121,7 +2122,7 @@ var IdentityBar = function IdentityBar(_ref) {
 
   return /*#__PURE__*/React__default.createElement(Container, {
     width: "site",
-    className: clsxd('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)
+    className: u('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)
   }, /*#__PURE__*/React__default.createElement(Logo, {
     className: "su-text-20 su-leading-none",
     color: levers.logo,
@@ -2171,22 +2172,22 @@ var Lockup = function Lockup(_ref) {
   }, /*#__PURE__*/React__default.createElement(Logo, {
     color: levers.logo,
     isLink: false,
-    className: clsxd('su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid', levers.bar)
+    className: u('su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid', levers.bar)
   }), /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-text-25 md:su-text-m2 su--mt-3 md:su-mt-0 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6', levers.text, classes.line1)
+    className: u('su-text-25 md:su-text-m2 su--mt-3 md:su-mt-0 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6', levers.text, classes.line1)
   }, line1));
 
   if (props.isLink) {
     var _props$url;
 
     return /*#__PURE__*/React__default.createElement("a", {
-      className: clsxd('su-lockup su-no-underline su-inline-block', classes.wrapper),
+      className: u('su-lockup su-no-underline su-inline-block', classes.wrapper),
       href: (_props$url = props.url) != null ? _props$url : '/'
     }, LockupContent);
   }
 
   return /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-lockup su-no-underline su-inline-block', classes.wrapper)
+    className: u('su-lockup su-no-underline su-inline-block', classes.wrapper)
   }, LockupContent);
 };
 Lockup.propTypes = {
@@ -2251,11 +2252,11 @@ var LocalFooter = function LocalFooter(_ref) {
 
   return /*#__PURE__*/React__default.createElement(Container, {
     width: "site",
-    className: clsxd('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)
+    className: u('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)
   }, /*#__PURE__*/React__default.createElement(FlexBox, {
     direction: "col",
     gap: true,
-    className: clsxd('md:su-flex-row su-rs-mb-2', classes.header),
+    className: u('md:su-flex-row su-rs-mb-2', classes.header),
     justifyContent: 'space-between'
   }, /*#__PURE__*/React__default.createElement(FlexCell, {
     grow: true
@@ -2268,17 +2269,17 @@ var LocalFooter = function LocalFooter(_ref) {
     grow: false
   }, /*#__PURE__*/React__default.createElement("a", {
     href: props.buttonUrl,
-    className: clsxd('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)
+    className: u('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)
   }, (_props$buttonText = props.buttonText) != null ? _props$buttonText : 'Web Login', /*#__PURE__*/React__default.createElement(Icon, {
     icon: "lock-closed",
     type: "solid",
-    className: clsxd('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)
+    className: u('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)
   })))), /*#__PURE__*/React__default.createElement(Grid, {
     xs: 1,
     md: 2,
     xl: 4,
     gap: true,
-    className: clsxd('su-text-18 su-link-regular', levers.link, classes.content)
+    className: u('su-text-18 su-link-regular', levers.link, classes.content)
   }, children));
 };
 LocalFooter.propTypes = {
@@ -2313,7 +2314,7 @@ var Skiplink = function Skiplink(_ref) {
 
   return /*#__PURE__*/React__default.createElement("a", _extends({
     href: anchorLink != null ? anchorLink : '#main-content',
-    className: clsxd('su-skiplink', className)
+    className: u('su-skiplink', className)
   }, props), children != null ? children : 'Skip to main content');
 };
 Skiplink.propTypes = {

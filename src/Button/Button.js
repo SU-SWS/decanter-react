@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { buttonVariants, buttonSizes, buttonTypes } from './Button.levers';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Button Component
@@ -56,12 +56,12 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
   // Is disabled
   if (isDisabled) {
     levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
-    levers.variant = clsxd(levers.variant, {'su-bg-digital-red': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
+    levers.variant = dcnb(levers.variant, {'su-bg-digital-red': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
   }
 
   return (
     <button
-      className={clsxd('su-button', levers.variant, levers.size, levers.disabled, className)}
+      className={dcnb('su-button', levers.variant, levers.size, levers.disabled, className)}
       ref={ref}
       onClick={onClick}
       type={type}
