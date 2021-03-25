@@ -1,7 +1,7 @@
 import React from 'react';
 import { withDesign } from 'storybook-addon-designs';
 import { Alert } from './Alert';
-import { Button } from '../Button/Button';
+import { DismissButton } from '../DismissButton/DismissButton';
 import { alertTypes } from './Alert.levers';
 import { textMixed } from '../../.storybook/stories/Paragraph.stories';
 import DOMPurify from 'dompurify';
@@ -10,7 +10,7 @@ export default {
   title: 'Composite/Alert',
   decorators: [withDesign],
   component: Alert,
-  subcomponents: { Button },
+  subcomponents: { DismissButton },
   parameters: {
     design: {
       type: 'figma',
