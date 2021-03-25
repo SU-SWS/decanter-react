@@ -43,7 +43,8 @@ export const Default = DismissButtonTemplate.bind({});
 Default.args = {
   text: 'Dismiss',
   classes: {
-    wrapper: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest'
+    wrapper: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest',
+    icon: 'su-ml-02em'
   }
 };
 Default.storyName = 'Alert Dismiss Button (Dark)';
@@ -52,14 +53,17 @@ export const Close = DismissButtonTemplate.bind({});
 Close.args = {
   text: 'Close',
   icon: 'x',
-  iconType: 'solid'
+  iconType: 'solid',
+  classes: {
+    icon: 'su-ml-02em'
+  }
 };
 Close.storyName = 'Close Button with X Icon';
 
 export const SrText = DismissButtonTemplate.bind({});
 SrText.args = {
-  SrText: 'Close Modal',
+  srText: 'Close Modal',
   icon: 'x',
-  iconType: 'solid'
+  iconType: 'solid',
 };
 SrText.storyName = 'Icon Button with Screen Reader Only Text';
