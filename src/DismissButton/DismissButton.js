@@ -58,14 +58,11 @@ export const DismissButton = ({ classes = {}, text, srText, color, icon, iconTyp
     <Button
       variant='none'
       size='minimal'
-      className={clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display',
-        levers.color,
-        classes.wrapper
-      )}
+      className={clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, classes.wrapper)}
       onClick={onClick}
       {...props}
     >
-      {text && text}
+      {text}
       {srText &&
         <SrOnlyText srText={' ' + srText} />
       }
@@ -78,15 +75,44 @@ export const DismissButton = ({ classes = {}, text, srText, color, icon, iconTyp
 // -----------------------------------------------------------------------------
 
 DismissButton.propTypes = {
+  /**
+   * Button text
+   */
   text: PropTypes.string,
+
+  /**
+   * Screen reader only text (required for icon buttons)
+   */
   srText: PropTypes.string,
+
+  /**
+   * Color of the text and icon
+   */
   color: PropTypes.oneOf(dismissIconColors),
+
+  /**
+   * Heroicon option
+   */
   icon: PropTypes.oneOf(dismissIconOptions),
+
+  /**
+   * Heroicon type
+   */
   iconType: PropTypes.oneOf(dismissIconTypes),
+
+  /**
+   * If you want to provide your own custom icon element
+   */
   customIcon: PropTypes.element,
+
+  /**
+   * onClick function
+   */
   onClick: PropTypes.func,
 
-  // The CSS Classname property
+  /**
+   * Additional classes for styling
+   */
   classes: PropTypes.shape(
     {
       wrapper: PropTypes.oneOfType([
