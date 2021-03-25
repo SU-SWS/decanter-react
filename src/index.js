@@ -1,6 +1,7 @@
 import { Alert } from './Alert/Alert';
 import { Button } from './Button/Button';
 import { Container } from './Container/Container';
+import { DismissButton } from './DismissButton/DismissButton';
 import { FlexBox } from './FlexBox/FlexBox';
 import { FlexCell } from './FlexCell/FlexCell';
 import { Heading } from './Heading/Heading';
@@ -15,4 +16,4 @@ import { Skiplink } from './Skiplink/Skiplink';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
 import { StyledLink } from './StyledLink';
 
-export { Alert, Button, Container, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, Skiplink, SrOnlyText, StyledLink };
+export { Alert, Button, Container, DismissButton, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, Skiplink, SrOnlyText, StyledLink };
