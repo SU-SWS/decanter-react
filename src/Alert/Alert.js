@@ -16,7 +16,7 @@ import clsxd from 'clsx-dedupe';
 export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // Defaults & Variables
   const levers = {};
-  const iconProps = { height: 24, width: 24 };
+  const iconProps = { height: 20, width: 20 };
   const [isDismissed, setDismissed] = useState(false);
 
   // Levers
@@ -111,7 +111,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
         )}
 
         {/* Header Container. */}
-        <div className={clsxd('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
+        <div className={clsxd('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
           {(props.hasIcon && !props.isIconTop) && (
             <span className={clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
               {icon}
@@ -135,9 +135,9 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
           )}
 
           {(props.hasLabel && props.isLabelTop) && (
-            <span className={clsxd('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+            <div className={clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
               {props.label ?? 'Information'}
-            </span>
+            </div>
           )}
 
           {props.heading && (

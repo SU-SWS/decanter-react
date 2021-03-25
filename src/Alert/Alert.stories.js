@@ -6,6 +6,10 @@ import { alertTypes } from './Alert.levers';
 import { textMixed } from '../../.storybook/stories/Paragraph.stories';
 import DOMPurify from 'dompurify';
 
+const alertBody = "<p class='last:su-mb-0 su-leading-display su-card-paragraph'>A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href=\"#\">self-contained unit of a discourse</a> in writing dealing with a <span class=\"su-underline\">particular point or idea</span>.</p>";
+
+const alertBodyShort = "<p class='last:su-mb-0 su-leading-display su-card-paragraph'>A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href=\"#\">self-contained</a> unit of a discourse.</p>";
+
 export default {
   title: 'Composite/Alert',
   decorators: [withDesign],
@@ -45,12 +49,12 @@ const AlertTemplate = ({ children, ...rest }) => {
 // /////////////////////////////////////////////////////////////////////////////
 export const Default = AlertTemplate.bind({});
 Default.args = {
-  children: textMixed
+  children: alertBodyShort
 };
 
 export const Info = AlertTemplate.bind({});
 Info.args = {
-  children: textMixed,
+  children: alertBodyShort,
   type: 'info'
 };
 
@@ -65,7 +69,7 @@ Info.parameters = {
 
 export const Error = AlertTemplate.bind({});
 Error.args = {
-  children: textMixed,
+  children: alertBody,
   type: 'error',
   label: 'error'
 };
@@ -79,7 +83,7 @@ Error.parameters = {
 
 export const Warning = AlertTemplate.bind({});
 Warning.args = {
-  children: textMixed,
+  children: alertBody,
   type: 'warning',
   label: 'warning'
 };
@@ -93,7 +97,7 @@ Warning.parameters = {
 
 export const Success = AlertTemplate.bind({});
 Success.args = {
-  children: textMixed,
+  children: alertBody,
   type: 'success',
   label: 'success'
 };
@@ -107,14 +111,14 @@ Success.parameters = {
 
 export const LabelsOnTop = AlertTemplate.bind({});
 LabelsOnTop.args = {
-  children: textMixed,
+  children: alertBody,
   isIconTop: true,
   isLabelTop: true
 };
 
 export const NoDismiss = AlertTemplate.bind({});
 NoDismiss.args = {
-  children: textMixed,
+  children: alertBody,
   heading: 'Alert Lorem Ipsum',
   hasDismiss: false
 };
@@ -122,7 +126,7 @@ NoDismiss.storyName = 'No Dismiss Button';
 
 export const BigIcon = AlertTemplate.bind({});
 BigIcon.args = {
-  children: textMixed,
+  children: alertBody,
   heading: 'Alert Lorem Ipsum',
   hasLabel: false,
   isLargeIcon: true
