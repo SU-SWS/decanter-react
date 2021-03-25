@@ -6,9 +6,9 @@ import { alertTypes } from './Alert.levers';
 import { textMixed } from '../../.storybook/stories/Paragraph.stories';
 import DOMPurify from 'dompurify';
 
-const alertBody = "<p class='last:su-mb-0 su-leading-display su-card-paragraph'>A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href=\"#\">self-contained unit of a discourse</a> in writing dealing with a <span class=\"su-underline\">particular point or idea</span>.</p>";
+const alertBody = '<p class="last:su-mb-0 su-leading-display su-card-paragraph">A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href=\"#\">self-contained unit of a discourse</a> in writing dealing with a <span class=\"su-underline\">particular point or idea</span>.</p>';
 
-const alertBodyShort = "<p class='last:su-mb-0 su-leading-display su-card-paragraph'>A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href=\"#\">self-contained</a> unit of a discourse.</p>";
+const alertBodyShort = '<p class="last:su-mb-0 su-leading-display su-card-paragraph">For displaying a notification that keeps people informed of a status.</p>';
 
 export default {
   title: 'Composite/Alert',

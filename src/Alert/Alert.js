@@ -31,7 +31,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   }
 
   // Default Icon.
-  let defaultIcon = <Icon icon='bell' type='outline' className={clsxd({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />;
+  let defaultIcon = <Icon icon='bell' type='outline' aria-hidden='true' className={clsxd({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />;
 
   // Is Label Top
   if (props.isLabelTop) {
@@ -51,28 +51,28 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
         levers.wrapper = 'su-bg-digital-green su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = <Icon icon='check-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='check-circle' type='solid' aria-hidden='true' className={clsxd(classes.icon)} {...iconProps} />;
         break;
 
       case 'warning':
         levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
         levers.dismiss = 'black';
-        defaultIcon = <Icon icon='exclamation-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='exclamation-circle' type='solid' aria-hidden='true' className={clsxd(classes.icon)} {...iconProps} />;
         break;
 
       case 'info':
         levers.wrapper = 'su-bg-digital-blue su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = <Icon icon='information-circle' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='information-circle' type='solid' aria-hidden='true' className={clsxd(classes.icon)} {...iconProps} />;
         break;
 
       case 'error':
         levers.wrapper = 'su-bg-digital-red su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = <Icon icon='ban' type='solid' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='ban' type='solid' aria-hidden='true' className={clsxd(classes.icon)} {...iconProps} />;
         break;
     }
   }
@@ -87,7 +87,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
                    color={levers.dismiss}
                    classes={{
                      icon: 'su-ml-02em',
-                     wrapper: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest'
+                     wrapper: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto'
                    }}
     />
   );
@@ -105,13 +105,13 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
       <div className={clsxd('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)}>
 
         {props.hasDismiss && (
-          <div className={clsxd('su-order-3 su-rs-ml-1 su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
+          <div className={clsxd('su-order-3 su-rs-ml-1 su-mt-16 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
             {dismissBtn}
           </div>
         )}
 
         {/* Header Container. */}
-        <div className={clsxd('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
+        <div className={clsxd('su-order-1 su-rs-mr-1 su-mb-16 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
           {(props.hasIcon && !props.isIconTop) && (
             <span className={clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
               {icon}
