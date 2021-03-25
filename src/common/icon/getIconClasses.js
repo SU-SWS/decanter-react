@@ -1,3 +1,8 @@
+/**
+ * Retrieve group of classes for finetuning CTA icon size and position
+ *
+ */
+
 const getIconClasses = (icon) => {
   let classes = '';
 

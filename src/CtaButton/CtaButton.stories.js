@@ -1,11 +1,14 @@
 import React from 'react';
 import { CtaButton } from "./CtaButton";
-import { ctaButtonVariants, ctaButtonSizes } from "./CtaButton.levers";
+import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
+import { ctaButtonVariants } from "./CtaButton.levers";
+import { buttonSizes } from "../common/button/button.levers";
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 
 export default {
   title: 'Simple/CTA Link Button',
   component: CtaButton,
+  subcomponents: { SrOnlyText },
   argTypes: {
     variant: {
       control: {
@@ -16,7 +19,7 @@ export default {
     size: {
       control: {
         type: 'inline-radio',
-        options: ctaButtonSizes
+        options: buttonSizes
       }
     },
     icon: {
@@ -140,7 +143,7 @@ Custom.args = {
   text: 'With Custom Classes',
   link: 'https://stanford.edu',
   classes: {
-    link: 'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark hocus:su-bg-plum-dark su-border-lagunita-dark su-text-white hocus:su-text-white su-p-30'
+    link: 'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark hocus:su-bg-plum su-text-white hocus:su-text-white su-p-30'
   }
 };
 Custom.storyName = 'With Custom Styling';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ctaLinkColors } from './CtaLink.levers';
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
-import getIconOptions from "../common/icon/getIconOptions";
+import getIconOption from "../common/icon/getIconOption";
 import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import Icon from 'react-hero-icon';
@@ -42,12 +42,11 @@ export const CtaLink = ({ classes = {}, text, srText, link, color, icon, animate
   let heroicon = '';
 
   if (icon && iconOptions.includes(icon)) {
-    heroicon = getIconOptions(icon);
+    heroicon = getIconOption(icon);
     levers.icon = getIconClasses(icon);
   }
 
   // animate
-
   // Add specific classes for each type of animation
   if (animate && iconAnimations.includes(animate)) {
     levers.animate = getIconAnimation(animate);

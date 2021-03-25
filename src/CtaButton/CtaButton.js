@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ctaButtonSizes, ctaButtonVariants } from './CtaButton.levers';
+import { ctaButtonVariants } from './CtaButton.levers';
+import { buttonSizes } from "../common/button/button.levers";
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
-import getIconOptions from "../common/icon/getIconOptions";
+import getButtonSize from "../common/button/getButtonSize";
+import getIconOption from "../common/icon/getIconOption";
 import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
@@ -39,27 +41,15 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
   }
 
   // size
-  if (size && ctaButtonSizes.includes(size)) {
-    switch (size) {
-      case 'default':
-        levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
-        break;
-
-      case 'big':
-        levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
-        break;
-
-      case 'small':
-        levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
-        break;
-    }
+  if (size && buttonSizes.includes(size)) {
+    levers.size = getButtonSize(size);
   }
 
   // icon
   let heroicon = '';
 
   if (icon && iconOptions.includes(icon)) {
-    heroicon = getIconOptions(icon);
+    heroicon = getIconOption(icon);
     levers.icon = getIconClasses(icon);
   }
 
@@ -100,7 +90,7 @@ CtaButton.propTypes = {
   /**
    * Button size
    */
-  size: PropTypes.oneOf(ctaButtonSizes),
+  size: PropTypes.oneOf(buttonSizes),
 
   /**
    * Icon options

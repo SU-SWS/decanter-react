@@ -1,5 +1,10 @@
 import clsxd from 'clsx-dedupe';
 
+/**
+ * Retrieve group of classes needed for requested type of CTA icon animation
+ *
+ */
+
 const getIconAnimation = (animate) => {
   let classes = '';
 

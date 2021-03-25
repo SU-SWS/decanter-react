@@ -1,4 +1,10 @@
-const getIconOptions = (icon) => {
+/**
+ * Retrieve icon name corresponding to prop value
+ * We are currently using the Heroicon package
+ * https://heroicons.com/
+ */
+
+const getIconOption = (icon) => {
   let heroicon = '';
 
   switch (icon) {
@@ -38,4 +44,4 @@ const getIconOptions = (icon) => {
   return heroicon;
 };
 
-export default getIconOptions;
+export default getIconOption;

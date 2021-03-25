@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buttonVariants, buttonSizes, buttonTypes } from './Button.levers';
+import { buttonVariants, buttonTypes } from './Button.levers';
+import { buttonSizes } from "../common/button/button.levers";
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
-import getIconOptions from "../common/icon/getIconOptions";
+import getButtonSize from "../common/button/getButtonSize";
+import getIconOption from "../common/icon/getIconOption";
 import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import Icon from 'react-hero-icon';
@@ -44,30 +46,14 @@ export const Button = ({ classes = {}, children, onClick, variant, size, type, i
 
   // size
   if (size && buttonSizes.includes(size)) {
-    switch (size) {
-      case 'big':
-        levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
-        break;
-
-      case 'small':
-        levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
-        break;
-
-      case 'minimal':
-        levers.size = 'su-p-0';
-        break;
-
-      case 'default':
-        levers.size = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
-        break;
-    }
+    levers.size = getButtonSize(size);
   }
 
   // icon
   let heroicon = '';
 
   if (icon && iconOptions.includes(icon)) {
-    heroicon = getIconOptions(icon);
+    heroicon = getIconOption(icon);
     levers.icon = getIconClasses(icon);
   }
 

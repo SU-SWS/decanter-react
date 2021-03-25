@@ -1,11 +1,13 @@
 import React from 'react';
 import { CtaLink } from './CtaLink';
+import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import { ctaLinkColors } from './CtaLink.levers';
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 
 export default {
   title: 'Simple/CTA Link',
   component: CtaLink,
+  subcomponents: { SrOnlyText },
   argTypes: {
     color: {
       control: {

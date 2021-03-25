@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from './Button';
-import { buttonVariants, buttonSizes, buttonTypes } from "./Button.levers";
+import { buttonVariants, buttonTypes } from "./Button.levers";
+import { buttonSizes } from "../common/button/button.levers";
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 import DOMPurify from 'dompurify';
 
@@ -125,7 +126,7 @@ Custom.args = {
   variant: 'unset',
   size: 'unset',
   classes: {
-    wrapper: 'su-bg-plum-light su-text-illuminating-light su-font-slab su-text-20 su-p-30'
+    wrapper: 'su-bg-plum-light su-text-illuminating-light su-font-slab su-text-20 su-p-30 su-font-semibold'
   },
   children: 'With Custom Styling',
 };
