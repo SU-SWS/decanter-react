@@ -6,7 +6,7 @@ import { alertTypes } from './Alert.levers';
 import { textMixed } from '../../.storybook/stories/Paragraph.stories';
 import DOMPurify from 'dompurify';
 
-const alertBody = '<p class="last:su-mb-0 su-leading-display su-card-paragraph">A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href=\"#\">self-contained unit of a discourse</a> in writing dealing with a <span class=\"su-underline\">particular point or idea</span>.</p>';
+const alertBody = '<p class="last:su-mb-0 su-leading-display su-card-paragraph">A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href=\"#\">self-contained unit of a discourse</a> in writing dealing with a particular point or idea.</p>';
 
 const alertBodyShort = '<p class="last:su-mb-0 su-leading-display su-card-paragraph">For displaying a notification that keeps people informed of a status.</p>';
 
@@ -55,7 +55,8 @@ Default.args = {
 export const Info = AlertTemplate.bind({});
 Info.args = {
   children: alertBodyShort,
-  type: 'info'
+  type: 'info',
+  label: 'information:'
 };
 
 // Supports Markdown.
@@ -71,7 +72,7 @@ export const Error = AlertTemplate.bind({});
 Error.args = {
   children: alertBody,
   type: 'error',
-  label: 'error'
+  label: 'error:'
 };
 Error.parameters = {
   docs: {
@@ -85,7 +86,7 @@ export const Warning = AlertTemplate.bind({});
 Warning.args = {
   children: alertBody,
   type: 'warning',
-  label: 'warning'
+  label: 'warning:'
 };
 Warning.parameters = {
   docs: {
@@ -99,7 +100,7 @@ export const Success = AlertTemplate.bind({});
 Success.args = {
   children: alertBody,
   type: 'success',
-  label: 'success'
+  label: 'success:'
 };
 Success.parameters = {
   docs: {
@@ -116,14 +117,6 @@ LabelsOnTop.args = {
   isLabelTop: true
 };
 
-export const NoDismiss = AlertTemplate.bind({});
-NoDismiss.args = {
-  children: alertBody,
-  heading: 'Alert Lorem Ipsum',
-  hasDismiss: false
-};
-NoDismiss.storyName = 'No Dismiss Button';
-
 export const BigIcon = AlertTemplate.bind({});
 BigIcon.args = {
   children: alertBody,
@@ -131,12 +124,22 @@ BigIcon.args = {
   hasLabel: false,
   isLargeIcon: true
 };
-BigIcon.storyName = 'Big Icon + No Label';
+BigIcon.storyName = 'Big Icon + Big Heading ';
 
-export const WithHeader = AlertTemplate.bind({});
-WithHeader.args = {
-  heading: 'Alert Lorem Ipsum',
-  children: textMixed,
+export const BigIconLabel = AlertTemplate.bind({});
+BigIconLabel.args = {
+  children: alertBody,
+  type: 'info',
+  label: 'information:',
   isLabelTop: true,
   isLargeIcon: true
 };
+BigIconLabel.storyName = 'Big Icon + Top Label';
+
+
+export const NoDismiss = AlertTemplate.bind({});
+NoDismiss.args = {
+  children: alertBody,
+  hasDismiss: false
+};
+NoDismiss.storyName = 'No Dismiss Button';

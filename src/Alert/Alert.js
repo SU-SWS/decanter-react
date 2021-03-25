@@ -31,18 +31,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   }
 
   // Default Icon.
-  let defaultIcon = <Icon icon='bell' type='outline' aria-hidden='true' className={clsxd({ 'su-inline-block': props.isIconTop }, classes.icon)} {...iconProps} />;
-
-  // Is Label Top
-  if (props.isLabelTop) {
-    levers.label = clsxd('su-rs-mb-neg1', { 'su-inline-block': !props.isIconTop });
-    classes.icon = clsxd(classes.icon, 'su-inline-block');
-  }
-
-  // Is Icon Top but no label top.
-  if (props.isIconTop && !props.isLabelTop) {
-    levers.headerIcon = clsxd(levers.headerIcon, 'su-block su-rs-mb-neg1');
-  }
+  let defaultIcon = <Icon icon='bell' type='outline' aria-hidden='true' className={classes.icon} {...iconProps} />;
 
   // Props.type
   if (props.type && alertTypes.includes(props.type)) {
@@ -105,46 +94,54 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
       <div className={clsxd('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)}>
 
         {props.hasDismiss && (
-          <div className={clsxd('su-order-3 su-rs-ml-1 su-mt-16 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
+          <div className={clsxd('su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
             {dismissBtn}
           </div>
         )}
 
         {/* Header Container. */}
-        <div className={clsxd('su-order-1 su-rs-mr-1 su-mb-16 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
-          {(props.hasIcon && !props.isIconTop) && (
-            <span className={clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
+        {((props.hasIcon && !props.isIconTop) || (props.hasLabel && !props.isLabelTop)) &&
+          <div
+            className={clsxd('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
+            {(props.hasIcon && !props.isIconTop) && (
+              <span className={clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
               {icon}
             </span>
-          )}
+            )}
 
-          {(props.hasLabel && !props.isLabelTop) && (
-            <span className={clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
-              {props.label ?? 'Information'}
+            {(props.hasLabel && !props.isLabelTop) && (
+              <span className={clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+              {props.label ?? 'Alert:'}
             </span>
-          )}
-        </div>
+            )}
+          </div>
+        }
 
         {/* Body Container. */}
         <div className={clsxd('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
 
-          {(props.hasIcon && props.isIconTop) && (
-            <span className={clsxd('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
-              {icon}
-            </span>
-          )}
+          {((props.hasIcon && props.isIconTop) || (props.hasLabel && props.isLabelTop)) &&
+            <div className='su-flex su-items-center su-rs-mb-0'>
+              {(props.hasIcon && props.isIconTop) && (
+                <span className={clsxd('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
+                {icon}
+              </span>
+              )}
 
-          {(props.hasLabel && props.isLabelTop) && (
-            <div className={clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
-              {props.label ?? 'Information'}
+              {(props.hasLabel && props.isLabelTop) && (
+                <div className={clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+                  {props.label ?? 'Alert:'}
+                </div>
+              )}
             </div>
-          )}
+          }
 
           {props.heading && (
-            <h3 className={clsxd('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)}>
+            <h3 className={clsxd('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)}>
               {props.heading}
             </h3>
           )}
+
 
           <div className={clsxd('su-text-normal', levers.body, classes.body)}>
             {children}

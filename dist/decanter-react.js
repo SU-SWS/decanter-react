@@ -1119,6 +1119,10 @@ var alertTypes = ['info', 'warning', 'error', 'success'];
 var lightText = 'su-text-white hover:su-link-no-underline';
 var darkText = 'su-text-black su-link-black-true hover:su-link-no-underline';
 
+var dismissIconColors = ['black', 'white', 'unset'];
+var dismissIconOptions = ['x-circle', 'x', 'none'];
+var dismissIconTypes = ['solid', 'outline'];
+
 var buttonVariants = ['primary', 'secondary', 'none'];
 var buttonSizes = ['big', 'small', 'minimal'];
 var buttonTypes = ['button', 'submit', 'reset'];
@@ -1207,6 +1211,98 @@ Button.defaultProps = {
   ref: null
 };
 
+var SrOnlyText = function SrOnlyText(props) {
+  var _props$srText;
+
+  var txt = (_props$srText = props.srText) != null ? _props$srText : '(link is external)';
+  return /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, txt);
+};
+SrOnlyText.propTypes = {
+  srText: propTypes.string
+};
+SrOnlyText.defaultProps = {
+  srText: '(link is external)'
+};
+
+var DismissButton = function DismissButton(_ref) {
+  var _ref$classes = _ref.classes,
+      classes = _ref$classes === void 0 ? {} : _ref$classes,
+      text = _ref.text,
+      srText = _ref.srText,
+      color = _ref.color,
+      icon = _ref.icon,
+      iconType = _ref.iconType,
+      customIcon = _ref.customIcon,
+      onClick = _ref.onClick,
+      props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "color", "icon", "iconType", "customIcon", "onClick"]);
+
+  var levers = {};
+  var iconProps = {
+    height: 20,
+    width: 20
+  };
+
+  if (color && dismissIconColors.includes(color)) {
+    switch (color) {
+      case 'black':
+        levers.color = 'su-text-black hocus:su-text-black';
+        break;
+
+      case 'white':
+        levers.color = 'su-text-white hocus:su-text-white';
+        break;
+    }
+  }
+
+  var heroicon = '';
+
+  if (icon && dismissIconOptions.includes(icon)) {
+    heroicon = icon;
+  }
+
+  var heroiconType = 'solid';
+
+  if (iconType && dismissIconTypes.includes(iconType)) {
+    heroiconType = iconType;
+  }
+
+  var defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
+    icon: heroicon,
+    type: heroiconType,
+    "aria-hidden": "true",
+    className: classes.icon
+  }, iconProps));
+  var dismissIcon = customIcon != null ? customIcon : defaultIcon;
+  return /*#__PURE__*/React__default.createElement(Button, _extends({
+    variant: "none",
+    size: "minimal",
+    className: clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, classes.wrapper),
+    onClick: onClick
+  }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
+    srText: ' ' + srText
+  }), dismissIcon);
+};
+DismissButton.propTypes = {
+  text: propTypes.string,
+  srText: propTypes.string,
+  color: propTypes.oneOf(dismissIconColors),
+  icon: propTypes.oneOf(dismissIconOptions),
+  iconType: propTypes.oneOf(dismissIconTypes),
+  customIcon: propTypes.element,
+  onClick: propTypes.func,
+  classes: propTypes.shape({
+    wrapper: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
+    icon: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
+  })
+};
+DismissButton.defaultProps = {
+  color: 'black',
+  icon: 'x-circle',
+  iconType: 'solid'
+};
+
 var Alert = function Alert(_ref) {
   var _props$icon, _props$dismissBtn, _props$label, _props$label2;
 
@@ -1218,8 +1314,8 @@ var Alert = function Alert(_ref) {
 
   var levers = {};
   var iconProps = {
-    height: 24,
-    width: 24
+    height: 20,
+    width: 20
   };
 
   var _useState = React.useState(false),
@@ -1227,7 +1323,7 @@ var Alert = function Alert(_ref) {
       setDismissed = _useState[1];
 
   levers.wrapper = 'su-bg-foggy-light';
-  levers.dismiss = clsxd(darkText, 'hover:su-text-black focus:su-text-black');
+  levers.dismiss = 'black';
 
   if (props.isLargeIcon) {
     iconProps.height = 60;
@@ -1237,31 +1333,20 @@ var Alert = function Alert(_ref) {
   var defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
     icon: "bell",
     type: "outline",
-    className: clsxd({
-      'su-inline-block': props.isIconTop
-    }, classes.icon)
+    "aria-hidden": "true",
+    className: classes.icon
   }, iconProps));
-
-  if (props.isLabelTop) {
-    levers.label = clsxd('su-rs-mb-neg1', {
-      'su-inline-block': !props.isIconTop
-    });
-    classes.icon = clsxd(classes.icon, 'su-inline-block');
-  }
-
-  if (props.isIconTop && !props.isLabelTop) {
-    levers.headerIcon = clsxd(levers.headerIcon, 'su-block su-rs-mb-neg1');
-  }
 
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
       case 'success':
         levers.wrapper = 'su-bg-digital-green su-text-white su-link-white';
         levers.body = lightText;
-        levers.dismiss = lightText;
+        levers.dismiss = 'white';
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "check-circle",
           type: "solid",
+          "aria-hidden": "true",
           className: clsxd(classes.icon)
         }, iconProps));
         break;
@@ -1269,10 +1354,11 @@ var Alert = function Alert(_ref) {
       case 'warning':
         levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
-        levers.dismiss = clsxd(darkText, 'hover:su-text-black');
+        levers.dismiss = 'black';
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "exclamation-circle",
           type: "solid",
+          "aria-hidden": "true",
           className: clsxd(classes.icon)
         }, iconProps));
         break;
@@ -1280,10 +1366,11 @@ var Alert = function Alert(_ref) {
       case 'info':
         levers.wrapper = 'su-bg-digital-blue su-text-white su-link-white';
         levers.body = lightText;
-        levers.dismiss = lightText;
+        levers.dismiss = 'white';
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "information-circle",
           type: "solid",
+          "aria-hidden": "true",
           className: clsxd(classes.icon)
         }, iconProps));
         break;
@@ -1291,10 +1378,11 @@ var Alert = function Alert(_ref) {
       case 'error':
         levers.wrapper = 'su-bg-digital-red su-text-white su-link-white';
         levers.body = lightText;
-        levers.dismiss = lightText;
+        levers.dismiss = 'white';
         defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
           icon: "ban",
           type: "solid",
+          "aria-hidden": "true",
           className: clsxd(classes.icon)
         }, iconProps));
         break;
@@ -1302,19 +1390,17 @@ var Alert = function Alert(_ref) {
   }
 
   var icon = (_props$icon = props.icon) != null ? _props$icon : defaultIcon;
-  var DefaultDismiss = /*#__PURE__*/React__default.createElement(Button, {
-    className: clsxd('su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest', levers.dismiss, classes.dismiss),
-    "aria-label": "Dismiss Alert",
+  var DefaultDismiss = /*#__PURE__*/React__default.createElement(DismissButton, {
+    text: "Dismiss",
     onClick: function onClick() {
       setDismissed(true);
     },
-    variant: "none",
-    size: "minimal"
-  }, "Dismiss ", /*#__PURE__*/React__default.createElement(Icon, {
-    icon: "x-circle",
-    type: "solid",
-    className: 'su-inline-block su-h-25 su-w-25'
-  }));
+    color: levers.dismiss,
+    classes: {
+      icon: 'su-ml-02em',
+      wrapper: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto'
+    }
+  });
   var dismissBtn = (_props$dismissBtn = props.dismissBtn) != null ? _props$dismissBtn : DefaultDismiss;
 
   if (isDismissed === true) {
@@ -1327,21 +1413,23 @@ var Alert = function Alert(_ref) {
   }, /*#__PURE__*/React__default.createElement("div", {
     className: clsxd('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
   }, props.hasDismiss && /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-order-3 su-rs-ml-1 su-items-end su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
-  }, dismissBtn), /*#__PURE__*/React__default.createElement("div", {
-    className: clsxd('su-order-1 su-rs-mr-1 su-flex su-flex-shrink su-items-center su-mb-4 su-w-full su-pb-10 md:su-w-max', levers.headerWrapper, classes.headerWrapper)
+    className: clsxd('su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
+  }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React__default.createElement("div", {
+    className: clsxd('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)
   }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
     className: clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
   }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
     className: clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
-  }, (_props$label = props.label) != null ? _props$label : 'Information')), /*#__PURE__*/React__default.createElement("div", {
+  }, (_props$label = props.label) != null ? _props$label : 'Alert:')), /*#__PURE__*/React__default.createElement("div", {
     className: clsxd('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)
+  }, (props.hasIcon && props.isIconTop || props.hasLabel && props.isLabelTop) && /*#__PURE__*/React__default.createElement("div", {
+    className: "su-flex su-items-center su-rs-mb-0"
   }, props.hasIcon && props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
-    className: clsxd('su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
-  }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
-    className: clsxd('su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
-  }, (_props$label2 = props.label) != null ? _props$label2 : 'Information'), props.heading && /*#__PURE__*/React__default.createElement("h3", {
-    className: clsxd('su-type-2 su-mb-03em', levers.bodyHeading, classes.bodyHeading)
+    className: clsxd('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
+  }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("div", {
+    className: clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
+  }, (_props$label2 = props.label) != null ? _props$label2 : 'Alert:')), props.heading && /*#__PURE__*/React__default.createElement("h3", {
+    className: clsxd('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)
   }, props.heading), /*#__PURE__*/React__default.createElement("div", {
     className: clsxd('su-text-normal', levers.body, classes.body)
   }, children), props.footer && /*#__PURE__*/React__default.createElement("div", {
@@ -1808,21 +1896,6 @@ Logo.defaultProps = {
   color: 'cardinal-red',
   type: 'short',
   isLink: true
-};
-
-var SrOnlyText = function SrOnlyText(props) {
-  var _props$srText;
-
-  var txt = (_props$srText = props.srText) != null ? _props$srText : '(link is external)';
-  return /*#__PURE__*/React__default.createElement("span", {
-    className: "su-sr-only"
-  }, txt);
-};
-SrOnlyText.propTypes = {
-  srText: propTypes.string
-};
-SrOnlyText.defaultProps = {
-  srText: '(link is external)'
 };
 
 var GlobalFooter = function GlobalFooter(_ref) {
@@ -2381,6 +2454,7 @@ var StyledLink = function StyledLink(props) {
 exports.Alert = Alert;
 exports.Button = Button;
 exports.Container = Container;
+exports.DismissButton = DismissButton;
 exports.FlexBox = FlexBox;
 exports.FlexCell = FlexCell;
 exports.GlobalFooter = GlobalFooter;
