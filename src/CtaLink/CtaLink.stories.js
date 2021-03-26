@@ -40,7 +40,7 @@ export const Default = CtaLinkTemplate.bind({});
 Default.args = {
   text: 'Call to Action Link',
   animate: 'right',
-  link: 'https://stanford.edu',
+  href: 'https://stanford.edu',
 };
 Default.storyName = 'Default Call to Action';
 
@@ -49,7 +49,7 @@ More.args = {
   text: 'Learn more about this',
   icon: 'more',
   animate: 'right',
-  link: 'https://stanford.edu',
+  href: 'https://stanford.edu',
 };
 More.storyName = 'Learn More';
 
@@ -58,7 +58,7 @@ External.args = {
   text: 'External Link',
   icon: 'external',
   animate: 'top-right',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 External.storyName = 'External';
 
@@ -67,7 +67,7 @@ Lock.args = {
   text: 'Protected Link',
   icon: 'lock',
   animate: 'right',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 Lock.storyName = 'Protected';
 
@@ -76,7 +76,7 @@ Download.args = {
   text: 'Download Link',
   icon: 'download',
   animate: 'down',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 Download.storyName = 'Download';
 
@@ -85,7 +85,7 @@ Email.args = {
   text: 'Email Link',
   icon: 'email',
   animate: 'right',
-  link: 'mailto:a@example.com'
+  href: 'mailto:a@example.com'
 };
 Email.storyName = 'Email';
 
@@ -94,7 +94,7 @@ Video.args = {
   text: 'Video Link',
   icon: 'video',
   animate: 'right',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 Video.storyName = 'Video';
 
@@ -103,7 +103,7 @@ Jump.args = {
   text: 'Jump Link',
   icon: 'jump',
   animate: 'down',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 Jump.storyName = 'Jump';
 
@@ -111,7 +111,7 @@ export const NoIcon = CtaLinkTemplate.bind({});
 NoIcon.args = {
   text: 'Link with No Icon',
   icon: 'none',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 NoIcon.storyName = 'No Icon';
 
@@ -121,7 +121,7 @@ NoAnimate.args = {
   color: 'red',
   icon: 'action',
   animate: 'none',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 NoAnimate.storyName = 'Red Link with No Animation';
 
@@ -134,7 +134,7 @@ CustomProps.args = {
   rel: 'nofollow',
   target: '_blank',
   id: 'custom-id',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 CustomProps.storyName = 'Link with Custom Props';
 
@@ -144,6 +144,6 @@ SrText.args = {
   srText: 'about Decanter React',
   icon: 'more',
   animate: 'right',
-  link: 'https://decanter.stanford.edu',
+  href: 'https://decanter.stanford.edu',
 };
 SrText.storyName = 'Link with Screen Reader Only Text';

@@ -70,7 +70,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
   }
 
   // Icon className.
-  const { className:iconClasses } = iconProps || {};
+  const { className:iconClasses, ...iProps } = iconProps || {};
 
   return (
     <button
@@ -86,7 +86,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
             type='solid'
             aria-hidden={true}
             className={clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)}
-            {...iconProps}
+            {...iProps}
       />
       }
     </button>
@@ -117,7 +117,7 @@ Button.propTypes = {
   /**
    * Icon Properties
    */
-   icon: PropTypes.object,
+  iconProps: PropTypes.object,
 
   /**
    * Icon animation on hover/focus

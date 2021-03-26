@@ -13,7 +13,7 @@ import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
  * CTA Link Component
  *
  */
-export const CtaLink = ({ classes = {}, text, srText, link, color, icon, animate, ...props }) => {
+export const CtaLink = ({ className, text, srText, color, icon, iconProps, animate, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -52,11 +52,13 @@ export const CtaLink = ({ classes = {}, text, srText, link, color, icon, animate
     levers.animate = getIconAnimation(animate);
   }
 
+  // Icon className.
+  const { className:iconClasses, ...iProps } = iconProps || {};
+
   return (
     <a
       className={clsxd('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
-        levers.color, levers.size, levers.variant, classes.link)}
-      href={link}
+        levers.color, levers.size, levers.variant, className)}
       {...props}
     >
       {text}
@@ -64,13 +66,19 @@ export const CtaLink = ({ classes = {}, text, srText, link, color, icon, animate
         <SrOnlyText srText={' ' + srText} />
       }
       {icon &&
-        <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}/>
+        <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)} {...iProps} />
       }
     </a>
   );
 };
 
 CtaLink.propTypes = {
+
+  /**
+   * Css class names
+   */
+  className: PropTypes.string,
+
   /**
    * Link color (for non-button link only)
    */
@@ -82,6 +90,11 @@ CtaLink.propTypes = {
   icon: PropTypes.oneOf(iconOptions),
 
   /**
+   * Icon options
+   */
+  iconProps: PropTypes.object,
+
+  /**
    * Icon animation on hover/focus
    */
   animate: PropTypes.oneOf(iconAnimations),
@@ -89,7 +102,7 @@ CtaLink.propTypes = {
   /**
    * URL
    */
-  link: PropTypes.string,
+  href: PropTypes.string,
 
   /**
    * Link text
@@ -104,24 +117,6 @@ CtaLink.propTypes = {
    * Optional text for screen readers
    */
   srText: PropTypes.string,
-
-  /**
-   * Additional CSS classes
-   */
-  classes: PropTypes.shape(
-    {
-      link: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.array
-      ]),
-      icon: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.array
-      ]),
-    }
-  ),
 };
 
 // Default Props.
