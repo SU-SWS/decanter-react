@@ -110,6 +110,10 @@ DismissButton.propTypes = {
    */
   onClick: PropTypes.func,
 
+  /**
+   * Props for the Icon Element.
+   */ 
+  iconProps: PropTypes.object,
 
 // Default Props.
 // -----------------------------------------------------------------------------
