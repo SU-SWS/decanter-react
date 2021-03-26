@@ -49,7 +49,7 @@ export const DismissButton = ({ className, text, srText, color, icon, iconType, 
   }
 
   // Set default heroicon if custom icon element isn't provided
-  const defaultIcon = <Icon icon={heroicon} type={heroiconType} aria-hidden='true' className={classes.icon} {...iconProps} />;
+  const defaultIcon = <Icon icon={heroicon} type={heroiconType} aria-hidden='true' {...iconProps} />;
 
   // Use custom icon for the component if it's provided; if not, use the default heroicon
   const dismissIcon = customIcon ?? defaultIcon;
