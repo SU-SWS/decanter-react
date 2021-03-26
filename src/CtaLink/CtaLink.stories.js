@@ -148,7 +148,7 @@ CustomClick.args = {
   className: 'su-cursor-pointer',
   onClick: () => { alert("Hey, you did it."); },
 };
-CustomProps.storyName = 'Link with Custom Props';
+CustomClick.storyName = 'Link with Custom Click';
 
 export const SrText = CtaLinkTemplate.bind({});
 SrText.args = {

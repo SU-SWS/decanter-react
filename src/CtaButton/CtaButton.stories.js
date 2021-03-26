@@ -50,7 +50,7 @@ Solid.args = {
   size: 'default',
   icon: 'none',
   text: 'Solid Link Button',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 
 export const Outline = CtaButtonTemplate.bind({});
@@ -59,7 +59,7 @@ Outline.args = {
   size: 'default',
   icon: 'none',
   text: 'Outline Button',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 
 export const Ghost = CtaButtonTemplate.bind({});
@@ -68,7 +68,7 @@ Ghost.args = {
   size: 'default',
   icon: 'none',
   text: 'Ghost Button',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 
 export const Big = CtaButtonTemplate.bind({});
@@ -77,7 +77,7 @@ Big.args = {
   size: 'big',
   icon: 'none',
   text: 'Big Button',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 
 export const Small = CtaButtonTemplate.bind({});
@@ -86,7 +86,7 @@ Small.args = {
   size: 'small',
   icon: 'none',
   text: 'Small Button',
-  link: 'https://stanford.edu',
+  href: 'https://stanford.edu',
 };
 
 export const Action = CtaButtonTemplate.bind({});
@@ -96,7 +96,7 @@ Action.args = {
   icon: 'action',
   animate: 'right',
   text: 'Solid with Right Caret',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 Action.storyName = 'With Right Caret';
 
@@ -107,7 +107,7 @@ Download.args = {
   icon: 'download',
   animate: 'down',
   text: 'Solid Download Button',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 Download.storyName = 'With Download Icon';
 
@@ -118,7 +118,7 @@ NoAnimate.args = {
   icon: 'email',
   animate: 'none',
   text: 'Contact us',
-  link: 'mailto:a@example.com'
+  href: 'mailto:a@example.com'
 };
 NoAnimate.storyName = 'With Non-animated Icon';
 
@@ -130,7 +130,7 @@ SrText.args = {
   animate: 'top-right',
   text: 'Learn more',
   srText: 'about Decanter',
-  link: 'https://stanford.edu'
+  href: 'https://stanford.edu'
 };
 SrText.storyName = 'With Screen Reader Only Text';
 
@@ -142,9 +142,7 @@ Custom.args = {
   animate: 'top-right',
   text: 'With Custom Classes',
   link: 'https://stanford.edu',
-  classes: {
-    link: 'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark hocus:su-bg-plum su-text-white hocus:su-text-white su-p-30'
-  }
+  className: 'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark hocus:su-bg-plum su-text-white hocus:su-text-white su-p-30'
 };
 Custom.storyName = 'With Custom Styling';
 
@@ -155,9 +153,21 @@ CustomProps.args = {
   icon: 'external',
   animate: 'top-right',
   text: 'With Custom Props',
-  link: 'https://stanford.edu',
+  href: 'https://stanford.edu',
   id: 'custom-id',
   target: '_blank',
   rel: 'nofollow'
 };
 CustomProps.storyName = 'With Custom Props';
+
+export const CustomClick = CtaButtonTemplate.bind({});
+CustomClick.args = {
+  variant: 'solid',
+  size: 'default',
+  icon: 'external',
+  animate: 'top-right',
+  text: 'Link with Custom Click Event',
+  className: 'su-cursor-pointer',
+  onClick: () => { alert("Hey, you did it."); },
+};
+CustomClick.storyName = 'Link with Custom Click';

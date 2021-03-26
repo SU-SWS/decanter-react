@@ -15,7 +15,7 @@ import clsxd from 'clsx-dedupe';
  * CTA Link Button Component
  *
  */
-export const CtaButton = ({ classes = {}, text, srText, link, variant, size, icon, animate, ...props }) => {
+export const CtaButton = ({ className, text, srText, variant, size, icon, iconProps, animate, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -59,11 +59,13 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
     levers.animate = getIconAnimation(animate);
   }
 
+  // Icon className.
+  const { className:iconClasses, ...iProps } = iconProps || {};
+
   return (
     <a
       className={clsxd('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
-        levers.size, levers.variant, classes.link)}
-      href={link}
+        levers.size, levers.variant, className)}
       {...props}
     >
       {text}
@@ -74,7 +76,8 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
       <Icon icon={heroicon}
             type='solid'
             aria-hidden={true}
-            className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}
+            className={clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)}
+            {...iProps}
       />
       }
     </a>
@@ -82,6 +85,12 @@ export const CtaButton = ({ classes = {}, text, srText, link, variant, size, ico
 };
 
 CtaButton.propTypes = {
+
+  /**
+   * Css class names.
+   */
+  className: PropTypes.string,
+
   /**
    * Variant/button style
    */
@@ -96,6 +105,11 @@ CtaButton.propTypes = {
    * Icon options
    */
   icon: PropTypes.oneOf(iconOptions),
+
+  /**
+   * Icon options
+   */
+  iconProps: PropTypes.object,
 
   /**
    * Icon animation on hover/focus
@@ -120,24 +134,6 @@ CtaButton.propTypes = {
    * Optional text for screen readers
    */
   srText: PropTypes.string,
-
-  /**
-   * Additional CSS classes
-   */
-  classes: PropTypes.shape(
-    {
-      link: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.array
-      ]),
-      icon: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.array
-      ]),
-    }
-  ),
 };
 
 // Default Props.
