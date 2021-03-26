@@ -1242,10 +1242,10 @@
         props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "color", "icon", "iconType", "iconSize", "iconProps", "customIcon", "onClick"]);
 
     var levers = {};
-    iconProps = Object.assign({
+    iconProps = _extends({
       height: iconSize != null ? iconSize : 20,
       width: iconSize != null ? iconSize : 20
-    }, _extends({}, iconProps));
+    }, iconProps);
 
     if (color && dismissIconColors.includes(color)) {
       switch (color) {
