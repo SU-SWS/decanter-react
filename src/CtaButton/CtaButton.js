@@ -119,7 +119,7 @@ CtaButton.propTypes = {
   /**
    * URL
    */
-  link: PropTypes.string,
+  href: PropTypes.string,
 
   /**
    * Link text
