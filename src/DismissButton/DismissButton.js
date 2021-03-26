@@ -58,7 +58,7 @@ export const DismissButton = ({ className, text, srText, color, icon, iconType, 
     <Button
       variant='none'
       size='minimal'
-      className={clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, classes.wrapper)}
+      className={clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, className)}
       onClick={onClick}
       {...props}
     >
