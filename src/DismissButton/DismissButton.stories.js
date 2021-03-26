@@ -27,6 +27,14 @@ export default {
         options: dismissIconTypes
       }
     },
+    iconSize: {
+      control: {
+        type: 'range',
+        min: 16,
+        max: 100,
+        step: 1
+      }
+    },
     onClick: {
       action: 'clicked'
     }
