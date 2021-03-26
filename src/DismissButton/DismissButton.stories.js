@@ -67,3 +67,15 @@ SrText.args = {
   iconType: 'solid',
 };
 SrText.storyName = 'Icon Button with Screen Reader Only Text';
+
+export const CustomSize = DismissButtonTemplate.bind({});
+CustomSize.args = {
+  srText: 'Close Modal',
+  icon: 'x-circle',
+  iconType: 'solid',
+  iconSize: 60,
+  iconProps: {
+    className: 'su-text-sky-dark hocus:su-text-plum'
+  },
+};
+CustomSize.storyName = 'Large Icon Button with Custom Color';

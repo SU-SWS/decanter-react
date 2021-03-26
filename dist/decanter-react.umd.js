@@ -1235,15 +1235,16 @@
         color = _ref.color,
         icon = _ref.icon,
         iconType = _ref.iconType,
+        iconSize = _ref.iconSize,
         iconProps = _ref.iconProps,
         customIcon = _ref.customIcon,
         onClick = _ref.onClick,
-        props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "color", "icon", "iconType", "iconProps", "customIcon", "onClick"]);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "color", "icon", "iconType", "iconSize", "iconProps", "customIcon", "onClick"]);
 
     var levers = {};
     iconProps = Object.assign({
-      height: 20,
-      width: 20
+      height: iconSize != null ? iconSize : 20,
+      width: iconSize != null ? iconSize : 20
     }, _extends({}, iconProps));
 
     if (color && dismissIconColors.includes(color)) {
@@ -1294,6 +1295,7 @@
     customIcon: propTypes.element,
     onClick: propTypes.func,
     iconProps: propTypes.object,
+    iconSize: propTypes.number,
     className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
   };
   DismissButton.defaultProps = {

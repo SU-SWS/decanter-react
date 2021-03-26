@@ -12,10 +12,10 @@ import clsxd from 'clsx-dedupe';
  * For use with other components such as DismissButtons and modals.
  *
  */
-export const DismissButton = ({ className, text, srText, color, icon, iconType, iconProps, customIcon, onClick, ...props }) => {
+export const DismissButton = ({ className, text, srText, color, icon, iconType, iconSize, iconProps, customIcon, onClick, ...props }) => {
   // Defaults & Variables
   const levers = {};
-  iconProps = Object.assign({ height: 20, width: 20 }, {...iconProps});
+  iconProps = Object.assign({ height: iconSize ?? 20, width: iconSize ?? 20 }, {...iconProps});
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -114,6 +114,11 @@ DismissButton.propTypes = {
    * Props for the Icon Element.
    */
   iconProps: PropTypes.object,
+
+  /**
+   * Size (same for height and width) of the icon in pixels.
+   */
+  iconSize: PropTypes.number,
 
   /**
    * Custom CSS classes, e.g., to change color
