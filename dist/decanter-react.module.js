@@ -1257,17 +1257,17 @@ var getIconAnimation = function getIconAnimation(animate) {
 };
 
 var Button = function Button(_ref) {
-  var _ref$classes = _ref.classes,
-      classes = _ref$classes === void 0 ? {} : _ref$classes,
+  var className = _ref.className,
       children = _ref.children,
       onClick = _ref.onClick,
       variant = _ref.variant,
       size = _ref.size,
       type = _ref.type,
       icon = _ref.icon,
+      iconProps = _ref.iconProps,
       animate = _ref.animate,
       isDisabled = _ref.isDisabled,
-      props = _objectWithoutPropertiesLoose(_ref, ["classes", "children", "onClick", "variant", "size", "type", "icon", "animate", "isDisabled"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"]);
 
   var levers = {};
 
@@ -1285,7 +1285,7 @@ var Button = function Button(_ref) {
         levers.variant = clsxd('su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid');
         break;
 
-      case 'none':
+      case 'unset':
         levers.variant = 'su-bg-transparent hocus:su-bg-transparent';
         break;
     }
@@ -1319,30 +1319,32 @@ var Button = function Button(_ref) {
     });
   }
 
+  var _ref2 = iconProps || {},
+      iconClasses = _ref2.className,
+      iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
+
   return /*#__PURE__*/React.createElement("button", _extends({
-    className: clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, classes.wrapper),
+    className: clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className),
     onClick: onClick,
     type: type,
     disabled: isDisabled
-  }, props), children, icon && /*#__PURE__*/React.createElement(Icon, {
+  }, props), children, icon && /*#__PURE__*/React.createElement(Icon, _extends({
     icon: heroicon,
     type: "solid",
     "aria-hidden": true,
-    className: clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)
-  }));
+    className: clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)
+  }, iProps)));
 };
 Button.propTypes = {
   type: propTypes.oneOf(buttonTypes),
   variant: propTypes.oneOf(buttonVariants),
   size: propTypes.oneOf(buttonSizes),
   icon: propTypes.oneOf(iconOptions),
+  iconProps: propTypes.object,
   animate: propTypes.oneOf(iconAnimations),
   isDisabled: propTypes.bool,
   onClick: propTypes.func,
-  classes: propTypes.shape({
-    link: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
-    icon: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
-  }),
+  className: propTypes.string,
   children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node])
 };
 Button.defaultProps = {
@@ -1418,7 +1420,7 @@ var DismissButton = function DismissButton(_ref) {
   }, iconProps));
   var dismissIcon = customIcon != null ? customIcon : defaultIcon;
   return /*#__PURE__*/React.createElement(Button, _extends({
-    variant: "none",
+    variant: "unset",
     size: "minimal",
     className: clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, className),
     onClick: onClick
@@ -1670,16 +1672,15 @@ Container.defaultProps = {
 var ctaButtonVariants = ['solid', 'outline', 'ghost', 'unset'];
 
 var CtaButton = function CtaButton(_ref) {
-  var _ref$classes = _ref.classes,
-      classes = _ref$classes === void 0 ? {} : _ref$classes,
+  var className = _ref.className,
       text = _ref.text,
       srText = _ref.srText,
-      link = _ref.link,
       variant = _ref.variant,
       size = _ref.size,
       icon = _ref.icon,
+      iconProps = _ref.iconProps,
       animate = _ref.animate,
-      props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "link", "variant", "size", "icon", "animate"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"]);
 
   var levers = {};
 
@@ -1714,30 +1715,31 @@ var CtaButton = function CtaButton(_ref) {
     levers.animate = getIconAnimation(animate);
   }
 
+  var _ref2 = iconProps || {},
+      iconClasses = _ref2.className,
+      iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
+
   return /*#__PURE__*/React.createElement("a", _extends({
-    className: clsxd('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.size, levers.variant, classes.link),
-    href: link
+    className: clsxd('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.size, levers.variant, className)
   }, props), text, srText && /*#__PURE__*/React.createElement(SrOnlyText, {
     srText: ' ' + srText
-  }), icon && /*#__PURE__*/React.createElement(Icon, {
+  }), icon && /*#__PURE__*/React.createElement(Icon, _extends({
     icon: heroicon,
     type: "solid",
     "aria-hidden": true,
-    className: clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)
-  }));
+    className: clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)
+  }, iProps)));
 };
 CtaButton.propTypes = {
+  className: propTypes.string,
   variant: propTypes.oneOf(ctaButtonVariants),
   size: propTypes.oneOf(buttonSizes),
   icon: propTypes.oneOf(iconOptions),
+  iconProps: propTypes.object,
   animate: propTypes.oneOf(iconAnimations),
-  link: propTypes.string,
+  href: propTypes.string,
   text: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
-  srText: propTypes.string,
-  classes: propTypes.shape({
-    link: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
-    icon: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
-  })
+  srText: propTypes.string
 };
 CtaButton.defaultProps = {
   variant: 'solid'
@@ -1746,15 +1748,14 @@ CtaButton.defaultProps = {
 var ctaLinkColors = ['red', 'blue', 'white', 'unset'];
 
 var CtaLink = function CtaLink(_ref) {
-  var _ref$classes = _ref.classes,
-      classes = _ref$classes === void 0 ? {} : _ref$classes,
+  var className = _ref.className,
       text = _ref.text,
       srText = _ref.srText,
-      link = _ref.link,
       color = _ref.color,
       icon = _ref.icon,
+      iconProps = _ref.iconProps,
       animate = _ref.animate,
-      props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "link", "color", "icon", "animate"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "color", "icon", "iconProps", "animate"]);
 
   var levers = {};
 
@@ -1785,29 +1786,30 @@ var CtaLink = function CtaLink(_ref) {
     levers.animate = getIconAnimation(animate);
   }
 
+  var _ref2 = iconProps || {},
+      iconClasses = _ref2.className,
+      iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
+
   return /*#__PURE__*/React.createElement("a", _extends({
-    className: clsxd('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.color, levers.size, levers.variant, classes.link),
-    href: link
+    className: clsxd('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.color, levers.size, levers.variant, className)
   }, props), text, srText && /*#__PURE__*/React.createElement(SrOnlyText, {
     srText: ' ' + srText
-  }), icon && /*#__PURE__*/React.createElement(Icon, {
+  }), icon && /*#__PURE__*/React.createElement(Icon, _extends({
     icon: heroicon,
     type: "solid",
     "aria-hidden": true,
-    className: clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)
-  }));
+    className: clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)
+  }, iProps)));
 };
 CtaLink.propTypes = {
+  className: propTypes.string,
   color: propTypes.oneOf(ctaLinkColors),
   icon: propTypes.oneOf(iconOptions),
+  iconProps: propTypes.object,
   animate: propTypes.oneOf(iconAnimations),
-  link: propTypes.string,
+  href: propTypes.string,
   text: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
-  srText: propTypes.string,
-  classes: propTypes.shape({
-    link: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
-    icon: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
-  })
+  srText: propTypes.string
 };
 CtaLink.defaultProps = {
   icon: 'action',
