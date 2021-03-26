@@ -1,12 +1,9 @@
+// Please see additional levers in /src/common/levers
+
 /**
  * Styles for the button.
  */
-export const buttonVariants = ['primary', 'secondary', 'none'];
-
-/**
- * Size of the button
- */
-export const buttonSizes = ['big', 'small', 'minimal'];
+export const buttonVariants = ['solid', 'outline', 'ghost', 'unset'];
 
 /**
  * Type of the button HTML element

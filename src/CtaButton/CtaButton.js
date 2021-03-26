@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buttonVariants, buttonTypes } from './Button.levers';
+import { ctaButtonVariants } from './CtaButton.levers';
 import { buttonSizes } from "../common/button/button.levers";
 import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 import getButtonSize from "../common/button/getButtonSize";
 import getIconOption from "../common/icon/getIconOption";
 import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
+import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import Icon from 'react-hero-icon';
 import clsxd from 'clsx-dedupe';
 
 /**
- * Button Component
+ * CTA Link Button Component
  *
- * HTML button element
  */
-export const Button = ({ className, children, onClick, variant, size, type, icon, iconProps, animate, isDisabled, ...props }) => {
+export const CtaButton = ({ className, text, srText, variant, size, icon, iconProps, animate, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -24,22 +24,18 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
   // ---------------------------------------------------------------------------
 
   // variant
-  if (variant && buttonVariants.includes(variant)) {
+  if (variant && ctaButtonVariants.includes(variant)) {
     switch (variant) {
       case 'solid':
-        levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
+        levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
       case 'outline':
-        levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
+        levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
         break;
 
       case 'ghost':
-        levers.variant = clsxd('su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid');
-        break;
-
-      case 'unset':
-        levers.variant = 'su-bg-transparent hocus:su-bg-transparent';
+        levers.variant = 'su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid';
         break;
     }
   }
@@ -63,24 +59,19 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
     levers.animate = getIconAnimation(animate);
   }
 
-  // Is disabled
-  if (isDisabled) {
-    levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
-    levers.variant = clsxd(levers.variant, {'su-bg-digital-red': false, 'su-bg-white': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
-  }
-
   // Icon className.
   const { className:iconClasses, ...iProps } = iconProps || {};
 
   return (
-    <button
-      className={clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className)}
-      onClick={onClick}
-      type={type}
-      disabled={isDisabled}
+    <a
+      className={clsxd('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
+        levers.size, levers.variant, className)}
       {...props}
     >
-      {children}
+      {text}
+      {srText &&
+      <SrOnlyText srText={' ' + srText} />
+      }
       {icon &&
       <Icon icon={heroicon}
             type='solid'
@@ -89,20 +80,21 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
             {...iProps}
       />
       }
-    </button>
+    </a>
   );
 };
 
-Button.propTypes = {
+CtaButton.propTypes = {
+
   /**
-   * HTML button type attribute
+   * Css class names.
    */
-  type: PropTypes.oneOf(buttonTypes),
+  className: PropTypes.string,
 
   /**
    * Variant/button style
    */
-  variant: PropTypes.oneOf(buttonVariants),
+  variant: PropTypes.oneOf(ctaButtonVariants),
 
   /**
    * Button size
@@ -115,7 +107,7 @@ Button.propTypes = {
   icon: PropTypes.oneOf(iconOptions),
 
   /**
-   * Icon Properties
+   * Icon options
    */
   iconProps: PropTypes.object,
 
@@ -125,34 +117,27 @@ Button.propTypes = {
   animate: PropTypes.oneOf(iconAnimations),
 
   /**
-   * Is the button disabled?
+   * URL
    */
-  isDisabled: PropTypes.bool,
+  href: PropTypes.string,
 
   /**
-   * Optional click handler.
+   * Link text
    */
-  onClick: PropTypes.func,
-
-  /**
-   * CSS Class names.
-   */
-  className: PropTypes.string,
-
-  // Children
-  children: PropTypes.oneOfType([
+  text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
     PropTypes.node
   ]),
+
+  /**
+   * Optional text for screen readers
+   */
+  srText: PropTypes.string,
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
-Button.defaultProps = {
-  onClick: undefined,
-  type: 'button',
-  variant: 'solid',
-  size: 'default',
-  isDisabled: false,
+CtaButton.defaultProps = {
+  variant: 'solid'
 };

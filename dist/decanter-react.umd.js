@@ -1125,62 +1125,197 @@
   var dismissIconOptions = ['x-circle', 'x', 'none'];
   var dismissIconTypes = ['solid', 'outline'];
 
-  var buttonVariants = ['primary', 'secondary', 'none'];
-  var buttonSizes = ['big', 'small', 'minimal'];
+  var buttonVariants = ['solid', 'outline', 'ghost', 'unset'];
   var buttonTypes = ['button', 'submit', 'reset'];
+
+  var buttonSizes = ['default', 'big', 'small', 'minimal', 'unset'];
+
+  var iconOptions = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
+  var iconAnimations = ['right', 'top-right', 'down', 'none'];
+
+  var getButtonSize = function getButtonSize(size) {
+    var classes = '';
+
+    switch (size) {
+      case 'default':
+        classes = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
+        break;
+
+      case 'big':
+        classes = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
+        break;
+
+      case 'small':
+        classes = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
+        break;
+
+      case 'minimal':
+        classes = 'su-p-0';
+        break;
+    }
+
+    return classes;
+  };
+
+  var getIconOption = function getIconOption(icon) {
+    var heroicon = '';
+
+    switch (icon) {
+      case 'action':
+        heroicon = 'chevron-right';
+        break;
+
+      case 'more':
+        heroicon = 'arrow-narrow-right';
+        break;
+
+      case 'external':
+        heroicon = 'arrow-up';
+        break;
+
+      case 'lock':
+        heroicon = 'lock-closed';
+        break;
+
+      case 'download':
+        heroicon = 'download';
+        break;
+
+      case 'video':
+        heroicon = 'play';
+        break;
+
+      case 'email':
+        heroicon = 'mail';
+        break;
+
+      case 'jump':
+        heroicon = 'chevron-down';
+        break;
+    }
+
+    return heroicon;
+  };
+
+  var getIconClasses = function getIconClasses(icon) {
+    var classes = '';
+
+    switch (icon) {
+      case 'action':
+        classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+        break;
+
+      case 'more':
+        classes = 'su-h-09em su-w-09em su-ml-5 su--mt-2';
+        break;
+
+      case 'external':
+        classes = 'su-h-08em su-w-08em su-ml-4 su--mt-2 su-transform su-rotate-45 group-hocus:su-rotate-45';
+        break;
+
+      case 'lock':
+        classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
+        break;
+
+      case 'download':
+        classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
+        break;
+
+      case 'video':
+        classes = 'su-h-08em su-w-08em su-ml-6 su--mt-3';
+        break;
+
+      case 'email':
+        classes = 'su-h-08em su-w-08em su-ml-7 su--mt-2';
+        break;
+
+      case 'jump':
+        classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+        break;
+    }
+
+    return classes;
+  };
+
+  var getIconAnimation = function getIconAnimation(animate) {
+    var classes = '';
+
+    if (animate !== 'none') {
+      classes = 'su-transition-transform group-hocus:su-transform';
+    }
+
+    switch (animate) {
+      case 'right':
+        classes = clsxd(classes, 'group-hocus:su-translate-x-02em');
+        break;
+
+      case 'top-right':
+        classes = clsxd(classes, 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em');
+        break;
+
+      case 'down':
+        classes = clsxd(classes, 'group-hocus:su-translate-y-02em');
+        break;
+    }
+
+    return classes;
+  };
 
   var Button = function Button(_ref) {
     var className = _ref.className,
         children = _ref.children,
         onClick = _ref.onClick,
-        ref = _ref.ref,
         variant = _ref.variant,
         size = _ref.size,
         type = _ref.type,
+        icon = _ref.icon,
+        iconProps = _ref.iconProps,
+        animate = _ref.animate,
         isDisabled = _ref.isDisabled,
-        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "onClick", "ref", "variant", "size", "type", "isDisabled"]);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"]);
 
     var levers = {};
 
     if (variant && buttonVariants.includes(variant)) {
       switch (variant) {
-        case 'primary':
-          levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        case 'solid':
+          levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
           break;
 
-        case 'secondary':
-          levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+        case 'outline':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
           break;
 
-        case 'none':
+        case 'ghost':
+          levers.variant = clsxd('su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid');
+          break;
+
+        case 'unset':
           levers.variant = 'su-bg-transparent hocus:su-bg-transparent';
           break;
       }
     }
 
     if (size && buttonSizes.includes(size)) {
-      switch (size) {
-        case 'big':
-          levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
-          break;
+      levers.size = getButtonSize(size);
+    }
 
-        case 'small':
-          levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
-          break;
+    var heroicon = '';
 
-        case 'minimal':
-          levers.size = 'su-p-0';
-          break;
+    if (icon && iconOptions.includes(icon)) {
+      heroicon = getIconOption(icon);
+      levers.icon = getIconClasses(icon);
+    }
 
-        default:
-          levers.size = 'su-px-26 su-py-10 su-text-16 md:su-text-20';
-      }
+    if (animate && iconAnimations.includes(animate)) {
+      levers.animate = getIconAnimation(animate);
     }
 
     if (isDisabled) {
       levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
       levers.variant = clsxd(levers.variant, {
         'su-bg-digital-red': false,
+        'su-bg-white': false,
         'su-text-digital-red': false,
         'su-border-digital-red': false,
         'hover:su-border-black': false,
@@ -1189,28 +1324,40 @@
       });
     }
 
+    var _ref2 = iconProps || {},
+        iconClasses = _ref2.className,
+        iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
+
     return /*#__PURE__*/React__default.createElement("button", _extends({
-      className: clsxd('su-button', levers.variant, levers.size, levers.disabled, className),
-      ref: ref,
+      className: clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className),
       onClick: onClick,
       type: type,
       disabled: isDisabled
-    }, props), children);
+    }, props), children, icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+      icon: heroicon,
+      type: "solid",
+      "aria-hidden": true,
+      className: clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)
+    }, iProps)));
   };
   Button.propTypes = {
     type: propTypes.oneOf(buttonTypes),
     variant: propTypes.oneOf(buttonVariants),
     size: propTypes.oneOf(buttonSizes),
+    icon: propTypes.oneOf(iconOptions),
+    iconProps: propTypes.object,
+    animate: propTypes.oneOf(iconAnimations),
     isDisabled: propTypes.bool,
     onClick: propTypes.func,
-    className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
+    className: propTypes.string,
     children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node])
   };
   Button.defaultProps = {
     onClick: undefined,
     type: 'button',
-    isDisabled: false,
-    ref: null
+    variant: 'solid',
+    size: 'default',
+    isDisabled: false
   };
 
   var SrOnlyText = function SrOnlyText(props) {
@@ -1278,7 +1425,7 @@
     }, iconProps));
     var dismissIcon = customIcon != null ? customIcon : defaultIcon;
     return /*#__PURE__*/React__default.createElement(Button, _extends({
-      variant: "none",
+      variant: "unset",
       size: "minimal",
       className: clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, className),
       onClick: onClick
@@ -1525,6 +1672,153 @@
   Container.defaultProps = {
     element: 'div',
     width: 'site'
+  };
+
+  var ctaButtonVariants = ['solid', 'outline', 'ghost', 'unset'];
+
+  var CtaButton = function CtaButton(_ref) {
+    var className = _ref.className,
+        text = _ref.text,
+        srText = _ref.srText,
+        variant = _ref.variant,
+        size = _ref.size,
+        icon = _ref.icon,
+        iconProps = _ref.iconProps,
+        animate = _ref.animate,
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"]);
+
+    var levers = {};
+
+    if (variant && ctaButtonVariants.includes(variant)) {
+      switch (variant) {
+        case 'solid':
+          levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+          break;
+
+        case 'outline':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+          break;
+
+        case 'ghost':
+          levers.variant = 'su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid';
+          break;
+      }
+    }
+
+    if (size && buttonSizes.includes(size)) {
+      levers.size = getButtonSize(size);
+    }
+
+    var heroicon = '';
+
+    if (icon && iconOptions.includes(icon)) {
+      heroicon = getIconOption(icon);
+      levers.icon = getIconClasses(icon);
+    }
+
+    if (animate && iconAnimations.includes(animate)) {
+      levers.animate = getIconAnimation(animate);
+    }
+
+    var _ref2 = iconProps || {},
+        iconClasses = _ref2.className,
+        iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
+
+    return /*#__PURE__*/React__default.createElement("a", _extends({
+      className: clsxd('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.size, levers.variant, className)
+    }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
+      srText: ' ' + srText
+    }), icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+      icon: heroicon,
+      type: "solid",
+      "aria-hidden": true,
+      className: clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)
+    }, iProps)));
+  };
+  CtaButton.propTypes = {
+    className: propTypes.string,
+    variant: propTypes.oneOf(ctaButtonVariants),
+    size: propTypes.oneOf(buttonSizes),
+    icon: propTypes.oneOf(iconOptions),
+    iconProps: propTypes.object,
+    animate: propTypes.oneOf(iconAnimations),
+    href: propTypes.string,
+    text: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
+    srText: propTypes.string
+  };
+  CtaButton.defaultProps = {
+    variant: 'solid'
+  };
+
+  var ctaLinkColors = ['red', 'blue', 'white', 'unset'];
+
+  var CtaLink = function CtaLink(_ref) {
+    var className = _ref.className,
+        text = _ref.text,
+        srText = _ref.srText,
+        color = _ref.color,
+        icon = _ref.icon,
+        iconProps = _ref.iconProps,
+        animate = _ref.animate,
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "color", "icon", "iconProps", "animate"]);
+
+    var levers = {};
+
+    if (color && ctaLinkColors.includes(color)) {
+      switch (color) {
+        case 'red':
+          levers.color = 'su-text-digital-red hocus:su-text-black';
+          break;
+
+        case 'blue':
+          levers.color = 'su-text-digital-blue hocus:su-text-black';
+          break;
+
+        case 'white':
+          levers.color = 'su-text-white hocus:su-text-white';
+          break;
+      }
+    }
+
+    var heroicon = '';
+
+    if (icon && iconOptions.includes(icon)) {
+      heroicon = getIconOption(icon);
+      levers.icon = getIconClasses(icon);
+    }
+
+    if (animate && iconAnimations.includes(animate)) {
+      levers.animate = getIconAnimation(animate);
+    }
+
+    var _ref2 = iconProps || {},
+        iconClasses = _ref2.className,
+        iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
+
+    return /*#__PURE__*/React__default.createElement("a", _extends({
+      className: clsxd('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.color, levers.size, levers.variant, className)
+    }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
+      srText: ' ' + srText
+    }), icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+      icon: heroicon,
+      type: "solid",
+      "aria-hidden": true,
+      className: clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)
+    }, iProps)));
+  };
+  CtaLink.propTypes = {
+    className: propTypes.string,
+    color: propTypes.oneOf(ctaLinkColors),
+    icon: propTypes.oneOf(iconOptions),
+    iconProps: propTypes.object,
+    animate: propTypes.oneOf(iconAnimations),
+    href: propTypes.string,
+    text: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
+    srText: propTypes.string
+  };
+  CtaLink.defaultProps = {
+    icon: 'action',
+    color: 'none'
   };
 
   var flexElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
@@ -2397,64 +2691,11 @@
   };
   Skiplink.defaultProps = {};
 
-  var StyledLink = function StyledLink(props) {
-    var styles = {};
-    var defaultClasses = {
-      wrapper: 'su-link'
-    };
-    var variants = {
-      action: {},
-      download: {},
-      external: {},
-      internal: {},
-      jump: {},
-      more: {},
-      video: {},
-      button: {
-        wrapper: 'su-button'
-      },
-      buttonSecondary: {
-        wrapper: 'su-button su-button--secondary'
-      },
-      buttonBig: {
-        wrapper: 'su-button su-button--big'
-      }
-    };
-    var classes = Object.assign(defaultClasses, props.classes);
-    classes = Object.assign(classes, variants[props.variant]);
-
-    if (props.animate !== undefined) {
-      switch (props.animate) {
-        case 'down':
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedDown);
-          break;
-
-        case 'left':
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedLeft);
-          break;
-
-        case 'up':
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedUp);
-          break;
-
-        case 'topRight':
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedTopRight);
-          break;
-
-        default:
-          classes.wrapper += ' ' + (styles === null || styles === void 0 ? void 0 : styles.animatedRight);
-      }
-    }
-
-    return /*#__PURE__*/React__default.createElement("a", _extends({
-      className: classes.wrapper,
-      href: props.href
-    }, props.attributes), props.children, classes.icon && classes.icon);
-  };
-
   exports.Alert = Alert;
   exports.Button = Button;
   exports.Container = Container;
+  exports.CtaButton = CtaButton;
+  exports.CtaLink = CtaLink;
   exports.DismissButton = DismissButton;
   exports.FlexBox = FlexBox;
   exports.FlexCell = FlexCell;
@@ -2468,6 +2709,5 @@
   exports.Logo = Logo;
   exports.Skiplink = Skiplink;
   exports.SrOnlyText = SrOnlyText;
-  exports.StyledLink = StyledLink;
 
 })));
