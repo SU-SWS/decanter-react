@@ -15,7 +15,7 @@ import clsxd from 'clsx-dedupe';
  *
  * HTML button element
  */
-export const Button = ({ classes = {}, children, onClick, variant, size, type, icon, animate, isDisabled, ...props }) => {
+export const Button = ({ className, children, onClick, variant, size, type, icon, iconProps, animate, isDisabled, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -38,7 +38,7 @@ export const Button = ({ classes = {}, children, onClick, variant, size, type, i
         levers.variant = clsxd('su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid');
         break;
 
-      case 'none':
+      case 'unset':
         levers.variant = 'su-bg-transparent hocus:su-bg-transparent';
         break;
     }
@@ -69,9 +69,12 @@ export const Button = ({ classes = {}, children, onClick, variant, size, type, i
     levers.variant = clsxd(levers.variant, {'su-bg-digital-red': false, 'su-bg-white': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
   }
 
+  // Icon className.
+  const { className:iconClasses } = iconProps || {};
+
   return (
     <button
-      className={clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, classes.wrapper)}
+      className={clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className)}
       onClick={onClick}
       type={type}
       disabled={isDisabled}
@@ -82,7 +85,8 @@ export const Button = ({ classes = {}, children, onClick, variant, size, type, i
       <Icon icon={heroicon}
             type='solid'
             aria-hidden={true}
-            className={clsxd('su-inline-block', levers.icon, levers.animate, classes.icon)}
+            className={clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)}
+            {...iconProps}
       />
       }
     </button>
@@ -111,6 +115,11 @@ Button.propTypes = {
   icon: PropTypes.oneOf(iconOptions),
 
   /**
+   * Icon Properties
+   */
+   icon: PropTypes.object,
+
+  /**
    * Icon animation on hover/focus
    */
   animate: PropTypes.oneOf(iconAnimations),
@@ -121,27 +130,14 @@ Button.propTypes = {
   isDisabled: PropTypes.bool,
 
   /**
-   * Optional click handler
+   * Optional click handler.
    */
   onClick: PropTypes.func,
 
   /**
-   * Additional CSS classes
+   * CSS Class names.
    */
-  classes: PropTypes.shape(
-    {
-      link: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.array
-      ]),
-      icon: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.array
-      ]),
-    }
-  ),
+  className: PropTypes.string,
 
   // Children
   children: PropTypes.oneOfType([

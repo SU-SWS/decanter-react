@@ -125,9 +125,7 @@ export const Custom = ButtonTemplate.bind({});
 Custom.args = {
   variant: 'unset',
   size: 'unset',
-  classes: {
-    wrapper: 'su-bg-plum-light su-text-illuminating-light su-font-slab su-text-20 su-p-30 su-font-semibold'
-  },
+  className: 'su-bg-plum-light su-text-illuminating-light su-font-slab su-text-20 su-p-30 su-font-semibold hocus:su-bg-palo-alto',
   children: 'With Custom Styling',
 };
 Custom.storyName = 'With Custom Styling';
