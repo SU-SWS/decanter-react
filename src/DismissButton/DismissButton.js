@@ -110,24 +110,6 @@ DismissButton.propTypes = {
    */
   onClick: PropTypes.func,
 
-  /**
-   * Additional classes for styling
-   */
-  classes: PropTypes.shape(
-    {
-      wrapper: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.array
-      ]),
-      icon: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.object,
-        PropTypes.array
-      ]),
-    }
-  )
-};
 
 // Default Props.
 // -----------------------------------------------------------------------------
