@@ -1224,22 +1224,22 @@ SrOnlyText.defaultProps = {
 };
 
 var DismissButton = function DismissButton(_ref) {
-  var _ref$classes = _ref.classes,
-      classes = _ref$classes === void 0 ? {} : _ref$classes,
+  var className = _ref.className,
       text = _ref.text,
       srText = _ref.srText,
       color = _ref.color,
       icon = _ref.icon,
       iconType = _ref.iconType,
+      iconProps = _ref.iconProps,
       customIcon = _ref.customIcon,
       onClick = _ref.onClick,
-      props = _objectWithoutPropertiesLoose(_ref, ["classes", "text", "srText", "color", "icon", "iconType", "customIcon", "onClick"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "color", "icon", "iconType", "iconProps", "customIcon", "onClick"]);
 
   var levers = {};
-  var iconProps = {
+  iconProps = Object.assign({
     height: 20,
     width: 20
-  };
+  }, _extends({}, iconProps));
 
   if (color && dismissIconColors.includes(color)) {
     switch (color) {
@@ -1268,14 +1268,13 @@ var DismissButton = function DismissButton(_ref) {
   var defaultIcon = /*#__PURE__*/React.createElement(Icon, _extends({
     icon: heroicon,
     type: heroiconType,
-    "aria-hidden": "true",
-    className: classes.icon
+    "aria-hidden": "true"
   }, iconProps));
   var dismissIcon = customIcon != null ? customIcon : defaultIcon;
   return /*#__PURE__*/React.createElement(Button, _extends({
     variant: "none",
     size: "minimal",
-    className: clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, classes.wrapper),
+    className: clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, className),
     onClick: onClick
   }, props), text, srText && /*#__PURE__*/React.createElement(SrOnlyText, {
     srText: ' ' + srText
@@ -1289,10 +1288,8 @@ DismissButton.propTypes = {
   iconType: propTypes.oneOf(dismissIconTypes),
   customIcon: propTypes.element,
   onClick: propTypes.func,
-  classes: propTypes.shape({
-    wrapper: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array]),
-    icon: propTypes.oneOfType([propTypes.string, propTypes.object, propTypes.array])
-  })
+  iconProps: propTypes.object,
+  className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
 };
 DismissButton.defaultProps = {
   color: 'black',
@@ -1344,7 +1341,7 @@ var Alert = function Alert(_ref) {
           icon: "check-circle",
           type: "solid",
           "aria-hidden": "true",
-          className: clsxd(classes.icon)
+          className: classes.icon
         }, iconProps));
         break;
 
@@ -1356,7 +1353,7 @@ var Alert = function Alert(_ref) {
           icon: "exclamation-circle",
           type: "solid",
           "aria-hidden": "true",
-          className: clsxd(classes.icon)
+          className: classes.icon
         }, iconProps));
         break;
 
@@ -1368,7 +1365,7 @@ var Alert = function Alert(_ref) {
           icon: "information-circle",
           type: "solid",
           "aria-hidden": "true",
-          className: clsxd(classes.icon)
+          className: classes.icon
         }, iconProps));
         break;
 
@@ -1380,7 +1377,7 @@ var Alert = function Alert(_ref) {
           icon: "ban",
           type: "solid",
           "aria-hidden": "true",
-          className: clsxd(classes.icon)
+          className: classes.icon
         }, iconProps));
         break;
     }
@@ -1393,9 +1390,9 @@ var Alert = function Alert(_ref) {
       setDismissed(true);
     },
     color: levers.dismiss,
-    classes: {
-      icon: 'su-ml-02em',
-      wrapper: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto'
+    className: "su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto",
+    iconProps: {
+      className: 'su-ml-02em'
     }
   });
   var dismissBtn = (_props$dismissBtn = props.dismissBtn) != null ? _props$dismissBtn : DefaultDismiss;

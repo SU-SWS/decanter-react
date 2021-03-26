@@ -42,10 +42,10 @@ const DismissButtonTemplate = ({ ...rest }) => {
 export const Default = DismissButtonTemplate.bind({});
 Default.args = {
   text: 'Dismiss',
-  classes: {
-    wrapper: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest',
-    icon: 'su-ml-02em'
-  }
+  className: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest',
+  iconProps: {
+    className: 'su-ml-02em'
+  },
 };
 Default.storyName = 'Alert Dismiss Button (Dark)';
 
@@ -54,9 +54,9 @@ Close.args = {
   text: 'Close',
   icon: 'x',
   iconType: 'solid',
-  classes: {
-    icon: 'su-ml-02em'
-  }
+  iconProps: {
+    className: 'su-ml-02em'
+  },
 };
 Close.storyName = 'Close Button with X Icon';
 

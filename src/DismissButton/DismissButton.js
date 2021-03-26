@@ -15,7 +15,7 @@ import clsxd from 'clsx-dedupe';
 export const DismissButton = ({ className, text, srText, color, icon, iconType, iconProps, customIcon, onClick, ...props }) => {
   // Defaults & Variables
   const levers = {};
-  iconProps = Object.assign({ height: 20, width: 20 }, ...iconProps);
+  iconProps = Object.assign({ height: 20, width: 20 }, {...iconProps});
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -112,8 +112,18 @@ DismissButton.propTypes = {
 
   /**
    * Props for the Icon Element.
-   */ 
+   */
   iconProps: PropTypes.object,
+
+  /**
+   * Custom CSS classes, e.g., to change color
+   */
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object
+  ]),
+};
 
 // Default Props.
 // -----------------------------------------------------------------------------

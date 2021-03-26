@@ -40,28 +40,28 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
         levers.wrapper = 'su-bg-digital-green su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = <Icon icon='check-circle' type='solid' aria-hidden='true' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='check-circle' type='solid' aria-hidden='true' className={classes.icon} {...iconProps} />;
         break;
 
       case 'warning':
         levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
         levers.dismiss = 'black';
-        defaultIcon = <Icon icon='exclamation-circle' type='solid' aria-hidden='true' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='exclamation-circle' type='solid' aria-hidden='true' className={classes.icon} {...iconProps} />;
         break;
 
       case 'info':
         levers.wrapper = 'su-bg-digital-blue su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = <Icon icon='information-circle' type='solid' aria-hidden='true' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='information-circle' type='solid' aria-hidden='true' className={classes.icon} {...iconProps} />;
         break;
 
       case 'error':
         levers.wrapper = 'su-bg-digital-red su-text-white su-link-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = <Icon icon='ban' type='solid' aria-hidden='true' className={clsxd(classes.icon)} {...iconProps} />;
+        defaultIcon = <Icon icon='ban' type='solid' aria-hidden='true' className={classes.icon} {...iconProps} />;
         break;
     }
   }
@@ -74,10 +74,8 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
     <DismissButton text='Dismiss'
                    onClick={() => { setDismissed(true); }}
                    color={levers.dismiss}
-                   classes={{
-                     icon: 'su-ml-02em',
-                     wrapper: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto'
-                   }}
+                   className='su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto'
+                   iconProps={{ className: 'su-ml-02em'}}
     />
   );
   const dismissBtn = props.dismissBtn ?? DefaultDismiss;
