@@ -138,6 +138,18 @@ CustomProps.args = {
 };
 CustomProps.storyName = 'Link with Custom Props';
 
+export const CustomClick = CtaLinkTemplate.bind({});
+CustomClick.args = {
+  text: 'Link with Custom Click Event',
+  color: 'red',
+  icon: 'external',
+  animate: 'top-right',
+  rel: 'nofollow',
+  className: 'su-cursor-pointer',
+  onClick: () => { alert("Hey, you did it."); },
+};
+CustomProps.storyName = 'Link with Custom Props';
+
 export const SrText = CtaLinkTemplate.bind({});
 SrText.args = {
   text: 'Learn more',
