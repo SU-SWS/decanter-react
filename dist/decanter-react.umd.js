@@ -1272,7 +1272,8 @@
         iconProps = _ref.iconProps,
         animate = _ref.animate,
         isDisabled = _ref.isDisabled,
-        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"]);
+        ref = _ref.ref,
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled", "ref"]);
 
     var levers = {};
 
@@ -1328,12 +1329,15 @@
         iconClasses = _ref2.className,
         iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
 
+    ref = React.useRef(null);
     return /*#__PURE__*/React__default.createElement("button", _extends({
       className: clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className),
       onClick: onClick,
       type: type,
       disabled: isDisabled
-    }, props), children, icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+    }, props, {
+      ref: ref
+    }), children, icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
       icon: heroicon,
       type: "solid",
       "aria-hidden": true,
@@ -1350,10 +1354,12 @@
     isDisabled: propTypes.bool,
     onClick: propTypes.func,
     className: propTypes.string,
-    children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node])
+    children: propTypes.oneOfType([propTypes.string, propTypes.element, propTypes.node]),
+    ref: propTypes.oneOfType([propTypes.func, propTypes.shape({
+      current: propTypes.any
+    })])
   };
   Button.defaultProps = {
-    onClick: undefined,
     type: 'button',
     variant: 'solid',
     size: 'default',

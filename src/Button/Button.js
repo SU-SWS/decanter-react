@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { buttonVariants, buttonTypes } from './Button.levers';
 import { buttonSizes } from "../common/button/button.levers";
@@ -15,7 +15,7 @@ import clsxd from 'clsx-dedupe';
  *
  * HTML button element
  */
-export const Button = ({ className, children, onClick, variant, size, type, icon, iconProps, animate, isDisabled, ...props }) => {
+export const Button = ({ className, children, onClick, variant, size, type, icon, iconProps, animate, isDisabled, ref, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -72,6 +72,8 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
   // Icon className.
   const { className:iconClasses, ...iProps } = iconProps || {};
 
+  ref = useRef(null);
+
   return (
     <button
       className={clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className)}
@@ -79,6 +81,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
       type={type}
       disabled={isDisabled}
       {...props}
+      ref={ref}
     >
       {children}
       {icon &&
@@ -145,12 +148,16 @@ Button.propTypes = {
     PropTypes.element,
     PropTypes.node
   ]),
+
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any })
+  ])
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
 Button.defaultProps = {
-  onClick: undefined,
   type: 'button',
   variant: 'solid',
   size: 'default',
