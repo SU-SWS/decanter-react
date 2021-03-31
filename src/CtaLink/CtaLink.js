@@ -6,7 +6,7 @@ import getIconOption from "../common/icon/getIconOption";
 import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import Icon from 'react-hero-icon';
-import { dcnb } from 'cnbuilder'
+import { dcnb } from 'cnbuilder';
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 
 /**

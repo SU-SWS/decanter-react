@@ -9,7 +9,7 @@ import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import Icon from 'react-hero-icon';
-import { dcnb } from 'cnbuilder'
+import { dcnb } from 'cnbuilder';
 
 /**
  * CTA Link Button Component

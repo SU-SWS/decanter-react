@@ -4,7 +4,7 @@ import { dismissIconOptions, dismissIconTypes, dismissIconColors } from './Dismi
 import { Button } from '../Button/Button';
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import Icon from 'react-hero-icon';
-import { dcnb } from 'cnbuilder'
+import { dcnb } from 'cnbuilder';
 
 /**
  * Dismiss Button Component
