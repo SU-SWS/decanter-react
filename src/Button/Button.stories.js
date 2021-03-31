@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from './Button';
-import { buttonVariants, buttonSizes, buttonTypes } from "./Button.levers";
+import { buttonVariants, buttonTypes } from "./Button.levers";
+import { buttonSizes } from "../common/button/button.levers";
+import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 import DOMPurify from 'dompurify';
 
 export default {
@@ -9,20 +11,37 @@ export default {
   argTypes: {
     variant: {
       control: {
-        type: 'select',
+        type: 'inline-radio',
         options: buttonVariants
       }
     },
     size: {
       control: {
-        type: 'select',
+        type: 'inline-radio',
         options: buttonSizes
       }
     },
     type: {
       control: {
-        type: 'select',
+        type: 'inline-radio',
         options: buttonTypes
+      }
+    },
+    icon: {
+      control: {
+        type: 'select',
+        options: iconOptions
+      }
+    },
+    animate: {
+      control: {
+        type: 'inline-radio',
+        options: iconAnimations
+      }
+    },
+    isDisabled: {
+      control: {
+        type: 'boolean',
       }
     },
     onClick: {
@@ -31,7 +50,13 @@ export default {
   }
 };
 
-const ButtonTemplate = ({ children, ...rest }) => {
+const ButtonTemplate = ({ ...rest }) => {
+  return (
+    <Button {...rest} />
+  );
+};
+
+const ButtonRichTextTemplate = ({ children, ...rest }) => {
   // We do this to mimic sending in CMS content or another React component.
   const content = <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />;
   return (
@@ -39,47 +64,74 @@ const ButtonTemplate = ({ children, ...rest }) => {
   );
 };
 
-export const Default = ButtonTemplate.bind({});
-Default.args = {
-  children: '🦸‍♀️ Be <span class="su-font-bold">BOLD</span> 🦸‍♂️',
+export const Solid = ButtonTemplate.bind({});
+Solid.args = {
+  variant: 'solid',
+  children: 'Solid Button',
 };
 
-export const Primary = ButtonTemplate.bind({});
-Primary.args = {
-  variant: 'primary',
-  children: 'Primary Button',
+export const Outline = ButtonTemplate.bind({});
+Outline.args = {
+  variant: 'outline',
+  children: 'Outline Button',
 };
 
-export const Secondary = ButtonTemplate.bind({});
-Secondary.args = {
-  variant: 'secondary',
-  children: 'Secondary Button',
+export const Ghost = ButtonTemplate.bind({});
+Ghost.args = {
+  variant: 'ghost',
+  children: 'Ghost Button',
 };
 
 export const Big = ButtonTemplate.bind({});
 Big.args = {
-  variant: 'primary',
+  variant: 'solid',
   size: 'big',
   children: 'Big Button',
 };
 
 export const Small = ButtonTemplate.bind({});
 Small.args = {
-  variant: 'primary',
+  variant: 'solid',
   size: 'small',
   children: 'Small Button',
 };
 
+export const Action = ButtonTemplate.bind({});
+Action.args = {
+  variant: 'solid',
+  icon: 'action',
+  animate: 'right',
+  children: 'Call to Action Button',
+};
+Action.storyName = 'With Animated Icon';
+
+export const Download = ButtonTemplate.bind({});
+Download.args = {
+  variant: 'outline',
+  icon: 'download',
+  animate: 'down',
+  children: 'Download Button',
+};
+Download.storyName = 'With Download Icon';
+
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {
-  variant: 'primary',
+  variant: 'solid',
   isDisabled: true,
   children: 'Disabled Button',
 };
 
-export const Minimal = ButtonTemplate.bind({});
-Minimal.args = {
-  variant: 'none',
-  size: 'minimal',
-  children: 'Minimal Button',
+export const Custom = ButtonTemplate.bind({});
+Custom.args = {
+  variant: 'unset',
+  size: 'unset',
+  className: 'su-bg-plum-light su-text-illuminating-light su-font-slab su-text-20 su-p-30 su-font-semibold hocus:su-bg-palo-alto',
+  children: 'With Custom Styling',
 };
+Custom.storyName = 'With Custom Styling';
+
+export const Richtext = ButtonRichTextTemplate.bind({});
+Richtext.args = {
+  children: '🦸‍♀️ Be <span class="su-font-bold">BOLD</span> 🦸‍♂️',
+};
+Richtext.storyName = 'With Rich Text Content';

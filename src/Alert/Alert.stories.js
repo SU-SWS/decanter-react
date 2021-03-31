@@ -1,16 +1,20 @@
 import React from 'react';
 import { withDesign } from 'storybook-addon-designs';
 import { Alert } from './Alert';
-import { Button } from '../Button/Button';
+import { DismissButton } from '../DismissButton/DismissButton';
 import { alertTypes } from './Alert.levers';
 import { textMixed } from '../../.storybook/stories/Paragraph.stories';
 import DOMPurify from 'dompurify';
+
+const alertBody = '<p class="last:su-mb-0 su-leading-display su-card-paragraph">A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href=\"#\">self-contained unit of a discourse</a> in writing dealing with a particular point or idea.</p>';
+
+const alertBodyShort = '<p class="last:su-mb-0 su-leading-display su-card-paragraph">For displaying a notification that keeps people informed of a status.</p>';
 
 export default {
   title: 'Composite/Alert',
   decorators: [withDesign],
   component: Alert,
-  subcomponents: { Button },
+  subcomponents: { DismissButton },
   parameters: {
     design: {
       type: 'figma',
@@ -45,13 +49,14 @@ const AlertTemplate = ({ children, ...rest }) => {
 // /////////////////////////////////////////////////////////////////////////////
 export const Default = AlertTemplate.bind({});
 Default.args = {
-  children: textMixed
+  children: alertBodyShort
 };
 
 export const Info = AlertTemplate.bind({});
 Info.args = {
-  children: textMixed,
-  type: 'info'
+  children: alertBodyShort,
+  type: 'info',
+  label: 'information:'
 };
 
 // Supports Markdown.
@@ -65,9 +70,9 @@ Info.parameters = {
 
 export const Error = AlertTemplate.bind({});
 Error.args = {
-  children: textMixed,
+  children: alertBody,
   type: 'error',
-  label: 'error'
+  label: 'error:'
 };
 Error.parameters = {
   docs: {
@@ -79,9 +84,9 @@ Error.parameters = {
 
 export const Warning = AlertTemplate.bind({});
 Warning.args = {
-  children: textMixed,
+  children: alertBody,
   type: 'warning',
-  label: 'warning'
+  label: 'warning:'
 };
 Warning.parameters = {
   docs: {
@@ -93,9 +98,9 @@ Warning.parameters = {
 
 export const Success = AlertTemplate.bind({});
 Success.args = {
-  children: textMixed,
+  children: alertBody,
   type: 'success',
-  label: 'success'
+  label: 'success:'
 };
 Success.parameters = {
   docs: {
@@ -107,32 +112,34 @@ Success.parameters = {
 
 export const LabelsOnTop = AlertTemplate.bind({});
 LabelsOnTop.args = {
-  children: textMixed,
+  children: alertBody,
   isIconTop: true,
   isLabelTop: true
 };
 
-export const NoDismiss = AlertTemplate.bind({});
-NoDismiss.args = {
-  children: textMixed,
-  heading: 'Alert Lorem Ipsum',
-  hasDismiss: false
-};
-NoDismiss.storyName = 'No Dismiss Button';
-
 export const BigIcon = AlertTemplate.bind({});
 BigIcon.args = {
-  children: textMixed,
+  children: alertBody,
   heading: 'Alert Lorem Ipsum',
   hasLabel: false,
   isLargeIcon: true
 };
-BigIcon.storyName = 'Big Icon + No Label';
+BigIcon.storyName = 'Big Icon + Big Heading ';
 
-export const WithHeader = AlertTemplate.bind({});
-WithHeader.args = {
-  heading: 'Alert Lorem Ipsum',
-  children: textMixed,
+export const BigIconLabel = AlertTemplate.bind({});
+BigIconLabel.args = {
+  children: alertBody,
+  type: 'info',
+  label: 'information:',
   isLabelTop: true,
   isLargeIcon: true
 };
+BigIconLabel.storyName = 'Big Icon + Top Label';
+
+
+export const NoDismiss = AlertTemplate.bind({});
+NoDismiss.args = {
+  children: alertBody,
+  hasDismiss: false
+};
+NoDismiss.storyName = 'No Dismiss Button';

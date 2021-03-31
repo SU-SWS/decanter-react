@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { buttonVariants, buttonSizes, buttonTypes } from './Button.levers';
+import { buttonVariants, buttonTypes } from './Button.levers';
+import { buttonSizes } from "../common/button/button.levers";
+import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
+import getButtonSize from "../common/button/getButtonSize";
+import getIconOption from "../common/icon/getIconOption";
+import getIconClasses from "../common/icon/getIconClasses";
+import getIconAnimation from "../common/icon/getIconAnimation";
+import Icon from 'react-hero-icon';
 import { dcnb } from 'cnbuilder';
 
 /**
@@ -8,7 +15,7 @@ import { dcnb } from 'cnbuilder';
  *
  * HTML button element
  */
-export const Button = ({ className, children, onClick, ref, variant, size, type, isDisabled, ...props }) => {
+export const Button = ({ className, children, onClick, variant, size, type, icon, iconProps, animate, isDisabled, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -16,41 +23,44 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
   // Levers
   // ---------------------------------------------------------------------------
 
-  // Props.variant
+  // variant
   if (variant && buttonVariants.includes(variant)) {
     switch (variant) {
-      case 'primary':
-        levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+      case 'solid':
+        levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
         break;
 
-      case 'secondary':
-        levers.variant = 'su-bg-transparent hocus:su-bg-transparent su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+      case 'outline':
+        levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
         break;
 
-      case 'none':
+      case 'ghost':
+        levers.variant = dcnb('su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid');
+        break;
+
+      case 'unset':
         levers.variant = 'su-bg-transparent hocus:su-bg-transparent';
         break;
     }
   }
 
-  // Props.size
+  // size
   if (size && buttonSizes.includes(size)) {
-    switch (size) {
-      case 'big':
-        levers.size = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
-        break;
+    levers.size = getButtonSize(size);
+  }
 
-      case 'small':
-        levers.size = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
-        break;
+  // icon
+  let heroicon = '';
 
-      case 'minimal':
-        levers.size = 'su-p-0';
-        break;
+  if (icon && iconOptions.includes(icon)) {
+    heroicon = getIconOption(icon);
+    levers.icon = getIconClasses(icon);
+  }
 
-      default:
-        levers.size = 'su-px-26 su-py-10 su-text-16 md:su-text-20';
-    }
+  // animate
+  // Add specific classes for each type of animation
+  if (animate && iconAnimations.includes(animate)) {
+    levers.animate = getIconAnimation(animate);
   }
 
   // Is disabled
@@ -59,43 +69,82 @@ export const Button = ({ className, children, onClick, ref, variant, size, type,
     levers.variant = dcnb(levers.variant, {'su-bg-digital-red': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
   }
 
+  // Icon className.
+  const { className:iconClasses, ...iProps } = iconProps || {};
+
   return (
     <button
-      className={dcnb('su-button', levers.variant, levers.size, levers.disabled, className)}
-      ref={ref}
+      className={dcnb('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className)}
       onClick={onClick}
       type={type}
       disabled={isDisabled}
       {...props}
     >
       {children}
+      {icon &&
+      <Icon icon={heroicon}
+            type='solid'
+            aria-hidden={true}
+            className={dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)}
+            {...iProps}
+      />
+      }
     </button>
   );
 };
 
 Button.propTypes = {
-  // HTML Button type.
+  /**
+   * HTML button type attribute
+   */
   type: PropTypes.oneOf(buttonTypes),
+
+  /**
+   * Variant/button style
+   */
   variant: PropTypes.oneOf(buttonVariants),
+
+  /**
+   * Button size
+   */
   size: PropTypes.oneOf(buttonSizes),
+
+  /**
+   * Icon options
+   */
+  icon: PropTypes.oneOf(iconOptions),
+
+  /**
+   * Icon Properties
+   */
+  iconProps: PropTypes.object,
+
+  /**
+   * Icon animation on hover/focus
+   */
+  animate: PropTypes.oneOf(iconAnimations),
+
+  /**
+   * Is the button disabled?
+   */
   isDisabled: PropTypes.bool,
 
-  // Optional click handler
+  /**
+   * Optional click handler.
+   */
   onClick: PropTypes.func,
 
-  // CSS Classes.
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object
-  ]),
+  /**
+   * CSS Class names.
+   */
+  className: PropTypes.string,
 
   // Children
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
     PropTypes.node
-  ])
+  ]),
 };
 
 // Default Props.
@@ -103,6 +152,7 @@ Button.propTypes = {
 Button.defaultProps = {
   onClick: undefined,
   type: 'button',
+  variant: 'solid',
+  size: 'default',
   isDisabled: false,
-  ref: null
 };
