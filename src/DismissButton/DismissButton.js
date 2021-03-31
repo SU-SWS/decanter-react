@@ -4,7 +4,7 @@ import { dismissIconOptions, dismissIconTypes, dismissIconColors } from './Dismi
 import { Button } from '../Button/Button';
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import Icon from 'react-hero-icon';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder'
 
 /**
  * Dismiss Button Component
@@ -58,7 +58,7 @@ export const DismissButton = ({ className, text, srText, color, icon, iconType, 
     <Button
       variant='unset'
       size='minimal'
-      className={clsxd('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, className)}
+      className={dcnb('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, className)}
       onClick={onClick}
       {...props}
     >

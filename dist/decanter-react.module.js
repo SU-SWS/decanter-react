@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { dcnb } from 'cnbuilder';
 import Icon from 'react-hero-icon';
 
 function _extends() {
@@ -1240,7 +1241,7 @@ var getIconAnimation = function getIconAnimation(animate) {
 
   switch (animate) {
     case 'right':
-      classes =  (classes, 'group-hocus:su-translate-x-02em');
+      classes = dcnb(classes, 'group-hocus:su-translate-x-02em');
       break;
 
     case 'top-right':
@@ -1307,9 +1308,8 @@ var Button = function Button(_ref) {
 
   if (isDisabled) {
     levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
-    levers.variant = u(levers.variant, {
+    levers.variant = dcnb(levers.variant, {
       'su-bg-digital-red': false,
-      'su-bg-white': false,
       'su-text-digital-red': false,
       'su-border-digital-red': false,
       'hover:su-border-black': false,
@@ -1550,16 +1550,16 @@ var Alert = function Alert(_ref) {
   }
 
   return /*#__PURE__*/React.createElement("div", {
-    className: u('su-alert', levers.wrapper, classes.wrapper),
+    className: dcnb('su-alert', levers.wrapper, classes.wrapper),
     ref: ref
   }, /*#__PURE__*/React.createElement("div", {
-    className: u('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
+    className: dcnb('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
   }, props.hasDismiss && /*#__PURE__*/React.createElement("div", {
     className: dcnb('su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
   }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React.createElement("div", {
     className: dcnb('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)
   }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React.createElement("span", {
-    className: u('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
+    className: dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
   }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React.createElement("span", {
     className: dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
   }, (_props$label = props.label) != null ? _props$label : 'Alert:')), /*#__PURE__*/React.createElement("div", {
@@ -1573,9 +1573,9 @@ var Alert = function Alert(_ref) {
   }, (_props$label2 = props.label) != null ? _props$label2 : 'Alert:')), props.heading && /*#__PURE__*/React.createElement("h3", {
     className: dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)
   }, props.heading), /*#__PURE__*/React.createElement("div", {
-    className: u('su-text-normal', levers.body, classes.body)
+    className: dcnb('su-text-normal', levers.body, classes.body)
   }, children), props.footer && /*#__PURE__*/React.createElement("div", {
-    className: u('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)
+    className: dcnb('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)
   }, props.footer))));
 };
 Alert.propTypes = {
@@ -1650,7 +1650,7 @@ var Container = function Container(_ref) {
   }
 
   return /*#__PURE__*/React.createElement(Element, _extends({
-    className: u(levers.width, className),
+    className: dcnb(levers.width, className),
     ref: ref
   }, props), children);
 };
@@ -1922,7 +1922,7 @@ var FlexBox = function FlexBox(_ref) {
   }
 
   return /*#__PURE__*/React.createElement(Element, _extends({
-    className: u('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
+    className: dcnb('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
     ref: ref
   }, props), children);
 };
@@ -2015,7 +2015,7 @@ var FlexCell = function FlexCell(_ref) {
   }
 
   return /*#__PURE__*/React.createElement(Element, {
-    className: u(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className),
+    className: dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className),
     ref: ref
   }, children);
 };
@@ -2097,7 +2097,7 @@ var Heading = function Heading(_ref) {
   }
 
   return /*#__PURE__*/React.createElement(HeadingTag, _extends({
-    className: u('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
+    className: dcnb('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
     ref: ref
   }, props), children);
 };
@@ -2166,13 +2166,13 @@ var Logo = function Logo(_ref) {
 
   if (props.isLink) {
     return /*#__PURE__*/React.createElement("a", {
-      className: u('su-logo', levers.logo, className),
+      className: dcnb('su-logo', levers.logo, className),
       href: "https://www.stanford.edu"
     }, logoText);
   }
 
   return /*#__PURE__*/React.createElement("div", {
-    className: u('su-logo', levers.logo, className)
+    className: dcnb('su-logo', levers.logo, className)
   }, logoText);
 };
 Logo.propTypes = {
@@ -2210,7 +2210,7 @@ var GlobalFooter = function GlobalFooter(_ref) {
   }
 
   return /*#__PURE__*/React.createElement(Container, {
-    className: u('su-global-footer su-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className),
+    className: dcnb('su-global-footer su-basefont-20 su-rs-py-1 su-text-white su-link-white hover:su-link-white focus:su-link-white', levers.wrapper, className),
     width: "site"
   }, /*#__PURE__*/React.createElement(FlexBox, {
     direction: "col",
@@ -2344,7 +2344,7 @@ var Grid = function Grid(_ref) {
     }
   });
   return /*#__PURE__*/React.createElement(Element, _extends({
-    className: u('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
+    className: dcnb('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
     ref: ref
   }, props), children);
 };
@@ -2429,7 +2429,7 @@ var GridCell = function GridCell(_ref) {
   }
 
   return /*#__PURE__*/React.createElement(Element, {
-    className: u(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className),
+    className: dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className),
     ref: ref
   }, children);
 };
@@ -2483,7 +2483,7 @@ var IdentityBar = function IdentityBar(_ref) {
 
   return /*#__PURE__*/React.createElement(Container, {
     width: "site",
-    className: u('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)
+    className: dcnb('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)
   }, /*#__PURE__*/React.createElement(Logo, {
     className: "su-text-20 su-leading-none",
     color: levers.logo,
@@ -2533,22 +2533,22 @@ var Lockup = function Lockup(_ref) {
   }, /*#__PURE__*/React.createElement(Logo, {
     color: levers.logo,
     isLink: false,
-    className: u('su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid', levers.bar)
+    className: dcnb('su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid', levers.bar)
   }), /*#__PURE__*/React.createElement("div", {
-    className: u('su-text-25 md:su-text-m2 su--mt-3 md:su-mt-0 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6', levers.text, classes.line1)
+    className: dcnb('su-text-25 md:su-text-m2 su--mt-3 md:su-mt-0 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6', levers.text, classes.line1)
   }, line1));
 
   if (props.isLink) {
     var _props$url;
 
     return /*#__PURE__*/React.createElement("a", {
-      className: u('su-lockup su-no-underline su-inline-block', classes.wrapper),
+      className: dcnb('su-lockup su-no-underline su-inline-block', classes.wrapper),
       href: (_props$url = props.url) != null ? _props$url : '/'
     }, LockupContent);
   }
 
   return /*#__PURE__*/React.createElement("div", {
-    className: u('su-lockup su-no-underline su-inline-block', classes.wrapper)
+    className: dcnb('su-lockup su-no-underline su-inline-block', classes.wrapper)
   }, LockupContent);
 };
 Lockup.propTypes = {
@@ -2613,11 +2613,11 @@ var LocalFooter = function LocalFooter(_ref) {
 
   return /*#__PURE__*/React.createElement(Container, {
     width: "site",
-    className: u('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)
+    className: dcnb('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)
   }, /*#__PURE__*/React.createElement(FlexBox, {
     direction: "col",
     gap: true,
-    className: u('md:su-flex-row su-rs-mb-2', classes.header),
+    className: dcnb('md:su-flex-row su-rs-mb-2', classes.header),
     justifyContent: 'space-between'
   }, /*#__PURE__*/React.createElement(FlexCell, {
     grow: true
@@ -2630,17 +2630,17 @@ var LocalFooter = function LocalFooter(_ref) {
     grow: false
   }, /*#__PURE__*/React.createElement("a", {
     href: props.buttonUrl,
-    className: u('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)
+    className: dcnb('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)
   }, (_props$buttonText = props.buttonText) != null ? _props$buttonText : 'Web Login', /*#__PURE__*/React.createElement(Icon, {
     icon: "lock-closed",
     type: "solid",
-    className: u('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)
+    className: dcnb('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)
   })))), /*#__PURE__*/React.createElement(Grid, {
     xs: 1,
     md: 2,
     xl: 4,
     gap: true,
-    className: u('su-text-18 su-link-regular', levers.link, classes.content)
+    className: dcnb('su-text-18 su-link-regular', levers.link, classes.content)
   }, children));
 };
 LocalFooter.propTypes = {
@@ -2675,7 +2675,7 @@ var Skiplink = function Skiplink(_ref) {
 
   return /*#__PURE__*/React.createElement("a", _extends({
     href: anchorLink != null ? anchorLink : '#main-content',
-    className: u('su-skiplink', className)
+    className: dcnb('su-skiplink', className)
   }, props), children != null ? children : 'Skip to main content');
 };
 Skiplink.propTypes = {
