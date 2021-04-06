@@ -1314,6 +1314,7 @@
       levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
       levers.variant = cnbuilder.dcnb(levers.variant, {
         'su-bg-digital-red': false,
+        'su-bg-white': false,
         'su-text-digital-red': false,
         'su-border-digital-red': false,
         'hover:su-border-black': false,
