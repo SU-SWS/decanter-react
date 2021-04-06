@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { logoColors, logoTypes } from './Logo.levers';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Stanford Wordmark Logo Component.
@@ -52,7 +52,7 @@ export const Logo = ({ className, ...props }) => {
   // Render logo as link or simple div
   if (props.isLink) {
     return (
-      <a className={clsxd('su-logo', levers.logo, className)}
+      <a className={dcnb('su-logo', levers.logo, className)}
          href='https://www.stanford.edu'
       >
         {logoText}
@@ -61,7 +61,7 @@ export const Logo = ({ className, ...props }) => {
   }
 
   return (
-    <div className={clsxd('su-logo', levers.logo, className)}>
+    <div className={dcnb('su-logo', levers.logo, className)}>
       {logoText}
     </div>
   );

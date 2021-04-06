@@ -6,7 +6,7 @@ import getIconOption from "../common/icon/getIconOption";
 import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import Icon from 'react-hero-icon';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 
 /**
@@ -57,7 +57,7 @@ export const CtaLink = ({ className, text, srText, color, icon, iconProps, anima
 
   return (
     <a
-      className={clsxd('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
+      className={dcnb('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
         levers.color, levers.size, levers.variant, className)}
       {...props}
     >
@@ -66,7 +66,7 @@ export const CtaLink = ({ className, text, srText, color, icon, iconProps, anima
         <SrOnlyText srText={' ' + srText} />
       }
       {icon &&
-        <Icon icon={heroicon} type='solid' aria-hidden={true} className={clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)} {...iProps} />
+        <Icon icon={heroicon} type='solid' aria-hidden={true} className={dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)} {...iProps} />
       }
     </a>
   );

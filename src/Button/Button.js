@@ -8,7 +8,7 @@ import getIconOption from "../common/icon/getIconOption";
 import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import Icon from 'react-hero-icon';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Button Component
@@ -35,7 +35,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
         break;
 
       case 'ghost':
-        levers.variant = clsxd('su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid');
+        levers.variant = dcnb('su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid');
         break;
 
       case 'unset':
@@ -66,7 +66,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
   // Is disabled
   if (isDisabled) {
     levers.disabled = 'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
-    levers.variant = clsxd(levers.variant, {'su-bg-digital-red': false, 'su-bg-white': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
+    levers.variant = dcnb(levers.variant, {'su-bg-digital-red': false, 'su-bg-white': false, 'su-text-digital-red': false, 'su-border-digital-red': false, 'hover:su-border-black': false, 'focus:su-border-black': false, 'su-text-white': false});
   }
 
   // Icon className.
@@ -74,7 +74,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
 
   return (
     <button
-      className={clsxd('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className)}
+      className={dcnb('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className)}
       onClick={onClick}
       type={type}
       disabled={isDisabled}
@@ -85,7 +85,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
       <Icon icon={heroicon}
             type='solid'
             aria-hidden={true}
-            className={clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)}
+            className={dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)}
             {...iProps}
       />
       }

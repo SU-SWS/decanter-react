@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { alertTypes, lightText, darkText } from './Alert.levers';
 import { DismissButton } from '../DismissButton/DismissButton';
 import Icon from 'react-hero-icon';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Alert Component.
@@ -88,11 +88,11 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // Render
   // ---------------------------------------------------------------------------
   return (
-    <div className={clsxd('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
-      <div className={clsxd('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)}>
+    <div className={dcnb('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
+      <div className={dcnb('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)}>
 
         {props.hasDismiss && (
-          <div className={clsxd('su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
+          <div className={dcnb('su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)}>
             {dismissBtn}
           </div>
         )}
@@ -100,15 +100,15 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
         {/* Header Container. */}
         {((props.hasIcon && !props.isIconTop) || (props.hasLabel && !props.isLabelTop)) &&
           <div
-            className={clsxd('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
+            className={dcnb('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
             {(props.hasIcon && !props.isIconTop) && (
-              <span className={clsxd('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
+              <span className={dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
               {icon}
             </span>
             )}
 
             {(props.hasLabel && !props.isLabelTop) && (
-              <span className={clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+              <span className={dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
               {props.label ?? 'Alert:'}
             </span>
             )}
@@ -116,18 +116,18 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
         }
 
         {/* Body Container. */}
-        <div className={clsxd('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
+        <div className={dcnb('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
 
           {((props.hasIcon && props.isIconTop) || (props.hasLabel && props.isLabelTop)) &&
             <div className='su-flex su-items-center su-rs-mb-0'>
               {(props.hasIcon && props.isIconTop) && (
-                <span className={clsxd('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
+                <span className={dcnb('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
                 {icon}
               </span>
               )}
 
               {(props.hasLabel && props.isLabelTop) && (
-                <div className={clsxd('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+                <div className={dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
                   {props.label ?? 'Alert:'}
                 </div>
               )}
@@ -135,18 +135,18 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
           }
 
           {props.heading && (
-            <h3 className={clsxd('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)}>
+            <h3 className={dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)}>
               {props.heading}
             </h3>
           )}
 
 
-          <div className={clsxd('su-text-normal', levers.body, classes.body)}>
+          <div className={dcnb('su-text-normal', levers.body, classes.body)}>
             {children}
           </div>
 
           {props.footer && (
-            <div className={clsxd('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)}>
+            <div className={dcnb('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)}>
               {props.footer}
             </div>
           )}

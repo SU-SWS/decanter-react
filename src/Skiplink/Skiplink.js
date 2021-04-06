@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Skiplink component for accessibility.
@@ -8,7 +8,7 @@ import clsxd from 'clsx-dedupe';
  */
 export const Skiplink = ({ anchorLink, className, children, ...props }) => {
   return (
-    <a href={anchorLink ?? '#main-content'} className={clsxd('su-skiplink', className)} {...props}>
+    <a href={anchorLink ?? '#main-content'} className={dcnb('su-skiplink', className)} {...props}>
       {children ?? 'Skip to main content'}
     </a>
   );

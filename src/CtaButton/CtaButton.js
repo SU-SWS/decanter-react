@@ -9,7 +9,7 @@ import getIconClasses from "../common/icon/getIconClasses";
 import getIconAnimation from "../common/icon/getIconAnimation";
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 import Icon from 'react-hero-icon';
-import clsxd from 'clsx-dedupe';
+import { dcnb } from 'cnbuilder';
 
 /**
  * CTA Link Button Component
@@ -64,7 +64,7 @@ export const CtaButton = ({ className, text, srText, variant, size, icon, iconPr
 
   return (
     <a
-      className={clsxd('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
+      className={dcnb('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
         levers.size, levers.variant, className)}
       {...props}
     >
@@ -76,7 +76,7 @@ export const CtaButton = ({ className, text, srText, variant, size, icon, iconPr
       <Icon icon={heroicon}
             type='solid'
             aria-hidden={true}
-            className={clsxd('su-inline-block', levers.icon, levers.animate, iconClasses)}
+            className={dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)}
             {...iProps}
       />
       }
