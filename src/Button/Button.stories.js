@@ -153,9 +153,10 @@ export const ForwardRef = ({...args}) => {
       </div>
     </div>
   )
-}
+};
 
 ForwardRef.args = {
   children: 'Target Button',
   ref: buttonRef,
-}
+};
+ForwardRef.storyName = 'With Forwarded Ref';
