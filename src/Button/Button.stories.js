@@ -135,3 +135,27 @@ Richtext.args = {
   children: '🦸‍♀️ Be <span class="su-font-bold">BOLD</span> 🦸‍♂️',
 };
 Richtext.storyName = 'With Rich Text Content';
+
+const buttonRef = React.createRef();
+
+export const ForwardRef = ({...args}) => {
+  const setFocus = () => {
+    buttonRef.current.focus();
+  }
+
+  return (
+    <div>
+      <Button {...args} />
+      <div>
+      <a href="javascript:void(0);" onClick={setFocus}>
+        Clicking here will set focus using buttonRef.current.focus()
+      </a>
+      </div>
+    </div>
+  )
+}
+
+ForwardRef.args = {
+  children: 'Target Button',
+  ref: buttonRef,
+}

@@ -15,7 +15,7 @@ import { dcnb } from 'cnbuilder';
  *
  * HTML button element
  */
-export const Button = ({ className, children, onClick, variant, size, type, icon, iconProps, animate, isDisabled, ...props }) => {
+export const Button = React.forwardRef(({ className, children, onClick, variant, size, type, icon, iconProps, animate, isDisabled, ...props }, ref) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -78,6 +78,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
       onClick={onClick}
       type={type}
       disabled={isDisabled}
+      ref={ref}
       {...props}
     >
       {children}
@@ -91,7 +92,7 @@ export const Button = ({ className, children, onClick, variant, size, type, icon
       }
     </button>
   );
-};
+});
 
 Button.propTypes = {
   /**
