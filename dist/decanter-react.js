@@ -1259,7 +1259,7 @@ var getIconAnimation = function getIconAnimation(animate) {
   return classes;
 };
 
-var Button = function Button(_ref) {
+var Button = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
   var className = _ref.className,
       children = _ref.children,
       onClick = _ref.onClick,
@@ -1330,14 +1330,15 @@ var Button = function Button(_ref) {
     className: cnbuilder.dcnb('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className),
     onClick: onClick,
     type: type,
-    disabled: isDisabled
+    disabled: isDisabled,
+    ref: ref
   }, props), children, icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
     icon: heroicon,
     type: "solid",
     "aria-hidden": true,
     className: cnbuilder.dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)
   }, iProps)));
-};
+});
 Button.propTypes = {
   type: propTypes.oneOf(buttonTypes),
   variant: propTypes.oneOf(buttonVariants),
