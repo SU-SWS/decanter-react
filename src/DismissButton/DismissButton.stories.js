@@ -50,6 +50,7 @@ const DismissButtonTemplate = ({ ...rest }) => {
 export const Default = DismissButtonTemplate.bind({});
 Default.args = {
   text: 'Dismiss',
+  srText: 'alert',
   className: 'su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest',
   iconProps: {
     className: 'su-ml-02em'

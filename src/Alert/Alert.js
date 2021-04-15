@@ -13,7 +13,7 @@ import { dcnb } from 'cnbuilder';
  * information.
  *
  */
-export const Alert = ({ classes = {}, children, ref, ...props }) => {
+export const Alert = ({ classes = {}, children, ...props }) => {
   // Defaults & Variables
   const levers = {};
   const iconProps = { height: 20, width: 20 };
@@ -72,6 +72,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   const icon = props.icon ?? defaultIcon;
   const DefaultDismiss = (
     <DismissButton text='Dismiss'
+                   srText='alert'
                    onClick={() => { setDismissed(true); }}
                    color={levers.dismiss}
                    className='su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto'
@@ -88,7 +89,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   // Render
   // ---------------------------------------------------------------------------
   return (
-    <div className={dcnb('su-alert', levers.wrapper, classes.wrapper)} ref={ref}>
+    <div className={dcnb('su-alert', levers.wrapper, classes.wrapper)}>
       <div className={dcnb('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)}>
 
         {props.hasDismiss && (
@@ -99,7 +100,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
 
         {/* Header Container. */}
         {((props.hasIcon && !props.isIconTop) || (props.hasLabel && !props.isLabelTop)) &&
-          <div
+          <h2
             className={dcnb('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
             {(props.hasIcon && !props.isIconTop) && (
               <span className={dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
@@ -112,14 +113,14 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
               {props.label ?? 'Alert:'}
             </span>
             )}
-          </div>
+          </h2>
         }
 
         {/* Body Container. */}
         <div className={dcnb('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
 
           {((props.hasIcon && props.isIconTop) || (props.hasLabel && props.isLabelTop)) &&
-            <div className='su-flex su-items-center su-rs-mb-0'>
+            <h2 className='su-flex su-items-center su-rs-mb-0'>
               {(props.hasIcon && props.isIconTop) && (
                 <span className={dcnb('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
                 {icon}
@@ -127,19 +128,18 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
               )}
 
               {(props.hasLabel && props.isLabelTop) && (
-                <div className={dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
+                <span className={dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
                   {props.label ?? 'Alert:'}
-                </div>
+                </span>
               )}
-            </div>
+            </h2>
           }
 
           {props.heading && (
-            <h3 className={dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)}>
+            <h2 className={dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)}>
               {props.heading}
-            </h3>
+            </h2>
           )}
-
 
           <div className={dcnb('su-text-normal', levers.body, classes.body)}>
             {children}
@@ -251,5 +251,4 @@ Alert.defaultProps = {
   hasDismiss: true,
   hasLabel: true,
   hasIcon: true,
-  ref: null
 };
