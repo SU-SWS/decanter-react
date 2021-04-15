@@ -72,6 +72,7 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
   const icon = props.icon ?? defaultIcon;
   const DefaultDismiss = (
     <DismissButton text='Dismiss'
+                   srText='alert'
                    onClick={() => { setDismissed(true); }}
                    color={levers.dismiss}
                    className='su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto'
@@ -139,7 +140,6 @@ export const Alert = ({ classes = {}, children, ref, ...props }) => {
               {props.heading}
             </h3>
           )}
-
 
           <div className={dcnb('su-text-normal', levers.body, classes.body)}>
             {children}
