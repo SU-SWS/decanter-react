@@ -1457,8 +1457,7 @@
     var _ref$classes = _ref.classes,
         classes = _ref$classes === void 0 ? {} : _ref$classes,
         children = _ref.children,
-        ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, ["classes", "children", "ref"]);
+        props = _objectWithoutPropertiesLoose(_ref, ["classes", "children"]);
 
     var levers = {};
     var iconProps = {
@@ -1540,6 +1539,7 @@
     var icon = (_props$icon = props.icon) != null ? _props$icon : defaultIcon;
     var DefaultDismiss = /*#__PURE__*/React__default.createElement(DismissButton, {
       text: "Dismiss",
+      srText: "alert",
       onClick: function onClick() {
         setDismissed(true);
       },
@@ -1556,13 +1556,12 @@
     }
 
     return /*#__PURE__*/React__default.createElement("div", {
-      className: cnbuilder.dcnb('su-alert', levers.wrapper, classes.wrapper),
-      ref: ref
+      className: cnbuilder.dcnb('su-alert', levers.wrapper, classes.wrapper)
     }, /*#__PURE__*/React__default.createElement("div", {
       className: cnbuilder.dcnb('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
     }, props.hasDismiss && /*#__PURE__*/React__default.createElement("div", {
       className: cnbuilder.dcnb('su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
-    }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React__default.createElement("div", {
+    }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React__default.createElement("h2", {
       className: cnbuilder.dcnb('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)
     }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
       className: cnbuilder.dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
@@ -1570,13 +1569,13 @@
       className: cnbuilder.dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
     }, (_props$label = props.label) != null ? _props$label : 'Alert:')), /*#__PURE__*/React__default.createElement("div", {
       className: cnbuilder.dcnb('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)
-    }, (props.hasIcon && props.isIconTop || props.hasLabel && props.isLabelTop) && /*#__PURE__*/React__default.createElement("div", {
+    }, (props.hasIcon && props.isIconTop || props.hasLabel && props.isLabelTop) && /*#__PURE__*/React__default.createElement("h2", {
       className: "su-flex su-items-center su-rs-mb-0"
     }, props.hasIcon && props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
       className: cnbuilder.dcnb('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
-    }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("div", {
+    }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
       className: cnbuilder.dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
-    }, (_props$label2 = props.label) != null ? _props$label2 : 'Alert:')), props.heading && /*#__PURE__*/React__default.createElement("h3", {
+    }, (_props$label2 = props.label) != null ? _props$label2 : 'Alert:')), props.heading && /*#__PURE__*/React__default.createElement("h2", {
       className: cnbuilder.dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)
     }, props.heading), /*#__PURE__*/React__default.createElement("div", {
       className: cnbuilder.dcnb('su-text-normal', levers.body, classes.body)
@@ -1617,8 +1616,7 @@
     isIconTop: false,
     hasDismiss: true,
     hasLabel: true,
-    hasIcon: true,
-    ref: null
+    hasIcon: true
   };
 
   var containerElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
