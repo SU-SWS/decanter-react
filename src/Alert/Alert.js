@@ -100,7 +100,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
 
         {/* Header Container. */}
         {((props.hasIcon && !props.isIconTop) || (props.hasLabel && !props.isLabelTop)) &&
-          <div
+          <h2
             className={dcnb('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)}>
             {(props.hasIcon && !props.isIconTop) && (
               <span className={dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)}>
@@ -113,14 +113,14 @@ export const Alert = ({ classes = {}, children, ...props }) => {
               {props.label ?? 'Alert:'}
             </span>
             )}
-          </div>
+          </h2>
         }
 
         {/* Body Container. */}
         <div className={dcnb('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)}>
 
           {((props.hasIcon && props.isIconTop) || (props.hasLabel && props.isLabelTop)) &&
-            <div className='su-flex su-items-center su-rs-mb-0'>
+            <h2 className='su-flex su-items-center su-rs-mb-0'>
               {(props.hasIcon && props.isIconTop) && (
                 <span className={dcnb('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)}>
                 {icon}
@@ -128,17 +128,17 @@ export const Alert = ({ classes = {}, children, ...props }) => {
               )}
 
               {(props.hasLabel && props.isLabelTop) && (
-                <h2 className={dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest su-mb-0', levers.label, classes.label)}>
+                <span className={dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)}>
                   {props.label ?? 'Alert:'}
-                </h2>
+                </span>
               )}
-            </div>
+            </h2>
           }
 
           {props.heading && (
-            <h3 className={dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)}>
+            <h2 className={dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)}>
               {props.heading}
-            </h3>
+            </h2>
           )}
 
           <div className={dcnb('su-text-normal', levers.body, classes.body)}>
