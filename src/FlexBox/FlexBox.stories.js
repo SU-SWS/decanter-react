@@ -15,13 +15,13 @@ export default {
     direction: {
       control: {
         type: 'inline-radio',
-        options: flexDirection
+        options: Object.keys(flexDirection)
       }
     },
     wrap: {
       control: {
         type: 'inline-radio',
-        options: flexWrap
+        options: Object.keys(flexWrap)
       }
     },
     gap: {
@@ -33,25 +33,25 @@ export default {
     justifyContent: {
       control: {
         type: 'select',
-        options: flexJustifyContent
+        options: Object.keys(flexJustifyContent)
       }
     },
     justifyItems: {
       control: {
         type: 'select',
-        options: flexJustifyItems
+        options: Object.keys(flexJustifyItems)
       }
     },
     alignContent: {
       control: {
         type: 'select',
-        options: flexAlignContent
+        options: Object.keys(flexAlignContent)
       }
     },
     alignItems: {
       control: {
         type: 'select',
-        options: flexAlignItems
+        options: Object.keys(flexAlignItems
       }
     },
   }
