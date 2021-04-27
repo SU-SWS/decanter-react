@@ -51,7 +51,7 @@ export default {
     alignItems: {
       control: {
         type: 'select',
-        options: Object.keys(flexAlignItems
+        options: Object.keys(flexAlignItems)
       }
     },
   }

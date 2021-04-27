@@ -41,12 +41,12 @@ export const flexGap = [true, false];
  * Flex Justify Content options.
  */
 export const flexJustifyContent = {
-  'start': 'flex-justify-start',
-  'end': 'flex-justify-end',
-  'center': 'flex-justify-center',
-  'space-between': 'flex-justify-between',
-  'space-around': 'flex-justify-around',
-  'space-evenly': 'flex-justify-evenly'
+  'start': 'su-justify-start',
+  'end': 'su-justify-end',
+  'center': 'su-justify-center',
+  'space-between': 'su-justify-between',
+  'space-around': 'su-justify-around',
+  'space-evenly': 'su-justify-evenly'
 };
 
 /**

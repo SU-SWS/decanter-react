@@ -52,7 +52,7 @@ export default {
     flex: {
       control: {
         type: 'select',
-        options: flexCellFlex
+        options: Object.keys(flexCellFlex)
       }
     },
     grow: {
@@ -68,7 +68,7 @@ export default {
     order: {
       control: {
         type: 'select',
-        options: flexCellOrder
+        options: Object.keys(flexCellOrder)
       }
     },
   }

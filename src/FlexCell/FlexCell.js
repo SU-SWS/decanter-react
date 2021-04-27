@@ -8,8 +8,10 @@ import { flexCellBPs, flexCellElements, flexCellWidth, flexCellFlex, flexCellGro
  * Options include HTML element, width (n-of-12 columns), flex, grow, shrink and order properties.
  *
  */
-export const FlexCell = ({ className, children, ref, ...props }) => {
+export const FlexCell = ({ className, children, ref, flex, grow, shrink, order, element, ...props }) => {
   const levers = {};
+  // Destructure the props a bit more so we can add the rest to the element.
+  const { xs, sm, md, lg, xl, xxl, ...rest } = props;
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -17,8 +19,8 @@ export const FlexCell = ({ className, children, ref, ...props }) => {
   // props.element
   let Element = 'div';
 
-  if (props.element && flexCellElements.includes(props.element)) {
-    Element = props.element;
+  if (element && flexCellElements.includes(element)) {
+    Element = element;
   }
 
   // props.xs to props.xxl controls width (n-of-12 columns) of the flex cell
@@ -38,13 +40,13 @@ export const FlexCell = ({ className, children, ref, ...props }) => {
   );
 
   // props.flex
-  if (props.flex && flexCellFlex.includes(props.flex)) {
-    levers.flex = `su-flex-${props.flex}`;
+  if (flex && flex in flexCellFlex) {
+    levers.flex = flexCellFlex[flex];
   }
 
   // props.grow
-  if (flexCellGrow.includes(props.grow)) {
-    if (props.grow) {
+  if (flexCellGrow.includes(grow)) {
+    if (grow) {
       levers.grow = `su-flex-grow`;
     }
     else {
@@ -53,8 +55,8 @@ export const FlexCell = ({ className, children, ref, ...props }) => {
   }
 
   // props.shrink
-  if (flexCellShrink.includes(props.shrink)) {
-    if (props.shrink) {
+  if (flexCellShrink.includes(shrink)) {
+    if (shrink) {
       levers.shrink = `su-flex-shrink`;
     }
     else {
@@ -63,12 +65,12 @@ export const FlexCell = ({ className, children, ref, ...props }) => {
   }
 
   // props.order
-  if (props.order && flexCellOrder.includes(props.order)) {
-    levers.order = `su-order-${props.order}`;
+  if (order && order in flexCellOrder) {
+    levers.order = flexCellOrder[order];
   }
 
   return (
-    <Element className={dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className)} ref={ref}>
+    <Element className={dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className)} ref={ref} {...rest}>
       {children}
     </Element>
   );
@@ -115,7 +117,7 @@ FlexCell.propTypes = {
   /**
    * Flex property - for controlling how this cell both grow and shrink.
    */
-  flex: PropTypes.oneOf(flexCellFlex),
+  flex: PropTypes.oneOf(Object.keys(flexCellFlex)),
 
   /**
    * Flex grow - is this cell allowed to grow to fill any available space?
@@ -127,6 +129,14 @@ FlexCell.propTypes = {
    */
   shrink: PropTypes.bool,
 
+  /**
+   * Flex order - for controlling which order the item should appear in.
+   */
+  order: PropTypes.oneOf(Object.keys(flexCellOrder)),
+
+  /**
+   * Children types.
+   */
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
@@ -145,5 +155,4 @@ FlexCell.propTypes = {
 
 // Default Props.
 // -----------------------------------------------------------------------------
-FlexCell.defaultProps = {
-};
+FlexCell.defaultProps = {};

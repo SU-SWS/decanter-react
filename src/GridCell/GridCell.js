@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
-import { gridCellElements, gridColSpan, gridColLine, gridRowSpan, gridRowLine } from './GridCell.levers';
+import { gridCellElements, gridColBPs, gridColSpan, gridColLine, gridRowSpan, gridRowLine } from './GridCell.levers';
 
 /**
  * CSS Grid Cell component.
  * Options include column/row span and column/row start/end line.
  *
  */
-export const GridCell = ({ className, children, ref, ...props }) => {
+export const GridCell = ({ className, children, ref, colStart, rowStart, row, ...props }) => {
   const levers = {};
+  // Destructure the props a bit more so we can add the rest to the element.
+  const { xs, sm, md, lg, xl, xxl, ...rest } = props;
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -24,62 +26,37 @@ export const GridCell = ({ className, children, ref, ...props }) => {
   // props.xs to props.xxl controls column span of the grid cell
 
   // Available breakpoints
-  const bps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+  const bps = Object.keys(gridColBPs);
 
-  // Looping over each breakpoint
+  // Looping over each breakpoint to create the `su-col-` classes
   bps.forEach(
     (bp) => {
-      if (props[bp] && gridColSpan.includes(props[bp])) {
-        if (props[bp] === 'auto') {
-          if (bp === 'xs') {
-            levers[bp] = `su-col-auto`;
-          }
-          else if (bp === 'xxl') {
-            levers[bp] = `2xl:su-col-auto`;
-          }
-          else {
-            levers[bp] = bp + `:su-col-auto`;
-          }
-        }
-        else if ((typeof props[bp] === 'number') || props[bp] === 'full') {
-          if (bp === 'xs') {
-            levers[bp] = `su-col-span-${props[bp]}`;
-          }
-          else if (bp === 'xxl') {
-            levers[bp] = `2xl:su-col-span-${props[bp]}`;
-          }
-          else {
-            levers[bp] = bp + `:su-col-span-${props[bp]}`;
-          }
+      if (props[bp] && gridColSpan && bp in gridColSpan) {
+        if (props[bp] in gridColSpan[bp]) {
+          levers[bp] = gridColSpan[bp][props[bp]];
         }
       }
     }
   );
 
   // props.colStart
-  if (props.colStart && gridColLine.includes(props.colStart)) {
-    levers.colStart = `su-col-start-${props.colStart}`;
+  if (colStart && colStart in gridColLine) {
+    levers.colStart = gridColLine[colStart];
   }
 
   // props.row - controls row span of the cell
   // If row span changes for different breakpoints, pass responsive TW classes through className
-  if (props.row && gridRowSpan.includes(props.row)) {
-    levers.row = `su-row-span-${props.row}`;
-    if (props.row === 'auto') {
-      levers.row = `su-row-auto`;
-    }
-    else {
-      levers.row = `su-row-span-${props.row}`;
-    }
+  if (row && row in gridRowSpan) {
+    levers.row = gridRowSpan[row];
   }
 
   // props.rowStart
-  if (props.rowStart && gridRowLine.includes(props.rowStart)) {
-    levers.rowStart = `su-row-start-${props.rowStart}`;
+  if (rowStart && rowStart in gridRowLine) {
+    levers.rowStart = gridRowLine[rowStart];
   }
 
   return (
-    <Element className={dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className)} ref={ref}>
+    <Element className={dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className)} ref={ref} {...rest}>
       {children}
     </Element>
   );
@@ -96,47 +73,47 @@ GridCell.propTypes = {
   /**
    * Number of columns the grid cell spans from device width 0 and up.
    */
-  xs: PropTypes.oneOf(gridColSpan),
+  xs: PropTypes.oneOf(Object.keys(gridColSpan.xs)),
 
   /**
    * Number of columns the grid cell spans from SM breakpoint and up.
    */
-  sm: PropTypes.oneOf(gridColSpan),
+  sm: PropTypes.oneOf(Object.keys(gridColSpan.sm)),
 
   /**
    * Number of columns the grid cell spans from MD breakpoint and up.
    */
-  md: PropTypes.oneOf(gridColSpan),
+  md: PropTypes.oneOf(Object.keys(gridColSpan.md)),
 
   /**
    * Number of columns the grid cell spans from LG breakpoint and up.
    */
-  lg: PropTypes.oneOf(gridColSpan),
+  lg: PropTypes.oneOf(Object.keys(gridColSpan.lg)),
 
   /**
    * Number of columns the grid cell spans from XL breakpoint and up.
    */
-  xl: PropTypes.oneOf(gridColSpan),
+  xl: PropTypes.oneOf(Object.keys(gridColSpan.xl)),
 
   /**
    * Number of columns the grid cell spans from 2XL breakpoint and up.
    */
-  xxl: PropTypes.oneOf(gridColSpan),
+  xxl: PropTypes.oneOf(Object.keys(gridColSpan.xxl)),
 
   /**
    * Start column line of the grid cell.
    */
-  colStart: PropTypes.oneOf(gridColLine),
+  colStart: PropTypes.oneOf(Object.keys(gridColLine)),
 
   /**
    * Number of rows the grid cell spans.
    */
-  row: PropTypes.oneOf(gridRowSpan),
+  row: PropTypes.oneOf(Object.keys(gridRowSpan)),
 
   /**
    * Start row line of the grid cell.
    */
-  rowStart: PropTypes.oneOf(gridRowLine),
+  rowStart: PropTypes.oneOf(Object.keys(gridRowLine)),
 
   children: PropTypes.oneOfType([
     PropTypes.node,

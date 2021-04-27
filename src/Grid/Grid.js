@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
-import { gridGap, gridNumCols, gridElements } from './Grid.levers';
+import { gridGap, gridCols, gridElements } from './Grid.levers';
 
 /**
  * CSS Grid component.
  * Options with number of columns for each breakpoint and whether to use responsive grid gaps.
  *
  */
-export const Grid = ({ element, gap, xs, sm, md, lg, xl, xxl, className, children, ref, ...props }) => {
+export const Grid = ({ element, gap, className, children, ref, ...props }) => {
   const levers = {};
+  // Destructure the props a bit more so we can add the rest to the element.
+  const { xs, sm, md, lg, xl, xxl, ...rest } = props;
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -26,25 +28,22 @@ export const Grid = ({ element, gap, xs, sm, md, lg, xl, xxl, className, childre
     levers.gap = 'su-grid-gap';
   }
 
-  // Keys are the breakpoints (string); values are destructured props
-  let bps = {xs: xs, sm: sm, md: md, lg: lg, xl: xl, xxl: xxl};
+  // Available breakpoints
+  const bps = Object.keys(gridCols);
 
-  Object.entries(bps).forEach(([key, value]) => {
-    if (value && (gridNumCols.includes(value) || gridNumCols.includes(Number(value)))) {
-      if (key === 'xs') {
-        levers[key] = `su-grid-cols-${value}`;
-      }
-      else if (key === 'xxl') {
-        levers[key] = `2xl:su-grid-cols-${value}`;
-      }
-      else {
-        levers[key] = `${key}:su-grid-cols-${value}`;
+  // Looping over each breakpoint
+  bps.forEach(
+    (bp) => {
+      if (props[bp] && gridCols && bp in gridCols) {
+        if (props[bp] in gridCols[bp]) {
+          levers[bp] = gridCols[bp][props[bp]];
+        }
       }
     }
-  });
+  );
 
   return (
-    <Element className={dcnb('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref} {...props}>
+    <Element className={dcnb('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref} {...rest}>
       {children}
     </Element>
   );
@@ -66,32 +65,32 @@ Grid.propTypes = {
   /**
    * Number of columns at XS breakpoint
    */
-  xs: PropTypes.oneOf(gridNumCols),
+  xs: PropTypes.oneOf(Object.keys(gridCols.xs)),
 
   /**
    * Number of columns at SM breakpoint and up
    */
-  sm: PropTypes.oneOf(gridNumCols),
+  sm: PropTypes.oneOf(Object.keys(gridCols.sm)),
 
   /**
    * Number of columns at MD breakpoint
    */
-  md: PropTypes.oneOf(gridNumCols),
+  md: PropTypes.oneOf(Object.keys(gridCols.md)),
 
   /**
    * Number of columns at LG breakpoint
    */
-  lg: PropTypes.oneOf(gridNumCols),
+  lg: PropTypes.oneOf(Object.keys(gridCols.lg)),
 
   /**
    * Number of columns at XL breakpoint
    */
-  xl: PropTypes.oneOf(gridNumCols),
+  xl: PropTypes.oneOf(Object.keys(gridCols.xl)),
 
   /**
    * Number of columns at 2XL breakpoint
    */
-  xxl: PropTypes.oneOf(gridNumCols),
+  xxl: PropTypes.oneOf(Object.keys(gridCols.xxl)),
 
   children: PropTypes.oneOfType([
     PropTypes.node,
