@@ -147,7 +147,7 @@ CustomProps.args = {
   uppercase: true,
   children: 'Heading with Custom Props',
   id: 'my-id',
-  color: 'lagunita',
+  style: {'color': 'rebeccapurple'},
   leading: 'custom-leading'
 };
 CustomProps.storyName = 'With Custom Props';
