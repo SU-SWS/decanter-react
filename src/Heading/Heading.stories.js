@@ -17,33 +17,33 @@ export default {
     font: {
       control: {
         type: 'inline-radio',
-        options: headingFonts
+        options: Object.keys(headingFonts)
       }
     },
     tracking: {
       control: {
         type: 'inline-radio',
-        options: headingTracking
+        options: Object.keys(headingTracking)
       }
     },
     align: {
       control: {
         type: 'inline-radio',
-        options: headingAlign
+        options: Object.keys(headingAlign)
       }
     },
     size: {
       control: {
         type: 'range',
         min: 0,
-        max: headingSizes[headingSizes.length-1],
+        max: Object.keys(headingSizes).length - 1,
         step: 1
       }
     },
     weight: {
       control: {
         type: 'inline-radio',
-        options: headingWeights
+        options: Object.keys(headingWeights)
       }
     },
     uppercase: {

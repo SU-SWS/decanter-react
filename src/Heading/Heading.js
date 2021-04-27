@@ -22,28 +22,28 @@ export const Heading = ({ className, level, font, weight, tracking, align, size,
   }
 
   // props.font
-  if (font && headingFonts.includes(font)) {
-    levers.font = `su-font-${font}`;
+  if (font && font in headingFonts) {
+    levers.font = headingFonts[font];
   }
 
   // props.weight
-  if (weight && headingWeights.includes(weight)) {
-    levers.weight = `su-font-${weight}`;
+  if (weight && weight in headingWeights) {
+    levers.weight = headingWeights[weight];
   }
 
   // props.tracking
-  if (tracking && headingTracking.includes(tracking)) {
-    levers.tracking = `su-tracking-${tracking}`;
+  if (tracking && tracking in headingTracking) {
+    levers.tracking = headingTracking[tracking];
   }
 
   // props.align
-  if (align && headingAlign.includes(align)) {
-    levers.align = `su-text-${align}`;
+  if (align && align in headingAlign) {
+    levers.align = headingAlign[align];
   }
 
   // props.size
-  if (size !== null && headingSizes.includes(size)) {
-    levers.size = `su-type-${size}`;
+  if (size && size in headingSizes) {
+    levers.size = headingSizes[size];
   }
 
   // props.uppercase
@@ -78,29 +78,37 @@ Heading.propTypes = {
   /**
    * Font family - sans serif, serif or slab?
    */
-  font: PropTypes.oneOf(headingFonts),
+  font: PropTypes.oneOf(Object.keys(headingFonts)),
 
   /**
    * Optional - to override the default size for the heading level selected.
    * Step 0 = base font size; each step up is a factor of 1.25 of the previous.
    */
-  size: PropTypes.oneOf(headingSizes),
+  size: PropTypes.oneOf(Object.keys(headingSizes)),
 
   /**
    * Text alignment.
    */
-  align: PropTypes.oneOf(headingAlign),
+  align: PropTypes.oneOf(Object.keys(headingAlign)),
 
   /**
    * Font weight.
    */
-  weight: PropTypes.oneOf(headingWeights),
+  weight: PropTypes.oneOf(Object.keys(headingWeights)),
 
   /**
    * Letter spacing/tracking.
    */
-  tracking: PropTypes.oneOf(headingTracking),
+  tracking: PropTypes.oneOf(Object.keys(headingTracking)),
+
+  /**
+   *
+   */
   uppercase: PropTypes.bool,
+
+  /**
+   *
+   */
   italic: PropTypes.bool,
 
   /**
