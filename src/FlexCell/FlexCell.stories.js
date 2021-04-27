@@ -16,37 +16,37 @@ export default {
     xs: {
       control: {
         type: 'select',
-        options: flexCellWidth
+        options: Object.keys(flexCellWidth.xs)
       }
     },
     sm: {
       control: {
         type: 'select',
-        options: flexCellWidth
+        options: Object.keys(flexCellWidth.sm)
       }
     },
     md: {
       control: {
         type: 'select',
-        options: flexCellWidth
+        options: Object.keys(flexCellWidth.md)
       }
     },
     lg: {
       control: {
         type: 'select',
-        options: flexCellWidth
+        options: Object.keys(flexCellWidth.lg)
       }
     },
     xl: {
       control: {
         type: 'select',
-        options: flexCellWidth
+        options: Object.keys(flexCellWidth.xl)
       }
     },
     xxl: {
       control: {
         type: 'select',
-        options: flexCellWidth
+        options: Object.keys(flexCellWidth.xxl)
       }
     },
     flex: {

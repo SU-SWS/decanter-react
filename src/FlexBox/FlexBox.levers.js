@@ -63,11 +63,24 @@ export const flexJustifyItems = {
 /**
  * Flex Align Content options.
  */
-export const flexAlignContent = ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly'];
+export const flexAlignContent = {
+  'start': 'su-content-start',
+  'end': 'su-content-end',
+  'center': 'su-content-center',
+  'space-between': 'su-content-between',
+  'space-around': 'su-content-around',
+  'space-evenly': 'su-content-evenly',
+};
 
 /**
  * Flex Align Items options.
  */
-export const flexAlignItems = ['start', 'end', 'center', 'baseline', 'stretch'];
+export const flexAlignItems = {
+  'start': 'su-items-start',
+  'end': 'su-items-end',
+  'center': 'su-items-center',
+  'baseline': 'su-items-baseline',
+  'stretch': 'su-items-stretch',
+};
 
 
