@@ -1819,13 +1819,48 @@ CtaLink.defaultProps = {
 };
 
 var flexElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
-var flexDirection = ['row', 'row-reverse', 'col', 'col-reverse'];
-var flexWrap = ['wrap', 'wrap-reverse', 'nowrap'];
+var flexDirection = {
+  'row': 'su-flex-row',
+  'row-reverse': 'su-flex-row-reverse',
+  'col': 'su-flex-col',
+  'col-reverse': 'su-flex-col-reverse'
+};
+var flexWrap = {
+  'wrap': 'su-flex-wrap',
+  'wrap-reverse': 'su-flex-wrap-reverse',
+  'nowrap': 'su-flex-nowrap'
+};
 var flexGap = [true, false];
-var flexJustifyContent = ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly'];
-var flexJustifyItems = ['auto', 'start', 'end', 'center', 'stretch'];
-var flexAlignContent = ['start', 'end', 'center', 'space-between', 'space-around', 'space-evenly'];
-var flexAlignItems = ['start', 'end', 'center', 'baseline', 'stretch'];
+var flexJustifyContent = {
+  'start': 'su-justify-start',
+  'end': 'su-justify-end',
+  'center': 'su-justify-center',
+  'space-between': 'su-justify-between',
+  'space-around': 'su-justify-around',
+  'space-evenly': 'su-justify-evenly'
+};
+var flexJustifyItems = {
+  'auto': 'su-justify-items-auto',
+  'start': 'su-justify-items-start',
+  'end': 'su-justify-items-end',
+  'center': 'su-justify-items-center',
+  'stretch': 'su-justify-items-stretch'
+};
+var flexAlignContent = {
+  'start': 'su-content-start',
+  'end': 'su-content-end',
+  'center': 'su-content-center',
+  'space-between': 'su-content-between',
+  'space-around': 'su-content-around',
+  'space-evenly': 'su-content-evenly'
+};
+var flexAlignItems = {
+  'start': 'su-items-start',
+  'end': 'su-items-end',
+  'center': 'su-items-center',
+  'baseline': 'su-items-baseline',
+  'stretch': 'su-items-stretch'
+};
 
 var FlexBox = function FlexBox(_ref) {
   var element = _ref.element,
@@ -1848,80 +1883,32 @@ var FlexBox = function FlexBox(_ref) {
     Element = element;
   }
 
-  if (direction && flexDirection.includes(direction)) {
-    levers.direction = "su-flex-" + direction;
+  if (direction && direction in flexDirection) {
+    levers.direction = flexDirection[direction];
   }
 
-  if (wrap && flexWrap.includes(wrap)) {
-    levers.wrap = "su-flex-" + wrap;
+  if (wrap && wrap in flexWrap) {
+    levers.wrap = flexWrap[wrap];
   }
 
   if (gap && flexGap.includes(gap)) {
     levers.gap = 'su-grid-gap';
   }
 
-  if (justifyContent && flexJustifyContent.includes(justifyContent)) {
-    switch (justifyContent) {
-      case 'start':
-        levers.justifyContent = 'su-justify-start';
-        break;
-
-      case 'end':
-        levers.justifyContent = 'su-justify-end';
-        break;
-
-      case 'center':
-        levers.justifyContent = 'su-justify-center';
-        break;
-
-      case 'space-between':
-        levers.justifyContent = 'su-justify-between';
-        break;
-
-      case 'space-around':
-        levers.justifyContent = 'su-justify-around';
-        break;
-
-      case 'space-evenly':
-        levers.justifyContent = 'su-justify-evenly';
-        break;
-    }
+  if (justifyContent && justifyContent in flexJustifyContent) {
+    levers.justifyContent = flexJustifyContent[justifyContent];
   }
 
-  if (justifyItems && flexJustifyItems.includes(justifyItems)) {
-    levers.justifyItems = "su-justify-items-" + justifyItems;
+  if (justifyItems && justifyItems in flexJustifyItems) {
+    levers.justifyItems = flexJustifyItems[justifyItems];
   }
 
-  if (alignContent && flexAlignContent.includes(alignContent)) {
-    switch (alignContent) {
-      case 'start':
-        levers.alignContent = 'su-content-start';
-        break;
-
-      case 'end':
-        levers.alignContent = 'su-content-end';
-        break;
-
-      case 'center':
-        levers.alignContent = 'su-content-center';
-        break;
-
-      case 'space-between':
-        levers.alignContent = 'su-content-between';
-        break;
-
-      case 'space-around':
-        levers.alignContent = 'su-content-around';
-        break;
-
-      case 'space-evenly':
-        levers.alignContent = 'su-content-evenly';
-        break;
-    }
+  if (alignContent && alignContent in flexAlignContent) {
+    levers.alignContent = flexAlignContent[alignContent];
   }
 
-  if (alignItems && flexAlignItems.includes(alignItems)) {
-    levers.alignItems = "su-items-" + alignItems;
+  if (alignItems && alignItems in flexAlignItems) {
+    levers.alignItems = flexAlignItems[alignItems];
   }
 
   return /*#__PURE__*/React__default.createElement(Element, _extends({
@@ -1931,13 +1918,13 @@ var FlexBox = function FlexBox(_ref) {
 };
 FlexBox.propTypes = {
   element: propTypes.oneOf(flexElements),
-  direction: propTypes.oneOf(flexDirection),
-  wrap: propTypes.oneOf(flexWrap),
+  direction: propTypes.oneOf(Object.keys(flexDirection)),
+  wrap: propTypes.oneOf(Object.keys(flexWrap)),
   gap: propTypes.bool,
-  justifyContent: propTypes.oneOf(flexJustifyContent),
-  justifyItems: propTypes.oneOf(flexJustifyItems),
-  alignContent: propTypes.oneOf(flexAlignContent),
-  alignItems: propTypes.oneOf(flexAlignItems),
+  justifyContent: propTypes.oneOf(Object.keys(flexJustifyContent)),
+  justifyItems: propTypes.oneOf(Object.keys(flexJustifyItems)),
+  alignContent: propTypes.oneOf(Object.keys(flexAlignContent)),
+  alignItems: propTypes.oneOf(Object.keys(flexAlignItems)),
   children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
   ref: propTypes.oneOfType([propTypes.func, propTypes.shape({
@@ -1950,100 +1937,244 @@ FlexBox.defaultProps = {
   gap: false
 };
 
+var flexCellBPs = {
+  'xs': '',
+  'sm': 'sm',
+  'md': 'md',
+  'lg': 'lg',
+  'xl': 'xl',
+  'xxl': '2xl'
+};
 var flexCellElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav'];
-var flexCellWidth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 'full', 'auto'];
-var flexCellFlex = [1, 'auto', 'initial', 'none'];
+var flexCellWidth = {
+  'xs': {
+    'auto': 'su-w-auto',
+    'full': 'su-w-full',
+    '1': 'su-w-1/12',
+    '2': 'su-w-2/12',
+    '3': 'su-w-3/12',
+    '4': 'su-w-4/12',
+    '5': 'su-w-5/12',
+    '6': 'su-w-6/12',
+    '7': 'su-w-7/12',
+    '8': 'su-w-8/12',
+    '9': 'su-w-9/12',
+    '10': 'su-w-10/12',
+    '11': 'su-w-11/12'
+  },
+  'sm': {
+    'auto': 'sm:su-w-auto',
+    'full': 'sm:su-w-full',
+    '1': 'sm:su-w-1/12',
+    '2': 'sm:su-w-2/12',
+    '3': 'sm:su-w-3/12',
+    '4': 'sm:su-w-4/12',
+    '5': 'sm:su-w-5/12',
+    '6': 'sm:su-w-6/12',
+    '7': 'sm:su-w-7/12',
+    '8': 'sm:su-w-8/12',
+    '9': 'sm:su-w-9/12',
+    '10': 'sm:su-w-10/12',
+    '11': 'sm:su-w-11/12'
+  },
+  'md': {
+    'auto': 'md:su-w-auto',
+    'full': 'md:su-w-full',
+    '1': 'md:su-w-1/12',
+    '2': 'md:su-w-2/12',
+    '3': 'md:su-w-3/12',
+    '4': 'md:su-w-4/12',
+    '5': 'md:su-w-5/12',
+    '6': 'md:su-w-6/12',
+    '7': 'md:su-w-7/12',
+    '8': 'md:su-w-8/12',
+    '9': 'md:su-w-9/12',
+    '10': 'md:su-w-10/12',
+    '11': 'md:su-w-11/12'
+  },
+  'lg': {
+    'auto': 'lg:su-w-auto',
+    'full': 'lg:su-w-full',
+    '1': 'lg:su-w-1/12',
+    '2': 'lg:su-w-2/12',
+    '3': 'lg:su-w-3/12',
+    '4': 'lg:su-w-4/12',
+    '5': 'lg:su-w-5/12',
+    '6': 'lg:su-w-6/12',
+    '7': 'lg:su-w-7/12',
+    '8': 'lg:su-w-8/12',
+    '9': 'lg:su-w-9/12',
+    '10': 'lg:su-w-10/12',
+    '11': 'lg:su-w-11/12'
+  },
+  'xl': {
+    'auto': 'xl:su-w-auto',
+    'full': 'xl:su-w-full',
+    '1': 'xl:su-w-1/12',
+    '2': 'xl:su-w-2/12',
+    '3': 'xl:su-w-3/12',
+    '4': 'xl:su-w-4/12',
+    '5': 'xl:su-w-5/12',
+    '6': 'xl:su-w-6/12',
+    '7': 'xl:su-w-7/12',
+    '8': 'xl:su-w-8/12',
+    '9': 'xl:su-w-9/12',
+    '10': 'xl:su-w-10/12',
+    '11': 'xl:su-w-11/12'
+  },
+  'xxl': {
+    'auto': '2xl:su-w-auto',
+    'full': '2xl:su-w-full',
+    '1': '2xl:su-w-1/12',
+    '2': '2xl:su-w-2/12',
+    '3': '2xl:su-w-3/12',
+    '4': '2xl:su-w-4/12',
+    '5': '2xl:su-w-5/12',
+    '6': '2xl:su-w-6/12',
+    '7': '2xl:su-w-7/12',
+    '8': '2xl:su-w-8/12',
+    '9': '2xl:su-w-9/12',
+    '10': '2xl:su-w-10/12',
+    '11': '2xl:su-w-11/12'
+  }
+};
+var flexCellFlex = {
+  '1': 'su-flex-1',
+  'auto': 'su-flex-auto',
+  'initial': 'su-flex-initial',
+  'none': 'su-flex-none'
+};
 var flexCellGrow = [true, false];
 var flexCellShrink = [true, false];
-var flexCellOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'first', 'last', 'none'];
+var flexCellOrder = {
+  '1': 'su-order-1',
+  '2': 'su-order-2',
+  '3': 'su-order-3',
+  '4': 'su-order-4',
+  '5': 'su-order-5',
+  '6': 'su-order-6',
+  '7': 'su-order-7',
+  '8': 'su-order-8',
+  '9': 'su-order-9',
+  '10': 'su-order-10',
+  '11': 'su-order-11',
+  '12': 'su-order-12',
+  'first': 'su-order-first',
+  'last': 'su-order-last',
+  'none': 'su-order-none'
+};
 
 var FlexCell = function FlexCell(_ref) {
   var className = _ref.className,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+      flex = _ref.flex,
+      grow = _ref.grow,
+      shrink = _ref.shrink,
+      order = _ref.order,
+      element = _ref.element,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref", "flex", "grow", "shrink", "order", "element"]);
 
   var levers = {};
+
+  var rest = _objectWithoutPropertiesLoose(props, ["xs", "sm", "md", "lg", "xl", "xxl"]);
+
   var Element = 'div';
 
-  if (props.element && flexCellElements.includes(props.element)) {
-    Element = props.element;
+  if (element && flexCellElements.includes(element)) {
+    Element = element;
   }
 
-  var bps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+  var bps = Object.keys(flexCellBPs);
   bps.forEach(function (bp) {
-    if (props[bp] && flexCellWidth.includes(props[bp])) {
-      if (typeof props[bp] === 'string') {
-        if (bp === 'xs') {
-          levers[bp] = "su-w-" + props[bp];
-        } else if (bp === 'xxl') {
-          levers[bp] = "2xl:su-w-" + props[bp];
-        } else {
-          levers[bp] = bp + (":su-w-" + props[bp]);
-        }
-      } else if (typeof props[bp] === 'number') {
-        if (bp === 'xs') {
-          levers[bp] = "su-w-" + props[bp] + "/12";
-        } else if (bp === 'xxl') {
-          levers[bp] = "2xl:su-w-" + props[bp] + "/12";
-        } else {
-          levers[bp] = bp + (":su-w-" + props[bp] + "/12");
-        }
+    if (props[bp] && flexCellWidth && bp in flexCellWidth) {
+      if (props[bp] in flexCellWidth[bp]) {
+        levers[bp] = flexCellWidth[bp][props[bp]];
       }
     }
   });
 
-  if (props.flex && flexCellFlex.includes(props.flex)) {
-    levers.flex = "su-flex-" + props.flex;
+  if (flex && flex in flexCellFlex) {
+    levers.flex = flexCellFlex[flex];
   }
 
-  if (flexCellGrow.includes(props.grow)) {
-    if (props.grow) {
+  if (flexCellGrow.includes(grow)) {
+    if (grow) {
       levers.grow = "su-flex-grow";
     } else {
       levers.grow = "su-flex-grow-0";
     }
   }
 
-  if (flexCellShrink.includes(props.shrink)) {
-    if (props.shrink) {
+  if (flexCellShrink.includes(shrink)) {
+    if (shrink) {
       levers.shrink = "su-flex-shrink";
     } else {
       levers.shrink = "su-flex-shrink-0";
     }
   }
 
-  if (props.order && flexCellOrder.includes(props.order)) {
-    levers.order = "su-order-" + props.order;
+  if (order && order in flexCellOrder) {
+    levers.order = flexCellOrder[order];
   }
 
-  return /*#__PURE__*/React__default.createElement(Element, {
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: cnbuilder.dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className),
     ref: ref
-  }, children);
+  }, rest), children);
 };
 FlexCell.propTypes = {
   element: propTypes.oneOf(flexCellElements),
-  xs: propTypes.oneOf(flexCellWidth),
-  sm: propTypes.oneOf(flexCellWidth),
-  md: propTypes.oneOf(flexCellWidth),
-  lg: propTypes.oneOf(flexCellWidth),
-  xl: propTypes.oneOf(flexCellWidth),
-  xxl: propTypes.oneOf(flexCellWidth),
-  flex: propTypes.oneOf(flexCellFlex),
+  xs: propTypes.oneOf(Object.keys(flexCellWidth.xs)),
+  sm: propTypes.oneOf(Object.keys(flexCellWidth.sm)),
+  md: propTypes.oneOf(Object.keys(flexCellWidth.md)),
+  lg: propTypes.oneOf(Object.keys(flexCellWidth.lg)),
+  xl: propTypes.oneOf(Object.keys(flexCellWidth.xl)),
+  xxl: propTypes.oneOf(Object.keys(flexCellWidth.xxl)),
+  flex: propTypes.oneOf(Object.keys(flexCellFlex)),
   grow: propTypes.bool,
   shrink: propTypes.bool,
+  order: propTypes.oneOf(Object.keys(flexCellOrder)),
   children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
 };
 FlexCell.defaultProps = {};
 
 var headingLevels = [1, 2, 3, 4, 5, 6];
-var headingFonts = ['sans', 'serif', 'slab'];
-var headingWeights = ['light', 'regular', 'semibold', 'bold'];
-var headingSizes = [0, 1, 2, 3, 4, 5, 6];
-var headingTracking = ['tighter', 'tight', 'normal', 'wide', 'wider', 'widest'];
-var headingAlign = ['left', 'center', 'right', 'justify'];
+var headingFonts = {
+  'sans': 'su-font-sans',
+  'serif': 'su-font-serif',
+  'slab': 'su-font-slab'
+};
+var headingWeights = {
+  'light': 'su-font-light',
+  'regular': 'su-font-regular',
+  'semibold': 'su-font-semibold',
+  'bold': 'su-font-bold'
+};
+var headingSizes = {
+  '0': 'su-type-0',
+  '1': 'su-type-1',
+  '2': 'su-type-2',
+  '3': 'su-type-3',
+  '4': 'su-type-4',
+  '5': 'su-type-5',
+  '6': 'su-type-6'
+};
+var headingTracking = {
+  'tighter': 'su-tracking-tighter',
+  'tight': 'su-tracking-tight',
+  'normal': 'su-tracking-normal',
+  'wide': 'su-tracking-wide',
+  'wider': 'su-tracking-wider',
+  'widest': 'su-tracking-widest'
+};
+var headingAlign = {
+  'left': 'su-text-left',
+  'center': 'su-text-center',
+  'right': 'su-text-right',
+  'justify': 'su-text-justify'
+};
 
 var Heading = function Heading(_ref) {
   var className = _ref.className,
@@ -2067,24 +2198,24 @@ var Heading = function Heading(_ref) {
     HeadingTag = 'h' + level;
   }
 
-  if (font && headingFonts.includes(font)) {
-    levers.font = "su-font-" + font;
+  if (font && font in headingFonts) {
+    levers.font = headingFonts[font];
   }
 
-  if (weight && headingWeights.includes(weight)) {
-    levers.weight = "su-font-" + weight;
+  if (weight && weight in headingWeights) {
+    levers.weight = headingWeights[weight];
   }
 
-  if (tracking && headingTracking.includes(tracking)) {
-    levers.tracking = "su-tracking-" + tracking;
+  if (tracking && tracking in headingTracking) {
+    levers.tracking = headingTracking[tracking];
   }
 
-  if (align && headingAlign.includes(align)) {
-    levers.align = "su-text-" + align;
+  if (align && align in headingAlign) {
+    levers.align = headingAlign[align];
   }
 
-  if (size !== null && headingSizes.includes(size)) {
-    levers.size = "su-type-" + size;
+  if (size && size in headingSizes) {
+    levers.size = headingSizes[size];
   }
 
   if (uppercase) {
@@ -2106,11 +2237,11 @@ var Heading = function Heading(_ref) {
 };
 Heading.propTypes = {
   level: propTypes.oneOf(headingLevels),
-  font: propTypes.oneOf(headingFonts),
-  size: propTypes.oneOf(headingSizes),
-  align: propTypes.oneOf(headingAlign),
-  weight: propTypes.oneOf(headingWeights),
-  tracking: propTypes.oneOf(headingTracking),
+  font: propTypes.oneOf(Object.keys(headingFonts)),
+  size: propTypes.oneOf(Object.keys(headingSizes)),
+  align: propTypes.oneOf(Object.keys(headingAlign)),
+  weight: propTypes.oneOf(Object.keys(headingWeights)),
+  tracking: propTypes.oneOf(Object.keys(headingTracking)),
   uppercase: propTypes.bool,
   italic: propTypes.bool,
   srOnly: propTypes.bool,
@@ -2293,27 +2424,105 @@ GlobalFooter.defaultProps = {
 
 var gridElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
 var gridGap = [true, false];
-var gridNumCols = Array.from({
-  length: 12
-}, function (_, i) {
-  return i + 1;
-});
+var gridCols = {
+  'xs': {
+    '1': 'su-grid-cols-1',
+    '2': 'su-grid-cols-2',
+    '3': 'su-grid-cols-3',
+    '4': 'su-grid-cols-4',
+    '5': 'su-grid-cols-5',
+    '6': 'su-grid-cols-6',
+    '7': 'su-grid-cols-7',
+    '8': 'su-grid-cols-8',
+    '9': 'su-grid-cols-9',
+    '10': 'su-grid-cols-10',
+    '11': 'su-grid-cols-11',
+    '12': 'su-grid-cols-12'
+  },
+  'sm': {
+    '1': 'sm:su-grid-cols-1',
+    '2': 'sm:su-grid-cols-2',
+    '3': 'sm:su-grid-cols-3',
+    '4': 'sm:su-grid-cols-4',
+    '5': 'sm:su-grid-cols-5',
+    '6': 'sm:su-grid-cols-6',
+    '7': 'sm:su-grid-cols-7',
+    '8': 'sm:su-grid-cols-8',
+    '9': 'sm:su-grid-cols-9',
+    '10': 'sm:su-grid-cols-10',
+    '11': 'sm:su-grid-cols-11',
+    '12': 'sm:su-grid-cols-12'
+  },
+  'md': {
+    '1': 'md:su-grid-cols-1',
+    '2': 'md:su-grid-cols-2',
+    '3': 'md:su-grid-cols-3',
+    '4': 'md:su-grid-cols-4',
+    '5': 'md:su-grid-cols-5',
+    '6': 'md:su-grid-cols-6',
+    '7': 'md:su-grid-cols-7',
+    '8': 'md:su-grid-cols-8',
+    '9': 'md:su-grid-cols-9',
+    '10': 'md:su-grid-cols-10',
+    '11': 'md:su-grid-cols-11',
+    '12': 'md:su-grid-cols-12'
+  },
+  'lg': {
+    '1': 'lg:su-grid-cols-1',
+    '2': 'lg:su-grid-cols-2',
+    '3': 'lg:su-grid-cols-3',
+    '4': 'lg:su-grid-cols-4',
+    '5': 'lg:su-grid-cols-5',
+    '6': 'lg:su-grid-cols-6',
+    '7': 'lg:su-grid-cols-7',
+    '8': 'lg:su-grid-cols-8',
+    '9': 'lg:su-grid-cols-9',
+    '10': 'lg:su-grid-cols-10',
+    '11': 'lg:su-grid-cols-11',
+    '12': 'lg:su-grid-cols-12'
+  },
+  'xl': {
+    '1': 'xl:su-grid-cols-1',
+    '2': 'xl:su-grid-cols-2',
+    '3': 'xl:su-grid-cols-3',
+    '4': 'xl:su-grid-cols-4',
+    '5': 'xl:su-grid-cols-5',
+    '6': 'xl:su-grid-cols-6',
+    '7': 'xl:su-grid-cols-7',
+    '8': 'xl:su-grid-cols-8',
+    '9': 'xl:su-grid-cols-9',
+    '10': 'xl:su-grid-cols-10',
+    '11': 'xl:su-grid-cols-11',
+    '12': 'xl:su-grid-cols-12'
+  },
+  'xxl': {
+    '1': '2xl:su-grid-cols-1',
+    '2': '2xl:su-grid-cols-2',
+    '3': '2xl:su-grid-cols-3',
+    '4': '2xl:su-grid-cols-4',
+    '5': '2xl:su-grid-cols-5',
+    '6': '2xl:su-grid-cols-6',
+    '7': '2xl:su-grid-cols-7',
+    '8': '2xl:su-grid-cols-8',
+    '9': '2xl:su-grid-cols-9',
+    '10': '2xl:su-grid-cols-10',
+    '11': '2xl:su-grid-cols-11',
+    '12': '2xl:su-grid-cols-12'
+  }
+};
 
 var Grid = function Grid(_ref) {
   var element = _ref.element,
       gap = _ref.gap,
-      xs = _ref.xs,
-      sm = _ref.sm,
-      md = _ref.md,
-      lg = _ref.lg,
-      xl = _ref.xl,
-      xxl = _ref.xxl,
       className = _ref.className,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["element", "gap", "xs", "sm", "md", "lg", "xl", "xxl", "className", "children", "ref"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["element", "gap", "className", "children", "ref"]);
 
   var levers = {};
+
+  var rest = _objectWithoutPropertiesLoose(props, ["xs", "sm", "md", "lg", "xl", "xxl"]);
+
   var Element = 'div';
 
   if (element && gridElements.includes(element)) {
@@ -2324,42 +2533,28 @@ var Grid = function Grid(_ref) {
     levers.gap = 'su-grid-gap';
   }
 
-  var bps = {
-    xs: xs,
-    sm: sm,
-    md: md,
-    lg: lg,
-    xl: xl,
-    xxl: xxl
-  };
-  Object.entries(bps).forEach(function (_ref2) {
-    var key = _ref2[0],
-        value = _ref2[1];
-
-    if (value && (gridNumCols.includes(value) || gridNumCols.includes(Number(value)))) {
-      if (key === 'xs') {
-        levers[key] = "su-grid-cols-" + value;
-      } else if (key === 'xxl') {
-        levers[key] = "2xl:su-grid-cols-" + value;
-      } else {
-        levers[key] = key + ":su-grid-cols-" + value;
+  var bps = Object.keys(gridCols);
+  bps.forEach(function (bp) {
+    if (props[bp] && gridCols && bp in gridCols) {
+      if (props[bp] in gridCols[bp]) {
+        levers[bp] = gridCols[bp][props[bp]];
       }
     }
   });
   return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: cnbuilder.dcnb('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
     ref: ref
-  }, props), children);
+  }, rest), children);
 };
 Grid.propTypes = {
   element: propTypes.oneOf(gridElements),
   gap: propTypes.bool,
-  xs: propTypes.oneOf(gridNumCols),
-  sm: propTypes.oneOf(gridNumCols),
-  md: propTypes.oneOf(gridNumCols),
-  lg: propTypes.oneOf(gridNumCols),
-  xl: propTypes.oneOf(gridNumCols),
-  xxl: propTypes.oneOf(gridNumCols),
+  xs: propTypes.oneOf(Object.keys(gridCols.xs)),
+  sm: propTypes.oneOf(Object.keys(gridCols.sm)),
+  md: propTypes.oneOf(Object.keys(gridCols.md)),
+  lg: propTypes.oneOf(Object.keys(gridCols.lg)),
+  xl: propTypes.oneOf(Object.keys(gridCols.xl)),
+  xxl: propTypes.oneOf(Object.keys(gridCols.xxl)),
   children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object]),
   ref: propTypes.oneOfType([propTypes.func, propTypes.shape({
@@ -2372,81 +2567,203 @@ Grid.defaultProps = {
 };
 
 var gridCellElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav'];
-var gridColSpan = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'auto', 'full'];
-var gridColLine = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 'auto'];
-var gridRowSpan = [1, 2, 3, 4, 5, 6, 'auto', 'full'];
-var gridRowLine = [1, 2, 3, 4, 5, 6, 'auto'];
+var gridColBPs = {
+  'xs': '',
+  'sm': 'sm',
+  'md': 'md',
+  'lg': 'lg',
+  'xl': 'xl',
+  'xxl': '2xl'
+};
+var gridColSpan = {
+  'xs': {
+    'auto': 'su-col-auto',
+    'full': 'su-col-span-full',
+    '1': 'su-col-span-1',
+    '2': 'su-col-span-2',
+    '3': 'su-col-span-3',
+    '4': 'su-col-span-4',
+    '5': 'su-col-span-5',
+    '6': 'su-col-span-6',
+    '7': 'su-col-span-7',
+    '8': 'su-col-span-8',
+    '9': 'su-col-span-9',
+    '10': 'su-col-span-10',
+    '11': 'su-col-span-11',
+    '12': 'su-col-span-12'
+  },
+  'sm': {
+    'auto': 'sm:su-col-auto',
+    'full': 'sm:su-col-span-full',
+    '1': 'sm:su-col-span-1',
+    '2': 'sm:su-col-span-2',
+    '3': 'sm:su-col-span-3',
+    '4': 'sm:su-col-span-4',
+    '5': 'sm:su-col-span-5',
+    '6': 'sm:su-col-span-6',
+    '7': 'sm:su-col-span-7',
+    '8': 'sm:su-col-span-8',
+    '9': 'sm:su-col-span-9',
+    '10': 'sm:su-col-span-10',
+    '11': 'sm:su-col-span-11',
+    '12': 'sm:su-col-span-12'
+  },
+  'md': {
+    'auto': 'md:su-col-auto',
+    'full': 'md:su-col-span-full',
+    '1': 'md:su-col-span-1',
+    '2': 'md:su-col-span-2',
+    '3': 'md:su-col-span-3',
+    '4': 'md:su-col-span-4',
+    '5': 'md:su-col-span-5',
+    '6': 'md:su-col-span-6',
+    '7': 'md:su-col-span-7',
+    '8': 'md:su-col-span-8',
+    '9': 'md:su-col-span-9',
+    '10': 'md:su-col-span-10',
+    '11': 'md:su-col-span-11',
+    '12': 'md:su-col-span-12'
+  },
+  'lg': {
+    'auto': 'lg:su-col-auto',
+    'full': 'lg:su-col-span-full',
+    '1': 'lg:su-col-span-1',
+    '2': 'lg:su-col-span-2',
+    '3': 'lg:su-col-span-3',
+    '4': 'lg:su-col-span-4',
+    '5': 'lg:su-col-span-5',
+    '6': 'lg:su-col-span-6',
+    '7': 'lg:su-col-span-7',
+    '8': 'lg:su-col-span-8',
+    '9': 'lg:su-col-span-9',
+    '10': 'lg:su-col-span-10',
+    '11': 'lg:su-col-span-11',
+    '12': 'lg:su-col-span-12'
+  },
+  'xl': {
+    'auto': 'xl:su-col-auto',
+    'full': 'xl:su-col-span-full',
+    '1': 'xl:su-col-span-1',
+    '2': 'xl:su-col-span-2',
+    '3': 'xl:su-col-span-3',
+    '4': 'xl:su-col-span-4',
+    '5': 'xl:su-col-span-5',
+    '6': 'xl:su-col-span-6',
+    '7': 'xl:su-col-span-7',
+    '8': 'xl:su-col-span-8',
+    '9': 'xl:su-col-span-9',
+    '10': 'xl:su-col-span-10',
+    '11': 'xl:su-col-span-11',
+    '12': 'xl:su-col-span-12'
+  },
+  'xxl': {
+    'auto': '2xl:su-col-auto',
+    'full': '2xl:su-col-span-full',
+    '1': '2xl:su-col-span-1',
+    '2': '2xl:su-col-span-2',
+    '3': '2xl:su-col-span-3',
+    '4': '2xl:su-col-span-4',
+    '5': '2xl:su-col-span-5',
+    '6': '2xl:su-col-span-6',
+    '7': '2xl:su-col-span-7',
+    '8': '2xl:su-col-span-8',
+    '9': '2xl:su-col-span-9',
+    '10': '2xl:su-col-span-10',
+    '11': '2xl:su-col-span-11',
+    '12': '2xl:su-col-span-12'
+  }
+};
+var gridColLine = {
+  '1': 'su-col-start-1',
+  '2': 'su-col-start-2',
+  '3': 'su-col-start-3',
+  '4': 'su-col-start-4',
+  '5': 'su-col-start-5',
+  '6': 'su-col-start-6',
+  '7': 'su-col-start-7',
+  '8': 'su-col-start-8',
+  '9': 'su-col-start-9',
+  '10': 'su-col-start-10',
+  '11': 'su-col-start-11',
+  '12': 'su-col-start-12',
+  'auto': 'su-col-start-auto'
+};
+var gridRowSpan = {
+  '1': 'su-row-span-1',
+  '2': 'su-row-span-2',
+  '3': 'su-row-span-3',
+  '4': 'su-row-span-4',
+  '5': 'su-row-span-5',
+  '6': 'su-row-span-6',
+  'auto': 'su-row-auto',
+  'full': 'su-row-span-full'
+};
+var gridRowLine = {
+  '1': 'su-row-start-1',
+  '2': 'su-row-start-2',
+  '3': 'su-row-start-3',
+  '4': 'su-row-start-4',
+  '5': 'su-row-start-5',
+  '6': 'su-row-start-6',
+  'auto': 'su-row-start-auto'
+};
 
 var GridCell = function GridCell(_ref) {
   var className = _ref.className,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref"]);
+      colStart = _ref.colStart,
+      rowStart = _ref.rowStart,
+      row = _ref.row,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref", "colStart", "rowStart", "row"]);
 
   var levers = {};
+
+  var rest = _objectWithoutPropertiesLoose(props, ["xs", "sm", "md", "lg", "xl", "xxl"]);
+
   var Element = 'div';
 
   if (props.element && gridCellElements.includes(props.element)) {
     Element = props.element;
   }
 
-  var bps = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+  var bps = Object.keys(gridColBPs);
   bps.forEach(function (bp) {
-    if (props[bp] && gridColSpan.includes(props[bp])) {
-      if (props[bp] === 'auto') {
-        if (bp === 'xs') {
-          levers[bp] = "su-col-auto";
-        } else if (bp === 'xxl') {
-          levers[bp] = "2xl:su-col-auto";
-        } else {
-          levers[bp] = bp + ":su-col-auto";
-        }
-      } else if (typeof props[bp] === 'number' || props[bp] === 'full') {
-        if (bp === 'xs') {
-          levers[bp] = "su-col-span-" + props[bp];
-        } else if (bp === 'xxl') {
-          levers[bp] = "2xl:su-col-span-" + props[bp];
-        } else {
-          levers[bp] = bp + (":su-col-span-" + props[bp]);
-        }
+    if (props[bp] && gridColSpan && bp in gridColSpan) {
+      if (props[bp] in gridColSpan[bp]) {
+        levers[bp] = gridColSpan[bp][props[bp]];
       }
     }
   });
 
-  if (props.colStart && gridColLine.includes(props.colStart)) {
-    levers.colStart = "su-col-start-" + props.colStart;
+  if (colStart && colStart in gridColLine) {
+    levers.colStart = gridColLine[colStart];
   }
 
-  if (props.row && gridRowSpan.includes(props.row)) {
-    levers.row = "su-row-span-" + props.row;
-
-    if (props.row === 'auto') {
-      levers.row = "su-row-auto";
-    } else {
-      levers.row = "su-row-span-" + props.row;
-    }
+  if (row && row in gridRowSpan) {
+    levers.row = gridRowSpan[row];
   }
 
-  if (props.rowStart && gridRowLine.includes(props.rowStart)) {
-    levers.rowStart = "su-row-start-" + props.rowStart;
+  if (rowStart && rowStart in gridRowLine) {
+    levers.rowStart = gridRowLine[rowStart];
   }
 
-  return /*#__PURE__*/React__default.createElement(Element, {
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: cnbuilder.dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className),
     ref: ref
-  }, children);
+  }, rest), children);
 };
 GridCell.propTypes = {
   element: propTypes.oneOf(gridCellElements),
-  xs: propTypes.oneOf(gridColSpan),
-  sm: propTypes.oneOf(gridColSpan),
-  md: propTypes.oneOf(gridColSpan),
-  lg: propTypes.oneOf(gridColSpan),
-  xl: propTypes.oneOf(gridColSpan),
-  xxl: propTypes.oneOf(gridColSpan),
-  colStart: propTypes.oneOf(gridColLine),
-  row: propTypes.oneOf(gridRowSpan),
-  rowStart: propTypes.oneOf(gridRowLine),
+  xs: propTypes.oneOf(Object.keys(gridColSpan.xs)),
+  sm: propTypes.oneOf(Object.keys(gridColSpan.sm)),
+  md: propTypes.oneOf(Object.keys(gridColSpan.md)),
+  lg: propTypes.oneOf(Object.keys(gridColSpan.lg)),
+  xl: propTypes.oneOf(Object.keys(gridColSpan.xl)),
+  xxl: propTypes.oneOf(Object.keys(gridColSpan.xxl)),
+  colStart: propTypes.oneOf(Object.keys(gridColLine)),
+  row: propTypes.oneOf(Object.keys(gridRowSpan)),
+  rowStart: propTypes.oneOf(Object.keys(gridRowLine)),
   children: propTypes.oneOfType([propTypes.node, propTypes.element, propTypes.string]),
   className: propTypes.oneOfType([propTypes.string, propTypes.array, propTypes.object])
 };
