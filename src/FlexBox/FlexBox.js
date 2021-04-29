@@ -22,13 +22,13 @@ export const FlexBox = ({ element, direction, wrap, gap, justifyContent, justify
   }
 
   // props.direction
-  if (direction && flexDirection.includes(direction)) {
-    levers.direction = `su-flex-${direction}`;
+  if (direction && direction in flexDirection) {
+    levers.direction = flexDirection[direction];
   }
 
   // props.wrap
-  if (wrap && flexWrap.includes(wrap)) {
-    levers.wrap = `su-flex-${wrap}`;
+  if (wrap && wrap in flexWrap) {
+    levers.wrap = flexWrap[wrap];
   }
 
   // props.gap
@@ -37,71 +37,23 @@ export const FlexBox = ({ element, direction, wrap, gap, justifyContent, justify
   }
 
   // props.justifyContent
-  if (justifyContent && flexJustifyContent.includes(justifyContent)) {
-    switch (justifyContent) {
-      case 'start':
-        levers.justifyContent = 'su-justify-start';
-        break;
-
-      case 'end':
-        levers.justifyContent = 'su-justify-end';
-        break;
-
-      case 'center':
-        levers.justifyContent = 'su-justify-center';
-        break;
-
-      case 'space-between':
-        levers.justifyContent = 'su-justify-between';
-        break;
-
-      case 'space-around':
-        levers.justifyContent = 'su-justify-around';
-        break;
-
-      case 'space-evenly':
-        levers.justifyContent = 'su-justify-evenly';
-        break;
-    }
+  if (justifyContent && justifyContent in flexJustifyContent) {
+    levers.justifyContent = flexJustifyContent[justifyContent];
   }
 
   // props.justifyItems
-  if (justifyItems && flexJustifyItems.includes(justifyItems)) {
-    levers.justifyItems = `su-justify-items-${justifyItems}`;
+  if (justifyItems && justifyItems in flexJustifyItems) {
+    levers.justifyItems = flexJustifyItems[justifyItems];
   }
 
   // props.alignContent
-  if (alignContent && flexAlignContent.includes(alignContent)) {
-    switch (alignContent) {
-      case 'start':
-        levers.alignContent = 'su-content-start';
-        break;
-
-      case 'end':
-        levers.alignContent = 'su-content-end';
-        break;
-
-      case 'center':
-        levers.alignContent = 'su-content-center';
-        break;
-
-      case 'space-between':
-        levers.alignContent = 'su-content-between';
-        break;
-
-      case 'space-around':
-        levers.alignContent = 'su-content-around';
-        break;
-
-      case 'space-evenly':
-        levers.alignContent = 'su-content-evenly';
-        break;
-    }
+  if (alignContent && alignContent in flexAlignContent) {
+    levers.alignContent = flexAlignContent[alignContent];
   }
 
   // props.alignItems
-  if (alignItems && flexAlignItems.includes(alignItems)) {
-    levers.alignItems = `su-items-${alignItems}`;
+  if (alignItems && alignItems in flexAlignItems) {
+    levers.alignItems = flexAlignItems[alignItems];
   }
 
   return (
@@ -118,13 +70,13 @@ FlexBox.propTypes = {
    * Which HTML element?
    */
   element: PropTypes.oneOf(flexElements),
-  direction: PropTypes.oneOf(flexDirection),
-  wrap: PropTypes.oneOf(flexWrap),
+  direction: PropTypes.oneOf(Object.keys(flexDirection)),
+  wrap: PropTypes.oneOf(Object.keys(flexWrap)),
   gap: PropTypes.bool,
-  justifyContent: PropTypes.oneOf(flexJustifyContent),
-  justifyItems: PropTypes.oneOf(flexJustifyItems),
-  alignContent: PropTypes.oneOf(flexAlignContent),
-  alignItems: PropTypes.oneOf(flexAlignItems),
+  justifyContent: PropTypes.oneOf(Object.keys(flexJustifyContent)),
+  justifyItems: PropTypes.oneOf(Object.keys(flexJustifyItems)),
+  alignContent: PropTypes.oneOf(Object.keys(flexAlignContent)),
+  alignItems: PropTypes.oneOf(Object.keys(flexAlignItems)),
 
   children: PropTypes.oneOfType([
     PropTypes.node,

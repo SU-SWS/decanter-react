@@ -16,55 +16,55 @@ export default {
     xs: {
       control: {
         type: 'select',
-        options: gridColSpan
+        options: Object.keys(gridColSpan.xs)
       }
     },
     sm: {
       control: {
         type: 'select',
-        options: gridColSpan
+        options: Object.keys(gridColSpan.sm)
       }
     },
     md: {
       control: {
         type: 'select',
-        options: gridColSpan
+        options: Object.keys(gridColSpan.md)
       }
     },
     lg: {
       control: {
         type: 'select',
-        options: gridColSpan
+        options: Object.keys(gridColSpan.lg)
       }
     },
     xl: {
       control: {
         type: 'select',
-        options: gridColSpan
+        options: Object.keys(gridColSpan.xl)
       }
     },
     xxl: {
       control: {
         type: 'select',
-        options: gridColSpan
+        options: Object.keys(gridColSpan.xxl)
       }
     },
     colStart: {
       control: {
         type: 'select',
-        options: gridColLine
+        options: Object.keys(gridColLine)
       }
     },
     row: {
       control: {
         type: 'select',
-        options: gridRowSpan
+        options: Object.keys(gridRowSpan)
       }
     },
     rowStart: {
       control: {
         type: 'select',
-        options: gridRowLine
+        options: Object.keys(gridRowLine)
       }
     },
   }
