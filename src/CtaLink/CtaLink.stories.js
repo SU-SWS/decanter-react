@@ -159,3 +159,28 @@ SrText.args = {
   href: 'https://decanter.stanford.edu',
 };
 SrText.storyName = 'Link with Screen Reader Only Text';
+
+const linkRef = React.createRef();
+
+export const ForwardRef = ({...args}) => {
+  const setFocus = () => {
+    linkRef.current.focus();
+  }
+
+  return (
+    <div>
+      <CtaLink {...args} />
+      <div>
+      <a href="javascript:void(0);" onClick={setFocus}>
+        Clicking here will set focus using linkRef.current.focus()
+      </a>
+      </div>
+    </div>
+  )
+};
+
+ForwardRef.args = {
+  children: 'Target Link',
+  ref: linkRef,
+};
+ForwardRef.storyName = 'With Forwarded Ref';

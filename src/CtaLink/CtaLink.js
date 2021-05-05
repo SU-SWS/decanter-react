@@ -13,7 +13,7 @@ import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
  * CTA Link Component
  *
  */
-export const CtaLink = ({ className, text, srText, color, icon, iconProps, animate, ...props }) => {
+export const CtaLink = React.forwardRef(({ className, text, srText, color, icon, iconProps, animate, ...props }, ref) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -70,7 +70,7 @@ export const CtaLink = ({ className, text, srText, color, icon, iconProps, anima
       }
     </a>
   );
-};
+});
 
 CtaLink.propTypes = {
 
