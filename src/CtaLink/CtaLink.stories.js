@@ -165,7 +165,7 @@ const linkRef = React.createRef();
 export const ForwardRef = ({...args}) => {
   const setFocus = () => {
     linkRef.current.focus();
-  }
+  };
 
   return (
     <div>
@@ -176,11 +176,12 @@ export const ForwardRef = ({...args}) => {
       </a>
       </div>
     </div>
-  )
+  );
 };
 
 ForwardRef.args = {
-  children: 'Target Link',
+  text: 'Target Link',
+  href: 'https://stanford.edu',
   ref: linkRef,
 };
 ForwardRef.storyName = 'With Forwarded Ref';
