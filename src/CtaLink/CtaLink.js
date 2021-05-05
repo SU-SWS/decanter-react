@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ctaLinkColors } from './CtaLink.levers';
-import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
-import getIconOption from "../common/icon/getIconOption";
-import getIconClasses from "../common/icon/getIconClasses";
-import getIconAnimation from "../common/icon/getIconAnimation";
+import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import getIconOption from '../common/icon/getIconOption';
+import getIconClasses from '../common/icon/getIconClasses';
+import getIconAnimation from '../common/icon/getIconAnimation';
 import Icon from 'react-hero-icon';
 import { dcnb } from 'cnbuilder';
-import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
 
 /**
  * CTA Link Component
@@ -59,6 +59,7 @@ export const CtaLink = React.forwardRef(({ className, text, srText, color, icon,
     <a
       className={dcnb('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
         levers.color, levers.size, levers.variant, className)}
+      ref={ref}
       {...props}
     >
       {text}
