@@ -1,9 +1,9 @@
 import React from 'react';
-import { CtaButton } from "./CtaButton";
-import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
-import { ctaButtonVariants } from "./CtaButton.levers";
-import { buttonSizes } from "../common/button/button.levers";
-import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
+import { CtaButton } from './CtaButton';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { ctaButtonVariants } from './CtaButton.levers';
+import { buttonSizes } from '../common/button/button.levers';
+import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
 
 export default {
   title: 'Simple/CTA Link Button',
@@ -13,34 +13,32 @@ export default {
     variant: {
       control: {
         type: 'inline-radio',
-        options: ctaButtonVariants
-      }
+        options: ctaButtonVariants,
+      },
     },
     size: {
       control: {
         type: 'inline-radio',
-        options: buttonSizes
-      }
+        options: buttonSizes,
+      },
     },
     icon: {
       control: {
         type: 'select',
-        options: iconOptions
-      }
+        options: iconOptions,
+      },
     },
     animate: {
       control: {
         type: 'inline-radio',
-        options: iconAnimations
-      }
+        options: iconAnimations,
+      },
     },
-  }
+  },
 };
 
 const CtaButtonTemplate = ({ ...rest }) => {
-  return (
-    <CtaButton {...rest} />
-  );
+  return <CtaButton {...rest} />;
 };
 
 export const Solid = CtaButtonTemplate.bind({});
@@ -50,7 +48,7 @@ Solid.args = {
   size: 'default',
   icon: 'none',
   text: 'Solid Link Button',
-  href: 'https://stanford.edu'
+  href: 'https://stanford.edu',
 };
 
 export const Outline = CtaButtonTemplate.bind({});
@@ -59,7 +57,7 @@ Outline.args = {
   size: 'default',
   icon: 'none',
   text: 'Outline Button',
-  href: 'https://stanford.edu'
+  href: 'https://stanford.edu',
 };
 
 export const Ghost = CtaButtonTemplate.bind({});
@@ -68,7 +66,7 @@ Ghost.args = {
   size: 'default',
   icon: 'none',
   text: 'Ghost Button',
-  href: 'https://stanford.edu'
+  href: 'https://stanford.edu',
 };
 
 export const Big = CtaButtonTemplate.bind({});
@@ -77,7 +75,7 @@ Big.args = {
   size: 'big',
   icon: 'none',
   text: 'Big Button',
-  href: 'https://stanford.edu'
+  href: 'https://stanford.edu',
 };
 
 export const Small = CtaButtonTemplate.bind({});
@@ -96,7 +94,7 @@ Action.args = {
   icon: 'action',
   animate: 'right',
   text: 'Solid with Right Caret',
-  href: 'https://stanford.edu'
+  href: 'https://stanford.edu',
 };
 Action.storyName = 'With Right Caret';
 
@@ -107,7 +105,7 @@ Download.args = {
   icon: 'download',
   animate: 'down',
   text: 'Solid Download Button',
-  href: 'https://stanford.edu'
+  href: 'https://stanford.edu',
 };
 Download.storyName = 'With Download Icon';
 
@@ -118,7 +116,7 @@ NoAnimate.args = {
   icon: 'email',
   animate: 'none',
   text: 'Contact us',
-  href: 'mailto:a@example.com'
+  href: 'mailto:a@example.com',
 };
 NoAnimate.storyName = 'With Non-animated Icon';
 
@@ -130,7 +128,7 @@ SrText.args = {
   animate: 'top-right',
   text: 'Learn more',
   srText: 'about Decanter',
-  href: 'https://stanford.edu'
+  href: 'https://stanford.edu',
 };
 SrText.storyName = 'With Screen Reader Only Text';
 
@@ -142,7 +140,8 @@ Custom.args = {
   animate: 'top-right',
   text: 'With Custom Classes',
   link: 'https://stanford.edu',
-  className: 'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark hocus:su-bg-plum su-text-white hocus:su-text-white su-p-30'
+  className:
+    'su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark hocus:su-bg-plum su-text-white hocus:su-text-white su-p-30',
 };
 Custom.storyName = 'With Custom Styling';
 
@@ -156,7 +155,7 @@ CustomProps.args = {
   href: 'https://stanford.edu',
   id: 'custom-id',
   target: '_blank',
-  rel: 'nofollow'
+  rel: 'nofollow',
 };
 CustomProps.storyName = 'With Custom Props';
 
@@ -168,6 +167,35 @@ CustomClick.args = {
   animate: 'top-right',
   text: 'Link with Custom Click Event',
   className: 'su-cursor-pointer',
-  onClick: () => { alert("Hey, you did it."); },
+  onClick: () => {
+    alert('Hey, you did it.');
+  },
 };
 CustomClick.storyName = 'Link with Custom Click';
+
+const ctaButtonRef = React.createRef();
+
+export const ForwardRef = (args) => {
+  const setFocus = () => {
+    ctaButtonRef.current.focus();
+  };
+
+  return (
+    <div>
+      <CtaButton {...args} />
+      <div>
+        <a href='javascript:void(0);' onClick={setFocus}>
+          Clicking here will set focus using ctaButtonRef.current.focus()
+        </a>
+      </div>
+    </div>
+  );
+};
+
+ForwardRef.args = {
+  text: 'Target Button',
+  size: 'default',
+  href: 'https://stanford.edu',
+  ref: ctaButtonRef,
+};
+ForwardRef.storyName = 'With Forwarded Ref';

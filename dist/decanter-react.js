@@ -1673,7 +1673,7 @@ Container.defaultProps = {
 
 var ctaButtonVariants = ['solid', 'outline', 'ghost', 'unset'];
 
-var CtaButton = function CtaButton(_ref) {
+var CtaButton = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
   var className = _ref.className,
       text = _ref.text,
       srText = _ref.srText,
@@ -1722,7 +1722,8 @@ var CtaButton = function CtaButton(_ref) {
       iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
 
   return /*#__PURE__*/React__default.createElement("a", _extends({
-    className: cnbuilder.dcnb('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.size, levers.variant, className)
+    className: cnbuilder.dcnb('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.size, levers.variant, className),
+    ref: ref
   }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
     srText: ' ' + srText
   }), icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
@@ -1731,7 +1732,7 @@ var CtaButton = function CtaButton(_ref) {
     "aria-hidden": true,
     className: cnbuilder.dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)
   }, iProps)));
-};
+});
 CtaButton.propTypes = {
   className: propTypes.string,
   variant: propTypes.oneOf(ctaButtonVariants),
@@ -1749,7 +1750,7 @@ CtaButton.defaultProps = {
 
 var ctaLinkColors = ['red', 'blue', 'white', 'unset'];
 
-var CtaLink = function CtaLink(_ref) {
+var CtaLink = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
   var className = _ref.className,
       text = _ref.text,
       srText = _ref.srText,
@@ -1793,7 +1794,8 @@ var CtaLink = function CtaLink(_ref) {
       iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
 
   return /*#__PURE__*/React__default.createElement("a", _extends({
-    className: cnbuilder.dcnb('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.color, levers.size, levers.variant, className)
+    className: cnbuilder.dcnb('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.color, levers.size, levers.variant, className),
+    ref: ref
   }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
     srText: ' ' + srText
   }), icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
@@ -1802,7 +1804,7 @@ var CtaLink = function CtaLink(_ref) {
     "aria-hidden": true,
     className: cnbuilder.dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)
   }, iProps)));
-};
+});
 CtaLink.propTypes = {
   className: propTypes.string,
   color: propTypes.oneOf(ctaLinkColors),

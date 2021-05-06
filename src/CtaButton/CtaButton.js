@@ -15,7 +15,7 @@ import { dcnb } from 'cnbuilder';
  * CTA Link Button Component
  *
  */
-export const CtaButton = ({ className, text, srText, variant, size, icon, iconProps, animate, ...props }) => {
+export const CtaButton = React.forwardRef(({ className, text, srText, variant, size, icon, iconProps, animate, ...props }, ref) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
@@ -66,6 +66,7 @@ export const CtaButton = ({ className, text, srText, variant, size, icon, iconPr
     <a
       className={dcnb('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
         levers.size, levers.variant, className)}
+      ref={ref}
       {...props}
     >
       {text}
@@ -82,7 +83,7 @@ export const CtaButton = ({ className, text, srText, variant, size, icon, iconPr
       }
     </a>
   );
-};
+});
 
 CtaButton.propTypes = {
 
