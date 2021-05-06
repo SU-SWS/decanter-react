@@ -1,11 +1,50 @@
 {
   "parser": "@babel/eslint-parser",
   "plugins": [
-    "react"
+    "react",
+    "prettier"
   ],
   "extends": [
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "prettier"
   ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "lf",
+        "semi": true,
+        "singleQuote": false,
+        "tabWidth": 2,
+        "trailingComma": "es5"
+      }
+    ],
+    "space-before-function-paren": 0,
+    "react/prop-types": 0,
+    "react/jsx-handler-names": 0,
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+            ".js",
+            ".jsx"
+        ]
+      }
+    ],
+    "react/jsx-fragments": 0,
+    "react/no-unused-prop-types": 0,
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "local",
+        "args": "none"
+      }
+    ],
+    "import/export": 0,
+    "semi": [1, "always"] // 1 is for warning
+  },
   "env": {
     "node": true
   },
@@ -20,14 +59,5 @@
     "react": {
       "version": "16"
     }
-  },
-  "rules": {
-    "space-before-function-paren": 0,
-    "react/prop-types": 0,
-    "react/jsx-handler-names": 0,
-    "react/jsx-fragments": 0,
-    "react/no-unused-prop-types": 0,
-    "import/export": 0,
-    "semi": [1, "always"] // 1 is for warning
   }
 }
