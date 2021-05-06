@@ -162,7 +162,7 @@ SrText.storyName = 'Link with Screen Reader Only Text';
 
 const linkRef = React.createRef();
 
-export const ForwardRef = ({...args}) => {
+export const ForwardRef = (args) => {
   const setFocus = () => {
     linkRef.current.focus();
   };
