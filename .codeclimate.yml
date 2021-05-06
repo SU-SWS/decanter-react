@@ -45,14 +45,7 @@ plugins:
     enabled: false
   # https://docs.codeclimate.com/docs/duplication
   duplication:
-    enabled: true
-    # exclude_paths:
-    #   - examples/
-    config:
-      languages:
-        javascript:
-          mass_threshold: 50
-          # count_threshold: 3
+    enabled: false
   fixme:
     enabled: true
     config:
