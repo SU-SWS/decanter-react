@@ -175,7 +175,7 @@ CustomClick.storyName = 'Link with Custom Click';
 
 const ctaButtonRef = React.createRef();
 
-export const ForwardRef = ({ ...args }) => {
+export const ForwardRef = (args) => {
   const setFocus = () => {
     ctaButtonRef.current.focus();
   };
