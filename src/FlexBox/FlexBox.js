@@ -1,21 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { dcnb } from 'cnbuilder';
-import { flexElements, flexDirection, flexWrap, flexGap, flexJustifyContent, flexJustifyItems, flexAlignContent, flexAlignItems } from './FlexBox.levers';
+import React from "react";
+import PropTypes from "prop-types";
+import { dcnb } from "cnbuilder";
+import {
+  flexElements,
+  flexDirection,
+  flexWrap,
+  flexGap,
+  flexJustifyContent,
+  flexJustifyItems,
+  flexAlignContent,
+  flexAlignItems,
+} from "./FlexBox.levers";
 
 /**
  * FlexBox component.
  * Options for flex direction, wrapping and box alignments.
  *
  */
-export const FlexBox = ({ element, direction, wrap, gap, justifyContent, justifyItems, alignContent, alignItems, className, children, ref, ...props }) => {
+export const FlexBox = ({
+  element,
+  direction,
+  wrap,
+  gap,
+  justifyContent,
+  justifyItems,
+  alignContent,
+  alignItems,
+  className,
+  children,
+  ref,
+  ...props
+}) => {
   const levers = {};
 
   // Levers
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = 'div';
+  let Element = "div";
 
   if (element && flexElements.includes(element)) {
     Element = element;
@@ -33,7 +55,7 @@ export const FlexBox = ({ element, direction, wrap, gap, justifyContent, justify
 
   // props.gap
   if (gap && flexGap.includes(gap)) {
-    levers.gap = 'su-grid-gap';
+    levers.gap = "su-grid-gap";
   }
 
   // props.justifyContent
@@ -57,7 +79,21 @@ export const FlexBox = ({ element, direction, wrap, gap, justifyContent, justify
   }
 
   return (
-    <Element className={dcnb('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className)} ref={ref} {...props}>
+    <Element
+      className={dcnb(
+        "su-flex",
+        levers.direction,
+        levers.wrap,
+        levers.gap,
+        levers.justifyContent,
+        levers.justifyItems,
+        levers.alignContent,
+        levers.alignItems,
+        className
+      )}
+      ref={ref}
+      {...props}
+    >
       {children}
     </Element>
   );
@@ -81,7 +117,7 @@ FlexBox.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string
+    PropTypes.string,
   ]),
 
   /**
@@ -90,21 +126,21 @@ FlexBox.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
-    PropTypes.object
+    PropTypes.object,
   ]),
   /**
    * React useRef()
    */
   ref: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any })
+    PropTypes.shape({ current: PropTypes.any }), // eslint-disable-line react/forbid-prop-types
   ]),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
 FlexBox.defaultProps = {
-  element: 'div',
-  direction: 'row',
+  element: "div",
+  direction: "row",
   gap: false,
 };

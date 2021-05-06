@@ -1,23 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { dcnb } from 'cnbuilder';
-import { flexCellBPs, flexCellElements, flexCellWidth, flexCellFlex, flexCellGrow, flexCellShrink, flexCellOrder } from './FlexCell.levers';
+import React from "react";
+import PropTypes from "prop-types";
+import { dcnb } from "cnbuilder";
+import {
+  flexCellBPs,
+  flexCellElements,
+  flexCellWidth,
+  flexCellFlex,
+  flexCellGrow,
+  flexCellShrink,
+  flexCellOrder,
+} from "./FlexCell.levers";
 
 /**
  * Flex Cell component.
  * Options include HTML element, width (n-of-12 columns), flex, grow, shrink and order properties.
  *
  */
-export const FlexCell = ({ className, children, ref, flex, grow, shrink, order, element, ...props }) => {
+export const FlexCell = ({
+  className,
+  children,
+  ref,
+  flex,
+  grow,
+  shrink,
+  order,
+  element,
+  ...props
+}) => {
   const levers = {};
   // Destructure the props a bit more so we can add the rest to the element.
-  const { xs, sm, md, lg, xl, xxl, ...rest } = props;
+  const { xs, sm, md, lg, xl, xxl, ...rest } = props; // eslint-disable-line no-unused-vars
 
   // Levers
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = 'div';
+  let Element = "div";
 
   if (element && flexCellElements.includes(element)) {
     Element = element;
@@ -29,15 +47,13 @@ export const FlexCell = ({ className, children, ref, flex, grow, shrink, order, 
   const bps = Object.keys(flexCellBPs);
 
   // Looping over each breakpoint
-  bps.forEach(
-    (bp) => {
-      if (props[bp] && flexCellWidth && bp in flexCellWidth) {
-        if (props[bp] in flexCellWidth[bp]) {
-          levers[bp] = flexCellWidth[bp][props[bp]];
-        }
+  bps.forEach((bp) => {
+    if (props[bp] && flexCellWidth && bp in flexCellWidth) {
+      if (props[bp] in flexCellWidth[bp]) {
+        levers[bp] = flexCellWidth[bp][props[bp]];
       }
     }
-  );
+  });
 
   // props.flex
   if (flex && flex in flexCellFlex) {
@@ -48,8 +64,7 @@ export const FlexCell = ({ className, children, ref, flex, grow, shrink, order, 
   if (flexCellGrow.includes(grow)) {
     if (grow) {
       levers.grow = `su-flex-grow`;
-    }
-    else {
+    } else {
       levers.grow = `su-flex-grow-0`;
     }
   }
@@ -58,8 +73,7 @@ export const FlexCell = ({ className, children, ref, flex, grow, shrink, order, 
   if (flexCellShrink.includes(shrink)) {
     if (shrink) {
       levers.shrink = `su-flex-shrink`;
-    }
-    else {
+    } else {
       levers.shrink = `su-flex-shrink-0`;
     }
   }
@@ -70,7 +84,23 @@ export const FlexCell = ({ className, children, ref, flex, grow, shrink, order, 
   }
 
   return (
-    <Element className={dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className)} ref={ref} {...rest}>
+    <Element
+      className={dcnb(
+        levers.xs,
+        levers.sm,
+        levers.md,
+        levers.lg,
+        levers.xl,
+        levers.xxl,
+        levers.flex,
+        levers.grow,
+        levers.shrink,
+        levers.order,
+        className
+      )}
+      ref={ref}
+      {...rest}
+    >
       {children}
     </Element>
   );
@@ -140,7 +170,7 @@ FlexCell.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string
+    PropTypes.string,
   ]),
 
   /**
@@ -149,7 +179,7 @@ FlexCell.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
-    PropTypes.object
+    PropTypes.object,
   ]),
 };
 

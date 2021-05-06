@@ -1,30 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { dcnb } from 'cnbuilder';
+import React from "react";
+import PropTypes from "prop-types";
+import { dcnb } from "cnbuilder";
 
 /**
  * Skiplink component for accessibility.
  *
  */
-export const Skiplink = ({ anchorLink, className, children, ...props }) => {
-  return (
-    <a href={anchorLink ?? '#main-content'} className={dcnb('su-skiplink', className)} {...props}>
-      {children ?? 'Skip to main content'}
-    </a>
-  );
-};
+export const Skiplink = ({ anchorLink, className, children, ...props }) => (
+  <a
+    href={anchorLink ?? "#main-content"}
+    className={dcnb("su-skiplink", className)}
+    {...props}
+  >
+    {children ?? "Skip to main content"}
+  </a>
+);
 
 // Prop Types.
 // -----------------------------------------------------------------------------
 Skiplink.propTypes = {
-
   /**
    * Custom CSS classes, e.g., to control position
    */
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
-    PropTypes.object
+    PropTypes.object,
   ]),
 
   /**
@@ -38,11 +39,10 @@ Skiplink.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
-    PropTypes.node
-  ])
+    PropTypes.node,
+  ]),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
-Skiplink.defaultProps = {
-};
+Skiplink.defaultProps = {};

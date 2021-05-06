@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { dcnb } from 'cnbuilder';
-import { gridGap, gridCols, gridElements } from './Grid.levers';
+import React from "react";
+import PropTypes from "prop-types";
+import { dcnb } from "cnbuilder";
+import { gridGap, gridCols, gridElements } from "./Grid.levers";
 
 /**
  * CSS Grid component.
@@ -11,13 +11,13 @@ import { gridGap, gridCols, gridElements } from './Grid.levers';
 export const Grid = ({ element, gap, className, children, ref, ...props }) => {
   const levers = {};
   // Destructure the props a bit more so we can add the rest to the element.
-  const { xs, sm, md, lg, xl, xxl, ...rest } = props;
+  const { xs, sm, md, lg, xl, xxl, ...rest } = props; // eslint-disable-line no-unused-vars
 
   // Levers
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = 'div';
+  let Element = "div";
 
   if (element && gridElements.includes(element)) {
     Element = element;
@@ -25,25 +25,37 @@ export const Grid = ({ element, gap, className, children, ref, ...props }) => {
 
   // props.gap
   if (gap && gridGap.includes(gap)) {
-    levers.gap = 'su-grid-gap';
+    levers.gap = "su-grid-gap";
   }
 
   // Available breakpoints
   const bps = Object.keys(gridCols);
 
   // Looping over each breakpoint
-  bps.forEach(
-    (bp) => {
-      if (props[bp] && gridCols && bp in gridCols) {
-        if (props[bp] in gridCols[bp]) {
-          levers[bp] = gridCols[bp][props[bp]];
-        }
+  bps.forEach((bp) => {
+    if (props[bp] && gridCols && bp in gridCols) {
+      if (props[bp] in gridCols[bp]) {
+        levers[bp] = gridCols[bp][props[bp]];
       }
     }
-  );
+  });
 
   return (
-    <Element className={dcnb('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className)} ref={ref} {...rest}>
+    <Element
+      className={dcnb(
+        "su-grid",
+        levers.gap,
+        levers.xs,
+        levers.sm,
+        levers.md,
+        levers.lg,
+        levers.xl,
+        levers.xxl,
+        className
+      )}
+      ref={ref}
+      {...rest}
+    >
       {children}
     </Element>
   );
@@ -95,7 +107,7 @@ Grid.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string
+    PropTypes.string,
   ]),
 
   /**
@@ -104,20 +116,20 @@ Grid.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
-    PropTypes.object
+    PropTypes.object,
   ]),
   /**
    * React useRef()
    */
   ref: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any })
+    PropTypes.shape({ current: PropTypes.any }), // eslint-disable-line react/forbid-prop-types
   ]),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
 Grid.defaultProps = {
-  element: 'div',
-  gap: false
+  element: "div",
+  gap: false,
 };

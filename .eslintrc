@@ -22,6 +22,7 @@
       }
     ],
     "space-before-function-paren": 0,
+    "react/jsx-props-no-spreading": 0,
     "react/prop-types": 0,
     "react/jsx-handler-names": 0,
     "react/jsx-filename-extension": [
@@ -35,6 +36,9 @@
     ],
     "react/jsx-fragments": 0,
     "react/no-unused-prop-types": 0,
+    "react/require-default-props": 0,
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0,
     "no-unused-vars": [
       "warn",
       {

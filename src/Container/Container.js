@@ -1,20 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { dcnb } from 'cnbuilder';
-import { containerElements, containerWidths } from './Container.levers';
+import React from "react";
+import PropTypes from "prop-types";
+import { dcnb } from "cnbuilder";
+import { containerElements, containerWidths } from "./Container.levers";
 
 /**
  * Container component with width and HTML element options.
  *
  */
-export const Container = ({ className, element, width, children, ref, ...props }) => {
+export const Container = ({
+  className,
+  element,
+  width,
+  children,
+  ref,
+  ...props
+}) => {
   const levers = {};
 
   // Levers
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = 'div';
+  let Element = "div";
 
   if (element && containerElements.includes(element)) {
     Element = element;
@@ -23,17 +30,20 @@ export const Container = ({ className, element, width, children, ref, ...props }
   // props.width
   if (width && containerWidths.includes(width)) {
     switch (width) {
-      case 'full':
-        levers.width = 'su-w-full'; // width: 100%
+      case "full":
+        levers.width = "su-w-full"; // width: 100%
         break;
 
-      case 'screen':
-        levers.width = 'su-w-screen'; // width: 100vw
+      case "screen":
+        levers.width = "su-w-screen"; // width: 100vw
         break;
 
-      case 'site':
-        levers.width = 'su-cc';
+      case "site":
+        levers.width = "su-cc";
         break;
+
+      default:
+      // none.
     }
   }
 
@@ -55,11 +65,11 @@ Container.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string
+    PropTypes.string,
   ]),
   ref: PropTypes.oneOfType([
     PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any })
+    PropTypes.shape({ current: PropTypes.any }), // eslint-disable-line react/forbid-prop-types
   ]),
   /**
    * Custom CSS classes, e.g., to control position
@@ -67,13 +77,13 @@ Container.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
-    PropTypes.object
-  ])
+    PropTypes.object,
+  ]),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
 Container.defaultProps = {
-  element: 'div',
-  width: 'site'
+  element: "div",
+  width: "site",
 };

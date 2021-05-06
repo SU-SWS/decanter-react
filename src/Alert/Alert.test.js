@@ -1,12 +1,10 @@
-import React from 'react';
-import { Alert } from './Alert';
+import React from "react";
+import { Alert } from "./Alert";
 
 // Component is a component.
-describe('Alert', () => {
-
+describe("Alert", () => {
   // Is a component with valid syntax.
-  it('is truthy', () => {
+  it("is truthy", () => {
     expect(Alert).toBeTruthy();
   });
-
 });

@@ -5,39 +5,40 @@
  */
 
 const getIconOption = (icon) => {
-  let heroicon = '';
+  let heroicon = "";
 
   switch (icon) {
-    case 'action':
-      heroicon = 'chevron-right';
+    case "more":
+      heroicon = "arrow-narrow-right";
       break;
 
-    case 'more':
-      heroicon = 'arrow-narrow-right';
+    case "external":
+      heroicon = "arrow-up";
       break;
 
-    case 'external':
-      heroicon = 'arrow-up';
+    case "lock":
+      heroicon = "lock-closed";
       break;
 
-    case 'lock':
-      heroicon = 'lock-closed';
+    case "download":
+      heroicon = "download";
       break;
 
-    case 'download':
-      heroicon = 'download';
+    case "video":
+      heroicon = "play";
       break;
 
-    case 'video':
-      heroicon = 'play';
+    case "email":
+      heroicon = "mail";
       break;
 
-    case 'email':
-      heroicon = 'mail';
+    case "jump":
+      heroicon = "chevron-down";
       break;
 
-    case 'jump':
-      heroicon = 'chevron-down';
+    case "action":
+    default:
+      heroicon = "chevron-right";
       break;
   }
 
