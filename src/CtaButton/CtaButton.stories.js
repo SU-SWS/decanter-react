@@ -193,7 +193,9 @@ export const ForwardRef = ({ ...args }) => {
 };
 
 ForwardRef.args = {
-  children: 'Target Button',
+  text: 'Target Button',
+  size: 'default',
+  href: 'https://stanford.edu',
   ref: ctaButtonRef,
 };
 ForwardRef.storyName = 'With Forwarded Ref';
