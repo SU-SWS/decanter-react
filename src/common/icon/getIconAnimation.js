@@ -26,9 +26,11 @@ const getIconAnimation = (animate) => {
       break;
 
     case "right":
-    default:
       classes = dcnb(classes, "group-hocus:su-translate-x-02em");
       break;
+
+    default:
+    // None.
   }
 
   return classes;

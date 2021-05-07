@@ -37,9 +37,11 @@ const getIconOption = (icon) => {
       break;
 
     case "action":
-    default:
       heroicon = "chevron-right";
       break;
+
+    default:
+    // None.
   }
 
   return heroicon;

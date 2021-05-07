@@ -21,9 +21,11 @@ const getButtonSize = (size) => {
       break;
 
     case "default":
-    default:
       classes = "su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20";
       break;
+
+    default:
+    // none.
   }
 
   return classes;

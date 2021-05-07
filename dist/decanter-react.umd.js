@@ -73,7 +73,6 @@
         break;
 
       case "default":
-      default:
         classes = "su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20";
         break;
     }
@@ -114,7 +113,6 @@
         break;
 
       case "action":
-      default:
         heroicon = "chevron-right";
         break;
     }
@@ -155,7 +153,6 @@
         break;
 
       case "action":
-      default:
         classes = "su-h-1em su-w-1em su-ml-4 su--mt-2";
         break;
     }
@@ -180,7 +177,6 @@
         break;
 
       case "right":
-      default:
         classes = cnbuilder.dcnb(classes, "group-hocus:su-translate-x-02em");
         break;
     }
