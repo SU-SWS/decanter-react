@@ -1,80 +1,101 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ctaLinkColors } from './CtaLink.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
-import getIconOption from '../common/icon/getIconOption';
-import getIconClasses from '../common/icon/getIconClasses';
-import getIconAnimation from '../common/icon/getIconAnimation';
-import Icon from 'react-hero-icon';
-import { dcnb } from 'cnbuilder';
-import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import React from "react";
+import PropTypes from "prop-types";
+import Icon from "react-hero-icon";
+import { dcnb } from "cnbuilder";
+import { ctaLinkColors } from "./CtaLink.levers";
+import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
+import getIconOption from "../common/icon/getIconOption";
+import getIconClasses from "../common/icon/getIconClasses";
+import getIconAnimation from "../common/icon/getIconAnimation";
+import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
 
 /**
  * CTA Link Component
  *
  */
-export const CtaLink = React.forwardRef(({ className, text, srText, color, icon, iconProps, animate, ...props }, ref) => {
-  // Defaults & Variables.
-  // ---------------------------------------------------------------------------
-  const levers = {};
+export const CtaLink = React.forwardRef(
+  (
+    { className, text, srText, color, icon, iconProps, animate, ...props },
+    ref
+  ) => {
+    // Defaults & Variables.
+    // ---------------------------------------------------------------------------
+    const levers = {};
 
-  // Levers
-  // ---------------------------------------------------------------------------
+    // Levers
+    // ---------------------------------------------------------------------------
 
-  // color
-  if (color && ctaLinkColors.includes(color)) {
-    switch (color) {
-      case 'red':
-        levers.color = 'su-text-digital-red hocus:su-text-black';
-        break;
+    // color
+    if (color && ctaLinkColors.includes(color)) {
+      switch (color) {
+        case "red":
+          levers.color = "su-text-digital-red hocus:su-text-black";
+          break;
 
-      case 'blue':
-        levers.color = 'su-text-digital-blue hocus:su-text-black';
-        break;
+        case "blue":
+          levers.color = "su-text-digital-blue hocus:su-text-black";
+          break;
 
-      case 'white':
-        levers.color = 'su-text-white hocus:su-text-white';
-        break;
+        case "white":
+          levers.color = "su-text-white hocus:su-text-white";
+          break;
+
+        default:
+        // none.
+      }
     }
+
+    // icon
+    let heroicon = "";
+
+    if (icon && iconOptions.includes(icon)) {
+      heroicon = getIconOption(icon);
+      levers.icon = getIconClasses(icon);
+    }
+
+    // animate
+    // Add specific classes for each type of animation
+    if (animate && iconAnimations.includes(animate)) {
+      levers.animate = getIconAnimation(animate);
+    }
+
+    // Icon className.
+    const { className: iconClasses, ...iProps } = iconProps || {};
+
+    return (
+      <a
+        className={dcnb(
+          "su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors",
+          levers.color,
+          levers.size,
+          levers.variant,
+          className
+        )}
+        ref={ref}
+        {...props}
+      >
+        {text}
+        {srText && <SrOnlyText srText={` ${srText}`} />}
+        {icon && (
+          <Icon
+            icon={heroicon}
+            type="solid"
+            aria-hidden
+            className={dcnb(
+              "su-inline-block",
+              levers.icon,
+              levers.animate,
+              iconClasses
+            )}
+            {...iProps}
+          />
+        )}
+      </a>
+    );
   }
-
-  // icon
-  let heroicon = '';
-
-  if (icon && iconOptions.includes(icon)) {
-    heroicon = getIconOption(icon);
-    levers.icon = getIconClasses(icon);
-  }
-
-  // animate
-  // Add specific classes for each type of animation
-  if (animate && iconAnimations.includes(animate)) {
-    levers.animate = getIconAnimation(animate);
-  }
-
-  // Icon className.
-  const { className:iconClasses, ...iProps } = iconProps || {};
-
-  return (
-    <a
-      className={dcnb('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
-        levers.color, levers.size, levers.variant, className)}
-      ref={ref}
-      {...props}
-    >
-      {text}
-      {srText &&
-        <SrOnlyText srText={' ' + srText} />
-      }
-      {icon &&
-        <Icon icon={heroicon} type='solid' aria-hidden={true} className={dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)} {...iProps} />
-      }
-    </a>
-  );
-});
+);
 
 CtaLink.propTypes = {
-
   /**
    * Css class names
    */
@@ -93,7 +114,7 @@ CtaLink.propTypes = {
   /**
    * Icon options
    */
-  iconProps: PropTypes.object,
+  iconProps: PropTypes.objectOf(PropTypes.any),
 
   /**
    * Icon animation on hover/focus
@@ -111,7 +132,7 @@ CtaLink.propTypes = {
   text: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
-    PropTypes.node
+    PropTypes.node,
   ]),
 
   /**
@@ -123,6 +144,6 @@ CtaLink.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 CtaLink.defaultProps = {
-  icon: 'action',
-  color: 'none',
+  icon: "action",
+  color: "none",
 };

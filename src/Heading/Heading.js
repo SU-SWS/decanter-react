@@ -1,24 +1,48 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { headingLevels, headingFonts, headingAlign, headingWeights, headingTracking, headingSizes } from "./Heading.levers";
-import { dcnb } from 'cnbuilder';
+import React from "react";
+import PropTypes from "prop-types";
+import { dcnb } from "cnbuilder";
+import {
+  headingLevels,
+  headingFonts,
+  headingAlign,
+  headingWeights,
+  headingTracking,
+  headingSizes,
+} from "./Heading.levers";
 
 /**
  * Heading Component
  *
  */
-export const Heading = ({ className, level, font, weight, tracking, align, size, uppercase, italic, srOnly, children, ref, ...props }) => {
+export const Heading = ({
+  className,
+  level,
+  font,
+  weight,
+  tracking,
+  align,
+  size,
+  uppercase,
+  italic,
+  srOnly,
+  children,
+  ref,
+  ...props
+}) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
-  let HeadingTag = 'h2';
+  let HeadingTag = "h2";
 
   // Levers
   // ---------------------------------------------------------------------------
 
   // props.level - allows number or string input
-  if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
-    HeadingTag = 'h' + level;
+  if (
+    level &&
+    (headingLevels.includes(level) || headingLevels.includes(Number(level)))
+  ) {
+    HeadingTag = `h${level}`;
   }
 
   // props.font
@@ -63,7 +87,18 @@ export const Heading = ({ className, level, font, weight, tracking, align, size,
 
   return (
     <HeadingTag
-      className={dcnb('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)}
+      className={dcnb(
+        "su-leading-display",
+        levers.font,
+        levers.weight,
+        levers.size,
+        levers.tracking,
+        levers.align,
+        levers.uppercase,
+        levers.italic,
+        levers.srOnly,
+        className
+      )}
       ref={ref}
       {...props}
     >
@@ -120,21 +155,27 @@ Heading.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
-    PropTypes.object
+    PropTypes.object,
   ]),
 
   // Children
   children: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element,
-    PropTypes.node
-  ])
+    PropTypes.node,
+  ]),
+
+  // React ref.
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any }), // eslint-disable-line react/forbid-prop-types
+  ]),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
 Heading.defaultProps = {
-  font: 'sans',
-  weight: 'bold',
-  ref: null
+  font: "sans",
+  weight: "bold",
+  ref: null,
 };

@@ -4,25 +4,28 @@
  */
 
 const getButtonSize = (size) => {
-  let classes = '';
+  let classes = "";
 
-// Add specific classes for each type of animation
+  // Add specific classes for each type of animation
   switch (size) {
-    case 'default':
-      classes = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
+    case "big":
+      classes = "su-px-34 su-py-15 su-text-20 md:su-text-24";
       break;
 
-    case 'big':
-      classes = 'su-px-34 su-py-15 su-text-20 md:su-text-24';
+    case "small":
+      classes = "su-px-19 su-py-9 su-text-16 md:su-text-18";
       break;
 
-    case 'small':
-      classes = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
+    case "minimal":
+      classes = "su-p-0";
       break;
 
-    case 'minimal':
-      classes = 'su-p-0';
+    case "default":
+      classes = "su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20";
       break;
+
+    default:
+    // none.
   }
 
   return classes;

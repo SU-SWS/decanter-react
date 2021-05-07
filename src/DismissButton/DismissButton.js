@@ -1,10 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { dismissIconOptions, dismissIconTypes, dismissIconColors } from './DismissButton.levers';
-import { Button } from '../Button/Button';
+import React from "react";
+import PropTypes from "prop-types";
+import Icon from "react-hero-icon";
+import { dcnb } from "cnbuilder";
+import {
+  dismissIconOptions,
+  dismissIconTypes,
+  dismissIconColors,
+} from "./DismissButton.levers";
+import { Button } from "../Button/Button";
 import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
-import Icon from 'react-hero-icon';
-import { dcnb } from 'cnbuilder';
 
 /**
  * Dismiss Button Component
@@ -12,10 +16,22 @@ import { dcnb } from 'cnbuilder';
  * For use with other components such as DismissButtons and modals.
  *
  */
-export const DismissButton = ({ className, text, srText, color, icon, iconType, iconSize, iconProps, customIcon, onClick, ...props }) => {
+export const DismissButton = ({
+  className,
+  text,
+  srText,
+  color,
+  icon,
+  iconType,
+  iconSize,
+  iconProps,
+  customIcon,
+  onClick,
+  ...props
+}) => {
   // Defaults & Variables
   const levers = {};
-  iconProps = { height: iconSize ?? 20, width: iconSize ?? 20, ...iconProps };
+  iconProps = { height: iconSize ?? 20, width: iconSize ?? 20, ...iconProps }; // eslint-disable-line no-param-reassign
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -23,49 +39,61 @@ export const DismissButton = ({ className, text, srText, color, icon, iconType, 
   // color
   if (color && dismissIconColors.includes(color)) {
     switch (color) {
-      case 'black':
-        levers.color = 'su-text-black hocus:su-text-black';
+      case "black":
+        levers.color = "su-text-black hocus:su-text-black";
         break;
 
-      case 'white':
-        levers.color = 'su-text-white hocus:su-text-white';
+      case "white":
+        levers.color = "su-text-white hocus:su-text-white";
         break;
+
+      default:
+      // none.
     }
   }
 
   // Dismiss Icon and defaults
   // Set heroicon and icon type if not specified
 
-  let heroicon = '';
+  let heroicon = "";
 
   if (icon && dismissIconOptions.includes(icon)) {
     heroicon = icon;
   }
 
-  let heroiconType = 'solid';
+  let heroiconType = "solid";
 
   if (iconType && dismissIconTypes.includes(iconType)) {
     heroiconType = iconType;
   }
 
   // Set default heroicon if custom icon element isn't provided
-  const defaultIcon = <Icon icon={heroicon} type={heroiconType} aria-hidden='true' {...iconProps} />;
+  const defaultIcon = (
+    <Icon
+      icon={heroicon}
+      type={heroiconType}
+      aria-hidden="true"
+      {...iconProps}
+    />
+  );
 
   // Use custom icon for the component if it's provided; if not, use the default heroicon
   const dismissIcon = customIcon ?? defaultIcon;
 
   return (
     <Button
-      variant='unset'
-      size='minimal'
-      className={dcnb('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, className)}
+      variant="unset"
+      size="minimal"
+      className={dcnb(
+        "su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display",
+        levers.color,
+        className
+      )}
       onClick={onClick}
       {...props}
     >
       {text}
-      {srText &&
-        <SrOnlyText srText={' ' + srText} />
-      }
+      {srText && <SrOnlyText srText={` ${srText}`} />}
       {dismissIcon}
     </Button>
   );
@@ -113,7 +141,7 @@ DismissButton.propTypes = {
   /**
    * Props for the Icon Element.
    */
-  iconProps: PropTypes.object,
+  iconProps: PropTypes.objectOf(PropTypes.any),
 
   /**
    * Size (same for height and width) of the icon in pixels.
@@ -126,14 +154,14 @@ DismissButton.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
-    PropTypes.object
+    PropTypes.object,
   ]),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
 DismissButton.defaultProps = {
-  color: 'black',
-  icon: 'x-circle',
-  iconType: 'solid'
+  color: "black",
+  icon: "x-circle",
+  iconType: "solid",
 };

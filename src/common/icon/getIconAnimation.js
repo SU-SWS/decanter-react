@@ -1,4 +1,4 @@
-import { dcnb } from 'cnbuilder'; 
+import { dcnb } from "cnbuilder";
 
 /**
  * Retrieve group of classes needed for requested type of CTA icon animation
@@ -6,25 +6,31 @@ import { dcnb } from 'cnbuilder';
  */
 
 const getIconAnimation = (animate) => {
-  let classes = '';
+  let classes = "";
 
-  if (animate !== 'none') {
-    classes = 'su-transition-transform group-hocus:su-transform';
+  if (animate !== "none") {
+    classes = "su-transition-transform group-hocus:su-transform";
   }
 
-// Add specific classes for each type of animation
+  // Add specific classes for each type of animation
   switch (animate) {
-    case 'right':
-      classes = dcnb(classes, 'group-hocus:su-translate-x-02em');
+    case "top-right":
+      classes = dcnb(
+        classes,
+        "group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em"
+      );
       break;
 
-    case 'top-right':
-      classes = dcnb(classes, 'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em');
+    case "down":
+      classes = dcnb(classes, "group-hocus:su-translate-y-02em");
       break;
 
-    case 'down':
-      classes = dcnb(classes, 'group-hocus:su-translate-y-02em');
+    case "right":
+      classes = dcnb(classes, "group-hocus:su-translate-x-02em");
       break;
+
+    default:
+    // None.
   }
 
   return classes;

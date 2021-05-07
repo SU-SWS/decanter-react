@@ -1,12 +1,10 @@
-import React from 'react';
-import { Lockup } from './Lockup';
+import React from "react";
+import { Lockup } from "./Lockup";
 
 // Component is a component.
-describe('Lockup', () => {
-
+describe("Lockup", () => {
   // Is a component with valid syntax.
-  it('is truthy', () => {
+  it("is truthy", () => {
     expect(Lockup).toBeTruthy();
   });
-
 });

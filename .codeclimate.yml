@@ -4,8 +4,9 @@ checks:
     config:
       threshold: 10
   method-lines:
-    config:
-      threshold: 40
+    enabled: false
+  file-lines:
+    enabled: false
 plugins:
   # https://docs.codeclimate.com/docs/eslint
   # ES Linting requires an .eslintrc file to tweak checks.
@@ -29,7 +30,7 @@ plugins:
   # Withouth the .sass-lint.yml file it will run with the defaults.
   # Defaults file: https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml
   sass-lint:
-    enabled: true
+    enabled: false
   # SCSS Lint requires a .scss-lint.yml file in the repo in order to tweak settings.
   # Withouth the .scss-lint.yml file it will run with the defaults.
   # Defaults file: https://github.com/brigade/scss-lint/blob/master/config/default.yml
@@ -44,14 +45,7 @@ plugins:
     enabled: false
   # https://docs.codeclimate.com/docs/duplication
   duplication:
-    enabled: true
-    # exclude_paths:
-    #   - examples/
-    config:
-      languages:
-        javascript:
-          mass_threshold: 50
-          # count_threshold: 3
+    enabled: false
   fixme:
     enabled: true
     config:
@@ -68,6 +62,5 @@ exclude_patterns:
 - "vendors"
 - "node_modules"
 - "package.json"
-- "webpack.config.js"
 - "docs"
 - "dist"

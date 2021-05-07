@@ -1,23 +1,38 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { dcnb } from 'cnbuilder';
-import { gridCellElements, gridColBPs, gridColSpan, gridColLine, gridRowSpan, gridRowLine } from './GridCell.levers';
+import React from "react";
+import PropTypes from "prop-types";
+import { dcnb } from "cnbuilder";
+import {
+  gridCellElements,
+  gridColBPs,
+  gridColSpan,
+  gridColLine,
+  gridRowSpan,
+  gridRowLine,
+} from "./GridCell.levers";
 
 /**
  * CSS Grid Cell component.
  * Options include column/row span and column/row start/end line.
  *
  */
-export const GridCell = ({ className, children, ref, colStart, rowStart, row, ...props }) => {
+export const GridCell = ({
+  className,
+  children,
+  ref,
+  colStart,
+  rowStart,
+  row,
+  ...props
+}) => {
   const levers = {};
   // Destructure the props a bit more so we can add the rest to the element.
-  const { xs, sm, md, lg, xl, xxl, ...rest } = props;
+  const { xs, sm, md, lg, xl, xxl, ...rest } = props; // eslint-disable-line no-unused-vars
 
   // Levers
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = 'div';
+  let Element = "div";
 
   if (props.element && gridCellElements.includes(props.element)) {
     Element = props.element;
@@ -29,15 +44,13 @@ export const GridCell = ({ className, children, ref, colStart, rowStart, row, ..
   const bps = Object.keys(gridColBPs);
 
   // Looping over each breakpoint to create the `su-col-` classes
-  bps.forEach(
-    (bp) => {
-      if (props[bp] && gridColSpan && bp in gridColSpan) {
-        if (props[bp] in gridColSpan[bp]) {
-          levers[bp] = gridColSpan[bp][props[bp]];
-        }
+  bps.forEach((bp) => {
+    if (props[bp] && gridColSpan && bp in gridColSpan) {
+      if (props[bp] in gridColSpan[bp]) {
+        levers[bp] = gridColSpan[bp][props[bp]];
       }
     }
-  );
+  });
 
   // props.colStart
   if (colStart && colStart in gridColLine) {
@@ -56,7 +69,22 @@ export const GridCell = ({ className, children, ref, colStart, rowStart, row, ..
   }
 
   return (
-    <Element className={dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className)} ref={ref} {...rest}>
+    <Element
+      className={dcnb(
+        levers.xs,
+        levers.sm,
+        levers.md,
+        levers.lg,
+        levers.xl,
+        levers.xxl,
+        levers.colStart,
+        levers.row,
+        levers.rowStart,
+        className
+      )}
+      ref={ref}
+      {...rest}
+    >
       {children}
     </Element>
   );
@@ -118,7 +146,7 @@ GridCell.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.element,
-    PropTypes.string
+    PropTypes.string,
   ]),
 
   /**
@@ -127,11 +155,10 @@ GridCell.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
-    PropTypes.object
+    PropTypes.object,
   ]),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
-GridCell.defaultProps = {
-};
+GridCell.defaultProps = {};

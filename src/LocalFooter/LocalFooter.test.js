@@ -1,12 +1,10 @@
-import React from 'react';
-import { LocalFooter } from './LocalFooter';
+import React from "react";
+import { LocalFooter } from "./LocalFooter";
 
 // Component is a component.
-describe('LocalFooter', () => {
-
+describe("LocalFooter", () => {
   // Is a component with valid syntax.
-  it('is truthy', () => {
+  it("is truthy", () => {
     expect(LocalFooter).toBeTruthy();
   });
-
 });
