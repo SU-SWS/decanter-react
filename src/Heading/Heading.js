@@ -9,6 +9,7 @@ import {
   headingTracking,
   headingSizes,
 } from "./Heading.levers";
+import intKeys from "../common/util/intKeys";
 
 /**
  * Heading Component
@@ -119,7 +120,7 @@ Heading.propTypes = {
    * Optional - to override the default size for the heading level selected.
    * Step 0 = base font size; each step up is a factor of 1.25 of the previous.
    */
-  size: PropTypes.oneOf(Object.keys(headingSizes)),
+  size: PropTypes.oneOf(Object.keys(headingSizes).map((val) => intKeys(val))),
 
   /**
    * Text alignment.
