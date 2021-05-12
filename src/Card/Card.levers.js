@@ -7,3 +7,5 @@
  * Styles for the card cta.
  */
 export const cardCtaOptions = ["ctaLink", "ctaButton"];
+
+export const cardAlignOptions = ["left", "center"];

@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import { cardCtaOptions } from "./Card.levers";
+import { cardCtaOptions, cardAlignOptions } from "./Card.levers";
 import { FlexBox } from "../FlexBox/FlexBox";
 import { Heading } from "../Heading/Heading";
 import { CtaButton } from "../CtaButton/CtaButton";
+import { CtaLink } from "../CtaLink/CtaLink";
 
 /**
  * Card Component
@@ -79,7 +80,12 @@ export const Card = ({
         {text && (
           <p className="su-card-paragraph su-rs-mt-neg1 su-mb-0">{text}</p>
         )}
-        <CtaButton variant="solid" size="default" text="CTA Button" />
+
+        {cta === "ctaButton" ? (
+          <CtaButton variant="solid" size="default" text="CTA Button" />
+        ) : (
+          <CtaLink text="CTA Link" />
+        )}
       </FlexBox>
     </div>
   );
@@ -98,16 +104,21 @@ Card.propTypes = {
    */
   className: PropTypes.string,
 
-  // Children
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
+  /**
+   * CTA Type
+   */
+  cta: PropTypes.oneOf(cardCtaOptions),
+
+  /**
+   * Text Align Type
+   */
+  align: PropTypes.oneOf(cardAlignOptions),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
 Card.defaultProps = {
+  cta: "ctaButton",
+  align: "left",
   isMinimal: false,
 };

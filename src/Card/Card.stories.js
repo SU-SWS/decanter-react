@@ -1,7 +1,7 @@
 import React from "react";
 // import DOMPurify from "dompurify";
 import { Card } from "./Card";
-import { cardCtaOptions } from "./Card.levers";
+import { cardCtaOptions, cardAlignOptions } from "./Card.levers";
 
 // const image = { filename: "http://placecorgi.com/260/180" };
 
@@ -22,6 +22,12 @@ export default {
         options: cardCtaOptions,
       },
     },
+    align: {
+      control: {
+        type: "inline-radio",
+        options: cardAlignOptions,
+      },
+    },
     isMinimal: {
       control: {
         type: "boolean",
@@ -35,22 +41,20 @@ const CardTemplate = ({ ...rest }) => <Card {...rest} />;
 export const Default = CardTemplate.bind({});
 Default.args = {
   isMinimal: false,
-  children: "Default Card",
   headline: cardHeadline,
   superHeadline: cardSuperHeadline,
-  align: "center",
   text: cardBody,
+  align: "center",
 };
 Default.storyName = "Default Card";
 
 export const Minimal = CardTemplate.bind({});
 Minimal.args = {
   isMinimal: true,
-  children: "Minimal Card",
   headline: cardHeadline,
   superHeadline: cardSuperHeadline,
-  align: "center",
   text: cardBody,
-  cta: "ctaButton",
+  cta: "ctaLink",
+  align: "center",
 };
 Minimal.storyName = "Minimal Card";
