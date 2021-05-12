@@ -2,8 +2,9 @@ import React from "react";
 // import DOMPurify from "dompurify";
 import { Card } from "./Card";
 import { cardCtaOptions, cardAlignOptions } from "./Card.levers";
-
-// const image = { filename: "http://placecorgi.com/260/180" };
+import { ctaButtonVariants } from "../CtaButton/CtaButton.levers";
+import { buttonSizes } from "../common/button/button.levers";
+import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
 
 const cardHeadline = "Headline";
 
@@ -11,6 +12,8 @@ const cardSuperHeadline = "Super Headline";
 
 const cardBody =
   "Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit nulla quis orci. Phasellus a est.";
+
+const cardCtaText = "Call to action link";
 
 export default {
   title: "Simple/Card",
@@ -20,6 +23,24 @@ export default {
       control: {
         type: "inline-radio",
         options: cardCtaOptions,
+      },
+    },
+    linkIcon: {
+      control: {
+        type: "select",
+        options: iconOptions,
+      },
+    },
+    buttonVariant: {
+      control: {
+        type: "inline-radio",
+        options: ctaButtonVariants,
+      },
+    },
+    buttonSize: {
+      control: {
+        type: "inline-radio",
+        options: buttonSizes,
       },
     },
     align: {
@@ -64,6 +85,7 @@ DefaultCtaLink.args = {
   headline: cardHeadline,
   superHeadline: cardSuperHeadline,
   text: cardBody,
+  ctaText: cardCtaText,
 };
 DefaultCtaLink.storyName = "Default Cta Link Card";
 
@@ -72,6 +94,7 @@ DefaultCtaButton.args = {
   headline: cardHeadline,
   superHeadline: cardSuperHeadline,
   text: cardBody,
+  ctaText: cardCtaText,
 };
 DefaultCtaButton.storyName = "Default Cta Button Card";
 
@@ -81,14 +104,15 @@ Minimal.args = {
   headline: cardHeadline,
   superHeadline: cardSuperHeadline,
   text: cardBody,
+  ctaText: cardCtaText,
 };
 Minimal.storyName = "Minimal Card";
 
 export const MinimalImage = CardTemplate.bind({});
 MinimalImage.args = {
   image: {
-    filename: "http://placekitten.com/g/260/180",
-    alt: "Corgi puppy",
+    filename: "http://placekitten.com/260/180",
+    alt: "Kitten",
   },
   headline: cardHeadline,
   superHeadline: cardSuperHeadline,
@@ -103,6 +127,7 @@ MinimalCtaLink.args = {
   headline: cardHeadline,
   superHeadline: cardSuperHeadline,
   text: cardBody,
+  ctaText: cardCtaText,
 };
 MinimalCtaLink.storyName = "Minimal Cta Link Card";
 
@@ -112,5 +137,6 @@ MinimalCtaButton.args = {
   headline: cardHeadline,
   superHeadline: cardSuperHeadline,
   text: cardBody,
+  ctaText: cardCtaText,
 };
 MinimalCtaButton.storyName = "Minimal Cta Button Card";
