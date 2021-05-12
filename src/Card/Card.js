@@ -18,6 +18,7 @@ export const Card = ({
   headingLevel,
   superHeadline,
   image,
+  filename,
   text,
   cta,
   align,
@@ -59,9 +60,11 @@ export const Card = ({
     <div
       className={dcnb("basic-card su-max-w-600 su-basefont-23", wrapperClasses)}
     >
-      <div className={imageWrapperClasses} aria-hidden="true">
-        <img src="http://placecorgi.com/260/180" alt="lorem ipsum" />
-      </div>
+      {image && (
+        <div className={imageWrapperClasses} aria-hidden="true">
+          <img src={image.filename} alt={image.alt} />
+        </div>
+      )}
       <FlexBox
         direction="col"
         className={dcnb("card-body", bodyPadding, bodyAlign)}
