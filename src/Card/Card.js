@@ -21,7 +21,6 @@ export const Card = ({
   headingLevel,
   superHeadline,
   image,
-  filename,
   text,
   cta,
   ctaText,
