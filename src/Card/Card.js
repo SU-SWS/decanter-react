@@ -3,12 +3,8 @@ import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { cardCtaOptions, cardAlignOptions } from "./Card.levers";
 import { FlexBox } from "../FlexBox/FlexBox";
-import { Heading } from "../Heading/Heading";
-import { CtaLink } from "../CtaLink/CtaLink";
 import { iconOptions } from "../common/icon/icon.levers";
-import { CtaButton } from "../CtaButton/CtaButton";
 import { ctaButtonVariants } from "../CtaButton/CtaButton.levers";
-import { buttonSizes } from "../common/button/button.levers";
 
 /**
  * Card Component
@@ -76,31 +72,6 @@ Card.propTypes = {
    * Is the card minimal style disabled?
    */
   isMinimal: PropTypes.bool,
-
-  /**
-   * CTA Text
-   */
-  ctaText: PropTypes.string,
-
-  /**
-   * CTA Type
-   */
-  cta: PropTypes.oneOf(cardCtaOptions),
-
-  /**
-   *  Link Icon
-   */
-  linkIcon: PropTypes.oneOf(iconOptions),
-
-  /**
-   *  Button Variant
-   */
-  buttonVariant: PropTypes.oneOf(ctaButtonVariants),
-
-  /**
-   * Button size
-   */
-  buttonSize: PropTypes.oneOf(buttonSizes),
 
   /**
    * Text Align Type
