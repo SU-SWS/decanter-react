@@ -1,0 +1,104 @@
+# Automatically Create a Release when PR is merged to main with one of the following 
+# labels: "patch", "minor", "major", "alpha", "beta", "rc".
+# git 
+
+name: Auto Release
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  pull_request:
+    types: [closed]
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Only run on merged PRs with an appropriate label.
+    if: |
+      github.event.pull_request.merged &&
+      (
+        contains(github.event.pull_request.labels.*.name, 'patch') ||
+        contains(github.event.pull_request.labels.*.name, 'minor') ||
+        contains(github.event.pull_request.labels.*.name, 'major') ||
+        contains(github.event.pull_request.labels.*.name, 'alpha') ||
+        contains(github.event.pull_request.labels.*.name, 'beta') ||
+        contains(github.event.pull_request.labels.*.name, 'rc')
+      )
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.base_ref }}
+          fetch-depth: 0 
+
+      - name: Set Git user
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "Github Action"
+
+      - name: npm run package
+        run: |
+          NEW_TAG=$(git tag --sort=-taggerdate | head -1)
+          npm run package
+          if [ $(git status | grep "dist\/") ]
+          then 
+            git add dist
+            git commit -m "Updated build package for release $NEW_TAG"
+          fi
+      
+      # Increment version based on label
+      - name: Patch Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'patch') }}
+        run: npm version patch
+
+      - name: Minor Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'minor') }}
+        run: npm version minor
+      
+      - name: Major Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'major') }}
+        run: npm version major
+      
+      - name: Alpha Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'alpha') }}
+        run: npm version prerelease --preid alpha
+      
+      - name: Beta Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'beta') }}
+        run: npm version prerelease --preid beta
+
+      - name: RC Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'rc') }}
+        run: npm version prerelease --preid rc
+
+      - name: "Update changelog"
+        run: |
+          NEW_TAG=$(git tag --sort=-taggerdate | head -1)
+          PREVIOUS_TAG=$(git tag --sort=-taggerdate | sed -n '2 p')
+          echo -e "$(git log --no-merges --pretty=format:%s --invert-grep --grep="Updated changelog with notes for" $PREVIOUS_TAG..$NEW_TAG)\n" >> CHANGELOG.txt
+          git add CHANGELOG.txt
+          git commit -m "Updated changelog with notes for $NEW_TAG"
+
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.base_ref }}
+          tags: true
+          
+      # This step requires NPM_TOKEN to be set in environment variables.
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: "public"
