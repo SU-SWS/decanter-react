@@ -64,6 +64,7 @@ MinimalImage.args = {
   image: {
     filename: "https://placekitten.com/260/180",
   },
+  isMinimal: true,
 };
 MinimalImage.storyName = "Minimal with Image";
 
