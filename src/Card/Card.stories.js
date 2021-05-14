@@ -5,7 +5,7 @@ import { Heading } from "../Heading/Heading";
 import { CtaLink } from "../CtaLink/CtaLink";
 
 export default {
-  title: "Simple/Card",
+  title: "Composite/Card",
   component: Card,
   argTypes: {
     align: {
