@@ -1,48 +1,13 @@
 import React from "react";
-// import DOMPurify from "dompurify";
 import { Card } from "./Card";
-import { cardCtaOptions, cardAlignOptions } from "./Card.levers";
-import { ctaButtonVariants } from "../CtaButton/CtaButton.levers";
-import { buttonSizes } from "../common/button/button.levers";
-import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
-
-const cardHeadline = "Headline";
-
-const cardSuperHeadline = "Super Headline";
-
-const cardBody =
-  "Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit nulla quis orci. Phasellus a est.";
-
-const cardCtaText = "Call to action link";
+import { cardAlignOptions } from "./Card.levers";
+import { Heading } from "../Heading/Heading";
+import { CtaLink } from "../CtaLink/CtaLink";
 
 export default {
   title: "Simple/Card",
   component: Card,
   argTypes: {
-    cta: {
-      control: {
-        type: "inline-radio",
-        options: cardCtaOptions,
-      },
-    },
-    linkIcon: {
-      control: {
-        type: "select",
-        options: iconOptions,
-      },
-    },
-    buttonVariant: {
-      control: {
-        type: "inline-radio",
-        options: ctaButtonVariants,
-      },
-    },
-    buttonSize: {
-      control: {
-        type: "inline-radio",
-        options: buttonSizes,
-      },
-    },
     align: {
       control: {
         type: "inline-radio",
@@ -57,86 +22,53 @@ export default {
   },
 };
 
-const CardTemplate = ({ ...rest }) => <Card {...rest} />;
+const CardTemplate = ({ ...rest }) => (
+  <Card {...rest}>
+    {/* Developer would pass in their own card content components */}
+    <span>Super headline</span>
+    <Heading>Headline</Heading>
+    <p>
+      Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
+      nulla quis orci. Phasellus a est.
+    </p>
+    <CtaLink text="Call to action link" />
+  </Card>
+);
 
 export const Default = CardTemplate.bind({});
-Default.args = {
-  headline: cardHeadline,
-  superHeadline: cardSuperHeadline,
-  text: cardBody,
-};
-Default.storyName = "Default Card";
+Default.args = {};
+Default.storyName = "Default";
 
 export const DefaultImage = CardTemplate.bind({});
 DefaultImage.args = {
   image: {
-    filename: "http://placecorgi.com/260/180",
-    alt: "Corgi puppy",
+    filename: "https://placekitten.com/260/180",
   },
-  headline: cardHeadline,
-  superHeadline: cardSuperHeadline,
-  text: cardBody,
 };
-DefaultImage.storyName = "Default Card with Image";
+DefaultImage.storyName = "Default with Image";
 
-export const DefaultCtaLink = CardTemplate.bind({});
-DefaultCtaLink.args = {
-  cta: "ctaLink",
-  headline: cardHeadline,
-  superHeadline: cardSuperHeadline,
-  text: cardBody,
-  ctaText: cardCtaText,
+export const DefaultCenter = CardTemplate.bind({});
+DefaultCenter.args = {
+  align: "center",
 };
-DefaultCtaLink.storyName = "Default Cta Link Card";
-
-export const DefaultCtaButton = CardTemplate.bind({});
-DefaultCtaButton.args = {
-  headline: cardHeadline,
-  superHeadline: cardSuperHeadline,
-  text: cardBody,
-  ctaText: cardCtaText,
-};
-DefaultCtaButton.storyName = "Default Cta Button Card";
+DefaultCenter.storyName = "Default Center Content";
 
 export const Minimal = CardTemplate.bind({});
 Minimal.args = {
   isMinimal: true,
-  headline: cardHeadline,
-  superHeadline: cardSuperHeadline,
-  text: cardBody,
-  ctaText: cardCtaText,
 };
-Minimal.storyName = "Minimal Card";
+Minimal.storyName = "Minimal";
 
 export const MinimalImage = CardTemplate.bind({});
 MinimalImage.args = {
   image: {
-    filename: "http://placekitten.com/260/180",
-    alt: "Kitten",
+    filename: "https://placekitten.com/260/180",
   },
-  headline: cardHeadline,
-  superHeadline: cardSuperHeadline,
-  text: cardBody,
 };
-MinimalImage.storyName = "Minimal Card with Image";
+MinimalImage.storyName = "Minimal with Image";
 
-export const MinimalCtaLink = CardTemplate.bind({});
-MinimalCtaLink.args = {
-  isMinimal: true,
-  cta: "ctaLink",
-  headline: cardHeadline,
-  superHeadline: cardSuperHeadline,
-  text: cardBody,
-  ctaText: cardCtaText,
+export const MinimalCenter = CardTemplate.bind({});
+MinimalCenter.args = {
+  align: "center",
 };
-MinimalCtaLink.storyName = "Minimal Cta Link Card";
-
-export const MinimalCtaButton = CardTemplate.bind({});
-MinimalCtaButton.args = {
-  isMinimal: true,
-  headline: cardHeadline,
-  superHeadline: cardSuperHeadline,
-  text: cardBody,
-  ctaText: cardCtaText,
-};
-MinimalCtaButton.storyName = "Minimal Cta Button Card";
+MinimalCenter.storyName = "Minimal Center Content";
