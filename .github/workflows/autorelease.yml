@@ -1,12 +1,11 @@
 # Automatically Create a Release when PR is merged to main with one of the following 
 # labels: "patch", "minor", "major", "alpha", "beta", "rc".
-# git 
 
 name: Auto Release
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow only when merging pull request to the main branch.
   pull_request:
     types: [closed]
     branches: [ main ]
@@ -14,7 +13,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -46,6 +44,7 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "Github Action"
 
+      # Run 'npm run package' and commit dist folder if there are any changes.
       - name: npm run package
         run: |
           NEW_TAG=$(git tag --sort=-taggerdate | head -1)
@@ -81,6 +80,7 @@ jobs:
         if: ${{ contains( github.event.pull_request.labels.*.name, 'rc') }}
         run: npm version prerelease --preid rc
 
+      # Automatically append new commit messages to changelog.
       - name: "Update changelog"
         run: |
           NEW_TAG=$(git tag --sort=-taggerdate | head -1)
@@ -89,6 +89,7 @@ jobs:
           git add CHANGELOG.txt
           git commit -m "Updated changelog with notes for $NEW_TAG"
 
+      # Push commits back to origin repo. 
       - name: Push Changes
         uses: ad-m/github-push-action@master
         with:
@@ -96,7 +97,7 @@ jobs:
           branch: ${{ github.base_ref }}
           tags: true
           
-      # This step requires NPM_TOKEN to be set in environment variables.
+      # Publish updated package to NPM.
       - name: Publish to NPM
         uses: JS-DevTools/npm-publish@v1
         with:
