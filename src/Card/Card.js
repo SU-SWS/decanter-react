@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import { cardCtaOptions, cardAlignOptions } from "./Card.levers";
+import { cardAlignOptions } from "./Card.levers";
 import { FlexBox } from "../FlexBox/FlexBox";
-import { iconOptions } from "../common/icon/icon.levers";
-import { ctaButtonVariants } from "../CtaButton/CtaButton.levers";
 
 /**
  * Card Component
