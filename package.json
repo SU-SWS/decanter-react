@@ -50,7 +50,7 @@
   "homepage": "https://github.com/SU-SWS/decanter-react#readme",
   "dependencies": {
     "cnbuilder": "^2.6.0",
-    "decanter": "github:SU-SWS/decanter#v7",
+    "decanter": "^7.0.0-alpha.2",
     "prop-types": "^15.7.2",
     "react-hero-icon": "^0.0.7"
   },
