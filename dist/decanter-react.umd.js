@@ -545,6 +545,8 @@
     hasIcon: true
   };
 
+  var cardAlignOptions = ["left", "center"];
+
   var flexElements = ["div", "section", "article", "main", "footer", "aside", "header", "nav", "form"];
   var flexDirection = {
     row: "su-flex-row",
@@ -664,198 +666,50 @@
     gap: false
   };
 
-  var headingLevels = [1, 2, 3, 4, 5, 6];
-  var headingFonts = {
-    sans: "su-font-sans",
-    serif: "su-font-serif",
-    slab: "su-font-slab"
-  };
-  var headingWeights = {
-    light: "su-font-light",
-    regular: "su-font-regular",
-    semibold: "su-font-semibold",
-    bold: "su-font-bold"
-  };
-  var headingSizes = {
-    0: "su-type-0",
-    1: "su-type-1",
-    2: "su-type-2",
-    3: "su-type-3",
-    4: "su-type-4",
-    5: "su-type-5",
-    6: "su-type-6"
-  };
-  var headingTracking = {
-    tighter: "su-tracking-tighter",
-    tight: "su-tracking-tight",
-    normal: "su-tracking-normal",
-    wide: "su-tracking-wide",
-    wider: "su-tracking-wider",
-    widest: "su-tracking-widest"
-  };
-  var headingAlign = {
-    left: "su-text-left",
-    center: "su-text-center",
-    right: "su-text-right",
-    justify: "su-text-justify"
-  };
-
-  var intKeys = (function (arg) {
-    var int = parseInt(arg, 10);
-
-    if (Number.isNaN(int)) {
-      return arg;
-    }
-
-    return int;
-  });
-
-  var Heading = function Heading(_ref) {
-    var className = _ref.className,
-        level = _ref.level,
-        font = _ref.font,
-        weight = _ref.weight,
-        tracking = _ref.tracking,
-        align = _ref.align,
-        size = _ref.size,
-        uppercase = _ref.uppercase,
-        italic = _ref.italic,
-        srOnly = _ref.srOnly,
-        children = _ref.children,
-        ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children", "ref"]);
-
-    var levers = {};
-    var HeadingTag = "h2";
-
-    if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
-      HeadingTag = "h" + level;
-    }
-
-    if (font && font in headingFonts) {
-      levers.font = headingFonts[font];
-    }
-
-    if (weight && weight in headingWeights) {
-      levers.weight = headingWeights[weight];
-    }
-
-    if (tracking && tracking in headingTracking) {
-      levers.tracking = headingTracking[tracking];
-    }
-
-    if (align && align in headingAlign) {
-      levers.align = headingAlign[align];
-    }
-
-    if (size && size in headingSizes) {
-      levers.size = headingSizes[size];
-    }
-
-    if (uppercase) {
-      levers.uppercase = "su-uppercase";
-    }
-
-    if (italic) {
-      levers.italic = "su-italic";
-    }
-
-    if (srOnly) {
-      levers.srOnly = "su-sr-only";
-    }
-
-    return /*#__PURE__*/React__default.createElement(HeadingTag, _extends({
-      className: cnbuilder.dcnb("su-leading-display", levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
-      ref: ref
-    }, props), children);
-  };
-  Heading.propTypes = {
-    level: PropTypes.oneOf(headingLevels),
-    font: PropTypes.oneOf(Object.keys(headingFonts)),
-    size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
-      return intKeys(val);
-    })),
-    align: PropTypes.oneOf(Object.keys(headingAlign)),
-    weight: PropTypes.oneOf(Object.keys(headingWeights)),
-    tracking: PropTypes.oneOf(Object.keys(headingTracking)),
-    uppercase: PropTypes.bool,
-    italic: PropTypes.bool,
-    srOnly: PropTypes.bool,
-    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
-    ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
-      current: PropTypes.any
-    })])
-  };
-  Heading.defaultProps = {
-    font: "sans",
-    weight: "bold",
-    ref: null
-  };
-
   var Card = function Card(_ref) {
-    var _filename;
-
-    var headline = _ref.headline,
-        headingLevel = _ref.headingLevel,
-        text = _ref.text,
+    var children = _ref.children,
+        image = _ref.image,
         align = _ref.align,
         isMinimal = _ref.isMinimal,
-        props = _objectWithoutPropertiesLoose(_ref, ["className", "headline", "headingLevel", "superHeadline", "image", "text", "cta", "align", "isMinimal"]);
-    var wrapperClasses = 'su-bg-white su-text-black su-border su-border-solid su-border-transparent-black su-shadow';
-    var imageClasses;
-    var imageWrapperClasses = 'su-aspect-w-4 su-aspect-h-3';
-    var bodyPadding = 'su-rs-px-2 su-rs-pt-2 su-rs-pb-4';
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "image", "align", "isMinimal"]);
+
+    var wrapperClasses = "su-bg-white su-text-black su-border su-border-solid su-border-black-10 su-shadow";
+    var imageWrapperClasses = "su-aspect-w-4 su-aspect-h-3";
+    var bodyPadding = "su-rs-px-2 su-rs-pt-2 su-rs-pb-4";
 
     if (isMinimal) {
-      wrapperClasses = '';
-      bodyPadding = 'su-rs-pt-2';
+      wrapperClasses = "";
+      bodyPadding = "su-rs-pt-2";
       imageWrapperClasses = cnbuilder.dcnb(imageWrapperClasses, {
-        'su-rs-ml-2': false
+        "su-rs-ml-2": false
       });
     }
 
-    var headlineSize = 'su-type-2';
-    var bodyAlign = 'su-items-start';
+    var bodyAlign = "su-items-start";
 
-    if (align === 'center') {
-      wrapperClasses = cnbuilder.dcnb(wrapperClasses, 'children:su-mx-auto su-text-center');
-      bodyAlign = 'su-items-center';
+    if (align === "center") {
+      wrapperClasses = cnbuilder.dcnb(wrapperClasses, "children:su-mx-auto su-text-center");
+      bodyAlign = "su-items-center";
     }
 
     return /*#__PURE__*/React__default.createElement("div", {
-      className: cnbuilder.dcnb('basic-card su-max-w-600 su-basefont-23', wrapperClasses)
-    }, ((_filename = filename) === null || _filename === void 0 ? void 0 : _filename.startsWith('http')) && /*#__PURE__*/React__default.createElement("div", {
+      className: cnbuilder.dcnb("basic-card su-max-w-600 su-basefont-23", wrapperClasses)
+    }, image && /*#__PURE__*/React__default.createElement("div", {
       className: imageWrapperClasses,
       "aria-hidden": "true"
-    }, /*#__PURE__*/React__default.createElement(CardImage, {
-      filename: filename,
-      className: cnbuilder.dcnb('su-object-cover', imageClasses),
-      loading: "lazy"
+    }, /*#__PURE__*/React__default.createElement("img", {
+      src: image.filename,
+      alt: ""
     })), /*#__PURE__*/React__default.createElement(FlexBox, {
-      direction: 'col',
-      className: cnbuilder.dcnb('card-body', bodyPadding, bodyAlign)
-    }, /*#__PURE__*/React__default.createElement(Heading, {
-      level: headingLevel != null ? headingLevel : 3,
-      className: cnbuilder.dcnb('su-font-serif su-bold su-mb-0', headlineSize)
-    }, headline), text && /*#__PURE__*/React__default.createElement("p", {
-      className: "su-card-paragraph su-rs-mt-neg1 su-mb-0"
-    }, text), /*#__PURE__*/React__default.createElement("div", {
-      className: "su-rs-mt-2"
-    })));
+      direction: "col",
+      className: cnbuilder.dcnb("card-body", bodyPadding, bodyAlign)
+    }, children));
   };
   Card.propTypes = {
     isMinimal: PropTypes.bool,
-    className: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
+    align: PropTypes.oneOf(cardAlignOptions)
   };
   Card.defaultProps = {
-    headline: headline,
-    headingLevel: headingLevel,
-    superheadline: superheadline,
-    image: image,
-    text: text,
-    cta: cta,
     align: "left",
     isMinimal: false
   };
@@ -1189,6 +1043,16 @@
     none: "su-order-none"
   };
 
+  var intKeys = (function (arg) {
+    var int = parseInt(arg, 10);
+
+    if (Number.isNaN(int)) {
+      return arg;
+    }
+
+    return int;
+  });
+
   var FlexCell = function FlexCell(_ref) {
     var className = _ref.className,
         children = _ref.children,
@@ -1278,6 +1142,125 @@
     className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
   };
   FlexCell.defaultProps = {};
+
+  var headingLevels = [1, 2, 3, 4, 5, 6];
+  var headingFonts = {
+    sans: "su-font-sans",
+    serif: "su-font-serif",
+    slab: "su-font-slab"
+  };
+  var headingWeights = {
+    light: "su-font-light",
+    regular: "su-font-regular",
+    semibold: "su-font-semibold",
+    bold: "su-font-bold"
+  };
+  var headingSizes = {
+    0: "su-type-0",
+    1: "su-type-1",
+    2: "su-type-2",
+    3: "su-type-3",
+    4: "su-type-4",
+    5: "su-type-5",
+    6: "su-type-6"
+  };
+  var headingTracking = {
+    tighter: "su-tracking-tighter",
+    tight: "su-tracking-tight",
+    normal: "su-tracking-normal",
+    wide: "su-tracking-wide",
+    wider: "su-tracking-wider",
+    widest: "su-tracking-widest"
+  };
+  var headingAlign = {
+    left: "su-text-left",
+    center: "su-text-center",
+    right: "su-text-right",
+    justify: "su-text-justify"
+  };
+
+  var Heading = function Heading(_ref) {
+    var className = _ref.className,
+        level = _ref.level,
+        font = _ref.font,
+        weight = _ref.weight,
+        tracking = _ref.tracking,
+        align = _ref.align,
+        size = _ref.size,
+        uppercase = _ref.uppercase,
+        italic = _ref.italic,
+        srOnly = _ref.srOnly,
+        children = _ref.children,
+        ref = _ref.ref,
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children", "ref"]);
+
+    var levers = {};
+    var HeadingTag = "h2";
+
+    if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
+      HeadingTag = "h" + level;
+    }
+
+    if (font && font in headingFonts) {
+      levers.font = headingFonts[font];
+    }
+
+    if (weight && weight in headingWeights) {
+      levers.weight = headingWeights[weight];
+    }
+
+    if (tracking && tracking in headingTracking) {
+      levers.tracking = headingTracking[tracking];
+    }
+
+    if (align && align in headingAlign) {
+      levers.align = headingAlign[align];
+    }
+
+    if (size && size in headingSizes) {
+      levers.size = headingSizes[size];
+    }
+
+    if (uppercase) {
+      levers.uppercase = "su-uppercase";
+    }
+
+    if (italic) {
+      levers.italic = "su-italic";
+    }
+
+    if (srOnly) {
+      levers.srOnly = "su-sr-only";
+    }
+
+    return /*#__PURE__*/React__default.createElement(HeadingTag, _extends({
+      className: cnbuilder.dcnb("su-leading-display", levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
+      ref: ref
+    }, props), children);
+  };
+  Heading.propTypes = {
+    level: PropTypes.oneOf(headingLevels),
+    font: PropTypes.oneOf(Object.keys(headingFonts)),
+    size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
+      return intKeys(val);
+    })),
+    align: PropTypes.oneOf(Object.keys(headingAlign)),
+    weight: PropTypes.oneOf(Object.keys(headingWeights)),
+    tracking: PropTypes.oneOf(Object.keys(headingTracking)),
+    uppercase: PropTypes.bool,
+    italic: PropTypes.bool,
+    srOnly: PropTypes.bool,
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+    ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
+      current: PropTypes.any
+    })])
+  };
+  Heading.defaultProps = {
+    font: "sans",
+    weight: "bold",
+    ref: null
+  };
 
   var globalFooterColors = ["cardinal-red", "digital-red", "black"];
 
