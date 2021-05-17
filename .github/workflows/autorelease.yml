@@ -39,8 +39,9 @@ jobs:
           ref: ${{ github.base_ref }}
           fetch-depth: 0
 
+      # Uses 'npm ci' instead of 'npm install'. See https://docs.npmjs.com/cli/v7/commands/npm-ci
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Set Git user
         run: |
