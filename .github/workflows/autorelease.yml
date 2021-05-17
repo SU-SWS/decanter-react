@@ -37,7 +37,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.base_ref }}
-          fetch-depth: 0 
+          fetch-depth: 0
+      
+      - name: Install dependencies
+        run: npm install
 
       - name: Set Git user
         run: |
@@ -47,12 +50,10 @@ jobs:
       # Run 'npm run package' and commit dist folder if there are any changes.
       - name: npm run package
         run: |
-          NEW_TAG=$(git tag --sort=-taggerdate | head -1)
           npm run package
           if [ $(git status | grep "dist\/") ]
           then 
             git add dist
-            git commit -m "Updated build package for release $NEW_TAG"
           fi
       
       # Increment version based on label
@@ -79,15 +80,6 @@ jobs:
       - name: RC Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'rc') }}
         run: npm version prerelease --preid rc
-
-      # Automatically append new commit messages to changelog.
-      - name: "Update changelog"
-        run: |
-          NEW_TAG=$(git tag --sort=-taggerdate | head -1)
-          PREVIOUS_TAG=$(git tag --sort=-taggerdate | sed -n '2 p')
-          echo -e "$(git log --no-merges --pretty=format:%s --invert-grep --grep="Updated changelog with notes for" $PREVIOUS_TAG..$NEW_TAG)\n" >> CHANGELOG.txt
-          git add CHANGELOG.txt
-          git commit -m "Updated changelog with notes for $NEW_TAG"
 
       # Push commits back to origin repo. 
       - name: Push Changes
