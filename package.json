@@ -29,7 +29,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "dev": "start-storybook -p 6006"
+    "dev": "start-storybook -p 6006",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -73,6 +74,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@whitespace/storybook-addon-html": "^4.2.0",
+    "auto-changelog": "^2.2.1",
     "babel-jest": "^26.6.3",
     "cross-env": "^7.0.2",
     "dompurify": "^2.2.6",
