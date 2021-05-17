@@ -21,7 +21,7 @@ export const Card = ({
   // ---------------------------------------------------------------------------
 
   let wrapperClasses =
-    "su-bg-white su-text-black su-border su-border-solid su-border-transparent-black su-shadow";
+    "su-bg-white su-text-black su-border su-border-solid su-border-black-10 su-shadow";
 
   // Basic card image has aspect ratio 4x3 for non-round option
   let imageWrapperClasses = "su-aspect-w-4 su-aspect-h-3";

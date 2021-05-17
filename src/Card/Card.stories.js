@@ -25,13 +25,19 @@ export default {
 const CardTemplate = ({ ...rest }) => (
   <Card {...rest}>
     {/* Developer would pass in their own card content components */}
-    <span>Super headline</span>
+    <span className="su-font-sans su-font-bold su-mb-0">Super headline</span>
     <Heading>Headline</Heading>
-    <p>
+    <p className="su-card-paragraph">
       Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
       nulla quis orci. Phasellus a est.
     </p>
-    <CtaLink text="Call to action link" />
+    <CtaLink
+      text="Learn more"
+      srcText="about Decanter"
+      animate="right"
+      icon="more"
+      href="https://decanter.stanford.edu"
+    />
   </Card>
 );
 
@@ -71,5 +77,6 @@ MinimalImage.storyName = "Minimal with Image";
 export const MinimalCenter = CardTemplate.bind({});
 MinimalCenter.args = {
   align: "center",
+  isMinimal: true,
 };
 MinimalCenter.storyName = "Minimal Center Content";
