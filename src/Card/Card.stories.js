@@ -25,8 +25,12 @@ export default {
 const CardTemplate = ({ ...rest }) => (
   <Card {...rest}>
     {/* Developer would pass in their own card content components */}
-    <span className="su-font-sans su-font-bold su-mb-0">Super headline</span>
-    <Heading>Headline</Heading>
+    <span className="su-font-sans su-font-bold su-type-0 su-mb-0">
+      Super headline
+    </span>
+    <Heading level="2" className="su-mb-0">
+      Headline
+    </Heading>
     <p className="su-card-paragraph">
       Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
       nulla quis orci. Phasellus a est.
