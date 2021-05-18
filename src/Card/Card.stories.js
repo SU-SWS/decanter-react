@@ -3,10 +3,12 @@ import { Card } from "./Card";
 import { cardAlignOptions } from "./Card.levers";
 import { Heading } from "../Heading/Heading";
 import { CtaLink } from "../CtaLink/CtaLink";
+import { CtaButton } from "../CtaButton/CtaButton";
 
 export default {
   title: "Composite/Card",
   component: Card,
+  subcoponent: { Heading, CtaLink, CtaButton },
   argTypes: {
     align: {
       control: {
@@ -28,7 +30,7 @@ const CardTemplate = ({ ...rest }) => (
     <span className="su-font-sans su-font-bold su-type-0 su-mb-0">
       Super headline
     </span>
-    <Heading level="2" className="su-mb-0">
+    <Heading level="3" size={1} className="su-mb-0">
       Headline
     </Heading>
     <p className="su-card-paragraph">
@@ -37,10 +39,20 @@ const CardTemplate = ({ ...rest }) => (
     </p>
     <CtaLink
       text="Learn more"
-      srcText="about Decanter"
+      srText="about Decanter"
       animate="right"
       icon="more"
       href="https://decanter.stanford.edu"
+    />
+    <CtaButton
+      text="Learn more"
+      srText="about Decanter"
+      animate="right"
+      icon="more"
+      variant="solid"
+      size="default"
+      href="https://decanter.stanford.edu"
+      className="su-mt-16"
     />
   </Card>
 );
@@ -52,7 +64,7 @@ Default.storyName = "Default";
 export const DefaultImage = CardTemplate.bind({});
 DefaultImage.args = {
   image: {
-    filename: "https://placekitten.com/260/180",
+    filename: "https://placekitten.com/600/300",
   },
 };
 DefaultImage.storyName = "Default with Image";
@@ -72,7 +84,7 @@ Minimal.storyName = "Minimal";
 export const MinimalImage = CardTemplate.bind({});
 MinimalImage.args = {
   image: {
-    filename: "https://placekitten.com/260/180",
+    filename: "https://placekitten.com/600/300",
   },
   isMinimal: true,
 };

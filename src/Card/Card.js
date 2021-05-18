@@ -24,13 +24,17 @@ export const Card = ({
     "su-bg-white su-text-black su-border su-border-solid su-border-black-10 su-shadow";
 
   // Basic card image has aspect ratio 4x3 for non-round option
-  let imageWrapperClasses = "su-aspect-w-4 su-aspect-h-3";
+  let imageWrapperClasses = "su-aspect-w-2 su-aspect-h-1";
 
   // Option to use "minimal" card variant
   let bodyPadding = "su-rs-px-2 su-rs-pt-2 su-rs-pb-4";
 
   if (isMinimal) {
     wrapperClasses = "";
+    bodyPadding = "";
+  }
+
+  if (isMinimal && image) {
     bodyPadding = "su-rs-pt-2";
     imageWrapperClasses = dcnb(imageWrapperClasses, { "su-rs-ml-2": false });
   }
@@ -45,8 +49,12 @@ export const Card = ({
   }
 
   return (
-    <div
-      className={dcnb("basic-card su-max-w-600 su-basefont-23", wrapperClasses)}
+    <article
+      className={dcnb(
+        "basic-card su-max-w-600 su-basefont-23",
+        wrapperClasses,
+        className
+      )}
     >
       {image && (
         <div className={imageWrapperClasses} aria-hidden="true">
@@ -59,7 +67,7 @@ export const Card = ({
       >
         {children}
       </FlexBox>
-    </div>
+    </article>
   );
 };
 
