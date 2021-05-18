@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { gridGap, gridCols, gridElements } from "./Grid.levers";
+import intKeys from "../common/util/intKeys";
 
 /**
  * CSS Grid component.
@@ -77,32 +78,32 @@ Grid.propTypes = {
   /**
    * Number of columns at XS breakpoint
    */
-  xs: PropTypes.oneOf(Object.keys(gridCols.xs)),
+  xs: PropTypes.oneOf(Object.keys(gridCols.xs).map((val) => intKeys(val))),
 
   /**
    * Number of columns at SM breakpoint and up
    */
-  sm: PropTypes.oneOf(Object.keys(gridCols.sm)),
+  sm: PropTypes.oneOf(Object.keys(gridCols.sm).map((val) => intKeys(val))),
 
   /**
    * Number of columns at MD breakpoint
    */
-  md: PropTypes.oneOf(Object.keys(gridCols.md)),
+  md: PropTypes.oneOf(Object.keys(gridCols.md).map((val) => intKeys(val))),
 
   /**
    * Number of columns at LG breakpoint
    */
-  lg: PropTypes.oneOf(Object.keys(gridCols.lg)),
+  lg: PropTypes.oneOf(Object.keys(gridCols.lg).map((val) => intKeys(val))),
 
   /**
    * Number of columns at XL breakpoint
    */
-  xl: PropTypes.oneOf(Object.keys(gridCols.xl)),
+  xl: PropTypes.oneOf(Object.keys(gridCols.xl).map((val) => intKeys(val))),
 
   /**
    * Number of columns at 2XL breakpoint
    */
-  xxl: PropTypes.oneOf(Object.keys(gridCols.xxl)),
+  xxl: PropTypes.oneOf(Object.keys(gridCols.xxl).map((val) => intKeys(val))),
 
   children: PropTypes.oneOfType([
     PropTypes.node,

@@ -989,6 +989,16 @@ var flexCellOrder = {
   none: "su-order-none"
 };
 
+var intKeys = (function (arg) {
+  var int = parseInt(arg, 10);
+
+  if (Number.isNaN(int)) {
+    return arg;
+  }
+
+  return int;
+});
+
 var FlexCell = function FlexCell(_ref) {
   var className = _ref.className,
       children = _ref.children,
@@ -1050,16 +1060,30 @@ var FlexCell = function FlexCell(_ref) {
 };
 FlexCell.propTypes = {
   element: PropTypes.oneOf(flexCellElements),
-  xs: PropTypes.oneOf(Object.keys(flexCellWidth.xs)),
-  sm: PropTypes.oneOf(Object.keys(flexCellWidth.sm)),
-  md: PropTypes.oneOf(Object.keys(flexCellWidth.md)),
-  lg: PropTypes.oneOf(Object.keys(flexCellWidth.lg)),
-  xl: PropTypes.oneOf(Object.keys(flexCellWidth.xl)),
-  xxl: PropTypes.oneOf(Object.keys(flexCellWidth.xxl)),
+  xs: PropTypes.oneOf(Object.keys(flexCellWidth.xs).map(function (val) {
+    return intKeys(val);
+  })),
+  sm: PropTypes.oneOf(Object.keys(flexCellWidth.sm).map(function (val) {
+    return intKeys(val);
+  })),
+  md: PropTypes.oneOf(Object.keys(flexCellWidth.md).map(function (val) {
+    return intKeys(val);
+  })),
+  lg: PropTypes.oneOf(Object.keys(flexCellWidth.lg).map(function (val) {
+    return intKeys(val);
+  })),
+  xl: PropTypes.oneOf(Object.keys(flexCellWidth.xl).map(function (val) {
+    return intKeys(val);
+  })),
+  xxl: PropTypes.oneOf(Object.keys(flexCellWidth.xxl).map(function (val) {
+    return intKeys(val);
+  })),
   flex: PropTypes.oneOf(Object.keys(flexCellFlex)),
   grow: PropTypes.bool,
   shrink: PropTypes.bool,
-  order: PropTypes.oneOf(Object.keys(flexCellOrder)),
+  order: PropTypes.oneOf(Object.keys(flexCellOrder).map(function (val) {
+    return intKeys(val);
+  })),
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
 };
@@ -1163,7 +1187,9 @@ var Heading = function Heading(_ref) {
 Heading.propTypes = {
   level: PropTypes.oneOf(headingLevels),
   font: PropTypes.oneOf(Object.keys(headingFonts)),
-  size: PropTypes.oneOf(Object.keys(headingSizes)),
+  size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
+    return intKeys(val);
+  })),
   align: PropTypes.oneOf(Object.keys(headingAlign)),
   weight: PropTypes.oneOf(Object.keys(headingWeights)),
   tracking: PropTypes.oneOf(Object.keys(headingTracking)),
@@ -1479,12 +1505,24 @@ var Grid = function Grid(_ref) {
 Grid.propTypes = {
   element: PropTypes.oneOf(gridElements),
   gap: PropTypes.bool,
-  xs: PropTypes.oneOf(Object.keys(gridCols.xs)),
-  sm: PropTypes.oneOf(Object.keys(gridCols.sm)),
-  md: PropTypes.oneOf(Object.keys(gridCols.md)),
-  lg: PropTypes.oneOf(Object.keys(gridCols.lg)),
-  xl: PropTypes.oneOf(Object.keys(gridCols.xl)),
-  xxl: PropTypes.oneOf(Object.keys(gridCols.xxl)),
+  xs: PropTypes.oneOf(Object.keys(gridCols.xs).map(function (val) {
+    return intKeys(val);
+  })),
+  sm: PropTypes.oneOf(Object.keys(gridCols.sm).map(function (val) {
+    return intKeys(val);
+  })),
+  md: PropTypes.oneOf(Object.keys(gridCols.md).map(function (val) {
+    return intKeys(val);
+  })),
+  lg: PropTypes.oneOf(Object.keys(gridCols.lg).map(function (val) {
+    return intKeys(val);
+  })),
+  xl: PropTypes.oneOf(Object.keys(gridCols.xl).map(function (val) {
+    return intKeys(val);
+  })),
+  xxl: PropTypes.oneOf(Object.keys(gridCols.xxl).map(function (val) {
+    return intKeys(val);
+  })),
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
   ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
@@ -1685,15 +1723,33 @@ var GridCell = function GridCell(_ref) {
 };
 GridCell.propTypes = {
   element: PropTypes.oneOf(gridCellElements),
-  xs: PropTypes.oneOf(Object.keys(gridColSpan.xs)),
-  sm: PropTypes.oneOf(Object.keys(gridColSpan.sm)),
-  md: PropTypes.oneOf(Object.keys(gridColSpan.md)),
-  lg: PropTypes.oneOf(Object.keys(gridColSpan.lg)),
-  xl: PropTypes.oneOf(Object.keys(gridColSpan.xl)),
-  xxl: PropTypes.oneOf(Object.keys(gridColSpan.xxl)),
-  colStart: PropTypes.oneOf(Object.keys(gridColLine)),
-  row: PropTypes.oneOf(Object.keys(gridRowSpan)),
-  rowStart: PropTypes.oneOf(Object.keys(gridRowLine)),
+  xs: PropTypes.oneOf(Object.keys(gridColSpan.xs).map(function (val) {
+    return intKeys(val);
+  })),
+  sm: PropTypes.oneOf(Object.keys(gridColSpan.sm).map(function (val) {
+    return intKeys(val);
+  })),
+  md: PropTypes.oneOf(Object.keys(gridColSpan.md).map(function (val) {
+    return intKeys(val);
+  })),
+  lg: PropTypes.oneOf(Object.keys(gridColSpan.lg).map(function (val) {
+    return intKeys(val);
+  })),
+  xl: PropTypes.oneOf(Object.keys(gridColSpan.xl).map(function (val) {
+    return intKeys(val);
+  })),
+  xxl: PropTypes.oneOf(Object.keys(gridColSpan.xxl).map(function (val) {
+    return intKeys(val);
+  })),
+  colStart: PropTypes.oneOf(Object.keys(gridColLine).map(function (val) {
+    return intKeys(val);
+  })),
+  row: PropTypes.oneOf(Object.keys(gridRowSpan).map(function (val) {
+    return intKeys(val);
+  })),
+  rowStart: PropTypes.oneOf(Object.keys(gridRowLine).map(function (val) {
+    return intKeys(val);
+  })),
   children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
 };

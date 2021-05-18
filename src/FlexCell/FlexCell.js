@@ -10,6 +10,7 @@ import {
   flexCellShrink,
   flexCellOrder,
 } from "./FlexCell.levers";
+import intKeys from "../common/util/intKeys";
 
 /**
  * Flex Cell component.
@@ -117,32 +118,34 @@ FlexCell.propTypes = {
   /**
    * Width of the cell (n-of-12 Columns) from device width 0 and up.
    */
-  xs: PropTypes.oneOf(Object.keys(flexCellWidth.xs)),
+  xs: PropTypes.oneOf(Object.keys(flexCellWidth.xs).map((val) => intKeys(val))),
 
   /**
    * Width of the cell (n-of-12 Columns) from SM breakpoint and up.
    */
-  sm: PropTypes.oneOf(Object.keys(flexCellWidth.sm)),
+  sm: PropTypes.oneOf(Object.keys(flexCellWidth.sm).map((val) => intKeys(val))),
 
   /**
    * Width of the cell (n-of-12 Columns) from MD breakpoint and up.
    */
-  md: PropTypes.oneOf(Object.keys(flexCellWidth.md)),
+  md: PropTypes.oneOf(Object.keys(flexCellWidth.md).map((val) => intKeys(val))),
 
   /**
    * Width of the cell (n-of-12 Columns) from LG breakpoint and up.
    */
-  lg: PropTypes.oneOf(Object.keys(flexCellWidth.lg)),
+  lg: PropTypes.oneOf(Object.keys(flexCellWidth.lg).map((val) => intKeys(val))),
 
   /**
    * Width of the cell (n-of-12 Columns) from XL breakpoint and up.
    */
-  xl: PropTypes.oneOf(Object.keys(flexCellWidth.xl)),
+  xl: PropTypes.oneOf(Object.keys(flexCellWidth.xl).map((val) => intKeys(val))),
 
   /**
    * Width of the cell (n-of-12 Columns) from 2XL breakpoint and up.
    */
-  xxl: PropTypes.oneOf(Object.keys(flexCellWidth.xxl)),
+  xxl: PropTypes.oneOf(
+    Object.keys(flexCellWidth.xxl).map((val) => intKeys(val))
+  ),
 
   /**
    * Flex property - for controlling how this cell both grow and shrink.
@@ -162,7 +165,7 @@ FlexCell.propTypes = {
   /**
    * Flex order - for controlling which order the item should appear in.
    */
-  order: PropTypes.oneOf(Object.keys(flexCellOrder)),
+  order: PropTypes.oneOf(Object.keys(flexCellOrder).map((val) => intKeys(val))),
 
   /**
    * Children types.

@@ -9,6 +9,7 @@ import {
   gridRowSpan,
   gridRowLine,
 } from "./GridCell.levers";
+import intKeys from "../common/util/intKeys";
 
 /**
  * CSS Grid Cell component.
@@ -101,47 +102,51 @@ GridCell.propTypes = {
   /**
    * Number of columns the grid cell spans from device width 0 and up.
    */
-  xs: PropTypes.oneOf(Object.keys(gridColSpan.xs)),
+  xs: PropTypes.oneOf(Object.keys(gridColSpan.xs).map((val) => intKeys(val))),
 
   /**
    * Number of columns the grid cell spans from SM breakpoint and up.
    */
-  sm: PropTypes.oneOf(Object.keys(gridColSpan.sm)),
+  sm: PropTypes.oneOf(Object.keys(gridColSpan.sm).map((val) => intKeys(val))),
 
   /**
    * Number of columns the grid cell spans from MD breakpoint and up.
    */
-  md: PropTypes.oneOf(Object.keys(gridColSpan.md)),
+  md: PropTypes.oneOf(Object.keys(gridColSpan.md).map((val) => intKeys(val))),
 
   /**
    * Number of columns the grid cell spans from LG breakpoint and up.
    */
-  lg: PropTypes.oneOf(Object.keys(gridColSpan.lg)),
+  lg: PropTypes.oneOf(Object.keys(gridColSpan.lg).map((val) => intKeys(val))),
 
   /**
    * Number of columns the grid cell spans from XL breakpoint and up.
    */
-  xl: PropTypes.oneOf(Object.keys(gridColSpan.xl)),
+  xl: PropTypes.oneOf(Object.keys(gridColSpan.xl).map((val) => intKeys(val))),
 
   /**
    * Number of columns the grid cell spans from 2XL breakpoint and up.
    */
-  xxl: PropTypes.oneOf(Object.keys(gridColSpan.xxl)),
+  xxl: PropTypes.oneOf(Object.keys(gridColSpan.xxl).map((val) => intKeys(val))),
 
   /**
    * Start column line of the grid cell.
    */
-  colStart: PropTypes.oneOf(Object.keys(gridColLine)),
+  colStart: PropTypes.oneOf(
+    Object.keys(gridColLine).map((val) => intKeys(val))
+  ),
 
   /**
    * Number of rows the grid cell spans.
    */
-  row: PropTypes.oneOf(Object.keys(gridRowSpan)),
+  row: PropTypes.oneOf(Object.keys(gridRowSpan).map((val) => intKeys(val))),
 
   /**
    * Start row line of the grid cell.
    */
-  rowStart: PropTypes.oneOf(Object.keys(gridRowLine)),
+  rowStart: PropTypes.oneOf(
+    Object.keys(gridRowLine).map((val) => intKeys(val))
+  ),
 
   children: PropTypes.oneOfType([
     PropTypes.node,
