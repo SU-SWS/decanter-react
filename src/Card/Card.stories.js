@@ -1,10 +1,6 @@
 import React from "react";
 import { Card } from "./Card";
 import { cardAlignOptions } from "./Card.levers";
-import { CardContent } from "./CardContent";
-import { CardImage } from "./CardImage";
-import { CardSuperhead } from "./CardSuperhead";
-import { Heading } from "../Heading/Heading";
 import { CtaLink } from "../CtaLink/CtaLink";
 import { CtaButton } from "../CtaButton/CtaButton";
 
@@ -12,12 +8,12 @@ export default {
   title: "Composite/Card",
   component: Card,
   subcomponents: {
-    CardContent,
-    CardImage,
-    CardSuperhead,
-    Heading,
-    CtaLink,
-    CtaButton,
+    "Card.Content": Card.Content,
+    "Card.Image": Card.Image,
+    "Card.Superhead": Card.Superhead,
+    "Card.Headline": Card.Headline,
+    "Card.Body": Card.Body,
+    "Card.Cta": Card.Cta,
   },
   parameters: {
     design: {
@@ -49,37 +45,38 @@ export default {
 
 const CardTemplate = ({ ...rest }) => (
   <Card {...rest}>
-    {/* Developer would pass in their own card content components */}
-    {rest.image && <CardImage image={rest.image} />}
-    <CardContent align={rest.align}>
-      <CardSuperhead className="su-font-sans su-font-bold su-type-0 su-mb-0">
+    {rest.image && <Card.Image image={rest.image} />}
+    <Card.Content {...rest}>
+      <Card.Superhead className="su-font-sans su-font-bold su-type-0 su-mb-0">
         Super headline
-      </CardSuperhead>
-      <Heading level="3" size={1} className="su-mb-0">
+      </Card.Superhead>
+      <Card.Headline level="3" size={1} className="su-mb-0">
         Headline
-      </Heading>
+      </Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
       </p>
-      <CtaLink
-        text="Learn more"
-        srText="about Decanter"
-        animate="right"
-        icon="more"
-        href="https://decanter.stanford.edu"
-      />
-      <CtaButton
-        text="Learn more"
-        srText="about Decanter"
-        animate="right"
-        icon="more"
-        variant="solid"
-        size="default"
-        href="https://decanter.stanford.edu"
-        className="su-mt-16"
-      />
-    </CardContent>
+      <Card.Cta>
+        <CtaLink
+          text="Learn more"
+          srText="about Decanter"
+          animate="right"
+          icon="more"
+          href="https://decanter.stanford.edu"
+        />
+        <CtaButton
+          text="Learn more"
+          srText="about Decanter"
+          animate="right"
+          icon="more"
+          variant="solid"
+          size="default"
+          href="https://decanter.stanford.edu"
+          className="su-mt-16"
+        />
+      </Card.Cta>
+    </Card.Content>
   </Card>
 );
 
@@ -92,7 +89,6 @@ DefaultImage.args = {
   image: {
     filename: "https://placekitten.com/600/300",
   },
-  children: <CardImage image />,
 };
 DefaultImage.storyName = "Default with Image";
 
