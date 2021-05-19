@@ -23,7 +23,6 @@ export const CardImage = ({ className, image, ...props }) => {
 // Prop Types.
 // -----------------------------------------------------------------------------
 CardImage.propTypes = {
-
   // CSS Classes.
   className: PropTypes.oneOfType([
     PropTypes.string,

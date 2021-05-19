@@ -20,20 +20,27 @@ export const CardContent = ({
 
   // Option to use "minimal" card variant
   let bodyPadding = "su-rs-px-2 su-rs-pt-2 su-rs-pb-4";
-
-  if (isMinimal) {
-    bodyPadding = "";
-  }
+  let bodyAlign = "su-items-start";
+  let wrapperClasses = "";
 
   // Content alignment including image and CTA, default is left-align
   // This setting overrides the alignment option in the nested CTA
 
-  let bodyAlign = "su-items-start";
+  if (align === "center") {
+    wrapperClasses = "children:su-mx-auto su-text-center";
+    bodyAlign = "su-items-center";
+  }
 
   return (
     <FlexBox
       direction="col"
-      className={dcnb("card-body", bodyPadding, bodyAlign, className)}
+      className={dcnb(
+        "card-body",
+        bodyPadding,
+        bodyAlign,
+        wrapperClasses,
+        className
+      )}
     >
       {children}
     </FlexBox>

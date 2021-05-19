@@ -12,12 +12,12 @@ export default {
   title: "Composite/Card",
   component: Card,
   subcomponents: {
-    CardContent: Card.Content,
-    CardImage: Card.Image,
-    CardSuperHead: Card.Superhead,
-    Heading: Card.Heading,
-    CtaLink: Card.CtaLink,
-    CtaButton: Card.CtaButton,
+    CardContent,
+    CardImage,
+    CardSuperhead,
+    Heading,
+    CtaLink,
+    CtaButton,
   },
   parameters: {
     design: {
@@ -50,7 +50,8 @@ export default {
 const CardTemplate = ({ ...rest }) => (
   <Card {...rest}>
     {/* Developer would pass in their own card content components */}
-    <CardContent>
+    {rest.image && <CardImage image={rest.image} />}
+    <CardContent align={rest.align}>
       <CardSuperhead className="su-font-sans su-font-bold su-type-0 su-mb-0">
         Super headline
       </CardSuperhead>
