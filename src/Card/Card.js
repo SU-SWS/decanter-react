@@ -3,6 +3,12 @@ import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { cardAlignOptions } from "./Card.levers";
 import { FlexBox } from "../FlexBox/FlexBox";
+import { CardImage } from "./CardImage";
+import { CardContent } from "./CardContent";
+import { CardSuperhead } from "./CardSuperhead";
+import { Heading } from "../Heading/Heading";
+import { CtaLink } from "../CtaLink/CtaLink";
+import { CtaButton } from "../CtaButton/CtaButton";
 
 /**
  * Card Component
@@ -48,6 +54,8 @@ export const Card = ({
     bodyAlign = "su-items-center";
   }
 
+  // wrapperClasses = dcnb(wrapperClasses, bodyPadding, bodyAlign, bodyPadding);
+
   return (
     <article
       className={dcnb(
@@ -56,7 +64,7 @@ export const Card = ({
         className
       )}
     >
-      {image && (
+      {/* {image && (
         <div className={imageWrapperClasses} aria-hidden="true">
           <img src={image.filename} alt="" />
         </div>
@@ -64,12 +72,19 @@ export const Card = ({
       <FlexBox
         direction="col"
         className={dcnb("card-body", bodyPadding, bodyAlign)}
-      >
-        {children}
-      </FlexBox>
+      > */}
+      {children}
+      {/* </FlexBox> */}
     </article>
   );
 };
+
+Card.Image = <CardImage />;
+Card.Content = <CardContent />;
+Card.Superhead = <CardSuperhead />;
+Card.Heading = <Heading />;
+Card.CtaLink = <CtaLink />;
+Card.CtaButton = <CtaButton />;
 
 // Prop Types.
 // -----------------------------------------------------------------------------
@@ -83,6 +98,20 @@ Card.propTypes = {
    * Text Align Type
    */
   align: PropTypes.oneOf(cardAlignOptions),
+
+  // CSS Classes.
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
+
+  // Children
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
 };
 
 // Default Props.
