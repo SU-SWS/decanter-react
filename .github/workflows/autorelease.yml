@@ -72,15 +72,21 @@ jobs:
       
       - name: Alpha Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'alpha') }}
-        run: npm version prerelease --preid alpha
+        run: |
+          npm version prerelease --preid alpha
+          echo "PRERELEASE=true" >> $GITHUB_ENV
       
       - name: Beta Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'beta') }}
-        run: npm version prerelease --preid beta
+        run: |
+          npm version prerelease --preid beta
+          echo "PRERELEASE=true" >> $GITHUB_ENV
 
       - name: RC Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'rc') }}
-        run: npm version prerelease --preid rc
+        run: |
+          npm version prerelease --preid rc
+          echo "PRERELEASE=true" >> $GITHUB_ENV
 
       # Push commits back to origin repo. 
       - name: Push Changes
@@ -114,6 +120,7 @@ jobs:
           tag: ${{ env.RELEASE_TAG }}
           body: ${{steps.release_notes.outputs.release_notes}}
           allow_override: true
+          prerelease: ${{ env.PRERELEASE }}
 
       # Publish updated package to NPM.
       - name: Publish to NPM
