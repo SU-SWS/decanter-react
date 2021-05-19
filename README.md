@@ -18,14 +18,14 @@ npm install --save decanter-react
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import MyComponent from 'decanter-react'
-import 'decanter/dist/decanter.css'
+import MyComponent from "decanter-react";
+import "decanter/dist/decanter.css";
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <MyComponent />;
   }
 }
 ```
@@ -40,6 +40,10 @@ Please see our storybook build website at [Decanter React - Stoybook](https://de
 
 Evaluation Date: 2020-05-14
 This project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).
+
+## Contributing
+
+We encourage you to contribute to Decanter-React! Please check out the Contributing to [Decanter React guide](https://github.com/SU-SWS/decanter-react/blob/main/CONTRIBUTING.md) for guidelines about how to proceed.
 
 ## License
 
