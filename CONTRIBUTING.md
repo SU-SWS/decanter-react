@@ -5,15 +5,44 @@ broken, confusing, or wrong please first check the issue queue. For new issues
 or feature requests, those that post with patches or pull requests and are
 respectful will be handled first.
 
+## Local Development Setup
+
+Initial Setup
+
+```
+nvm use
+npm install
+```
+
+Build and start local Storybook server
+
+```
+npm run dev
+```
+
+Build Storybook
+
+```
+npm run build
+```
+
+Build the Decanter-React package
+
+```
+npm run package
+```
+
+See package.json for more specifics regarding scripts.
+
 ## Using the issue tracker
 
 The issue tracker is the preferred channel for [bug reports](#bugs),
 [features requests](#features) and [submitting pull
 requests](#pull-requests), but please respect the following restrictions:
 
-* Please **do not** use the issue tracker for personal support requests.
+- Please **do not** use the issue tracker for personal support requests.
 
-* Please **do** assign a maintainer for review
+- Please **do** assign a maintainer for review
 
 ## Bug reports
 
@@ -54,14 +83,12 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
-
 ## Feature requests
 
 Feature requests are welcome. But take a moment to find out whether your idea
-fits with the scope and aims of the project. It's up to *you* to make a strong
+fits with the scope and aims of the project. It's up to _you_ to make a strong
 case to convince the project's developers of the merits of this feature. Please
 provide as much detail and context as possible.
-
 
 ## Pull requests
 
@@ -90,36 +117,42 @@ project:
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/SU-SWS/decanter
    ```
+
 2. If you cloned a while ago, get the latest changes from upstream:
 
    ```bash
    git checkout master
    git pull upstream master
    ```
+
 3. Never work directly on `master`. Create a new topic branch (off the latest
    version of `master`) to contain your feature, change, or fix:
 
    ```bash
    git checkout -b <topic-branch-name>
    ```
+
 4. Commit your changes in logical chunks. Use Git's
    [interactive rebase](https://help.github.com/articles/interactive-rebase)
    feature to tidy up your commits before making them public.
 
    Be sure to compile the css before submitting.
    Be sure to lint the scss before submitting.
+
 5. Locally rebase the upstream development branch into your topic branch:
 
    ```bash
    git pull --rebase upstream master
    ```
+
 6. Push your topic branch up to your fork:
 
    ```bash
    git push origin <topic-branch-name>
    ```
+
 7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-    with a clear title and description.
+   with a clear title and description.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owner to
 license your work under the same license as that used by the project.
@@ -134,10 +167,10 @@ To install you must have NPM installed.
 
 Then run:
 
-   ```bash
-   npm install
-   npm run sasslint
-   ```
+```bash
+npm install
+npm run sasslint
+```
 
 This should output any errors the linter can find. Please fix those before
 submitting a pull request.
