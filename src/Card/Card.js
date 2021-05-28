@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { FlexBox } from "../FlexBox/FlexBox";
 import { Heading } from "../Heading/Heading";
+import { cardAlignOptions } from "./Card.levers";
 
 /**
  * Card Component
@@ -118,8 +119,88 @@ Card.propTypes = {
   ]),
 };
 
+Content.propTypes = {
+  /**
+   * Text Align Type
+   */
+  align: PropTypes.oneOf(cardAlignOptions),
+
+  // CSS Classes.
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
+
+  // Children
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+};
+
+Image.propTypes = {
+  // CSS Classes.
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
+
+  // Image
+  image: PropTypes.string,
+};
+
+Superhead.propTypes = {
+  // Children
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+};
+
+Headline.propTypes = {
+  // Children
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+};
+
+Body.propTypes = {
+  // Children
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+};
+
+Cta.propTypes = {
+  // CSS Classes.
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object,
+  ]),
+
+  // Children
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
+};
+
 // Default Props.
 // -----------------------------------------------------------------------------
 Card.defaultProps = {
   isMinimal: false,
+};
+
+Content.defaultProps = {
+  align: "left",
 };
