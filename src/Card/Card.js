@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import { cardAlignOptions } from "./Card.levers";
 import { FlexBox } from "../FlexBox/FlexBox";
 import { Heading } from "../Heading/Heading";
 
@@ -10,14 +9,8 @@ import { Heading } from "../Heading/Heading";
  *
  * HTML card element
  */
-export const Card = ({
-  className,
-  children,
-  image,
-  align,
-  isMinimal,
-  ...props
-}) => {
+
+export const Card = ({ className, children, isMinimal, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
 
@@ -27,8 +20,6 @@ export const Card = ({
   if (isMinimal) {
     wrapperClasses = "";
   }
-
-  // wrapperClasses = dcnb(wrapperClasses, bodyPadding, bodyAlign, bodyPadding);
 
   return (
     <article
@@ -45,10 +36,7 @@ export const Card = ({
 
 // Subcomponents
 // ---------------------------------------------------------------------------
-const Content = ({ children, className, image, align, isMinimal }) => {
-  // Option to use "minimal" card variant
-  let bodyPadding = "su-rs-px-2 su-rs-pt-2 su-rs-pb-4";
-
+const Content = ({ children, className, align }) => {
   // Content alignment including image and CTA, default is left-align
   // This setting overrides the alignment option in the nested CTA
   let bodyAlign = "su-items-start";
@@ -59,25 +47,10 @@ const Content = ({ children, className, image, align, isMinimal }) => {
     bodyAlign = "su-items-center";
   }
 
-  // If Card component isMinimal
-  if (isMinimal) {
-    bodyPadding = "";
-  }
-
-  if (isMinimal && image) {
-    bodyPadding = "su-rs-pt-2";
-  }
-
   return (
     <FlexBox
       direction="col"
-      className={dcnb(
-        "card-body",
-        bodyPadding,
-        bodyAlign,
-        contentClass,
-        className
-      )}
+      className={dcnb("card-body", bodyAlign, contentClass, className)}
     >
       {children}
     </FlexBox>
@@ -130,11 +103,6 @@ Card.propTypes = {
    */
   isMinimal: PropTypes.bool,
 
-  /**
-   * Text Align Type
-   */
-  align: PropTypes.oneOf(cardAlignOptions),
-
   // CSS Classes.
   className: PropTypes.oneOfType([
     PropTypes.string,
@@ -153,6 +121,5 @@ Card.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Card.defaultProps = {
-  align: "left",
   isMinimal: false,
 };
