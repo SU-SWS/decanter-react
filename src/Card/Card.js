@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { FlexBox } from "../FlexBox/FlexBox";
 import { Heading } from "../Heading/Heading";
-import { cardAlignOptions } from "./Card.levers";
+import { cardAlignOptions, cardElements } from "./Card.levers";
 
 /**
  * Card Component
@@ -11,9 +11,15 @@ import { cardAlignOptions } from "./Card.levers";
  * HTML card element
  */
 
-export const Card = ({ className, children, isMinimal, ...props }) => {
+export const Card = ({ className, children, element, isMinimal, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
+  // props.element
+  let Element = "div";
+
+  if (element && cardElements.includes(element)) {
+    Element = element;
+  }
 
   let wrapperClasses =
     "su-bg-white su-text-black su-border su-border-solid su-border-black-10 su-shadow";
@@ -23,15 +29,15 @@ export const Card = ({ className, children, isMinimal, ...props }) => {
   }
 
   return (
-    <article
+    <Element
       className={dcnb(
-        "basic-card su-max-w-600 su-basefont-23",
+        "card su-max-w-600 su-basefont-23",
         wrapperClasses,
         className
       )}
     >
       {children}
-    </article>
+    </Element>
   );
 };
 
@@ -46,6 +52,11 @@ const Content = ({ children, className, align }) => {
   if (align === "center") {
     contentClass = dcnb(contentClass, "children:su-mx-auto su-text-center");
     bodyAlign = "su-items-center";
+  }
+
+  if (align === "right") {
+    contentClass = dcnb(contentClass, "children:su-mx-auto su-text-right");
+    bodyAlign = "su-items-end";
   }
 
   return (
@@ -66,16 +77,18 @@ const Image = ({ image, className }) => {
   const imageWrapperClasses = "su-aspect-w-2 su-aspect-h-1";
 
   return (
-    <div className={imageWrapperClasses} aria-hidden="true">
-      <img src={image.filename} alt="" />
+    <div className={dcnb(imageWrapperClasses, className)} aria-hidden="true">
+      <img src={image.filename} alt="" {...image} />
     </div>
   );
 };
 Image.displayName = Image;
 Card.Image = Image;
 
-const Superhead = ({ children }) => (
-  <span className="su-font-sans su-font-bold su-type-0 su-mb-0">
+const Superhead = ({ children, className }) => (
+  <span
+    className={dcnb("su-font-sans su-font-bold su-type-0 su-mb-0", className)}
+  >
     {children}
   </span>
 );
@@ -85,16 +98,6 @@ Card.Superhead = Superhead;
 const Headline = ({ children }) => <Heading>{children}</Heading>;
 Headline.displayName = Headline;
 Card.Headline = Headline;
-
-const Body = ({ children }) => <p className="su-card-paragraph">{children}</p>;
-Body.displayName = Body;
-Card.Body = Body;
-
-const Cta = ({ children, className }) => (
-  <div className={className}>{children}</div>
-);
-Cta.displayName = Cta;
-Card.Cta = Cta;
 
 // Prop Types.
 // -----------------------------------------------------------------------------
@@ -159,34 +162,15 @@ Superhead.propTypes = {
     PropTypes.element,
     PropTypes.node,
   ]),
-};
-
-Headline.propTypes = {
-  // Children
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
-};
-
-Body.propTypes = {
-  // Children
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
-};
-
-Cta.propTypes = {
   // CSS Classes.
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
     PropTypes.object,
   ]),
+};
 
+Headline.propTypes = {
   // Children
   children: PropTypes.oneOfType([
     PropTypes.string,

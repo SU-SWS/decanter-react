@@ -1,6 +1,10 @@
 /**
  * Styles for the card.
  */
-// export const cardVariants = ["solid", "outline", "ghost", "unset"];
 
-export const cardAlignOptions = ["left", "center"];
+export const cardAlignOptions = ["left", "center", "right"];
+
+/**
+ * Available HTML elements of the container.
+ */
+export const cardElements = ["div", "span", "article", "li"];

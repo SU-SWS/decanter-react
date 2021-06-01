@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "./Card";
 import { CtaLink } from "../CtaLink/CtaLink";
 import { CtaButton } from "../CtaButton/CtaButton";
+import { cardElements } from "./Card.levers";
 
 export default {
   title: "Composite/Card",
@@ -11,8 +12,6 @@ export default {
     "Card.Image": Card.Image,
     "Card.Superhead": Card.Superhead,
     "Card.Headline": Card.Headline,
-    "Card.Body": Card.Body,
-    "Card.Cta": Card.Cta,
   },
   parameters: {
     design: {
@@ -28,6 +27,12 @@ export default {
     },
   },
   argTypes: {
+    element: {
+      control: {
+        type: "select",
+        options: cardElements,
+      },
+    },
     isMinimal: {
       control: {
         type: "boolean",
@@ -49,25 +54,23 @@ const CardTemplateDefault = ({ ...rest }) => (
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
       </p>
-      <Card.Cta>
-        <CtaLink
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          href="https://decanter.stanford.edu"
-        />
-        <CtaButton
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          variant="solid"
-          size="default"
-          href="https://decanter.stanford.edu"
-          className="su-mt-16"
-        />
-      </Card.Cta>
+      <CtaLink
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        href="https://decanter.stanford.edu"
+      />
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="default"
+        href="https://decanter.stanford.edu"
+        className="su-mt-16"
+      />
     </Card.Content>
   </Card>
 );
@@ -86,25 +89,23 @@ const CardTemplateDefaultImage = ({ ...rest }) => (
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
       </p>
-      <Card.Cta>
-        <CtaLink
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          href="https://decanter.stanford.edu"
-        />
-        <CtaButton
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          variant="solid"
-          size="default"
-          href="https://decanter.stanford.edu"
-          className="su-mt-16"
-        />
-      </Card.Cta>
+      <CtaLink
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        href="https://decanter.stanford.edu"
+      />
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="default"
+        href="https://decanter.stanford.edu"
+        className="su-mt-16"
+      />
     </Card.Content>
   </Card>
 );
@@ -123,25 +124,58 @@ const CardTemplateDefaultCenter = ({ ...rest }) => (
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
       </p>
-      <Card.Cta>
-        <CtaLink
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          href="https://decanter.stanford.edu"
-        />
-        <CtaButton
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          variant="solid"
-          size="default"
-          href="https://decanter.stanford.edu"
-          className="su-mt-16"
-        />
-      </Card.Cta>
+      <CtaLink
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        href="https://decanter.stanford.edu"
+      />
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="default"
+        href="https://decanter.stanford.edu"
+        className="su-mt-16"
+      />
+    </Card.Content>
+  </Card>
+);
+
+const CardTemplateDefaultRight = ({ ...rest }) => (
+  <Card {...rest}>
+    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Content align="right" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
+      <Card.Superhead className="su-font-sans su-font-bold su-type-0 su-mb-0">
+        Super headline
+      </Card.Superhead>
+      <Card.Headline level="3" size={1} className="su-mb-0">
+        Headline
+      </Card.Headline>
+      <p className="su-card-paragraph">
+        Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
+        nulla quis orci. Phasellus a est.
+      </p>
+      <CtaLink
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        href="https://decanter.stanford.edu"
+      />
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="default"
+        href="https://decanter.stanford.edu"
+        className="su-mt-16"
+      />
     </Card.Content>
   </Card>
 );
@@ -159,25 +193,23 @@ const CardTemplateMinimal = ({ ...rest }) => (
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
       </p>
-      <Card.Cta>
-        <CtaLink
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          href="https://decanter.stanford.edu"
-        />
-        <CtaButton
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          variant="solid"
-          size="default"
-          href="https://decanter.stanford.edu"
-          className="su-mt-16"
-        />
-      </Card.Cta>
+      <CtaLink
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        href="https://decanter.stanford.edu"
+      />
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="default"
+        href="https://decanter.stanford.edu"
+        className="su-mt-16"
+      />
     </Card.Content>
   </Card>
 );
@@ -196,25 +228,23 @@ const CardTemplateMinimalImage = ({ ...rest }) => (
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
       </p>
-      <Card.Cta>
-        <CtaLink
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          href="https://decanter.stanford.edu"
-        />
-        <CtaButton
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          variant="solid"
-          size="default"
-          href="https://decanter.stanford.edu"
-          className="su-mt-16"
-        />
-      </Card.Cta>
+      <CtaLink
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        href="https://decanter.stanford.edu"
+      />
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="default"
+        href="https://decanter.stanford.edu"
+        className="su-mt-16"
+      />
     </Card.Content>
   </Card>
 );
@@ -233,25 +263,23 @@ const CardTemplateMinimalCenter = ({ ...rest }) => (
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
       </p>
-      <Card.Cta>
-        <CtaLink
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          href="https://decanter.stanford.edu"
-        />
-        <CtaButton
-          text="Learn more"
-          srText="about Decanter"
-          animate="right"
-          icon="more"
-          variant="solid"
-          size="default"
-          href="https://decanter.stanford.edu"
-          className="su-mt-16"
-        />
-      </Card.Cta>
+      <CtaLink
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        href="https://decanter.stanford.edu"
+      />
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="default"
+        href="https://decanter.stanford.edu"
+        className="su-mt-16"
+      />
     </Card.Content>
   </Card>
 );
@@ -264,6 +292,9 @@ DefaultImage.storyName = "Default with Image";
 
 export const DefaultCenter = CardTemplateDefaultCenter.bind({});
 DefaultCenter.storyName = "Default Center Content";
+
+export const DefaultRight = CardTemplateDefaultRight.bind({});
+DefaultRight.storyName = "Default Right Content";
 
 export const Minimal = CardTemplateMinimal.bind({});
 Minimal.args = {
