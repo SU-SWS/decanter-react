@@ -16,8 +16,7 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=60%3A2916",
+      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=60%3A2916",
     },
     docs: {
       description: {
@@ -28,15 +27,11 @@ export default {
   },
   argTypes: {
     element: {
-      control: {
-        type: "select",
-        options: cardElements,
-      },
+      type: "select",
+      options: cardElements,
     },
     isMinimal: {
-      control: {
-        type: "boolean",
-      },
+      type: "boolean",
     },
   },
 };
@@ -44,12 +39,8 @@ export default {
 const CardTemplateDefault = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
-      <Card.Superhead>
-        Super headline
-      </Card.Superhead>
-      <Card.Headline>
-        Headline
-      </Card.Headline>
+      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
@@ -77,14 +68,14 @@ const CardTemplateDefault = ({ ...rest }) => (
 
 const CardTemplateDefaultImage = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
-      <Card.Superhead>
-        Super headline
-      </Card.Superhead>
-      <Card.Headline>
-        Headline
-      </Card.Headline>
+      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
@@ -112,14 +103,14 @@ const CardTemplateDefaultImage = ({ ...rest }) => (
 
 const CardTemplateDefaultCenter = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="center" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
-      <Card.Superhead>
-        Super headline
-      </Card.Superhead>
-      <Card.Headline>
-        Headline
-      </Card.Headline>
+      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
@@ -147,14 +138,14 @@ const CardTemplateDefaultCenter = ({ ...rest }) => (
 
 const CardTemplateDefaultRight = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="right" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
-      <Card.Superhead>
-        Super headline
-      </Card.Superhead>
-      <Card.Headline>
-        Headline
-      </Card.Headline>
+      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
@@ -183,12 +174,8 @@ const CardTemplateDefaultRight = ({ ...rest }) => (
 const CardTemplateMinimal = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Content align="left">
-      <Card.Superhead>
-        Super headline
-      </Card.Superhead>
-      <Card.Headline>
-        Headline
-      </Card.Headline>
+      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
@@ -216,14 +203,16 @@ const CardTemplateMinimal = ({ ...rest }) => (
 
 const CardTemplateMinimalImage = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+        alt: "something",
+        id: "su-id",
+      }}
+    />
     <Card.Content align="left" className="su-rs-pt-2">
-      <Card.Superhead>
-        Super headline
-      </Card.Superhead>
-      <Card.Headline>
-        Headline
-      </Card.Headline>
+      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
@@ -251,14 +240,14 @@ const CardTemplateMinimalImage = ({ ...rest }) => (
 
 const CardTemplateMinimalCenter = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="center" className="su-rs-pt-2">
-      <Card.Superhead>
-        Super headline
-      </Card.Superhead>
-      <Card.Headline>
-        Headline
-      </Card.Headline>
+      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
@@ -286,14 +275,14 @@ const CardTemplateMinimalCenter = ({ ...rest }) => (
 
 const CardTemplateMinimalRight = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="right" className="su-rs-pt-2">
-      <Card.Superhead>
-        Super headline
-      </Card.Superhead>
-      <Card.Headline>
-        Headline
-      </Card.Headline>
+      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.

@@ -11,7 +11,7 @@ import { cardAlignOptions, cardElements } from "./Card.levers";
  * HTML card element
  */
 
-export const Card = ({ className, children, element, isMinimal, ...props }) => {
+const CardRoot = ({ className, children, element, isMinimal, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   // props.element
@@ -41,8 +41,16 @@ export const Card = ({ className, children, element, isMinimal, ...props }) => {
   );
 };
 
+CardRoot.displayName = "Card";
+
 // Subcomponents
 // ---------------------------------------------------------------------------
+
+/**
+ * Content Component.
+ * @param {*} param0
+ * @returns
+ */
 const Content = ({ children, className, align }) => {
   // Content alignment including image and CTA, default is left-align
   // This setting overrides the alignment option in the nested CTA
@@ -69,22 +77,30 @@ const Content = ({ children, className, align }) => {
   );
 };
 
-Content.displayName = Content;
-Card.Content = Content;
+Content.displayName = "Card.Content";
 
-const Image = ({ image, className }) => {
+/**
+ * Image component.
+ * @param {*} param0
+ * @returns
+ */
+const Image = ({ image: { alt }, image, className }) => {
   // Basic card image has aspect ratio 2x1
   const imageWrapperClasses = "su-aspect-w-2 su-aspect-h-1";
 
   return (
     <div className={dcnb(imageWrapperClasses, className)} aria-hidden="true">
-      <img src={image.filename} alt="" {...image} />
+      <img {...image} alt={alt} />
     </div>
   );
 };
-Image.displayName = Image;
-Card.Image = Image;
+Image.displayName = "Card.Image";
 
+/**
+ * Superhead component
+ * @param {*} param0
+ * @returns
+ */
 const Superhead = ({ children, className }) => (
   <span
     className={dcnb("su-font-sans su-font-bold su-type-0 su-mb-0", className)}
@@ -92,16 +108,33 @@ const Superhead = ({ children, className }) => (
     {children}
   </span>
 );
-Superhead.displayName = Superhead;
-Card.Superhead = Superhead;
+Superhead.displayName = "Card.Superhead";
 
-const Headline = ({ children }) => <Heading>{children}</Heading>;
-Headline.displayName = Headline;
-Card.Headline = Headline;
+/**
+ * Headline component
+ * @param {*} param0
+ * @returns
+ */
+const Headline = ({ children, level = 3, size = 1, className }) => (
+  <Heading level={level} size={size} className={dcnb("su-mb-0", className)}>
+    {children}
+  </Heading>
+);
+Headline.displayName = "Card.Headline";
+
+/**
+ * Exports
+ */
+export const Card = Object.assign(CardRoot, {
+  Superhead,
+  Headline,
+  Content,
+  Image,
+});
 
 // Prop Types.
 // -----------------------------------------------------------------------------
-Card.propTypes = {
+CardRoot.propTypes = {
   /**
    * Is the card minimal style disabled?
    */
@@ -152,7 +185,9 @@ Image.propTypes = {
   ]),
 
   // Image
-  image: PropTypes.string,
+  image: PropTypes.shape({
+    src: PropTypes.string,
+  }),
 };
 
 Superhead.propTypes = {
@@ -181,7 +216,7 @@ Headline.propTypes = {
 
 // Default Props.
 // -----------------------------------------------------------------------------
-Card.defaultProps = {
+CardRoot.defaultProps = {
   isMinimal: false,
 };
 
