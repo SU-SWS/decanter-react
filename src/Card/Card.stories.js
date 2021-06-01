@@ -273,7 +273,11 @@ const CardTemplateMinimalCenter = ({ ...rest }) => (
 const CardTemplateMinimalRight = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
-    <Card.Content align="right" className="su-rs-pt-2">
+    <Card.Content
+      align="right"
+      className="su-rs-pt-2"
+      data-label="card-content"
+    >
       <Card.Superhead weight="regular">Super headline</Card.Superhead>
       <Card.Headline level="3" size={2} className="su-mb-0">
         Headline

@@ -5,6 +5,7 @@ import { FlexBox } from "../FlexBox/FlexBox";
 import { Heading } from "../Heading/Heading";
 import { cardAlignOptions, cardElements } from "./Card.levers";
 import { Superhead } from "./Card.Superhead";
+import { Content } from "./Card.Content";
 
 /**
  * Card Component
@@ -36,6 +37,7 @@ export const Card = ({ className, children, element, isMinimal, ...props }) => {
         wrapperClasses,
         className
       )}
+      {...props}
     >
       {children}
     </Element>
@@ -44,31 +46,6 @@ export const Card = ({ className, children, element, isMinimal, ...props }) => {
 
 // Subcomponents
 // ---------------------------------------------------------------------------
-const Content = ({ children, className, align }) => {
-  // Content alignment including image and CTA, default is left-align
-  // This setting overrides the alignment option in the nested CTA
-  let bodyAlign = "su-items-start";
-  let contentClass = "";
-
-  if (align === "center") {
-    contentClass = dcnb(contentClass, "children:su-mx-auto su-text-center");
-    bodyAlign = "su-items-center";
-  }
-
-  if (align === "right") {
-    contentClass = dcnb(contentClass, "children:su-mx-auto su-text-right");
-    bodyAlign = "su-items-end";
-  }
-
-  return (
-    <FlexBox
-      direction="col"
-      className={dcnb("card-body", bodyAlign, contentClass, className)}
-    >
-      {children}
-    </FlexBox>
-  );
-};
 
 Content.displayName = Content;
 Card.Content = Content;
