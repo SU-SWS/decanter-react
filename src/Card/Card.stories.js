@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "./Card";
 import { CtaLink } from "../CtaLink/CtaLink";
 import { CtaButton } from "../CtaButton/CtaButton";
-import { cardElements, superheadWeights } from "./Card.levers";
+import { cardElements } from "./Card.levers";
 
 export default {
   title: "Composite/Card",
@@ -44,8 +44,8 @@ export default {
 const CardTemplateDefault = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
-      <Card.Superhead>Super headline</Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Superhead weight="semibold">Super headline</Card.Superhead>
+      <Card.Headline level="3" size={3} className="su-mb-0">
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -78,7 +78,7 @@ const CardTemplateDefaultImage = ({ ...rest }) => (
     <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
       <Card.Superhead>Super headline</Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline level="3" size={3} className="su-mb-0">
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -111,7 +111,7 @@ const CardTemplateDefaultCenter = ({ ...rest }) => (
     <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
     <Card.Content align="center" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
       <Card.Superhead>Super headline</Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline level={3} size={3} className="su-mb-0">
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -144,7 +144,7 @@ const CardTemplateDefaultRight = ({ ...rest }) => (
     <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
     <Card.Content align="right" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
       <Card.Superhead>Super headline</Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline level="3" size={3} className="su-mb-0">
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -176,7 +176,7 @@ const CardTemplateMinimal = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Content align="left">
       <Card.Superhead>Super headline</Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline level="3" size={2} className="su-mb-0">
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -209,7 +209,7 @@ const CardTemplateMinimalImage = ({ ...rest }) => (
     <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
     <Card.Content align="left" className="su-rs-pt-2">
       <Card.Superhead>Super headline</Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline level="3" size={2} className="su-mb-0">
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -242,7 +242,7 @@ const CardTemplateMinimalCenter = ({ ...rest }) => (
     <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
     <Card.Content align="center" className="su-rs-pt-2">
       <Card.Superhead>Super headline</Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline level="3" size={2} className="su-mb-0">
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -275,7 +275,7 @@ const CardTemplateMinimalRight = ({ ...rest }) => (
     <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
     <Card.Content align="right" className="su-rs-pt-2">
       <Card.Superhead weight="regular">Super headline</Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline level="3" size={2} className="su-mb-0">
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">

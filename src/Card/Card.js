@@ -89,7 +89,9 @@ Card.Image = Image;
 Superhead.displayName = Superhead;
 Card.Superhead = Superhead;
 
-const Headline = ({ children }) => <Heading>{children}</Heading>;
+const Headline = ({ children, ...props }) => (
+  <Heading {...props}>{children}</Heading>
+);
 Headline.displayName = Headline;
 Card.Headline = Headline;
 
