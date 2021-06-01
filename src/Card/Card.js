@@ -4,6 +4,7 @@ import { dcnb } from "cnbuilder";
 import { FlexBox } from "../FlexBox/FlexBox";
 import { Heading } from "../Heading/Heading";
 import { cardAlignOptions, cardElements } from "./Card.levers";
+import { Superhead } from "./Card.Superhead";
 
 /**
  * Card Component
@@ -85,13 +86,6 @@ const Image = ({ image, className }) => {
 Image.displayName = Image;
 Card.Image = Image;
 
-const Superhead = ({ children, className }) => (
-  <span
-    className={dcnb("su-font-sans su-font-bold su-type-0 su-mb-0", className)}
-  >
-    {children}
-  </span>
-);
 Superhead.displayName = Superhead;
 Card.Superhead = Superhead;
 
@@ -153,21 +147,6 @@ Image.propTypes = {
 
   // Image
   image: PropTypes.string,
-};
-
-Superhead.propTypes = {
-  // Children
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
-  // CSS Classes.
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object,
-  ]),
 };
 
 Headline.propTypes = {
