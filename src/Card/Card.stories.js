@@ -284,6 +284,40 @@ const CardTemplateMinimalCenter = ({ ...rest }) => (
   </Card>
 );
 
+const CardTemplateMinimalRight = ({ ...rest }) => (
+  <Card {...rest}>
+    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Content align="right" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
+      <Card.Superhead className="su-font-sans su-font-bold su-type-0 su-mb-0">
+        Super headline
+      </Card.Superhead>
+      <Card.Headline level="3" size={1} className="su-mb-0">
+        Headline
+      </Card.Headline>
+      <p className="su-card-paragraph">
+        Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
+        nulla quis orci. Phasellus a est.
+      </p>
+      <CtaLink
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        href="https://decanter.stanford.edu"
+      />
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="default"
+        href="https://decanter.stanford.edu"
+        className="su-mt-16"
+      />
+    </Card.Content>
+  </Card>
+);
 export const Default = CardTemplateDefault.bind({});
 Default.storyName = "Default";
 
@@ -313,3 +347,9 @@ MinimalCenter.args = {
   isMinimal: true,
 };
 MinimalCenter.storyName = "Minimal Center Content";
+
+export const MinimalRight = CardTemplateMinimalRight.bind({});
+MinimalCenter.args = {
+  isMinimal: true,
+};
+MinimalRight.storyName = "Minimal Right Content";
