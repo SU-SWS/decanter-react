@@ -47,7 +47,7 @@ const CardTemplateDefault = ({ ...rest }) => (
       <Card.Superhead>
         Super headline
       </Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline>
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -82,7 +82,7 @@ const CardTemplateDefaultImage = ({ ...rest }) => (
       <Card.Superhead>
         Super headline
       </Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline>
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -117,7 +117,7 @@ const CardTemplateDefaultCenter = ({ ...rest }) => (
       <Card.Superhead>
         Super headline
       </Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline>
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -152,7 +152,7 @@ const CardTemplateDefaultRight = ({ ...rest }) => (
       <Card.Superhead>
         Super headline
       </Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline>
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -186,7 +186,7 @@ const CardTemplateMinimal = ({ ...rest }) => (
       <Card.Superhead>
         Super headline
       </Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline>
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -221,7 +221,7 @@ const CardTemplateMinimalImage = ({ ...rest }) => (
       <Card.Superhead>
         Super headline
       </Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline>
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -256,7 +256,7 @@ const CardTemplateMinimalCenter = ({ ...rest }) => (
       <Card.Superhead>
         Super headline
       </Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline>
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
@@ -291,7 +291,7 @@ const CardTemplateMinimalRight = ({ ...rest }) => (
       <Card.Superhead>
         Super headline
       </Card.Superhead>
-      <Card.Headline level="3" size={1} className="su-mb-0">
+      <Card.Headline>
         Headline
       </Card.Headline>
       <p className="su-card-paragraph">
