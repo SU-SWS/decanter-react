@@ -18,7 +18,9 @@ module.exports = {
     // https://storybook.js.org/addons/storybook-dark-mode
     "storybook-dark-mode",
     // https://storybook.js.org/addons/storybook-addon-pseudo-states
-    "storybook-addon-pseudo-states"
+    "storybook-addon-pseudo-states",
+    // https://storybook.js.org/addons/@storybook/addon-postcss
+    "@storybook/addon-postcss"
   ],
   reactOptions: {
     fastRefresh: true,

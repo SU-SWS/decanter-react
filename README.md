@@ -20,7 +20,7 @@ npm install --save decanter-react
 ```jsx
 import React, { Component } from "react";
 
-import MyComponent from "decanter-react";
+import { MyComponent } from "decanter-react";
 import "decanter/dist/decanter.css";
 
 class Example extends Component {
