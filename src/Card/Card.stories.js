@@ -349,7 +349,7 @@ MinimalCenter.args = {
 MinimalCenter.storyName = "Minimal Center Content";
 
 export const MinimalRight = CardTemplateMinimalRight.bind({});
-MinimalCenter.args = {
+MinimalRight.args = {
   isMinimal: true,
 };
 MinimalRight.storyName = "Minimal Right Content";
