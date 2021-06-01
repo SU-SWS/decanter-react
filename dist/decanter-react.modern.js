@@ -541,8 +541,6 @@ Alert.defaultProps = {
   hasIcon: true
 };
 
-var cardAlignOptions = ["left", "center"];
-
 var flexElements = ["div", "section", "article", "main", "footer", "aside", "header", "nav", "form"];
 var flexDirection = {
   row: "su-flex-row",
@@ -662,52 +660,248 @@ FlexBox.defaultProps = {
   gap: false
 };
 
-var Card = function Card(_ref) {
-  var children = _ref.children,
-      image = _ref.image,
+var headingLevels = [1, 2, 3, 4, 5, 6];
+var headingFonts = {
+  sans: "su-font-sans",
+  serif: "su-font-serif",
+  slab: "su-font-slab"
+};
+var headingWeights = {
+  light: "su-font-light",
+  regular: "su-font-regular",
+  semibold: "su-font-semibold",
+  bold: "su-font-bold"
+};
+var headingSizes = {
+  0: "su-type-0",
+  1: "su-type-1",
+  2: "su-type-2",
+  3: "su-type-3",
+  4: "su-type-4",
+  5: "su-type-5",
+  6: "su-type-6"
+};
+var headingTracking = {
+  tighter: "su-tracking-tighter",
+  tight: "su-tracking-tight",
+  normal: "su-tracking-normal",
+  wide: "su-tracking-wide",
+  wider: "su-tracking-wider",
+  widest: "su-tracking-widest"
+};
+var headingAlign = {
+  left: "su-text-left",
+  center: "su-text-center",
+  right: "su-text-right",
+  justify: "su-text-justify"
+};
+
+var intKeys = (function (arg) {
+  var int = parseInt(arg, 10);
+
+  if (Number.isNaN(int)) {
+    return arg;
+  }
+
+  return int;
+});
+
+var Heading = function Heading(_ref) {
+  var className = _ref.className,
+      level = _ref.level,
+      font = _ref.font,
+      weight = _ref.weight,
+      tracking = _ref.tracking,
       align = _ref.align,
+      size = _ref.size,
+      uppercase = _ref.uppercase,
+      italic = _ref.italic,
+      srOnly = _ref.srOnly,
+      children = _ref.children,
+      ref = _ref.ref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children", "ref"]);
+
+  var levers = {};
+  var HeadingTag = "h2";
+
+  if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
+    HeadingTag = "h" + level;
+  }
+
+  if (font && font in headingFonts) {
+    levers.font = headingFonts[font];
+  }
+
+  if (weight && weight in headingWeights) {
+    levers.weight = headingWeights[weight];
+  }
+
+  if (tracking && tracking in headingTracking) {
+    levers.tracking = headingTracking[tracking];
+  }
+
+  if (align && align in headingAlign) {
+    levers.align = headingAlign[align];
+  }
+
+  if (size && size in headingSizes) {
+    levers.size = headingSizes[size];
+  }
+
+  if (uppercase) {
+    levers.uppercase = "su-uppercase";
+  }
+
+  if (italic) {
+    levers.italic = "su-italic";
+  }
+
+  if (srOnly) {
+    levers.srOnly = "su-sr-only";
+  }
+
+  return /*#__PURE__*/React.createElement(HeadingTag, _extends({
+    className: dcnb("su-leading-display", levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
+    ref: ref
+  }, props), children);
+};
+Heading.propTypes = {
+  level: PropTypes.oneOf(headingLevels),
+  font: PropTypes.oneOf(Object.keys(headingFonts)),
+  size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
+    return intKeys(val);
+  })),
+  align: PropTypes.oneOf(Object.keys(headingAlign)),
+  weight: PropTypes.oneOf(Object.keys(headingWeights)),
+  tracking: PropTypes.oneOf(Object.keys(headingTracking)),
+  uppercase: PropTypes.bool,
+  italic: PropTypes.bool,
+  srOnly: PropTypes.bool,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
+    current: PropTypes.any
+  })])
+};
+Heading.defaultProps = {
+  font: "sans",
+  weight: "bold",
+  ref: null
+};
+
+var cardAlignOptions = ["left", "center", "right"];
+var cardElements = ["div", "span", "article", "li"];
+
+var Card = function Card(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      element = _ref.element,
       isMinimal = _ref.isMinimal,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "image", "align", "isMinimal"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "element", "isMinimal"]);
+
+  var Element = "div";
+
+  if (element && cardElements.includes(element)) {
+    Element = element;
+  }
 
   var wrapperClasses = "su-bg-white su-text-black su-border su-border-solid su-border-black-10 su-shadow";
-  var imageWrapperClasses = "su-aspect-w-4 su-aspect-h-3";
-  var bodyPadding = "su-rs-px-2 su-rs-pt-2 su-rs-pb-4";
 
   if (isMinimal) {
     wrapperClasses = "";
-    bodyPadding = "su-rs-pt-2";
-    imageWrapperClasses = dcnb(imageWrapperClasses, {
-      "su-rs-ml-2": false
-    });
   }
 
+  return /*#__PURE__*/React.createElement(Element, {
+    className: dcnb("card su-max-w-600 su-basefont-23", wrapperClasses, className)
+  }, children);
+};
+
+var Content = function Content(_ref2) {
+  var children = _ref2.children,
+      className = _ref2.className,
+      align = _ref2.align;
   var bodyAlign = "su-items-start";
+  var contentClass = "";
 
   if (align === "center") {
-    wrapperClasses = dcnb(wrapperClasses, "children:su-mx-auto su-text-center");
+    contentClass = dcnb(contentClass, "children:su-mx-auto su-text-center");
     bodyAlign = "su-items-center";
   }
 
+  if (align === "right") {
+    contentClass = dcnb(contentClass, "children:su-mx-auto su-text-right");
+    bodyAlign = "su-items-end";
+  }
+
+  return /*#__PURE__*/React.createElement(FlexBox, {
+    direction: "col",
+    className: dcnb("card-body", bodyAlign, contentClass, className)
+  }, children);
+};
+
+Content.displayName = Content;
+Card.Content = Content;
+
+var Image = function Image(_ref3) {
+  var image = _ref3.image,
+      className = _ref3.className;
+  var imageWrapperClasses = "su-aspect-w-2 su-aspect-h-1";
   return /*#__PURE__*/React.createElement("div", {
-    className: dcnb("basic-card su-max-w-600 su-basefont-23", wrapperClasses)
-  }, image && /*#__PURE__*/React.createElement("div", {
-    className: imageWrapperClasses,
+    className: dcnb(imageWrapperClasses, className),
     "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("img", {
+  }, /*#__PURE__*/React.createElement("img", _extends({
     src: image.filename,
     alt: ""
-  })), /*#__PURE__*/React.createElement(FlexBox, {
-    direction: "col",
-    className: dcnb("card-body", bodyPadding, bodyAlign)
-  }, children));
+  }, image)));
 };
+
+Image.displayName = Image;
+Card.Image = Image;
+
+var Superhead = function Superhead(_ref4) {
+  var children = _ref4.children,
+      className = _ref4.className;
+  return /*#__PURE__*/React.createElement("span", {
+    className: dcnb("su-font-sans su-font-bold su-type-0 su-mb-0", className)
+  }, children);
+};
+
+Superhead.displayName = Superhead;
+Card.Superhead = Superhead;
+
+var Headline = function Headline(_ref5) {
+  var children = _ref5.children;
+  return /*#__PURE__*/React.createElement(Heading, null, children);
+};
+
+Headline.displayName = Headline;
+Card.Headline = Headline;
 Card.propTypes = {
   isMinimal: PropTypes.bool,
-  align: PropTypes.oneOf(cardAlignOptions)
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
+};
+Content.propTypes = {
+  align: PropTypes.oneOf(cardAlignOptions),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
+};
+Image.propTypes = {
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+  image: PropTypes.string
+};
+Superhead.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+};
+Headline.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
 };
 Card.defaultProps = {
-  align: "left",
   isMinimal: false
+};
+Content.defaultProps = {
+  align: "left"
 };
 
 var containerElements = ["div", "section", "article", "main", "footer", "aside", "header", "nav", "form"];
@@ -1039,16 +1233,6 @@ var flexCellOrder = {
   none: "su-order-none"
 };
 
-var intKeys = (function (arg) {
-  var int = parseInt(arg, 10);
-
-  if (Number.isNaN(int)) {
-    return arg;
-  }
-
-  return int;
-});
-
 var FlexCell = function FlexCell(_ref) {
   var className = _ref.className,
       children = _ref.children,
@@ -1138,125 +1322,6 @@ FlexCell.propTypes = {
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
 };
 FlexCell.defaultProps = {};
-
-var headingLevels = [1, 2, 3, 4, 5, 6];
-var headingFonts = {
-  sans: "su-font-sans",
-  serif: "su-font-serif",
-  slab: "su-font-slab"
-};
-var headingWeights = {
-  light: "su-font-light",
-  regular: "su-font-regular",
-  semibold: "su-font-semibold",
-  bold: "su-font-bold"
-};
-var headingSizes = {
-  0: "su-type-0",
-  1: "su-type-1",
-  2: "su-type-2",
-  3: "su-type-3",
-  4: "su-type-4",
-  5: "su-type-5",
-  6: "su-type-6"
-};
-var headingTracking = {
-  tighter: "su-tracking-tighter",
-  tight: "su-tracking-tight",
-  normal: "su-tracking-normal",
-  wide: "su-tracking-wide",
-  wider: "su-tracking-wider",
-  widest: "su-tracking-widest"
-};
-var headingAlign = {
-  left: "su-text-left",
-  center: "su-text-center",
-  right: "su-text-right",
-  justify: "su-text-justify"
-};
-
-var Heading = function Heading(_ref) {
-  var className = _ref.className,
-      level = _ref.level,
-      font = _ref.font,
-      weight = _ref.weight,
-      tracking = _ref.tracking,
-      align = _ref.align,
-      size = _ref.size,
-      uppercase = _ref.uppercase,
-      italic = _ref.italic,
-      srOnly = _ref.srOnly,
-      children = _ref.children,
-      ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children", "ref"]);
-
-  var levers = {};
-  var HeadingTag = "h2";
-
-  if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
-    HeadingTag = "h" + level;
-  }
-
-  if (font && font in headingFonts) {
-    levers.font = headingFonts[font];
-  }
-
-  if (weight && weight in headingWeights) {
-    levers.weight = headingWeights[weight];
-  }
-
-  if (tracking && tracking in headingTracking) {
-    levers.tracking = headingTracking[tracking];
-  }
-
-  if (align && align in headingAlign) {
-    levers.align = headingAlign[align];
-  }
-
-  if (size && size in headingSizes) {
-    levers.size = headingSizes[size];
-  }
-
-  if (uppercase) {
-    levers.uppercase = "su-uppercase";
-  }
-
-  if (italic) {
-    levers.italic = "su-italic";
-  }
-
-  if (srOnly) {
-    levers.srOnly = "su-sr-only";
-  }
-
-  return /*#__PURE__*/React.createElement(HeadingTag, _extends({
-    className: dcnb("su-leading-display", levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
-    ref: ref
-  }, props), children);
-};
-Heading.propTypes = {
-  level: PropTypes.oneOf(headingLevels),
-  font: PropTypes.oneOf(Object.keys(headingFonts)),
-  size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
-    return intKeys(val);
-  })),
-  align: PropTypes.oneOf(Object.keys(headingAlign)),
-  weight: PropTypes.oneOf(Object.keys(headingWeights)),
-  tracking: PropTypes.oneOf(Object.keys(headingTracking)),
-  uppercase: PropTypes.bool,
-  italic: PropTypes.bool,
-  srOnly: PropTypes.bool,
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
-  ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
-    current: PropTypes.any
-  })])
-};
-Heading.defaultProps = {
-  font: "sans",
-  weight: "bold",
-  ref: null
-};
 
 var globalFooterColors = ["cardinal-red", "digital-red", "black"];
 
