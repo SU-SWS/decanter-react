@@ -559,21 +559,30 @@ var Superhead = function Superhead(_ref) {
   var weight = _ref.weight,
       className = _ref.className,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, ["weight", "className", "children"]);
+      isUppercase = _ref.isUppercase,
+      props = _objectWithoutPropertiesLoose(_ref, ["weight", "className", "children", "isUppercase"]);
 
   var superheadWeight = superheadWeights[weight];
+  var uppercase = "";
+
+  if (isUppercase) {
+    uppercase = "su-uppercase";
+  }
+
   return /*#__PURE__*/React.createElement("span", _extends({
-    className: dcnb("su-type-0 su-mb-0 su-leading-display", superheadWeight, className)
+    className: dcnb("su-type-0 su-mb-0 su-leading-display", superheadWeight, uppercase, className)
   }, props), children);
 };
 Superhead.displayName = "Card.Superhead";
 Superhead.propTypes = {
   weight: PropTypes.oneOf(Object.keys(superheadWeights)),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+  isUppercase: PropTypes.bool
 };
 Superhead.defaultProps = {
-  weight: "bold"
+  weight: "bold",
+  isUppercase: false
 };
 
 var headingLevels = [1, 2, 3, 4, 5, 6];
