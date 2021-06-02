@@ -17,12 +17,12 @@ export const Content = ({ children, className, align, ...props }) => {
   let contentClass = "";
 
   if (align === "center") {
-    contentClass = dcnb(contentClass, "children:su-mx-auto su-text-center");
+    contentClass = dcnb(contentClass, "su-text-center");
     bodyAlign = "su-items-center";
   }
 
   if (align === "right") {
-    contentClass = dcnb(contentClass, "children:su-mx-auto su-text-right");
+    contentClass = dcnb(contentClass, "su-text-right");
     bodyAlign = "su-items-end";
   }
 
