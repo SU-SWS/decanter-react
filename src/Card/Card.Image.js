@@ -10,8 +10,7 @@ import { imageAspectRatios } from "./Card.levers";
  */
 export const Image = ({ image, aspectRatio, className }) => {
   // Basic card image has aspect ratio 2x1
-  const imageAspectRatio =
-    imageAspectRatios[aspectRatio] ?? imageAspectRatios["2x1"];
+  const imageAspectRatio = imageAspectRatios[aspectRatio];
 
   // Remove alt.
   if (image.alt) {
@@ -27,6 +26,9 @@ export const Image = ({ image, aspectRatio, className }) => {
 };
 
 Image.propTypes = {
+  /**
+   * Aspect ratio of the card image
+   */
   aspectRatio: PropTypes.oneOf(Object.keys(imageAspectRatios)),
   // CSS Classes.
   className: PropTypes.oneOfType([
@@ -39,4 +41,10 @@ Image.propTypes = {
   image: PropTypes.shape({
     src: PropTypes.string,
   }),
+};
+
+// Default Props.
+// -----------------------------------------------------------------------------
+Image.defaultProps = {
+  aspectRatio: "2x1",
 };
