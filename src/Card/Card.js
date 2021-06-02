@@ -51,7 +51,6 @@ CardRoot.displayName = "Card";
 
 
 
-Superhead.displayName = "Card.Superhead";
 
 Headline.displayName = "Card.Headline";
 
