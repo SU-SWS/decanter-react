@@ -84,13 +84,19 @@ Content.displayName = "Card.Content";
  * @param {*} param0
  * @returns
  */
-const Image = ({ image: { alt }, image, className }) => {
+const Image = ({ image, className }) => {
   // Basic card image has aspect ratio 2x1
   const imageWrapperClasses = "su-aspect-w-2 su-aspect-h-1";
 
+  // Remove alt.
+  if (image.alt) {
+    // eslint-disable-next-line no-param-reassign
+    delete image.alt;
+  }
+
   return (
     <div className={dcnb(imageWrapperClasses, className)} aria-hidden="true">
-      <img {...image} alt={alt} />
+      <img {...image} alt="" />
     </div>
   );
 };
