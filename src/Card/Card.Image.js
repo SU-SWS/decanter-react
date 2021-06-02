@@ -18,14 +18,18 @@ export const Image = ({ image, aspectRatio, className }) => {
     delete image.alt;
   }
 
+  // Remove image className
+  if (image.className) {
+    // eslint-disable-next-line no-param-reassign
+    delete image.className;
+  }
+
   return (
     <div className={dcnb(imageAspectRatio, className)} aria-hidden="true">
       <img {...image} alt="" className="su-object-cover" />
     </div>
   );
 };
-
-Image.displayName = "Card.Image";
 
 Image.displayName = "Card.Image";
 
