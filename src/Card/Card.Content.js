@@ -37,6 +37,8 @@ export const Content = ({ children, className, align, ...props }) => {
   );
 };
 
+Content.displayName = "Card.Content";
+
 Content.propTypes = {
   /**
    * Content horizontal alignment.
