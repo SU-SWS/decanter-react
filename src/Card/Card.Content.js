@@ -17,7 +17,7 @@ export const Content = ({ children, className, align, ...props }) => {
   let contentClass = "";
 
   if (align === "center") {
-    contentClass = dcnb(contentClass, "su-text-center");
+    contentClass = "su-text-center";
     bodyAlign = "su-items-center";
   }
 
