@@ -1,15 +1,17 @@
 import { dcnb } from "cnbuilder";
 import React from "react";
 import PropTypes from "prop-types";
+import { imageAspectRatios } from "./Card.levers";
 
 /**
  * Image component.
  * @param {*} param0
  * @returns
  */
-export const Image = ({ image, className }) => {
+export const Image = ({ image, aspectRatio, className }) => {
   // Basic card image has aspect ratio 2x1
-  const imageWrapperClasses = "su-aspect-w-2 su-aspect-h-1";
+  const imageAspectRatio =
+    imageAspectRatios[aspectRatio] ?? imageAspectRatios["2x1"];
 
   // Remove alt.
   if (image.alt) {
@@ -18,13 +20,14 @@ export const Image = ({ image, className }) => {
   }
 
   return (
-    <div className={dcnb(imageWrapperClasses, className)} aria-hidden="true">
-      <img {...image} alt="" />
+    <div className={dcnb(imageAspectRatio, className)} aria-hidden="true">
+      <img {...image} alt="" className="su-object-cover" />
     </div>
   );
 };
 
 Image.propTypes = {
+  aspectRatio: PropTypes.oneOf(Object.keys(imageAspectRatios)),
   // CSS Classes.
   className: PropTypes.oneOfType([
     PropTypes.string,

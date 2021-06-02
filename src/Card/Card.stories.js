@@ -305,8 +305,9 @@ const CardTemplateMinimalRight = ({ ...rest }) => (
 const CardTemplateCustom = ({ ...rest }) => (
   <Card {...rest} className="su-bg-foggy-light" data-label="card">
     <Card.Image
+      aspectRatio="1x1"
       image={{
-        src: "https://placekitten.com/800/400",
+        src: "https://placekitten.com/600/400",
       }}
     />
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
@@ -379,4 +380,4 @@ export const CustomCard = CardTemplateCustom.bind({});
 CustomCard.args = {
   isMinimal: false,
 };
-CustomCard.storyName = "Custom Card";
+CustomCard.storyName = "Custom Card with Square Image";
