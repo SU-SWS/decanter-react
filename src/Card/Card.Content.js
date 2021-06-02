@@ -3,6 +3,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FlexBox } from "../FlexBox/FlexBox";
 
+/**
+ * Content Component.
+ * @param {*} param0
+ * @returns
+ */
+
 export const Content = ({ children, className, align, ...props }) => {
   // Content alignment including image and CTA, default is left-align
   // This setting overrides the alignment option in the nested CTA

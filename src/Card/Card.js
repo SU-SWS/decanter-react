@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import { FlexBox } from "../FlexBox/FlexBox";
-import { cardAlignOptions, cardElements } from "./Card.levers";
+import { cardElements } from "./Card.levers";
 import { Superhead } from "./Card.Superhead";
 import { Headline } from "./Card.Headline";
 import { Content } from "./Card.Content";
+import { Image } from "./Card.Image";
 
 /**
  * Card Component
@@ -13,7 +13,7 @@ import { Content } from "./Card.Content";
  * HTML card element
  */
 
-export const Card = ({ className, children, element, isMinimal, ...props }) => {
+const CardRoot = ({ className, children, element, isMinimal, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   // props.element
@@ -44,34 +44,32 @@ export const Card = ({ className, children, element, isMinimal, ...props }) => {
   );
 };
 
+CardRoot.displayName = "Card";
+
 // Subcomponents
 // ---------------------------------------------------------------------------
 
-Content.displayName = Content;
-Card.Content = Content;
+Image.displayName = "Card.Image";
 
-const Image = ({ image, className }) => {
-  // Basic card image has aspect ratio 2x1
-  const imageWrapperClasses = "su-aspect-w-2 su-aspect-h-1";
+Content.displayName = "Card.Content";
 
-  return (
-    <div className={dcnb(imageWrapperClasses, className)} aria-hidden="true">
-      <img src={image.filename} alt="" {...image} />
-    </div>
-  );
-};
-Image.displayName = Image;
-Card.Image = Image;
+Superhead.displayName = "Card.Superhead";
 
-Superhead.displayName = Superhead;
-Card.Superhead = Superhead;
+Headline.displayName = "Card.Headline";
 
-Headline.displayName = Headline;
-Card.Headline = Headline;
+/**
+ * Exports
+ */
+export const Card = Object.assign(CardRoot, {
+  Superhead,
+  Headline,
+  Content,
+  Image,
+});
 
 // Prop Types.
 // -----------------------------------------------------------------------------
-Card.propTypes = {
+CardRoot.propTypes = {
   /**
    * Is the card minimal style disabled?
    */
@@ -92,20 +90,8 @@ Card.propTypes = {
   ]),
 };
 
-Image.propTypes = {
-  // CSS Classes.
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object,
-  ]),
-
-  // Image
-  image: PropTypes.string,
-};
-
 // Default Props.
 // -----------------------------------------------------------------------------
-Card.defaultProps = {
+CardRoot.defaultProps = {
   isMinimal: false,
 };

@@ -28,15 +28,11 @@ export default {
   },
   argTypes: {
     element: {
-      control: {
-        type: "select",
-        options: cardElements,
-      },
+      type: "select",
+      options: cardElements,
     },
     isMinimal: {
-      control: {
-        type: "boolean",
-      },
+      type: "boolean",
     },
   },
 };
@@ -66,7 +62,11 @@ const CardTemplateDefault = ({ ...rest }) => (
 
 const CardTemplateDefaultImage = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
       <Card.Superhead>Super headline</Card.Superhead>
       <Card.Headline>Headline</Card.Headline>
@@ -97,7 +97,11 @@ const CardTemplateDefaultImage = ({ ...rest }) => (
 
 const CardTemplateDefaultCenter = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="center" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
       <Card.Superhead>Super headline</Card.Superhead>
       <Card.Headline>Headline</Card.Headline>
@@ -128,7 +132,11 @@ const CardTemplateDefaultCenter = ({ ...rest }) => (
 
 const CardTemplateDefaultRight = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="right" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
       <Card.Superhead>Super headline</Card.Superhead>
       <Card.Headline>Headline</Card.Headline>
@@ -189,7 +197,13 @@ const CardTemplateMinimal = ({ ...rest }) => (
 
 const CardTemplateMinimalImage = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+        alt: "something",
+        id: "su-id",
+      }}
+    />
     <Card.Content align="left" className="su-rs-pt-2">
       <Card.Superhead>Super headline</Card.Superhead>
       <Card.Headline>Headline</Card.Headline>
@@ -220,7 +234,11 @@ const CardTemplateMinimalImage = ({ ...rest }) => (
 
 const CardTemplateMinimalCenter = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="center" className="su-rs-pt-2">
       <Card.Superhead>Super headline</Card.Superhead>
       <Card.Headline>Headline</Card.Headline>
@@ -251,7 +269,11 @@ const CardTemplateMinimalCenter = ({ ...rest }) => (
 
 const CardTemplateMinimalRight = ({ ...rest }) => (
   <Card {...rest}>
-    <Card.Image image={{ filename: "https://placekitten.com/600/300" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/600/300",
+      }}
+    />
     <Card.Content align="right" className="su-rs-pt-2">
       <Card.Superhead>Super headline</Card.Superhead>
       <Card.Headline>Headline</Card.Headline>
@@ -282,7 +304,11 @@ const CardTemplateMinimalRight = ({ ...rest }) => (
 
 const CardTemplateCustom = ({ ...rest }) => (
   <Card {...rest} className="su-bg-foggy-light" data-label="card">
-    <Card.Image image={{ filename: "https://placekitten.com/800/400" }} />
+    <Card.Image
+      image={{
+        src: "https://placekitten.com/800/400",
+      }}
+    />
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
       <Card.Superhead className="su-text-sky su-uppercase su-tracking-widest">
         Super headline

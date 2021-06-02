@@ -3,6 +3,12 @@ import { dcnb } from "cnbuilder";
 import React from "react";
 import { superheadWeights } from "./Card.levers";
 
+/**
+ * Superhead component
+ * @param {*} param0
+ * @returns
+ */
+
 export const Superhead = ({ weight, className, children, ...props }) => {
   const superheadWeight = superheadWeights[weight];
 

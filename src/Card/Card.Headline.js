@@ -10,6 +10,12 @@ import {
 } from "../Heading/Heading.levers";
 import intKeys from "../common/util/intKeys";
 
+/**
+ * Headline component
+ * @param {*} param0
+ * @returns
+ */
+
 export const Headline = ({
   children,
   level,

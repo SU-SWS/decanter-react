@@ -145,5 +145,4 @@ CtaLink.propTypes = {
 // -----------------------------------------------------------------------------
 CtaLink.defaultProps = {
   icon: "action",
-  color: "none",
 };
