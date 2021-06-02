@@ -22,7 +22,7 @@ export const Content = ({ children, className, align, ...props }) => {
   }
 
   if (align === "right") {
-    contentClass = dcnb(contentClass, "su-text-right");
+    contentClass = "su-text-right";
     bodyAlign = "su-items-end";
   }
 
