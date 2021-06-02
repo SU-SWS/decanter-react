@@ -37,6 +37,8 @@ export const Headline = ({
   </Heading>
 );
 
+Headline.displayName = "Card.Headline";
+
 Headline.propTypes = {
   level: PropTypes.oneOf(headingLevels),
 
