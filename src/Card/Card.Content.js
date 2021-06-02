@@ -31,6 +31,7 @@ export const Content = ({ children, className, align, ...props }) => {
 };
 
 Content.propTypes = {
+  align: "left",
   // Children
   children: PropTypes.oneOfType([
     PropTypes.string,

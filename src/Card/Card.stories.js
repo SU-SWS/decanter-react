@@ -50,13 +50,6 @@ const CardTemplateDefault = ({ ...rest }) => (
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
         nulla quis orci. Phasellus a est.
       </p>
-      <CtaLink
-        text="Learn more"
-        srText="about Decanter"
-        animate="right"
-        icon="more"
-        href="https://decanter.stanford.edu"
-      />
       <CtaButton
         text="Learn more"
         srText="about Decanter"
@@ -65,7 +58,7 @@ const CardTemplateDefault = ({ ...rest }) => (
         variant="solid"
         size="default"
         href="https://decanter.stanford.edu"
-        className="su-mt-16"
+        className="su-rs-mt-neg1"
       />
     </Card.Content>
   </Card>
@@ -286,6 +279,40 @@ const CardTemplateMinimalRight = ({ ...rest }) => (
     </Card.Content>
   </Card>
 );
+
+const CardTemplateCustom = ({ ...rest }) => (
+  <Card {...rest} className="su-bg-foggy-light" data-label="card">
+    <Card.Image image={{ filename: "https://placekitten.com/800/400" }} />
+    <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
+      <Card.Superhead className="su-text-sky su-uppercase su-tracking-widest">
+        Super headline
+      </Card.Superhead>
+      <Card.Headline
+        font="slab"
+        size={4}
+        className="su-text-plum-light"
+        data-label="custom-card"
+      >
+        Headline
+      </Card.Headline>
+      <p className="su-card-paragraph">
+        Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit
+        nulla quis orci. Phasellus a est.
+      </p>
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="unset"
+        size="unset"
+        href="https://decanter.stanford.edu"
+        className="su-rs-mt-0 su-bg-lagunita-dark hocus:su-bg-plum su-text-white hocus:su-text-white su-p-30"
+      />
+    </Card.Content>
+  </Card>
+);
+
 export const Default = CardTemplateDefault.bind({});
 Default.storyName = "Default";
 
@@ -321,3 +348,9 @@ MinimalRight.args = {
   isMinimal: true,
 };
 MinimalRight.storyName = "Minimal Right Content";
+
+export const CustomCard = CardTemplateCustom.bind({});
+CustomCard.args = {
+  isMinimal: false,
+};
+CustomCard.storyName = "Custom Card";

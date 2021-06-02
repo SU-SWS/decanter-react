@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { FlexBox } from "../FlexBox/FlexBox";
-import { Heading } from "../Heading/Heading";
 import { cardAlignOptions, cardElements } from "./Card.levers";
 import { Superhead } from "./Card.Superhead";
+import { Headline } from "./Card.Headline";
 import { Content } from "./Card.Content";
 
 /**
@@ -33,7 +33,7 @@ export const Card = ({ className, children, element, isMinimal, ...props }) => {
   return (
     <Element
       className={dcnb(
-        "card su-max-w-600 su-basefont-23",
+        "basic-card su-max-w-600 su-basefont-23",
         wrapperClasses,
         className
       )}
@@ -66,9 +66,6 @@ Card.Image = Image;
 Superhead.displayName = Superhead;
 Card.Superhead = Superhead;
 
-const Headline = ({ children, ...props }) => (
-  <Heading {...props}>{children}</Heading>
-);
 Headline.displayName = Headline;
 Card.Headline = Headline;
 
@@ -79,27 +76,6 @@ Card.propTypes = {
    * Is the card minimal style disabled?
    */
   isMinimal: PropTypes.bool,
-
-  // CSS Classes.
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object,
-  ]),
-
-  // Children
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
-};
-
-Content.propTypes = {
-  /**
-   * Text Align Type
-   */
-  align: PropTypes.oneOf(cardAlignOptions),
 
   // CSS Classes.
   className: PropTypes.oneOfType([
@@ -128,21 +104,8 @@ Image.propTypes = {
   image: PropTypes.string,
 };
 
-Headline.propTypes = {
-  // Children
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
-};
-
 // Default Props.
 // -----------------------------------------------------------------------------
 Card.defaultProps = {
   isMinimal: false,
-};
-
-Content.defaultProps = {
-  align: "left",
 };

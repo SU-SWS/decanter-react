@@ -27,7 +27,6 @@ export const Heading = ({
   italic,
   srOnly,
   children,
-  ref,
   ...props
 }) => {
   // Defaults & Variables.
@@ -100,7 +99,6 @@ export const Heading = ({
         levers.srOnly,
         className
       )}
-      ref={ref}
       {...props}
     >
       {children}
@@ -165,12 +163,6 @@ Heading.propTypes = {
     PropTypes.element,
     PropTypes.node,
   ]),
-
-  // React ref.
-  ref: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.any }), // eslint-disable-line react/forbid-prop-types
-  ]),
 };
 
 // Default Props.
@@ -178,5 +170,4 @@ Heading.propTypes = {
 Heading.defaultProps = {
   font: "sans",
   weight: "bold",
-  ref: null,
 };

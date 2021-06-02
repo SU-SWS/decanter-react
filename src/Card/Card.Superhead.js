@@ -8,7 +8,11 @@ export const Superhead = ({ weight, className, children, ...props }) => {
 
   return (
     <span
-      className={dcnb("su-type-0 su-mb-0", superheadWeight, className)}
+      className={dcnb(
+        "su-type-0 su-mb-0 su-leading-display",
+        superheadWeight,
+        className
+      )}
       {...props}
     >
       {children}

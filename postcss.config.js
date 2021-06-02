@@ -1,9 +1,9 @@
-const purgecss = require('@fullhuman/postcss-purgecss');
+const purgecss = require("@fullhuman/postcss-purgecss");
 
 module.exports = {
   plugins: [
     purgecss({
-      content: ['./**/*.js'],
+      content: ["./**/*.js"],
       safelist: {
         deep: [
           /su-bg-[A-Za-z0-9]*(-)?([A-Za-z0-9]*)?/,
@@ -11,7 +11,7 @@ module.exports = {
         ],
       },
       // To preserve special characters in Tailwind class names
-      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
     }),
-  ]
+  ],
 };
