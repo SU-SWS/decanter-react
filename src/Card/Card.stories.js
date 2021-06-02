@@ -16,8 +16,7 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=60%3A2916",
+      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=60%3A2916",
     },
     docs: {
       description: {
