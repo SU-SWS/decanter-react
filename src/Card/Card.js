@@ -49,7 +49,6 @@ CardRoot.displayName = "Card";
 // Subcomponents
 // ---------------------------------------------------------------------------
 
-Image.displayName = "Card.Image";
 
 Content.displayName = "Card.Content";
 
