@@ -303,7 +303,7 @@ const CardTemplateMinimalRight = ({ ...rest }) => (
 );
 
 const CardTemplateCustom = ({ ...rest }) => (
-  <Card {...rest} className="su-bg-foggy-light" id="decanter-card">
+  <Card {...rest}>
     <Card.Image
       aspectRatio="1x1"
       image={{
@@ -377,4 +377,8 @@ MinimalRight.args = {
 MinimalRight.storyName = "Minimal Right Content";
 
 export const CustomCard = CardTemplateCustom.bind({});
+CustomCard.args = {
+  className: "su-bg-foggy-light",
+  id: "decanter-card",
+};
 CustomCard.storyName = "Custom Card with Square Image";
