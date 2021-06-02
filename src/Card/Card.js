@@ -33,7 +33,7 @@ const CardRoot = ({ className, children, element, isMinimal, ...props }) => {
   return (
     <Element
       className={dcnb(
-        "basic-card su-block su-max-w-600 su-basefont-23",
+        "card su-block su-max-w-600 su-basefont-23",
         wrapperClasses,
         className
       )}
