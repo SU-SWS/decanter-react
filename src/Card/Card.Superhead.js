@@ -26,6 +26,8 @@ export const Superhead = ({ weight, className, children, ...props }) => {
   );
 };
 
+Superhead.displayName = "Card.Superhead";
+
 Superhead.propTypes = {
   /**
    * Font weight.
