@@ -25,6 +25,8 @@ export const Image = ({ image, aspectRatio, className }) => {
   );
 };
 
+Image.displayName = "Card.Image";
+
 Image.propTypes = {
   /**
    * Aspect ratio of the card image
