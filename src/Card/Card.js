@@ -52,7 +52,6 @@ CardRoot.displayName = "Card";
 
 
 
-Headline.displayName = "Card.Headline";
 
 /**
  * Exports
