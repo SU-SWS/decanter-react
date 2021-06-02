@@ -16,7 +16,8 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=60%3A2916",
+      url:
+        "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=60%3A2916",
     },
     docs: {
       description: {
@@ -67,7 +68,7 @@ const CardTemplateDefaultImage = ({ ...rest }) => (
       }}
     />
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
-      <Card.Superhead>Super headline</Card.Superhead>
+      <Card.Superhead isUppercase="true">Super headline</Card.Superhead>
       <Card.Headline>Headline</Card.Headline>
       <p className="su-card-paragraph">
         Fusce convallis metus id felis luctus adipiscing. Vestibulum suscipit

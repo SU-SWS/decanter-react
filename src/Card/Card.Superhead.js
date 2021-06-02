@@ -9,14 +9,27 @@ import { superheadWeights } from "./Card.levers";
  * @returns
  */
 
-export const Superhead = ({ weight, className, children, ...props }) => {
+export const Superhead = ({
+  weight,
+  className,
+  children,
+  isUppercase,
+  ...props
+}) => {
   const superheadWeight = superheadWeights[weight];
+
+  let uppercase = "";
+
+  if (isUppercase) {
+    uppercase = "su-uppercase";
+  }
 
   return (
     <span
       className={dcnb(
         "su-type-0 su-mb-0 su-leading-display",
         superheadWeight,
+        uppercase,
         className
       )}
       {...props}
@@ -45,10 +58,14 @@ Superhead.propTypes = {
     PropTypes.array,
     PropTypes.object,
   ]),
+  /**
+   * Is the uppercase style disabled?
+   */
+  isUppercase: PropTypes.bool,
 };
-
 // Default Props.
 // -----------------------------------------------------------------------------
 Superhead.defaultProps = {
   weight: "bold",
+  isUppercase: false,
 };
