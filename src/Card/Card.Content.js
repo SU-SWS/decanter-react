@@ -2,6 +2,7 @@ import { dcnb } from "cnbuilder";
 import React from "react";
 import PropTypes from "prop-types";
 import { FlexBox } from "../FlexBox/FlexBox";
+import { cardAlignOptions } from "./Card.levers";
 
 /**
  * Content Component.
@@ -37,7 +38,11 @@ export const Content = ({ children, className, align, ...props }) => {
 };
 
 Content.propTypes = {
-  align: "left",
+  /**
+   * Content horizontal alignment.
+   */
+  align: PropTypes.oneOf(cardAlignOptions),
+
   // Children
   children: PropTypes.oneOfType([
     PropTypes.string,
@@ -50,4 +55,8 @@ Content.propTypes = {
     PropTypes.array,
     PropTypes.object,
   ]),
+};
+
+Content.defaultProps = {
+  align: "left",
 };
