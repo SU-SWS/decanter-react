@@ -33,7 +33,7 @@ const CardRoot = ({ className, children, element, isMinimal, ...props }) => {
   return (
     <Element
       className={dcnb(
-        "basic-card su-max-w-600 su-basefont-23",
+        "basic-card su-block su-max-w-600 su-basefont-23",
         wrapperClasses,
         className
       )}
@@ -70,6 +70,10 @@ export const Card = Object.assign(CardRoot, {
 // Prop Types.
 // -----------------------------------------------------------------------------
 CardRoot.propTypes = {
+  /**
+   * The HTML element of the card.
+   */
+  element: PropTypes.oneOf(cardElements),
   /**
    * Is the card minimal style disabled?
    */

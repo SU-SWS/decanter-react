@@ -7,7 +7,7 @@ export const cardAlignOptions = ["left", "center", "right"];
 /**
  * Available HTML elements of the container.
  */
-export const cardElements = ["div", "span", "article", "li"];
+export const cardElements = ["div", "article"];
 
 /**
  * Available font weights.
