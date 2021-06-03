@@ -12,7 +12,9 @@ import React, { createContext, useReducer } from "react";
 /**
  * The default state.
  */
-const defaultState = {};
+const defaultState = {
+  tree: null,
+};
 
 // The context.
 export const VerticalNavContext = createContext(defaultState);
@@ -33,8 +35,7 @@ function VerticalNavContextReducer(state, action) {
   }
 
   switch (action.type) {
-    case "clicked":
-      console.log("Hi: " + action.val);
+    case "keypress":
       state.active = action.val;
       return state;
 
