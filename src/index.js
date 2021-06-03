@@ -1,5 +1,6 @@
 import { Alert } from "./Alert/Alert";
 import { Button } from "./Button/Button";
+import { Card } from "./Card/Card";
 import { Container } from "./Container/Container";
 import { CtaButton } from "./CtaButton/CtaButton";
 import { CtaLink } from "./CtaLink/CtaLink";
@@ -20,6 +21,7 @@ import { SrOnlyText } from "./SrOnlyText/SrOnlyText";
 export {
   Alert,
   Button,
+  Card,
   Container,
   CtaButton,
   CtaLink,

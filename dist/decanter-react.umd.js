@@ -545,6 +545,437 @@
     hasIcon: true
   };
 
+  var cardAlignOptions = ["left", "center", "right"];
+  var cardElements = ["div", "article", "li"];
+  var superheadWeights = {
+    regular: "su-font-regular",
+    semibold: "su-font-semibold",
+    bold: "su-font-bold"
+  };
+  var imageAspectRatios = {
+    "2x1": "su-aspect-w-2 su-aspect-h-1",
+    "16x9": "su-aspect-w-16 su-aspect-h-9",
+    "1x1": "su-aspect-w-1 su-aspect-h-1",
+    "4x3": "su-aspect-w-4 su-aspect-h-3"
+  };
+
+  var Superhead = function Superhead(_ref) {
+    var weight = _ref.weight,
+        className = _ref.className,
+        children = _ref.children,
+        isUppercase = _ref.isUppercase,
+        props = _objectWithoutPropertiesLoose(_ref, ["weight", "className", "children", "isUppercase"]);
+
+    var superheadWeight = superheadWeights[weight];
+    var uppercase = "";
+
+    if (isUppercase) {
+      uppercase = "su-uppercase";
+    }
+
+    return /*#__PURE__*/React__default.createElement("span", _extends({
+      className: cnbuilder.dcnb("su-type-0 su-mb-0 su-leading-display", superheadWeight, uppercase, className)
+    }, props), children);
+  };
+  Superhead.displayName = "Card.Superhead";
+  Superhead.propTypes = {
+    weight: PropTypes.oneOf(Object.keys(superheadWeights)),
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+    isUppercase: PropTypes.bool
+  };
+  Superhead.defaultProps = {
+    weight: "bold",
+    isUppercase: false
+  };
+
+  var headingLevels = [1, 2, 3, 4, 5, 6];
+  var headingFonts = {
+    sans: "su-font-sans",
+    serif: "su-font-serif",
+    slab: "su-font-slab"
+  };
+  var headingWeights = {
+    light: "su-font-light",
+    regular: "su-font-regular",
+    semibold: "su-font-semibold",
+    bold: "su-font-bold"
+  };
+  var headingSizes = {
+    0: "su-type-0",
+    1: "su-type-1",
+    2: "su-type-2",
+    3: "su-type-3",
+    4: "su-type-4",
+    5: "su-type-5",
+    6: "su-type-6"
+  };
+  var headingTracking = {
+    tighter: "su-tracking-tighter",
+    tight: "su-tracking-tight",
+    normal: "su-tracking-normal",
+    wide: "su-tracking-wide",
+    wider: "su-tracking-wider",
+    widest: "su-tracking-widest"
+  };
+  var headingAlign = {
+    left: "su-text-left",
+    center: "su-text-center",
+    right: "su-text-right",
+    justify: "su-text-justify"
+  };
+
+  var intKeys = (function (arg) {
+    var int = parseInt(arg, 10);
+
+    if (Number.isNaN(int)) {
+      return arg;
+    }
+
+    return int;
+  });
+
+  var Heading = function Heading(_ref) {
+    var className = _ref.className,
+        level = _ref.level,
+        font = _ref.font,
+        weight = _ref.weight,
+        tracking = _ref.tracking,
+        align = _ref.align,
+        size = _ref.size,
+        uppercase = _ref.uppercase,
+        italic = _ref.italic,
+        srOnly = _ref.srOnly,
+        children = _ref.children,
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children"]);
+
+    var levers = {};
+    var HeadingTag = "h2";
+
+    if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
+      HeadingTag = "h" + level;
+    }
+
+    if (font && font in headingFonts) {
+      levers.font = headingFonts[font];
+    }
+
+    if (weight && weight in headingWeights) {
+      levers.weight = headingWeights[weight];
+    }
+
+    if (tracking && tracking in headingTracking) {
+      levers.tracking = headingTracking[tracking];
+    }
+
+    if (align && align in headingAlign) {
+      levers.align = headingAlign[align];
+    }
+
+    if (size && size in headingSizes) {
+      levers.size = headingSizes[size];
+    }
+
+    if (uppercase) {
+      levers.uppercase = "su-uppercase";
+    }
+
+    if (italic) {
+      levers.italic = "su-italic";
+    }
+
+    if (srOnly) {
+      levers.srOnly = "su-sr-only";
+    }
+
+    return /*#__PURE__*/React__default.createElement(HeadingTag, _extends({
+      className: cnbuilder.dcnb("su-leading-display", levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)
+    }, props), children);
+  };
+  Heading.propTypes = {
+    level: PropTypes.oneOf(headingLevels),
+    font: PropTypes.oneOf(Object.keys(headingFonts)),
+    size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
+      return intKeys(val);
+    })),
+    align: PropTypes.oneOf(Object.keys(headingAlign)),
+    weight: PropTypes.oneOf(Object.keys(headingWeights)),
+    tracking: PropTypes.oneOf(Object.keys(headingTracking)),
+    uppercase: PropTypes.bool,
+    italic: PropTypes.bool,
+    srOnly: PropTypes.bool,
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
+  };
+  Heading.defaultProps = {
+    font: "sans",
+    weight: "bold"
+  };
+
+  var Headline = function Headline(_ref) {
+    var children = _ref.children,
+        level = _ref.level,
+        size = _ref.size,
+        weight = _ref.weight,
+        font = _ref.font,
+        className = _ref.className,
+        props = _objectWithoutPropertiesLoose(_ref, ["children", "level", "size", "weight", "font", "className"]);
+
+    return /*#__PURE__*/React__default.createElement(Heading, _extends({
+      level: level,
+      size: size,
+      font: font,
+      weight: weight
+    }, props, {
+      className: cnbuilder.dcnb("su-mb-03em", className)
+    }), children);
+  };
+  Headline.displayName = "Card.Headline";
+  Headline.propTypes = {
+    level: PropTypes.oneOf(headingLevels),
+    size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
+      return intKeys(val);
+    })),
+    font: PropTypes.oneOf(Object.keys(headingFonts)),
+    weight: PropTypes.oneOf(Object.keys(headingWeights)),
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+  };
+  Headline.defaultProps = {
+    level: 3,
+    size: 2,
+    weight: "bold",
+    font: "sans"
+  };
+
+  var flexElements = ["div", "section", "article", "main", "footer", "aside", "header", "nav", "form"];
+  var flexDirection = {
+    row: "su-flex-row",
+    "row-reverse": "su-flex-row-reverse",
+    col: "su-flex-col",
+    "col-reverse": "su-flex-col-reverse"
+  };
+  var flexWrap = {
+    wrap: "su-flex-wrap",
+    "wrap-reverse": "su-flex-wrap-reverse",
+    nowrap: "su-flex-nowrap"
+  };
+  var flexGap = [true, false];
+  var flexJustifyContent = {
+    start: "su-justify-start",
+    end: "su-justify-end",
+    center: "su-justify-center",
+    "space-between": "su-justify-between",
+    "space-around": "su-justify-around",
+    "space-evenly": "su-justify-evenly"
+  };
+  var flexJustifyItems = {
+    auto: "su-justify-items-auto",
+    start: "su-justify-items-start",
+    end: "su-justify-items-end",
+    center: "su-justify-items-center",
+    stretch: "su-justify-items-stretch"
+  };
+  var flexAlignContent = {
+    start: "su-content-start",
+    end: "su-content-end",
+    center: "su-content-center",
+    "space-between": "su-content-between",
+    "space-around": "su-content-around",
+    "space-evenly": "su-content-evenly"
+  };
+  var flexAlignItems = {
+    start: "su-items-start",
+    end: "su-items-end",
+    center: "su-items-center",
+    baseline: "su-items-baseline",
+    stretch: "su-items-stretch"
+  };
+
+  var FlexBox = function FlexBox(_ref) {
+    var element = _ref.element,
+        direction = _ref.direction,
+        wrap = _ref.wrap,
+        gap = _ref.gap,
+        justifyContent = _ref.justifyContent,
+        justifyItems = _ref.justifyItems,
+        alignContent = _ref.alignContent,
+        alignItems = _ref.alignItems,
+        className = _ref.className,
+        children = _ref.children,
+        ref = _ref.ref,
+        props = _objectWithoutPropertiesLoose(_ref, ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"]);
+
+    var levers = {};
+    var Element = "div";
+
+    if (element && flexElements.includes(element)) {
+      Element = element;
+    }
+
+    if (direction && direction in flexDirection) {
+      levers.direction = flexDirection[direction];
+    }
+
+    if (wrap && wrap in flexWrap) {
+      levers.wrap = flexWrap[wrap];
+    }
+
+    if (gap && flexGap.includes(gap)) {
+      levers.gap = "su-grid-gap";
+    }
+
+    if (justifyContent && justifyContent in flexJustifyContent) {
+      levers.justifyContent = flexJustifyContent[justifyContent];
+    }
+
+    if (justifyItems && justifyItems in flexJustifyItems) {
+      levers.justifyItems = flexJustifyItems[justifyItems];
+    }
+
+    if (alignContent && alignContent in flexAlignContent) {
+      levers.alignContent = flexAlignContent[alignContent];
+    }
+
+    if (alignItems && alignItems in flexAlignItems) {
+      levers.alignItems = flexAlignItems[alignItems];
+    }
+
+    return /*#__PURE__*/React__default.createElement(Element, _extends({
+      className: cnbuilder.dcnb("su-flex", levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
+      ref: ref
+    }, props), children);
+  };
+  FlexBox.propTypes = {
+    element: PropTypes.oneOf(flexElements),
+    direction: PropTypes.oneOf(Object.keys(flexDirection)),
+    wrap: PropTypes.oneOf(Object.keys(flexWrap)),
+    gap: PropTypes.bool,
+    justifyContent: PropTypes.oneOf(Object.keys(flexJustifyContent)),
+    justifyItems: PropTypes.oneOf(Object.keys(flexJustifyItems)),
+    alignContent: PropTypes.oneOf(Object.keys(flexAlignContent)),
+    alignItems: PropTypes.oneOf(Object.keys(flexAlignItems)),
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+    ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
+      current: PropTypes.any
+    })])
+  };
+  FlexBox.defaultProps = {
+    element: "div",
+    direction: "row",
+    gap: false
+  };
+
+  var Content = function Content(_ref) {
+    var children = _ref.children,
+        className = _ref.className,
+        align = _ref.align,
+        props = _objectWithoutPropertiesLoose(_ref, ["children", "className", "align"]);
+
+    var bodyAlign = "su-items-start";
+    var contentClass = "";
+
+    if (align === "center") {
+      contentClass = "su-text-center";
+      bodyAlign = "su-items-center";
+    }
+
+    if (align === "right") {
+      contentClass = "su-text-right";
+      bodyAlign = "su-items-end";
+    }
+
+    return /*#__PURE__*/React__default.createElement(FlexBox, _extends({
+      direction: "col",
+      className: cnbuilder.dcnb("card-body", bodyAlign, contentClass, className)
+    }, props), children);
+  };
+  Content.displayName = "Card.Content";
+  Content.propTypes = {
+    align: PropTypes.oneOf(cardAlignOptions),
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+  };
+  Content.defaultProps = {
+    align: "left"
+  };
+
+  var Image = function Image(_ref) {
+    var image = _ref.image,
+        aspectRatio = _ref.aspectRatio,
+        className = _ref.className;
+    var imageAspectRatio = imageAspectRatios[aspectRatio];
+
+    if (image.alt) {
+      delete image.alt;
+    }
+
+    if (image.className) {
+      delete image.className;
+    }
+
+    return /*#__PURE__*/React__default.createElement("div", {
+      className: cnbuilder.dcnb(imageAspectRatio, className),
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React__default.createElement("img", _extends({}, image, {
+      alt: "",
+      className: "su-object-cover"
+    })));
+  };
+  Image.displayName = "Card.Image";
+  Image.propTypes = {
+    aspectRatio: PropTypes.oneOf(Object.keys(imageAspectRatios)),
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+    image: PropTypes.shape({
+      src: PropTypes.string
+    })
+  };
+  Image.defaultProps = {
+    aspectRatio: "2x1"
+  };
+
+  var CardRoot = function CardRoot(_ref) {
+    var className = _ref.className,
+        children = _ref.children,
+        element = _ref.element,
+        isMinimal = _ref.isMinimal,
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "element", "isMinimal"]);
+
+    var Element = "div";
+
+    if (element && cardElements.includes(element)) {
+      Element = element;
+    }
+
+    var wrapperClasses = "su-bg-white su-text-black su-border su-border-solid su-border-black-10 su-shadow";
+
+    if (isMinimal) {
+      wrapperClasses = "";
+    }
+
+    return /*#__PURE__*/React__default.createElement(Element, _extends({
+      className: cnbuilder.dcnb("card su-block su-max-w-600 su-basefont-23 su-leading-display", wrapperClasses, className)
+    }, props), children);
+  };
+
+  CardRoot.displayName = "Card";
+  var Card = Object.assign(CardRoot, {
+    Superhead: Superhead,
+    Headline: Headline,
+    Content: Content,
+    Image: Image
+  });
+  CardRoot.propTypes = {
+    element: PropTypes.oneOf(cardElements),
+    isMinimal: PropTypes.bool,
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
+  };
+  CardRoot.defaultProps = {
+    isMinimal: false
+  };
+
   var containerElements = ["div", "section", "article", "main", "footer", "aside", "header", "nav", "form"];
   var containerWidths = ["full", "screen", "site"];
 
@@ -743,127 +1174,7 @@
     srText: PropTypes.string
   };
   CtaLink.defaultProps = {
-    icon: "action",
-    color: "none"
-  };
-
-  var flexElements = ["div", "section", "article", "main", "footer", "aside", "header", "nav", "form"];
-  var flexDirection = {
-    row: "su-flex-row",
-    "row-reverse": "su-flex-row-reverse",
-    col: "su-flex-col",
-    "col-reverse": "su-flex-col-reverse"
-  };
-  var flexWrap = {
-    wrap: "su-flex-wrap",
-    "wrap-reverse": "su-flex-wrap-reverse",
-    nowrap: "su-flex-nowrap"
-  };
-  var flexGap = [true, false];
-  var flexJustifyContent = {
-    start: "su-justify-start",
-    end: "su-justify-end",
-    center: "su-justify-center",
-    "space-between": "su-justify-between",
-    "space-around": "su-justify-around",
-    "space-evenly": "su-justify-evenly"
-  };
-  var flexJustifyItems = {
-    auto: "su-justify-items-auto",
-    start: "su-justify-items-start",
-    end: "su-justify-items-end",
-    center: "su-justify-items-center",
-    stretch: "su-justify-items-stretch"
-  };
-  var flexAlignContent = {
-    start: "su-content-start",
-    end: "su-content-end",
-    center: "su-content-center",
-    "space-between": "su-content-between",
-    "space-around": "su-content-around",
-    "space-evenly": "su-content-evenly"
-  };
-  var flexAlignItems = {
-    start: "su-items-start",
-    end: "su-items-end",
-    center: "su-items-center",
-    baseline: "su-items-baseline",
-    stretch: "su-items-stretch"
-  };
-
-  var FlexBox = function FlexBox(_ref) {
-    var element = _ref.element,
-        direction = _ref.direction,
-        wrap = _ref.wrap,
-        gap = _ref.gap,
-        justifyContent = _ref.justifyContent,
-        justifyItems = _ref.justifyItems,
-        alignContent = _ref.alignContent,
-        alignItems = _ref.alignItems,
-        className = _ref.className,
-        children = _ref.children,
-        ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"]);
-
-    var levers = {};
-    var Element = "div";
-
-    if (element && flexElements.includes(element)) {
-      Element = element;
-    }
-
-    if (direction && direction in flexDirection) {
-      levers.direction = flexDirection[direction];
-    }
-
-    if (wrap && wrap in flexWrap) {
-      levers.wrap = flexWrap[wrap];
-    }
-
-    if (gap && flexGap.includes(gap)) {
-      levers.gap = "su-grid-gap";
-    }
-
-    if (justifyContent && justifyContent in flexJustifyContent) {
-      levers.justifyContent = flexJustifyContent[justifyContent];
-    }
-
-    if (justifyItems && justifyItems in flexJustifyItems) {
-      levers.justifyItems = flexJustifyItems[justifyItems];
-    }
-
-    if (alignContent && alignContent in flexAlignContent) {
-      levers.alignContent = flexAlignContent[alignContent];
-    }
-
-    if (alignItems && alignItems in flexAlignItems) {
-      levers.alignItems = flexAlignItems[alignItems];
-    }
-
-    return /*#__PURE__*/React__default.createElement(Element, _extends({
-      className: cnbuilder.dcnb("su-flex", levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
-      ref: ref
-    }, props), children);
-  };
-  FlexBox.propTypes = {
-    element: PropTypes.oneOf(flexElements),
-    direction: PropTypes.oneOf(Object.keys(flexDirection)),
-    wrap: PropTypes.oneOf(Object.keys(flexWrap)),
-    gap: PropTypes.bool,
-    justifyContent: PropTypes.oneOf(Object.keys(flexJustifyContent)),
-    justifyItems: PropTypes.oneOf(Object.keys(flexJustifyItems)),
-    alignContent: PropTypes.oneOf(Object.keys(flexAlignContent)),
-    alignItems: PropTypes.oneOf(Object.keys(flexAlignItems)),
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
-    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
-    ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
-      current: PropTypes.any
-    })])
-  };
-  FlexBox.defaultProps = {
-    element: "div",
-    direction: "row",
-    gap: false
+    icon: "action"
   };
 
   var flexCellBPs = {
@@ -993,16 +1304,6 @@
     none: "su-order-none"
   };
 
-  var intKeys = (function (arg) {
-    var int = parseInt(arg, 10);
-
-    if (Number.isNaN(int)) {
-      return arg;
-    }
-
-    return int;
-  });
-
   var FlexCell = function FlexCell(_ref) {
     var className = _ref.className,
         children = _ref.children,
@@ -1092,125 +1393,6 @@
     className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
   };
   FlexCell.defaultProps = {};
-
-  var headingLevels = [1, 2, 3, 4, 5, 6];
-  var headingFonts = {
-    sans: "su-font-sans",
-    serif: "su-font-serif",
-    slab: "su-font-slab"
-  };
-  var headingWeights = {
-    light: "su-font-light",
-    regular: "su-font-regular",
-    semibold: "su-font-semibold",
-    bold: "su-font-bold"
-  };
-  var headingSizes = {
-    0: "su-type-0",
-    1: "su-type-1",
-    2: "su-type-2",
-    3: "su-type-3",
-    4: "su-type-4",
-    5: "su-type-5",
-    6: "su-type-6"
-  };
-  var headingTracking = {
-    tighter: "su-tracking-tighter",
-    tight: "su-tracking-tight",
-    normal: "su-tracking-normal",
-    wide: "su-tracking-wide",
-    wider: "su-tracking-wider",
-    widest: "su-tracking-widest"
-  };
-  var headingAlign = {
-    left: "su-text-left",
-    center: "su-text-center",
-    right: "su-text-right",
-    justify: "su-text-justify"
-  };
-
-  var Heading = function Heading(_ref) {
-    var className = _ref.className,
-        level = _ref.level,
-        font = _ref.font,
-        weight = _ref.weight,
-        tracking = _ref.tracking,
-        align = _ref.align,
-        size = _ref.size,
-        uppercase = _ref.uppercase,
-        italic = _ref.italic,
-        srOnly = _ref.srOnly,
-        children = _ref.children,
-        ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children", "ref"]);
-
-    var levers = {};
-    var HeadingTag = "h2";
-
-    if (level && (headingLevels.includes(level) || headingLevels.includes(Number(level)))) {
-      HeadingTag = "h" + level;
-    }
-
-    if (font && font in headingFonts) {
-      levers.font = headingFonts[font];
-    }
-
-    if (weight && weight in headingWeights) {
-      levers.weight = headingWeights[weight];
-    }
-
-    if (tracking && tracking in headingTracking) {
-      levers.tracking = headingTracking[tracking];
-    }
-
-    if (align && align in headingAlign) {
-      levers.align = headingAlign[align];
-    }
-
-    if (size && size in headingSizes) {
-      levers.size = headingSizes[size];
-    }
-
-    if (uppercase) {
-      levers.uppercase = "su-uppercase";
-    }
-
-    if (italic) {
-      levers.italic = "su-italic";
-    }
-
-    if (srOnly) {
-      levers.srOnly = "su-sr-only";
-    }
-
-    return /*#__PURE__*/React__default.createElement(HeadingTag, _extends({
-      className: cnbuilder.dcnb("su-leading-display", levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className),
-      ref: ref
-    }, props), children);
-  };
-  Heading.propTypes = {
-    level: PropTypes.oneOf(headingLevels),
-    font: PropTypes.oneOf(Object.keys(headingFonts)),
-    size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
-      return intKeys(val);
-    })),
-    align: PropTypes.oneOf(Object.keys(headingAlign)),
-    weight: PropTypes.oneOf(Object.keys(headingWeights)),
-    tracking: PropTypes.oneOf(Object.keys(headingTracking)),
-    uppercase: PropTypes.bool,
-    italic: PropTypes.bool,
-    srOnly: PropTypes.bool,
-    className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
-    ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
-      current: PropTypes.any
-    })])
-  };
-  Heading.defaultProps = {
-    font: "sans",
-    weight: "bold",
-    ref: null
-  };
 
   var globalFooterColors = ["cardinal-red", "digital-red", "black"];
 
@@ -1998,6 +2180,7 @@
 
   exports.Alert = Alert;
   exports.Button = Button;
+  exports.Card = Card;
   exports.Container = Container;
   exports.CtaButton = CtaButton;
   exports.CtaLink = CtaLink;
