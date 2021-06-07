@@ -148,44 +148,44 @@ const VerticalNavTemplate = ({ children, ...rest }) => (
       </VerticalNav.Group>
       <VerticalNav.Group>
         <VerticalNav.Item>
-          <a href="#">Item One</a>
+          <a href="#">Item Five</a>
           <VerticalNav.Group>
             <VerticalNav.Item>
-              <a href="#">Item One - One</a>
+              <a href="#">Item Five - One</a>
               <VerticalNav.Group>
                 <VerticalNav.Item>
-                  <a href="#">Item One - One - One</a>
+                  <a href="#">Item Five - One - One</a>
                 </VerticalNav.Item>
                 <VerticalNav.Item>
-                  <a href="#">Item One - One - Two</a>
+                  <a href="#">Item Five - One - Two</a>
                 </VerticalNav.Item>
                 <VerticalNav.Item>
-                  <a href="#">Item One - One - Three</a>
+                  <a href="#">Item Five - One - Three</a>
                 </VerticalNav.Item>
                 <VerticalNav.Item>
-                  <a href="#">Item One - One - Four</a>
+                  <a href="#">Item Five - One - Four</a>
                 </VerticalNav.Item>
               </VerticalNav.Group>
             </VerticalNav.Item>
             <VerticalNav.Item>
-              <a href="#">Item One - Two</a>
+              <a href="#">Item Five - Two</a>
             </VerticalNav.Item>
             <VerticalNav.Item>
-              <a href="#">Item One - Three</a>
+              <a href="#">Item Five - Three</a>
             </VerticalNav.Item>
             <VerticalNav.Item>
-              <a href="#">Item One - Four</a>
+              <a href="#">Item Five - Four</a>
             </VerticalNav.Item>
           </VerticalNav.Group>
         </VerticalNav.Item>
         <VerticalNav.Item>
-          <a href="#">Item Two</a>
+          <a href="#">Item Six</a>
         </VerticalNav.Item>
         <VerticalNav.Item>
-          <a href="#">Item Three</a>
+          <a href="#">Item Seven</a>
         </VerticalNav.Item>
         <VerticalNav.Item>
-          <a href="#">Item Four</a>
+          <a href="#">Item Eight</a>
         </VerticalNav.Item>
       </VerticalNav.Group>
     </VerticalNav>

@@ -13,7 +13,8 @@ import React, { createContext, useReducer } from "react";
  * The default state.
  */
 const defaultState = {
-  tree: null,
+  tree: [],
+  active: false,
 };
 
 // The context.
@@ -35,6 +36,18 @@ function VerticalNavContextReducer(state, action) {
   }
 
   switch (action.type) {
+    case "addGroup":
+      state.tree.push(action.id);
+      return state;
+
+    case "setActive":
+      state.active = action.id;
+      return state;
+
+    case "setTree":
+      state.tree = action.tree;
+      return state;
+
     case "keypress":
       state.active = action.val;
       return state;
@@ -53,8 +66,9 @@ function VerticalNavContextReducer(state, action) {
  *
  * @return JSX template wrapper.
  */
-export const VerticalNavStateProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(VerticalNavContextReducer);
+export const VerticalNavStateProvider = ({ children, tree }) => {
+  const [state, dispatch] = useReducer(VerticalNavContextReducer, { tree });
+
   return (
     <VerticalNavContextProvider value={{ state, dispatch }}>
       {children}

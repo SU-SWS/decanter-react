@@ -46,13 +46,12 @@ const findActiveInChildren = (children) => {
  * For displaying sidebar navigation.
  */
 const VerticalNavRoot = ({ className, children, ...props }) => (
-  <VerticalNavStateProvider>
+  <VerticalNavStateProvider tree={children}>
     <nav className={dcnb("vertical-nav", className)} {...props}>
       {children}
     </nav>
   </VerticalNavStateProvider>
 );
-
 VerticalNavRoot.displayName = "VerticalNav";
 
 /**
@@ -62,6 +61,13 @@ VerticalNavRoot.displayName = "VerticalNav";
  */
 const Item = ({ active, className, children, id, ...props }) => {
   const htmlId = id || nextId("nav-item-");
+  const { dispatch } = useContext(VerticalNavContext);
+
+  useEffect(() => {
+    if (active) {
+      dispatch({ type: "setActive", id: htmlId });
+    }
+  }, [active, dispatch, htmlId]);
 
   return (
     <li {...props} className={dcnb("nav-item", className)} id={htmlId}>
@@ -81,8 +87,10 @@ const Group = ({ children, className, id, ...props }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const htmlId = id || nextId("nav-group-");
   const inActiveTree = findActiveInChildren(children);
+  const { state } = useContext(VerticalNavContext);
 
   useEffect(() => {
+    console.log(state);
     setIsExpanded(inActiveTree);
   }, [inActiveTree]);
 
