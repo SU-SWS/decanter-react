@@ -167,7 +167,7 @@ CustomPosterLeft.args = {
   bgImage: {
     src: "https://placekitten.com/600/400",
   },
-  bgGradientclass:
+  bgGradient:
     "linear-gradient(240deg, rgba(24, 29, 28) 10%, rgba(98, 0, 89, 0.85) 60%, rgb(177, 4, 14) 100%)",
   layout: "left",
 };
