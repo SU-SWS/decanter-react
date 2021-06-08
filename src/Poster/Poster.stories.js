@@ -141,11 +141,18 @@ DefaultImageLeft.args = {
 };
 DefaultImageLeft.storyName = "Default with Image, Left Align";
 
-export const DefaultImageBgColor = PosterTemplateImage.bind({});
-DefaultImageBgColor.args = {
-  bgColor: "su-bg-foggy",
+export const DefaultGreyBg = PosterTemplateImage.bind({});
+DefaultGreyBg.args = {
+  bgColor: "su-bg-foggy-light",
 };
-DefaultImageBgColor.storyName = "Default with Image and BgColor";
+DefaultGreyBg.storyName = "Default Light Grey Background";
+
+export const DefaultBlackBg = PosterTemplateCustomLeft.bind({});
+DefaultBlackBg.args = {
+  bgColor: "su-bg-black",
+  layout: "left",
+};
+DefaultBlackBg.storyName = "Default Black Background";
 
 export const CustomPoster = PosterTemplateCustom.bind({});
 CustomPoster.args = {
