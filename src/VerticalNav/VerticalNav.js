@@ -1,42 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import nextId from "react-id-generator";
-import {
-  VerticalNavStateProvider,
-  VerticalNavContext,
-} from "./VerticalNav.context";
+import { VerticalNavStateProvider } from "./VerticalNav.context";
+import useTreeWalker from "../hooks/useTreeWalker";
+import { Group } from "./VerticalNav.Group";
+import { Item } from "./VerticalNav.Item";
 
 // TODO:
 // -- Active tree path so we can style the links of the active path.
 // -- Always keep level 1 open even if there is no active item.
 // -- Create and store component tree in the context.
 // -- Provide a way for children links to find out if they are 'active'
-
-// Helper Functions
-// -----------------------------------------------------------------------------
-
-const findActiveInChildren = (children) => {
-  if (!Array.isArray(children)) {
-    return false;
-  }
-
-  const vals = children.map((item) => {
-    if (item.props.active === true) {
-      return true;
-    }
-    if (item.props.children) {
-      return findActiveInChildren(item.props.children);
-    }
-    return false;
-  });
-
-  // Reduce all the true/false values of the search down to one keeping true if
-  // available and returning false if active was not found.
-  const reduce = vals.flat().reduce((acc, curr) => acc || curr);
-
-  return reduce;
-};
 
 // -----------------------------------------------------------------------------
 
@@ -45,72 +19,21 @@ const findActiveInChildren = (children) => {
  *
  * For displaying sidebar navigation.
  */
-const VerticalNavRoot = ({ className, children, ...props }) => (
-  <VerticalNavStateProvider tree={children}>
-    <nav className={dcnb("vertical-nav", className)} {...props}>
-      {children}
-    </nav>
-  </VerticalNavStateProvider>
-);
+const VerticalNavRoot = ({ className, children, ...props }) => {
+  const filters = { components: [Group, Item] };
+  const menuTree = useTreeWalker(children, filters);
+  return (
+    <VerticalNavStateProvider tree={menuTree}>
+      <nav className={dcnb("vertical-nav", className)} {...props}>
+        {menuTree}
+      </nav>
+    </VerticalNavStateProvider>
+  );
+};
 VerticalNavRoot.displayName = "VerticalNav";
 
-/**
- *
- * @param {*} param0
- * @returns
- */
-const Item = ({ active, className, children, id, ...props }) => {
-  const htmlId = id || nextId("nav-item-");
-  const { dispatch } = useContext(VerticalNavContext);
-
-  useEffect(() => {
-    if (active) {
-      dispatch({ type: "setActive", id: htmlId });
-    }
-  }, [active, dispatch, htmlId]);
-
-  return (
-    <li {...props} className={dcnb("nav-item", className)} id={htmlId}>
-      {children}
-    </li>
-  );
-};
-
-Item.displayName = "VerticalNav.Item";
-
-/**
- *
- * @param {*} param0
- * @returns
- */
-const Group = ({ children, className, id, ...props }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const htmlId = id || nextId("nav-group-");
-  const inActiveTree = findActiveInChildren(children);
-  const { state } = useContext(VerticalNavContext);
-
-  useEffect(() => {
-    console.log(state);
-    setIsExpanded(inActiveTree);
-  }, [inActiveTree]);
-
-  if (!isExpanded) {
-    return null;
-  }
-
-  // Expaned view.
-  return (
-    <ul
-      className={dcnb("nav-group su-list-none", className)}
-      id={htmlId}
-      role="menu"
-      {...props}
-    >
-      {children}
-    </ul>
-  );
-};
-Group.displayName = "VerticalNav.Group";
+// Bind them.
+// -----------------------------------------------------------------------------
 
 export const VerticalNav = Object.assign(VerticalNavRoot, { Item, Group });
 
@@ -129,8 +52,4 @@ VerticalNavRoot.propTypes = {
     PropTypes.array,
     PropTypes.string,
   ]),
-};
-
-Item.propTypes = {
-  active: PropTypes.bool,
 };

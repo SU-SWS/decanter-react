@@ -195,19 +195,3 @@ const VerticalNavTemplate = ({ children, ...rest }) => (
 // Default State
 // /////////////////////////////////////////////////////////////////////////////
 export const Default = VerticalNavTemplate.bind({});
-
-// export const Info = AlertTemplate.bind({});
-// Info.args = {
-//   children: alertBodyShort,
-//   type: "info",
-//   label: "information:",
-// };
-
-// // Supports Markdown.
-// Info.parameters = {
-//   docs: {
-//     description: {
-//       story: "Informational style.",
-//     },
-//   },
-// };
