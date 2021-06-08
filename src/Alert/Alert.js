@@ -4,6 +4,7 @@ import Icon from "react-hero-icon";
 import { dcnb } from "cnbuilder";
 import { alertTypes, lightText, darkText } from "./Alert.levers";
 import { DismissButton } from "../DismissButton/DismissButton";
+import "./alert.css";
 
 /**
  * Alert Component.

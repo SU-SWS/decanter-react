@@ -1,0 +1,19 @@
+.su-alert-body-link-light a:hover,
+.su-alert-body-link-light a:focus {
+  background: #6FC3FF;
+}
+
+.su-alert-body-link-dark a:hover,
+.su-alert-body-link-dark a:focus {
+  background: #FFFFFF;
+}
+
+.su-alert-body-link-light a:focus {
+  box-shadow: 0 0 2px #006CB8;
+  border-radius: 2px;
+}
+
+.su-alert-body-link-dark a:focus {
+  box-shadow: 0 0 0 2px #6FC3FF;
+  border-radius: 3px;
+}
