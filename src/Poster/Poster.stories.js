@@ -33,7 +33,7 @@ const PosterTemplate = ({ ...rest }) => (
   <Poster {...rest}>
     <Poster.Content>
       <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph children:su-leading-snug">
+      <p className="su-big-paragraph">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -53,7 +53,7 @@ const PosterTemplateImage = ({ ...rest }) => (
     />
     <Poster.Content>
       <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph children:su-leading-snug">
+      <p className="su-big-paragraph">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -73,7 +73,7 @@ const PosterTemplateImageLeft = ({ ...rest }) => (
     />
     <Poster.Content>
       <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph children:su-leading-snug">
+      <p className="su-big-paragraph">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -93,7 +93,7 @@ const PosterTemplateCustom = ({ ...rest }) => (
     />
     <Poster.Content className="su-text-white">
       <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph children:su-leading-snug">
+      <p className="su-big-paragraph">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -113,7 +113,7 @@ const PosterTemplateCustomLeft = ({ ...rest }) => (
     />
     <Poster.Content className="su-text-white">
       <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph children:su-leading-snug">
+      <p className="su-big-paragraph">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
