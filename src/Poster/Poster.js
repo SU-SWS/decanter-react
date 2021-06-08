@@ -14,7 +14,8 @@ import { Image } from "./Poster.Image";
 
 const PosterRoot = ({
   bgImage: { src } = {},
-  bgGradientclass,
+  bgGradient,
+  bgColor,
   className,
   children,
   layout,
@@ -37,8 +38,8 @@ const PosterRoot = ({
   let gradientOverlay = "linear-gradient(to bottom, transparent, #181D1C)";
   let bgImageStyle = {};
 
-  if (bgGradientclass) {
-    gradientOverlay = bgGradientclass;
+  if (bgGradient) {
+    gradientOverlay = bgGradient;
   }
 
   // Process image and set inline background image if image exists
@@ -56,6 +57,7 @@ const PosterRoot = ({
         wrapperClasses,
         imageWrapper,
         contentWrapper,
+        bgColor,
         className
       )}
       style={bgImageStyle}

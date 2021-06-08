@@ -13,8 +13,7 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url:
-        "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A36",
+      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A36",
     },
     docs: {
       description: {
@@ -141,6 +140,12 @@ DefaultImageLeft.args = {
   layout: "left",
 };
 DefaultImageLeft.storyName = "Default with Image, Left Align";
+
+export const DefaultImageBgColor = PosterTemplateImage.bind({});
+DefaultImageBgColor.args = {
+  bgColor: "su-bg-foggy",
+};
+DefaultImageBgColor.storyName = "Default with Image and BgColor";
 
 export const CustomPoster = PosterTemplateCustom.bind({});
 CustomPoster.args = {
