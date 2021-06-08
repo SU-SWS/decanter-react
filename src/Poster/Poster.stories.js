@@ -50,6 +50,26 @@ const PosterTemplateImage = ({ ...rest }) => (
       image={{
         src: "https://placekitten.com/600/400",
       }}
+      className="su-rs-mb-2"
+    />
+    <Poster.Content>
+      <Poster.Headline className="su-mb-0">Title</Poster.Headline>
+      <p className="su-big-paragraph children:su-leading-snug">
+        Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
+        feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
+        faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
+        vitae iaculis lacus elit id tortor.
+      </p>
+    </Poster.Content>
+  </Poster>
+);
+
+const PosterTemplateImageLeft = ({ ...rest }) => (
+  <Poster {...rest}>
+    <Poster.Image
+      image={{
+        src: "https://placekitten.com/600/400",
+      }}
       className="su-rs-mr-4"
     />
     <Poster.Content>
@@ -64,8 +84,79 @@ const PosterTemplateImage = ({ ...rest }) => (
   </Poster>
 );
 
+const PosterTemplateCustom = ({ ...rest }) => (
+  <Poster {...rest}>
+    <Poster.Image
+      image={{
+        src: "https://placekitten.com/600/400",
+      }}
+      className="su-rs-mb-2"
+    />
+    <Poster.Content className="su-text-white">
+      <Poster.Headline className="su-mb-0">Title</Poster.Headline>
+      <p className="su-big-paragraph children:su-leading-snug">
+        Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
+        feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
+        faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
+        vitae iaculis lacus elit id tortor.
+      </p>
+    </Poster.Content>
+  </Poster>
+);
+
+const PosterTemplateCustomLeft = ({ ...rest }) => (
+  <Poster {...rest}>
+    <Poster.Image
+      image={{
+        src: "https://placekitten.com/600/400",
+      }}
+      className="su-rs-mr-4"
+    />
+    <Poster.Content className="su-text-white">
+      <Poster.Headline className="su-mb-0">Title</Poster.Headline>
+      <p className="su-big-paragraph children:su-leading-snug">
+        Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
+        feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
+        faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
+        vitae iaculis lacus elit id tortor.
+      </p>
+    </Poster.Content>
+  </Poster>
+);
+
 export const Default = PosterTemplate.bind({});
 Default.storyName = "Default";
 
+export const DefaultLeft = PosterTemplate.bind({});
+DefaultLeft.args = {
+  layout: "left",
+};
+DefaultLeft.storyName = "Default, Left Algin";
+
 export const DefaultImage = PosterTemplateImage.bind({});
-DefaultImage.storyName = "Default with Image";
+DefaultImage.storyName = "Default with Image, Center Align";
+
+export const DefaultImageLeft = PosterTemplateImageLeft.bind({});
+DefaultImageLeft.args = {
+  layout: "left",
+};
+DefaultImageLeft.storyName = "Default with Image, Left Align";
+
+export const CustomPoster = PosterTemplateCustom.bind({});
+CustomPoster.args = {
+  bgImage: {
+    src: "https://placekitten.com/600/400",
+  },
+};
+CustomPoster.storyName = "Custom Poster with Bg Gradient, Center Align";
+
+export const CustomPosterLeft = PosterTemplateCustomLeft.bind({});
+CustomPosterLeft.args = {
+  bgImage: {
+    src: "https://placekitten.com/600/400",
+  },
+  bgGradientclass:
+    "linear-gradient(240deg, rgba(24, 29, 28) 10%, rgba(98, 0, 89, 0.85) 60%, rgb(177, 4, 14) 100%)",
+  layout: "left",
+};
+CustomPosterLeft.storyName = "Custom Poster with Bg Gradient, Left Align";

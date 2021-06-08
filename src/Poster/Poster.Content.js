@@ -12,7 +12,7 @@ import { FlexBox } from "../FlexBox/FlexBox";
 export const Content = ({ children, className, ...props }) => (
   <FlexBox
     direction="col"
-    className={dcnb("poster-body", className)}
+    className={dcnb("poster-body su-max-w-700", className)}
     {...props}
   >
     {children}

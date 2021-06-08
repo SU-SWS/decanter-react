@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { layoutOptions } from "./Poster.levers";
-import addBgImage from "../common/util/addBgImage";
 import { Headline } from "./Poster.Headline";
 import { Content } from "./Poster.Content";
 import { Image } from "./Poster.Image";
@@ -14,7 +13,8 @@ import { Image } from "./Poster.Image";
  */
 
 const PosterRoot = ({
-  bgImage: { filename: bgFilename } = {},
+  bgImage: { src } = {},
+  bgGradientclass,
   className,
   children,
   layout,
@@ -22,7 +22,7 @@ const PosterRoot = ({
   let wrapperClasses;
   let imageWrapper;
   let contentWrapper;
-  
+
   if (layout === "left") {
     wrapperClasses = "su-flex su-flex-col su-justify-center md:su-flex-row";
     imageWrapper =
@@ -34,6 +34,21 @@ const PosterRoot = ({
     imageWrapper = "first:su-rs-mb-2";
   }
 
+  let gradientOverlay = "linear-gradient(to bottom, transparent, #181D1C)";
+  let bgImageStyle = {};
+
+  if (bgGradientclass) {
+    gradientOverlay = bgGradientclass;
+  }
+
+  // Process image and set inline background image if image exists
+  if (src) {
+    // Set background image style
+    bgImageStyle = {
+      backgroundImage: `${gradientOverlay}, url('${src}')`,
+    };
+  }
+
   return (
     <div
       className={dcnb(
@@ -43,10 +58,7 @@ const PosterRoot = ({
         contentWrapper,
         className
       )}
-      style={addBgImage(
-        bgFilename,
-        "linear-gradient(240deg, rgba(24, 29, 28) 10%, rgba(98, 0, 89, 0.85) 60%, rgb(177, 4, 14) 100%)"
-      )}
+      style={bgImageStyle}
     >
       {children}
     </div>
@@ -87,10 +99,15 @@ PosterRoot.propTypes = {
    *
    */
   layout: PropTypes.oneOf(layoutOptions),
+
+  // Background Image
+  bgImage: PropTypes.shape({
+    src: PropTypes.string,
+  }),
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
 PosterRoot.defaultProps = {
-  layout: "left",
+  layout: "center",
 };

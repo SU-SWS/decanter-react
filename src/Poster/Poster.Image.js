@@ -23,7 +23,7 @@ export const Image = ({ image, className }) => {
   return (
     <div
       className={dcnb(
-        "su-w-[14rem] su-h-[14rem] su-rounded-full su-overflow-hidden",
+        "su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min",
         className
       )}
       aria-hidden="true"
