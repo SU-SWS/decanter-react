@@ -1,6 +1,8 @@
 import React from "react";
 import { Poster } from "./Poster";
 import { layoutOptions } from "./Poster.levers";
+import { CtaLink } from "../CtaLink/CtaLink";
+import { CtaButton } from "../CtaButton/CtaButton";
 
 export default {
   title: "Composite/Poster",
@@ -13,7 +15,7 @@ export default {
   parameters: {
     design: {
       type: "figma",
-      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A36",
+      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=16530%3A326",
     },
     docs: {
       description: {
@@ -32,8 +34,8 @@ export default {
 const PosterTemplate = ({ ...rest }) => (
   <Poster {...rest}>
     <Poster.Content>
-      <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph">
+      <Poster.Headline>Title</Poster.Headline>
+      <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -52,8 +54,8 @@ const PosterTemplateImage = ({ ...rest }) => (
       className="su-rs-mb-2"
     />
     <Poster.Content>
-      <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph">
+      <Poster.Headline>Title</Poster.Headline>
+      <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -72,8 +74,8 @@ const PosterTemplateImageLeft = ({ ...rest }) => (
       className="su-rs-mr-4"
     />
     <Poster.Content>
-      <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph">
+      <Poster.Headline>Title</Poster.Headline>
+      <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -92,8 +94,8 @@ const PosterTemplateCustom = ({ ...rest }) => (
       className="su-rs-mb-2"
     />
     <Poster.Content className="su-text-white">
-      <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph">
+      <Poster.Headline>Title</Poster.Headline>
+      <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -112,40 +114,88 @@ const PosterTemplateCustomLeft = ({ ...rest }) => (
       className="su-rs-mr-4"
     />
     <Poster.Content className="su-text-white">
-      <Poster.Headline className="su-mb-0">Title</Poster.Headline>
-      <p className="su-big-paragraph">
+      <Poster.Headline>Title</Poster.Headline>
+      <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
         vitae iaculis lacus elit id tortor.
       </p>
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="unset"
+        size="unset"
+        href="https://decanter.stanford.edu"
+        className="su-rs-mt-0 su-bg-white hocus:su-bg-lagunita su-text-black hocus:su-text-white su-px-20 su-pt-14 su-pb-16"
+      />
+    </Poster.Content>
+  </Poster>
+);
+
+const PosterTemplateCustomBorder = ({ ...rest }) => (
+  <Poster {...rest}>
+    <Poster.Image
+      image={{
+        src: "https://placekitten.com/600/400",
+      }}
+      className="su-border-3 su-border-solid su-border-digital-red-light su-rs-mb-2"
+    />
+    <Poster.Content className="su-text-white">
+      <Poster.Headline>Title</Poster.Headline>
+      <p className="su-big-paragraph su-leading-snug">
+        Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
+        feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
+        faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
+        vitae iaculis lacus elit id tortor.
+      </p>
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="unset"
+        size="unset"
+        href="https://decanter.stanford.edu"
+        className="su-rs-mt-0 su-border-2 su-border-white su-text-white hocus:su-text-white su-px-20 su-pt-14 su-pb-16"
+      />
     </Poster.Content>
   </Poster>
 );
 
 export const Default = PosterTemplate.bind({});
+Default.args = {
+  bgColor: "su-bg-foggy-light",
+};
 Default.storyName = "Default";
 
 export const DefaultLeft = PosterTemplate.bind({});
 DefaultLeft.args = {
+  bgColor: "su-bg-foggy-light",
   layout: "left",
 };
 DefaultLeft.storyName = "Default, Left Algin";
 
 export const DefaultImage = PosterTemplateImage.bind({});
+DefaultImage.args = {
+  bgColor: "su-bg-foggy-light",
+};
 DefaultImage.storyName = "Default with Image, Center Align";
 
 export const DefaultImageLeft = PosterTemplateImageLeft.bind({});
 DefaultImageLeft.args = {
+  bgColor: "su-bg-foggy-light",
   layout: "left",
 };
 DefaultImageLeft.storyName = "Default with Image, Left Align";
 
 export const DefaultGreyBg = PosterTemplateImage.bind({});
 DefaultGreyBg.args = {
-  bgColor: "su-bg-foggy-light",
+  bgColor: "su-bg-white",
 };
-DefaultGreyBg.storyName = "Default Light Grey Background";
+DefaultGreyBg.storyName = "Default White Background";
 
 export const DefaultBlackBg = PosterTemplateCustomLeft.bind({});
 DefaultBlackBg.args = {
@@ -159,6 +209,7 @@ CustomPoster.args = {
   bgImage: {
     src: "https://placekitten.com/600/400",
   },
+  bgGradient: "linear-gradient(to bottom, transparent, #181D1C)",
 };
 CustomPoster.storyName = "Custom Poster with Bg Gradient, Center Align";
 
@@ -172,3 +223,9 @@ CustomPosterLeft.args = {
   layout: "left",
 };
 CustomPosterLeft.storyName = "Custom Poster with Bg Gradient, Left Align";
+
+export const CustomPosterBorder = PosterTemplateCustomBorder.bind({});
+CustomPosterBorder.args = {
+  bgColor: "su-bg-lagunita",
+};
+CustomPosterBorder.storyName = "Custom Poster with CtaButton";

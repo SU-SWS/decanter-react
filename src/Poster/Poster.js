@@ -31,11 +31,11 @@ const PosterRoot = ({
     contentWrapper = "last:su-items-start md:su-flex-grow";
   } else {
     wrapperClasses = "su-flex su-flex-col su-items-center";
-    contentWrapper = "last:su-items-center su-text-center";
+    contentWrapper = "last:su-items-center su-text-center su-align-center";
     imageWrapper = "first:su-rs-mb-2";
   }
 
-  let gradientOverlay = "linear-gradient(to bottom, transparent, #181D1C)";
+  let gradientOverlay = "";
   let bgImageStyle = {};
 
   if (bgGradient) {

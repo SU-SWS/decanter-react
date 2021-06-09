@@ -14,12 +14,6 @@ export const Image = ({ image, className }) => {
     delete image.alt;
   }
 
-  // Remove image className
-  if (image.className) {
-    // eslint-disable-next-line no-param-reassign
-    delete image.className;
-  }
-
   return (
     <div
       className={dcnb(
@@ -31,7 +25,10 @@ export const Image = ({ image, className }) => {
       <img
         {...image}
         alt=""
-        className="su-object-cover su-w-full su-h-full su-object-center"
+        className={dcnb(
+          "su-object-cover su-w-full su-h-full su-object-center",
+          image.className
+        )}
       />
     </div>
   );
