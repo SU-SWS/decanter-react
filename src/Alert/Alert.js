@@ -60,7 +60,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         break;
 
       case "warning":
-        levers.wrapper = "su-bg-illuminating-dark";
+        levers.wrapper = "su-bg-illuminating-dark su-link-black";
         levers.body = darkText;
         levers.dismiss = "black";
         defaultIcon = (
