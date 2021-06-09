@@ -11,6 +11,8 @@ import { VerticalNavContext } from "./VerticalNav.context";
  */
 export const Item = ({
   active,
+  inActivePath,
+  level,
   className,
   children,
   id,

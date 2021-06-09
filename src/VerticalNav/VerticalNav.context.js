@@ -74,30 +74,3 @@ export const VerticalNavStateProvider = ({ children, tree }) => {
     </VerticalNavContextProvider>
   );
 };
-
-/**
- *
- * @param {*} children
- * @returns
- */
-export const FindActiveInChildren = (children) => {
-  if (!Array.isArray(children)) {
-    return false;
-  }
-
-  const vals = children.map((item) => {
-    if (item.props.active === true) {
-      return true;
-    }
-    if (item.props.children) {
-      return FindActiveInChildren(item.props.children);
-    }
-    return false;
-  });
-
-  // Reduce all the true/false values of the search down to one keeping true if
-  // available and returning false if active was not found.
-  const reduce = vals.flat().reduce((acc, curr) => acc || curr);
-
-  return reduce;
-};

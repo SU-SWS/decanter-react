@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import nextId from "react-id-generator";
-import { FindActiveInChildren } from "./VerticalNav.context";
 
 /**
  *
@@ -12,22 +11,17 @@ import { FindActiveInChildren } from "./VerticalNav.context";
 export const Group = ({
   children,
   className,
+  inActivePath,
   level,
   id,
   ref,
   key,
   ...props
 }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
   const htmlId = id || nextId("nav-group-");
   const keyId = key || htmlId;
-  const inActiveTree = FindActiveInChildren(children);
 
-  useEffect(() => {
-    setIsExpanded(inActiveTree || level === 1);
-  }, [inActiveTree, level]);
-
-  if (!isExpanded) {
+  if (!inActivePath && level > 1) {
     return null;
   }
 

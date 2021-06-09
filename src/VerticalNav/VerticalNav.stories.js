@@ -25,173 +25,476 @@ export default {
   },
 };
 
-// Set up a VertNav Template.
-const VerticalNavTemplate = ({ children, ...rest }) => (
-  <>
-    <VerticalNav {...rest}>
-      <VerticalNav.Group>
-        <VerticalNav.Item>
-          <a href="#">Item One</a>
-          <VerticalNav.Group>
-            <VerticalNav.Item>
-              <a href="#">Item One - One</a>
-              <VerticalNav.Group>
-                <VerticalNav.Item>
-                  <a href="#">Item One - One - One</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item One - One - Two</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item One - One - Three</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item One - One - Four</a>
-                </VerticalNav.Item>
-              </VerticalNav.Group>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item One - Two</a>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item One - Three</a>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item One - Four</a>
-            </VerticalNav.Item>
-          </VerticalNav.Group>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Two</a>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Three</a>
-          <VerticalNav.Group>
-            <VerticalNav.Item>
-              <a href="#">Item Three - One</a>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item Three - Two</a>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item Three - Three</a>
-              <VerticalNav.Group>
-                <VerticalNav.Item>
-                  <a href="#">Item Three - Three - One</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item active>
-                  <a href="#">Item Three - Three - Two</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item Three - Three - Three</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item Three - Three - Four</a>
-                </VerticalNav.Item>
-              </VerticalNav.Group>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item Three - Four</a>
-            </VerticalNav.Item>
-          </VerticalNav.Group>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Four</a>
-        </VerticalNav.Item>
-      </VerticalNav.Group>
-    </VerticalNav>
-
-    <p> --------------------------------------------- </p>
-
-    <VerticalNav {...rest}>
-      <VerticalNav.Group>
-        <VerticalNav.Item>
-          <a href="#">Item One</a>
-          <VerticalNav.Group>
-            <VerticalNav.Item active>
-              <a href="#">Item One - One</a>
-              <VerticalNav.Group>
-                <VerticalNav.Item>
-                  <a href="#">Item One - One - One</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item One - One - Two</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item One - One - Three</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item One - One - Four</a>
-                </VerticalNav.Item>
-              </VerticalNav.Group>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item One - Two</a>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item One - Three</a>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item One - Four</a>
-            </VerticalNav.Item>
-          </VerticalNav.Group>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Two</a>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Three</a>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Four</a>
-        </VerticalNav.Item>
-      </VerticalNav.Group>
-      <VerticalNav.Group>
-        <VerticalNav.Item>
-          <a href="#">Item Five</a>
-          <VerticalNav.Group>
-            <VerticalNav.Item>
-              <a href="#">Item Five - One</a>
-              <VerticalNav.Group>
-                <VerticalNav.Item>
-                  <a href="#">Item Five - One - One</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item Five - One - Two</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item Five - One - Three</a>
-                </VerticalNav.Item>
-                <VerticalNav.Item>
-                  <a href="#">Item Five - One - Four</a>
-                </VerticalNav.Item>
-              </VerticalNav.Group>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item Five - Two</a>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item Five - Three</a>
-            </VerticalNav.Item>
-            <VerticalNav.Item>
-              <a href="#">Item Five - Four</a>
-            </VerticalNav.Item>
-          </VerticalNav.Group>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Six</a>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Seven</a>
-        </VerticalNav.Item>
-        <VerticalNav.Item>
-          <a href="#">Item Eight</a>
-        </VerticalNav.Item>
-      </VerticalNav.Group>
-    </VerticalNav>
-  </>
-);
-
 // Default State
 // /////////////////////////////////////////////////////////////////////////////
+
+const VerticalNavTemplate = ({ children, ...rest }) => (
+  <VerticalNav {...rest}>
+    <VerticalNav.Group>
+      <VerticalNav.Item>
+        <a href="#">Item One</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item>
+            <a href="#">Item One - One</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Three</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Three</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Two</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Three</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item>
+            <a href="#">Item Three - One</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Three</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item active>
+                <a href="#">Item Three - Three - Three</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Four</a>
+      </VerticalNav.Item>
+    </VerticalNav.Group>
+  </VerticalNav>
+);
 export const Default = VerticalNavTemplate.bind({});
+
+// No Active State
+// /////////////////////////////////////////////////////////////////////////////
+
+const VerticalNavTemplateNoActive = ({ children, ...rest }) => (
+  <VerticalNav {...rest}>
+    <VerticalNav.Group>
+      <VerticalNav.Item>
+        <a href="#">Item One</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item>
+            <a href="#">Item One - One</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Three</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Three</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Two</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Three</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item>
+            <a href="#">Item Three - One</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Three</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - Three</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Four</a>
+      </VerticalNav.Item>
+    </VerticalNav.Group>
+  </VerticalNav>
+);
+export const NoActivePath = VerticalNavTemplateNoActive.bind({});
+
+// No Active State
+// /////////////////////////////////////////////////////////////////////////////
+
+const VerticalNavTemplateMultipleActive = ({ children, ...rest }) => (
+  <VerticalNav {...rest}>
+    <VerticalNav.Group>
+      <VerticalNav.Item>
+        <a href="#">Item One</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item>
+            <a href="#">Item One - One</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item active>
+                <a href="#">Item One - One - Three</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Three</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Two</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Three</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item active>
+            <a href="#">Item Three - One</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Three</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item Three - Three - Three</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item active>
+                <a href="#">Item Three - Three - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item Three - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Four</a>
+      </VerticalNav.Item>
+    </VerticalNav.Group>
+  </VerticalNav>
+);
+export const MultipleActivePaths = VerticalNavTemplateMultipleActive.bind({});
+
+// Deep Nesting
+// /////////////////////////////////////////////////////////////////////////////
+
+const VerticalNavDeepNesting = ({ children, ...rest }) => (
+  <VerticalNav {...rest}>
+    <VerticalNav.Group>
+      <VerticalNav.Item>
+        <a href="#">Item One</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item>
+            <a href="#">Item One - One</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Three</a>
+                <VerticalNav.Group>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - One</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Two</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Three</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Four</a>
+                    <VerticalNav.Group>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - One</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - Two</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item active>
+                        <a href="#">Item One - One - Three - Four - Three</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - Four</a>
+                      </VerticalNav.Item>
+                    </VerticalNav.Group>
+                  </VerticalNav.Item>
+                </VerticalNav.Group>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Three</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Two</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Three</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Four</a>
+      </VerticalNav.Item>
+    </VerticalNav.Group>
+  </VerticalNav>
+);
+export const DeepNesting = VerticalNavDeepNesting.bind({});
+
+// Deep Nesting - With Style
+// /////////////////////////////////////////////////////////////////////////////
+
+const VerticalNavDeepNestingStyled = ({ children, ...rest }) => (
+  <VerticalNav {...rest}>
+    <VerticalNav.Group>
+      <VerticalNav.Item>
+        <a href="#">Item One</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item>
+            <a href="#">Item One - One</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Three</a>
+                <VerticalNav.Group>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - One</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Two</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Three</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Four</a>
+                    <VerticalNav.Group>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - One</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - Two</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item active>
+                        <a href="#">Item One - One - Three - Four - Three</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - Four</a>
+                      </VerticalNav.Item>
+                    </VerticalNav.Group>
+                  </VerticalNav.Item>
+                </VerticalNav.Group>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Three</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Two</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Three</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Four</a>
+      </VerticalNav.Item>
+    </VerticalNav.Group>
+  </VerticalNav>
+);
+export const DeepNestingStyled = VerticalNavDeepNestingStyled.bind({});
+
+// Deep Nesting - Active Path
+// /////////////////////////////////////////////////////////////////////////////
+
+const VerticalNavDeepNestingActivePath = ({ children, ...rest }) => (
+  <VerticalNav {...rest}>
+    <VerticalNav.Group>
+      <VerticalNav.Item>
+        <a href="#">Item One</a>
+        <VerticalNav.Group>
+          <VerticalNav.Item>
+            <a href="#">Item One - One</a>
+            <VerticalNav.Group>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - One</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Two</a>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Three</a>
+                <VerticalNav.Group>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - One</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Two</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Three</a>
+                  </VerticalNav.Item>
+                  <VerticalNav.Item>
+                    <a href="#">Item One - One - Three - Four</a>
+                    <VerticalNav.Group>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - One</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - Two</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item active>
+                        <a href="#">Item One - One - Three - Four - Three</a>
+                      </VerticalNav.Item>
+                      <VerticalNav.Item>
+                        <a href="#">Item One - One - Three - Four - Four</a>
+                      </VerticalNav.Item>
+                    </VerticalNav.Group>
+                  </VerticalNav.Item>
+                </VerticalNav.Group>
+              </VerticalNav.Item>
+              <VerticalNav.Item>
+                <a href="#">Item One - One - Four</a>
+              </VerticalNav.Item>
+            </VerticalNav.Group>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Two</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Three</a>
+          </VerticalNav.Item>
+          <VerticalNav.Item>
+            <a href="#">Item One - Four</a>
+          </VerticalNav.Item>
+        </VerticalNav.Group>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Two</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Three</a>
+      </VerticalNav.Item>
+      <VerticalNav.Item>
+        <a href="#">Item Four</a>
+      </VerticalNav.Item>
+    </VerticalNav.Group>
+  </VerticalNav>
+);
+export const DeepNestingActivePath = VerticalNavDeepNestingActivePath.bind({});
