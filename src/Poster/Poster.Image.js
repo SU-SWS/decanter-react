@@ -29,11 +29,14 @@ Image.propTypes = {
     PropTypes.array,
     PropTypes.object,
   ]),
+  
+  // Children
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
 
-  // Image
-  image: PropTypes.shape({
-    src: PropTypes.string,
-  }),
 };
 
 // Default Props.
