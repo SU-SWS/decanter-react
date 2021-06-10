@@ -184,8 +184,6 @@
     return classes;
   };
 
-  var _excluded = ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"],
-      _excluded2 = ["className"];
   var Button = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
     var className = _ref.className,
         children = _ref.children,
@@ -197,7 +195,7 @@
         iconProps = _ref.iconProps,
         animate = _ref.animate,
         isDisabled = _ref.isDisabled,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"]);
 
     var levers = {};
 
@@ -251,7 +249,7 @@
 
     var _ref2 = iconProps || {},
         iconClasses = _ref2.className,
-        iProps = _objectWithoutPropertiesLoose(_ref2, _excluded2);
+        iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
 
     return /*#__PURE__*/React__default.createElement("button", _extends({
       className: cnbuilder.dcnb("su-button su-group su-leading-display", levers.variant, levers.size, levers.disabled, className),
@@ -303,7 +301,6 @@
     srText: "(link is external)"
   };
 
-  var _excluded$1 = ["className", "text", "srText", "color", "icon", "iconType", "iconSize", "iconProps", "customIcon", "onClick"];
   var DismissButton = function DismissButton(_ref) {
     var className = _ref.className,
         text = _ref.text,
@@ -315,7 +312,7 @@
         iconProps = _ref.iconProps,
         customIcon = _ref.customIcon,
         onClick = _ref.onClick,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "color", "icon", "iconType", "iconSize", "iconProps", "customIcon", "onClick"]);
 
     var levers = {};
     iconProps = _extends({
@@ -380,14 +377,13 @@
     iconType: "solid"
   };
 
-  var _excluded$2 = ["classes", "children"];
   var Alert = function Alert(_ref) {
     var _props$icon, _props$dismissBtn, _props$label, _props$label2;
 
     var _ref$classes = _ref.classes,
         classes = _ref$classes === void 0 ? {} : _ref$classes,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
+        props = _objectWithoutPropertiesLoose(_ref, ["classes", "children"]);
 
     var levers = {};
     var iconProps = {
@@ -563,13 +559,12 @@
     "4x3": "su-aspect-w-4 su-aspect-h-3"
   };
 
-  var _excluded$3 = ["weight", "className", "children", "isUppercase"];
   var Superhead = function Superhead(_ref) {
     var weight = _ref.weight,
         className = _ref.className,
         children = _ref.children,
         isUppercase = _ref.isUppercase,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
+        props = _objectWithoutPropertiesLoose(_ref, ["weight", "className", "children", "isUppercase"]);
 
     var superheadWeight = superheadWeights[weight];
     var uppercase = "";
@@ -640,7 +635,6 @@
     return int;
   });
 
-  var _excluded$4 = ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children"];
   var Heading = function Heading(_ref) {
     var className = _ref.className,
         level = _ref.level,
@@ -653,7 +647,7 @@
         italic = _ref.italic,
         srOnly = _ref.srOnly,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$4);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children"]);
 
     var levers = {};
     var HeadingTag = "h2";
@@ -718,7 +712,6 @@
     weight: "bold"
   };
 
-  var _excluded$5 = ["children", "level", "size", "weight", "font", "className"];
   var Headline = function Headline(_ref) {
     var children = _ref.children,
         level = _ref.level,
@@ -726,7 +719,7 @@
         weight = _ref.weight,
         font = _ref.font,
         className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
+        props = _objectWithoutPropertiesLoose(_ref, ["children", "level", "size", "weight", "font", "className"]);
 
     return /*#__PURE__*/React__default.createElement(Heading, _extends({
       level: level,
@@ -799,7 +792,6 @@
     stretch: "su-items-stretch"
   };
 
-  var _excluded$6 = ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"];
   var FlexBox = function FlexBox(_ref) {
     var element = _ref.element,
         direction = _ref.direction,
@@ -812,7 +804,7 @@
         className = _ref.className,
         children = _ref.children,
         ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+        props = _objectWithoutPropertiesLoose(_ref, ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"]);
 
     var levers = {};
     var Element = "div";
@@ -875,12 +867,11 @@
     gap: false
   };
 
-  var _excluded$7 = ["children", "className", "align"];
   var Content = function Content(_ref) {
     var children = _ref.children,
         className = _ref.className,
         align = _ref.align,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
+        props = _objectWithoutPropertiesLoose(_ref, ["children", "className", "align"]);
 
     var bodyAlign = "su-items-start";
     var contentClass = "";
@@ -944,14 +935,12 @@
     aspectRatio: "2x1"
   };
 
-  var _excluded$8 = ["className", "children", "element", "isMinimal"];
-
   var CardRoot = function CardRoot(_ref) {
     var className = _ref.className,
         children = _ref.children,
         element = _ref.element,
         isMinimal = _ref.isMinimal,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "element", "isMinimal"]);
 
     var Element = "div";
 
@@ -990,14 +979,13 @@
   var containerElements = ["div", "section", "article", "main", "footer", "aside", "header", "nav", "form"];
   var containerWidths = ["full", "screen", "site"];
 
-  var _excluded$9 = ["className", "element", "width", "children", "ref"];
   var Container = function Container(_ref) {
     var className = _ref.className,
         element = _ref.element,
         width = _ref.width,
         children = _ref.children,
         ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "element", "width", "children", "ref"]);
 
     var levers = {};
     var Element = "div";
@@ -1043,8 +1031,6 @@
 
   var ctaButtonVariants = ["solid", "outline", "ghost", "unset"];
 
-  var _excluded$a = ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"],
-      _excluded2$1 = ["className"];
   var CtaButton = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
     var className = _ref.className,
         text = _ref.text,
@@ -1054,7 +1040,7 @@
         icon = _ref.icon,
         iconProps = _ref.iconProps,
         animate = _ref.animate,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"]);
 
     var levers = {};
 
@@ -1091,7 +1077,7 @@
 
     var _ref2 = iconProps || {},
         iconClasses = _ref2.className,
-        iProps = _objectWithoutPropertiesLoose(_ref2, _excluded2$1);
+        iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
 
     return /*#__PURE__*/React__default.createElement("a", _extends({
       className: cnbuilder.dcnb("su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors", levers.size, levers.variant, className),
@@ -1122,8 +1108,6 @@
 
   var ctaLinkColors = ["red", "blue", "white", "unset"];
 
-  var _excluded$b = ["className", "text", "srText", "color", "icon", "iconProps", "animate"],
-      _excluded2$2 = ["className"];
   var CtaLink = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
     var className = _ref.className,
         text = _ref.text,
@@ -1132,7 +1116,7 @@
         icon = _ref.icon,
         iconProps = _ref.iconProps,
         animate = _ref.animate,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "text", "srText", "color", "icon", "iconProps", "animate"]);
 
     var levers = {};
 
@@ -1165,7 +1149,7 @@
 
     var _ref2 = iconProps || {},
         iconClasses = _ref2.className,
-        iProps = _objectWithoutPropertiesLoose(_ref2, _excluded2$2);
+        iProps = _objectWithoutPropertiesLoose(_ref2, ["className"]);
 
     return /*#__PURE__*/React__default.createElement("a", _extends({
       className: cnbuilder.dcnb("su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors", levers.color, levers.size, levers.variant, className),
@@ -1320,8 +1304,6 @@
     none: "su-order-none"
   };
 
-  var _excluded$c = ["className", "children", "ref", "flex", "grow", "shrink", "order", "element"],
-      _excluded2$3 = ["xs", "sm", "md", "lg", "xl", "xxl"];
   var FlexCell = function FlexCell(_ref) {
     var className = _ref.className,
         children = _ref.children,
@@ -1331,11 +1313,11 @@
         shrink = _ref.shrink,
         order = _ref.order,
         element = _ref.element,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref", "flex", "grow", "shrink", "order", "element"]);
 
     var levers = {};
 
-    var rest = _objectWithoutPropertiesLoose(props, _excluded2$3);
+    var rest = _objectWithoutPropertiesLoose(props, ["xs", "sm", "md", "lg", "xl", "xxl"]);
 
     var Element = "div";
 
@@ -1417,10 +1399,9 @@
   var logoColors = ["cardinal-red", "black", "white"];
   var logoTypes = ["short", "full", "stacked"];
 
-  var _excluded$d = ["className"];
   var Logo = function Logo(_ref) {
     var className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
+        props = _objectWithoutPropertiesLoose(_ref, ["className"]);
 
     var levers = {};
     var logoText;
@@ -1482,10 +1463,9 @@
     isLink: true
   };
 
-  var _excluded$e = ["className"];
   var GlobalFooter = function GlobalFooter(_ref) {
     var className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
+        props = _objectWithoutPropertiesLoose(_ref, ["className"]);
 
     var levers = {};
 
@@ -1673,19 +1653,17 @@
     }
   };
 
-  var _excluded$f = ["element", "gap", "className", "children", "ref"],
-      _excluded2$4 = ["xs", "sm", "md", "lg", "xl", "xxl"];
   var Grid = function Grid(_ref) {
     var element = _ref.element,
         gap = _ref.gap,
         className = _ref.className,
         children = _ref.children,
         ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
+        props = _objectWithoutPropertiesLoose(_ref, ["element", "gap", "className", "children", "ref"]);
 
     var levers = {};
 
-    var rest = _objectWithoutPropertiesLoose(props, _excluded2$4);
+    var rest = _objectWithoutPropertiesLoose(props, ["xs", "sm", "md", "lg", "xl", "xxl"]);
 
     var Element = "div";
 
@@ -1884,8 +1862,6 @@
     auto: "su-row-start-auto"
   };
 
-  var _excluded$g = ["className", "children", "ref", "colStart", "rowStart", "row"],
-      _excluded2$5 = ["xs", "sm", "md", "lg", "xl", "xxl"];
   var GridCell = function GridCell(_ref) {
     var className = _ref.className,
         children = _ref.children,
@@ -1893,11 +1869,11 @@
         colStart = _ref.colStart,
         rowStart = _ref.rowStart,
         row = _ref.row,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "ref", "colStart", "rowStart", "row"]);
 
     var levers = {};
 
-    var rest = _objectWithoutPropertiesLoose(props, _excluded2$5);
+    var rest = _objectWithoutPropertiesLoose(props, ["xs", "sm", "md", "lg", "xl", "xxl"]);
 
     var Element = "div";
 
@@ -1967,10 +1943,9 @@
 
   var identityBarColors = ["cardinal-red", "digital-red", "black", "white"];
 
-  var _excluded$h = ["className"];
   var IdentityBar = function IdentityBar(_ref) {
     var className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
+        props = _objectWithoutPropertiesLoose(_ref, ["className"]);
 
     var levers = {};
 
@@ -2020,12 +1995,11 @@
 
   var lockupColors = ["default", "white"];
 
-  var _excluded$i = ["classes", "line1"];
   var Lockup = function Lockup(_ref) {
     var _ref$classes = _ref.classes,
         classes = _ref$classes === void 0 ? {} : _ref$classes,
         line1 = _ref.line1,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$i);
+        props = _objectWithoutPropertiesLoose(_ref, ["classes", "line1"]);
 
     var levers = {};
 
@@ -2085,14 +2059,13 @@
     isLink: true
   };
 
-  var _excluded$j = ["classes", "children"];
   var LocalFooter = function LocalFooter(_ref) {
     var _props$buttonText;
 
     var _ref$classes = _ref.classes,
         classes = _ref$classes === void 0 ? {} : _ref$classes,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
+        props = _objectWithoutPropertiesLoose(_ref, ["classes", "children"]);
 
     var levers = {};
 
@@ -2189,7 +2162,6 @@
 
   var layoutOptions = ["left", "center"];
 
-  var _excluded$k = ["children", "level", "size", "weight", "font", "className"];
   var Headline$1 = function Headline(_ref) {
     var children = _ref.children,
         level = _ref.level,
@@ -2197,7 +2169,7 @@
         weight = _ref.weight,
         font = _ref.font,
         className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
+        props = _objectWithoutPropertiesLoose(_ref, ["children", "level", "size", "weight", "font", "className"]);
 
     return /*#__PURE__*/React__default.createElement(Heading, _extends({
       level: level,
@@ -2220,17 +2192,16 @@
     className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
   };
   Headline$1.defaultProps = {
-    level: 3,
-    size: 2,
+    level: 2,
+    size: 3,
     weight: "bold",
-    font: "sans"
+    font: "serif"
   };
 
-  var _excluded$l = ["children", "className"];
   var Content$1 = function Content(_ref) {
     var children = _ref.children,
         className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
+        props = _objectWithoutPropertiesLoose(_ref, ["children", "className"]);
 
     return /*#__PURE__*/React__default.createElement(FlexBox, _extends({
       direction: "col",
@@ -2244,11 +2215,10 @@
   };
   Content$1.defaultProps = {};
 
-  var _excluded$m = ["className", "children"];
   var Image$1 = function Image(_ref) {
     var className = _ref.className,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children"]);
 
     return /*#__PURE__*/React__default.createElement("div", _extends({
       className: cnbuilder.dcnb("su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min", className),
@@ -2270,36 +2240,41 @@
         bgColor = _ref.bgColor,
         className = _ref.className,
         children = _ref.children,
+        isGradient = _ref.isGradient,
         layout = _ref.layout;
     var wrapperClasses;
-    var imageWrapper;
-    var contentWrapper;
 
     if (layout === "left") {
-      wrapperClasses = "su-flex su-flex-col su-justify-center md:su-flex-row";
-      imageWrapper = "first:su-min-w-[14rem] su-rs-mb-2 su-mx-auto md:su-rs-mr-4 md:su-mb-0 md:su-ml-0";
-      contentWrapper = "last:su-items-start md:su-flex-grow";
+      wrapperClasses = "su-flex su-flex-col su-justify-center md:su-flex-row su-min-w-min";
     } else {
       wrapperClasses = "su-flex su-flex-col su-items-center";
-      contentWrapper = "last:su-items-center su-text-center su-align-center";
-      imageWrapper = "first:su-rs-mb-2";
     }
 
     var gradientOverlay = "";
     var bgImageStyle = {};
 
-    if (bgGradient) {
-      gradientOverlay = bgGradient;
-    }
-
     if (src) {
       bgImageStyle = {
-        backgroundImage: gradientOverlay + ", url('" + src + "')"
+        backgroundImage: "url('" + src + "')"
       };
     }
 
+    if (isGradient) {
+      gradientOverlay = "linear-gradient(to bottom, transparent, #181D1C)";
+
+      if (bgGradient) {
+        gradientOverlay = bgGradient;
+      }
+
+      if (src) {
+        bgImageStyle = {
+          backgroundImage: gradientOverlay + ", url('" + src + "')"
+        };
+      }
+    }
+
     return /*#__PURE__*/React__default.createElement("div", {
-      className: cnbuilder.dcnb("poster su-basefont-23 su-rs-pt-5 su-rs-pb-6 su-bg-cover su-bg-no-repeat", wrapperClasses, imageWrapper, contentWrapper, bgColor, className),
+      className: cnbuilder.dcnb("poster su-basefont-23 su-rs-pt-5 su-rs-pb-6 su-bg-cover su-bg-no-repeat", wrapperClasses, bgColor, className),
       style: bgImageStyle
     }, children);
   };
@@ -2314,20 +2289,23 @@
     className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
     layout: PropTypes.oneOf(layoutOptions),
+    isGradient: PropTypes.bool,
     bgImage: PropTypes.shape({
       src: PropTypes.string
-    })
+    }),
+    bgGradient: PropTypes.string,
+    bgColor: PropTypes.string
   };
   PosterRoot.defaultProps = {
-    layout: "center"
+    layout: "center",
+    isGradient: false
   };
 
-  var _excluded$n = ["anchorLink", "className", "children"];
   var Skiplink = function Skiplink(_ref) {
     var anchorLink = _ref.anchorLink,
         className = _ref.className,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
+        props = _objectWithoutPropertiesLoose(_ref, ["anchorLink", "className", "children"]);
 
     return /*#__PURE__*/React__default.createElement("a", _extends({
       href: anchorLink != null ? anchorLink : "#main-content",

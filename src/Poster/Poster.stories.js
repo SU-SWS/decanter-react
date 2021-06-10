@@ -34,7 +34,7 @@ const PosterTemplate = ({ ...rest }) => (
   <Poster {...rest}>
     <Poster.Content>
       <Poster.Headline>Title</Poster.Headline>
-      <p className="su-big-paragraph su-leading-snug">
+      <p className="su-big-paragraph su-leading-snug last:su-mb-0">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -55,7 +55,7 @@ const PosterTemplateImage = ({ ...rest }) => (
     </Poster.Image>
     <Poster.Content className="su-items-center su-text-center su-align-center">
       <Poster.Headline>Title</Poster.Headline>
-      <p className="su-big-paragraph su-leading-snug">
+      <p className="su-big-paragraph su-leading-snug last:su-mb-0">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -77,7 +77,7 @@ const PosterTemplateImageLeft = ({ ...rest }) => (
 
     <Poster.Content className="su-items-start md:su-flex-grow">
       <Poster.Headline>Title</Poster.Headline>
-      <p className="su-big-paragraph su-leading-snug">
+      <p className="su-big-paragraph su-leading-snug last:su-mb-0">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -98,7 +98,7 @@ const PosterTemplateCustom = ({ ...rest }) => (
     </Poster.Image>
     <Poster.Content className="su-text-white su-items-center su-text-center su-align-center">
       <Poster.Headline>Title</Poster.Headline>
-      <p className="su-big-paragraph su-leading-snug">
+      <p className="su-big-paragraph su-leading-snug last:su-mb-0">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -119,7 +119,7 @@ const PosterTemplateCustomLeft = ({ ...rest }) => (
     </Poster.Image>
     <Poster.Content className="su-text-white su-items-start md:su-flex-grow">
       <Poster.Headline>Title</Poster.Headline>
-      <p className="su-big-paragraph su-leading-snug">
+      <p className="su-big-paragraph su-leading-snug last:su-mb-0">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -131,9 +131,9 @@ const PosterTemplateCustomLeft = ({ ...rest }) => (
         animate="right"
         icon="more"
         variant="unset"
-        size="unset"
+        size="big"
         href="https://decanter.stanford.edu"
-        className="su-rs-mt-0 su-bg-white hocus:su-bg-lagunita su-text-black hocus:su-text-white su-px-20 su-pt-14 su-pb-16"
+        className="su-rs-mt-0 su-bg-white hocus:su-bg-lagunita su-text-black hocus:su-text-white"
       />
     </Poster.Content>
   </Poster>
@@ -150,7 +150,7 @@ const PosterTemplateCustomBorder = ({ ...rest }) => (
     </Poster.Image>
     <Poster.Content className="su-text-white su-items-center su-text-center su-align-center">
       <Poster.Headline>Title</Poster.Headline>
-      <p className="su-big-paragraph su-leading-snug">
+      <p className="su-big-paragraph su-leading-snug last:su-mb-0">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
         feugiat. Maecenas egestas arcu quis ligula mattis placerat. Suspendisse
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
@@ -161,10 +161,10 @@ const PosterTemplateCustomBorder = ({ ...rest }) => (
         srText="about Decanter"
         animate="right"
         icon="more"
-        variant="unset"
-        size="unset"
+        variant="ghost"
+        size="small"
         href="https://decanter.stanford.edu"
-        className="su-rs-mt-0 su-border-2 su-border-white su-text-white hocus:su-text-white su-px-20 su-pt-14 su-pb-16"
+        className="su-rs-mt-0"
       />
     </Poster.Content>
   </Poster>

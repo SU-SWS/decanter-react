@@ -76,8 +76,8 @@ Headline.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Headline.defaultProps = {
-  level: 3,
-  size: 2,
+  level: 2,
+  size: 3,
   weight: "bold",
-  font: "sans",
+  font: "serif",
 };
