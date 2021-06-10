@@ -2254,9 +2254,7 @@ var Image$1 = function Image(_ref) {
 Image$1.displayName = "Poster.Image";
 Image$1.propTypes = {
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
-  image: PropTypes.shape({
-    src: PropTypes.string
-  })
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
 };
 Image$1.defaultProps = {};
 

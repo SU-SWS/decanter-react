@@ -1,7 +1,6 @@
 import React from "react";
 import { Poster } from "./Poster";
 import { layoutOptions } from "./Poster.levers";
-import { CtaLink } from "../CtaLink/CtaLink";
 import { CtaButton } from "../CtaButton/CtaButton";
 
 export default {
