@@ -53,7 +53,7 @@ const PosterTemplateImage = ({ ...rest }) => (
         alt=""
       />
     </Poster.Image>
-    <Poster.Content>
+    <Poster.Content className="su-items-center su-text-center su-align-center">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
@@ -75,7 +75,7 @@ const PosterTemplateImageLeft = ({ ...rest }) => (
       />
     </Poster.Image>
 
-    <Poster.Content>
+    <Poster.Content className="su-items-start md:su-flex-grow">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
@@ -96,8 +96,7 @@ const PosterTemplateCustom = ({ ...rest }) => (
         alt=""
       />
     </Poster.Image>
-
-    <Poster.Content className="su-text-white">
+    <Poster.Content className="su-text-white su-items-center su-text-center su-align-center">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
@@ -118,7 +117,7 @@ const PosterTemplateCustomLeft = ({ ...rest }) => (
         alt=""
       />
     </Poster.Image>
-    <Poster.Content className="su-text-white">
+    <Poster.Content className="su-text-white su-items-start md:su-flex-grow">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
@@ -149,8 +148,7 @@ const PosterTemplateCustomBorder = ({ ...rest }) => (
         alt=""
       />
     </Poster.Image>
-
-    <Poster.Content className="su-text-white">
+    <Poster.Content className="su-text-white su-items-center su-text-center su-align-center">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
@@ -178,25 +176,18 @@ Default.args = {
 };
 Default.storyName = "Default";
 
-export const DefaultLeft = PosterTemplate.bind({});
-DefaultLeft.args = {
-  bgColor: "su-bg-foggy-light",
-  layout: "left",
-};
-DefaultLeft.storyName = "Default, Left Algin";
-
 export const DefaultImage = PosterTemplateImage.bind({});
 DefaultImage.args = {
   bgColor: "su-bg-foggy-light",
 };
-DefaultImage.storyName = "Default with Image, Center Align";
+DefaultImage.storyName = "Default with Image, Center layout";
 
 export const DefaultImageLeft = PosterTemplateImageLeft.bind({});
 DefaultImageLeft.args = {
   bgColor: "su-bg-foggy-light",
   layout: "left",
 };
-DefaultImageLeft.storyName = "Default with Image, Left Align";
+DefaultImageLeft.storyName = "Default with Image, Left layout";
 
 export const DefaultGreyBg = PosterTemplateImage.bind({});
 DefaultGreyBg.args = {
@@ -216,9 +207,9 @@ CustomPoster.args = {
   bgImage: {
     src: "https://placekitten.com/600/400",
   },
-  bgGradient: "linear-gradient(to bottom, transparent, #181D1C)",
+  isGradient: true,
 };
-CustomPoster.storyName = "Custom Poster with Bg Gradient, Center Align";
+CustomPoster.storyName = "Custom Poster with Bg Gradient, Center layout";
 
 export const CustomPosterLeft = PosterTemplateCustomLeft.bind({});
 CustomPosterLeft.args = {
@@ -228,8 +219,9 @@ CustomPosterLeft.args = {
   bgGradient:
     "linear-gradient(240deg, rgba(24, 29, 28) 10%, rgba(98, 0, 89, 0.85) 60%, rgb(177, 4, 14) 100%)",
   layout: "left",
+  isGradient: true,
 };
-CustomPosterLeft.storyName = "Custom Poster with Bg Gradient, Left Align";
+CustomPosterLeft.storyName = "Custom Poster with Bg Gradient, Left layout";
 
 export const CustomPosterBorder = PosterTemplateCustomBorder.bind({});
 CustomPosterBorder.args = {
