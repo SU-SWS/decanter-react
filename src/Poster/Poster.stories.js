@@ -47,12 +47,13 @@ const PosterTemplate = ({ ...rest }) => (
 
 const PosterTemplateImage = ({ ...rest }) => (
   <Poster {...rest}>
-    <Poster.Image
-      image={{
-        src: "https://placekitten.com/600/400",
-      }}
-      className="su-rs-mb-2"
-    />
+    <Poster.Image className="su-rs-mb-2">
+      <img
+        src="https://placekitten.com/600/400"
+        className="su-object-cover su-w-full su-h-full su-object-center"
+        alt=""
+      />
+    </Poster.Image>
     <Poster.Content>
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
@@ -67,12 +68,14 @@ const PosterTemplateImage = ({ ...rest }) => (
 
 const PosterTemplateImageLeft = ({ ...rest }) => (
   <Poster {...rest}>
-    <Poster.Image
-      image={{
-        src: "https://placekitten.com/600/400",
-      }}
-      className="su-rs-mr-4"
-    />
+    <Poster.Image className="su-rs-mr-4">
+      <img
+        src="https://placekitten.com/600/400"
+        className="su-object-cover su-w-full su-h-full su-object-center"
+        alt=""
+      />
+    </Poster.Image>
+
     <Poster.Content>
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
@@ -87,12 +90,14 @@ const PosterTemplateImageLeft = ({ ...rest }) => (
 
 const PosterTemplateCustom = ({ ...rest }) => (
   <Poster {...rest}>
-    <Poster.Image
-      image={{
-        src: "https://placekitten.com/600/400",
-      }}
-      className="su-rs-mb-2"
-    />
+    <Poster.Image className="su-rs-mb-2">
+      <img
+        src="https://placekitten.com/600/400"
+        className="su-object-cover su-w-full su-h-full su-object-center"
+        alt=""
+      />
+    </Poster.Image>
+
     <Poster.Content className="su-text-white">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
@@ -107,12 +112,13 @@ const PosterTemplateCustom = ({ ...rest }) => (
 
 const PosterTemplateCustomLeft = ({ ...rest }) => (
   <Poster {...rest}>
-    <Poster.Image
-      image={{
-        src: "https://placekitten.com/600/400",
-      }}
-      className="su-rs-mr-4"
-    />
+    <Poster.Image className="su-rs-mr-4">
+      <img
+        src="https://placekitten.com/600/400"
+        className="su-object-cover su-w-full su-h-full su-object-center"
+        alt=""
+      />
+    </Poster.Image>
     <Poster.Content className="su-text-white">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">
@@ -137,12 +143,14 @@ const PosterTemplateCustomLeft = ({ ...rest }) => (
 
 const PosterTemplateCustomBorder = ({ ...rest }) => (
   <Poster {...rest}>
-    <Poster.Image
-      image={{
-        src: "https://placekitten.com/600/400",
-      }}
-      className="su-border-3 su-border-solid su-border-digital-red-light su-rs-mb-2"
-    />
+    <Poster.Image className="su-border-3 su-border-solid su-border-digital-red-light su-rs-mb-2">
+      <img
+        src="https://placekitten.com/600/400"
+        className="su-object-cover su-w-full su-h-full su-object-center"
+        alt=""
+      />
+    </Poster.Image>
+
     <Poster.Content className="su-text-white">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug">

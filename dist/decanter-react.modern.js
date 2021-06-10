@@ -2240,21 +2240,16 @@ Content$1.propTypes = {
 };
 Content$1.defaultProps = {};
 
+var _excluded$m = ["className", "children"];
 var Image$1 = function Image(_ref) {
-  var image = _ref.image,
-      className = _ref.className;
+  var className = _ref.className,
+      children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
 
-  if (image.alt) {
-    delete image.alt;
-  }
-
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", _extends({
     className: dcnb("su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min", className),
     "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("img", _extends({}, image, {
-    alt: "",
-    className: dcnb("su-object-cover su-w-full su-h-full su-object-center", image.className)
-  })));
+  }, props), children);
 };
 Image$1.displayName = "Poster.Image";
 Image$1.propTypes = {
@@ -2325,12 +2320,12 @@ PosterRoot.defaultProps = {
   layout: "center"
 };
 
-var _excluded$m = ["anchorLink", "className", "children"];
+var _excluded$n = ["anchorLink", "className", "children"];
 var Skiplink = function Skiplink(_ref) {
   var anchorLink = _ref.anchorLink,
       className = _ref.className,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
 
   return /*#__PURE__*/React.createElement("a", _extends({
     href: anchorLink != null ? anchorLink : "#main-content",
