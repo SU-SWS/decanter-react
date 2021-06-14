@@ -32,7 +32,7 @@ export default {
 
 const PosterTemplate = ({ ...rest }) => (
   <Poster {...rest}>
-    <Poster.Content>
+    <Poster.Content className="su-items-center su-text-center su-align-center">
       <Poster.Headline>Title</Poster.Headline>
       <p className="su-big-paragraph su-leading-snug last:su-mb-0">
         Cras varius. Ut non enim eleifend felis pretium feugiat. Suspendisse
@@ -40,6 +40,15 @@ const PosterTemplate = ({ ...rest }) => (
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
         vitae iaculis lacus elit id tortor.
       </p>
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="big"
+        href="https://decanter.stanford.edu"
+      />
     </Poster.Content>
   </Poster>
 );
@@ -131,7 +140,7 @@ const PosterTemplateCustomLeft = ({ ...rest }) => (
         animate="right"
         icon="more"
         variant="unset"
-        size="big"
+        size="small"
         href="https://decanter.stanford.edu"
         className="su-rs-mt-0 su-bg-white hocus:su-bg-lagunita su-text-black hocus:su-text-white"
       />
@@ -162,7 +171,7 @@ const PosterTemplateCustomBorder = ({ ...rest }) => (
         animate="right"
         icon="more"
         variant="ghost"
-        size="small"
+        size="big"
         href="https://decanter.stanford.edu"
         className="su-rs-mt-0"
       />
