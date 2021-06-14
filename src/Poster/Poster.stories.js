@@ -113,6 +113,16 @@ const PosterTemplateCustom = ({ ...rest }) => (
         faucibus, nunc et pellentesque egestas, lacus ante convallis tellus,
         vitae iaculis lacus elit id tortor.
       </p>
+      <CtaButton
+        text="Learn more"
+        srText="about Decanter"
+        animate="right"
+        icon="more"
+        variant="solid"
+        size="big"
+        href="https://decanter.stanford.edu"
+        className="su-rs-mt-0 su-bg-white hocus:su-bg-lagunita su-text-black hocus:su-text-white"
+      />
     </Poster.Content>
   </Poster>
 );
