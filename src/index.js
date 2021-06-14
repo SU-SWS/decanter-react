@@ -15,6 +15,7 @@ import { IdentityBar } from "./IdentityBar/IdentityBar";
 import { LocalFooter } from "./LocalFooter/LocalFooter";
 import { Lockup } from "./Lockup/Lockup";
 import { Logo } from "./Logo/Logo";
+import { Poster } from "./Poster/Poster";
 import { Skiplink } from "./Skiplink/Skiplink";
 import { SrOnlyText } from "./SrOnlyText/SrOnlyText";
 
@@ -36,6 +37,7 @@ export {
   LocalFooter,
   Lockup,
   Logo,
+  Poster,
   Skiplink,
   SrOnlyText,
 };

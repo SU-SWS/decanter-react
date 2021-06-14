@@ -2159,6 +2159,147 @@ LocalFooter.defaultProps = {
   link: "blue"
 };
 
+var layoutOptions = ["left", "center"];
+
+var Headline$1 = function Headline(_ref) {
+  var children = _ref.children,
+      level = _ref.level,
+      size = _ref.size,
+      weight = _ref.weight,
+      font = _ref.font,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "level", "size", "weight", "font", "className"]);
+
+  return /*#__PURE__*/React__default.createElement(Heading, _extends({
+    level: level,
+    size: size,
+    font: font,
+    weight: weight
+  }, props, {
+    className: cnbuilder.dcnb("su-mb-03em", className)
+  }), children);
+};
+Headline$1.displayName = "Poster.Headline";
+Headline$1.propTypes = {
+  level: PropTypes.oneOf(headingLevels),
+  size: PropTypes.oneOf(Object.keys(headingSizes).map(function (val) {
+    return intKeys(val);
+  })),
+  font: PropTypes.oneOf(Object.keys(headingFonts)),
+  weight: PropTypes.oneOf(Object.keys(headingWeights)),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+};
+Headline$1.defaultProps = {
+  level: 2,
+  size: 3,
+  weight: "bold",
+  font: "serif"
+};
+
+var Content$1 = function Content(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "className"]);
+
+  return /*#__PURE__*/React__default.createElement(FlexBox, _extends({
+    direction: "col",
+    className: cnbuilder.dcnb("poster-body su-max-w-700 last:su-mb-0", className)
+  }, props), children);
+};
+Content$1.displayName = "Poster.Content";
+Content$1.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+};
+Content$1.defaultProps = {};
+
+var Image$1 = function Image(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children"]);
+
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: cnbuilder.dcnb("su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min", className),
+    "aria-hidden": "true"
+  }, props), children);
+};
+Image$1.displayName = "Poster.Image";
+Image$1.propTypes = {
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
+};
+Image$1.defaultProps = {};
+
+var PosterRoot = function PosterRoot(_ref) {
+  var _ref$bgImage = _ref.bgImage;
+  _ref$bgImage = _ref$bgImage === void 0 ? {} : _ref$bgImage;
+  var src = _ref$bgImage.src,
+      bgGradient = _ref.bgGradient,
+      bgColor = _ref.bgColor,
+      className = _ref.className,
+      children = _ref.children,
+      isGradient = _ref.isGradient,
+      layout = _ref.layout;
+  var wrapperClasses;
+
+  if (layout === "left") {
+    wrapperClasses = "su-flex su-flex-col su-justify-center md:su-flex-row su-min-w-min";
+  } else {
+    wrapperClasses = "su-flex su-flex-col su-items-center";
+  }
+
+  var gradientOverlay = "";
+  var bgImageStyle = {};
+
+  if (src) {
+    bgImageStyle = {
+      backgroundImage: "url('" + src + "')"
+    };
+  }
+
+  if (isGradient) {
+    gradientOverlay = "linear-gradient(to bottom, transparent, #181D1C)";
+
+    if (bgGradient) {
+      gradientOverlay = bgGradient;
+    }
+
+    if (src) {
+      bgImageStyle = {
+        backgroundImage: gradientOverlay + ", url('" + src + "')"
+      };
+    }
+  }
+
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: cnbuilder.dcnb("poster su-basefont-23 su-rs-pt-5 su-rs-pb-6 su-bg-cover su-bg-no-repeat", wrapperClasses, bgColor, className),
+    style: bgImageStyle
+  }, children);
+};
+
+PosterRoot.displayName = "Poster";
+var Poster = Object.assign(PosterRoot, {
+  Headline: Headline$1,
+  Content: Content$1,
+  Image: Image$1
+});
+PosterRoot.propTypes = {
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  layout: PropTypes.oneOf(layoutOptions),
+  isGradient: PropTypes.bool,
+  bgImage: PropTypes.shape({
+    src: PropTypes.string
+  }),
+  bgGradient: PropTypes.string,
+  bgColor: PropTypes.string
+};
+PosterRoot.defaultProps = {
+  layout: "center",
+  isGradient: false
+};
+
 var Skiplink = function Skiplink(_ref) {
   var anchorLink = _ref.anchorLink,
       className = _ref.className,
@@ -2194,5 +2335,6 @@ exports.IdentityBar = IdentityBar;
 exports.LocalFooter = LocalFooter;
 exports.Lockup = Lockup;
 exports.Logo = Logo;
+exports.Poster = Poster;
 exports.Skiplink = Skiplink;
 exports.SrOnlyText = SrOnlyText;
