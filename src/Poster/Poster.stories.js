@@ -150,7 +150,7 @@ const PosterTemplateCustomLeft = ({ ...rest }) => (
         animate="right"
         icon="more"
         variant="unset"
-        size="small"
+        size="big"
         href="https://decanter.stanford.edu"
         className="su-rs-mt-0 su-bg-white hocus:su-bg-lagunita su-text-black hocus:su-text-white"
       />
