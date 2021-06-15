@@ -1,15 +1,23 @@
 import React from "react";
 import { withDesign } from "storybook-addon-designs";
-import DOMPurify from "dompurify";
 import { Alert } from "./Alert";
 import { DismissButton } from "../DismissButton/DismissButton";
 import { alertTypes } from "./Alert.levers";
 
-const alertBody =
-  '<p class="last:su-mb-0 su-leading-display su-card-paragraph">A <strong>paragraph</strong> (from the Greek paragraphos, <em>“to write beside”</em> or “<i>written beside</i>”) is a <a href="#">self-contained unit of a discourse</a> in writing dealing with a particular point or idea.</p>';
+const alertBody = (
+  <p className="last:su-mb-0 su-leading-display su-card-paragraph">
+    A <strong>paragraph</strong> from the Greek paragraphos,{" "}
+    <em>to write beside</em> or <i>written beside</i> is a{" "}
+    <a href="#">self-contained unit of a discourse</a> in writing dealing with a
+    particular point or idea.
+  </p>
+);
 
-const alertBodyShort =
-  '<p class="last:su-mb-0 su-leading-display su-card-paragraph">For displaying a notification that keeps people informed of a status.</p>';
+const alertBodyShort = (
+  <p className="last:su-mb-0 su-leading-display su-card-paragraph">
+    For displaying a notification that keeps people informed of a status.
+  </p>
+);
 
 export default {
   title: "Composite/Alert",
@@ -39,14 +47,9 @@ export default {
 };
 
 // Set up an Alert Template.
-const AlertTemplate = ({ children, ...rest }) => {
-  /* eslint-disable react/no-danger */
-  // We do this to mimic sending in CMS content or another React component.
-  const content = (
-    <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(children) }} />
-  );
-  return <Alert {...rest}>{content}</Alert>;
-};
+const AlertTemplate = ({ children, ...rest }) => (
+  <Alert {...rest}>{children}</Alert>
+);
 
 // Default State
 // /////////////////////////////////////////////////////////////////////////////
