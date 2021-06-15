@@ -22,7 +22,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "package": "microbundle-crl -o dist/ --no-compress --jsx React.createElement --jsxFragment React.Fragment --sourcemap false",
+    "package": "microbundle-crl -o dist/ --no-compress --jsx React.createElement --jsxFragment React.Fragment --sourcemap false --external prop-types PropTypes --external react-hero-icon Icon",
     "build": "build-storybook",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
@@ -50,7 +50,7 @@
   "homepage": "https://github.com/SU-SWS/decanter-react#readme",
   "dependencies": {
     "cnbuilder": "^2.6.0",
-    "decanter": "^7.0.0-alpha.2",
+    "decanter": "^7.0.0-alpha.7",
     "prop-types": "^15.7.2",
     "react-hero-icon": "^0.0.7"
   },
