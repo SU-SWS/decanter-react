@@ -52,7 +52,8 @@
     "cnbuilder": "^2.6.0",
     "decanter": "^7.0.0-alpha.7",
     "prop-types": "^15.7.2",
-    "react-hero-icon": "^0.0.7"
+    "react-hero-icon": "^0.0.7",
+    "react-id-generator": "^3.0.1"
   },
   "peerDependencies": {
     "react": "^16.14.0 || ^17.0.0",
