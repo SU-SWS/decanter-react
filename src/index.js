@@ -17,6 +17,7 @@ import { Lockup } from "./Lockup/Lockup";
 import { Logo } from "./Logo/Logo";
 import { Skiplink } from "./Skiplink/Skiplink";
 import { SrOnlyText } from "./SrOnlyText/SrOnlyText";
+import { VerticalNav } from "./VerticalNav/VerticalNav";
 
 export {
   Alert,
@@ -38,4 +39,5 @@ export {
   Logo,
   Skiplink,
   SrOnlyText,
+  VerticalNav
 };
