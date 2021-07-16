@@ -186,7 +186,7 @@ Button.propTypes = {
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
-  ]},
+  ]),
 
   // Children
   children: PropTypes.oneOfType([
