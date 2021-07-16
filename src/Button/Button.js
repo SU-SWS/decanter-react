@@ -183,7 +183,10 @@ Button.propTypes = {
   /**
    * CSS Class names.
    */
-  className: PropTypes.string,
+  className: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
 
   // Children
   children: PropTypes.oneOfType([
