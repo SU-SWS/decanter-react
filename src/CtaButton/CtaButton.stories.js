@@ -37,7 +37,27 @@ export default {
   },
 };
 
-const CtaButtonTemplate = ({ ...rest }) => <CtaButton {...rest} />;
+const CtaButtonTemplate = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      Button
+    </a>
+  </CtaButton>
+);
+
+const CtaButtonOutline = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-digital-red group-hocus:su-bg-white group-hocus:su-text-black"
+    >
+      Button
+    </a>
+  </CtaButton>
+);
 
 export const Solid = CtaButtonTemplate.bind({});
 Solid.args = {
@@ -45,17 +65,13 @@ Solid.args = {
   variant: "solid",
   size: "default",
   icon: "none",
-  text: "Solid Link Button",
-  href: "https://stanford.edu",
 };
 
-export const Outline = CtaButtonTemplate.bind({});
+export const Outline = CtaButtonOutline.bind({});
 Outline.args = {
   variant: "outline",
   size: "default",
   icon: "none",
-  text: "Outline Button",
-  href: "https://stanford.edu",
 };
 
 export const Ghost = CtaButtonTemplate.bind({});
@@ -63,8 +79,6 @@ Ghost.args = {
   variant: "ghost",
   size: "default",
   icon: "none",
-  text: "Ghost Button",
-  href: "https://stanford.edu",
 };
 
 export const Big = CtaButtonTemplate.bind({});
@@ -72,17 +86,13 @@ Big.args = {
   variant: "solid",
   size: "big",
   icon: "none",
-  text: "Big Button",
-  href: "https://stanford.edu",
 };
 
-export const Small = CtaButtonTemplate.bind({});
+export const Small = CtaButtonOutline.bind({});
 Small.args = {
   variant: "outline",
   size: "small",
   icon: "none",
-  text: "Small Button",
-  href: "https://stanford.edu",
 };
 
 export const Action = CtaButtonTemplate.bind({});
@@ -91,8 +101,6 @@ Action.args = {
   size: "default",
   icon: "action",
   animate: "right",
-  text: "Solid with Right Caret",
-  href: "https://stanford.edu",
 };
 Action.storyName = "With Right Caret";
 
@@ -102,8 +110,6 @@ Download.args = {
   size: "default",
   icon: "download",
   animate: "down",
-  text: "Solid Download Button",
-  href: "https://stanford.edu",
 };
 Download.storyName = "With Download Icon";
 
@@ -113,8 +119,6 @@ NoAnimate.args = {
   size: "default",
   icon: "email",
   animate: "none",
-  text: "Contact us",
-  href: "mailto:a@example.com",
 };
 NoAnimate.storyName = "With Non-animated Icon";
 
@@ -124,9 +128,7 @@ SrText.args = {
   size: "default",
   icon: "external",
   animate: "top-right",
-  text: "Learn more",
   srText: "about Decanter",
-  href: "https://stanford.edu",
 };
 SrText.storyName = "With Screen Reader Only Text";
 
@@ -136,8 +138,6 @@ Custom.args = {
   size: "unset",
   icon: "external",
   animate: "top-right",
-  text: "With Custom Classes",
-  link: "https://stanford.edu",
   className:
     "su-uppercase su-tracking-widest su-font-semibold su-bg-lagunita-dark hocus:su-bg-plum su-text-white hocus:su-text-white su-p-30",
 };
@@ -149,8 +149,6 @@ CustomProps.args = {
   size: "default",
   icon: "external",
   animate: "top-right",
-  text: "With Custom Props",
-  href: "https://stanford.edu",
   id: "custom-id",
   target: "_blank",
   rel: "nofollow",
@@ -163,7 +161,6 @@ CustomClick.args = {
   size: "default",
   icon: "external",
   animate: "top-right",
-  text: "Link with Custom Click Event",
   className: "su-cursor-pointer",
   onClick: () => {
     /* eslint-disable */
@@ -182,7 +179,14 @@ export const ForwardRef = (args) => {
 
   return (
     <div>
-      <CtaButton {...args} />
+      <CtaButton {...args}>
+        <a
+          href="https://stanford.edu"
+          className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+        >
+          Target Button
+        </a>
+      </CtaButton>
       <div>
         <a href="javascript:void(0);" onClick={setFocus}>
           Clicking here will set focus using ctaButtonRef.current.focus()
@@ -193,9 +197,7 @@ export const ForwardRef = (args) => {
 };
 
 ForwardRef.args = {
-  text: "Target Button",
   size: "default",
-  href: "https://stanford.edu",
   ref: ctaButtonRef,
 };
 ForwardRef.storyName = "With Forwarded Ref";

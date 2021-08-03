@@ -19,6 +19,7 @@ export const CtaButton = React.forwardRef(
   (
     {
       className,
+      children,
       text,
       srText,
       variant,
@@ -83,9 +84,9 @@ export const CtaButton = React.forwardRef(
     const { className: iconClasses, ...iProps } = iconProps || {};
 
     return (
-      <a
+      <div
         className={dcnb(
-          "su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors",
+          "su-cta-button su-leading-display su-block su-w-fit  group-focus:su-underline su-group su-transition-colors",
           levers.size,
           levers.variant,
           className
@@ -93,7 +94,7 @@ export const CtaButton = React.forwardRef(
         ref={ref}
         {...props}
       >
-        {text}
+        {children}
         {srText && <SrOnlyText srText={` ${srText}`} />}
         {icon && (
           <Icon
@@ -109,7 +110,7 @@ export const CtaButton = React.forwardRef(
             {...iProps}
           />
         )}
-      </a>
+      </div>
     );
   }
 );
@@ -144,20 +145,6 @@ CtaButton.propTypes = {
    * Icon animation on hover/focus
    */
   animate: PropTypes.oneOf(iconAnimations),
-
-  /**
-   * URL
-   */
-  href: PropTypes.string,
-
-  /**
-   * Link text
-   */
-  text: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-    PropTypes.node,
-  ]),
 
   /**
    * Optional text for screen readers
