@@ -8,7 +8,12 @@ import { dcnb } from "cnbuilder";
  * HTML card element
  */
 
-const HeroRoot = ({ bgImage: { src } = {}, className, children }) => (
+const HeroRoot = ({
+  bgImage: { src } = {},
+  className,
+  children,
+  imgClasses,
+}) => (
   <div
     className={dcnb("hero su-basefont-23 su-relative su-max-h-500", className)}
   >

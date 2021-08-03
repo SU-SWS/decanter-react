@@ -2,6 +2,9 @@ import React from "react";
 import { Hero } from "./Hero";
 import { Card } from "../Card/Card";
 import { CtaButton } from "../CtaButton/CtaButton";
+import { Container } from "../Container/Container";
+import { FlexBox } from "../FlexBox/FlexBox";
+import { Heading } from "../Heading/Heading";
 
 export default {
   title: "Composite/Hero",
@@ -20,17 +23,9 @@ export default {
   argTypes: {},
 };
 
-const HeroTemplate = ({ ...rest }) => <Hero {...rest} />;
-
-export const Default = HeroTemplate.bind({});
-Default.args = {
-  bgImage: { src: "https://placekitten.com/2000/1300" },
-};
-Default.storyName = "Default";
-
-const HeroCardTemp = ({ ...rest }) => (
+const HeroTemplate = ({ ...rest }) => (
   <Hero {...rest}>
-    <Card className="su-card su-hero__card su-absolute su-top-auto su-left-36 su-bottom-36">
+    <Card className="su-relative su-max-w-full md:su-max-w-600 md:su-absolute md:su-top-auto md:su-left-36 md:su-bottom-36">
       <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
         <Card.Superhead>Super headline</Card.Superhead>
         <Card.Headline>Headline</Card.Headline>
@@ -53,11 +48,11 @@ const HeroCardTemp = ({ ...rest }) => (
   </Hero>
 );
 
-export const DefaultCard = HeroCardTemp.bind({});
-DefaultCard.args = {
-  bgImage: { src: "https://placekitten.com/2000/1300" },
+export const Default = HeroTemplate.bind({});
+Default.args = {
+  bgImage: { src: "https://placekitten.com/1000/750" },
 };
-DefaultCard.storyName = "Default with Card";
+Default.storyName = "Default";
 
 const HeroCaptionTemp = ({ ...rest }) => (
   <Hero {...rest}>
@@ -73,8 +68,48 @@ const HeroCaptionTemp = ({ ...rest }) => (
   </Hero>
 );
 
-export const DefaultCaption = HeroCaptionTemp.bind({});
-DefaultCaption.args = {
-  bgImage: { src: "https://placekitten.com/2000/1300" },
+export const CustomCaption = HeroCaptionTemp.bind({});
+CustomCaption.args = {
+  bgImage: { src: "https://placekitten.com/1000/750" },
 };
-DefaultCaption.storyName = "Default with Caption";
+CustomCaption.storyName = "Custom Hero with Caption";
+
+const HeroGradient = ({ ...rest }) => (
+  <Hero {...rest}>
+    <div
+      className="su-absolute su-block su-w-full su-h-full su-top-0"
+      style={{
+        background: "linear-gradient(rgba(0, 0, 0, 0), rgb(24, 29, 28))",
+      }}
+      aria-hidden="true"
+    />
+    <Container className="su-absolute su-w-full su-rs-pt-9 su-rs-pb-4 su-top-0">
+      <FlexBox direction="col" className="lg:su-mt-600">
+        <div className="su-text-center su-text-white">
+          <p className="su-max-w-prose su-font-semibold su-leading-display su-text-2 su-text-shadow-md md:su-text-4 su-mx-auto su-mb-01em">
+            Superheading
+          </p>
+          <Heading
+            level={2}
+            font="serif"
+            weight="bold"
+            className="su-leading-tight su-tracking-normal su-text-shadow-lg su-mb-02em"
+          >
+            Headline
+          </Heading>
+          <p className="su-max-w-prose su-text-20 su-leading-display su-text-shadow su-mx-auto su-mb-0">
+            Subheadline Donec sodales sagittis magna. Cras non dolor. Vestibulum
+            suscipit nulla quis orci. Fusce vulputate eleifend sapien. Nulla
+            porta dolor.
+          </p>
+        </div>
+      </FlexBox>
+    </Container>
+  </Hero>
+);
+
+export const CustomGradient = HeroGradient.bind({});
+CustomGradient.args = {
+  bgImage: { src: "https://placekitten.com/1000/750" },
+};
+CustomGradient.storyName = "Custom Hero with Gradient and Text overlay";
