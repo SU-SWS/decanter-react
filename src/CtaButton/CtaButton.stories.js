@@ -43,18 +43,7 @@ const CtaButtonTemplate = ({ ...rest }) => (
       href="https://stanford.edu"
       className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
     >
-      Button
-    </a>
-  </CtaButton>
-);
-
-const CtaButtonOutline = ({ ...rest }) => (
-  <CtaButton {...rest}>
-    <a
-      href="https://stanford.edu"
-      className="su-font-regular su-no-underline group-hover:su-underline su-text-digital-red group-hocus:su-bg-white group-hocus:su-text-black"
-    >
-      Button
+      Solid Link Button
     </a>
   </CtaButton>
 );
@@ -66,6 +55,17 @@ Solid.args = {
   size: "default",
   icon: "none",
 };
+
+const CtaButtonOutline = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-digital-red group-hocus:su-bg-white group-hocus:su-text-black"
+    >
+      Button
+    </a>
+  </CtaButton>
+);
 
 export const Outline = CtaButtonOutline.bind({});
 Outline.args = {
@@ -81,21 +81,54 @@ Ghost.args = {
   icon: "none",
 };
 
-export const Big = CtaButtonTemplate.bind({});
+const CtaButtonBig = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      Big Button
+    </a>
+  </CtaButton>
+);
+
+export const Big = CtaButtonBig.bind({});
 Big.args = {
   variant: "solid",
   size: "big",
   icon: "none",
 };
 
-export const Small = CtaButtonOutline.bind({});
+const CtaButtonSmall = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-digital-red group-hocus:su-bg-white group-hocus:su-text-black"
+    >
+      Small Button
+    </a>
+  </CtaButton>
+);
+
+export const Small = CtaButtonSmall.bind({});
 Small.args = {
   variant: "outline",
   size: "small",
   icon: "none",
 };
 
-export const Action = CtaButtonTemplate.bind({});
+const CtaButtonAction = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      Solid with Right Caret
+    </a>
+  </CtaButton>
+);
+
+export const Action = CtaButtonAction.bind({});
 Action.args = {
   variant: "solid",
   size: "default",
@@ -104,7 +137,18 @@ Action.args = {
 };
 Action.storyName = "With Right Caret";
 
-export const Download = CtaButtonTemplate.bind({});
+const CtaButtonDownload = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      Solid Download Button
+    </a>
+  </CtaButton>
+);
+
+export const Download = CtaButtonDownload.bind({});
 Download.args = {
   variant: "solid",
   size: "default",
@@ -113,7 +157,18 @@ Download.args = {
 };
 Download.storyName = "With Download Icon";
 
-export const NoAnimate = CtaButtonTemplate.bind({});
+const CtaButtonNoAnimate = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      Contact Us
+    </a>
+  </CtaButton>
+);
+
+export const NoAnimate = CtaButtonNoAnimate.bind({});
 NoAnimate.args = {
   variant: "solid",
   size: "default",
@@ -122,7 +177,18 @@ NoAnimate.args = {
 };
 NoAnimate.storyName = "With Non-animated Icon";
 
-export const SrText = CtaButtonTemplate.bind({});
+const CtaButtonSr = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      Learn More
+    </a>
+  </CtaButton>
+);
+
+export const SrText = CtaButtonSr.bind({});
 SrText.args = {
   variant: "solid",
   size: "default",
@@ -132,7 +198,18 @@ SrText.args = {
 };
 SrText.storyName = "With Screen Reader Only Text";
 
-export const Custom = CtaButtonTemplate.bind({});
+const CtaButtonCustom = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      Custom Button
+    </a>
+  </CtaButton>
+);
+
+export const Custom = CtaButtonCustom.bind({});
 Custom.args = {
   variant: "unset",
   size: "unset",
@@ -143,7 +220,7 @@ Custom.args = {
 };
 Custom.storyName = "With Custom Styling";
 
-export const CustomProps = CtaButtonTemplate.bind({});
+export const CustomProps = CtaButtonCustom.bind({});
 CustomProps.args = {
   variant: "solid",
   size: "default",
@@ -155,7 +232,7 @@ CustomProps.args = {
 };
 CustomProps.storyName = "With Custom Props";
 
-export const CustomClick = CtaButtonTemplate.bind({});
+export const CustomClick = CtaButtonCustom.bind({});
 CustomClick.args = {
   variant: "solid",
   size: "default",
