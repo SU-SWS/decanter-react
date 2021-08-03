@@ -57,4 +57,24 @@ export const DefaultCard = HeroCardTemp.bind({});
 DefaultCard.args = {
   bgImage: { src: "https://placekitten.com/2000/1300" },
 };
-DefaultCard.storyName = "Hero with Card";
+DefaultCard.storyName = "Default with Card";
+
+const HeroCaptionTemp = ({ ...rest }) => (
+  <Hero {...rest}>
+    <div className="su-caption su-w-full su-flex su-justify-end su-cc">
+      <p className="su-max-w-prose su-text-right">
+        Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipiscing
+        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud{" "}
+        <a href="#">exercitation ullamco laboris nisi</a> ut aliquip{" "}
+        <i>(ex ea commodo consequat</i>).
+      </p>
+    </div>
+  </Hero>
+);
+
+export const DefaultCaption = HeroCaptionTemp.bind({});
+DefaultCaption.args = {
+  bgImage: { src: "https://placekitten.com/2000/1300" },
+};
+DefaultCaption.storyName = "Default with Caption";
