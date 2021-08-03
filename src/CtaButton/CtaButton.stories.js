@@ -204,7 +204,7 @@ const CtaButtonCustom = ({ ...rest }) => (
       href="https://stanford.edu"
       className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
     >
-      Custom Button
+      With Custom Classes
     </a>
   </CtaButton>
 );
@@ -220,7 +220,18 @@ Custom.args = {
 };
 Custom.storyName = "With Custom Styling";
 
-export const CustomProps = CtaButtonCustom.bind({});
+const CtaButtonCustomProps = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      With Custom Props
+    </a>
+  </CtaButton>
+);
+
+export const CustomProps = CtaButtonCustomProps.bind({});
 CustomProps.args = {
   variant: "solid",
   size: "default",
@@ -232,7 +243,18 @@ CustomProps.args = {
 };
 CustomProps.storyName = "With Custom Props";
 
-export const CustomClick = CtaButtonCustom.bind({});
+const CtaButtonCustomClick = ({ ...rest }) => (
+  <CtaButton {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-font-regular su-no-underline group-hover:su-underline su-text-white group-hocus:su-text-white"
+    >
+      Link with Custom Click Event
+    </a>
+  </CtaButton>
+);
+
+export const CustomClick = CtaButtonCustomClick.bind({});
 CustomClick.args = {
   variant: "solid",
   size: "default",
