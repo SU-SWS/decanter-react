@@ -159,6 +159,24 @@ SrText.args = {
 };
 SrText.storyName = "Link with Screen Reader Only Text";
 
+const CtaLinkChildren = ({ ...rest }) => (
+  <CtaLink {...rest}>
+    <a
+      href="https://stanford.edu"
+      className="su-no-underline su-text-digital-red"
+    >
+      Passing in children props
+    </a>
+  </CtaLink>
+);
+
+export const CustomChildren = CtaLinkChildren.bind({});
+CustomChildren.args = {
+  animate: "right",
+  color: "red",
+};
+CustomChildren.storyName = "With Custom Children";
+
 const linkRef = React.createRef();
 
 export const ForwardRef = (args) => {
