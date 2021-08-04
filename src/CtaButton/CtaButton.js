@@ -31,16 +31,16 @@ export const CtaButton = React.forwardRef(
     },
     ref
   ) => {
-    // props.element
-    let Element = "a";
-
-    if (children) {
-      Element = "div";
-    }
-
     // Defaults & Variables.
     // ---------------------------------------------------------------------------
     const levers = {};
+    let Element = "a";
+
+    // Determine whether a or div tag should be used based on children props
+    // ---------------------------------------------------------------------------
+    if (children) {
+      Element = "div";
+    }
 
     // Levers
     // ---------------------------------------------------------------------------
