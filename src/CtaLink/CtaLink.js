@@ -15,12 +15,29 @@ import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
  */
 export const CtaLink = React.forwardRef(
   (
-    { className, text, srText, color, icon, iconProps, animate, ...props },
+    {
+      className,
+      element,
+      text,
+      srText,
+      color,
+      icon,
+      iconProps,
+      animate,
+      ...props
+    },
     ref
   ) => {
     // Defaults & Variables.
     // ---------------------------------------------------------------------------
     const levers = {};
+    let Element = "a";
+
+    // Determine whether a or element tag should be used based on children props
+    // ---------------------------------------------------------------------------
+    if (element) {
+      Element = { element };
+    }
 
     // Levers
     // ---------------------------------------------------------------------------
@@ -63,7 +80,7 @@ export const CtaLink = React.forwardRef(
     const { className: iconClasses, ...iProps } = iconProps || {};
 
     return (
-      <a
+      <Element
         className={dcnb(
           "su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors",
           levers.color,
@@ -90,7 +107,7 @@ export const CtaLink = React.forwardRef(
             {...iProps}
           />
         )}
-      </a>
+      </Element>
     );
   }
 );
