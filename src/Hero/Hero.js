@@ -8,19 +8,14 @@ import { dcnb } from "cnbuilder";
  * HTML card element
  */
 
-const HeroRoot = ({
-  bgImage: { src } = {},
-  className,
-  children,
-  imgClasses,
-}) => (
+const HeroRoot = ({ bgImage, className, children, imgClasses }) => (
   <div
     className={dcnb("hero su-basefont-23 su-relative su-max-h-500", className)}
   >
     <div className="su-h-full su-w-full su-overflow-hidden su-relative su-max-h-500">
       <img
         className="su-h-full su-w-full su-object-cover su-object-center"
-        src={src}
+        src={bgImage}
         alt=""
       />
     </div>
@@ -53,9 +48,7 @@ HeroRoot.propTypes = {
   ]),
 
   // Background Image
-  bgImage: PropTypes.shape({
-    src: PropTypes.string,
-  }),
+  bgImage: PropTypes.string,
 };
 
 // Default Props.

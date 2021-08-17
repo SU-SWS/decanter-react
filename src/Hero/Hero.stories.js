@@ -50,29 +50,9 @@ const HeroTemplate = ({ ...rest }) => (
 
 export const Default = HeroTemplate.bind({});
 Default.args = {
-  bgImage: { src: "https://placekitten.com/1000/750" },
+  bgImage: "https://placekitten.com/1000/750",
 };
 Default.storyName = "Default";
-
-const HeroCaptionTemp = ({ ...rest }) => (
-  <Hero {...rest}>
-    <div className="su-caption su-w-full su-flex su-justify-end su-cc">
-      <p className="su-max-w-prose su-text-right">
-        Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud{" "}
-        <a href="#">exercitation ullamco laboris nisi</a> ut aliquip{" "}
-        <i>(ex ea commodo consequat</i>).
-      </p>
-    </div>
-  </Hero>
-);
-
-export const CustomCaption = HeroCaptionTemp.bind({});
-CustomCaption.args = {
-  bgImage: { src: "https://placekitten.com/1000/750" },
-};
-CustomCaption.storyName = "Custom Hero with Caption";
 
 const HeroGradient = ({ ...rest }) => (
   <Hero {...rest}>
@@ -110,6 +90,6 @@ const HeroGradient = ({ ...rest }) => (
 
 export const CustomGradient = HeroGradient.bind({});
 CustomGradient.args = {
-  bgImage: { src: "https://placekitten.com/1000/750" },
+  bgImage: "https://placekitten.com/1000/750",
 };
 CustomGradient.storyName = "Custom Hero with Gradient and Text overlay";
