@@ -1,11 +1,12 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('prop-types'), require('react-hero-icon'), require('cnbuilder')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'react', 'prop-types', 'react-hero-icon', 'cnbuilder'], factory) :
-  (global = global || self, factory(global.decanterReact = {}, global.react, global.PropTypes, global.Icon, global.cnbuilder));
-}(this, (function (exports, React, PropTypes, Icon, cnbuilder) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('prop-types'), require('react-hero-icon'), require('cnbuilder'), require('react-id-generator')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'react', 'prop-types', 'react-hero-icon', 'cnbuilder', 'react-id-generator'], factory) :
+  (global = global || self, factory(global.decanterReact = {}, global.react, global.PropTypes, global.Icon, global.cnbuilder, global.nextId));
+}(this, (function (exports, React, PropTypes, Icon, cnbuilder, nextId) {
   var React__default = 'default' in React ? React['default'] : React;
   PropTypes = PropTypes && Object.prototype.hasOwnProperty.call(PropTypes, 'default') ? PropTypes['default'] : PropTypes;
   Icon = Icon && Object.prototype.hasOwnProperty.call(Icon, 'default') ? Icon['default'] : Icon;
+  nextId = nextId && Object.prototype.hasOwnProperty.call(nextId, 'default') ? nextId['default'] : nextId;
 
   function _extends() {
     _extends = Object.assign || function (target) {
@@ -2350,6 +2351,209 @@
   };
   Skiplink.defaultProps = {};
 
+  var defaultState = {
+    tree: [],
+    active: false
+  };
+  var VerticalNavContext = /*#__PURE__*/React.createContext(defaultState);
+  var VerticalNavContextProvider = VerticalNavContext.Provider;
+
+  function VerticalNavContextReducer(state, action) {
+    if (!state) {
+      state = defaultState;
+    }
+
+    switch (action.type) {
+      case "addGroup":
+        state.tree.push(action.id);
+        return state;
+
+      case "setActive":
+        state.active = action.id;
+        return state;
+
+      case "setTree":
+        state.tree = action.tree;
+        return state;
+
+      case "keypress":
+        state.active = action.val;
+        return state;
+
+      default:
+        throw new Error("Vertical Nav Context does not have that action.");
+    }
+  }
+
+  var VerticalNavStateProvider = function VerticalNavStateProvider(_ref) {
+    var children = _ref.children,
+        tree = _ref.tree;
+
+    var _useReducer = React.useReducer(VerticalNavContextReducer, {
+      tree: tree
+    }),
+        state = _useReducer[0],
+        dispatch = _useReducer[1];
+
+    return /*#__PURE__*/React__default.createElement(VerticalNavContextProvider, {
+      value: {
+        state: state,
+        dispatch: dispatch
+      }
+    }, children);
+  };
+
+  var FindActiveInChildren = function FindActiveInChildren(children) {
+    if (!Array.isArray(children)) {
+      return false;
+    }
+
+    var vals = children.map(function (item) {
+      if (item.props.active === true) {
+        return true;
+      }
+
+      if (item.props.children) {
+        return FindActiveInChildren(item.props.children);
+      }
+
+      return false;
+    });
+    var reduce = vals.flat().reduce(function (acc, curr) {
+      return acc || curr;
+    });
+    return reduce;
+  };
+
+  var walkTree = function walkTree(items, filters, depth) {
+    var process = items;
+    var tree = [];
+
+    if (!Array.isArray(process)) {
+      process = [items];
+    }
+
+    process.forEach(function (element) {
+      var copy;
+      var inActivePath;
+
+      if (filters.components.includes(element.type)) {
+        var myChildren;
+        var next = depth + 1;
+
+        if (element.props.children) {
+          inActivePath = FindActiveInChildren(element.props.children);
+          myChildren = walkTree(element.props.children, filters, next);
+        }
+
+        copy = /*#__PURE__*/React__default.cloneElement(element, {
+          level: depth,
+          children: myChildren,
+          inActivePath: inActivePath
+        });
+      }
+
+      tree.push(copy || element);
+    });
+    return tree;
+  };
+
+  var useTreeWalker = (function (tree, filters) {
+    return walkTree(tree, filters, 1);
+  });
+
+  var Group = function Group(_ref) {
+    var children = _ref.children,
+        className = _ref.className,
+        inActivePath = _ref.inActivePath,
+        level = _ref.level,
+        id = _ref.id,
+        ref = _ref.ref,
+        key = _ref.key,
+        props = _objectWithoutPropertiesLoose(_ref, ["children", "className", "inActivePath", "level", "id", "ref", "key"]);
+
+    var htmlId = id || nextId("nav-group-");
+    var keyId = key || htmlId;
+
+    if (!inActivePath && level > 1) {
+      return null;
+    }
+
+    return /*#__PURE__*/React__default.createElement("ul", _extends({
+      className: cnbuilder.dcnb("nav-group su-list-none", className),
+      id: htmlId,
+      key: keyId,
+      role: "menu",
+      ref: ref
+    }, props), children);
+  };
+  Group.displayName = "VerticalNav.Group";
+  Group.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
+    className: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string])
+  };
+
+  var Item = function Item(_ref) {
+    var active = _ref.active,
+        className = _ref.className,
+        children = _ref.children,
+        id = _ref.id,
+        ref = _ref.ref,
+        key = _ref.key,
+        props = _objectWithoutPropertiesLoose(_ref, ["active", "inActivePath", "level", "className", "children", "id", "ref", "key"]);
+
+    var htmlId = id || nextId("nav-item-");
+    var keyId = key || htmlId;
+
+    var _useContext = React.useContext(VerticalNavContext),
+        dispatch = _useContext.dispatch;
+
+    if (active) {
+      dispatch({
+        type: "setActive",
+        id: htmlId
+      });
+    }
+
+    return /*#__PURE__*/React__default.createElement("li", _extends({}, props, {
+      className: cnbuilder.dcnb("nav-item", className),
+      id: htmlId,
+      key: keyId,
+      ref: ref
+    }), children);
+  };
+  Item.displayName = "VerticalNav.Item";
+  Item.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
+    className: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string])
+  };
+
+  var VerticalNavRoot = function VerticalNavRoot(_ref) {
+    var className = _ref.className,
+        children = _ref.children,
+        props = _objectWithoutPropertiesLoose(_ref, ["className", "children"]);
+
+    var filters = {
+      components: [Group, Item]
+    };
+    var menuTree = useTreeWalker(children, filters);
+    return /*#__PURE__*/React__default.createElement(VerticalNavStateProvider, {
+      tree: menuTree
+    }, /*#__PURE__*/React__default.createElement("nav", _extends({
+      className: cnbuilder.dcnb("vertical-nav", className)
+    }, props), menuTree));
+  };
+
+  VerticalNavRoot.displayName = "VerticalNav";
+  var VerticalNav = Object.assign(VerticalNavRoot, {
+    Item: Item,
+    Group: Group
+  });
+  VerticalNavRoot.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.element, PropTypes.string]),
+    className: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string])
+  };
+
   exports.Alert = Alert;
   exports.Button = Button;
   exports.Card = Card;
@@ -2370,5 +2574,6 @@
   exports.Poster = Poster;
   exports.Skiplink = Skiplink;
   exports.SrOnlyText = SrOnlyText;
+  exports.VerticalNav = VerticalNav;
 
 })));
