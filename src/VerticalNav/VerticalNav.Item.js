@@ -10,34 +10,36 @@ import { VerticalNavContext } from "./VerticalNav.context";
  * @returns
  */
 export const Item = ({
-  active,
-  inActivePath,
-  level,
+  element: { text, link, childItems, active, activeTrail },
+  pageLink,
+  showNestedLevels,
   className,
-  children,
-  id,
-  ref,
-  key,
   ...props
 }) => {
-  const htmlId = id || nextId("nav-item-");
-  const keyId = key || htmlId;
-
-  const { dispatch } = useContext(VerticalNavContext);
-
-  if (active) {
-    dispatch({ type: "setActive", id: htmlId });
-  }
-
   return (
-    <li
-      {...props}
-      className={dcnb("nav-item", className)}
-      id={htmlId}
-      key={keyId}
-      ref={ref}
-    >
-      {children}
+    <li>
+      <a
+        href={link}
+        className={dcnb(
+          "su-group su-no-underline su-border-l-5 su-py-14 su-block su-pl-10 su-transition-all hocus:su-text-cardinal-red-xdark hocus:su-border-cardinal-red-xdark hocus:su-underline",
+          active ? "su-text-black su-border-black-90 " : "su-border-white"
+        )}
+      >
+        {text}
+      </a>
+      {!!childItems?.length && (active || activeTrail || showNestedLevels) && (
+        <ul className="su-pb-15 su-list-none su-pl-20 children:children:su-py-6 children:children:su-text-20">
+          {childItems.map((item) => (
+            <div>
+              <Item
+                element={item}
+                pageLink={pageLink}
+                showNestedLevels={showNestedLevels}
+              />
+            </div>
+          ))}
+        </ul>
+      )}
     </li>
   );
 };

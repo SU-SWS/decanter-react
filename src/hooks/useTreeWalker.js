@@ -1,78 +1,73 @@
 import React from "react";
-
 /**
  *
- * @param {*} children
+ * @param {Array} items
+ * @param {String} pageLink
+ * @param {Boolean} showNestedLevels
  * @returns
  */
-const FindActiveInChildren = (children) => {
-  if (!Array.isArray(children)) {
-    return false;
+const walkTree = (items, pageLink, showNestedLevels) => {
+  if (!pageLink || !items.length) {
+    return items;
   }
 
-  const vals = children.map((item) => {
-    if (item.props.active === true) {
-      return true;
-    }
-    if (item.props.children) {
-      return FindActiveInChildren(item.props.children);
-    }
-    return false;
-  });
+  // Check if menu item's url matches the current page url
+  const urlMatch = (link) =>
+    pageLink.indexOf(link) > -1 &&
+    (!pageLink.split(link)[1] || pageLink.split(link)[1] === "/");
 
-  // Reduce all the true/false values of the search down to one keeping true if
-  // available and returning false if active was not found.
-  const reduce = vals.flat().reduce((acc, curr) => acc || curr);
-
-  return reduce;
-};
-
-/**
- *
- * @param {*} items
- * @param {*} filters
- * @param {*} depth
- * @returns
- */
-const walkTree = (items, filters, depth) => {
-  let process = items;
-  const tree = [];
-
-  if (!Array.isArray(process)) {
-    process = [items];
-  }
-
-  process.forEach((element) => {
-    // Make a copy so we can edit it.
-    let copy;
-    let inActivePath;
-
-    // Component filter.
-    if (filters.components.includes(element.type)) {
-      let myChildren;
-      const next = depth + 1;
-
-      // If this element contains children find out about the active path.
-      // And create the clones.
-      if (element.props.children) {
-        inActivePath = FindActiveInChildren(element.props.children);
-        myChildren = walkTree(element.props.children, filters, next);
+  // Recursive function that will add active and activeTrail props to the active link, it's parents and the
+  // immediate children if available.
+  const setLinkProps = (obj) => {
+    if (obj) {
+      if (urlMatch(obj.link)) {
+        // eslint-disable-next-line no-param-reassign
+        obj.active = true;
+      } else if (obj.childItems?.length > 0) {
+        // eslint-disable-next-line no-param-reassign, array-callback-return
+        obj.childItems.map((child) => {
+          // eslint-disable-next-line no-param-reassign
+          obj.activeTrail = true;
+          if (urlMatch(child.link)) {
+            // eslint-disable-next-line no-param-reassign
+            child.active = true;
+          } else {
+            setLinkProps(child);
+          }
+        });
       }
-
-      copy = React.cloneElement(element, {
-        level: depth,
-        children: myChildren,
-        inActivePath,
-      });
     }
+  };
 
-    tree.push(copy || element);
+  // eslint-disable-next-line array-callback-return
+  items.map((item, key) => {
+    // Recursive function that will check which of the first level items have the active item and need to be opened.
+    const getActiveSubmenu = (obj) => {
+      if (urlMatch(obj.link)) {
+        setLinkProps(items[key]);
+      } else if (obj.childItems?.length) {
+        // eslint-disable-next-line array-callback-return
+        obj.childItems.map((child) => {
+          if (urlMatch(child.link)) {
+            setLinkProps(items[key]);
+          } else {
+            getActiveSubmenu(child);
+          }
+        });
+      }
+    };
+    if (!showNestedLevels) {
+      getActiveSubmenu(item);
+    } else {
+      setLinkProps(item);
+    }
   });
 
-  return tree;
+  return items;
 };
 
 /**
  *
  */
-export default (tree, filters) => walkTree(tree, filters, 1);
+export default (items, pageLink, showNestedLevels) =>
+  walkTree(items, pageLink, showNestedLevels);

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import nextId from "react-id-generator";
+import { Item } from "./VerticalNav.Item";
 
 /**
  *
@@ -9,36 +9,28 @@ import nextId from "react-id-generator";
  * @returns
  */
 export const Group = ({
-  children,
+  menuTree,
   className,
-  inActivePath,
-  level,
-  id,
-  ref,
-  key,
+  showNestedLevels,
+  pageLink,
   ...props
-}) => {
-  const htmlId = id || nextId("nav-group-");
-  const keyId = key || htmlId;
-
-  if (!inActivePath && level > 1) {
-    return null;
-  }
-
-  // Expaned view.
-  return (
-    <ul
-      className={dcnb("nav-group su-list-none", className)}
-      id={htmlId}
-      key={keyId}
-      role="menu"
-      ref={ref}
-      {...props}
-    >
-      {children}
-    </ul>
-  );
-};
+}) => (
+  <ul
+    className={dcnb(
+      "su-list-none su-p-0 children:su-border-t children:su-border-solid children:su-border-black-20 children:children:su-text-21",
+      className
+    )}
+    {...props}
+  >
+    {menuTree.map((item) => (
+      <Item
+        element={item}
+        pageLink={pageLink}
+        showNestedLevels={showNestedLevels}
+      />
+    ))}
+  </ul>
+);
 
 Group.displayName = "VerticalNav.Group";
 

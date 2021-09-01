@@ -19,13 +19,38 @@ import { Item } from "./VerticalNav.Item";
  *
  * For displaying sidebar navigation.
  */
-const VerticalNavRoot = ({ className, children, ...props }) => {
-  const filters = { components: [Group, Item] };
-  const menuTree = useTreeWalker(children, filters);
+const VerticalNavRoot = ({
+  className,
+  menu,
+  pageLink,
+  navOpened = false,
+  showNestedLevels = false,
+  ...props
+}) => {
+  const menuTree = useTreeWalker(menu, pageLink, showNestedLevels);
   return (
     <VerticalNavStateProvider tree={menuTree}>
-      <nav className={dcnb("vertical-nav", className)} {...props}>
-        {menuTree}
+      <nav
+        className={dcnb("su-relative", navOpened ? "su-shadow-xl" : "")}
+        {...props}
+        aria-label="Section Menu"
+      >
+        {/* Desktop */}
+        <Group
+          menuTree={menuTree}
+          pageLink={pageLink}
+          className="su-hidden lg:su-block"
+          showNestedLevels={showNestedLevels}
+        />
+
+        {/* Mobile */}
+        <Group
+          menuTree={menuTree}
+          pageLink={pageLink}
+          className="lg:su-hidden su-absolute su-z-20 su-shadow-xl su-bg-white su-w-full"
+          aria-hidden={!navOpened}
+          showNestedLevels={showNestedLevels}
+        />
       </nav>
     </VerticalNavStateProvider>
   );
@@ -35,18 +60,12 @@ VerticalNavRoot.displayName = "VerticalNav";
 // Bind them.
 // -----------------------------------------------------------------------------
 
-export const VerticalNav = Object.assign(VerticalNavRoot, { Item, Group });
+export const VerticalNav = Object.assign(VerticalNavRoot, { Item });
 
 // Prop Types.
 // -----------------------------------------------------------------------------
 
 VerticalNavRoot.propTypes = {
-  // Nodes and content.
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.element,
-    PropTypes.string,
-  ]),
   className: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.array,
