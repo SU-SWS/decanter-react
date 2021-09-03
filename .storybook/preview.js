@@ -1,5 +1,5 @@
 // Decanter Styles.
-import 'decanter/dist/decanter.css'
+import "tailwindcss/tailwind.css"
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 // Our Breakpoints
