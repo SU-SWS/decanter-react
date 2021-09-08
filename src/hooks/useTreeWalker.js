@@ -19,7 +19,8 @@ const walkTree = (items, pageLink, showNestedLevels) => {
   // immediate children if available.
   const setLinkProps = (obj) => {
     if (obj) {
-      if (urlMatch(obj.link)) {
+
+      if (urlMatch(obj.link.cached_url)) {
         // eslint-disable-next-line no-param-reassign
         obj.active = true;
       } else if (obj.childItems?.length > 0) {
@@ -27,7 +28,7 @@ const walkTree = (items, pageLink, showNestedLevels) => {
         obj.childItems.map((child) => {
           // eslint-disable-next-line no-param-reassign
           obj.activeTrail = true;
-          if (urlMatch(child.link)) {
+          if (urlMatch(child.link.cached_url)) {
             // eslint-disable-next-line no-param-reassign
             child.active = true;
           } else {
@@ -42,12 +43,12 @@ const walkTree = (items, pageLink, showNestedLevels) => {
   items.map((item, key) => {
     // Recursive function that will check which of the first level items have the active item and need to be opened.
     const getActiveSubmenu = (obj) => {
-      if (urlMatch(obj.link)) {
+      if (urlMatch(obj.link.cached_url)) {
         setLinkProps(items[key]);
       } else if (obj.childItems?.length) {
         // eslint-disable-next-line array-callback-return
         obj.childItems.map((child) => {
-          if (urlMatch(child.link)) {
+          if (urlMatch(child.link.cached_url)) {
             setLinkProps(items[key]);
           } else {
             getActiveSubmenu(child);

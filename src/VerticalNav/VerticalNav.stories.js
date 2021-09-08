@@ -2,6 +2,7 @@
 import React from "react";
 import { withDesign } from "storybook-addon-designs";
 import { VerticalNav } from "./VerticalNav";
+import { Link } from "./exampleLink";
 
 export default {
   title: "Navigation/Vertical Nav",
@@ -29,148 +30,176 @@ export default {
 
 const menuTree = [
   {
-    text: "Item One",
     link: {
       cached_url: "/i-0",
     },
-    linkComponent: '<a href="/i-0">Item One</a>',
+    Link: <Link href="/i-0" name="Item One (Link Component example)" type="Link" />,
     childItems: [
       {
-        text: "Item One - One",
         link: {
           cached_url: "/i-0-0",
         },
+        Link: <a href="/i-0-0">Item One - One (a tag example)</a>,
         childItems: [
           {
-            text: "Item One - One - One",
             link: {
               cached_url: "/i-0-0-0",
             },
+            Link: (
+              <Link href="/i-0-0-0" name="Item One - One - One" type="Link" />
+            ),
           },
           {
-            text: "Item One - One - Two",
             link: {
               cached_url: "/i-0-0-1",
             },
+            Link: (
+              <Link href="/i-0-0-1" name="Item One - One - Two" type="Link" />
+            ),
           },
           {
-            text: "Item One - One - Three",
             link: {
               cached_url: "/i-0-0-2",
             },
+            Link: (
+              <Link href="/i-0-0-2" name="Item One - One - Three" type="Link" />
+            ),
           },
           {
-            text: "Item One - One - Four",
             link: {
               cached_url: "/i-0-0-3",
             },
+            Link: (
+              <Link href="/i-0-0-3" name="Item One - One - Four" type="Link" />
+            ),
           },
         ],
       },
       {
-        text: "Item One - Two",
         link: {
           cached_url: "/i-0-1",
         },
+        Link: <Link href="/i-0-1" name="Item One - Two" type="Link" />,
       },
       {
-        text: "Item One - Three",
         link: {
           cached_url: "/i-0-2",
         },
+        Link: <Link href="/i-0-2" name="Item One - Three" type="Link" />,
       },
       {
-        text: "Item One - Four",
         link: {
           cached_url: "/i-0-3",
         },
+        Link: <Link href="/i-0-3" name="Item One - Four" type="Link" />,
       },
     ],
   },
   {
-    text: "Item Two",
-    link: {
-      cached_url: "/i-1",
-    },
-  },
-  {
-    text: "Item Three",
     link: {
       cached_url: "/i-2",
     },
+    Link: <Link href="/i-0-3" name="Item One - Two" type="Link" />,
+  },
+  {
+    link: {
+      cached_url: "/i-2",
+    },
+    Link: <Link href="/i-2" name="Item Three" type="Link" />,
     childItems: [
       {
-        text: "Item Three - One",
         link: {
           cached_url: "/i-2-0",
         },
+        Link: <Link href="/i-2-0" name="Item Three - One" type="Link" />,
         childItems: [
           {
-            text: "Item Three - One - One",
             link: {
               cached_url: "/i-2-0-0",
             },
+            Link: (
+              <Link href="/i-2-0-0" name="Item Three - One - One" type="Link" />
+            ),
           },
           {
-            text: "Item Three - One - Two",
             link: {
               cached_url: "/i-2-0-1",
             },
+            Link: (
+              <Link href="/i-2-0-1" name="Item Three - One - Two" type="Link" />
+            ),
           },
           {
-            text: "Item Three - One - Three",
             link: {
               cached_url: "/i-2-0-2",
             },
+            Link: (
+              <Link
+                href="/i-2-0-2"
+                name="Item Three - One - Three"
+                type="Link"
+              />
+            ),
             childItems: [
               {
-                text: "Item Three - One - Three - One",
                 link: {
                   cached_url: "/i-2-0-2-0",
                 },
+                Link: (
+                  <Link
+                    href="/i-2-0-2-0"
+                    name="Item Three - One - Three - One"
+                    type="Link"
+                  />
+                ),
               },
               {
-                text: "Item Three - One - Three - Two",
                 link: {
                   cached_url: "/i-2-0-2-1",
                 },
+                Link: (
+                  <Link
+                    href="/i-2-0-2-1"
+                    name="Item Three - One - Three - Two"
+                    type="Link"
+                  />
+                ),
               },
             ],
           },
           {
-            text: "Item Three - One - Four",
             link: {
               cached_url: "/i-2-0-3",
             },
+            Link: (
+              <Link
+                href="/i-2-0-3"
+                name="Item Three - One - Four"
+                type="Link"
+              />
+            ),
           },
         ],
       },
       {
-        text: "Item Three - Two",
         link: {
           cached_url: "/i-2-1",
         },
+        Link: <Link href="/i-2-1" name="Item Three - Two" type="Link" />,
       },
       {
-        text: "Item Three - Three",
         link: {
           cached_url: "/i-2-2",
         },
+        Link: <Link href="/i-2-2" name="Item Three - Three" type="Link" />,
       },
       {
-        text: "Item Three - Four",
         link: {
           cached_url: "/i-2-3",
         },
+        Link: <Link href="/i-2-3" name="Item Three - Four" type="Link" />,
       },
     ],
-  },
-  {
-    text: "Item Four",
-    link: {
-      cached_url: "/i-3",
-    },
-    linkComponent: '<a href="/i-3">Item Four</a>',
   },
 ];
 
@@ -183,6 +212,6 @@ export const Default = VerticalNavTemplate.bind({});
 // /////////////////////////////////////////////////////////////////////////////
 
 const VerticalNavDeepNesting = ({ children, ...rest }) => (
-  <VerticalNav {...rest} showNestedLevels menu={menuTree} pageLink="/i-0-0" />
+  <VerticalNav {...rest} menu={menuTree} pageLink="/i-0-0" showNestedLevels />
 );
 export const DeepNesting = VerticalNavDeepNesting.bind({});
