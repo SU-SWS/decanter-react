@@ -33,7 +33,9 @@ const menuTree = [
     link: {
       cached_url: "/i-0",
     },
-    Link: <Link href="/i-0" name="Item One (Link Component example)" type="Link" />,
+    Link: (
+      <Link href="/i-0" name="Item One (Link Component example)" type="Link" />
+    ),
     childItems: [
       {
         link: {
@@ -46,7 +48,12 @@ const menuTree = [
               cached_url: "/i-0-0-0",
             },
             Link: (
-              <Link href="/i-0-0-0" name="Item One - One - One" type="Link" />
+              <Link
+                href="/i-0-0-0"
+                name="Item One - One - One (external class example)"
+                type="Link"
+                className="su-bg-foggy-light"
+              />
             ),
           },
           {

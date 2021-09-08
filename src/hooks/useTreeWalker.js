@@ -19,7 +19,6 @@ const walkTree = (items, pageLink, showNestedLevels) => {
   // immediate children if available.
   const setLinkProps = (obj) => {
     if (obj) {
-
       if (urlMatch(obj.link.cached_url)) {
         // eslint-disable-next-line no-param-reassign
         obj.active = true;
