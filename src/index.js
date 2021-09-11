@@ -18,6 +18,7 @@ import { Logo } from "./Logo/Logo";
 import { Poster } from "./Poster/Poster";
 import { Skiplink } from "./Skiplink/Skiplink";
 import { SrOnlyText } from "./SrOnlyText/SrOnlyText";
+import { TextField } from "./TextField/TextField";
 
 export {
   Alert,
@@ -40,4 +41,5 @@ export {
   Poster,
   Skiplink,
   SrOnlyText,
+  TextField,
 };
