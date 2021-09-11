@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Label } from "./TextField.Label";
 import { InlineError } from "./TextField.InlineError";
+import { dcnb } from "cnbuilder";
 
 export const TextField = ({
   className,
@@ -11,9 +12,13 @@ export const TextField = ({
   id,
   ...props
 }) => (
-  <div className={className}>
+  <div className={dcnb("su-w-400", className)}>
     <Label text={labelText} helpText={helpText} id={id}>
-      <input className="su-input" id={id} {...props} />
+      <input
+        className="su-input su-border-b-2 su-rounded su-pt-19 su-pb-20 su-px-19 su-w-full"
+        id={id}
+        {...props}
+      />
       <InlineError text={errorText} />
     </Label>
   </div>
