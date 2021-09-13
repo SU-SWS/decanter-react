@@ -122,7 +122,7 @@ export const GlobalFooter = ({ className, ...props }) => {
               </li>
               <li className="sm:su-mr-10 md:su-mr-20 lg:su-mr-27">
                 <a
-                  href="http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/"
+                  href="https://bulletin.stanford.edu/pages/c7vDgeOuJIfpZe8GKmW3"
                   title="Non-discrimination policy"
                 >
                   Non-Discrimination
