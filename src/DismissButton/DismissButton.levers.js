@@ -1,7 +1,7 @@
 /**
  * Text and icon color for the dismiss button
  */
-export const dismissIconColors = ["black", "white", "unset"];
+export const dismissIconColors = ["black", "white", "red", "unset"];
 
 /**
  * Heroicon options for the Dismiss Button
