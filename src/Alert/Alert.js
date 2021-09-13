@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-hero-icon';
 import { dcnb } from 'cnbuilder';
-import { alertTypes, lightText, darkText } from './Alert.levers';
+import { alertTypes, lightText, darkText, redText } from './Alert.levers';
 import { DismissButton } from '../DismissButton/DismissButton';
 
 /**
@@ -96,6 +96,22 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         defaultIcon = (
           <Icon
             icon="ban"
+            type="solid"
+            aria-hidden="true"
+            className={classes.icon}
+            {...iconProps}
+          />
+        );
+        break;
+
+      case 'errorSummary':
+        levers.wrapper =
+          'su-bg-digital-red su-bg-opacity-20 su-text-digital-red su-link-digital-red';
+        levers.body = redText;
+        levers.dismiss = 'red';
+        defaultIcon = (
+          <Icon
+            icon="exclamation-circle"
             type="solid"
             aria-hidden="true"
             className={classes.icon}
