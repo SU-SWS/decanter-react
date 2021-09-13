@@ -21,7 +21,4 @@ Label.propTypes = {
 
 // Default Props.
 // -----------------------------------------------------------------------------
-Label.defaultProps = {
-  text: "Label",
-  helpText: "Help text lorem ipsum cras varius. Sed hendrerit.",
-};
+Label.defaultProps = {};

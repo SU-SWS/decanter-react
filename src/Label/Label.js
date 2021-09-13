@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { labelWeights } from "./Label.levers";
 import { dcnb } from "cnbuilder";
+import { labelWeights } from "./Label.levers";
 
 export const Label = ({ children, id, text, helpText, fontWeight }) => {
   // Defaults & Variables.

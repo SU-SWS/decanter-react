@@ -18,7 +18,5 @@ InlineError.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 InlineError.defaultProps = {
-  text: "Error",
-  icon: "icon",
-  isError: true,
+  isError: false,
 };
