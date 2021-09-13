@@ -51,6 +51,7 @@
   "dependencies": {
     "cnbuilder": "^2.6.0",
     "decanter": "^7.0.0-alpha.7",
+    "glob": "^7.1.7",
     "prop-types": "^15.7.2",
     "react-hero-icon": "^0.0.7"
   },
@@ -105,7 +106,7 @@
     "storybook-addon-designs": "^6.0.0",
     "storybook-addon-pseudo-states": "^1.0.0-rc.3",
     "storybook-dark-mode": "^1.0.4",
-    "tailwindcss": "^2.1.1",
+    "tailwindcss": "^2.2.15",
     "tailwindcss-children": "^2.1.0",
     "tailwindcss-interaction-variants": "^5.0.0"
   }
