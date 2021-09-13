@@ -35,6 +35,7 @@ export const Small = CheckboxTemplate.bind({});
 Small.args = {
   position: "left",
   size: "small",
+  className: "",
 };
 Small.storyName = "Small Checkbox";
 
@@ -42,6 +43,7 @@ export const Large = CheckboxTemplate.bind({});
 Large.args = {
   position: "left",
   size: "large",
+  className: "",
 };
 Large.storyName = "Large Checkbox";
 
@@ -49,5 +51,6 @@ export const Right = CheckboxTemplate.bind({});
 Right.args = {
   position: "right",
   size: "small",
+  className: "",
 };
 Right.storyName = "Checkbox on the right";
