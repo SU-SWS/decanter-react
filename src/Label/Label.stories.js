@@ -17,5 +17,11 @@ export default {
 const LabelTemplate = (props) => <Label {...props} />;
 
 export const Default = LabelTemplate.bind({});
-Default.args = {};
+Default.args = {
+  id: "input__text",
+  text: "Label",
+  helpText:
+    "Help text Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl.",
+  fontWeight: "bold",
+};
 Default.storyName = "Example";

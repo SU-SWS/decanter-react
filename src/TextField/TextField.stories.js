@@ -23,6 +23,7 @@ const TextFieldTemplate = ({
   helpText,
   id,
   errorText,
+  isError,
   ...props
 }) => (
   <TextField>
@@ -32,7 +33,7 @@ const TextFieldTemplate = ({
         className="su-input su-border su-border-black su-border-b-2 su-rounded su-pt-19 su-pb-20 su-px-19 su-w-full"
         id={id}
       />
-      <TextField.InlineError text={errorText} />
+      <TextField.InlineError text={errorText} isError={isError} />
     </TextField.Label>
   </TextField>
 );
