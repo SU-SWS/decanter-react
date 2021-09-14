@@ -51,9 +51,6 @@ plugins = plugins.concat(base);
 const componentFiles = glob.sync(decanter + "/components/**/*.js");
 const components = [];
 componentFiles.forEach((file) => {
-  if (file.match(/logo/)) {
-    return;
-  }
   components.push(require(file)());
 });
 plugins = plugins.concat(components);
