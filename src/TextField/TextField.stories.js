@@ -3,6 +3,7 @@ import { TextField } from "./TextField";
 import { Label } from "../Label/Label";
 import { labelWeights } from "../Label/Label.levers";
 import { InlineError } from "../InlineError/InlineError";
+import { InlineValid } from "../InlineValid/InlineValid";
 
 export default {
   title: "Form Elements/Text Field",
@@ -10,6 +11,7 @@ export default {
   subcomponents: {
     Label,
     InlineError,
+    InlineValid,
   },
   parameters: {
     docs: {
