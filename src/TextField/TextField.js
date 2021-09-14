@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { Label } from "../Label/Label";
 import { InlineError } from "../InlineError/InlineError";
+import { labelWeights } from "../Label/Label.levers";
 
 export const TextFieldRoot = ({
   className,
@@ -43,15 +44,17 @@ export const TextField = Object.assign(TextFieldRoot, {
 // Prop Types.
 // -----------------------------------------------------------------------------
 TextFieldRoot.propTypes = {
+  /**
+   * Font weight.
+   */
+  fontWeight: PropTypes.oneOf(Object.keys(labelWeights)),
+
   // CSS Classes.
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
     PropTypes.object,
   ]),
-
-  // Error message
-  errorText: PropTypes.string,
 
   // Label text
   labelText: PropTypes.string,
@@ -61,6 +64,9 @@ TextFieldRoot.propTypes = {
 
   // Label and Input ID
   id: PropTypes.string,
+
+  // Error message
+  errorText: PropTypes.string,
 };
 
 // Default Props.

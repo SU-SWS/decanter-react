@@ -29,18 +29,17 @@ export const InlineError = ({ className, errorText, icon, iconType }) => {
     );
   }
 
-  return (
-    <>
-      {errorText && (
-        <div className={dcnb("su-text-digital-red", className)}>
-          <p className="su-text-16">
-            {defaultIcon}
-            {errorText}
-          </p>
-        </div>
-      )}
-    </>
-  );
+  if (errorText) {
+    return (
+      <div className={dcnb("su-text-digital-red", className)}>
+        <p className="su-text-16">
+          {defaultIcon}
+          {errorText}
+        </p>
+      </div>
+    );
+  }
+  return null;
 };
 
 // Prop Types.
