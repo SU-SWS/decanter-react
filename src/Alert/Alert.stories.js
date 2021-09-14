@@ -191,6 +191,7 @@ ErrorSummaryBox.args = {
   label: "",
   classes: {
     container: "su-items-start",
+    dismissWrapper: "su-items-start",
   },
 };
 ErrorSummaryBox.parameters = {
@@ -208,6 +209,7 @@ ErrorSummaryListBox.args = {
   label: "",
   classes: {
     container: "su-items-start",
+    dismissWrapper: "su-items-start",
   },
 };
 ErrorSummaryListBox.parameters = {

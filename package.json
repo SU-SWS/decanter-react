@@ -49,6 +49,7 @@
   },
   "homepage": "https://github.com/SU-SWS/decanter-react#readme",
   "dependencies": {
+    "@heroicons/react": "^1.0.4",
     "cnbuilder": "^2.6.0",
     "decanter": "^7.0.0-beta.0",
     "prop-types": "^15.7.2",
