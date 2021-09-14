@@ -47,4 +47,6 @@ Label.propTypes = {
 
 // Default Props.
 // -----------------------------------------------------------------------------
-Label.defaultProps = {};
+Label.defaultProps = {
+  fontWeight: "regular",
+};
