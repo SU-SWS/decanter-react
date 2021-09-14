@@ -4,6 +4,7 @@ import { dcnb } from "cnbuilder";
 import { Label } from "../Label/Label";
 import { InlineError } from "../InlineError/InlineError";
 import { labelWeights } from "../Label/Label.levers";
+import { InlineValid } from "../InlineValid/InlineValid";
 
 export const TextFieldRoot = ({
   className,
@@ -12,6 +13,7 @@ export const TextFieldRoot = ({
   helpText,
   id,
   errorText,
+  validText,
   ...props
 }) => (
   <div className={dcnb("su-w-400", className)}>
@@ -27,6 +29,7 @@ export const TextFieldRoot = ({
         id={id}
       />
       <InlineError errorText={errorText} />
+      <InlineValid validText={validText} />
     </Label>
   </div>
 );
@@ -50,11 +53,7 @@ TextFieldRoot.propTypes = {
   fontWeight: PropTypes.oneOf(Object.keys(labelWeights)),
 
   // CSS Classes.
-  className: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.array,
-    PropTypes.object,
-  ]),
+  className: PropTypes.string,
 
   // Label text
   labelText: PropTypes.string,
@@ -67,6 +66,9 @@ TextFieldRoot.propTypes = {
 
   // Error message
   errorText: PropTypes.string,
+
+  // Valid message
+  validText: PropTypes.string,
 };
 
 // Default Props.

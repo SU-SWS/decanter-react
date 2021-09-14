@@ -34,7 +34,6 @@ const TextFieldTemplate = (props) => <TextField {...props} />;
 export const Default = TextFieldTemplate.bind({});
 Default.args = {
   className: "",
-  errorText: "Error: Lorem ipsum",
   labelText: "Text Field Input",
   helpText:
     "Help text fusce vel dui. Phasellus magna. Fusce ac felis sit amet ligula pharetra condimentum. Nulla sit amet est. Nunc sed turpis.",
@@ -46,7 +45,6 @@ Default.storyName = "Default";
 export const LabelWeight = TextFieldTemplate.bind({});
 LabelWeight.args = {
   className: "",
-  errorText: "Error: Lorem ipsum",
   labelText: "Text Field Input",
   helpText:
     "Help text fusce vel dui. Phasellus magna. Fusce ac felis sit amet ligula pharetra condimentum. Nulla sit amet est. Nunc sed turpis.",
@@ -55,3 +53,27 @@ LabelWeight.args = {
   fontWeight: "bold",
 };
 LabelWeight.storyName = "Bold Label Weight";
+
+export const Error = TextFieldTemplate.bind({});
+Error.args = {
+  className: "",
+  errorText: "Error: Lorem ipsum",
+  labelText: "Text Field Input",
+  helpText:
+    "Help text fusce vel dui. Phasellus magna. Fusce ac felis sit amet ligula pharetra condimentum. Nulla sit amet est. Nunc sed turpis.",
+  id: "input__text",
+  placeholder: "Placeholder Text",
+};
+Error.storyName = "Error Message";
+
+export const Valid = TextFieldTemplate.bind({});
+Valid.args = {
+  className: "",
+  validText: "Valid: Lorem ipsum",
+  labelText: "Text Field Input",
+  helpText:
+    "Help text fusce vel dui. Phasellus magna. Fusce ac felis sit amet ligula pharetra condimentum. Nulla sit amet est. Nunc sed turpis.",
+  id: "input__text",
+  placeholder: "Placeholder Text",
+};
+Valid.storyName = "Valid Message";

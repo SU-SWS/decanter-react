@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import Icon from "react-hero-icon";
 
-export const InlineError = ({ className, errorText, icon, iconType }) => {
+export const InlineValid = ({ className, validText, icon, iconType }) => {
   const iconProps = { height: 20, width: 20 };
 
   // Default Icon.
@@ -12,7 +12,7 @@ export const InlineError = ({ className, errorText, icon, iconType }) => {
       icon="x"
       type="sold"
       aria-hidden="true"
-      className="su-text-digital-red su-inline su-mr-3"
+      className="su-text-digital-green su-inline su-mr-3"
       {...iconProps}
     />
   );
@@ -23,18 +23,18 @@ export const InlineError = ({ className, errorText, icon, iconType }) => {
         icon={icon}
         type={iconType}
         aria-hidden="true"
-        className="su-text-digital-red su-inline su-mr-3"
+        className="su-text-digital-green su-inline su-mr-3"
         {...iconProps}
       />
     );
   }
 
-  if (errorText) {
+  if (validText) {
     return (
-      <div className={dcnb("su-text-digital-red", className)}>
+      <div className={dcnb("su-text-digital-green", className)}>
         <p className="su-text-16">
           {defaultIcon}
-          {errorText}
+          {validText}
         </p>
       </div>
     );
@@ -44,12 +44,12 @@ export const InlineError = ({ className, errorText, icon, iconType }) => {
 
 // Prop Types.
 // -----------------------------------------------------------------------------
-InlineError.propTypes = {
+InlineValid.propTypes = {
   // CSS Classes.
   className: PropTypes.string,
 
-  // Error message
-  errorText: PropTypes.string,
+  // Valid message
+  validText: PropTypes.string,
 
   // Icon name
   icon: PropTypes.string,
@@ -60,7 +60,7 @@ InlineError.propTypes = {
 
 // Default Props.
 // -----------------------------------------------------------------------------
-InlineError.defaultProps = {
-  icon: "x",
+InlineValid.defaultProps = {
+  icon: "check",
   iconType: "solid",
 };
