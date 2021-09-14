@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import Icon from "react-hero-icon";
 
-export const InlineError = ({ className, text, icon, iconType, isError }) => {
+export const InlineError = ({ className, errorText, icon, iconType }) => {
   const iconProps = { height: 20, width: 20 };
 
   // Default Icon.
@@ -31,11 +31,11 @@ export const InlineError = ({ className, text, icon, iconType, isError }) => {
 
   return (
     <>
-      {isError && (
+      {errorText && (
         <div className={dcnb("su-text-digital-red", className)}>
           <p className="su-text-16">
             {defaultIcon}
-            {text}
+            {errorText}
           </p>
         </div>
       )}
@@ -54,16 +54,13 @@ InlineError.propTypes = {
   ]),
 
   // Error message
-  text: PropTypes.string,
+  errorText: PropTypes.string,
 
   // Icon name
   icon: PropTypes.string,
 
   // Icon Type
   iconType: PropTypes.string,
-
-  // Is there an error message?
-  isError: PropTypes.bool,
 };
 
 // Default Props.
@@ -71,5 +68,4 @@ InlineError.propTypes = {
 InlineError.defaultProps = {
   icon: "x",
   iconType: "solid",
-  isError: false,
 };

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
 import { labelWeights } from "./Label.levers";
 
-export const Label = ({ children, id, text, helpText, fontWeight }) => {
+export const Label = ({ children, id, labelText, helpText, fontWeight }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   let weight = "regular";
@@ -19,7 +19,7 @@ export const Label = ({ children, id, text, helpText, fontWeight }) => {
         className={dcnb("su-label su-mb-5 su-text-18", weight)}
         htmlFor={id}
       >
-        {text}
+        {labelText}
       </label>
       <p className="su-text-cool-grey su-mb-5 su-text-18 su-sans">{helpText}</p>
       {children}
@@ -36,7 +36,7 @@ Label.propTypes = {
   fontWeight: PropTypes.oneOf(Object.keys(labelWeights)),
 
   // Label text
-  text: PropTypes.string,
+  labelText: PropTypes.string,
 
   // Help text
   helpText: PropTypes.string,

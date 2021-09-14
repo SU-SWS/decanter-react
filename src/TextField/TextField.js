@@ -1,11 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { dcnb } from "cnbuilder";
-import { Label } from "./TextField.Label";
-import { InlineError } from "./TextField.InlineError";
+import { Label } from "../Label/Label";
+import { InlineError } from "../InlineError/InlineError";
 
-export const TextFieldRoot = ({ className, children }) => (
-  <div className={dcnb("su-w-400", className)}>{children}</div>
+export const TextFieldRoot = ({
+  className,
+  labelText,
+  fontWeight,
+  helpText,
+  id,
+  errorText,
+  ...props
+}) => (
+  <div className={dcnb("su-w-400", className)}>
+    <Label
+      labelText={labelText}
+      helpText={helpText}
+      id={id}
+      fontWeight={fontWeight}
+    >
+      <input
+        {...props}
+        className="su-input su-border su-border-black su-border-b-2 su-rounded su-pt-19 su-pb-20 su-px-19 su-w-full"
+        id={id}
+      />
+      <InlineError errorText={errorText} />
+    </Label>
+  </div>
 );
 
 TextFieldRoot.displayName = "Text Field";

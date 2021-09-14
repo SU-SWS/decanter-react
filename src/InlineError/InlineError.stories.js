@@ -18,7 +18,6 @@ const InlineErrorTemplate = (props) => <InlineError {...props} />;
 
 export const Default = InlineErrorTemplate.bind({});
 Default.args = {
-  isError: true,
   text: "Error text Cras dapibus. Fusce vulputate eleifend sapien. Etiam rhoncus.",
 };
 Default.storyName = "Example";
