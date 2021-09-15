@@ -6,17 +6,17 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { InlineError } from "./InlineError";
+import { InlineValid } from "./InlineValid";
 
 // Component is a component.
-describe("InlineError", () => {
+describe("InlineValid", () => {
   // Is a component with valid syntax.
   it("is truthy", () => {
-    expect(InlineError).toBeTruthy();
+    expect(InlineValid).toBeTruthy();
   });
 
   // Default is rendered.
-  it("renders the InlineError in the default state", () => {
-    render(<InlineError />);
+  it("renders the InlineValid in the default state", () => {
+    render(<InlineValid />);
   });
 });
