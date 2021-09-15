@@ -1,6 +1,5 @@
 import React from "react";
 import { Select } from "./Select";
-// import { checkboxPosition, checkboxSize } from "./Select.levers";
 
 export default {
   title: "Simple/Select",
