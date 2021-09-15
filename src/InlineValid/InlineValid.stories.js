@@ -19,6 +19,6 @@ const InlineValidTemplate = (props) => <InlineValid {...props} />;
 export const Default = InlineValidTemplate.bind({});
 Default.args = {
   validText:
-    "Error text Cras dapibus. Fusce vulputate eleifend sapien. Etiam rhoncus.",
+    "Valid: text Cras dapibus. Fusce vulputate eleifend sapien. Etiam rhoncus.",
 };
 Default.storyName = "Example";
