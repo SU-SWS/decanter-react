@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import React from "react";
-import { superheadWeights } from "./Card.levers";
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import React from 'react';
+import { superheadWeights } from './Card.levers';
 
 /**
  * Superhead component
@@ -18,16 +18,16 @@ export const Superhead = ({
 }) => {
   const superheadWeight = superheadWeights[weight];
 
-  let uppercase = "";
+  let uppercase = '';
 
   if (isUppercase) {
-    uppercase = "su-uppercase";
+    uppercase = 'su-uppercase';
   }
 
   return (
     <span
       className={dcnb(
-        "su-type-0 su-mb-0 su-leading-display",
+        'su-type-0 su-mb-0 su-leading-display',
         superheadWeight,
         uppercase,
         className
@@ -39,7 +39,7 @@ export const Superhead = ({
   );
 };
 
-Superhead.displayName = "Card.Superhead";
+Superhead.displayName = 'Card.Superhead';
 
 Superhead.propTypes = {
   /**
@@ -66,6 +66,6 @@ Superhead.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Superhead.defaultProps = {
-  weight: "bold",
+  weight: 'bold',
   isUppercase: false,
 };

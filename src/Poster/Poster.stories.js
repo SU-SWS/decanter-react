@@ -1,30 +1,30 @@
-import React from "react";
-import { Poster } from "./Poster";
-import { layoutOptions } from "./Poster.levers";
-import { CtaButton } from "../CtaButton/CtaButton";
+import React from 'react';
+import { Poster } from './Poster';
+import { layoutOptions } from './Poster.levers';
+import { CtaButton } from '../CtaButton/CtaButton';
 
 export default {
-  title: "Composite/Poster",
+  title: 'Composite/Poster',
   component: Poster,
   subcomponents: {
-    "Poster.Content": Poster.Content,
-    "Poster.Image": Poster.Image,
-    "Poster.Headline": Poster.Headline,
+    'Poster.Content': Poster.Content,
+    'Poster.Image': Poster.Image,
+    'Poster.Headline': Poster.Headline,
   },
   parameters: {
     design: {
-      type: "figma",
-      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=16530%3A326",
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=16530%3A326',
     },
     docs: {
       description: {
-        component: "More information coming soon...",
+        component: 'More information coming soon...',
       },
     },
   },
   argTypes: {
     layout: {
-      type: "select",
+      type: 'select',
       options: layoutOptions,
     },
   },
@@ -191,59 +191,59 @@ const PosterTemplateCustomBorder = ({ ...rest }) => (
 
 export const Default = PosterTemplate.bind({});
 Default.args = {
-  bgColor: "su-bg-foggy-light",
+  bgColor: 'su-bg-foggy-light',
 };
-Default.storyName = "Default";
+Default.storyName = 'Default';
 
 export const DefaultImage = PosterTemplateImage.bind({});
 DefaultImage.args = {
-  bgColor: "su-bg-foggy-light",
+  bgColor: 'su-bg-foggy-light',
 };
-DefaultImage.storyName = "Default with Image, Center layout";
+DefaultImage.storyName = 'Default with Image, Center layout';
 
 export const DefaultImageLeft = PosterTemplateImageLeft.bind({});
 DefaultImageLeft.args = {
-  bgColor: "su-bg-foggy-light",
-  layout: "left",
+  bgColor: 'su-bg-foggy-light',
+  layout: 'left',
 };
-DefaultImageLeft.storyName = "Default with Image, Left layout";
+DefaultImageLeft.storyName = 'Default with Image, Left layout';
 
 export const DefaultGreyBg = PosterTemplateImage.bind({});
 DefaultGreyBg.args = {
-  bgColor: "su-bg-white",
+  bgColor: 'su-bg-white',
 };
-DefaultGreyBg.storyName = "Default White Background";
+DefaultGreyBg.storyName = 'Default White Background';
 
 export const DefaultBlackBg = PosterTemplateCustomLeft.bind({});
 DefaultBlackBg.args = {
-  bgColor: "su-bg-black",
-  layout: "left",
+  bgColor: 'su-bg-black',
+  layout: 'left',
 };
-DefaultBlackBg.storyName = "Default Black Background";
+DefaultBlackBg.storyName = 'Default Black Background';
 
 export const CustomPoster = PosterTemplateCustom.bind({});
 CustomPoster.args = {
   bgImage: {
-    src: "https://placekitten.com/600/400",
+    src: 'https://placekitten.com/600/400',
   },
   isGradient: true,
 };
-CustomPoster.storyName = "Custom Poster with Bg Gradient, Center layout";
+CustomPoster.storyName = 'Custom Poster with Bg Gradient, Center layout';
 
 export const CustomPosterLeft = PosterTemplateCustomLeft.bind({});
 CustomPosterLeft.args = {
   bgImage: {
-    src: "https://placekitten.com/600/400",
+    src: 'https://placekitten.com/600/400',
   },
   bgGradient:
-    "linear-gradient(240deg, rgba(24, 29, 28) 10%, rgba(98, 0, 89, 0.85) 60%, rgb(177, 4, 14) 100%)",
-  layout: "left",
+    'linear-gradient(240deg, rgba(24, 29, 28) 10%, rgba(98, 0, 89, 0.85) 60%, rgb(177, 4, 14) 100%)',
+  layout: 'left',
   isGradient: true,
 };
-CustomPosterLeft.storyName = "Custom Poster with Bg Gradient, Left layout";
+CustomPosterLeft.storyName = 'Custom Poster with Bg Gradient, Left layout';
 
 export const CustomPosterBorder = PosterTemplateCustomBorder.bind({});
 CustomPosterBorder.args = {
-  bgColor: "su-bg-lagunita",
+  bgColor: 'su-bg-lagunita',
 };
-CustomPosterBorder.storyName = "Custom Poster with CtaButton";
+CustomPosterBorder.storyName = 'Custom Poster with CtaButton';

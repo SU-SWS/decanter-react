@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { Logo } from "../Logo/Logo";
-import { FlexBox } from "../FlexBox/FlexBox";
-import { lockupColors } from "./Lockup.levers";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { Logo } from '../Logo/Logo';
+import { FlexBox } from '../FlexBox/FlexBox';
+import { lockupColors } from './Lockup.levers';
 
 /**
  * Stanford Department Branding Component.
@@ -18,17 +18,17 @@ export const Lockup = ({ classes = {}, line1, ...props }) => {
   // props.color
   if (props.color && lockupColors.includes(props.color)) {
     switch (props.color) {
-      case "white":
-        levers.logo = "white";
-        levers.text = "su-text-white";
-        levers.bar = "su-border-white";
+      case 'white':
+        levers.logo = 'white';
+        levers.text = 'su-text-white';
+        levers.bar = 'su-border-white';
         break;
 
-      case "default":
+      case 'default':
       default:
-        levers.logo = "cardinal-red";
-        levers.text = "su-text-black";
-        levers.bar = "su-border-black";
+        levers.logo = 'cardinal-red';
+        levers.text = 'su-text-black';
+        levers.bar = 'su-border-black';
         break;
     }
   }
@@ -40,13 +40,13 @@ export const Lockup = ({ classes = {}, line1, ...props }) => {
         color={levers.logo}
         isLink={false}
         className={dcnb(
-          "su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid",
+          'su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid',
           levers.bar
         )}
       />
       <div
         className={dcnb(
-          "su-text-25 md:su-text-m2 su--mt-3 md:su-mt-0 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6",
+          'su-text-25 md:su-text-m2 su--mt-3 md:su-mt-0 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6',
           levers.text,
           classes.line1
         )}
@@ -62,10 +62,10 @@ export const Lockup = ({ classes = {}, line1, ...props }) => {
     return (
       <a
         className={dcnb(
-          "su-lockup su-no-underline su-inline-block",
+          'su-lockup su-no-underline su-inline-block',
           classes.wrapper
         )}
-        href={props.url ?? "/"}
+        href={props.url ?? '/'}
       >
         {LockupContent}
       </a>
@@ -75,7 +75,7 @@ export const Lockup = ({ classes = {}, line1, ...props }) => {
   return (
     <div
       className={dcnb(
-        "su-lockup su-no-underline su-inline-block",
+        'su-lockup su-no-underline su-inline-block',
         classes.wrapper
       )}
     >
@@ -115,6 +115,6 @@ Lockup.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Lockup.defaultProps = {
-  color: "default",
+  color: 'default',
   isLink: true,
 };

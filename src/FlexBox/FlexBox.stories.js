@@ -1,5 +1,5 @@
-import React from "react";
-import { FlexBox } from "./FlexBox";
+import React from 'react';
+import { FlexBox } from './FlexBox';
 import {
   flexElements,
   flexDirection,
@@ -9,57 +9,57 @@ import {
   flexJustifyItems,
   flexAlignContent,
   flexAlignItems,
-} from "./FlexBox.levers";
+} from './FlexBox.levers';
 
 export default {
-  title: "Layout/FlexBox",
+  title: 'Layout/FlexBox',
   component: FlexBox,
   argTypes: {
     element: {
       control: {
-        type: "select",
+        type: 'select',
         options: flexElements,
       },
     },
     direction: {
       control: {
-        type: "inline-radio",
+        type: 'inline-radio',
         options: Object.keys(flexDirection),
       },
     },
     wrap: {
       control: {
-        type: "inline-radio",
+        type: 'inline-radio',
         options: Object.keys(flexWrap),
       },
     },
     gap: {
       control: {
-        type: "boolean",
+        type: 'boolean',
         options: flexGap,
       },
     },
     justifyContent: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexJustifyContent),
       },
     },
     justifyItems: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexJustifyItems),
       },
     },
     alignContent: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexAlignContent),
       },
     },
     alignItems: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexAlignItems),
       },
     },
@@ -106,52 +106,52 @@ const FlexBoxMultiTemplate = ({ children, ...rest }) => (
 export const Default = FlexBoxTemplate.bind({});
 Default.args = {
   gap: true,
-  className: "su-bg-foggy-light su-text-white",
+  className: 'su-bg-foggy-light su-text-white',
 };
-Default.storyName = "Single Row";
+Default.storyName = 'Single Row';
 
 export const SpaceBetween = FlexBoxTemplate.bind({});
 SpaceBetween.args = {
   gap: true,
-  justifyContent: "space-between",
-  className: "su-bg-foggy-light su-text-white",
+  justifyContent: 'space-between',
+  className: 'su-bg-foggy-light su-text-white',
 };
-SpaceBetween.storyName = "Single Row with Space Between Items";
+SpaceBetween.storyName = 'Single Row with Space Between Items';
 
 export const MultipleRows = FlexBoxMultiTemplate.bind({});
 MultipleRows.args = {
-  wrap: "wrap",
+  wrap: 'wrap',
   gap: true,
-  justifyContent: "start",
-  className: "su-bg-foggy-light su-text-white",
+  justifyContent: 'start',
+  className: 'su-bg-foggy-light su-text-white',
 };
-MultipleRows.storyName = "Multiple Rows";
+MultipleRows.storyName = 'Multiple Rows';
 
 export const MultipleRowsCenter = FlexBoxMultiTemplate.bind({});
 MultipleRowsCenter.args = {
-  wrap: "wrap",
+  wrap: 'wrap',
   gap: true,
-  justifyContent: "center",
-  className: "su-bg-foggy-light su-text-white",
+  justifyContent: 'center',
+  className: 'su-bg-foggy-light su-text-white',
 };
-MultipleRowsCenter.storyName = "Multiple Rows with Centered Items";
+MultipleRowsCenter.storyName = 'Multiple Rows with Centered Items';
 
 export const ColumnCenter = FlexBoxMultiTemplate.bind({});
 ColumnCenter.args = {
-  direction: "col",
+  direction: 'col',
   gap: true,
-  alignItems: "center",
-  className: "su-bg-foggy-light su-text-white",
+  alignItems: 'center',
+  className: 'su-bg-foggy-light su-text-white',
 };
-ColumnCenter.storyName = "Centered Items in Single Column";
+ColumnCenter.storyName = 'Centered Items in Single Column';
 
 export const CustomProps = FlexBoxMultiTemplate.bind({});
 CustomProps.args = {
   gap: true,
-  className: "su-bg-foggy-light su-text-white",
-  id: "my-id",
-  rel: "no-follow",
-  "data-stuff": "some-value",
-  title: "Hi, I am a title",
+  className: 'su-bg-foggy-light su-text-white',
+  id: 'my-id',
+  rel: 'no-follow',
+  'data-stuff': 'some-value',
+  title: 'Hi, I am a title',
 };
-CustomProps.storyName = "With Custom Props";
+CustomProps.storyName = 'With Custom Props';
