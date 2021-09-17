@@ -271,7 +271,7 @@ Button.propTypes = {
   animate: PropTypes.oneOf(iconAnimations),
   isDisabled: PropTypes.bool,
   onClick: PropTypes.func,
-  className: PropTypes.string,
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
   ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
     current: PropTypes.any
@@ -425,7 +425,7 @@ var Alert = function Alert(_ref) {
         break;
 
       case "warning":
-        levers.wrapper = "su-bg-illuminating-dark";
+        levers.wrapper = "su-bg-illuminating-dark su-link-black";
         levers.body = darkText;
         levers.dismiss = "black";
         defaultIcon = /*#__PURE__*/React.createElement(Icon, _extends({
@@ -1559,7 +1559,7 @@ var GlobalFooter = function GlobalFooter(_ref) {
   }, "Trademarks", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
   }, /*#__PURE__*/React.createElement("a", {
-    href: "http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/",
+    href: "https://bulletin.stanford.edu/pages/c7vDgeOuJIfpZe8GKmW3",
     title: "Non-discrimination policy"
   }, "Non-Discrimination", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
     href: "https://www.stanford.edu/site/accessibility",

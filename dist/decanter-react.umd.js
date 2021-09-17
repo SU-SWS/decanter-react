@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('prop-types'), require('react-hero-icon'), require('cnbuilder')) :
   typeof define === 'function' && define.amd ? define(['exports', 'react', 'prop-types', 'react-hero-icon', 'cnbuilder'], factory) :
-  (global = global || self, factory(global.decanterReact = {}, global.react, global.PropTypes, global.Icon, global.cnbuilder));
+  (global = global || self, factory(global.decanterReact = {}, global.react, global.PropTypes, global.Icon, global.dcnb));
 }(this, (function (exports, React, PropTypes, Icon, cnbuilder) {
   var React__default = 'default' in React ? React['default'] : React;
   PropTypes = PropTypes && Object.prototype.hasOwnProperty.call(PropTypes, 'default') ? PropTypes['default'] : PropTypes;
@@ -275,7 +275,7 @@
     animate: PropTypes.oneOf(iconAnimations),
     isDisabled: PropTypes.bool,
     onClick: PropTypes.func,
-    className: PropTypes.string,
+    className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
     ref: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({
       current: PropTypes.any
@@ -429,7 +429,7 @@
           break;
 
         case "warning":
-          levers.wrapper = "su-bg-illuminating-dark";
+          levers.wrapper = "su-bg-illuminating-dark su-link-black";
           levers.body = darkText;
           levers.dismiss = "black";
           defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
@@ -1563,7 +1563,7 @@
     }, "Trademarks", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", {
       className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
     }, /*#__PURE__*/React__default.createElement("a", {
-      href: "http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/",
+      href: "https://bulletin.stanford.edu/pages/c7vDgeOuJIfpZe8GKmW3",
       title: "Non-discrimination policy"
     }, "Non-Discrimination", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
       href: "https://www.stanford.edu/site/accessibility",
