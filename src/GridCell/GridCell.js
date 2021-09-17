@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
 import {
   gridCellElements,
   gridColBPs,
@@ -8,8 +8,8 @@ import {
   gridColLine,
   gridRowSpan,
   gridRowLine,
-} from "./GridCell.levers";
-import intKeys from "../common/util/intKeys";
+} from './GridCell.levers';
+import intKeys from '../common/util/intKeys';
 
 /**
  * CSS Grid Cell component.
@@ -33,7 +33,7 @@ export const GridCell = ({
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = "div";
+  let Element = 'div';
 
   if (props.element && gridCellElements.includes(props.element)) {
     Element = props.element;

@@ -22,7 +22,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "package": "microbundle-crl -o dist/ --no-compress --jsx React.createElement --jsxFragment React.Fragment --sourcemap false --external prop-types PropTypes --external react-hero-icon Icon",
+    "package": "microbundle-crl -o dist/ --no-compress --jsx React.createElement --jsxFragment React.Fragment --sourcemap false --globals prop-types=PropTypes,react-hero-icon=Icon,cnbuilder=dcnb --external prop-types,react-hero-icon,cnbuilder",
     "build": "build-storybook",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
@@ -50,7 +50,8 @@
   "homepage": "https://github.com/SU-SWS/decanter-react#readme",
   "dependencies": {
     "cnbuilder": "^2.6.0",
-    "decanter": "^7.0.0-alpha.7",
+    "decanter": "^7.0.0-beta.1",
+    "glob": "^7.1.7",
     "prop-types": "^15.7.2",
     "react-hero-icon": "^0.0.7"
   },
@@ -73,10 +74,13 @@
     "@storybook/addon-viewport": "^6.1.19",
     "@storybook/node-logger": "^6.1.19",
     "@storybook/react": "^6.1.19",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@whitespace/storybook-addon-html": "^5.0.0",
     "auto-changelog": "^2.2.1",
+    "autoprefixer": "^10.3.3",
     "babel-jest": "^27.0.2",
     "cross-env": "^7.0.2",
     "dompurify": "^2.2.6",
@@ -94,12 +98,16 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest": "^27.0.4",
     "microbundle-crl": "^0.13.11",
+    "postcss": "^8.3.6",
     "prettier": "^2.2.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-test-renderer": "^16.14.0",
     "storybook-addon-designs": "^6.0.0",
     "storybook-addon-pseudo-states": "^1.0.0-rc.3",
-    "storybook-dark-mode": "^1.0.4"
+    "storybook-dark-mode": "^1.0.4",
+    "tailwindcss": "^2.2.15",
+    "tailwindcss-children": "^2.1.0",
+    "tailwindcss-interaction-variants": "^5.0.0"
   }
 }
