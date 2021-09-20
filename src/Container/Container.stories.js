@@ -1,21 +1,21 @@
-import React from "react";
-import DOMPurify from "dompurify";
-import { Container } from "./Container";
-import { containerElements, containerWidths } from "./Container.levers";
+import React from 'react';
+import DOMPurify from 'dompurify';
+import { Container } from './Container';
+import { containerElements, containerWidths } from './Container.levers';
 
 export default {
-  title: "Layout/Container",
+  title: 'Layout/Container',
   component: Container,
   argTypes: {
     element: {
       control: {
-        type: "select",
+        type: 'select',
         options: containerElements,
       },
     },
     width: {
       control: {
-        type: "select",
+        type: 'select',
         options: containerWidths,
       },
     },

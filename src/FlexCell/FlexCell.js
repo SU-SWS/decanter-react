@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
 import {
   flexCellBPs,
   flexCellElements,
@@ -9,8 +9,8 @@ import {
   flexCellGrow,
   flexCellShrink,
   flexCellOrder,
-} from "./FlexCell.levers";
-import intKeys from "../common/util/intKeys";
+} from './FlexCell.levers';
+import intKeys from '../common/util/intKeys';
 
 /**
  * Flex Cell component.
@@ -36,7 +36,7 @@ export const FlexCell = ({
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = "div";
+  let Element = 'div';
 
   if (element && flexCellElements.includes(element)) {
     Element = element;
