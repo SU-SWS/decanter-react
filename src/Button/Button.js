@@ -5,7 +5,7 @@ import { dcnb } from 'cnbuilder';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { buttonVariants, buttonTypes } from './Button.levers';
 import { buttonSizes } from '../common/button/button.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import { iconAnimations } from '../common/icon/icon.levers';
 import getButtonSize from '../common/button/getButtonSize';
 import { heroIconOptions } from '../HeroIcon/HeroIcon.levers';
 // import getIconOption from '../common/icon/getIconOption';
@@ -78,8 +78,7 @@ export const Button = React.forwardRef(
     let heroicon = '';
 
     if (icon && heroIconOptions.includes(icon)) {
-      heroicon = heroIconOptions[icon];
-      // levers.icon = heroIconOptions(icon);
+      heroicon = icon;
     }
 
     // animate
@@ -127,12 +126,7 @@ export const Button = React.forwardRef(
             icon={heroicon}
             aria-hidden
             isAnimate
-            className={dcnb(
-              'su-inline-block',
-              // levers.icon,
-              levers.animate,
-              iconClasses
-            )}
+            className={dcnb('su-inline-block', levers.animate, iconClasses)}
             {...iProps}
           />
         )}
