@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Icon from "react-hero-icon";
-import { dcnb } from "cnbuilder";
-import { buttonVariants, buttonTypes } from "./Button.levers";
-import { buttonSizes } from "../common/button/button.levers";
-import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
-import getButtonSize from "../common/button/getButtonSize";
-import getIconOption from "../common/icon/getIconOption";
-import getIconClasses from "../common/icon/getIconClasses";
-import getIconAnimation from "../common/icon/getIconAnimation";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Icon from 'react-hero-icon';
+import { dcnb } from 'cnbuilder';
+import { buttonVariants, buttonTypes } from './Button.levers';
+import { buttonSizes } from '../common/button/button.levers';
+import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import getButtonSize from '../common/button/getButtonSize';
+import getIconOption from '../common/icon/getIconOption';
+import getIconClasses from '../common/icon/getIconClasses';
+import getIconAnimation from '../common/icon/getIconAnimation';
 
 /**
  * Button Component
@@ -42,24 +42,24 @@ export const Button = React.forwardRef(
     // variant
     if (variant && buttonVariants.includes(variant)) {
       switch (variant) {
-        case "solid":
+        case 'solid':
           levers.variant =
-            "su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors";
+            'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
           break;
 
-        case "outline":
+        case 'outline':
           levers.variant =
-            "su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors";
+            'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
           break;
 
-        case "ghost":
+        case 'ghost':
           levers.variant = dcnb(
-            "su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid"
+            'su-bg-transparent hocus:su-bg-transparent su-text-white hocus:su-text-white su-border-2 su-border-white su-border-solid'
           );
           break;
 
-        case "unset":
-          levers.variant = "su-bg-transparent hocus:su-bg-transparent";
+        case 'unset':
+          levers.variant = 'su-bg-transparent hocus:su-bg-transparent';
           break;
 
         default:
@@ -73,7 +73,7 @@ export const Button = React.forwardRef(
     }
 
     // icon
-    let heroicon = "";
+    let heroicon = '';
 
     if (icon && iconOptions.includes(icon)) {
       heroicon = getIconOption(icon);
@@ -89,15 +89,15 @@ export const Button = React.forwardRef(
     // Is disabled
     if (isDisabled) {
       levers.disabled =
-        "su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none";
+        'su-bg-black-20 su-text-black su-border-2 su-border-black-20 su-border-solid su-pointer-events-none';
       levers.variant = dcnb(levers.variant, {
-        "su-bg-digital-red": false,
-        "su-bg-white": false,
-        "su-text-digital-red": false,
-        "su-border-digital-red": false,
-        "hover:su-border-black": false,
-        "focus:su-border-black": false,
-        "su-text-white": false,
+        'su-bg-digital-red': false,
+        'su-bg-white': false,
+        'su-text-digital-red': false,
+        'su-border-digital-red': false,
+        'hover:su-border-black': false,
+        'focus:su-border-black': false,
+        'su-text-white': false,
       });
     }
 
@@ -107,7 +107,7 @@ export const Button = React.forwardRef(
     return (
       <button
         className={dcnb(
-          "su-button su-group su-leading-display",
+          'su-button su-group su-leading-display',
           levers.variant,
           levers.size,
           levers.disabled,
@@ -126,7 +126,7 @@ export const Button = React.forwardRef(
             type="solid"
             aria-hidden
             className={dcnb(
-              "su-inline-block",
+              'su-inline-block',
               levers.icon,
               levers.animate,
               iconClasses
@@ -203,8 +203,8 @@ Button.propTypes = {
 // -----------------------------------------------------------------------------
 Button.defaultProps = {
   onClick: undefined,
-  type: "button",
-  variant: "solid",
-  size: "default",
+  type: 'button',
+  variant: 'solid',
+  size: 'default',
   isDisabled: false,
 };

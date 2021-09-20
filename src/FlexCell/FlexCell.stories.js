@@ -1,78 +1,78 @@
-import React from "react";
-import { FlexCell } from "./FlexCell";
-import { FlexBox } from "../FlexBox/FlexBox";
+import React from 'react';
+import { FlexCell } from './FlexCell';
+import { FlexBox } from '../FlexBox/FlexBox';
 import {
   flexCellElements,
   flexCellWidth,
   flexCellFlex,
   flexCellOrder,
-} from "./FlexCell.levers";
+} from './FlexCell.levers';
 
 export default {
-  title: "Layout/FlexBox Cell",
+  title: 'Layout/FlexBox Cell',
   component: FlexCell,
   argTypes: {
     element: {
       control: {
-        type: "select",
+        type: 'select',
         options: flexCellElements,
       },
     },
     xs: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexCellWidth.xs),
       },
     },
     sm: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexCellWidth.sm),
       },
     },
     md: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexCellWidth.md),
       },
     },
     lg: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexCellWidth.lg),
       },
     },
     xl: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexCellWidth.xl),
       },
     },
     xxl: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexCellWidth.xxl),
       },
     },
     flex: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexCellFlex),
       },
     },
     grow: {
       control: {
-        type: "boolean",
+        type: 'boolean',
       },
     },
     shrink: {
       control: {
-        type: "boolean",
+        type: 'boolean',
       },
     },
     order: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(flexCellOrder),
       },
     },
@@ -105,15 +105,15 @@ const FlexColTemplate = ({ children, ...rest }) => (
 
 export const Default = FlexCellTemplate.bind({});
 Default.args = {
-  className: "su-bg-spirited su-p-10",
-  children: "Flex Cell",
+  className: 'su-bg-spirited su-p-10',
+  children: 'Flex Cell',
 };
-Default.storyName = "Default Auto-width Flex Cell";
+Default.storyName = 'Default Auto-width Flex Cell';
 
 export const FlexColCell = FlexColTemplate.bind({});
 FlexColCell.args = {
   xs: 6,
-  children: "6-of-12",
-  className: "su-bg-spirited su-p-10",
+  children: '6-of-12',
+  className: 'su-bg-spirited su-p-10',
 };
-FlexColCell.storyName = "Flex Cell Spanning 6 of 12 Columns";
+FlexColCell.storyName = 'Flex Cell Spanning 6 of 12 Columns';

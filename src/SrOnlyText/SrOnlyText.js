@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export const SrOnlyText = ({ srText }) => {
-  const txt = srText ?? "(link is external)";
+  const txt = srText ?? '(link is external)';
   return <span className="su-sr-only">{txt}</span>;
 };
 
@@ -18,5 +18,5 @@ SrOnlyText.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 SrOnlyText.defaultProps = {
-  srText: "(link is external)",
+  srText: '(link is external)',
 };

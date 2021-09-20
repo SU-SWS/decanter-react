@@ -1,8 +1,8 @@
-import React from "react";
-import DOMPurify from "dompurify";
-import { Grid } from "./Grid";
-import { GridCell } from "../GridCell/GridCell";
-import { gridCols, gridElements } from "./Grid.levers";
+import React from 'react';
+import DOMPurify from 'dompurify';
+import { Grid } from './Grid';
+import { GridCell } from '../GridCell/GridCell';
+import { gridCols, gridElements } from './Grid.levers';
 
 const cellContent = [
   '<span class="su-text-center su-bg-spirited su-type-3 su-font-bold su-p-10 su-block">1</span>',
@@ -20,18 +20,18 @@ const cellContent = [
 ];
 
 export default {
-  title: "Layout/CSS Grid",
+  title: 'Layout/CSS Grid',
   component: Grid,
   argTypes: {
     element: {
       control: {
-        type: "select",
+        type: 'select',
         options: gridElements,
       },
     },
     xs: {
       control: {
-        type: "range",
+        type: 'range',
         min: 1,
         max: Object.keys(gridCols.xs).length,
         step: 1,
@@ -39,7 +39,7 @@ export default {
     },
     sm: {
       control: {
-        type: "range",
+        type: 'range',
         min: 1,
         max: Object.keys(gridCols.sm).length,
         step: 1,
@@ -47,7 +47,7 @@ export default {
     },
     md: {
       control: {
-        type: "range",
+        type: 'range',
         min: 1,
         max: Object.keys(gridCols.md).length,
         step: 1,
@@ -55,7 +55,7 @@ export default {
     },
     lg: {
       control: {
-        type: "range",
+        type: 'range',
         min: 1,
         max: Object.keys(gridCols.lg).length,
         step: 1,
@@ -63,7 +63,7 @@ export default {
     },
     xl: {
       control: {
-        type: "range",
+        type: 'range',
         min: 1,
         max: Object.keys(gridCols.xl).length,
         step: 1,
@@ -71,7 +71,7 @@ export default {
     },
     xxl: {
       control: {
-        type: "range",
+        type: 'range',
         min: 1,
         max: Object.keys(gridCols.xxl).length,
         step: 1,
@@ -128,9 +128,9 @@ Default.args = {
   md: 2,
   xl: 4,
   children: cellContent,
-  className: "su-bg-black-10 su-text-white",
+  className: 'su-bg-black-10 su-text-white',
 };
-Default.storyName = "4-Column Grid with Responsive Gaps";
+Default.storyName = '4-Column Grid with Responsive Gaps';
 
 export const NoGap = GridTemplate.bind({});
 NoGap.args = {
@@ -139,28 +139,28 @@ NoGap.args = {
   md: 2,
   lg: 3,
   children: cellContent,
-  className: "su-bg-black-10 su-text-white",
+  className: 'su-bg-black-10 su-text-white',
 };
-NoGap.storyName = "3-Column Grid with No Gap";
+NoGap.storyName = '3-Column Grid with No Gap';
 
 export const GridPage = GridPageTemplate.bind({});
 GridPage.args = {
   gap: true,
   xs: 12,
   className:
-    "su-bg-foggy-light su-text-center su-text-white su-type-3 su-font-bold",
+    'su-bg-foggy-light su-text-center su-text-white su-type-3 su-font-bold',
 };
-GridPage.storyName = "Example Page Layout";
+GridPage.storyName = 'Example Page Layout';
 
 export const CustomProps = GridPageTemplate.bind({});
 CustomProps.args = {
   gap: true,
   xs: 12,
   className:
-    "su-bg-foggy-light su-text-center su-text-white su-type-3 su-font-bold",
-  id: "my-id",
-  rel: "no-follow",
-  "data-stuff": "some-value",
-  title: "Hi, I am a title",
+    'su-bg-foggy-light su-text-center su-text-white su-type-3 su-font-bold',
+  id: 'my-id',
+  rel: 'no-follow',
+  'data-stuff': 'some-value',
+  title: 'Hi, I am a title',
 };
-CustomProps.storyName = "With Custom Props";
+CustomProps.storyName = 'With Custom Props';

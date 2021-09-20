@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import Icon from "react-hero-icon";
-import { dcnb } from "cnbuilder";
-import { alertTypes, lightText, darkText } from "./Alert.levers";
-import { DismissButton } from "../DismissButton/DismissButton";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Icon from 'react-hero-icon';
+import { dcnb } from 'cnbuilder';
+import { alertTypes, lightText, darkText } from './Alert.levers';
+import { DismissButton } from '../DismissButton/DismissButton';
 
 /**
  * Alert Component.
@@ -21,8 +21,8 @@ export const Alert = ({ classes = {}, children, ...props }) => {
 
   // Levers
   // ---------------------------------------------------------------------------
-  levers.wrapper = "su-bg-foggy-light";
-  levers.dismiss = "black";
+  levers.wrapper = 'su-bg-foggy-light';
+  levers.dismiss = 'black';
 
   // Is large Icon.
   if (props.isLargeIcon) {
@@ -44,10 +44,10 @@ export const Alert = ({ classes = {}, children, ...props }) => {
   // Props.type
   if (props.type && alertTypes.includes(props.type)) {
     switch (props.type) {
-      case "success":
-        levers.wrapper = "su-bg-digital-green su-text-white su-link-white";
+      case 'success':
+        levers.wrapper = 'su-bg-digital-green su-text-white';
         levers.body = lightText;
-        levers.dismiss = "white";
+        levers.dismiss = 'white';
         defaultIcon = (
           <Icon
             icon="check-circle"
@@ -59,10 +59,10 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         );
         break;
 
-      case "warning":
-        levers.wrapper = "su-bg-illuminating-dark su-link-black";
+      case 'warning':
+        levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
-        levers.dismiss = "black";
+        levers.dismiss = 'black';
         defaultIcon = (
           <Icon
             icon="exclamation-circle"
@@ -74,10 +74,10 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         );
         break;
 
-      case "info":
-        levers.wrapper = "su-bg-digital-blue su-text-white su-link-white";
+      case 'info':
+        levers.wrapper = 'su-bg-digital-blue su-text-white';
         levers.body = lightText;
-        levers.dismiss = "white";
+        levers.dismiss = 'white';
         defaultIcon = (
           <Icon
             icon="information-circle"
@@ -89,10 +89,10 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         );
         break;
 
-      case "error":
-        levers.wrapper = "su-bg-digital-red su-text-white su-link-white";
+      case 'error':
+        levers.wrapper = 'su-bg-digital-red su-text-white';
         levers.body = lightText;
-        levers.dismiss = "white";
+        levers.dismiss = 'white';
         defaultIcon = (
           <Icon
             icon="ban"
@@ -122,7 +122,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
       }}
       color={levers.dismiss}
       className="su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto"
-      iconProps={{ className: "su-ml-02em" }}
+      iconProps={{ className: 'su-ml-02em' }}
     />
   );
   const dismissBtn = props.dismissBtn ?? DefaultDismiss;
@@ -135,10 +135,10 @@ export const Alert = ({ classes = {}, children, ...props }) => {
   // Render
   // ---------------------------------------------------------------------------
   return (
-    <div className={dcnb("su-alert", levers.wrapper, classes.wrapper)}>
+    <div className={dcnb('su-alert', levers.wrapper, classes.wrapper)}>
       <div
         className={dcnb(
-          "su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center",
+          'su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center',
           levers.container,
           classes.container
         )}
@@ -146,7 +146,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         {props.hasDismiss && (
           <div
             className={dcnb(
-              "su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto",
+              'su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto',
               levers.dismissWrapper,
               classes.dismissWrapper
             )}
@@ -160,7 +160,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
           (props.hasLabel && !props.isLabelTop)) && (
           <h2
             className={dcnb(
-              "su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max",
+              'su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max',
               levers.headerWrapper,
               classes.headerWrapper
             )}
@@ -168,7 +168,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
             {props.hasIcon && !props.isIconTop && (
               <span
                 className={dcnb(
-                  "su-mr-5 su-inline-block",
+                  'su-mr-5 su-inline-block',
                   levers.headerIcon,
                   classes.headerIcon
                 )}
@@ -180,12 +180,12 @@ export const Alert = ({ classes = {}, children, ...props }) => {
             {props.hasLabel && !props.isLabelTop && (
               <span
                 className={dcnb(
-                  "su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest",
+                  'su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest',
                   levers.label,
                   classes.label
                 )}
               >
-                {props.label ?? "Alert:"}
+                {props.label ?? 'Alert:'}
               </span>
             )}
           </h2>
@@ -194,7 +194,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         {/* Body Container. */}
         <div
           className={dcnb(
-            "su-order-2 su-flex-1 su-flex-grow",
+            'su-order-2 su-flex-1 su-flex-grow',
             levers.bodyWrapper,
             classes.bodyWrapper
           )}
@@ -205,7 +205,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
               {props.hasIcon && props.isIconTop && (
                 <span
                   className={dcnb(
-                    "su-inline-block su-mr-5 su-text-left su-ml-0",
+                    'su-inline-block su-mr-5 su-text-left su-ml-0',
                     levers.headerIcon,
                     classes.headerIcon
                   )}
@@ -217,12 +217,12 @@ export const Alert = ({ classes = {}, children, ...props }) => {
               {props.hasLabel && props.isLabelTop && (
                 <span
                   className={dcnb(
-                    "su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest",
+                    'su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest',
                     levers.label,
                     classes.label
                   )}
                 >
-                  {props.label ?? "Alert:"}
+                  {props.label ?? 'Alert:'}
                 </span>
               )}
             </h2>
@@ -231,7 +231,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
           {props.heading && (
             <h2
               className={dcnb(
-                "su-type-1 su-rs-mb-neg1",
+                'su-type-1 su-rs-mb-neg1',
                 levers.bodyHeading,
                 classes.bodyHeading
               )}
@@ -240,14 +240,14 @@ export const Alert = ({ classes = {}, children, ...props }) => {
             </h2>
           )}
 
-          <div className={dcnb("su-text-normal", levers.body, classes.body)}>
+          <div className={dcnb('su-text-normal', levers.body, classes.body)}>
             {children}
           </div>
 
           {props.footer && (
             <div
               className={dcnb(
-                "su-rs-mt-0",
+                'su-rs-mt-0',
                 levers.footerWrapper,
                 classes.footerWrapper
               )}

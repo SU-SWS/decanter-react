@@ -1,75 +1,75 @@
-import React from "react";
-import { GridCell } from "./GridCell";
-import { Grid } from "../Grid/Grid";
+import React from 'react';
+import { GridCell } from './GridCell';
+import { Grid } from '../Grid/Grid';
 import {
   gridCellElements,
   gridColSpan,
   gridColLine,
   gridRowSpan,
   gridRowLine,
-} from "./GridCell.levers";
+} from './GridCell.levers';
 
 export default {
-  title: "Layout/CSS Grid Cell",
+  title: 'Layout/CSS Grid Cell',
   component: GridCell,
   argTypes: {
     element: {
       control: {
-        type: "select",
+        type: 'select',
         options: gridCellElements,
       },
     },
     xs: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridColSpan.xs),
       },
     },
     sm: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridColSpan.sm),
       },
     },
     md: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridColSpan.md),
       },
     },
     lg: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridColSpan.lg),
       },
     },
     xl: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridColSpan.xl),
       },
     },
     xxl: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridColSpan.xxl),
       },
     },
     colStart: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridColLine),
       },
     },
     row: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridRowSpan),
       },
     },
     rowStart: {
       control: {
-        type: "select",
+        type: 'select',
         options: Object.keys(gridRowLine),
       },
     },
@@ -145,32 +145,32 @@ const GridStartTemplate = ({ children, ...rest }) => (
 
 export const Default = GridCellTemplate.bind({});
 Default.args = {
-  children: "1",
-  className: "su-bg-spirited su-p-10",
+  children: '1',
+  className: 'su-bg-spirited su-p-10',
 };
-Default.storyName = "Grid Cell in a 12-column Grid";
+Default.storyName = 'Grid Cell in a 12-column Grid';
 
 export const GridColCell = GridColTemplate.bind({});
 GridColCell.args = {
   xs: 6,
-  children: "1",
-  className: "su-bg-spirited su-p-10",
+  children: '1',
+  className: 'su-bg-spirited su-p-10',
 };
-GridColCell.storyName = "Grid Cell Spanning 6 of 12 Columns";
+GridColCell.storyName = 'Grid Cell Spanning 6 of 12 Columns';
 
 export const GridStartCell = GridStartTemplate.bind({});
 GridStartCell.args = {
   xs: 8,
   colStart: 3,
-  children: "1",
-  className: "su-bg-spirited su-p-10",
+  children: '1',
+  className: 'su-bg-spirited su-p-10',
 };
-GridStartCell.storyName = "Grid Cell Starting at Line 3 & Spanning 8 Columns";
+GridStartCell.storyName = 'Grid Cell Starting at Line 3 & Spanning 8 Columns';
 
 export const GridRowCell = GridRowTemplate.bind({});
 GridRowCell.args = {
   row: 3,
-  children: "1",
-  className: "su-bg-spirited su-p-10",
+  children: '1',
+  className: 'su-bg-spirited su-p-10',
 };
-GridRowCell.storyName = "Grid Cell Spanning 3 Rows";
+GridRowCell.storyName = 'Grid Cell Spanning 3 Rows';
