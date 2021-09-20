@@ -1,7 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { VideoCameraIcon, MicrophoneIcon } from "@heroicons/react/outline";
+/* eslint-disable import/no-unresolved */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { VideoCameraIcon, MicrophoneIcon } from '@heroicons/react/outline';
 import {
   ArrowRightIcon,
   ChevronDownIcon,
@@ -9,76 +10,201 @@ import {
   DownloadIcon,
   MailIcon,
   PlayIcon,
-} from "@heroicons/react/solid";
-import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
-import { heroIconOptions } from "./HeroIcon.levers";
+} from '@heroicons/react/solid';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { heroIconOptions } from './HeroIcon.levers';
 
 export const HeroIcon = ({ icon, srText, isAnimate, className, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
-
-  let heroicon = ArrowRightIcon;
-  let baseStyle = "su-w-08em su-ml-03em su--mt-02em";
-  let animate = "group-hocus:su-translate-x-02em";
+  let baseStyle = 'su-w-08em su-ml-03em su--mt-02em';
+  let animateStyle = 'group-hocus:su-translate-x-02em';
+  let transformStyle = '';
 
   // Levers
   // ---------------------------------------------------------------------------
-  if (icon && heroIconOptions[icon]) {
+  if (isAnimate) {
+    transformStyle = 'su-transform-gpu';
+  }
+
+  let defaultIcon = (
+    <ArrowRightIcon
+      aria-hidden="true"
+      className={dcnb(
+        'su-transition',
+        baseStyle,
+        animateStyle,
+        transformStyle,
+        className
+      )}
+      {...props}
+    />
+  );
+
+  if (icon && heroIconOptions.includes(icon)) {
     switch (icon) {
-      case "video":
-        heroicon = VideoCameraIcon;
-        baseStyle = "su-w-08em su-mt-[-0.2em]";
-        animate = "group-hocus:su-translate-x-02em";
+      case 'video':
+        baseStyle = 'su-w-08em su-mt-[-0.2em]';
+        animateStyle = 'group-hocus:su-translate-x-02em';
+        defaultIcon = (
+          <VideoCameraIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
-      case "play":
-        heroicon = PlayIcon;
-        baseStyle = "su-w-08em su-ml-7 su--mt-3";
-        animate = "group-hocus:su-translate-x-02em";
+      case 'play':
+        baseStyle = 'su-w-08em su-ml-7 su--mt-3';
+        animateStyle = 'group-hocus:su-translate-x-02em';
+        defaultIcon = (
+          <PlayIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
-      case "podcast":
-        heroicon = MicrophoneIcon;
-        baseStyle = "su-w-08em su-mt-[-0.25em]";
-        animate = "group-hocus:su-translate-x-02em";
+      case 'podcast':
+        baseStyle = 'su-w-08em su-mt-[-0.25em]';
+        animateStyle = 'group-hocus:su-translate-x-02em';
+        defaultIcon = (
+          <MicrophoneIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
-      case "external":
-        heroicon = "ArrowRightIcon";
+      case 'external':
         baseStyle =
-          "su-w-08em su-ml-02em su--rotate-45 group-hocus:su--rotate-45";
-        animate =
-          "group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em";
+          'su-w-08em su-ml-02em su--rotate-45 group-hocus:su--rotate-45';
+        animateStyle =
+          'group-hocus:su-translate-x-01em group-hocus:su--translate-y-01em';
+        defaultIcon = (
+          <ArrowRightIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
-      case "arrow-narrow-right":
-        heroicon = ArrowRightIcon;
-        baseStyle = "su-w-08em su-ml-03em su--mt-02em";
-        animate = "group-hocus:su-translate-x-02em";
+      case 'arrow-narrow-right':
+        baseStyle = 'su-w-08em su-ml-03em su--mt-02em';
+        animateStyle = 'group-hocus:su-translate-x-02em';
+        defaultIcon = (
+          <ArrowRightIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
-      case "download":
-        heroicon = DownloadIcon;
-        baseStyle = "su-w-08em su-ml-4 su--mt-3";
-        animate = "group-hocus:su-translate-y-02em";
+      case 'download':
+        baseStyle = 'su-w-08em su-ml-4 su--mt-3';
+        animateStyle = 'group-hocus:su-translate-y-02em';
+        defaultIcon = (
+          <DownloadIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
-      case "email":
-        heroicon = MailIcon;
-        baseStyle = "su-w-08em su-ml-7 su--mt-2";
-        animate = "group-hocus:su-translate-x-02em";
+      case 'email':
+        baseStyle = 'su-w-08em su-ml-7 su--mt-2';
+        animateStyle = 'group-hocus:su-translate-x-02em';
+        defaultIcon = (
+          <MailIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
-      case "chevron-down":
-        heroicon = ChevronDownIcon;
-        baseStyle = "su-w-[1.1em] su-ml-4 su--mt-3";
-        animate = "group-hocus:su-translate-y-02em";
+      case 'chevron-down':
+        baseStyle = 'su-w-[1.1em] su-ml-4 su--mt-3';
+        animateStyle = 'group-hocus:su-translate-y-02em';
+        defaultIcon = (
+          <ChevronDownIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
-      case "chevron-right":
-        heroicon = ChevronRightIcon;
-        baseStyle = "su-w-1em su-ml-02em su--mt-4";
-        animate = "group-hocus:su-translate-x-02em";
+      case 'chevron-right':
+        baseStyle = 'su-w-1em su-ml-02em su--mt-4';
+        animateStyle = 'group-hocus:su-translate-x-02em';
+        defaultIcon = (
+          <ChevronRightIcon
+            aria-hidden="true"
+            className={dcnb(
+              'su-transition',
+              baseStyle,
+              animateStyle,
+              transformStyle,
+              className
+            )}
+            {...props}
+          />
+        );
         break;
 
       default:
@@ -86,22 +212,11 @@ export const HeroIcon = ({ icon, srText, isAnimate, className, ...props }) => {
     }
   }
 
-  const IconElement = heroicon;
-  let animateStyle = "";
-
-  if (isAnimate) {
-    animateStyle = dcnb("su-transform-gpu", animate);
-  }
-
-  const heroIconStyle = dcnb("su-transition", baseStyle, animateStyle);
+  const heroIcon = defaultIcon;
 
   return (
     <>
-      <IconElement
-        aria-hidden="true"
-        className={dcnb(heroIconStyle, className)}
-        {...props}
-      />
+      {heroIcon}
       {srText && <SrOnlyText srText={srText} />}
     </>
   );
@@ -132,6 +247,5 @@ HeroIcon.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 HeroIcon.defaultProps = {
-  icon: "arrow-narrow-right",
   isAnimate: true,
 };
