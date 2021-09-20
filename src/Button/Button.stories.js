@@ -3,7 +3,8 @@ import DOMPurify from 'dompurify';
 import { Button } from './Button';
 import { buttonVariants, buttonTypes } from './Button.levers';
 import { buttonSizes } from '../common/button/button.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import { iconAnimations } from '../common/icon/icon.levers';
+import { heroIconOptions } from '../HeroIcon/HeroIcon.levers';
 
 export default {
   title: 'Simple/Button',
@@ -30,7 +31,7 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: iconOptions,
+        options: heroIconOptions,
       },
     },
     animate: {
