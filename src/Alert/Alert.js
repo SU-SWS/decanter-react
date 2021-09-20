@@ -109,6 +109,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
           'su-bg-digital-red su-bg-opacity-20 su-text-digital-red su-link-digital-red';
         levers.body = redText;
         levers.dismiss = 'red';
+        levers.dismissIcon = 'x';
         defaultIcon = (
           <Icon
             icon="exclamation-circle"
@@ -131,6 +132,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
   const icon = props.icon ?? defaultIcon;
   const DefaultDismiss = (
     <DismissButton
+      icon={levers.dismissIcon || 'x-circle'}
       text="Dismiss"
       srText="alert"
       onClick={() => {
