@@ -192,7 +192,8 @@ ErrorSummaryBox.args = {
   type: 'errorSummary',
   label: '',
   classes: {
-    container: 'su-items-start',
+    wrapper: 'su-w-full su-max-w-700',
+    container: 'su-px-18 su-pt-18 su-pb-26',
   },
 };
 ErrorSummaryBox.parameters = {
@@ -209,7 +210,8 @@ ErrorSummaryListBox.args = {
   type: 'errorSummary',
   label: '',
   classes: {
-    container: 'su-items-start',
+    wrapper: 'su-w-full su-max-w-700',
+    container: 'su-px-18 su-pt-18 su-pb-26',
   },
 };
 ErrorSummaryListBox.parameters = {
