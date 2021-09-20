@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { Label } from "../Label/Label";
-import { InlineError } from "../InlineError/InlineError";
-import { labelWeights } from "../Label/Label.levers";
-import { InlineValid } from "../InlineValid/InlineValid";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { Label } from '../Label/Label';
+import { InlineError } from '../InlineError/InlineError';
+import { labelWeights } from '../Label/Label.levers';
+import { InlineValid } from '../InlineValid/InlineValid';
 
 export const TextFieldRoot = ({
   className,
@@ -16,7 +16,7 @@ export const TextFieldRoot = ({
   validText,
   ...props
 }) => (
-  <div className={dcnb("su-w-400", className)}>
+  <div className={dcnb('su-w-400', className)}>
     <Label
       labelText={labelText}
       helpText={helpText}
@@ -34,7 +34,7 @@ export const TextFieldRoot = ({
   </div>
 );
 
-TextFieldRoot.displayName = "Text Field";
+TextFieldRoot.displayName = 'Text Field';
 
 /**
  * Exports

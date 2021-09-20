@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import Icon from "react-hero-icon";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import Icon from 'react-hero-icon';
 
 export const InlineError = ({ className, errorText, icon, iconType }) => {
   const iconProps = { height: 20, width: 20 };
@@ -31,7 +31,7 @@ export const InlineError = ({ className, errorText, icon, iconType }) => {
 
   if (errorText) {
     return (
-      <div className={dcnb("su-text-digital-red", className)}>
+      <div className={dcnb('su-text-digital-red', className)}>
         <p className="su-text-16">
           {defaultIcon}
           {errorText}
@@ -61,6 +61,6 @@ InlineError.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 InlineError.defaultProps = {
-  icon: "x",
-  iconType: "solid",
+  icon: 'x',
+  iconType: 'solid',
 };

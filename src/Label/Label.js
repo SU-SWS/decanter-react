@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { labelWeights } from "./Label.levers";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { labelWeights } from './Label.levers';
 
 export const Label = ({
   className,
@@ -13,7 +13,7 @@ export const Label = ({
 }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
-  let weight = "regular";
+  let weight = 'regular';
 
   // Font Weight
   if (fontWeight && fontWeight in labelWeights) {
@@ -23,7 +23,7 @@ export const Label = ({
   return (
     <div>
       <label
-        className={dcnb("su-label su-mb-5 su-text-18", weight, className)}
+        className={dcnb('su-label su-mb-5 su-text-18', weight, className)}
         htmlFor={id}
       >
         {labelText}
@@ -58,5 +58,5 @@ Label.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Label.defaultProps = {
-  fontWeight: "regular",
+  fontWeight: 'regular',
 };
