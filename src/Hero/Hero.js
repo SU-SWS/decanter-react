@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Hero Component
@@ -10,9 +10,12 @@ import { dcnb } from "cnbuilder";
 
 const HeroRoot = ({ bgImage, className, children, imgClasses }) => (
   <div
-    className={dcnb("hero su-basefont-23 su-relative su-max-h-500", className)}
+    className={dcnb(
+      'hero su-basefont-23 su-relative su-overflow-hidden su-h-full su-max-h-500',
+      className
+    )}
   >
-    <div className="su-h-full su-w-full su-overflow-hidden su-relative su-max-h-500">
+    <div className={dcnb('su-h-full su-w-full su-overflow-hidden', imgClasses)}>
       <img
         className="su-h-full su-w-full su-object-cover su-object-center"
         src={bgImage}
@@ -23,7 +26,7 @@ const HeroRoot = ({ bgImage, className, children, imgClasses }) => (
   </div>
 );
 
-HeroRoot.displayName = "Hero";
+HeroRoot.displayName = 'Hero';
 
 /**
  * Exports

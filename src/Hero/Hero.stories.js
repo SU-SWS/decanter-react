@@ -1,22 +1,22 @@
-import React from "react";
-import { Hero } from "./Hero";
-import { Card } from "../Card/Card";
-import { CtaButton } from "../CtaButton/CtaButton";
-import { Container } from "../Container/Container";
-import { FlexBox } from "../FlexBox/FlexBox";
-import { Heading } from "../Heading/Heading";
+import React from 'react';
+import { Hero } from './Hero';
+import { Card } from '../Card/Card';
+import { CtaButton } from '../CtaButton/CtaButton';
+import { Container } from '../Container/Container';
+import { FlexBox } from '../FlexBox/FlexBox';
+import { Heading } from '../Heading/Heading';
 
 export default {
-  title: "Composite/Hero",
+  title: 'Composite/Hero',
   component: Hero,
   parameters: {
     design: {
-      type: "figma",
-      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=16530%3A326",
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=16530%3A326',
     },
     docs: {
       description: {
-        component: "More information coming soon...",
+        component: 'More information coming soon...',
       },
     },
   },
@@ -50,20 +50,21 @@ const HeroTemplate = ({ ...rest }) => (
 
 export const Default = HeroTemplate.bind({});
 Default.args = {
-  bgImage: "https://placekitten.com/1000/750",
+  bgImage: 'https://placekitten.com/1000/750',
+  imgClasses: 'su-relative',
 };
-Default.storyName = "Default";
+Default.storyName = 'Default';
 
 const HeroGradient = ({ ...rest }) => (
   <Hero {...rest}>
     <div
       className="su-absolute su-block su-w-full su-h-full su-top-0"
       style={{
-        background: "linear-gradient(rgba(0, 0, 0, 0), rgb(24, 29, 28))",
+        background: 'linear-gradient(rgba(0, 0, 0, 0), rgb(24, 29, 28))',
       }}
       aria-hidden="true"
     />
-    <Container className="su-absolute su-w-full su-rs-pt-9 su-rs-pb-4 su-top-0">
+    <Container className="su-relative su-w-full su-rs-pt-9 su-rs-pb-4 su-top-0">
       <FlexBox direction="col" className="lg:su-mt-600">
         <div className="su-text-center su-text-white">
           <p className="su-max-w-prose su-font-semibold su-leading-display su-text-2 su-text-shadow-md md:su-text-4 su-mx-auto su-mb-01em">
@@ -90,6 +91,7 @@ const HeroGradient = ({ ...rest }) => (
 
 export const CustomGradient = HeroGradient.bind({});
 CustomGradient.args = {
-  bgImage: "https://placekitten.com/1000/750",
+  bgImage: 'https://placekitten.com/1000/750',
+  imgClasses: 'su-absolute',
 };
-CustomGradient.storyName = "Custom Hero with Gradient and Text overlay";
+CustomGradient.storyName = 'Custom Hero with Gradient and Text overlay';
