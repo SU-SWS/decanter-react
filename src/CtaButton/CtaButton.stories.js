@@ -69,6 +69,26 @@ Secondary.args = {
 };
 Secondary.storyName = 'Form Secondary';
 
+export const PrimaryLagunita = CtaButtonTemplate.bind({});
+PrimaryLagunita.args = {
+  variant: 'primary-lagunita',
+  size: 'default',
+  icon: 'none',
+  text: 'Form Lagunita Button',
+  href: 'https://stanford.edu',
+};
+PrimaryLagunita.storyName = 'Form Primary Lagunita';
+
+export const SecondaryLagunita = CtaButtonTemplate.bind({});
+SecondaryLagunita.args = {
+  variant: 'secondary-lagunita',
+  size: 'default',
+  icon: 'none',
+  text: 'Form Lagunita Button',
+  href: 'https://stanford.edu',
+};
+SecondaryLagunita.storyName = 'Form Secondary Lagunita';
+
 export const Outline = CtaButtonTemplate.bind({});
 Outline.args = {
   variant: 'outline',
