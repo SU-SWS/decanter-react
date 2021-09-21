@@ -40,6 +40,10 @@ export const CtaLink = React.forwardRef(
           levers.color = 'su-text-white hocus:su-text-white';
           break;
 
+        case 'green':
+          levers.color = 'su-text-digital-green hocus:su-text-digital-blue';
+          break;
+
         default:
         // none.
       }

@@ -66,6 +66,18 @@ Solid.args = {
   children: 'Solid Button',
 };
 
+export const Primary = ButtonTemplate.bind({});
+Primary.args = {
+  variant: 'primary',
+  children: 'Primary Button',
+};
+
+export const Secondary = ButtonTemplate.bind({});
+Secondary.args = {
+  variant: 'secondary',
+  children: 'Secondary Button',
+};
+
 export const Outline = ButtonTemplate.bind({});
 Outline.args = {
   variant: 'outline',

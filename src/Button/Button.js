@@ -47,6 +47,16 @@ export const Button = React.forwardRef(
             'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
           break;
 
+        case 'primary':
+          levers.variant =
+            'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border-2 su-rounded su-border-digital-blue-light su-border-solid hover:su-border-digital-blue focus:su-border-digital-blue';
+          break;
+
+        case 'secondary':
+          levers.variant =
+            'su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border-2 su-rounded su-border-digital-blue-light su-border-solid hover:su-border-digital-blue-dark focus:su-border-digital-blue-dark';
+          break;
+
         case 'outline':
           levers.variant =
             'su-bg-white hocus:su-bg-white su-text-digital-red hocus:su-text-black su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';

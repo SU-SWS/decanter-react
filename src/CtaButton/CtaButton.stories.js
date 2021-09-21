@@ -49,6 +49,24 @@ Solid.args = {
   href: 'https://stanford.edu',
 };
 
+export const Primary = CtaButtonTemplate.bind({});
+Primary.args = {
+  variant: 'primary',
+  size: 'default',
+  icon: 'none',
+  text: 'Primary Button',
+  href: 'https://stanford.edu',
+};
+
+export const Secondary = CtaButtonTemplate.bind({});
+Secondary.args = {
+  variant: 'secondary',
+  size: 'default',
+  icon: 'none',
+  text: 'Secondary Button',
+  href: 'https://stanford.edu',
+};
+
 export const Outline = CtaButtonTemplate.bind({});
 Outline.args = {
   variant: 'outline',

@@ -3,4 +3,11 @@
 /**
  * Styles for the link button
  */
-export const ctaButtonVariants = ['solid', 'outline', 'ghost', 'unset'];
+export const ctaButtonVariants = [
+  'solid',
+  'primary',
+  'secondary',
+  'outline',
+  'ghost',
+  'unset',
+];
