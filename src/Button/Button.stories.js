@@ -69,13 +69,13 @@ Solid.args = {
 export const Primary = ButtonTemplate.bind({});
 Primary.args = {
   variant: 'primary',
-  children: 'Primary Button',
+  children: 'Form Primary Button',
 };
 
 export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
   variant: 'secondary',
-  children: 'Secondary Button',
+  children: 'Form Secondary Button',
 };
 
 export const Outline = ButtonTemplate.bind({});

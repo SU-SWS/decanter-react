@@ -40,6 +40,15 @@ Default.args = {
 };
 Default.storyName = 'Default Call to Action';
 
+export const Form = CtaLinkTemplate.bind({});
+Form.args = {
+  text: 'Form CTA Link',
+  animate: 'right',
+  color: 'green',
+  href: 'https://stanford.edu',
+};
+Form.storyName = 'Form CTA Link';
+
 export const More = CtaLinkTemplate.bind({});
 More.args = {
   text: 'Learn more about this',

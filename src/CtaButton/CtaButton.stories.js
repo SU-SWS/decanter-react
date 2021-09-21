@@ -54,7 +54,7 @@ Primary.args = {
   variant: 'primary',
   size: 'default',
   icon: 'none',
-  text: 'Primary Button',
+  text: 'Form Primary Button',
   href: 'https://stanford.edu',
 };
 
@@ -63,7 +63,7 @@ Secondary.args = {
   variant: 'secondary',
   size: 'default',
   icon: 'none',
-  text: 'Secondary Button',
+  text: 'Form Secondary Button',
   href: 'https://stanford.edu',
 };
 
