@@ -57,6 +57,7 @@ Primary.args = {
   text: 'Form Primary Button',
   href: 'https://stanford.edu',
 };
+Primary.storyName = 'Form Primary';
 
 export const Secondary = CtaButtonTemplate.bind({});
 Secondary.args = {
@@ -66,6 +67,7 @@ Secondary.args = {
   text: 'Form Secondary Button',
   href: 'https://stanford.edu',
 };
+Secondary.storyName = 'Form Secondary';
 
 export const Outline = CtaButtonTemplate.bind({});
 Outline.args = {

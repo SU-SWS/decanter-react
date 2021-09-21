@@ -71,12 +71,14 @@ Primary.args = {
   variant: 'primary',
   children: 'Form Primary Button',
 };
+Primary.storyName = 'Form Primary';
 
 export const Secondary = ButtonTemplate.bind({});
 Secondary.args = {
   variant: 'secondary',
   children: 'Form Secondary Button',
 };
+Secondary.storyName = 'Form Secondary';
 
 export const Outline = ButtonTemplate.bind({});
 Outline.args = {
