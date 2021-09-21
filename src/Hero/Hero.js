@@ -11,7 +11,7 @@ import { dcnb } from 'cnbuilder';
 const HeroRoot = ({ bgImage, className, children, imgClasses }) => (
   <div
     className={dcnb(
-      'hero su-basefont-23 su-relative su-overflow-hidden su-h-full su-max-h-500',
+      'hero su-basefont-23 su-relative su-h-full su-max-h-500',
       className
     )}
   >
