@@ -121,6 +121,9 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.body = redText;
         levers.dismiss = 'red';
         levers.dismissIcon = 'x';
+        levers.container = 'su-flex-row su-flex-nowrap';
+        levers.dismissWrapper = 'su-w-auto su-mt-0';
+        levers.headerWrapper = 'su-w-auto su-mt-0';
         defaultIcon = (
           <Icon
             icon="exclamation-circle"
@@ -141,15 +144,15 @@ export const Alert = ({ classes = {}, children, ...props }) => {
   if (props.alignContent && alignment.includes(props.alignContent)) {
     switch (props.alignContent) {
       case 'top':
-        levers.container = 'sm:su-items-start';
+        levers.container = dcnb(levers.container, 'sm:su-items-start');
         break;
 
       case 'center':
-        levers.container = 'sm:su-items-center';
+        levers.container = dcnb(levers.container, 'sm:su-items-center');
         break;
 
       case 'bottom':
-        levers.container = 'sm:su-items-end';
+        levers.container = dcnb(levers.container, 'sm:su-items-end');
         break;
 
       default:
