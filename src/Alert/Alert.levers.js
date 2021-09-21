@@ -28,5 +28,4 @@ export const darkText =
 /**
  * Styles for red text
  */
-export const redText =
-  'su-text-digital-red su-link-digital-blue hover:su-link-no-underline';
+export const redText = 'su-text-digital-red';

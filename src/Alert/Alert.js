@@ -117,7 +117,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
 
       case 'errorSummary':
         levers.wrapper =
-          'su-bg-digital-red su-bg-opacity-20 su-text-digital-red su-link-digital-red';
+          'su-bg-digital-red su-bg-opacity-20 su-text-digital-red';
         levers.body = redText;
         levers.dismiss = 'red';
         levers.dismissIcon = 'x';
