@@ -51,7 +51,8 @@ const HeroTemplate = ({ ...rest }) => (
 export const Default = HeroTemplate.bind({});
 Default.args = {
   bgImage: 'https://placekitten.com/1000/750',
-  imgClasses: 'su-relative',
+  className: 'su-h-full su-max-h-500',
+  imgClasses: 'su-relative su-h-full su-max-h-500',
 };
 Default.storyName = 'Default';
 
@@ -92,6 +93,7 @@ const HeroGradient = ({ ...rest }) => (
 export const CustomGradient = HeroGradient.bind({});
 CustomGradient.args = {
   bgImage: 'https://placekitten.com/1000/750',
+  className: 'su-h-full su-max-h-500',
   imgClasses: 'su-absolute',
 };
 CustomGradient.storyName = 'Custom Hero with Gradient and Text overlay';
