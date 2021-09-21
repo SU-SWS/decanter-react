@@ -10,6 +10,11 @@ export const alertTypes = [
 ];
 
 /**
+ * Alignment options for icon, text, and dismiss.
+ */
+export const alignment = ['top', 'center', 'bottom'];
+
+/**
  * Styles for light text
  */
 export const lightText = 'su-text-white su-link-white';

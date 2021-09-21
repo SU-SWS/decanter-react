@@ -2,7 +2,7 @@ import React from 'react';
 import { withDesign } from 'storybook-addon-designs';
 import { Alert } from './Alert';
 import { DismissButton } from '../DismissButton/DismissButton';
-import { alertTypes } from './Alert.levers';
+import { alertTypes, alignment } from './Alert.levers';
 
 const alertBody = (
   <p className="last:su-mb-0 su-leading-display su-card-paragraph">
@@ -78,6 +78,12 @@ export default {
       control: {
         type: 'select',
         options: alertTypes,
+      },
+    },
+    alignContent: {
+      control: {
+        type: 'select',
+        options: alignment,
       },
     },
   },
@@ -191,6 +197,7 @@ ErrorSummaryBox.args = {
   children: errorBody,
   type: 'errorSummary',
   label: '',
+  alignContent: 'top',
   classes: {
     wrapper: 'su-w-full su-max-w-700',
     container: 'su-px-18 su-pt-18 su-pb-26',
@@ -199,16 +206,18 @@ ErrorSummaryBox.args = {
 ErrorSummaryBox.parameters = {
   docs: {
     description: {
-      story: 'Error Summary Box.',
+      story: 'Form Error Summary Box',
     },
   },
 };
+ErrorSummaryBox.storyName = 'Form Error Summary';
 
 export const ErrorSummaryListBox = AlertTemplate.bind({});
 ErrorSummaryListBox.args = {
   children: errorListBody,
   type: 'errorSummary',
   label: '',
+  alignContent: 'top',
   classes: {
     wrapper: 'su-w-full su-max-w-700',
     container: 'su-px-18 su-pt-18 su-pb-26',
@@ -217,7 +226,8 @@ ErrorSummaryListBox.args = {
 ErrorSummaryListBox.parameters = {
   docs: {
     description: {
-      story: 'Error Summary List Box.',
+      story: 'Form Error Summary List Box',
     },
   },
 };
+ErrorSummaryListBox.storyName = 'Form Error List';
