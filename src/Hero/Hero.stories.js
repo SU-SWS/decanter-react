@@ -67,14 +67,14 @@ const HeroGradient = ({ ...rest }) => (
     <Container className="su-relative su-w-full su-rs-pt-9 su-rs-pb-4 su-top-0">
       <FlexBox direction="col" className="lg:su-mt-600">
         <div className="su-text-center su-text-white">
-          <p className="su-max-w-prose su-font-semibold su-leading-display su-text-2 su-text-shadow-md md:su-text-4 su-mx-auto su-mb-01em">
+          <p className="su-max-w-prose su-font-semibold su-leading-display su-text-m1 su-text-shadow-md md:su-text-4 su-mx-auto su-mb-01em">
             Superheading
           </p>
           <Heading
             level={2}
             font="serif"
             weight="bold"
-            className="su-leading-tight su-tracking-normal su-text-shadow-lg su-mb-02em"
+            className="su-leading-tight su-tracking-normal su-text-shadow-lg su-mb-02em sm:su-text-m6"
           >
             Headline
           </Heading>
