@@ -80,6 +80,20 @@ Secondary.args = {
 };
 Secondary.storyName = 'Form Secondary';
 
+export const PrimaryLagunita = ButtonTemplate.bind({});
+PrimaryLagunita.args = {
+  variant: 'primary-lagunita',
+  children: 'Form Lagunita Button',
+};
+PrimaryLagunita.storyName = 'Form Primary Lagunita';
+
+export const SecondaryLagunita = ButtonTemplate.bind({});
+SecondaryLagunita.args = {
+  variant: 'secondary-lagunita',
+  children: 'Form Lagunita Button',
+};
+SecondaryLagunita.storyName = 'Form Secondary Lagunita';
+
 export const Outline = ButtonTemplate.bind({});
 Outline.args = {
   variant: 'outline',

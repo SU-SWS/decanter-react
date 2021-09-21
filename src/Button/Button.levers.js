@@ -7,6 +7,8 @@ export const buttonVariants = [
   'solid',
   'primary',
   'secondary',
+  'primary-lagunita',
+  'secondary-lagunita',
   'outline',
   'ghost',
   'unset',

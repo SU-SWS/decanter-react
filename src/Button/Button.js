@@ -49,12 +49,22 @@ export const Button = React.forwardRef(
 
         case 'primary':
           levers.variant =
-            'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border-2 su-rounded su-border-digital-blue-light su-border-solid hover:su-border-digital-blue focus:su-border-digital-blue hover:su-shadow-xl';
+            'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border active:su-border-3 su-rounded su-border-digital-blue-light su-border-solid hover:su-border-digital-blue focus:su-border-digital-blue hover:su-shadow-xl active:su-bg-digital-blue active:su-border-digital-blue-light hocus:su-no-underline';
           break;
 
         case 'secondary':
           levers.variant =
-            'su-bg-white hocus:su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border-2 su-rounded su-border-digital-blue-light su-border-solid hover:su-border-digital-blue-dark focus:su-border-digital-blue-dark hover:su-shadow-xl';
+            'su-bg-white hocus:su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border active:su-border-3 su-rounded su-border-digital-blue-light su-border-solid hover:su-border-digital-blue-dark focus:su-border-digital-blue-dark hover:su-shadow-xl active:su-border-digital-blue-light active:su-no-underline';
+          break;
+
+        case 'primary-lagunita':
+          levers.variant =
+            'su-bg-lagunita hocus:su-bg-lagunita-dark su-text-white hocus:su-text-white su-border active:su-border-3 su-rounded su-border-lagunita-light su-border-solid hover:su-border-lagunita-light focus:su-border-lagunita hover:su-shadow-xl active:su-border-palo-verde-light hocus:su-no-underline';
+          break;
+
+        case 'secondary-lagunita':
+          levers.variant =
+            'su-bg-white hocus:su-bg-white su-text-lagunita hocus:su-text-lagunita-dark su-border active:su-border-3 su-rounded su-border-lagunita-light su-border-solid hover:su-border-lagunita-dark focus:su-border-lagunita hover:su-shadow-xl active:su-border-palo-verde-light active:su-no-underline';
           break;
 
         case 'outline':
