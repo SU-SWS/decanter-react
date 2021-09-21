@@ -17,13 +17,13 @@ export const alignment = ['top', 'center', 'bottom'];
 /**
  * Styles for light text
  */
-export const lightText = 'su-text-white su-link-white';
+export const lightText =
+  'su-text-white children:children:su-text-white children:children:hocus:!su-text-white';
 
 /**
  * Styles for dark text
  */
-export const darkText =
-  'su-text-black su-link-black-true hover:su-link-no-underline';
+export const darkText = 'su-text-black';
 
 /**
  * Styles for red text

@@ -26,7 +26,11 @@ const errorBody = (
     <strong>Account locked for your security</strong>
     <br />
     You attempted to log in too many times. Please try again in 24 hours or
-    contact <a href="/">Customer Service</a> M-F 8am-5pm Pacific.
+    contact{' '}
+    <a href="/" className="su-underline hocus:su-no-underline">
+      Customer Service
+    </a>{' '}
+    M-F 8am-5pm Pacific.
   </p>
 );
 
@@ -41,16 +45,24 @@ const errorListBody = (
     </p>
     <ul className="su-list-none su-pl-0">
       <li className="su-mb-12">
-        <a href="/">Address line 1</a>
+        <a href="/" className="su-underline hocus:su-no-underline">
+          Address line 1
+        </a>
       </li>
       <li className="su-mb-12">
-        <a href="/">Expiration date</a>
+        <a href="/" className="su-underline hocus:su-no-underline">
+          Expiration date
+        </a>
       </li>
       <li className="su-mb-12">
-        <a href="/">Field name one</a>
+        <a href="/" className="su-underline hocus:su-no-underline">
+          Field name one
+        </a>
       </li>
       <li className="su-mb-12">
-        <a href="/">Field name two</a>
+        <a href="/" className="su-underline hocus:su-no-underline">
+          Field name two
+        </a>
       </li>
     </ul>
   </div>
