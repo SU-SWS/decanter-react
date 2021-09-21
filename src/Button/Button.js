@@ -113,7 +113,11 @@ export const Button = React.forwardRef(
       levers.variant = dcnb(levers.variant, {
         'su-bg-digital-red': false,
         'su-bg-white': false,
+        'su-bg-digital-blue': false,
+        'su-bg-lagunita': false,
         'su-text-digital-red': false,
+        'su-text-digital-blue': false,
+        'su-text-lagunita': false,
         'su-border-digital-red': false,
         'hover:su-border-black': false,
         'focus:su-border-black': false,
