@@ -18,7 +18,7 @@ export const alignment = ['top', 'center', 'bottom'];
  * Styles for light text
  */
 export const lightText =
-  'su-text-white children:children:su-text-white children:children:hocus:!su-text-white';
+  'su-text-white children:children:!su-text-white children:children:hocus:!su-text-white';
 
 /**
  * Styles for dark text
