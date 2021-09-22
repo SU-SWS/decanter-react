@@ -2,7 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
-import { VideoCameraIcon, MicrophoneIcon } from '@heroicons/react/outline';
+import {
+  VideoCameraIcon,
+  MicrophoneIcon,
+  LockClosedIcon,
+} from '@heroicons/react/outline';
 import {
   ArrowRightIcon,
   ChevronDownIcon,
@@ -46,6 +50,7 @@ export const HeroIcon = ({ icon, srText, className, ...props }) => {
         break;
 
       case 'arrow-narrow-right':
+      case 'more':
         heroicon = ArrowRightIcon;
         baseStyle = 'su-w-08em su-ml-03em su--mt-02em';
         break;
@@ -61,12 +66,19 @@ export const HeroIcon = ({ icon, srText, className, ...props }) => {
         break;
 
       case 'chevron-down':
+      case 'jump':
         heroicon = ChevronDownIcon;
         baseStyle = 'su-w-[1.1em] su-ml-4 su--mt-3';
         break;
 
       case 'chevron-right':
+      case 'action':
         heroicon = ChevronRightIcon;
+        baseStyle = 'su-w-1em su-ml-02em su--mt-4';
+        break;
+
+      case 'lock':
+        heroicon = LockClosedIcon;
         baseStyle = 'su-w-1em su-ml-02em su--mt-4';
         break;
 

@@ -3,9 +3,13 @@ export const heroIconOptions = [
   'play',
   'podcast',
   'external',
+  'more',
   'arrow-narrow-right',
   'download',
   'email',
   'chevron-down',
+  'jump',
   'chevron-right',
+  'action',
+  'lock',
 ];
