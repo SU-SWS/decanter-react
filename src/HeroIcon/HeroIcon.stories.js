@@ -1,41 +1,48 @@
-import React from "react";
-import { HeroIcon } from "./HeroIcon";
-import { heroIconOptions } from "./HeroIcon.levers";
+import React from 'react';
+import { HeroIcon } from './HeroIcon';
+import { heroIconOptions } from './HeroIcon.levers';
 
 export default {
-  title: "Simple/Hero Icon",
+  title: 'Simple/Hero Icon',
   component: HeroIcon,
   argTypes: {
     icon: {
       control: {
-        type: "select",
+        type: 'select',
         options: heroIconOptions,
       },
     },
     isAnimate: {
       control: {
-        type: "boolean",
+        type: 'boolean',
       },
     },
   },
   parameters: {
     design: {
-      type: "figma",
-      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0",
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0',
     },
     docs: {
       description: {
-        component: "",
+        component: '',
       },
     },
   },
 };
 
-const HeroIconTemplate = () => <HeroIcon />;
+const HeroIconTemplate = (props) => <HeroIcon {...props} />;
 
 export const Default = HeroIconTemplate.bind({});
 Default.args = {
-  icon: "arrow-narrow-right",
+  icon: 'arrow-narrow-right',
   isAnimate: true,
 };
-Default.storyName = "Default";
+Default.storyName = 'Default';
+
+export const Video = HeroIconTemplate.bind({});
+Video.args = {
+  icon: 'video',
+  isAnimate: true,
+};
+Video.storyName = 'Video';
