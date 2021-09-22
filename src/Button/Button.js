@@ -125,7 +125,6 @@ export const Button = React.forwardRef(
           <HeroIcon
             icon={heroicon}
             aria-hidden
-            isAnimate
             className={dcnb('su-inline-block', levers.animate, iconClasses)}
             {...iProps}
           />
