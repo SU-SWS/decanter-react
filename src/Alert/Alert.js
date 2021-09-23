@@ -1,17 +1,16 @@
 /* eslint-disable import/no-unresolved */
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-// import Icon from "react-hero-icon";
+import { BellIcon } from '@heroicons/react/outline';
 import {
+  BanIcon,
   CheckCircleIcon,
   ExclamationCircleIcon,
   InformationCircleIcon,
-  BanIcon,
 } from '@heroicons/react/solid';
-import { BellIcon } from '@heroicons/react/outline';
 import { dcnb } from 'cnbuilder';
-import { alertTypes, lightText, darkText } from './Alert.levers';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { DismissButton } from '../DismissButton/DismissButton';
+import { alertTypes, darkText, lightText } from './Alert.levers';
 
 /**
  * Alert Component.
