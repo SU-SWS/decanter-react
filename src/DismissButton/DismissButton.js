@@ -1,23 +1,22 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
-import PropTypes from 'prop-types';
-// import Icon from "react-hero-icon";
-import {
-  XCircleIcon as XCircleIconSolid,
-  XIcon as XIconSolid,
-} from '@heroicons/react/solid';
 import {
   XCircleIcon as XCircleIconOutline,
   XIcon as XIconOutline,
 } from '@heroicons/react/outline';
-import { dcnb } from 'cnbuilder';
 import {
-  dismissIconOptions,
-  dismissIconTypes,
-  dismissIconColors,
-} from './DismissButton.levers';
+  XCircleIcon as XCircleIconSolid,
+  XIcon as XIconSolid,
+} from '@heroicons/react/solid';
+import { dcnb } from 'cnbuilder';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Button } from '../Button/Button';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import {
+  dismissIconColors,
+  dismissIconOptions,
+  dismissIconTypes,
+} from './DismissButton.levers';
 
 /**
  * Dismiss Button Component
