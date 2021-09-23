@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 
- import React from "react";
- import { render, screen } from "@testing-library/react";
  import "@testing-library/jest-dom/extend-expect";
- import { HeroIcon } from "./HeroIcon";
+import { render, screen } from "@testing-library/react";
+import React from "react";
+import { HeroIcon } from "./HeroIcon";
  
  // Component is a component.
  describe("HeroIcon", () => {
@@ -15,8 +15,8 @@
    });
  
    // Default is rendered.
-   it("renders the Button in the default state", () => {
-     render(<HeroIcon text="Test Text" />);
+   it("renders the Action HeroIcon in the default state", () => {
+     render(<HeroIcon icon="action" srText="Test Text" />);
      screen.getByText("Test Text"); // full string match
    });
  });
