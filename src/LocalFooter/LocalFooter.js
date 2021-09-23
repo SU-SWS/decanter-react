@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from 'react-hero-icon';
 import { dcnb } from 'cnbuilder';
-import { localFooterColors, localFooterLinkColors } from './LocalFooter.levers';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Container } from '../Container/Container';
-import { Grid } from '../Grid/Grid';
 import { FlexBox } from '../FlexBox/FlexBox';
 import { FlexCell } from '../FlexCell/FlexCell';
+import { Grid } from '../Grid/Grid';
+import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { Lockup } from '../Lockup/Lockup';
+import { localFooterColors, localFooterLinkColors } from './LocalFooter.levers';
 
 /**
  * Stanford Local Footer Component.
@@ -96,8 +96,8 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
               )}
             >
               {props.buttonText ?? 'Web Login'}
-              <Icon
-                icon="lock-closed"
+              <HeroIcon
+                icon="lock"
                 type="solid"
                 className={dcnb(
                   'su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2',
