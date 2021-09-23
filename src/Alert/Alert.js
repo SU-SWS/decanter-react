@@ -30,6 +30,9 @@ export const Alert = ({ classes = {}, children, ...props }) => {
   levers.wrapper = 'sm:su-items-center su-bg-foggy-light';
   levers.dismiss = 'black';
   levers.container = 'sm:su-items-center';
+  levers.dismissWrapper = 'su-mt-15 sm:su-mt-0 su-w-full sm:su-w-auto';
+  levers.headerWrapper = 'su-w-full md:su-w-max';
+  levers.bodyWrapper = 'su-w-full';
 
   // Is large Icon.
   if (props.isLargeIcon) {
@@ -156,7 +159,8 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         break;
 
       default:
-      // none.
+        levers.container = dcnb(levers.container, 'sm:su-items-center');
+        break;
     }
   }
 
@@ -198,7 +202,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         {props.hasDismiss && (
           <div
             className={dcnb(
-              'su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-flex-shrink su-text-right su-w-full sm:su-w-auto',
+              'su-order-3 su-rs-ml-1 su-flex-shrink su-text-right',
               levers.dismissWrapper,
               classes.dismissWrapper
             )}
@@ -212,7 +216,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
           (props.hasLabel && !props.isLabelTop)) && (
           <h2
             className={dcnb(
-              'su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-w-full md:su-w-max',
+              'su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink',
               levers.headerWrapper,
               classes.headerWrapper
             )}
