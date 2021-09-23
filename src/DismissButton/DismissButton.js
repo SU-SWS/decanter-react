@@ -64,42 +64,42 @@ export const DismissButton = ({
   // Dismiss Icon and defaults
   // Set heroicon and icon type if not specified
   // Set default heroicon if custom icon element isn't provided
-  let defaultIcon = <XCircleIconSolid aria-hidden="true" {...iconProps} />;
+  let Icon;
+  let defaultIcon;
 
-  if (icon && dismissIconOptions.includes(icon) && iconType === 'solid') {
-    switch (icon) {
-      case 'x-circle':
-        defaultIcon = <XCircleIconSolid aria-hidden="true" {...iconProps} />;
-        break;
-      case 'x':
-        defaultIcon = <XIconSolid aria-hidden="true" {...iconProps} />;
-        break;
-      case 'none':
-        defaultIcon = '';
-        break;
+  if (icon && dismissIconOptions.includes(icon)) {
+    if (iconType === 'solid') {
+      switch (icon) {
+        case 'x-circle':
+          Icon = XCircleIconSolid;
+          break;
+        case 'x':
+          Icon = XIconSolid;
+          break;
 
-      default:
+        default:
+        // none
+      }
+    }
+
+    if (iconType === 'outline') {
+      switch (icon) {
+        case 'x-circle':
+          Icon = XCircleIconOutline;
+          break;
+        case 'x':
+          Icon = XIconOutline;
+          break;
+
+        default:
+        // none
+      }
     }
   }
 
-  if (icon && dismissIconOptions.includes(icon) && iconType === 'outline') {
-    switch (icon) {
-      case 'x-circle':
-        defaultIcon = <XCircleIconOutline aria-hidden="true" {...iconProps} />;
-        break;
-      case 'x':
-        defaultIcon = <XIconOutline aria-hidden="true" {...iconProps} />;
-        break;
-      case 'none':
-        defaultIcon = '';
-        break;
-
-      default:
-    }
+  if (Icon) {
+    defaultIcon = <Icon aria-hidden="true" {...iconProps} />;
   }
-
-  // if (iconType && dismissIconTypes.includes(iconType)) {
-  // }
 
   // Use custom icon for the component if it's provided; if not, use the default heroicon
   const dismissIcon = customIcon ?? defaultIcon;
