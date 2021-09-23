@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { createFilterOptions } from '@material-ui/lab/Autocomplete';
 import useAutocomplete from '@material-ui/lab/useAutocomplete';
@@ -48,7 +48,6 @@ export const AutocompleteField = React.forwardRef(
       groupedOptions,
       getClearProps,
       popupOpen,
-      focused,
       inputValue,
     } = useAutocomplete({
       ...props,
@@ -161,8 +160,6 @@ export const AutocompleteField = React.forwardRef(
               </div>
             )
           )}
-
-
         </div>
         {multiple && !!values.length && (
           <div className="su-flex su-flex-wrap">
