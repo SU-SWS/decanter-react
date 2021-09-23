@@ -12,8 +12,7 @@ const getIconClasses = (icon) => {
       break;
 
     case 'external':
-      classes =
-        'su-h-08em su-w-08em su-ml-4 su--mt-2 su-transform su-rotate-45 group-hocus:su-rotate-45';
+      classes = 'su-w-08em su-ml-02em su--rotate-45 group-hocus:su--rotate-45';
       break;
 
     case 'lock':
