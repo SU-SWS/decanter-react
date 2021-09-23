@@ -1,6 +1,6 @@
 import React from 'react';
+import { iconOptions } from '../common/icon/icon.levers';
 import { HeroIcon } from './HeroIcon';
-import { heroIconOptions } from './HeroIcon.levers';
 
 export default {
   title: 'Simple/Hero Icon',
@@ -9,7 +9,7 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: heroIconOptions,
+        options: iconOptions,
       },
     },
   },
@@ -19,7 +19,7 @@ const HeroIconTemplate = (props) => <HeroIcon {...props} />;
 
 export const Default = HeroIconTemplate.bind({});
 Default.args = {
-  icon: 'arrow-narrow-right',
+  icon: 'more',
 };
 Default.storyName = 'Arrow Right Icon';
 
@@ -59,14 +59,14 @@ Email.args = {
 };
 Email.storyName = 'Email Icon';
 
-export const ChevronDown = HeroIconTemplate.bind({});
-ChevronDown.args = {
-  icon: 'chevron-down',
+export const Jump = HeroIconTemplate.bind({});
+Jump.args = {
+  icon: 'jump',
 };
-ChevronDown.storyName = 'Chevron Down Icon';
+Jump.storyName = 'Jump Icon';
 
-export const ChevronRight = HeroIconTemplate.bind({});
-ChevronRight.args = {
-  icon: 'chevron-right',
+export const Action = HeroIconTemplate.bind({});
+Action.args = {
+  icon: 'action',
 };
-ChevronRight.storyName = 'Chevron Right Icon';
+Action.storyName = 'Action Icon';

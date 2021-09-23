@@ -24,6 +24,14 @@ const getIconClasses = (icon) => {
       classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
       break;
 
+    case 'play':
+      classes = 'su-w-08em su-ml-7 su--mt-3';
+      break;
+
+    case 'podcast':
+      classes = 'su-w-08em su-mt-[-0.25em]';
+      break;
+
     case 'video':
       classes = 'su-h-08em su-w-08em su-ml-6 su--mt-3';
       break;

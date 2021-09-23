@@ -5,11 +5,10 @@ import { dcnb } from 'cnbuilder';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { buttonVariants, buttonTypes } from './Button.levers';
 import { buttonSizes } from '../common/button/button.levers';
-import { iconAnimations } from '../common/icon/icon.levers';
+import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
 import getButtonSize from '../common/button/getButtonSize';
-import { heroIconOptions } from '../HeroIcon/HeroIcon.levers';
 // import getIconOption from '../common/icon/getIconOption';
-// import getIconClasses from '../common/icon/getIconClasses';
+import getIconClasses from '../common/icon/getIconClasses';
 import getIconAnimation from '../common/icon/getIconAnimation';
 
 /**
@@ -77,8 +76,9 @@ export const Button = React.forwardRef(
     // icon
     let heroicon = '';
 
-    if (icon && heroIconOptions.includes(icon)) {
+    if (icon && iconOptions.includes(icon)) {
       heroicon = icon;
+      levers.icon = getIconClasses(icon);
     }
 
     // animate
@@ -153,7 +153,7 @@ Button.propTypes = {
   /**
    * Icon options
    */
-  icon: PropTypes.oneOf(heroIconOptions),
+  icon: PropTypes.oneOf(iconOptions),
 
   /**
    * Icon Properties
