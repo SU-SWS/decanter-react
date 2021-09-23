@@ -5,7 +5,7 @@ import { buttonSizes } from '../common/button/button.levers';
 import getButtonSize from '../common/button/getButtonSize';
 import getIconAnimation from '../common/icon/getIconAnimation';
 import getIconClasses from '../common/icon/getIconClasses';
-import getIconOption from '../common/icon/getIconOption';
+// import getIconOption from '../common/icon/getIconOption';
 import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
@@ -69,7 +69,7 @@ export const CtaButton = React.forwardRef(
     let heroicon = '';
 
     if (icon && iconOptions.includes(icon)) {
-      heroicon = getIconOption(icon);
+      heroicon = icon;
       levers.icon = getIconClasses(icon);
     }
 
