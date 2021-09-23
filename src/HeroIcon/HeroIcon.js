@@ -22,7 +22,7 @@ import getIconClasses from '../common/icon/getIconClasses';
 export const HeroIcon = ({ icon, srText, className, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
-  let heroicon;
+  let Icon;
   let baseStyle;
 
   // Levers
@@ -31,64 +31,67 @@ export const HeroIcon = ({ icon, srText, className, ...props }) => {
     baseStyle = getIconClasses(icon);
     switch (icon) {
       case 'video':
-        heroicon = VideoCameraIcon;
+        Icon = VideoCameraIcon;
         break;
 
       case 'play':
-        heroicon = PlayIcon;
+        Icon = PlayIcon;
         break;
 
       case 'podcast':
-        heroicon = MicrophoneIcon;
+        Icon = MicrophoneIcon;
         break;
 
       case 'external':
-        heroicon = ArrowRightIcon;
+        Icon = ArrowRightIcon;
         break;
 
       case 'arrow-narrow-right':
       case 'more':
-        heroicon = ArrowRightIcon;
+        Icon = ArrowRightIcon;
         break;
 
       case 'download':
-        heroicon = DownloadIcon;
+        Icon = DownloadIcon;
         break;
 
       case 'email':
-        heroicon = MailIcon;
+        Icon = MailIcon;
         break;
 
       case 'chevron-down':
       case 'jump':
-        heroicon = ChevronDownIcon;
+        Icon = ChevronDownIcon;
         break;
 
       case 'chevron-right':
       case 'action':
-        heroicon = ChevronRightIcon;
+        Icon = ChevronRightIcon;
         break;
 
       case 'lock':
-        heroicon = LockClosedIcon;
+        Icon = LockClosedIcon;
         break;
 
       default:
       // none
     }
   }
-  const Icon = heroicon;
 
   const heroIconStyle = dcnb('su-transition', baseStyle);
 
   return (
     <>
-      <Icon
-        aria-hidden="true"
-        className={dcnb(heroIconStyle, className)}
-        {...props}
-      />
-      {srText && <SrOnlyText srText={srText} />}
+      {Icon && (
+        <>
+          <Icon
+            aria-hidden="true"
+            className={dcnb(heroIconStyle, className)}
+            {...props}
+          />
+          {srText && <SrOnlyText srText={srText} />}
+        </>
+      )}
     </>
   );
 };
