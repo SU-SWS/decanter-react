@@ -1,5 +1,6 @@
 const glob = require("glob");
 const path = require("path");
+const plugin = require('tailwindcss/plugin');
 
 const decanter = path.resolve(__dirname, "node_modules/decanter/src/plugins");
 
@@ -62,6 +63,18 @@ utilityFiles.forEach((file) => {
   utilities.push(require(file)());
 });
 plugins = plugins.concat(utilities);
+
+// Autocomplete focus styles for the options.
+// eslint-disable-next-line no-shadow
+const autocomplete = plugin(({ addComponents, theme }) =>
+  addComponents({
+    '.autocomplete-option[data-focus="true"]': {
+      backgroundColor: theme('colors.digital-blue.DEFAULT'),
+      color: theme('colors.white'),
+    },
+  })
+);
+plugins = plugins.concat(autocomplete);
 
 module.exports = {
   mode: "jit",
