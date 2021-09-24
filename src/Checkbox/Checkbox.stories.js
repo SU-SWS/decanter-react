@@ -1,20 +1,20 @@
-import React from "react";
-import { Checkbox } from "./Checkbox";
-import { checkboxPosition, checkboxSize } from "./Checkbox.levers";
+import React from 'react';
+import { Checkbox } from './Checkbox';
+import { checkboxPosition, checkboxSize } from './Checkbox.levers';
 
 export default {
-  title: "Simple/Checkbox",
+  title: 'Simple/Checkbox',
   component: Checkbox,
   argTypes: {
     position: {
       control: {
-        type: "inline-radio",
+        type: 'inline-radio',
         options: checkboxPosition,
       },
     },
     size: {
       control: {
-        type: "inline-radio",
+        type: 'inline-radio',
         options: checkboxSize,
       },
     },
@@ -33,24 +33,24 @@ const CheckboxTemplate = ({ ...rest }) => (
 
 export const Small = CheckboxTemplate.bind({});
 Small.args = {
-  position: "left",
-  size: "small",
-  className: "",
+  position: 'left',
+  size: 'small',
+  className: '',
 };
-Small.storyName = "Small Checkbox";
+Small.storyName = 'Small Checkbox';
 
 export const Large = CheckboxTemplate.bind({});
 Large.args = {
-  position: "left",
-  size: "large",
-  className: "",
+  position: 'left',
+  size: 'large',
+  className: '',
 };
-Large.storyName = "Large Checkbox";
+Large.storyName = 'Large Checkbox';
 
 export const Right = CheckboxTemplate.bind({});
 Right.args = {
-  position: "right",
-  size: "small",
-  className: "",
+  position: 'right',
+  size: 'small',
+  className: '',
 };
-Right.storyName = "Checkbox on the right";
+Right.storyName = 'Checkbox on the right';

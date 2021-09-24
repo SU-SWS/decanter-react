@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { checkboxPosition, checkboxSize } from "./Checkbox.levers";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { checkboxPosition, checkboxSize } from './Checkbox.levers';
 
 /**
  * Checkbox Component
@@ -8,7 +8,7 @@ import { checkboxPosition, checkboxSize } from "./Checkbox.levers";
  * HTML checkbox element
  */
 export const Checkbox = React.forwardRef(
-  ({ className, onClick, position, size, ...props }) => {
+  ({ className, onClick, position, size, children, ...props }, ref) => {
     // Defaults & Variables.
     // ---------------------------------------------------------------------------
     const levers = {};
@@ -19,12 +19,12 @@ export const Checkbox = React.forwardRef(
     // position
     if (position && checkboxPosition.includes(position)) {
       switch (position) {
-        case "left":
-          levers.position = "su-mr-6";
+        case 'left':
+          levers.position = 'su-mr-6';
           break;
 
-        case "right":
-          levers.position = "su-order-1 su-ml-6";
+        case 'right':
+          levers.position = 'su-order-1 su-ml-6';
           break;
 
         default:
@@ -34,16 +34,16 @@ export const Checkbox = React.forwardRef(
     // size
     if (size && checkboxSize.includes(size)) {
       switch (size) {
-        case "small":
-          levers.containerSizeOptions = "su-w-[34px] su-h-[34px]";
-          levers.boxSizeOptions = "su-w-[20px] su-h-[20px]";
-          levers.textSizeOptions = "su-text-16";
+        case 'small':
+          levers.containerSizeOptions = 'su-w-[34px] su-h-[34px]';
+          levers.boxSizeOptions = 'su-w-[20px] su-h-[20px]';
+          levers.textSizeOptions = 'su-text-16';
           break;
 
-        case "large":
-          levers.containerSizeOptions = "su-w-[38px] su-h-[38px]";
-          levers.boxSizeOptions = "su-w-[23px] su-h-[23px]";
-          levers.textSizeOptions = "su-text-18";
+        case 'large':
+          levers.containerSizeOptions = 'su-w-[38px] su-h-[38px]';
+          levers.boxSizeOptions = 'su-w-[23px] su-h-[23px]';
+          levers.textSizeOptions = 'su-text-18';
           break;
 
         default:
@@ -83,6 +83,7 @@ export const Checkbox = React.forwardRef(
           />
         </div>
         {props.name}
+        {children}
       </label>
     );
   }
@@ -107,6 +108,6 @@ Checkbox.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Checkbox.defaultProps = {
-  position: "left",
-  size: "small",
+  position: 'left',
+  size: 'small',
 };

@@ -3,9 +3,9 @@
 /**
  * Position of the checkbox
  */
-export const checkboxPosition = ["left", "right"];
+export const checkboxPosition = ['left', 'right'];
 
 /**
  * Variants of the checkbox
  */
-export const checkboxSize = ["large", "small"];
+export const checkboxSize = ['large', 'small'];
