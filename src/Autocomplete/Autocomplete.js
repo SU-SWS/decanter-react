@@ -17,7 +17,7 @@ export const AutocompleteField = React.forwardRef(
       className,
       id,
       emptyText,
-      options,
+      options = [],
       label,
       description,
       onChange,
@@ -26,6 +26,7 @@ export const AutocompleteField = React.forwardRef(
       acceptNewValues = false,
       multiple = false,
       initialValue,
+      children,
       ...props
     },
     ref
@@ -184,6 +185,7 @@ export const AutocompleteField = React.forwardRef(
             ))}
           </div>
         )}
+        {children}
       </div>
     );
   }
@@ -194,10 +196,23 @@ AutocompleteField.propTypes = {
    * CSS Class names.
    */
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+
   /**
-   * CSS Class names.
+   * Autocomplete options
+   */
+  options: PropTypes.oneOfType([PropTypes.array]),
+
+  /**
+   * On change function..
    */
   onChange: PropTypes.oneOfType([PropTypes.func]),
+
+  // Children
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+    PropTypes.node,
+  ]),
 };
 
 // Default Props.
