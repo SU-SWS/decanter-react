@@ -1,14 +1,14 @@
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import React from "react";
-import { Heading } from "../Heading/Heading";
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import React from 'react';
+import { Heading } from '../Heading/Heading';
 import {
   headingFonts,
   headingLevels,
   headingSizes,
   headingWeights,
-} from "../Heading/Heading.levers";
-import intKeys from "../common/util/intKeys";
+} from '../Heading/Heading.levers';
+import intKeys from '../common/util/intKeys';
 
 /**
  * Headline component
@@ -31,13 +31,13 @@ export const Headline = ({
     font={font}
     weight={weight}
     {...props}
-    className={dcnb("su-mb-03em", className)}
+    className={dcnb('su-mb-03em', className)}
   >
     {children}
   </Heading>
 );
 
-Headline.displayName = "Card.Headline";
+Headline.displayName = 'Card.Headline';
 
 Headline.propTypes = {
   level: PropTypes.oneOf(headingLevels),
@@ -76,6 +76,6 @@ Headline.propTypes = {
 Headline.defaultProps = {
   level: 3,
   size: 2,
-  weight: "bold",
-  font: "sans",
+  weight: 'bold',
+  font: 'sans',
 };

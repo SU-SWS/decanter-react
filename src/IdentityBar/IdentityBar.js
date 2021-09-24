@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { identityBarColors } from "./IdentityBar.levers";
-import { Container } from "../Container/Container";
-import { Logo } from "../Logo/Logo";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { identityBarColors } from './IdentityBar.levers';
+import { Container } from '../Container/Container';
+import { Logo } from '../Logo/Logo';
 
 /**
  * Stanford Identity Bar Component.
@@ -18,24 +18,24 @@ export const IdentityBar = ({ className, ...props }) => {
   // props.color
   if (props.color && identityBarColors.includes(props.color)) {
     switch (props.color) {
-      case "white":
-        levers.wrapper = "su-bg-white";
-        levers.logo = "cardinal-red";
+      case 'white':
+        levers.wrapper = 'su-bg-white';
+        levers.logo = 'cardinal-red';
         break;
 
-      case "cardinal-red":
-        levers.wrapper = "su-bg-cardinal-red";
-        levers.logo = "white";
+      case 'cardinal-red':
+        levers.wrapper = 'su-bg-cardinal-red';
+        levers.logo = 'white';
         break;
 
-      case "digital-red":
-        levers.wrapper = "su-bg-digital-red";
-        levers.logo = "white";
+      case 'digital-red':
+        levers.wrapper = 'su-bg-digital-red';
+        levers.logo = 'white';
         break;
 
-      case "black":
-        levers.wrapper = "su-bg-black";
-        levers.logo = "white";
+      case 'black':
+        levers.wrapper = 'su-bg-black';
+        levers.logo = 'white';
         break;
 
       default:
@@ -47,7 +47,7 @@ export const IdentityBar = ({ className, ...props }) => {
     <Container
       width="site"
       className={dcnb(
-        "su-identity-bar su-pt-5 su-pb-1",
+        'su-identity-bar su-pt-5 su-pb-1',
         levers.wrapper,
         className
       )}
@@ -82,5 +82,5 @@ IdentityBar.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 IdentityBar.defaultProps = {
-  color: "cardinal-red",
+  color: 'cardinal-red',
 };

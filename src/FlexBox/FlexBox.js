@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
 import {
   flexElements,
   flexDirection,
@@ -10,7 +10,7 @@ import {
   flexJustifyItems,
   flexAlignContent,
   flexAlignItems,
-} from "./FlexBox.levers";
+} from './FlexBox.levers';
 
 /**
  * FlexBox component.
@@ -37,7 +37,7 @@ export const FlexBox = ({
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = "div";
+  let Element = 'div';
 
   if (element && flexElements.includes(element)) {
     Element = element;
@@ -55,7 +55,7 @@ export const FlexBox = ({
 
   // props.gap
   if (gap && flexGap.includes(gap)) {
-    levers.gap = "su-grid-gap";
+    levers.gap = 'su-grid-gap';
   }
 
   // props.justifyContent
@@ -81,7 +81,7 @@ export const FlexBox = ({
   return (
     <Element
       className={dcnb(
-        "su-flex",
+        'su-flex',
         levers.direction,
         levers.wrap,
         levers.gap,
@@ -140,7 +140,7 @@ FlexBox.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 FlexBox.defaultProps = {
-  element: "div",
-  direction: "row",
+  element: 'div',
+  direction: 'row',
   gap: false,
 };

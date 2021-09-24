@@ -1,6 +1,6 @@
-import { dcnb } from "cnbuilder";
-import React from "react";
-import PropTypes from "prop-types";
+import { dcnb } from 'cnbuilder';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * Image component.
@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 export const Image = ({ className, children, ...props }) => (
   <div
     className={dcnb(
-      "su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min",
+      'su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min',
       className
     )}
     aria-hidden="true"
@@ -20,7 +20,7 @@ export const Image = ({ className, children, ...props }) => (
   </div>
 );
 
-Image.displayName = "Poster.Image";
+Image.displayName = 'Poster.Image';
 
 Image.propTypes = {
   // CSS Classes.
