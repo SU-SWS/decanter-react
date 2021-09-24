@@ -1,15 +1,17 @@
-import React from "react";
-import { withDesign } from "storybook-addon-designs";
-import { Alert } from "./Alert";
-import { DismissButton } from "../DismissButton/DismissButton";
-import { alertTypes } from "./Alert.levers";
+import React from 'react';
+import { withDesign } from 'storybook-addon-designs';
+import { Alert } from './Alert';
+import { DismissButton } from '../DismissButton/DismissButton';
+import { alertTypes } from './Alert.levers';
 
 const alertBody = (
   <p className="last:su-mb-0 su-leading-display su-card-paragraph">
-    A <strong>paragraph</strong> from the Greek paragraphos,{" "}
-    <em>to write beside</em> or <i>written beside</i> is a{" "}
-    <a href="#">self-contained unit of a discourse</a> in writing dealing with a
-    particular point or idea.
+    A <strong>paragraph</strong> from the Greek paragraphos,{' '}
+    <em>to write beside</em> or <i>written beside</i> is a{' '}
+    <a href="#" className="su-underline hocus:su-no-underline">
+      self-contained unit of a discourse
+    </a>{' '}
+    in writing dealing with a particular point or idea.
   </p>
 );
 
@@ -20,26 +22,26 @@ const alertBodyShort = (
 );
 
 export default {
-  title: "Composite/Alert",
+  title: 'Composite/Alert',
   decorators: [withDesign],
   component: Alert,
   subcomponents: { DismissButton },
   parameters: {
     design: {
-      type: "figma",
-      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0",
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=8095%3A0',
     },
     docs: {
       description: {
         component:
-          "For displaying a notification that keeps people informed of a status, or for displaying a validation message that alerts someone of an important piece of information.",
+          'For displaying a notification that keeps people informed of a status, or for displaying a validation message that alerts someone of an important piece of information.',
       },
     },
   },
   argTypes: {
     type: {
       control: {
-        type: "select",
+        type: 'select',
         options: alertTypes,
       },
     },
@@ -61,15 +63,15 @@ Default.args = {
 export const Info = AlertTemplate.bind({});
 Info.args = {
   children: alertBodyShort,
-  type: "info",
-  label: "information:",
+  type: 'info',
+  label: 'information:',
 };
 
 // Supports Markdown.
 Info.parameters = {
   docs: {
     description: {
-      story: "Informational style.",
+      story: 'Informational style.',
     },
   },
 };
@@ -77,13 +79,13 @@ Info.parameters = {
 export const Error = AlertTemplate.bind({});
 Error.args = {
   children: alertBody,
-  type: "error",
-  label: "error:",
+  type: 'error',
+  label: 'error:',
 };
 Error.parameters = {
   docs: {
     description: {
-      story: "Error Message.",
+      story: 'Error Message.',
     },
   },
 };
@@ -91,13 +93,13 @@ Error.parameters = {
 export const Warning = AlertTemplate.bind({});
 Warning.args = {
   children: alertBody,
-  type: "warning",
-  label: "warning:",
+  type: 'warning',
+  label: 'warning:',
 };
 Warning.parameters = {
   docs: {
     description: {
-      story: "Warning Message.",
+      story: 'Warning Message.',
     },
   },
 };
@@ -105,13 +107,13 @@ Warning.parameters = {
 export const Success = AlertTemplate.bind({});
 Success.args = {
   children: alertBody,
-  type: "success",
-  label: "success:",
+  type: 'success',
+  label: 'success:',
 };
 Success.parameters = {
   docs: {
     description: {
-      story: "Successful Transaction Message.",
+      story: 'Successful Transaction Message.',
     },
   },
 };
@@ -126,25 +128,25 @@ LabelsOnTop.args = {
 export const BigIcon = AlertTemplate.bind({});
 BigIcon.args = {
   children: alertBody,
-  heading: "Alert Lorem Ipsum",
+  heading: 'Alert Lorem Ipsum',
   hasLabel: false,
   isLargeIcon: true,
 };
-BigIcon.storyName = "Big Icon + Big Heading ";
+BigIcon.storyName = 'Big Icon + Big Heading ';
 
 export const BigIconLabel = AlertTemplate.bind({});
 BigIconLabel.args = {
   children: alertBody,
-  type: "info",
-  label: "information:",
+  type: 'info',
+  label: 'information:',
   isLabelTop: true,
   isLargeIcon: true,
 };
-BigIconLabel.storyName = "Big Icon + Top Label";
+BigIconLabel.storyName = 'Big Icon + Top Label';
 
 export const NoDismiss = AlertTemplate.bind({});
 NoDismiss.args = {
   children: alertBody,
   hasDismiss: false,
 };
-NoDismiss.storyName = "No Dismiss Button";
+NoDismiss.storyName = 'No Dismiss Button';

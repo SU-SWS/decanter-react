@@ -1,14 +1,14 @@
-import React from "react";
-import { Skiplink } from "./Skiplink";
+import React from 'react';
+import { Skiplink } from './Skiplink';
 
 export default {
-  title: "Accessibility/Skiplink",
+  title: 'Accessibility/Skiplink',
   component: Skiplink,
   parameters: {
     docs: {
       description: {
         component:
-          "Accessible component for keyboard users to skip past repetitive header elements to go directly to the main content",
+          'Accessible component for keyboard users to skip past repetitive header elements to go directly to the main content',
       },
     },
   },
@@ -18,11 +18,11 @@ export default {
 const SkiplinkTemplate = ({ ...rest }) => <Skiplink {...rest} />;
 
 export const Default = SkiplinkTemplate.bind({});
-Default.storyName = "Default";
+Default.storyName = 'Default';
 
 export const Custom = SkiplinkTemplate.bind({});
 Custom.args = {
-  anchorLink: "#custom-anchor-link",
-  children: "Hit tab with keyboard to see component",
+  anchorLink: '#custom-anchor-link',
+  children: 'Hit tab with keyboard to see component',
 };
-Custom.storyName = "Custom anchor link and link text";
+Custom.storyName = 'Custom anchor link and link text';

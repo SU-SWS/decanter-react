@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { gridGap, gridCols, gridElements } from "./Grid.levers";
-import intKeys from "../common/util/intKeys";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { gridGap, gridCols, gridElements } from './Grid.levers';
+import intKeys from '../common/util/intKeys';
 
 /**
  * CSS Grid component.
@@ -18,7 +18,7 @@ export const Grid = ({ element, gap, className, children, ref, ...props }) => {
   // ---------------------------------------------------------------------------
 
   // props.element
-  let Element = "div";
+  let Element = 'div';
 
   if (element && gridElements.includes(element)) {
     Element = element;
@@ -26,7 +26,7 @@ export const Grid = ({ element, gap, className, children, ref, ...props }) => {
 
   // props.gap
   if (gap && gridGap.includes(gap)) {
-    levers.gap = "su-grid-gap";
+    levers.gap = 'su-grid-gap';
   }
 
   // Available breakpoints
@@ -44,7 +44,7 @@ export const Grid = ({ element, gap, className, children, ref, ...props }) => {
   return (
     <Element
       className={dcnb(
-        "su-grid",
+        'su-grid',
         levers.gap,
         levers.xs,
         levers.sm,
@@ -131,6 +131,6 @@ Grid.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Grid.defaultProps = {
-  element: "div",
+  element: 'div',
   gap: false,
 };

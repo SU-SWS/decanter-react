@@ -1,27 +1,27 @@
-import React from "react";
-import { withDesign } from "storybook-addon-designs";
-import { IdentityBar } from "./IdentityBar";
-import { Container } from "../Container/Container";
-import { Logo } from "../Logo/Logo";
-import { identityBarColors } from "./IdentityBar.levers";
+import React from 'react';
+import { withDesign } from 'storybook-addon-designs';
+import { IdentityBar } from './IdentityBar';
+import { Container } from '../Container/Container';
+import { Logo } from '../Logo/Logo';
+import { identityBarColors } from './IdentityBar.levers';
 
 export default {
-  title: "Stanford Identity/Identity Bar",
+  title: 'Stanford Identity/Identity Bar',
   decorators: [withDesign],
   component: IdentityBar,
   subcomponents: { Logo, Container },
   argTypes: {
     color: {
       control: {
-        type: "inline-radio",
+        type: 'inline-radio',
         options: identityBarColors,
       },
     },
   },
   parameters: {
     design: {
-      type: "figma",
-      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A23",
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=1%3A23',
     },
   },
 };
@@ -31,22 +31,22 @@ const IdentityBarTemplate = (props) => <IdentityBar {...props} />;
 
 export const Default = IdentityBarTemplate.bind({});
 Default.args = {
-  color: "cardinal-red",
+  color: 'cardinal-red',
 };
-Default.storyName = "Cardinal Red";
+Default.storyName = 'Cardinal Red';
 
 export const DigitalRed = IdentityBarTemplate.bind({});
 DigitalRed.args = {
-  color: "digital-red",
+  color: 'digital-red',
 };
-DigitalRed.storyName = "Digital Red";
+DigitalRed.storyName = 'Digital Red';
 
 export const Black = IdentityBarTemplate.bind({});
 Black.args = {
-  color: "black",
+  color: 'black',
 };
 
 export const White = IdentityBarTemplate.bind({});
 White.args = {
-  color: "white",
+  color: 'white',
 };
