@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Icon from "react-hero-icon";
-import { dcnb } from "cnbuilder";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Icon from 'react-hero-icon';
+import { dcnb } from 'cnbuilder';
 import {
   dismissIconOptions,
   dismissIconTypes,
   dismissIconColors,
-} from "./DismissButton.levers";
-import { Button } from "../Button/Button";
-import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
+} from './DismissButton.levers';
+import { Button } from '../Button/Button';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
 
 /**
  * Dismiss Button Component
@@ -39,12 +39,12 @@ export const DismissButton = ({
   // color
   if (color && dismissIconColors.includes(color)) {
     switch (color) {
-      case "black":
-        levers.color = "su-text-black hocus:su-text-black";
+      case 'black':
+        levers.color = 'su-text-black hocus:su-text-black';
         break;
 
-      case "white":
-        levers.color = "su-text-white hocus:su-text-white";
+      case 'white':
+        levers.color = 'su-text-white hocus:su-text-white';
         break;
 
       default:
@@ -55,13 +55,13 @@ export const DismissButton = ({
   // Dismiss Icon and defaults
   // Set heroicon and icon type if not specified
 
-  let heroicon = "";
+  let heroicon = '';
 
   if (icon && dismissIconOptions.includes(icon)) {
     heroicon = icon;
   }
 
-  let heroiconType = "solid";
+  let heroiconType = 'solid';
 
   if (iconType && dismissIconTypes.includes(iconType)) {
     heroiconType = iconType;
@@ -85,7 +85,7 @@ export const DismissButton = ({
       variant="unset"
       size="minimal"
       className={dcnb(
-        "su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display",
+        'su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display',
         levers.color,
         className
       )}
@@ -161,7 +161,7 @@ DismissButton.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 DismissButton.defaultProps = {
-  color: "black",
-  icon: "x-circle",
-  iconType: "solid",
+  color: 'black',
+  icon: 'x-circle',
+  iconType: 'solid',
 };

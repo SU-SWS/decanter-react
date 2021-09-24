@@ -1,7 +1,7 @@
-import { dcnb } from "cnbuilder";
-import React from "react";
-import PropTypes from "prop-types";
-import { imageAspectRatios } from "./Card.levers";
+import { dcnb } from 'cnbuilder';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { imageAspectRatios } from './Card.levers';
 
 /**
  * Image component.
@@ -31,7 +31,7 @@ export const Image = ({ image, aspectRatio, className }) => {
   );
 };
 
-Image.displayName = "Card.Image";
+Image.displayName = 'Card.Image';
 
 Image.propTypes = {
   /**
@@ -54,5 +54,5 @@ Image.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Image.defaultProps = {
-  aspectRatio: "2x1",
+  aspectRatio: '2x1',
 };

@@ -1,6 +1,8 @@
 // Decanter Styles.
-import 'decanter/dist/decanter.css'
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import 'decanter/src/css/index.css';
+import {
+  INITIAL_VIEWPORTS
+} from '@storybook/addon-viewport';
 
 // Our Breakpoints
 const customViewports = {
@@ -63,8 +65,7 @@ export const parameters = {
   },
   backgrounds: {
     default: 'White',
-    values: [
-      {
+    values: [{
         name: 'White',
         value: '#FFFFFF',
       },
@@ -150,4 +151,4 @@ export const parameters = {
       },
     ],
   }
-}
+};

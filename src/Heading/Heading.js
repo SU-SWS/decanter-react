@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
 import {
   headingLevels,
   headingFonts,
@@ -8,8 +8,8 @@ import {
   headingWeights,
   headingTracking,
   headingSizes,
-} from "./Heading.levers";
-import intKeys from "../common/util/intKeys";
+} from './Heading.levers';
+import intKeys from '../common/util/intKeys';
 
 /**
  * Heading Component
@@ -32,7 +32,7 @@ export const Heading = ({
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   const levers = {};
-  let HeadingTag = "h2";
+  let HeadingTag = 'h2';
 
   // Levers
   // ---------------------------------------------------------------------------
@@ -88,7 +88,7 @@ export const Heading = ({
   return (
     <HeadingTag
       className={dcnb(
-        "su-leading-display",
+        'su-leading-display',
         levers.font,
         levers.weight,
         levers.size,
@@ -168,6 +168,6 @@ Heading.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Heading.defaultProps = {
-  font: "sans",
-  weight: "bold",
+  font: 'sans',
+  weight: 'bold',
 };
