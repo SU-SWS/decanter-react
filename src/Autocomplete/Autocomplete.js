@@ -102,7 +102,9 @@ export const AutocompleteField = React.forwardRef(
           <div
             {...getRootProps()}
             className={dcnb(
-              'su-border su-border-solid su-relative su-rounded su-flex su-relative su-z-10 su-border-black-20 hocus:su-border-[#0597FF] hocus:su-ring-[5px] hocus:su-ring-digital-blue-light hocus:su-ring-opacity-60',
+              'su-border su-border-solid su-relative su-rounded su-flex su-relative su-z-10 su-border-black-20',
+              !disabled &&
+                'hocus:su-border-[#0597FF] hocus:su-ring-[5px] hocus:su-ring-digital-blue-light hocus:su-ring-opacity-60',
               popupOpen &&
                 'su-border-[#0597FF] su-ring-[5px] su-ring-digital-blue-light su-ring-opacity-60'
             )}
@@ -110,7 +112,7 @@ export const AutocompleteField = React.forwardRef(
             <input
               disabled={disabled}
               className={dcnb(
-                'focus-visible:su-outline-none su-border-b-3 su-border-transparent su-bg-white su-text-black su-flex su-items-center su-text-18 su-leading-[1.5] su-w-full su-px-20 su-py-18 ',
+                'focus-visible:su-outline-none su-border-b-3 su-border-transparent su-bg-white su-text-black su-flex su-items-center su-text-18 su-leading-[1.5] su-w-full su-px-20 su-py-18',
                 getInputProps().value && 'su-pr-[105px]',
                 popupOpen ? 'su-rounded-t' : 'su-rounded',
                 !disabled && 'hocus:su-border-digital-blue'
@@ -165,23 +167,19 @@ export const AutocompleteField = React.forwardRef(
         {multiple && !!values.length && (
           <div className="su-flex su-flex-wrap">
             {values.map((term) => (
-              <div
-                key={term.value}
+              <button
+                type="button"
+                onClick={() => clearTerm(term)}
+                onKeyUp={(e) => {
+                  if (e.key === 'Backspace' || e.key === 'Delete') {
+                    clearTerm(term);
+                  }
+                }}
                 className="su-flex su-text-20 su-py-9 su-px-26 su-text-digital-blue su-text-20 su-rounded-full su-border-2 su-border-solid su-border-digital-blue su-mr-18 su-mt-26"
               >
                 {term.value}
-                <button
-                  type="button"
-                  onClick={() => clearTerm(term)}
-                  onKeyUp={(e) => {
-                    if (e.key === 'Backspace' || e.key === 'Delete') {
-                      clearTerm(term);
-                    }
-                  }}
-                >
-                  <Icon icon="x" className="su-cursor-pointer" />
-                </button>
-              </div>
+                <Icon icon="x" className="su-cursor-pointer" />
+              </button>
             ))}
           </div>
         )}
