@@ -232,7 +232,7 @@ ErrorSummaryListBox.args = {
   alignContent: 'top',
   classes: {
     wrapper: 'su-w-full su-max-w-700',
-    container: 'su-px-18 su-pt-18 su-pb-26',
+    container: 'su-rs-px-0 su-rs-pt-0 su-rs-pb-1',
   },
 };
 ErrorSummaryListBox.parameters = {
