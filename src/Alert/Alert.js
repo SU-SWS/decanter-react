@@ -127,7 +127,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.dismissIcon = 'x';
         levers.container = 'su-flex-row su-flex-nowrap';
         levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
-        levers.headerWrapper = 'su-w-auto su-mt-0 su-rs-mr-neg2';
+        levers.headerWrapper = 'su-w-auto su-mt-0 su-mr-02em';
         defaultIcon = (
           <Icon
             icon="exclamation-circle"
