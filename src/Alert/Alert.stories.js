@@ -39,7 +39,7 @@ const errorListBody = (
     <p className="su-mb-6">
       <strong>Please revise inputs to the following fields.</strong>
     </p>
-    <p className="su-mb-18">
+    <p className="su-rs-mb-0 su-leading-display">
       Some of your inputs need revising. Please see each field for more
       information.
     </p>
