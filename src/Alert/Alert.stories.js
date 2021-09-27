@@ -54,7 +54,7 @@ const errorListBody = (
           Expiration date
         </a>
       </li>
-      <li className="su-mb-12">
+      <li className="su-leading-display su-mb-08em">
         <a href="/" className="su-underline hocus:su-no-underline">
           Field name one
         </a>
