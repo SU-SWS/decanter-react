@@ -1,7 +1,7 @@
 import React from 'react';
 import { withDesign } from 'storybook-addon-designs';
-import { Alert } from './Alert';
 import { DismissButton } from '../DismissButton/DismissButton';
+import { Alert } from './Alert';
 import { alertTypes, alignment } from './Alert.levers';
 
 const alertBody = (
@@ -211,7 +211,7 @@ ErrorSummaryBox.args = {
   label: '',
   alignContent: 'top',
   classes: {
-    wrapper: 'su-w-full su-max-w-700',
+    wrapper: 'su-w-full su-max-w-[56rem]',
     container: 'su-rs-px-0 su-rs-pt-0 su-rs-pb-1',
   },
 };
@@ -231,7 +231,7 @@ ErrorSummaryListBox.args = {
   label: '',
   alignContent: 'top',
   classes: {
-    wrapper: 'su-w-full su-max-w-700',
+    wrapper: 'su-w-full su-max-w-[56rem]',
     container: 'su-rs-px-0 su-rs-pt-0 su-rs-pb-1',
   },
 };

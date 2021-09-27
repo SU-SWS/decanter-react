@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Icon from 'react-hero-icon';
 import { dcnb } from 'cnbuilder';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import Icon from 'react-hero-icon';
+import { DismissButton } from '../DismissButton/DismissButton';
 import {
   alertTypes,
   alignment,
-  lightText,
   darkText,
+  lightText,
   redText,
 } from './Alert.levers';
-import { DismissButton } from '../DismissButton/DismissButton';
 
 /**
  * Alert Component.
@@ -30,8 +30,9 @@ export const Alert = ({ classes = {}, children, ...props }) => {
   levers.wrapper = 'sm:su-items-center su-bg-foggy-light';
   levers.dismiss = 'black';
   levers.container = 'sm:su-items-center';
-  levers.dismissWrapper = 'su-mt-15 sm:su-mt-0 su-w-full sm:su-w-auto';
-  levers.headerWrapper = 'su-w-full md:su-w-max';
+  levers.dismissWrapper =
+    'su-rs-ml-1 su-mt-15 sm:su-mt-0 su-w-full sm:su-w-auto';
+  levers.headerWrapper = 'su-rs-mr-1 su-w-full md:su-w-max';
   levers.bodyWrapper = 'su-w-full';
 
   // Is large Icon.
@@ -125,8 +126,8 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.dismiss = 'red';
         levers.dismissIcon = 'x';
         levers.container = 'su-flex-row su-flex-nowrap';
-        levers.dismissWrapper = 'su-w-auto su-mt-0';
-        levers.headerWrapper = 'su-w-auto su-mt-0';
+        levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
+        levers.headerWrapper = 'su-w-auto su-mt-0 su-rs-mr-neg2';
         defaultIcon = (
           <Icon
             icon="exclamation-circle"
@@ -202,7 +203,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         {props.hasDismiss && (
           <div
             className={dcnb(
-              'su-order-3 su-rs-ml-1 su-flex-shrink su-text-right',
+              'su-order-3 su-flex-shrink su-text-right',
               levers.dismissWrapper,
               classes.dismissWrapper
             )}
@@ -216,7 +217,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
           (props.hasLabel && !props.isLabelTop)) && (
           <h2
             className={dcnb(
-              'su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink',
+              'su-order-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink',
               levers.headerWrapper,
               classes.headerWrapper
             )}
