@@ -59,7 +59,7 @@ const errorListBody = (
           Field name one
         </a>
       </li>
-      <li className="su-mb-12">
+      <li className="su-leading-display">
         <a href="/" className="su-underline hocus:su-no-underline">
           Field name two
         </a>
