@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Icon from 'react-hero-icon';
+import React__default, { createElement, useState } from 'react';
 import { dcnb } from 'cnbuilder';
+import PropTypes from 'prop-types';
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -36,21 +35,235 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-var alertTypes = ['info', 'warning', 'error', 'success'];
-var lightText = 'su-text-white su-link-white';
-var darkText = 'su-text-black su-link-black-true';
+function BellIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+  }));
+}
 
-var dismissIconColors = ['black', 'white', 'unset'];
-var dismissIconOptions = ['x-circle', 'x', 'none'];
-var dismissIconTypes = ['solid', 'outline'];
+function LockClosedIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+  }));
+}
 
-var buttonVariants = ['solid', 'outline', 'ghost', 'unset'];
-var buttonTypes = ['button', 'submit', 'reset'];
+function MicrophoneIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+  }));
+}
+
+function VideoCameraIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+  }));
+}
+
+function XCircleIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+  }));
+}
+
+function XIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M6 18L18 6M6 6l12 12"
+  }));
+}
+
+function ArrowRightIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z",
+    clipRule: "evenodd"
+  }));
+}
+
+function BanIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z",
+    clipRule: "evenodd"
+  }));
+}
+
+function CheckCircleIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z",
+    clipRule: "evenodd"
+  }));
+}
+
+function ChevronDownIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
+    clipRule: "evenodd"
+  }));
+}
+
+function ChevronRightIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+    clipRule: "evenodd"
+  }));
+}
+
+function DownloadIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z",
+    clipRule: "evenodd"
+  }));
+}
+
+function ExclamationCircleIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z",
+    clipRule: "evenodd"
+  }));
+}
+
+function InformationCircleIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z",
+    clipRule: "evenodd"
+  }));
+}
+
+function MailIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    d: "M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+  }), /*#__PURE__*/createElement("path", {
+    d: "M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+  }));
+}
+
+function PlayIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
+    clipRule: "evenodd"
+  }));
+}
+
+function XCircleIcon$1(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
+    clipRule: "evenodd"
+  }));
+}
+
+function XIcon$1(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 20 20",
+    fill: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    fillRule: "evenodd",
+    d: "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+    clipRule: "evenodd"
+  }));
+}
 
 var buttonSizes = ['default', 'big', 'small', 'minimal', 'unset'];
-
-var iconOptions = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
-var iconAnimations = ['right', 'top-right', 'down', 'none'];
 
 var getButtonSize = function getButtonSize(size) {
   var classes = '';
@@ -70,86 +283,6 @@ var getButtonSize = function getButtonSize(size) {
 
     case 'default':
       classes = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
-      break;
-  }
-
-  return classes;
-};
-
-var getIconOption = function getIconOption(icon) {
-  var heroicon = '';
-
-  switch (icon) {
-    case 'more':
-      heroicon = 'arrow-narrow-right';
-      break;
-
-    case 'external':
-      heroicon = 'arrow-up';
-      break;
-
-    case 'lock':
-      heroicon = 'lock-closed';
-      break;
-
-    case 'download':
-      heroicon = 'download';
-      break;
-
-    case 'video':
-      heroicon = 'play';
-      break;
-
-    case 'email':
-      heroicon = 'mail';
-      break;
-
-    case 'jump':
-      heroicon = 'chevron-down';
-      break;
-
-    case 'action':
-      heroicon = 'chevron-right';
-      break;
-  }
-
-  return heroicon;
-};
-
-var getIconClasses = function getIconClasses(icon) {
-  var classes = '';
-
-  switch (icon) {
-    case 'more':
-      classes = 'su-h-09em su-w-09em su-ml-5 su--mt-2';
-      break;
-
-    case 'external':
-      classes = 'su-h-08em su-w-08em su-ml-4 su--mt-2 su-transform su-rotate-45 group-hocus:su-rotate-45';
-      break;
-
-    case 'lock':
-      classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
-      break;
-
-    case 'download':
-      classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
-      break;
-
-    case 'video':
-      classes = 'su-h-08em su-w-08em su-ml-6 su--mt-3';
-      break;
-
-    case 'email':
-      classes = 'su-h-08em su-w-08em su-ml-7 su--mt-2';
-      break;
-
-    case 'jump':
-      classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
-      break;
-
-    case 'action':
-      classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
       break;
   }
 
@@ -180,9 +313,151 @@ var getIconAnimation = function getIconAnimation(animate) {
   return classes;
 };
 
-var _excluded = ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"],
+var getIconClasses = function getIconClasses(icon) {
+  var classes = '';
+
+  switch (icon) {
+    case 'more':
+      classes = 'su-h-09em su-w-09em su-ml-5 su--mt-2';
+      break;
+
+    case 'external':
+      classes = 'su-w-08em su-ml-02em su--rotate-45 group-hocus:su--rotate-45';
+      break;
+
+    case 'lock':
+      classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
+      break;
+
+    case 'download':
+      classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
+      break;
+
+    case 'play':
+      classes = 'su-w-08em su-ml-7 su--mt-3';
+      break;
+
+    case 'podcast':
+      classes = 'su-w-08em su-mt-[-0.25em]';
+      break;
+
+    case 'video':
+      classes = 'su-h-08em su-w-08em su-ml-6 su--mt-3';
+      break;
+
+    case 'email':
+      classes = 'su-h-08em su-w-08em su-ml-7 su--mt-2';
+      break;
+
+    case 'jump':
+      classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+      break;
+
+    case 'action':
+      classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+      break;
+  }
+
+  return classes;
+};
+
+var iconOptions = ['action', 'more', 'external', 'lock', 'download', 'play', 'podcast', 'video', 'jump', 'email', 'none'];
+var iconAnimations = ['right', 'top-right', 'down', 'none'];
+
+var SrOnlyText = function SrOnlyText(_ref) {
+  var srText = _ref.srText;
+  var txt = srText != null ? srText : '(link is external)';
+  return /*#__PURE__*/React__default.createElement("span", {
+    className: "su-sr-only"
+  }, txt);
+};
+SrOnlyText.propTypes = {
+  srText: PropTypes.string
+};
+SrOnlyText.defaultProps = {
+  srText: '(link is external)'
+};
+
+var _excluded = ["icon", "srText", "className"];
+var HeroIcon = function HeroIcon(_ref) {
+  var icon = _ref.icon,
+      srText = _ref.srText,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+  var Icon;
+  var baseStyle;
+
+  if (icon && iconOptions.includes(icon)) {
+    baseStyle = getIconClasses(icon);
+
+    switch (icon) {
+      case 'video':
+        Icon = VideoCameraIcon;
+        break;
+
+      case 'play':
+        Icon = PlayIcon;
+        break;
+
+      case 'podcast':
+        Icon = MicrophoneIcon;
+        break;
+
+      case 'external':
+        Icon = ArrowRightIcon;
+        break;
+
+      case 'arrow-narrow-right':
+      case 'more':
+        Icon = ArrowRightIcon;
+        break;
+
+      case 'download':
+        Icon = DownloadIcon;
+        break;
+
+      case 'email':
+        Icon = MailIcon;
+        break;
+
+      case 'chevron-down':
+      case 'jump':
+        Icon = ChevronDownIcon;
+        break;
+
+      case 'chevron-right':
+      case 'action':
+        Icon = ChevronRightIcon;
+        break;
+
+      case 'lock':
+        Icon = LockClosedIcon;
+        break;
+    }
+  }
+
+  var heroIconStyle = dcnb('su-transition', baseStyle);
+  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, Icon && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Icon, _extends({
+    "aria-hidden": "true",
+    className: dcnb(heroIconStyle, className)
+  }, props)), srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
+    srText: srText
+  })));
+};
+HeroIcon.propTypes = {
+  icon: PropTypes.oneOf(iconOptions),
+  srText: PropTypes.string,
+  className: PropTypes.string
+};
+HeroIcon.defaultProps = {};
+
+var buttonVariants = ['solid', 'outline', 'ghost', 'unset'];
+var buttonTypes = ['button', 'submit', 'reset'];
+
+var _excluded$1 = ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"],
     _excluded2 = ["className"];
-var Button = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
+var Button = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
   var className = _ref.className,
       children = _ref.children,
       onClick = _ref.onClick,
@@ -193,7 +468,7 @@ var Button = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       iconProps = _ref.iconProps,
       animate = _ref.animate,
       isDisabled = _ref.isDisabled,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
   var levers = {};
 
@@ -224,7 +499,7 @@ var Button = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var heroicon = '';
 
   if (icon && iconOptions.includes(icon)) {
-    heroicon = getIconOption(icon);
+    heroicon = icon;
     levers.icon = getIconClasses(icon);
   }
 
@@ -249,17 +524,16 @@ var Button = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       iconClasses = _ref2.className,
       iProps = _objectWithoutPropertiesLoose(_ref2, _excluded2);
 
-  return /*#__PURE__*/React.createElement("button", _extends({
+  return /*#__PURE__*/React__default.createElement("button", _extends({
     className: dcnb('su-button su-group su-leading-display', levers.variant, levers.size, levers.disabled, className),
     onClick: onClick,
     type: type,
     disabled: isDisabled,
     ref: ref
-  }, props), children, icon && /*#__PURE__*/React.createElement(Icon, _extends({
+  }, props), children, icon && /*#__PURE__*/React__default.createElement(HeroIcon, _extends({
     icon: heroicon,
-    type: "solid",
     "aria-hidden": true,
-    className: dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)
+    className: dcnb('su-inline-block', levers.animate, iconClasses)
   }, iProps)));
 });
 Button.propTypes = {
@@ -285,21 +559,11 @@ Button.defaultProps = {
   isDisabled: false
 };
 
-var SrOnlyText = function SrOnlyText(_ref) {
-  var srText = _ref.srText;
-  var txt = srText != null ? srText : '(link is external)';
-  return /*#__PURE__*/React.createElement("span", {
-    className: "su-sr-only"
-  }, txt);
-};
-SrOnlyText.propTypes = {
-  srText: PropTypes.string
-};
-SrOnlyText.defaultProps = {
-  srText: '(link is external)'
-};
+var dismissIconColors = ['black', 'white', 'unset'];
+var dismissIconOptions = ['x-circle', 'x', 'none'];
+var dismissIconTypes = ['solid', 'outline'];
 
-var _excluded$1 = ["className", "text", "srText", "color", "icon", "iconType", "iconSize", "iconProps", "customIcon", "onClick"];
+var _excluded$2 = ["className", "text", "srText", "color", "icon", "iconType", "iconSize", "iconProps", "customIcon", "onClick"];
 var DismissButton = function DismissButton(_ref) {
   var className = _ref.className,
       text = _ref.text,
@@ -311,7 +575,7 @@ var DismissButton = function DismissButton(_ref) {
       iconProps = _ref.iconProps,
       customIcon = _ref.customIcon,
       onClick = _ref.onClick,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
 
   var levers = {};
   iconProps = _extends({
@@ -331,30 +595,48 @@ var DismissButton = function DismissButton(_ref) {
     }
   }
 
-  var heroicon = '';
+  var Icon;
+  var defaultIcon;
 
   if (icon && dismissIconOptions.includes(icon)) {
-    heroicon = icon;
+    if (iconType === 'solid') {
+      switch (icon) {
+        case 'x-circle':
+          Icon = XCircleIcon$1;
+          break;
+
+        case 'x':
+          Icon = XIcon$1;
+          break;
+      }
+    }
+
+    if (iconType === 'outline') {
+      switch (icon) {
+        case 'x-circle':
+          Icon = XCircleIcon;
+          break;
+
+        case 'x':
+          Icon = XIcon;
+          break;
+      }
+    }
   }
 
-  var heroiconType = 'solid';
-
-  if (iconType && dismissIconTypes.includes(iconType)) {
-    heroiconType = iconType;
+  if (Icon) {
+    defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
+      "aria-hidden": "true"
+    }, iconProps));
   }
 
-  var defaultIcon = /*#__PURE__*/React.createElement(Icon, _extends({
-    icon: heroicon,
-    type: heroiconType,
-    "aria-hidden": "true"
-  }, iconProps));
   var dismissIcon = customIcon != null ? customIcon : defaultIcon;
-  return /*#__PURE__*/React.createElement(Button, _extends({
+  return /*#__PURE__*/React__default.createElement(Button, _extends({
     variant: "unset",
     size: "minimal",
     className: dcnb('su-flex su-items-center su-w-fit su-sans su-font-semibold su-leading-display', levers.color, className),
     onClick: onClick
-  }, props), text, srText && /*#__PURE__*/React.createElement(SrOnlyText, {
+  }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
     srText: " " + srText
   }), dismissIcon);
 };
@@ -376,14 +658,18 @@ DismissButton.defaultProps = {
   iconType: 'solid'
 };
 
-var _excluded$2 = ["classes", "children"];
+var alertTypes = ['info', 'warning', 'error', 'success'];
+var lightText = 'su-text-white su-link-white';
+var darkText = 'su-text-black su-link-black-true';
+
+var _excluded$3 = ["classes", "children"];
 var Alert = function Alert(_ref) {
   var _props$icon, _props$dismissBtn, _props$label, _props$label2;
 
   var _ref$classes = _ref.classes,
       classes = _ref$classes === void 0 ? {} : _ref$classes,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
 
   var levers = {};
   var iconProps = {
@@ -403,9 +689,7 @@ var Alert = function Alert(_ref) {
     iconProps.width = 60;
   }
 
-  var defaultIcon = /*#__PURE__*/React.createElement(Icon, _extends({
-    icon: "bell",
-    type: "outline",
+  var defaultIcon = /*#__PURE__*/React__default.createElement(BellIcon, _extends({
     "aria-hidden": "true",
     className: classes.icon
   }, iconProps));
@@ -416,9 +700,7 @@ var Alert = function Alert(_ref) {
         levers.wrapper = 'su-bg-digital-green su-text-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = /*#__PURE__*/React.createElement(Icon, _extends({
-          icon: "check-circle",
-          type: "solid",
+        defaultIcon = /*#__PURE__*/React__default.createElement(CheckCircleIcon, _extends({
           "aria-hidden": "true",
           className: classes.icon
         }, iconProps));
@@ -428,9 +710,7 @@ var Alert = function Alert(_ref) {
         levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
         levers.dismiss = 'black';
-        defaultIcon = /*#__PURE__*/React.createElement(Icon, _extends({
-          icon: "exclamation-circle",
-          type: "solid",
+        defaultIcon = /*#__PURE__*/React__default.createElement(ExclamationCircleIcon, _extends({
           "aria-hidden": "true",
           className: classes.icon
         }, iconProps));
@@ -440,9 +720,7 @@ var Alert = function Alert(_ref) {
         levers.wrapper = 'su-bg-digital-blue su-text-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = /*#__PURE__*/React.createElement(Icon, _extends({
-          icon: "information-circle",
-          type: "solid",
+        defaultIcon = /*#__PURE__*/React__default.createElement(InformationCircleIcon, _extends({
           "aria-hidden": "true",
           className: classes.icon
         }, iconProps));
@@ -452,9 +730,7 @@ var Alert = function Alert(_ref) {
         levers.wrapper = 'su-bg-digital-red su-text-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        defaultIcon = /*#__PURE__*/React.createElement(Icon, _extends({
-          icon: "ban",
-          type: "solid",
+        defaultIcon = /*#__PURE__*/React__default.createElement(BanIcon, _extends({
           "aria-hidden": "true",
           className: classes.icon
         }, iconProps));
@@ -463,7 +739,7 @@ var Alert = function Alert(_ref) {
   }
 
   var icon = (_props$icon = props.icon) != null ? _props$icon : defaultIcon;
-  var DefaultDismiss = /*#__PURE__*/React.createElement(DismissButton, {
+  var DefaultDismiss = /*#__PURE__*/React__default.createElement(DismissButton, {
     text: "Dismiss",
     srText: "alert",
     onClick: function onClick() {
@@ -473,7 +749,8 @@ var Alert = function Alert(_ref) {
     className: "su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto",
     iconProps: {
       className: 'su-ml-02em'
-    }
+    },
+    icon:  'x-circle'
   });
   var dismissBtn = (_props$dismissBtn = props.dismissBtn) != null ? _props$dismissBtn : DefaultDismiss;
 
@@ -481,31 +758,31 @@ var Alert = function Alert(_ref) {
     return null;
   }
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-alert', levers.wrapper, classes.wrapper)
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
-  }, props.hasDismiss && /*#__PURE__*/React.createElement("div", {
+  }, props.hasDismiss && /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
-  }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React.createElement("h2", {
+  }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React__default.createElement("h2", {
     className: dcnb('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)
-  }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React.createElement("span", {
+  }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
     className: dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
-  }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React.createElement("span", {
+  }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
     className: dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
-  }, (_props$label = props.label) != null ? _props$label : 'Alert:')), /*#__PURE__*/React.createElement("div", {
+  }, (_props$label = props.label) != null ? _props$label : 'Alert:')), /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)
-  }, (props.hasIcon && props.isIconTop || props.hasLabel && props.isLabelTop) && /*#__PURE__*/React.createElement("h2", {
+  }, (props.hasIcon && props.isIconTop || props.hasLabel && props.isLabelTop) && /*#__PURE__*/React__default.createElement("h2", {
     className: "su-flex su-items-center su-rs-mb-0"
-  }, props.hasIcon && props.isIconTop && /*#__PURE__*/React.createElement("span", {
+  }, props.hasIcon && props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
     className: dcnb('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
-  }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React.createElement("span", {
+  }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
     className: dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
-  }, (_props$label2 = props.label) != null ? _props$label2 : 'Alert:')), props.heading && /*#__PURE__*/React.createElement("h2", {
+  }, (_props$label2 = props.label) != null ? _props$label2 : 'Alert:')), props.heading && /*#__PURE__*/React__default.createElement("h2", {
     className: dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)
-  }, props.heading), /*#__PURE__*/React.createElement("div", {
+  }, props.heading), /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-text-normal', levers.body, classes.body)
-  }, children), props.footer && /*#__PURE__*/React.createElement("div", {
+  }, children), props.footer && /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)
   }, props.footer))));
 };
@@ -559,13 +836,13 @@ var imageAspectRatios = {
   '4x3': 'su-aspect-w-4 su-aspect-h-3'
 };
 
-var _excluded$3 = ["weight", "className", "children", "isUppercase"];
+var _excluded$4 = ["weight", "className", "children", "isUppercase"];
 var Superhead = function Superhead(_ref) {
   var weight = _ref.weight,
       className = _ref.className,
       children = _ref.children,
       isUppercase = _ref.isUppercase,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$4);
 
   var superheadWeight = superheadWeights[weight];
   var uppercase = '';
@@ -574,7 +851,7 @@ var Superhead = function Superhead(_ref) {
     uppercase = 'su-uppercase';
   }
 
-  return /*#__PURE__*/React.createElement("span", _extends({
+  return /*#__PURE__*/React__default.createElement("span", _extends({
     className: dcnb('su-type-0 su-mb-0 su-leading-display', superheadWeight, uppercase, className)
   }, props), children);
 };
@@ -636,7 +913,7 @@ var intKeys = (function (arg) {
   return int;
 });
 
-var _excluded$4 = ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children"];
+var _excluded$5 = ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children"];
 var Heading = function Heading(_ref) {
   var className = _ref.className,
       level = _ref.level,
@@ -649,7 +926,7 @@ var Heading = function Heading(_ref) {
       italic = _ref.italic,
       srOnly = _ref.srOnly,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$4);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
 
   var levers = {};
   var HeadingTag = 'h2';
@@ -690,7 +967,7 @@ var Heading = function Heading(_ref) {
     levers.srOnly = "su-sr-only";
   }
 
-  return /*#__PURE__*/React.createElement(HeadingTag, _extends({
+  return /*#__PURE__*/React__default.createElement(HeadingTag, _extends({
     className: dcnb('su-leading-display', levers.font, levers.weight, levers.size, levers.tracking, levers.align, levers.uppercase, levers.italic, levers.srOnly, className)
   }, props), children);
 };
@@ -714,7 +991,7 @@ Heading.defaultProps = {
   weight: 'bold'
 };
 
-var _excluded$5 = ["children", "level", "size", "weight", "font", "className"];
+var _excluded$6 = ["children", "level", "size", "weight", "font", "className"];
 var Headline = function Headline(_ref) {
   var children = _ref.children,
       level = _ref.level,
@@ -722,9 +999,9 @@ var Headline = function Headline(_ref) {
       weight = _ref.weight,
       font = _ref.font,
       className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
 
-  return /*#__PURE__*/React.createElement(Heading, _extends({
+  return /*#__PURE__*/React__default.createElement(Heading, _extends({
     level: level,
     size: size,
     font: font,
@@ -795,7 +1072,7 @@ var flexAlignItems = {
   stretch: 'su-items-stretch'
 };
 
-var _excluded$6 = ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"];
+var _excluded$7 = ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"];
 var FlexBox = function FlexBox(_ref) {
   var element = _ref.element,
       direction = _ref.direction,
@@ -808,7 +1085,7 @@ var FlexBox = function FlexBox(_ref) {
       className = _ref.className,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
 
   var levers = {};
   var Element = 'div';
@@ -845,7 +1122,7 @@ var FlexBox = function FlexBox(_ref) {
     levers.alignItems = flexAlignItems[alignItems];
   }
 
-  return /*#__PURE__*/React.createElement(Element, _extends({
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: dcnb('su-flex', levers.direction, levers.wrap, levers.gap, levers.justifyContent, levers.justifyItems, levers.alignContent, levers.alignItems, className),
     ref: ref
   }, props), children);
@@ -871,12 +1148,12 @@ FlexBox.defaultProps = {
   gap: false
 };
 
-var _excluded$7 = ["children", "className", "align"];
+var _excluded$8 = ["children", "className", "align"];
 var Content = function Content(_ref) {
   var children = _ref.children,
       className = _ref.className,
       align = _ref.align,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
 
   var bodyAlign = 'su-items-start';
   var contentClass = '';
@@ -891,7 +1168,7 @@ var Content = function Content(_ref) {
     bodyAlign = 'su-items-end';
   }
 
-  return /*#__PURE__*/React.createElement(FlexBox, _extends({
+  return /*#__PURE__*/React__default.createElement(FlexBox, _extends({
     direction: "col",
     className: dcnb('card-body', bodyAlign, contentClass, className)
   }, props), children);
@@ -920,10 +1197,10 @@ var Image = function Image(_ref) {
     delete image.className;
   }
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: dcnb(imageAspectRatio, className),
     "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("img", _extends({}, image, {
+  }, /*#__PURE__*/React__default.createElement("img", _extends({}, image, {
     alt: "",
     className: "su-object-cover"
   })));
@@ -940,14 +1217,14 @@ Image.defaultProps = {
   aspectRatio: '2x1'
 };
 
-var _excluded$8 = ["className", "children", "element", "isMinimal"];
+var _excluded$9 = ["className", "children", "element", "isMinimal"];
 
 var CardRoot = function CardRoot(_ref) {
   var className = _ref.className,
       children = _ref.children,
       element = _ref.element,
       isMinimal = _ref.isMinimal,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
   var Element = 'div';
 
@@ -961,7 +1238,7 @@ var CardRoot = function CardRoot(_ref) {
     wrapperClasses = '';
   }
 
-  return /*#__PURE__*/React.createElement(Element, _extends({
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: dcnb('card su-block su-max-w-600 su-basefont-23 su-leading-display', wrapperClasses, className)
   }, props), children);
 };
@@ -986,14 +1263,14 @@ CardRoot.defaultProps = {
 var containerElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
 var containerWidths = ['full', 'screen', 'site'];
 
-var _excluded$9 = ["className", "element", "width", "children", "ref"];
+var _excluded$a = ["className", "element", "width", "children", "ref"];
 var Container = function Container(_ref) {
   var className = _ref.className,
       element = _ref.element,
       width = _ref.width,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
 
   var levers = {};
   var Element = 'div';
@@ -1018,7 +1295,7 @@ var Container = function Container(_ref) {
     }
   }
 
-  return /*#__PURE__*/React.createElement(Element, _extends({
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: dcnb(levers.width, className),
     ref: ref
   }, props), children);
@@ -1039,9 +1316,9 @@ Container.defaultProps = {
 
 var ctaButtonVariants = ['solid', 'outline', 'ghost', 'unset'];
 
-var _excluded$a = ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"],
+var _excluded$b = ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"],
     _excluded2$1 = ["className"];
-var CtaButton = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
+var CtaButton = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
   var className = _ref.className,
       text = _ref.text,
       srText = _ref.srText,
@@ -1050,7 +1327,7 @@ var CtaButton = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       icon = _ref.icon,
       iconProps = _ref.iconProps,
       animate = _ref.animate,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
 
   var levers = {};
 
@@ -1077,7 +1354,7 @@ var CtaButton = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var heroicon = '';
 
   if (icon && iconOptions.includes(icon)) {
-    heroicon = getIconOption(icon);
+    heroicon = icon;
     levers.icon = getIconClasses(icon);
   }
 
@@ -1089,12 +1366,12 @@ var CtaButton = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       iconClasses = _ref2.className,
       iProps = _objectWithoutPropertiesLoose(_ref2, _excluded2$1);
 
-  return /*#__PURE__*/React.createElement("a", _extends({
+  return /*#__PURE__*/React__default.createElement("a", _extends({
     className: dcnb('su-cta-button su-font-regular su-leading-display su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.size, levers.variant, className),
     ref: ref
-  }, props), text, srText && /*#__PURE__*/React.createElement(SrOnlyText, {
+  }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
     srText: " " + srText
-  }), icon && /*#__PURE__*/React.createElement(Icon, _extends({
+  }), icon && /*#__PURE__*/React__default.createElement(HeroIcon, _extends({
     icon: heroicon,
     type: "solid",
     "aria-hidden": true,
@@ -1118,9 +1395,9 @@ CtaButton.defaultProps = {
 
 var ctaLinkColors = ['red', 'blue', 'white', 'unset'];
 
-var _excluded$b = ["className", "text", "srText", "color", "icon", "iconProps", "animate"],
+var _excluded$c = ["className", "text", "srText", "color", "icon", "iconProps", "animate"],
     _excluded2$2 = ["className"];
-var CtaLink = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
+var CtaLink = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
   var className = _ref.className,
       text = _ref.text,
       srText = _ref.srText,
@@ -1128,7 +1405,7 @@ var CtaLink = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       icon = _ref.icon,
       iconProps = _ref.iconProps,
       animate = _ref.animate,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
 
   var levers = {};
 
@@ -1151,7 +1428,7 @@ var CtaLink = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var heroicon = '';
 
   if (icon && iconOptions.includes(icon)) {
-    heroicon = getIconOption(icon);
+    heroicon = icon;
     levers.icon = getIconClasses(icon);
   }
 
@@ -1163,12 +1440,12 @@ var CtaLink = /*#__PURE__*/React.forwardRef(function (_ref, ref) {
       iconClasses = _ref2.className,
       iProps = _objectWithoutPropertiesLoose(_ref2, _excluded2$2);
 
-  return /*#__PURE__*/React.createElement("a", _extends({
+  return /*#__PURE__*/React__default.createElement("a", _extends({
     className: dcnb('su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors', levers.color, levers.size, levers.variant, className),
     ref: ref
-  }, props), text, srText && /*#__PURE__*/React.createElement(SrOnlyText, {
+  }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
     srText: " " + srText
-  }), icon && /*#__PURE__*/React.createElement(Icon, _extends({
+  }), icon && /*#__PURE__*/React__default.createElement(HeroIcon, _extends({
     icon: heroicon,
     type: "solid",
     "aria-hidden": true,
@@ -1316,7 +1593,7 @@ var flexCellOrder = {
   none: 'su-order-none'
 };
 
-var _excluded$c = ["className", "children", "ref", "flex", "grow", "shrink", "order", "element"],
+var _excluded$d = ["className", "children", "ref", "flex", "grow", "shrink", "order", "element"],
     _excluded2$3 = ["xs", "sm", "md", "lg", "xl", "xxl"];
 var FlexCell = function FlexCell(_ref) {
   var className = _ref.className,
@@ -1327,7 +1604,7 @@ var FlexCell = function FlexCell(_ref) {
       shrink = _ref.shrink,
       order = _ref.order,
       element = _ref.element,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
 
   var levers = {};
 
@@ -1372,7 +1649,7 @@ var FlexCell = function FlexCell(_ref) {
     levers.order = flexCellOrder[order];
   }
 
-  return /*#__PURE__*/React.createElement(Element, _extends({
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.flex, levers.grow, levers.shrink, levers.order, className),
     ref: ref
   }, rest), children);
@@ -1413,10 +1690,10 @@ var globalFooterColors = ['cardinal-red', 'digital-red', 'black'];
 var logoColors = ['cardinal-red', 'black', 'white'];
 var logoTypes = ['short', 'full', 'stacked'];
 
-var _excluded$d = ["className"];
+var _excluded$e = ["className"];
 var Logo = function Logo(_ref) {
   var className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
 
   var levers = {};
   var logoText;
@@ -1445,7 +1722,7 @@ var Logo = function Logo(_ref) {
         break;
 
       case 'stacked':
-        logoText = /*#__PURE__*/React.createElement(React.Fragment, null, "Stanford", /*#__PURE__*/React.createElement("br", null), "University");
+        logoText = /*#__PURE__*/React__default.createElement(React__default.Fragment, null, "Stanford", /*#__PURE__*/React__default.createElement("br", null), "University");
         break;
 
       case 'short':
@@ -1456,13 +1733,13 @@ var Logo = function Logo(_ref) {
   }
 
   if (props.isLink) {
-    return /*#__PURE__*/React.createElement("a", {
+    return /*#__PURE__*/React__default.createElement("a", {
       className: dcnb('su-logo', levers.logo, className),
       href: "https://www.stanford.edu"
     }, logoText);
   }
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-logo', levers.logo, className)
   }, logoText);
 };
@@ -1478,10 +1755,10 @@ Logo.defaultProps = {
   isLink: true
 };
 
-var _excluded$e = ["className"];
+var _excluded$f = ["className"];
 var GlobalFooter = function GlobalFooter(_ref) {
   var className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
 
   var levers = {};
 
@@ -1501,85 +1778,85 @@ var GlobalFooter = function GlobalFooter(_ref) {
     }
   }
 
-  return /*#__PURE__*/React.createElement(Container, {
+  return /*#__PURE__*/React__default.createElement(Container, {
     className: dcnb('su-global-footer su-basefont-20 su-rs-py-1 su-text-white', levers.wrapper, className),
     width: "site"
-  }, /*#__PURE__*/React.createElement(FlexBox, {
+  }, /*#__PURE__*/React__default.createElement(FlexBox, {
     direction: "col",
     className: "lg:su-flex-row",
     title: "Common Stanford resources"
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React__default.createElement("div", {
     className: "su-text-center su-mt-5 su-mb-9"
-  }, /*#__PURE__*/React.createElement(Logo, {
+  }, /*#__PURE__*/React__default.createElement(Logo, {
     className: "su-type-3",
     type: "stacked",
     color: "white"
-  })), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React__default.createElement("div", {
     className: "lg:su-pl-45 xl:su-pl-50 su-text-left sm:su-text-center lg:su-text-left su-flex-grow"
-  }, /*#__PURE__*/React.createElement("nav", {
+  }, /*#__PURE__*/React__default.createElement("nav", {
     "aria-label": "global footer menu",
     className: "su-flex su-flex-row sm:su-flex-col su-justify-center sm:su-items-center lg:su-items-start su-mb-10"
-  }, /*#__PURE__*/React.createElement("ul", {
+  }, /*#__PURE__*/React__default.createElement("ul", {
     className: "su-list-unstyled su-mb-10 sm:su-mb-4 su-mr-19 sm:su-mr-0 su-p-0 su-text-15 md:su-text-17 2xl:su-text-18 su-flex su-flex-col sm:su-flex-row"
-  }, /*#__PURE__*/React.createElement("li", {
+  }, /*#__PURE__*/React__default.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Stanford Home", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", {
+  }, "Stanford Home", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: "https://visit.stanford.edu/plan/",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Maps & Directions", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", {
+  }, "Maps & Directions", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu/search/",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Search Stanford", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Search Stanford", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://emergency.stanford.edu",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Emergency Info", /*#__PURE__*/React.createElement(SrOnlyText, null)))), /*#__PURE__*/React.createElement("ul", {
+  }, "Emergency Info", /*#__PURE__*/React__default.createElement(SrOnlyText, null)))), /*#__PURE__*/React__default.createElement("ul", {
     className: "su-list-unstyled su-mb-10 sm:su-mb-0 su-ml-19 sm:su-ml-0 su-p-0 su-text-15 sm:su-text-14 md:su-text-15 xl:su-text-16 su-flex su-flex-col sm:su-flex-row sm:su-link-regular"
-  }, /*#__PURE__*/React.createElement("li", {
+  }, /*#__PURE__*/React__default.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu/site/terms/",
     title: "Terms of use for sites",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Terms of Use", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", {
+  }, "Terms of Use", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu/site/privacy/",
     title: "Privacy and cookie policy",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Privacy", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", {
+  }, "Privacy", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: "https://uit.stanford.edu/security/copyright-infringement",
     title: "Report alleged copyright infringement",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Copyright", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", {
+  }, "Copyright", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: "https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4",
     title: "Ownership and use of Stanford trademarks and images",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Trademarks", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", {
+  }, "Trademarks", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", {
     className: "sm:su-mr-10 md:su-mr-20 lg:su-mr-27"
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: "https://bulletin.stanford.edu/pages/c7vDgeOuJIfpZe8GKmW3",
     title: "Non-discrimination policy",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Non-Discrimination", /*#__PURE__*/React.createElement(SrOnlyText, null))), /*#__PURE__*/React.createElement("li", null, /*#__PURE__*/React.createElement("a", {
+  }, "Non-Discrimination", /*#__PURE__*/React__default.createElement(SrOnlyText, null))), /*#__PURE__*/React__default.createElement("li", null, /*#__PURE__*/React__default.createElement("a", {
     href: "https://www.stanford.edu/site/accessibility",
     title: "Report web accessibility issues",
     className: "su-text-white su-no-underline hocus:su-underline hocus:su-text-white"
-  }, "Accessibility", /*#__PURE__*/React.createElement(SrOnlyText, null))))), /*#__PURE__*/React.createElement("div", {
+  }, "Accessibility", /*#__PURE__*/React__default.createElement(SrOnlyText, null))))), /*#__PURE__*/React__default.createElement("div", {
     className: "su-text-13 sm:su-text-14 su-text-center lg:su-text-left"
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React__default.createElement("span", {
     className: "su-whitespace-no-wrap"
-  }, "\xA9 Stanford University."), /*#__PURE__*/React.createElement("span", {
+  }, "\xA9 Stanford University."), /*#__PURE__*/React__default.createElement("span", {
     className: "su-whitespace-no-wrap"
   }, "\xA0 Stanford, California 94305.")))));
 };
@@ -1680,7 +1957,7 @@ var gridCols = {
   }
 };
 
-var _excluded$f = ["element", "gap", "className", "children", "ref"],
+var _excluded$g = ["element", "gap", "className", "children", "ref"],
     _excluded2$4 = ["xs", "sm", "md", "lg", "xl", "xxl"];
 var Grid = function Grid(_ref) {
   var element = _ref.element,
@@ -1688,7 +1965,7 @@ var Grid = function Grid(_ref) {
       className = _ref.className,
       children = _ref.children,
       ref = _ref.ref,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
 
   var levers = {};
 
@@ -1712,7 +1989,7 @@ var Grid = function Grid(_ref) {
       }
     }
   });
-  return /*#__PURE__*/React.createElement(Element, _extends({
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: dcnb('su-grid', levers.gap, levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, className),
     ref: ref
   }, rest), children);
@@ -1891,7 +2168,7 @@ var gridRowLine = {
   auto: 'su-row-start-auto'
 };
 
-var _excluded$g = ["className", "children", "ref", "colStart", "rowStart", "row"],
+var _excluded$h = ["className", "children", "ref", "colStart", "rowStart", "row"],
     _excluded2$5 = ["xs", "sm", "md", "lg", "xl", "xxl"];
 var GridCell = function GridCell(_ref) {
   var className = _ref.className,
@@ -1900,7 +2177,7 @@ var GridCell = function GridCell(_ref) {
       colStart = _ref.colStart,
       rowStart = _ref.rowStart,
       row = _ref.row,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
 
   var levers = {};
 
@@ -1933,7 +2210,7 @@ var GridCell = function GridCell(_ref) {
     levers.rowStart = gridRowLine[rowStart];
   }
 
-  return /*#__PURE__*/React.createElement(Element, _extends({
+  return /*#__PURE__*/React__default.createElement(Element, _extends({
     className: dcnb(levers.xs, levers.sm, levers.md, levers.lg, levers.xl, levers.xxl, levers.colStart, levers.row, levers.rowStart, className),
     ref: ref
   }, rest), children);
@@ -1974,10 +2251,10 @@ GridCell.defaultProps = {};
 
 var identityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
 
-var _excluded$h = ["className"];
+var _excluded$i = ["className"];
 var IdentityBar = function IdentityBar(_ref) {
   var className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$i);
 
   var levers = {};
 
@@ -2005,10 +2282,10 @@ var IdentityBar = function IdentityBar(_ref) {
     }
   }
 
-  return /*#__PURE__*/React.createElement(Container, {
+  return /*#__PURE__*/React__default.createElement(Container, {
     width: "site",
     className: dcnb('su-identity-bar su-pt-5 su-pb-1', levers.wrapper, className)
-  }, /*#__PURE__*/React.createElement(Logo, {
+  }, /*#__PURE__*/React__default.createElement(Logo, {
     className: "su-text-20 su-leading-none",
     color: levers.logo,
     type: "full"
@@ -2022,17 +2299,14 @@ IdentityBar.defaultProps = {
   color: 'cardinal-red'
 };
 
-var localFooterColors = ['light grey', 'white', 'black'];
-var localFooterLinkColors = ['blue', 'red', 'white'];
-
 var lockupColors = ['default', 'white'];
 
-var _excluded$i = ["classes", "line1"];
+var _excluded$j = ["classes", "line1"];
 var Lockup = function Lockup(_ref) {
   var _ref$classes = _ref.classes,
       classes = _ref$classes === void 0 ? {} : _ref$classes,
       line1 = _ref.line1,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$i);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
 
   var levers = {};
 
@@ -2053,27 +2327,27 @@ var Lockup = function Lockup(_ref) {
     }
   }
 
-  var LockupContent = /*#__PURE__*/React.createElement(FlexBox, {
+  var LockupContent = /*#__PURE__*/React__default.createElement(FlexBox, {
     direction: "col",
     className: "md:su-flex-row su-basefont-19"
-  }, /*#__PURE__*/React.createElement(Logo, {
+  }, /*#__PURE__*/React__default.createElement(Logo, {
     color: levers.logo,
     isLink: false,
     className: dcnb('su-type-4 su-leading-half su-pt-11 su-pr-7 su-mr-7 md:su-border-r su-border-solid', levers.bar)
-  }), /*#__PURE__*/React.createElement("div", {
+  }), /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-text-25 md:su-text-m2 su--mt-3 md:su-mt-0 su--ml-2 md:su-ml-0 su-font-regular su-relative su-top-6', levers.text, classes.line1)
   }, line1));
 
   if (props.isLink) {
     var _props$url;
 
-    return /*#__PURE__*/React.createElement("a", {
+    return /*#__PURE__*/React__default.createElement("a", {
       className: dcnb('su-lockup su-no-underline su-inline-block', classes.wrapper),
       href: (_props$url = props.url) != null ? _props$url : '/'
     }, LockupContent);
   }
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-lockup su-no-underline su-inline-block', classes.wrapper)
   }, LockupContent);
 };
@@ -2092,14 +2366,17 @@ Lockup.defaultProps = {
   isLink: true
 };
 
-var _excluded$j = ["classes", "children"];
+var localFooterColors = ['light grey', 'white', 'black'];
+var localFooterLinkColors = ['blue', 'red', 'white'];
+
+var _excluded$k = ["classes", "children"];
 var LocalFooter = function LocalFooter(_ref) {
   var _props$buttonText;
 
   var _ref$classes = _ref.classes,
       classes = _ref$classes === void 0 ? {} : _ref$classes,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
 
   var levers = {};
 
@@ -2138,31 +2415,31 @@ var LocalFooter = function LocalFooter(_ref) {
     }
   }
 
-  return /*#__PURE__*/React.createElement(Container, {
+  return /*#__PURE__*/React__default.createElement(Container, {
     width: "site",
     className: dcnb('su-local-footer su-rs-pt-4 su-rs-pb-5', levers.wrapper, classes.wrapper)
-  }, /*#__PURE__*/React.createElement(FlexBox, {
+  }, /*#__PURE__*/React__default.createElement(FlexBox, {
     direction: "col",
     gap: true,
     className: dcnb('md:su-flex-row su-rs-mb-2', classes.header),
     justifyContent: "space-between"
-  }, /*#__PURE__*/React.createElement(FlexCell, {
+  }, /*#__PURE__*/React__default.createElement(FlexCell, {
     grow: true
-  }, /*#__PURE__*/React.createElement(Lockup, {
+  }, /*#__PURE__*/React__default.createElement(Lockup, {
     color: levers.lockup,
     line1: props.line1,
     url: props.url,
     isLink: props.isLogoLink
-  })), props.hasButton && /*#__PURE__*/React.createElement(FlexCell, {
+  })), props.hasButton && /*#__PURE__*/React__default.createElement(FlexCell, {
     grow: false
-  }, /*#__PURE__*/React.createElement("a", {
+  }, /*#__PURE__*/React__default.createElement("a", {
     href: props.buttonUrl,
     className: dcnb('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)
-  }, (_props$buttonText = props.buttonText) != null ? _props$buttonText : 'Web Login', /*#__PURE__*/React.createElement(Icon, {
-    icon: "lock-closed",
+  }, (_props$buttonText = props.buttonText) != null ? _props$buttonText : 'Web Login', /*#__PURE__*/React__default.createElement(HeroIcon, {
+    icon: "lock",
     type: "solid",
     className: dcnb('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)
-  })))), /*#__PURE__*/React.createElement(Grid, {
+  })))), /*#__PURE__*/React__default.createElement(Grid, {
     xs: 1,
     md: 2,
     xl: 4,
@@ -2196,7 +2473,7 @@ LocalFooter.defaultProps = {
 
 var layoutOptions = ['left', 'center'];
 
-var _excluded$k = ["children", "level", "size", "weight", "font", "className"];
+var _excluded$l = ["children", "level", "size", "weight", "font", "className"];
 var Headline$1 = function Headline(_ref) {
   var children = _ref.children,
       level = _ref.level,
@@ -2204,9 +2481,9 @@ var Headline$1 = function Headline(_ref) {
       weight = _ref.weight,
       font = _ref.font,
       className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
 
-  return /*#__PURE__*/React.createElement(Heading, _extends({
+  return /*#__PURE__*/React__default.createElement(Heading, _extends({
     level: level,
     size: size,
     font: font,
@@ -2233,13 +2510,13 @@ Headline$1.defaultProps = {
   font: 'serif'
 };
 
-var _excluded$l = ["children", "className"];
+var _excluded$m = ["children", "className"];
 var Content$1 = function Content(_ref) {
   var children = _ref.children,
       className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
 
-  return /*#__PURE__*/React.createElement(FlexBox, _extends({
+  return /*#__PURE__*/React__default.createElement(FlexBox, _extends({
     direction: "col",
     className: dcnb('poster-body su-max-w-700 last:su-mb-0', className)
   }, props), children);
@@ -2251,13 +2528,13 @@ Content$1.propTypes = {
 };
 Content$1.defaultProps = {};
 
-var _excluded$m = ["className", "children"];
+var _excluded$n = ["className", "children"];
 var Image$1 = function Image(_ref) {
   var className = _ref.className,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
 
-  return /*#__PURE__*/React.createElement("div", _extends({
+  return /*#__PURE__*/React__default.createElement("div", _extends({
     className: dcnb('su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min', className),
     "aria-hidden": "true"
   }, props), children);
@@ -2310,7 +2587,7 @@ var PosterRoot = function PosterRoot(_ref) {
     }
   }
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('poster su-basefont-23 su-rs-pt-5 su-rs-pb-6 su-bg-cover su-bg-no-repeat', wrapperClasses, bgColor, className),
     style: bgImageStyle
   }, children);
@@ -2338,14 +2615,14 @@ PosterRoot.defaultProps = {
   isGradient: false
 };
 
-var _excluded$n = ["anchorLink", "className", "children"];
+var _excluded$o = ["anchorLink", "className", "children"];
 var Skiplink = function Skiplink(_ref) {
   var anchorLink = _ref.anchorLink,
       className = _ref.className,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$o);
 
-  return /*#__PURE__*/React.createElement("a", _extends({
+  return /*#__PURE__*/React__default.createElement("a", _extends({
     href: anchorLink != null ? anchorLink : '#main-content',
     className: dcnb('su-skiplink', className)
   }, props), children != null ? children : 'Skip to main content');
@@ -2357,4 +2634,4 @@ Skiplink.propTypes = {
 };
 Skiplink.defaultProps = {};
 
-export { Alert, Button, Card, Container, CtaButton, CtaLink, DismissButton, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, IdentityBar, LocalFooter, Lockup, Logo, Poster, Skiplink, SrOnlyText };
+export { Alert, Button, Card, Container, CtaButton, CtaLink, DismissButton, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, HeroIcon, IdentityBar, LocalFooter, Lockup, Logo, Poster, Skiplink, SrOnlyText };

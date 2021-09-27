@@ -1,23 +1,20 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { dcnb } from 'cnbuilder';
-import {
-  VideoCameraIcon,
-  MicrophoneIcon,
-  LockClosedIcon,
-} from '@heroicons/react/outline';
+import { MicrophoneIcon, VideoCameraIcon } from '@heroicons/react/outline';
 import {
   ArrowRightIcon,
   ChevronDownIcon,
   ChevronRightIcon,
   DownloadIcon,
+  LockClosedIcon,
   MailIcon,
   PlayIcon,
 } from '@heroicons/react/solid';
-import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
-import { iconOptions } from '../common/icon/icon.levers';
+import { dcnb } from 'cnbuilder';
+import PropTypes from 'prop-types';
+import React from 'react';
 import getIconClasses from '../common/icon/getIconClasses';
+import { iconOptions } from '../common/icon/icon.levers';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
 
 export const HeroIcon = ({ icon, srText, className, ...props }) => {
   // Defaults & Variables.
