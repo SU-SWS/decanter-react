@@ -49,7 +49,7 @@ const errorListBody = (
           Address line 1
         </a>
       </li>
-      <li className="su-mb-12">
+      <li className="su-leading-display su-mb-08em">
         <a href="/" className="su-underline hocus:su-no-underline">
           Expiration date
         </a>
