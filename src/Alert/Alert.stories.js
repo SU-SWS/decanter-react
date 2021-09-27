@@ -44,7 +44,7 @@ const errorListBody = (
       information.
     </p>
     <ul className="su-list-none su-pl-0">
-      <li className="su-mb-12">
+      <li className="su-leading-display su-mb-08em">
         <a href="/" className="su-underline hocus:su-no-underline">
           Address line 1
         </a>
