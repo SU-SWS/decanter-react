@@ -36,7 +36,7 @@ const errorBody = (
 
 const errorListBody = (
   <div className="last:su-mb-0 su-leading-display su-card-paragraph su-text-18">
-    <p className="su-mb-6">
+    <p className="su-mb-02em su-leading-display">
       <strong>Please revise inputs to the following fields.</strong>
     </p>
     <p className="su-rs-mb-0 su-leading-display">
