@@ -9,7 +9,6 @@ import {
 import { dcnb } from 'cnbuilder';
 import PropTypes from 'prop-types';
 import { React, useState } from 'react';
-import Icon from 'react-hero-icon';
 import { DismissButton } from '../DismissButton/DismissButton';
 import {
   alertTypes,
@@ -119,8 +118,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
         levers.headerWrapper = 'su-w-auto su-mt-0 su-mr-01em';
         defaultIcon = (
-          <Icon
-            icon="exclamation-circle"
+          <ExclamationCircleIcon
             type="solid"
             aria-hidden="true"
             className={classes.icon}

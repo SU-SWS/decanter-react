@@ -1,16 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { XIcon } from '@heroicons/react/solid';
 import { dcnb } from 'cnbuilder';
-import Icon from 'react-hero-icon';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-export const InlineError = ({ className, errorText, icon, iconType }) => {
+export const InlineError = ({ className, errorText, icon }) => {
   const iconProps = { height: 20, width: 20 };
 
   // Default Icon.
   let defaultIcon = (
-    <Icon
-      icon="x"
-      type="sold"
+    <XIcon
       aria-hidden="true"
       className="su-text-digital-red su-inline su-mr-3"
       {...iconProps}
@@ -18,10 +16,9 @@ export const InlineError = ({ className, errorText, icon, iconType }) => {
   );
 
   if (icon) {
+    const Icon = icon;
     defaultIcon = (
       <Icon
-        icon={icon}
-        type={iconType}
         aria-hidden="true"
         className="su-text-digital-red su-inline su-mr-3"
         {...iconProps}
@@ -53,14 +50,8 @@ InlineError.propTypes = {
 
   // Icon name
   icon: PropTypes.string,
-
-  // Icon Type
-  iconType: PropTypes.string,
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
-InlineError.defaultProps = {
-  icon: 'x',
-  iconType: 'solid',
-};
+InlineError.defaultProps = {};
