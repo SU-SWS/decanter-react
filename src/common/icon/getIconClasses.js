@@ -47,6 +47,10 @@ const getIconClasses = (icon) => {
       classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
       break;
 
+    case 'info':
+      classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+      break;
+
     default:
     // None.
   }

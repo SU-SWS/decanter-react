@@ -70,3 +70,9 @@ Action.args = {
   icon: 'action',
 };
 Action.storyName = 'Action Icon';
+
+export const Info = HeroIconTemplate.bind({});
+Info.args = {
+  icon: 'info',
+};
+Info.storyName = 'Info Icon';

@@ -1,5 +1,9 @@
 /* eslint-disable import/no-unresolved */
-import { MicrophoneIcon, VideoCameraIcon } from '@heroicons/react/outline';
+import {
+  InformationCircleIcon,
+  MicrophoneIcon,
+  VideoCameraIcon,
+} from '@heroicons/react/outline';
 import {
   ArrowRightIcon,
   ChevronDownIcon,
@@ -68,6 +72,10 @@ export const HeroIcon = ({ icon, srText, className, ...props }) => {
 
       case 'lock':
         Icon = LockClosedIcon;
+        break;
+
+      case 'info':
+        Icon = InformationCircleIcon;
         break;
 
       default:

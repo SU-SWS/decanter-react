@@ -1,9 +1,9 @@
-import React from 'react';
 import DOMPurify from 'dompurify';
-import { Button } from './Button';
-import { buttonVariants, buttonTypes } from './Button.levers';
+import React from 'react';
 import { buttonSizes } from '../common/button/button.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
+import { Button } from './Button';
+import { buttonTypes, buttonVariants } from './Button.levers';
 
 export default {
   title: 'Simple/Button',
@@ -91,6 +91,16 @@ Small.args = {
   size: 'small',
   children: 'Small Button',
 };
+
+export const IconOnly = ButtonTemplate.bind({});
+IconOnly.args = {
+  variant: 'unset',
+  size: 'unset',
+  className:
+    'su-leading-none su-shadow-none hocus:su-shadow-none su-rounded su-p-0 children:su-m-0 children:su-text-black hocus:children:su-text-digital-blue active:children:su-text-digital-blue',
+  icon: 'info',
+};
+IconOnly.storyName = 'Icon Only Button';
 
 export const Action = ButtonTemplate.bind({});
 Action.args = {

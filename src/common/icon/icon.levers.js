@@ -14,6 +14,7 @@ export const iconOptions = [
   'video',
   'jump',
   'email',
+  'info',
   'none',
 ];
 
