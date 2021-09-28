@@ -1,14 +1,14 @@
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import React from "react";
-import { Heading } from "../Heading/Heading";
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import React from 'react';
+import { Heading } from '../Heading/Heading';
 import {
   headingFonts,
   headingLevels,
   headingSizes,
   headingWeights,
-} from "../Heading/Heading.levers";
-import intKeys from "../common/util/intKeys";
+} from '../Heading/Heading.levers';
+import intKeys from '../common/util/intKeys';
 
 /**
  * Headline component
@@ -31,13 +31,13 @@ export const Headline = ({
     font={font}
     weight={weight}
     {...props}
-    className={dcnb("su-mb-03em", className)}
+    className={dcnb('su-mb-03em', className)}
   >
     {children}
   </Heading>
 );
 
-Headline.displayName = "Poster.Headline";
+Headline.displayName = 'Poster.Headline';
 
 Headline.propTypes = {
   level: PropTypes.oneOf(headingLevels),
@@ -78,6 +78,6 @@ Headline.propTypes = {
 Headline.defaultProps = {
   level: 2,
   size: 3,
-  weight: "bold",
-  font: "serif",
+  weight: 'bold',
+  font: 'serif',
 };

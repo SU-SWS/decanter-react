@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { layoutOptions } from "./Poster.levers";
-import { Headline } from "./Poster.Headline";
-import { Content } from "./Poster.Content";
-import { Image } from "./Poster.Image";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { layoutOptions } from './Poster.levers';
+import { Headline } from './Poster.Headline';
+import { Content } from './Poster.Content';
+import { Image } from './Poster.Image';
 
 /**
  * Poster Component
@@ -23,14 +23,14 @@ const PosterRoot = ({
 }) => {
   let wrapperClasses;
 
-  if (layout === "left") {
+  if (layout === 'left') {
     wrapperClasses =
-      "su-flex su-flex-col su-justify-center md:su-flex-row su-min-w-min";
+      'su-flex su-flex-col su-justify-center md:su-flex-row su-min-w-min';
   } else {
-    wrapperClasses = "su-flex su-flex-col su-items-center";
+    wrapperClasses = 'su-flex su-flex-col su-items-center';
   }
 
-  let gradientOverlay = "";
+  let gradientOverlay = '';
   let bgImageStyle = {};
 
   // Process image and set inline background image if image exists
@@ -42,7 +42,7 @@ const PosterRoot = ({
   }
 
   if (isGradient) {
-    gradientOverlay = "linear-gradient(to bottom, transparent, #181D1C)";
+    gradientOverlay = 'linear-gradient(to bottom, transparent, #181D1C)';
 
     if (bgGradient) {
       gradientOverlay = bgGradient;
@@ -60,7 +60,7 @@ const PosterRoot = ({
   return (
     <div
       className={dcnb(
-        "poster su-basefont-23 su-rs-pt-5 su-rs-pb-6 su-bg-cover su-bg-no-repeat",
+        'poster su-basefont-23 su-rs-pt-5 su-rs-pb-6 su-bg-cover su-bg-no-repeat',
         wrapperClasses,
         bgColor,
         className
@@ -72,7 +72,7 @@ const PosterRoot = ({
   );
 };
 
-PosterRoot.displayName = "Poster";
+PosterRoot.displayName = 'Poster';
 
 /**
  * Exports
@@ -129,6 +129,6 @@ PosterRoot.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 PosterRoot.defaultProps = {
-  layout: "center",
+  layout: 'center',
   isGradient: false,
 };

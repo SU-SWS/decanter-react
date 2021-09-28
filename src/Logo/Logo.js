@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { logoColors, logoTypes } from "./Logo.levers";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { logoColors, logoTypes } from './Logo.levers';
 
 /**
  * Stanford Wordmark Logo Component.
@@ -17,17 +17,17 @@ export const Logo = ({ className, ...props }) => {
   // props.color
   if (props.color && logoColors.includes(props.color)) {
     switch (props.color) {
-      case "black":
-        levers.logo = "su-text-black hocus:su-text-black";
+      case 'black':
+        levers.logo = 'su-text-black hocus:su-text-black';
         break;
 
-      case "white":
-        levers.logo = "su-text-white hocus:su-text-white";
+      case 'white':
+        levers.logo = 'su-text-white hocus:su-text-white';
         break;
 
-      case "cardinal-red":
+      case 'cardinal-red':
       default:
-        levers.logo = "su-text-cardinal-red";
+        levers.logo = 'su-text-cardinal-red';
         break;
     }
   }
@@ -35,11 +35,11 @@ export const Logo = ({ className, ...props }) => {
   // props.type
   if (props.type && logoTypes.includes(props.type)) {
     switch (props.type) {
-      case "full":
-        logoText = "Stanford University";
+      case 'full':
+        logoText = 'Stanford University';
         break;
 
-      case "stacked":
+      case 'stacked':
         logoText = (
           <>
             Stanford
@@ -49,9 +49,9 @@ export const Logo = ({ className, ...props }) => {
         );
         break;
 
-      case "short":
+      case 'short':
       default:
-        logoText = "Stanford";
+        logoText = 'Stanford';
         break;
     }
   }
@@ -61,7 +61,7 @@ export const Logo = ({ className, ...props }) => {
   if (props.isLink) {
     return (
       <a
-        className={dcnb("su-logo", levers.logo, className)}
+        className={dcnb('su-logo', levers.logo, className)}
         href="https://www.stanford.edu"
       >
         {logoText}
@@ -70,7 +70,7 @@ export const Logo = ({ className, ...props }) => {
   }
 
   return (
-    <div className={dcnb("su-logo", levers.logo, className)}>{logoText}</div>
+    <div className={dcnb('su-logo', levers.logo, className)}>{logoText}</div>
   );
 };
 
@@ -98,7 +98,7 @@ Logo.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 Logo.defaultProps = {
-  color: "cardinal-red",
-  type: "short",
+  color: 'cardinal-red',
+  type: 'short',
   isLink: true,
 };
