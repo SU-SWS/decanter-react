@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
 import { ctaLinkColors } from './CtaLink.levers';
 import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
-// import getIconOption from '../common/icon/getIconOption';
 import getIconClasses from '../common/icon/getIconClasses';
 import getIconAnimation from '../common/icon/getIconAnimation';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
