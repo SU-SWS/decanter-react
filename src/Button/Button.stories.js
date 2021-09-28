@@ -1,9 +1,9 @@
-import React from 'react';
 import DOMPurify from 'dompurify';
-import { Button } from './Button';
-import { buttonVariants, buttonTypes } from './Button.levers';
+import React from 'react';
 import { buttonSizes } from '../common/button/button.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
+import { Button } from './Button';
+import { buttonTypes, buttonVariants } from './Button.levers';
 
 export default {
   title: 'Simple/Button',
@@ -118,6 +118,13 @@ Small.args = {
   variant: 'solid',
   size: 'small',
   children: 'Small Button',
+};
+
+export const NarrowSmall = ButtonTemplate.bind({});
+NarrowSmall.args = {
+  variant: 'primary',
+  size: 'narrow-small',
+  children: 'Narrow Small Button',
 };
 
 export const Action = ButtonTemplate.bind({});

@@ -49,22 +49,22 @@ export const Button = React.forwardRef(
 
         case 'primary':
           levers.variant =
-            'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border su-rounded su-border-digital-blue-light su-border-solid hover:su-border-digital-blue focus:su-border-digital-blue hover:su-shadow-xl active:su-bg-digital-blue active:su-ring hocus:su-no-underline';
-          break;
-
-        case 'secondary':
-          levers.variant =
-            'su-bg-white hocus:su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border su-rounded su-border-digital-blue-light su-border-solid hover:su-border-digital-blue-dark focus:su-border-digital-blue-dark hover:su-shadow-xl active:su-ring active:su-no-underline';
+            'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue active:su-border-digital-blue hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-digital-blue-light focus:su-ring-digital-blue-light hocus:su-no-underline active:su-no-underline';
           break;
 
         case 'primary-lagunita':
           levers.variant =
-            'su-bg-lagunita hocus:su-bg-lagunita-dark su-text-white hocus:su-text-white su-border su-rounded su-border-lagunita-light su-border-solid hover:su-border-lagunita-light focus:su-border-lagunita hover:su-shadow-xl active:su-ring hocus:su-no-underline';
+            'su-bg-lagunita hocus:su-bg-lagunita-dark active:su-bg-lagunita su-text-white hocus:su-text-white su-border su-rounded su-border-lagunita-light su-border-solid hocus:su-border-lagunita active:su-border-lagunita hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-lagunita-light focus:su-ring-lagunita-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'secondary':
+          levers.variant =
+            'su-bg-white hocus:su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-digital-blue-light active:su-ring-digital-blue-light active:su-no-underline';
           break;
 
         case 'secondary-lagunita':
           levers.variant =
-            'su-bg-white hocus:su-bg-white su-text-lagunita hocus:su-text-lagunita-dark su-border su-rounded su-border-lagunita-light su-border-solid hover:su-border-lagunita-dark focus:su-border-lagunita hover:su-shadow-xl active:su-ring active:su-no-underline';
+            'su-bg-white hocus:su-bg-white su-text-lagunita hocus:su-text-lagunita-dark su-border hocus:su-border su-border-solid su-rounded su-border-lagunita-light hocus:su-border-lagunita-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-lagunita-light active:su-ring-lagunita-light active:su-no-underline';
           break;
 
         case 'outline':
