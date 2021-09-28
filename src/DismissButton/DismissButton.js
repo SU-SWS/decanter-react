@@ -47,6 +47,10 @@ export const DismissButton = ({
         levers.color = 'su-text-white hocus:su-text-white';
         break;
 
+      case 'red':
+        levers.color = 'su-text-digital-red hocus:su-text-digital-red';
+        break;
+
       default:
       // none.
     }
