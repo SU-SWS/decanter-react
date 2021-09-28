@@ -8,9 +8,16 @@ import {
 } from '@heroicons/react/solid';
 import { dcnb } from 'cnbuilder';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { React, useState } from 'react';
+import Icon from 'react-hero-icon';
 import { DismissButton } from '../DismissButton/DismissButton';
-import { alertTypes, darkText, lightText } from './Alert.levers';
+import {
+  alertTypes,
+  alignment,
+  darkText,
+  lightText,
+  redText,
+} from './Alert.levers';
 
 /**
  * Alert Component.
@@ -28,8 +35,13 @@ export const Alert = ({ classes = {}, children, ...props }) => {
 
   // Levers
   // ---------------------------------------------------------------------------
-  levers.wrapper = 'su-bg-foggy-light';
+  levers.wrapper = 'sm:su-items-center su-bg-foggy-light';
   levers.dismiss = 'black';
+  levers.container = 'sm:su-items-center';
+  levers.dismissWrapper =
+    'su-rs-ml-1 su-mt-15 sm:su-mt-0 su-w-full sm:su-w-auto';
+  levers.headerWrapper = 'su-rs-mr-1 su-w-full md:su-w-max';
+  levers.bodyWrapper = 'su-w-full';
 
   // Is large Icon.
   if (props.isLargeIcon) {
@@ -49,6 +61,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.wrapper = 'su-bg-digital-green su-text-white';
         levers.body = lightText;
         levers.dismiss = 'white';
+        levers.dismissText = 'Dismiss';
         defaultIcon = (
           <CheckCircleIcon
             aria-hidden="true"
@@ -62,6 +75,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
         levers.dismiss = 'black';
+        levers.dismissText = 'Dismiss';
         defaultIcon = (
           <ExclamationCircleIcon
             aria-hidden="true"
@@ -75,6 +89,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.wrapper = 'su-bg-digital-blue su-text-white';
         levers.body = lightText;
         levers.dismiss = 'white';
+        levers.dismissText = 'Dismiss';
         defaultIcon = (
           <InformationCircleIcon
             aria-hidden="true"
@@ -88,13 +103,55 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.wrapper = 'su-bg-digital-red su-text-white';
         levers.body = lightText;
         levers.dismiss = 'white';
+        levers.dismissText = 'Dismiss';
         defaultIcon = (
           <BanIcon aria-hidden="true" className={classes.icon} {...iconProps} />
         );
         break;
 
+      case 'errorSummary':
+        levers.wrapper =
+          'su-bg-digital-red su-bg-opacity-20 su-text-digital-red';
+        levers.body = redText;
+        levers.dismiss = 'red';
+        levers.dismissIcon = 'x';
+        levers.container = 'su-flex-row su-flex-nowrap';
+        levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
+        levers.headerWrapper = 'su-w-auto su-mt-0 su-mr-01em';
+        defaultIcon = (
+          <Icon
+            icon="exclamation-circle"
+            type="solid"
+            aria-hidden="true"
+            className={classes.icon}
+            {...iconProps}
+          />
+        );
+        break;
+
       default:
       // none.
+    }
+  }
+
+  // Content Alignment
+  if (props.alignContent && alignment.includes(props.alignContent)) {
+    switch (props.alignContent) {
+      case 'top':
+        levers.container = dcnb(levers.container, 'sm:su-items-start');
+        break;
+
+      case 'center':
+        levers.container = dcnb(levers.container, 'sm:su-items-center');
+        break;
+
+      case 'bottom':
+        levers.container = dcnb(levers.container, 'sm:su-items-end');
+        break;
+
+      default:
+        levers.container = dcnb(levers.container, 'sm:su-items-center');
+        break;
     }
   }
 
@@ -104,7 +161,8 @@ export const Alert = ({ classes = {}, children, ...props }) => {
   const icon = props.icon ?? defaultIcon;
   const DefaultDismiss = (
     <DismissButton
-      text="Dismiss"
+      icon={levers.dismissIcon || 'x-circle'}
+      text={levers.dismissText}
       srText="alert"
       onClick={() => {
         setDismissed(true);
@@ -112,7 +170,6 @@ export const Alert = ({ classes = {}, children, ...props }) => {
       color={levers.dismiss}
       className="su-text-17 su-uppercase su-font-bold su-inline-block su-tracking-widest su-mr-0 su-ml-auto"
       iconProps={{ className: 'su-ml-02em' }}
-      icon={levers.dismissIcon || 'x-circle'}
     />
   );
   const dismissBtn = props.dismissBtn ?? DefaultDismiss;
@@ -128,7 +185,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
     <div className={dcnb('su-alert', levers.wrapper, classes.wrapper)}>
       <div
         className={dcnb(
-          'su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center',
+          'su-cc su-flex su-flex-wrap su-rs-py-1',
           levers.container,
           classes.container
         )}
@@ -136,7 +193,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         {props.hasDismiss && (
           <div
             className={dcnb(
-              'su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto',
+              'su-order-3 su-flex-shrink su-text-right',
               levers.dismissWrapper,
               classes.dismissWrapper
             )}
@@ -150,7 +207,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
           (props.hasLabel && !props.isLabelTop)) && (
           <h2
             className={dcnb(
-              'su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max',
+              'su-order-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink',
               levers.headerWrapper,
               classes.headerWrapper
             )}
@@ -191,7 +248,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         >
           {((props.hasIcon && props.isIconTop) ||
             (props.hasLabel && props.isLabelTop)) && (
-            <h2 className="su-flex su-items-center su-rs-mb-0">
+            <h2 className="su-flex su-rs-mb-0">
               {props.hasIcon && props.isIconTop && (
                 <span
                   className={dcnb(

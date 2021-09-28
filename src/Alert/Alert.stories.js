@@ -1,8 +1,8 @@
 import React from 'react';
 import { withDesign } from 'storybook-addon-designs';
-import { Alert } from './Alert';
 import { DismissButton } from '../DismissButton/DismissButton';
-import { alertTypes } from './Alert.levers';
+import { Alert } from './Alert';
+import { alertTypes, alignment } from './Alert.levers';
 
 const alertBody = (
   <p className="last:su-mb-0 su-leading-display su-card-paragraph">
@@ -19,6 +19,53 @@ const alertBodyShort = (
   <p className="last:su-mb-0 su-leading-display su-card-paragraph">
     For displaying a notification that keeps people informed of a status.
   </p>
+);
+
+const errorBody = (
+  <p className="last:su-mb-0 su-leading-display su-card-paragraph su-text-18">
+    <strong>Account locked for your security</strong>
+    <br />
+    You attempted to log in too many times. Please try again in 24 hours or
+    contact{' '}
+    <a href="/" className="su-underline hocus:su-no-underline">
+      Customer Service
+    </a>{' '}
+    M-F 8am-5pm Pacific.
+  </p>
+);
+
+const errorListBody = (
+  <div className="last:su-mb-0 su-leading-display su-card-paragraph su-text-18">
+    <p className="su-mb-02em su-leading-display">
+      <strong>Please revise inputs to the following fields.</strong>
+    </p>
+    <p className="su-rs-mb-0 su-leading-display">
+      Some of your inputs need revising. Please see each field for more
+      information.
+    </p>
+    <ul className="su-list-none su-pl-0">
+      <li className="su-leading-display su-mb-08em">
+        <a href="/" className="su-underline hocus:su-no-underline">
+          Address line 1
+        </a>
+      </li>
+      <li className="su-leading-display su-mb-08em">
+        <a href="/" className="su-underline hocus:su-no-underline">
+          Expiration date
+        </a>
+      </li>
+      <li className="su-leading-display su-mb-08em">
+        <a href="/" className="su-underline hocus:su-no-underline">
+          Field name one
+        </a>
+      </li>
+      <li className="su-leading-display">
+        <a href="/" className="su-underline hocus:su-no-underline">
+          Field name two
+        </a>
+      </li>
+    </ul>
+  </div>
 );
 
 export default {
@@ -43,6 +90,12 @@ export default {
       control: {
         type: 'select',
         options: alertTypes,
+      },
+    },
+    alignContent: {
+      control: {
+        type: 'select',
+        options: alignment,
       },
     },
   },
@@ -150,3 +203,43 @@ NoDismiss.args = {
   hasDismiss: false,
 };
 NoDismiss.storyName = 'No Dismiss Button';
+
+export const ErrorSummaryBox = AlertTemplate.bind({});
+ErrorSummaryBox.args = {
+  children: errorBody,
+  type: 'errorSummary',
+  label: '',
+  alignContent: 'top',
+  classes: {
+    wrapper: 'su-w-full su-max-w-[56rem]',
+    container: 'su-rs-px-0 su-rs-pt-0 su-rs-pb-1',
+  },
+};
+ErrorSummaryBox.parameters = {
+  docs: {
+    description: {
+      story: 'Form Error Summary Box',
+    },
+  },
+};
+ErrorSummaryBox.storyName = 'Form Error Summary';
+
+export const ErrorSummaryListBox = AlertTemplate.bind({});
+ErrorSummaryListBox.args = {
+  children: errorListBody,
+  type: 'errorSummary',
+  label: '',
+  alignContent: 'top',
+  classes: {
+    wrapper: 'su-w-full su-max-w-[56rem]',
+    container: 'su-rs-px-0 su-rs-pt-0 su-rs-pb-1',
+  },
+};
+ErrorSummaryListBox.parameters = {
+  docs: {
+    description: {
+      story: 'Form Error Summary List Box',
+    },
+  },
+};
+ErrorSummaryListBox.storyName = 'Form Error List';
