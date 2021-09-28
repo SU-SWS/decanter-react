@@ -4,7 +4,6 @@ import React from 'react';
 import { buttonSizes } from '../common/button/button.levers';
 import getButtonSize from '../common/button/getButtonSize';
 import getIconAnimation from '../common/icon/getIconAnimation';
-// import getIconOption from '../common/icon/getIconOption';
 import getIconClasses from '../common/icon/getIconClasses';
 import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
