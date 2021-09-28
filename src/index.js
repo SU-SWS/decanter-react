@@ -12,12 +12,16 @@ import { GlobalFooter } from './GlobalFooter/GlobalFooter';
 import { Grid } from './Grid/Grid';
 import { GridCell } from './GridCell/GridCell';
 import { IdentityBar } from './IdentityBar/IdentityBar';
+import { InlineError } from './InlineError/InlineError';
+import { InlineValid } from './InlineValid/InlineValid';
+import { Label } from './Label/Label';
 import { LocalFooter } from './LocalFooter/LocalFooter';
 import { Lockup } from './Lockup/Lockup';
 import { Logo } from './Logo/Logo';
 import { Poster } from './Poster/Poster';
 import { Skiplink } from './Skiplink/Skiplink';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
+import { TextField } from './TextField/TextField';
 
 export {
   Alert,
@@ -34,10 +38,14 @@ export {
   GridCell,
   Heading,
   IdentityBar,
+  InlineError,
+  InlineValid,
+  Label,
   LocalFooter,
   Lockup,
   Logo,
   Poster,
   Skiplink,
   SrOnlyText,
+  TextField,
 };
