@@ -1,9 +1,9 @@
 import React from 'react';
-import { CtaButton } from './CtaButton';
-import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
-import { ctaButtonVariants } from './CtaButton.levers';
 import { buttonSizes } from '../common/button/button.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { CtaButton } from './CtaButton';
+import { ctaButtonVariants } from './CtaButton.levers';
 
 export default {
   title: 'Simple/CTA Link Button',
@@ -122,6 +122,15 @@ Small.args = {
   size: 'small',
   icon: 'none',
   text: 'Small Button',
+  href: 'https://stanford.edu',
+};
+
+export const NarrowSmall = CtaButtonTemplate.bind({});
+NarrowSmall.args = {
+  variant: 'secondary',
+  size: 'narrow-small',
+  icon: 'none',
+  text: 'Narrow Small Button',
   href: 'https://stanford.edu',
 };
 
