@@ -7,9 +7,9 @@ export default {
   component: HeroIcon,
   argTypes: {
     icon: {
+      options: iconOptions,
       control: {
         type: 'select',
-        options: iconOptions,
       },
     },
   },

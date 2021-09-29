@@ -87,15 +87,15 @@ export default {
   },
   argTypes: {
     type: {
+      options: alertTypes,
       control: {
         type: 'select',
-        options: alertTypes,
       },
     },
     alignContent: {
+      options: alignment,
       control: {
         type: 'select',
-        options: alignment,
       },
     },
   },

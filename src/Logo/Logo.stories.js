@@ -7,15 +7,15 @@ export default {
   component: Logo,
   argTypes: {
     color: {
+      options: logoColors,
       control: {
         type: 'select',
-        options: logoColors,
       },
     },
     type: {
+      options: logoTypes,
       control: {
         type: 'select',
-        options: logoTypes,
       },
     },
     isLink: {
