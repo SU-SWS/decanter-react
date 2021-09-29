@@ -1,13 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Icon from "react-hero-icon";
-import { dcnb } from "cnbuilder";
-import { ctaLinkColors } from "./CtaLink.levers";
-import { iconOptions, iconAnimations } from "../common/icon/icon.levers";
-import getIconOption from "../common/icon/getIconOption";
-import getIconClasses from "../common/icon/getIconClasses";
-import getIconAnimation from "../common/icon/getIconAnimation";
-import { SrOnlyText } from "../SrOnlyText/SrOnlyText";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { ctaLinkColors } from './CtaLink.levers';
+import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import getIconClasses from '../common/icon/getIconClasses';
+import getIconAnimation from '../common/icon/getIconAnimation';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { HeroIcon } from '../HeroIcon/HeroIcon';
 
 /**
  * CTA Link Component
@@ -28,16 +27,16 @@ export const CtaLink = React.forwardRef(
     // color
     if (color && ctaLinkColors.includes(color)) {
       switch (color) {
-        case "red":
-          levers.color = "su-text-digital-red hocus:su-text-black";
+        case 'red':
+          levers.color = 'su-text-digital-red hocus:su-text-black';
           break;
 
-        case "blue":
-          levers.color = "su-text-digital-blue hocus:su-text-black";
+        case 'blue':
+          levers.color = 'su-text-digital-blue hocus:su-text-black';
           break;
 
-        case "white":
-          levers.color = "su-text-white hocus:su-text-white";
+        case 'white':
+          levers.color = 'su-text-white hocus:su-text-white';
           break;
 
         default:
@@ -46,10 +45,10 @@ export const CtaLink = React.forwardRef(
     }
 
     // icon
-    let heroicon = "";
+    let heroicon = '';
 
     if (icon && iconOptions.includes(icon)) {
-      heroicon = getIconOption(icon);
+      heroicon = icon;
       levers.icon = getIconClasses(icon);
     }
 
@@ -65,7 +64,7 @@ export const CtaLink = React.forwardRef(
     return (
       <a
         className={dcnb(
-          "su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors",
+          'su-cta-link su-text-19 md:su-text-20 su-block su-w-fit su-no-underline hover:su-underline focus:su-underline su-group su-transition-colors',
           levers.color,
           levers.size,
           levers.variant,
@@ -77,12 +76,12 @@ export const CtaLink = React.forwardRef(
         {text}
         {srText && <SrOnlyText srText={` ${srText}`} />}
         {icon && (
-          <Icon
+          <HeroIcon
             icon={heroicon}
             type="solid"
             aria-hidden
             className={dcnb(
-              "su-inline-block",
+              'su-inline-block',
               levers.icon,
               levers.animate,
               iconClasses
@@ -144,5 +143,5 @@ CtaLink.propTypes = {
 // Default Props.
 // -----------------------------------------------------------------------------
 CtaLink.defaultProps = {
-  icon: "action",
+  icon: 'action',
 };

@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Icon from "react-hero-icon";
-import { dcnb } from "cnbuilder";
-import { localFooterColors, localFooterLinkColors } from "./LocalFooter.levers";
-import { Container } from "../Container/Container";
-import { Grid } from "../Grid/Grid";
-import { FlexBox } from "../FlexBox/FlexBox";
-import { FlexCell } from "../FlexCell/FlexCell";
-import { Lockup } from "../Lockup/Lockup";
+import { dcnb } from 'cnbuilder';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { Container } from '../Container/Container';
+import { FlexBox } from '../FlexBox/FlexBox';
+import { FlexCell } from '../FlexCell/FlexCell';
+import { Grid } from '../Grid/Grid';
+import { HeroIcon } from '../HeroIcon/HeroIcon';
+import { Lockup } from '../Lockup/Lockup';
+import { localFooterColors, localFooterLinkColors } from './LocalFooter.levers';
 
 /**
  * Stanford Local Footer Component.
@@ -23,19 +23,19 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
   // props.color
   if (props.color && localFooterColors.includes(props.color)) {
     switch (props.color) {
-      case "light grey":
-        levers.wrapper = "su-bg-foggy-light su-text-black";
-        levers.lockup = "default";
+      case 'light grey':
+        levers.wrapper = 'su-bg-foggy-light su-text-black';
+        levers.lockup = 'default';
         break;
 
-      case "white":
-        levers.wrapper = "su-bg-white su-text-black";
-        levers.lockup = "default";
+      case 'white':
+        levers.wrapper = 'su-bg-white su-text-black';
+        levers.lockup = 'default';
         break;
 
-      case "black":
-        levers.wrapper = "su-bg-black su-text-white";
-        levers.lockup = "white";
+      case 'black':
+        levers.wrapper = 'su-bg-black su-text-white';
+        levers.lockup = 'white';
         break;
 
       default:
@@ -46,18 +46,16 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
   // props.link
   if (props.link && localFooterLinkColors.includes(props.link)) {
     switch (props.link) {
-      case "blue":
-        levers.link = "";
+      case 'blue':
+        levers.link = '';
         break;
 
-      case "red":
-        levers.link =
-          "su-link-digital-red hover:su-link-black focus:su-link-black";
+      case 'red':
+        levers.link = 'su-link-digital-red'; // hover black
         break;
 
-      case "white":
-        levers.link =
-          "su-link-white hover:su-link-digital-red-light focus:su-link-digital-red-light";
+      case 'white':
+        levers.link = 'su-link-white'; // hover-digital-red-light
         break;
 
       default:
@@ -69,7 +67,7 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
     <Container
       width="site"
       className={dcnb(
-        "su-local-footer su-rs-pt-4 su-rs-pb-5",
+        'su-local-footer su-rs-pt-4 su-rs-pb-5',
         levers.wrapper,
         classes.wrapper
       )}
@@ -77,7 +75,7 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
       <FlexBox
         direction="col"
         gap
-        className={dcnb("md:su-flex-row su-rs-mb-2", classes.header)}
+        className={dcnb('md:su-flex-row su-rs-mb-2', classes.header)}
         justifyContent="space-between"
       >
         <FlexCell grow>
@@ -93,16 +91,16 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
             <a
               href={props.buttonUrl}
               className={dcnb(
-                "su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md",
+                'su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md',
                 classes.button
               )}
             >
-              {props.buttonText ?? "Web Login"}
-              <Icon
-                icon="lock-closed"
+              {props.buttonText ?? 'Web Login'}
+              <HeroIcon
+                icon="lock"
                 type="solid"
                 className={dcnb(
-                  "su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2",
+                  'su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2',
                   classes.icon
                 )}
               />
@@ -116,7 +114,7 @@ export const LocalFooter = ({ classes = {}, children, ...props }) => {
         xl={4}
         gap
         className={dcnb(
-          "su-text-18 su-link-regular",
+          'su-text-18 su-link-regular',
           levers.link,
           classes.content
         )}
@@ -210,6 +208,6 @@ LocalFooter.propTypes = {
 // -----------------------------------------------------------------------------
 LocalFooter.defaultProps = {
   isLogoLink: true,
-  color: "light grey",
-  link: "blue",
+  color: 'light grey',
+  link: 'blue',
 };

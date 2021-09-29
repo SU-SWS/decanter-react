@@ -1,37 +1,37 @@
-import React from "react";
-import { Card } from "./Card";
-import { CtaLink } from "../CtaLink/CtaLink";
-import { CtaButton } from "../CtaButton/CtaButton";
-import { cardElements } from "./Card.levers";
+import React from 'react';
+import { Card } from './Card';
+import { CtaLink } from '../CtaLink/CtaLink';
+import { CtaButton } from '../CtaButton/CtaButton';
+import { cardElements } from './Card.levers';
 
 export default {
-  title: "Composite/Card",
+  title: 'Composite/Card',
   component: Card,
   subcomponents: {
-    "Card.Content": Card.Content,
-    "Card.Image": Card.Image,
-    "Card.Superhead": Card.Superhead,
-    "Card.Headline": Card.Headline,
+    'Card.Content': Card.Content,
+    'Card.Image': Card.Image,
+    'Card.Superhead': Card.Superhead,
+    'Card.Headline': Card.Headline,
   },
   parameters: {
     design: {
-      type: "figma",
-      url: "https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=60%3A2916",
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=60%3A2916',
     },
     docs: {
       description: {
         component:
-          "Card component with several fields to ensure flexibility - a media element, headline, super headline, body content, call-to-action (CTA) link and button link.",
+          'Card component with several fields to ensure flexibility - a media element, headline, super headline, body content, call-to-action (CTA) link and button link.',
       },
     },
   },
   argTypes: {
     element: {
-      type: "select",
+      type: 'select',
       options: cardElements,
     },
     isMinimal: {
-      type: "boolean",
+      type: 'boolean',
     },
   },
 };
@@ -63,7 +63,7 @@ const CardTemplateDefaultImage = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Image
       image={{
-        src: "https://placekitten.com/600/300",
+        src: 'https://placekitten.com/600/300',
       }}
     />
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
@@ -91,7 +91,7 @@ const CardTemplateDefaultCenter = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Image
       image={{
-        src: "https://placekitten.com/600/300",
+        src: 'https://placekitten.com/600/300',
       }}
     />
     <Card.Content align="center" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
@@ -116,7 +116,7 @@ const CardTemplateDefaultRight = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Image
       image={{
-        src: "https://placekitten.com/600/300",
+        src: 'https://placekitten.com/600/300',
       }}
     />
     <Card.Content align="right" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
@@ -167,9 +167,9 @@ const CardTemplateMinimalImage = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Image
       image={{
-        src: "https://placekitten.com/600/300",
-        alt: "something",
-        id: "su-id",
+        src: 'https://placekitten.com/600/300',
+        alt: 'something',
+        id: 'su-id',
       }}
     />
     <Card.Content align="left" className="su-rs-pt-2">
@@ -194,7 +194,7 @@ const CardTemplateMinimalCenter = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Image
       image={{
-        src: "https://placekitten.com/600/300",
+        src: 'https://placekitten.com/600/300',
       }}
     />
     <Card.Content align="center" className="su-rs-pt-2">
@@ -222,7 +222,7 @@ const CardTemplateMinimalRight = ({ ...rest }) => (
   <Card {...rest}>
     <Card.Image
       image={{
-        src: "https://placekitten.com/600/300",
+        src: 'https://placekitten.com/600/300',
       }}
     />
     <Card.Content align="right" className="su-rs-pt-2">
@@ -248,7 +248,7 @@ const CardTemplateCustom = ({ ...rest }) => (
     <Card.Image
       aspectRatio="1x1"
       image={{
-        src: "https://placekitten.com/600/400",
+        src: 'https://placekitten.com/600/400',
       }}
     />
     <Card.Content align="left" className="su-rs-px-2 su-rs-pt-2 su-rs-pb-4">
@@ -282,44 +282,44 @@ const CardTemplateCustom = ({ ...rest }) => (
 );
 
 export const Default = CardTemplateDefault.bind({});
-Default.storyName = "Default";
+Default.storyName = 'Default';
 
 export const DefaultImage = CardTemplateDefaultImage.bind({});
-DefaultImage.storyName = "Default with Image";
+DefaultImage.storyName = 'Default with Image';
 
 export const DefaultCenter = CardTemplateDefaultCenter.bind({});
-DefaultCenter.storyName = "Default Center Content";
+DefaultCenter.storyName = 'Default Center Content';
 
 export const DefaultRight = CardTemplateDefaultRight.bind({});
-DefaultRight.storyName = "Default Right Content";
+DefaultRight.storyName = 'Default Right Content';
 
 export const Minimal = CardTemplateMinimal.bind({});
 Minimal.args = {
   isMinimal: true,
 };
-Minimal.storyName = "Minimal";
+Minimal.storyName = 'Minimal';
 
 export const MinimalImage = CardTemplateMinimalImage.bind({});
 MinimalImage.args = {
   isMinimal: true,
 };
-MinimalImage.storyName = "Minimal with Image";
+MinimalImage.storyName = 'Minimal with Image';
 
 export const MinimalCenter = CardTemplateMinimalCenter.bind({});
 MinimalCenter.args = {
   isMinimal: true,
 };
-MinimalCenter.storyName = "Minimal Center Content";
+MinimalCenter.storyName = 'Minimal Center Content';
 
 export const MinimalRight = CardTemplateMinimalRight.bind({});
 MinimalRight.args = {
   isMinimal: true,
 };
-MinimalRight.storyName = "Minimal Right Content";
+MinimalRight.storyName = 'Minimal Right Content';
 
 export const CustomCard = CardTemplateCustom.bind({});
 CustomCard.args = {
-  className: "su-bg-foggy-light",
-  id: "decanter-card",
+  className: 'su-bg-foggy-light',
+  id: 'decanter-card',
 };
-CustomCard.storyName = "Custom Card with Square Image";
+CustomCard.storyName = 'Custom Card with Square Image';

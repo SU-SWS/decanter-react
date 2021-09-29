@@ -1,22 +1,14 @@
 {
   "parser": "@babel/eslint-parser",
-  "plugins": [
-    "react",
-    "prettier"
-  ],
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "airbnb/hooks",
-    "prettier"
-  ],
+  "plugins": ["react", "prettier"],
+  "extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier"],
   "rules": {
     "prettier/prettier": [
       "error",
       {
         "endOfLine": "lf",
         "semi": true,
-        "singleQuote": false,
+        "singleQuote": true,
         "tabWidth": 2,
         "trailingComma": "es5"
       }
@@ -28,10 +20,7 @@
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-            ".js",
-            ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "react/jsx-fragments": 0,
