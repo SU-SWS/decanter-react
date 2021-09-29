@@ -1,4 +1,4 @@
-import React__default, { createElement, useState, React } from 'react';
+import React__default, { createElement, useState } from 'react';
 import { dcnb } from 'cnbuilder';
 import PropTypes from 'prop-types';
 
@@ -731,7 +731,7 @@ var Alert = function Alert(_ref) {
     iconProps.width = 60;
   }
 
-  var defaultIcon = /*#__PURE__*/React.createElement(BellIcon, _extends({
+  var defaultIcon = /*#__PURE__*/React__default.createElement(BellIcon, _extends({
     "aria-hidden": "true",
     className: classes.icon
   }, iconProps));
@@ -743,7 +743,7 @@ var Alert = function Alert(_ref) {
         levers.body = lightText;
         levers.dismiss = 'white';
         levers.dismissText = 'Dismiss';
-        defaultIcon = /*#__PURE__*/React.createElement(CheckCircleIcon, _extends({
+        defaultIcon = /*#__PURE__*/React__default.createElement(CheckCircleIcon, _extends({
           "aria-hidden": "true",
           className: classes.icon
         }, iconProps));
@@ -754,7 +754,7 @@ var Alert = function Alert(_ref) {
         levers.body = darkText;
         levers.dismiss = 'black';
         levers.dismissText = 'Dismiss';
-        defaultIcon = /*#__PURE__*/React.createElement(ExclamationCircleIcon, _extends({
+        defaultIcon = /*#__PURE__*/React__default.createElement(ExclamationCircleIcon, _extends({
           "aria-hidden": "true",
           className: classes.icon
         }, iconProps));
@@ -765,7 +765,7 @@ var Alert = function Alert(_ref) {
         levers.body = lightText;
         levers.dismiss = 'white';
         levers.dismissText = 'Dismiss';
-        defaultIcon = /*#__PURE__*/React.createElement(InformationCircleIcon$1, _extends({
+        defaultIcon = /*#__PURE__*/React__default.createElement(InformationCircleIcon$1, _extends({
           "aria-hidden": "true",
           className: classes.icon
         }, iconProps));
@@ -776,7 +776,7 @@ var Alert = function Alert(_ref) {
         levers.body = lightText;
         levers.dismiss = 'white';
         levers.dismissText = 'Dismiss';
-        defaultIcon = /*#__PURE__*/React.createElement(BanIcon, _extends({
+        defaultIcon = /*#__PURE__*/React__default.createElement(BanIcon, _extends({
           "aria-hidden": "true",
           className: classes.icon
         }, iconProps));
@@ -790,7 +790,7 @@ var Alert = function Alert(_ref) {
         levers.container = 'su-flex-row su-flex-nowrap';
         levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
         levers.headerWrapper = 'su-w-auto su-mt-0 su-mr-01em';
-        defaultIcon = /*#__PURE__*/React.createElement(ExclamationCircleIcon, _extends({
+        defaultIcon = /*#__PURE__*/React__default.createElement(ExclamationCircleIcon, _extends({
           type: "solid",
           "aria-hidden": "true",
           className: classes.icon
@@ -820,7 +820,7 @@ var Alert = function Alert(_ref) {
   }
 
   var icon = (_props$icon = props.icon) != null ? _props$icon : defaultIcon;
-  var DefaultDismiss = /*#__PURE__*/React.createElement(DismissButton, {
+  var DefaultDismiss = /*#__PURE__*/React__default.createElement(DismissButton, {
     icon: levers.dismissIcon || 'x-circle',
     text: levers.dismissText,
     srText: "alert",
@@ -839,31 +839,31 @@ var Alert = function Alert(_ref) {
     return null;
   }
 
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-alert', levers.wrapper, classes.wrapper)
-  }, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-cc su-flex su-flex-wrap su-rs-py-1', levers.container, classes.container)
-  }, props.hasDismiss && /*#__PURE__*/React.createElement("div", {
+  }, props.hasDismiss && /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-order-3 su-flex-shrink su-text-right', levers.dismissWrapper, classes.dismissWrapper)
-  }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React.createElement("h2", {
+  }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React__default.createElement("h2", {
     className: dcnb('su-order-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink', levers.headerWrapper, classes.headerWrapper)
-  }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React.createElement("span", {
+  }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
     className: dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
-  }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React.createElement("span", {
+  }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
     className: dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
-  }, (_props$label = props.label) != null ? _props$label : 'Alert:')), /*#__PURE__*/React.createElement("div", {
+  }, (_props$label = props.label) != null ? _props$label : 'Alert:')), /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)
-  }, (props.hasIcon && props.isIconTop || props.hasLabel && props.isLabelTop) && /*#__PURE__*/React.createElement("h2", {
+  }, (props.hasIcon && props.isIconTop || props.hasLabel && props.isLabelTop) && /*#__PURE__*/React__default.createElement("h2", {
     className: "su-flex su-rs-mb-0"
-  }, props.hasIcon && props.isIconTop && /*#__PURE__*/React.createElement("span", {
+  }, props.hasIcon && props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
     className: dcnb('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
-  }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React.createElement("span", {
+  }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
     className: dcnb('su-inline-block su-uppercase su-font-bold su-text-17 su-tracking-widest', levers.label, classes.label)
-  }, (_props$label2 = props.label) != null ? _props$label2 : 'Alert:')), props.heading && /*#__PURE__*/React.createElement("h2", {
+  }, (_props$label2 = props.label) != null ? _props$label2 : 'Alert:')), props.heading && /*#__PURE__*/React__default.createElement("h2", {
     className: dcnb('su-type-1 su-rs-mb-neg1', levers.bodyHeading, classes.bodyHeading)
-  }, props.heading), /*#__PURE__*/React.createElement("div", {
+  }, props.heading), /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-text-normal', levers.body, classes.body)
-  }, children), props.footer && /*#__PURE__*/React.createElement("div", {
+  }, children), props.footer && /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-rs-mt-0', levers.footerWrapper, classes.footerWrapper)
   }, props.footer))));
 };
