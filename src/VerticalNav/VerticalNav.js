@@ -26,7 +26,7 @@ const VerticalNavRoot = ({
         className={dcnb(
           'su-relative',
           navOpened ? 'su-shadow-xl' : '',
-          classes.rootList ? classes.rootList : '',
+          classes.rootList ? classes.rootList : ''
         )}
         {...props}
         aria-label="Section Menu"
@@ -39,8 +39,6 @@ const VerticalNavRoot = ({
           showNestedLevels={showNestedLevels}
           classes={classes}
         />
-        {console.log(classes, 'classes')}
-
         {/* Mobile */}
         <Group
           menuTree={menuTree}

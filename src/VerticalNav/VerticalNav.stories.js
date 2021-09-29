@@ -33,9 +33,7 @@ const menuTree = [
     link: {
       cached_url: '/i-0',
     },
-    Link: (
-      <Link href="/i-0" name="Item One" type="Link" />
-    ),
+    Link: <Link href="/i-0" name="Item One" type="Link" />,
     childItems: [
       {
         id: '2',

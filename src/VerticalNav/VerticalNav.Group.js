@@ -23,7 +23,6 @@ export const Group = ({
     )}
     {...props}
   >
-    {console.log(classes, 'f')}
     {menuTree.map((item) => (
       <Item
         key={item.id}
