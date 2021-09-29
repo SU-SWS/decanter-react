@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { VerticalNavStateProvider } from "./VerticalNav.context";
-import useTreeWalker from "../hooks/useTreeWalker";
-import { Group } from "./VerticalNav.Group";
-import { Item } from "./VerticalNav.Item";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { VerticalNavStateProvider } from './VerticalNav.context';
+import useTreeWalker from '../hooks/useTreeWalker';
+import { Group } from './VerticalNav.Group';
+import { Item } from './VerticalNav.Item';
 
 /**
  * Vertical Nav Component.
@@ -12,9 +12,9 @@ import { Item } from "./VerticalNav.Item";
  * For displaying sidebar navigation.
  */
 const VerticalNavRoot = ({
-  className,
   menu,
   pageLink,
+  classes = {},
   navOpened = false,
   showNestedLevels = false,
   ...props
@@ -23,7 +23,11 @@ const VerticalNavRoot = ({
   return (
     <VerticalNavStateProvider tree={menuTree}>
       <nav
-        className={dcnb("su-relative", navOpened ? "su-shadow-xl" : "")}
+        className={dcnb(
+          'su-relative',
+          navOpened ? 'su-shadow-xl' : '',
+          classes.rootList ? classes.rootList : '',
+        )}
         {...props}
         aria-label="Section Menu"
       >
@@ -33,7 +37,9 @@ const VerticalNavRoot = ({
           pageLink={pageLink}
           className="su-hidden lg:su-block"
           showNestedLevels={showNestedLevels}
+          classes={classes}
         />
+        {console.log(classes, 'classes')}
 
         {/* Mobile */}
         <Group
@@ -42,12 +48,13 @@ const VerticalNavRoot = ({
           className="lg:su-hidden su-absolute su-z-20 su-shadow-xl su-bg-white su-w-full"
           aria-hidden={!navOpened}
           showNestedLevels={showNestedLevels}
+          classes={classes}
         />
       </nav>
     </VerticalNavStateProvider>
   );
 };
-VerticalNavRoot.displayName = "VerticalNav";
+VerticalNavRoot.displayName = 'VerticalNav';
 
 // Bind them.
 // -----------------------------------------------------------------------------
@@ -58,9 +65,5 @@ export const VerticalNav = Object.assign(VerticalNavRoot, { Item });
 // -----------------------------------------------------------------------------
 
 VerticalNavRoot.propTypes = {
-  className: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.array,
-    PropTypes.string,
-  ]),
+  classes: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
 };

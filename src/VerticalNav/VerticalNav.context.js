@@ -7,7 +7,7 @@
  *
  */
 
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer } from 'react';
 
 /**
  * The default state.
@@ -36,24 +36,24 @@ function VerticalNavContextReducer(state, action) {
   }
 
   switch (action.type) {
-    case "addGroup":
+    case 'addGroup':
       state.tree.push(action.id);
       return state;
 
-    case "setActive":
+    case 'setActive':
       state.active = action.id;
       return state;
 
-    case "setTree":
+    case 'setTree':
       state.tree = action.tree;
       return state;
 
-    case "keypress":
+    case 'keypress':
       state.active = action.val;
       return state;
 
     default:
-      throw new Error("Vertical Nav Context does not have that action.");
+      throw new Error('Vertical Nav Context does not have that action.');
   }
 }
 

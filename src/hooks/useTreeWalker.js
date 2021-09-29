@@ -13,7 +13,7 @@ const walkTree = (items, pageLink, showNestedLevels) => {
   // Check if menu item's url matches the current page url
   const urlMatch = (link) =>
     pageLink.indexOf(link) > -1 &&
-    (!pageLink.split(link)[1] || pageLink.split(link)[1] === "/");
+    (!pageLink.split(link)[1] || pageLink.split(link)[1] === '/');
 
   // Recursive function that will add active and activeTrail props to the active link, it's parents and the
   // immediate children if available.
