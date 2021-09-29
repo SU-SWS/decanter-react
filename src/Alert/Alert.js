@@ -1,7 +1,14 @@
+/* eslint-disable import/no-unresolved */
+import { BellIcon } from '@heroicons/react/outline';
+import {
+  BanIcon,
+  CheckCircleIcon,
+  ExclamationCircleIcon,
+  InformationCircleIcon,
+} from '@heroicons/react/solid';
 import { dcnb } from 'cnbuilder';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import Icon from 'react-hero-icon';
 import { DismissButton } from '../DismissButton/DismissButton';
 import {
   alertTypes,
@@ -43,13 +50,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
 
   // Default Icon.
   let defaultIcon = (
-    <Icon
-      icon="bell"
-      type="outline"
-      aria-hidden="true"
-      className={classes.icon}
-      {...iconProps}
-    />
+    <BellIcon aria-hidden="true" className={classes.icon} {...iconProps} />
   );
 
   // Props.type
@@ -61,9 +62,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.dismiss = 'white';
         levers.dismissText = 'Dismiss';
         defaultIcon = (
-          <Icon
-            icon="check-circle"
-            type="solid"
+          <CheckCircleIcon
             aria-hidden="true"
             className={classes.icon}
             {...iconProps}
@@ -77,9 +76,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.dismiss = 'black';
         levers.dismissText = 'Dismiss';
         defaultIcon = (
-          <Icon
-            icon="exclamation-circle"
-            type="solid"
+          <ExclamationCircleIcon
             aria-hidden="true"
             className={classes.icon}
             {...iconProps}
@@ -93,9 +90,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.dismiss = 'white';
         levers.dismissText = 'Dismiss';
         defaultIcon = (
-          <Icon
-            icon="information-circle"
-            type="solid"
+          <InformationCircleIcon
             aria-hidden="true"
             className={classes.icon}
             {...iconProps}
@@ -109,13 +104,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.dismiss = 'white';
         levers.dismissText = 'Dismiss';
         defaultIcon = (
-          <Icon
-            icon="ban"
-            type="solid"
-            aria-hidden="true"
-            className={classes.icon}
-            {...iconProps}
-          />
+          <BanIcon aria-hidden="true" className={classes.icon} {...iconProps} />
         );
         break;
 
@@ -129,8 +118,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
         levers.headerWrapper = 'su-w-auto su-mt-0 su-mr-01em';
         defaultIcon = (
-          <Icon
-            icon="exclamation-circle"
+          <ExclamationCircleIcon
             type="solid"
             aria-hidden="true"
             className={classes.icon}

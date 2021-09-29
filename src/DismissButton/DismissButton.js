@@ -1,14 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from 'react-hero-icon';
-import { dcnb } from 'cnbuilder';
+/* eslint-disable import/no-unresolved */
 import {
-  dismissIconOptions,
-  dismissIconTypes,
-  dismissIconColors,
-} from './DismissButton.levers';
+  XCircleIcon as XCircleIconOutline,
+  XIcon as XIconOutline,
+} from '@heroicons/react/outline';
+import {
+  XCircleIcon as XCircleIconSolid,
+  XIcon as XIconSolid,
+} from '@heroicons/react/solid';
+import { dcnb } from 'cnbuilder';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { Button } from '../Button/Button';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import {
+  dismissIconColors,
+  dismissIconOptions,
+  dismissIconTypes,
+} from './DismissButton.levers';
 
 /**
  * Dismiss Button Component
@@ -58,28 +66,43 @@ export const DismissButton = ({
 
   // Dismiss Icon and defaults
   // Set heroicon and icon type if not specified
-
-  let heroicon = '';
+  // Set default heroicon if custom icon element isn't provided
+  let Icon;
+  let defaultIcon;
 
   if (icon && dismissIconOptions.includes(icon)) {
-    heroicon = icon;
+    if (iconType === 'solid') {
+      switch (icon) {
+        case 'x-circle':
+          Icon = XCircleIconSolid;
+          break;
+        case 'x':
+          Icon = XIconSolid;
+          break;
+
+        default:
+        // none
+      }
+    }
+
+    if (iconType === 'outline') {
+      switch (icon) {
+        case 'x-circle':
+          Icon = XCircleIconOutline;
+          break;
+        case 'x':
+          Icon = XIconOutline;
+          break;
+
+        default:
+        // none
+      }
+    }
   }
 
-  let heroiconType = 'solid';
-
-  if (iconType && dismissIconTypes.includes(iconType)) {
-    heroiconType = iconType;
+  if (Icon) {
+    defaultIcon = <Icon aria-hidden="true" {...iconProps} />;
   }
-
-  // Set default heroicon if custom icon element isn't provided
-  const defaultIcon = (
-    <Icon
-      icon={heroicon}
-      type={heroiconType}
-      aria-hidden="true"
-      {...iconProps}
-    />
-  );
 
   // Use custom icon for the component if it's provided; if not, use the default heroicon
   const dismissIcon = customIcon ?? defaultIcon;

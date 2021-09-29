@@ -8,6 +8,7 @@ import { DismissButton } from './DismissButton/DismissButton';
 import { FlexBox } from './FlexBox/FlexBox';
 import { FlexCell } from './FlexCell/FlexCell';
 import { Heading } from './Heading/Heading';
+import { HeroIcon } from './HeroIcon/HeroIcon';
 import { GlobalFooter } from './GlobalFooter/GlobalFooter';
 import { Grid } from './Grid/Grid';
 import { GridCell } from './GridCell/GridCell';
@@ -37,6 +38,7 @@ export {
   Grid,
   GridCell,
   Heading,
+  HeroIcon,
   IdentityBar,
   InlineError,
   InlineValid,

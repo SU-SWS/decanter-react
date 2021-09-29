@@ -1,16 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { CheckIcon } from '@heroicons/react/solid';
 import { dcnb } from 'cnbuilder';
-import Icon from 'react-hero-icon';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export const InlineValid = ({ className, validText, icon, iconType }) => {
   const iconProps = { height: 20, width: 20 };
 
   // Default Icon.
   let defaultIcon = (
-    <Icon
-      icon="x"
-      type="sold"
+    <CheckIcon
       aria-hidden="true"
       className="su-text-digital-green su-inline su-mr-3"
       {...iconProps}
@@ -18,6 +16,7 @@ export const InlineValid = ({ className, validText, icon, iconType }) => {
   );
 
   if (icon) {
+    const Icon = icon;
     defaultIcon = (
       <Icon
         icon={icon}
@@ -53,14 +52,8 @@ InlineValid.propTypes = {
 
   // Icon name
   icon: PropTypes.string,
-
-  // Icon Type
-  iconType: PropTypes.string,
 };
 
 // Default Props.
 // -----------------------------------------------------------------------------
-InlineValid.defaultProps = {
-  icon: 'check',
-  iconType: 'solid',
-};
+InlineValid.defaultProps = {};
