@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
 
 /**
  * Skiplink component for accessibility.
@@ -8,11 +8,11 @@ import { dcnb } from "cnbuilder";
  */
 export const Skiplink = ({ anchorLink, className, children, ...props }) => (
   <a
-    href={anchorLink ?? "#main-content"}
-    className={dcnb("su-skiplink", className)}
+    href={anchorLink ?? '#main-content'}
+    className={dcnb('su-skiplink', className)}
     {...props}
   >
-    {children ?? "Skip to main content"}
+    {children ?? 'Skip to main content'}
   </a>
 );
 

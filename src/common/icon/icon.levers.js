@@ -4,18 +4,21 @@
  * CTA Icon options
  */
 export const iconOptions = [
-  "action",
-  "more",
-  "external",
-  "lock",
-  "download",
-  "video",
-  "jump",
-  "email",
-  "none",
+  'action',
+  'more',
+  'external',
+  'lock',
+  'download',
+  'play',
+  'podcast',
+  'video',
+  'jump',
+  'email',
+  'info',
+  'none',
 ];
 
 /**
  * CTA Icon animation options
  */
-export const iconAnimations = ["right", "top-right", "down", "none"];
+export const iconAnimations = ['right', 'top-right', 'down', 'none'];

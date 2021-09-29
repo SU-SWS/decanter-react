@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { dcnb } from "cnbuilder";
-import { cardElements } from "./Card.levers";
-import { Superhead } from "./Card.Superhead";
-import { Headline } from "./Card.Headline";
-import { Content } from "./Card.Content";
-import { Image } from "./Card.Image";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { dcnb } from 'cnbuilder';
+import { cardElements } from './Card.levers';
+import { Superhead } from './Card.Superhead';
+import { Headline } from './Card.Headline';
+import { Content } from './Card.Content';
+import { Image } from './Card.Image';
 
 /**
  * Card Component
@@ -17,23 +17,23 @@ const CardRoot = ({ className, children, element, isMinimal, ...props }) => {
   // Defaults & Variables.
   // ---------------------------------------------------------------------------
   // props.element
-  let Element = "div";
+  let Element = 'div';
 
   if (element && cardElements.includes(element)) {
     Element = element;
   }
 
   let wrapperClasses =
-    "su-bg-white su-text-black su-border su-border-solid su-border-black-10 su-shadow";
+    'su-bg-white su-text-black su-border su-border-solid su-border-black-10 su-shadow';
 
   if (isMinimal) {
-    wrapperClasses = "";
+    wrapperClasses = '';
   }
 
   return (
     <Element
       className={dcnb(
-        "card su-block su-max-w-600 su-basefont-23 su-leading-display",
+        'card su-block su-max-w-600 su-basefont-23 su-leading-display',
         wrapperClasses,
         className
       )}
@@ -44,7 +44,7 @@ const CardRoot = ({ className, children, element, isMinimal, ...props }) => {
   );
 };
 
-CardRoot.displayName = "Card";
+CardRoot.displayName = 'Card';
 
 /**
  * Exports

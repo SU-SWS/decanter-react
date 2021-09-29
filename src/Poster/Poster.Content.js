@@ -1,7 +1,7 @@
-import { dcnb } from "cnbuilder";
-import React from "react";
-import PropTypes from "prop-types";
-import { FlexBox } from "../FlexBox/FlexBox";
+import { dcnb } from 'cnbuilder';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { FlexBox } from '../FlexBox/FlexBox';
 
 /**
  * Content Component.
@@ -12,14 +12,14 @@ import { FlexBox } from "../FlexBox/FlexBox";
 export const Content = ({ children, className, ...props }) => (
   <FlexBox
     direction="col"
-    className={dcnb("poster-body su-max-w-700 last:su-mb-0", className)}
+    className={dcnb('poster-body su-max-w-700 last:su-mb-0', className)}
     {...props}
   >
     {children}
   </FlexBox>
 );
 
-Content.displayName = "Poster.Content";
+Content.displayName = 'Poster.Content';
 
 Content.propTypes = {
   // Children
