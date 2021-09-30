@@ -9,9 +9,12 @@ export const iconOptions = [
   'external',
   'lock',
   'download',
+  'play',
+  'podcast',
   'video',
   'jump',
   'email',
+  'info',
   'none',
 ];
 
