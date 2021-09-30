@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Listbox } from '@headlessui/react';
 import { dcnb } from 'cnbuilder';
-import Icon from 'react-hero-icon';
+import * as Icons from '@heroicons/react/solid';
 
 /**
  * Select Component
@@ -40,6 +40,9 @@ export const Select = React.forwardRef(
       onClick(e);
     };
 
+    const buildIcon = (type, attributes) =>
+      React.createElement(Icons[type], { ...attributes });
+
     return (
       <div className={dcnb('su-inline-block', containerClasses)}>
         <Listbox
@@ -75,20 +78,18 @@ export const Select = React.forwardRef(
                     'su-flex su-items-center su-text-18 su-leading-[1.5] su-w-full su-p-20 hocus:su-text-black hocus:su-no-underline su-pr-[60px] su-relative focus:su-ring-[5px] focus:su-ring-digital-blue-light focus:su-ring-opacity-60'
                   )}
                 >
-                  {selectedItem.icon && (
-                    <Icon
-                      icon={selectedItem.icon}
-                      aria-hidden
-                      className="su-mr-9"
-                    />
-                  )}
+                  {selectedItem.icon &&
+                    buildIcon(selectedItem.icon, {
+                      'aria-hidden': true,
+                      className: 'su-mr-9 su-w-[16px] su-h-[16px]',
+                    })}
+
                   {selectedItem.value || 'Choose'}
-                  <Icon
-                    icon="ChevronDown"
-                    type="solid"
-                    className="su-absolute su-top-1/2 su-right-[15px] su-transform su--translate-y-1/2 su-w-30 su-h-30 su-text-cool-grey"
-                    aria-hidden
-                  />
+                  {buildIcon('ChevronDownIcon', {
+                    'aria-hidden': true,
+                    className:
+                      'su-absolute su-top-1/2 su-right-[15px] su-transform su--translate-y-1/2 su-w-30 su-h-30 su-text-cool-grey',
+                  })}
                 </Listbox.Button>
                 {open && (
                   <Listbox.Options
@@ -111,23 +112,18 @@ export const Select = React.forwardRef(
                               selected && 'su-relative'
                             )}
                           >
-                            {item.icon && (
-                              <Icon
-                                icon={item.icon}
-                                aria-hidden
-                                className="su-mr-9"
-                              />
-                            )}
-
+                            {selectedItem.icon &&
+                              buildIcon(item.icon, {
+                                'aria-hidden': true,
+                                className: 'su-mr-9 su-w-[16px] su-h-[16px]',
+                              })}
                             {item.value}
-                            {selected && (
-                              <Icon
-                                icon="Check"
-                                type="solid"
-                                className="su-absolute su-top-1/2 su-right-[17px] su-transform su--translate-y-1/2 su-w-23 su-h-23"
-                                aria-hidden
-                              />
-                            )}
+                            {selected &&
+                              buildIcon('CheckIcon', {
+                                'aria-hidden': true,
+                                className:
+                                  'su-absolute su-top-1/2 su-right-[17px] su-transform su--translate-y-1/2 su-w-[23px] su-h-[23px]',
+                              })}
                           </li>
                         )}
                       </Listbox.Option>

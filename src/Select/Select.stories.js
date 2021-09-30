@@ -56,12 +56,12 @@ Icons.args = {
   description:
     'Your help text goes here, designed to be more visible, and in the correct reading order for your end users and screen readers alike.',
   containerClasses: 'su-w-[290px]',
-  initialSelect: { id: 'item2', value: 'Item Two', icon: 'Star' },
+  initialSelect: { id: 'item2', value: 'Item Two', icon: 'StarIcon' },
   onClick: (value) => {},
   options: [
-    { id: 'item1', value: 'Item One', icon: 'Sun' },
-    { id: 'item2', value: 'Item Two', icon: 'Star' },
-    { id: 'item3', value: 'Item Three', icon: 'ShoppingCart' },
+    { id: 'item1', value: 'Item One', icon: 'SunIcon' },
+    { id: 'item2', value: 'Item Two', icon: 'StarIcon' },
+    { id: 'item3', value: 'Item Three', icon: 'ShoppingCartIcon' },
   ],
 };
 Icons.storyName = 'Icon select list variant';
