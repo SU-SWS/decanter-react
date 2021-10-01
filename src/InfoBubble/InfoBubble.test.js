@@ -16,6 +16,6 @@ describe("InfoBubble", () => {
 
   // Default is rendered.
   it("renders the InfoBubble in the default state", () => {
-    render(<InfoBubble />);
+    render(<InfoBubble text="Test Text" />);
   });
 });
