@@ -19,6 +19,10 @@ export default {
   component: InfoBubble,
   subcomponents: { Tooltip },
   parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Decanter-Design-System?node-id=12842%3A0',
+    },
     docs: {
       description: {
         component: 'Information Bubble Component',

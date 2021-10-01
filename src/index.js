@@ -7,12 +7,13 @@ import { CtaLink } from './CtaLink/CtaLink';
 import { DismissButton } from './DismissButton/DismissButton';
 import { FlexBox } from './FlexBox/FlexBox';
 import { FlexCell } from './FlexCell/FlexCell';
-import { Heading } from './Heading/Heading';
-import { HeroIcon } from './HeroIcon/HeroIcon';
 import { GlobalFooter } from './GlobalFooter/GlobalFooter';
 import { Grid } from './Grid/Grid';
 import { GridCell } from './GridCell/GridCell';
+import { Heading } from './Heading/Heading';
+import { HeroIcon } from './HeroIcon/HeroIcon';
 import { IdentityBar } from './IdentityBar/IdentityBar';
+import { InfoBubble } from './InfoBubble/InfoBubble';
 import { InlineError } from './InlineError/InlineError';
 import { InlineValid } from './InlineValid/InlineValid';
 import { Label } from './Label/Label';
@@ -23,6 +24,7 @@ import { Poster } from './Poster/Poster';
 import { Skiplink } from './Skiplink/Skiplink';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
 import { TextField } from './TextField/TextField';
+import { ToolTip } from './ToolTip/ToolTip';
 
 export {
   Alert,
@@ -40,6 +42,7 @@ export {
   Heading,
   HeroIcon,
   IdentityBar,
+  InfoBubble,
   InlineError,
   InlineValid,
   Label,
@@ -50,4 +53,5 @@ export {
   Skiplink,
   SrOnlyText,
   TextField,
+  ToolTip,
 };
