@@ -1,13 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Icon from 'react-hero-icon';
 import { dcnb } from 'cnbuilder';
-import { ctaLinkColors } from './CtaLink.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
-import getIconOption from '../common/icon/getIconOption';
-import getIconClasses from '../common/icon/getIconClasses';
+import PropTypes from 'prop-types';
+import React from 'react';
 import getIconAnimation from '../common/icon/getIconAnimation';
+import getIconClasses from '../common/icon/getIconClasses';
+import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
+import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { ctaLinkColors } from './CtaLink.levers';
 
 /**
  * CTA Link Component
@@ -53,7 +52,7 @@ export const CtaLink = React.forwardRef(
     let heroicon = '';
 
     if (icon && iconOptions.includes(icon)) {
-      heroicon = getIconOption(icon);
+      heroicon = icon;
       levers.icon = getIconClasses(icon);
     }
 
@@ -81,7 +80,7 @@ export const CtaLink = React.forwardRef(
         {text}
         {srText && <SrOnlyText srText={` ${srText}`} />}
         {icon && (
-          <Icon
+          <HeroIcon
             icon={heroicon}
             type="solid"
             aria-hidden

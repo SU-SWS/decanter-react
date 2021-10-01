@@ -1,11 +1,10 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('prop-types'), require('react-hero-icon'), require('cnbuilder')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'react', 'prop-types', 'react-hero-icon', 'cnbuilder'], factory) :
-  (global = global || self, factory(global.decanterReact = {}, global.react, global.PropTypes, global.Icon, global.dcnb));
-}(this, (function (exports, React, PropTypes, Icon, cnbuilder) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('cnbuilder'), require('prop-types')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'react', 'cnbuilder', 'prop-types'], factory) :
+  (global = global || self, factory(global.decanterReact = {}, global.react, global.dcnb, global.PropTypes));
+}(this, (function (exports, React, cnbuilder, PropTypes) {
   var React__default = 'default' in React ? React['default'] : React;
   PropTypes = PropTypes && Object.prototype.hasOwnProperty.call(PropTypes, 'default') ? PropTypes['default'] : PropTypes;
-  Icon = Icon && Object.prototype.hasOwnProperty.call(Icon, 'default') ? Icon['default'] : Icon;
 
   function _extends() {
     _extends = Object.assign || function (target) {
@@ -40,21 +39,259 @@
     return target;
   }
 
-  var alertTypes = ['info', 'warning', 'error', 'success'];
-  var lightText = 'su-text-white su-link-white';
-  var darkText = 'su-text-black su-link-black-true';
+  function BellIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      stroke: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 2,
+      d: "M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+    }));
+  }
 
-  var dismissIconColors = ['black', 'white', 'unset'];
-  var dismissIconOptions = ['x-circle', 'x', 'none'];
-  var dismissIconTypes = ['solid', 'outline'];
+  function InformationCircleIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      stroke: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 2,
+      d: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+  }
 
-  var buttonVariants = ['solid', 'outline', 'ghost', 'unset'];
-  var buttonTypes = ['button', 'submit', 'reset'];
+  function MicrophoneIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      stroke: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 2,
+      d: "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+    }));
+  }
 
-  var buttonSizes = ['default', 'big', 'small', 'minimal', 'unset'];
+  function VideoCameraIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      stroke: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 2,
+      d: "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+    }));
+  }
 
-  var iconOptions = ['action', 'more', 'external', 'lock', 'download', 'video', 'jump', 'email', 'none'];
-  var iconAnimations = ['right', 'top-right', 'down', 'none'];
+  function XCircleIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      stroke: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 2,
+      d: "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+    }));
+  }
+
+  function XIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      fill: "none",
+      viewBox: "0 0 24 24",
+      stroke: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 2,
+      d: "M6 18L18 6M6 6l12 12"
+    }));
+  }
+
+  function ArrowRightIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function BanIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function CheckCircleIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function CheckIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function ChevronDownIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function ChevronRightIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function DownloadIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function ExclamationCircleIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function InformationCircleIcon$1(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function LockClosedIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function MailIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      d: "M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+    }));
+  }
+
+  function PlayIcon(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function XCircleIcon$1(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  function XIcon$1(props) {
+    return /*#__PURE__*/React.createElement("svg", Object.assign({
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 20 20",
+      fill: "currentColor"
+    }, props), /*#__PURE__*/React.createElement("path", {
+      fillRule: "evenodd",
+      d: "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
+      clipRule: "evenodd"
+    }));
+  }
+
+  var buttonSizes = ['default', 'big', 'small', 'narrow-small', 'minimal', 'unset'];
 
   var getButtonSize = function getButtonSize(size) {
     var classes = '';
@@ -68,92 +305,16 @@
         classes = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
         break;
 
+      case 'narrow-small':
+        classes = 'su-px-12 su-py-9 su-text-16 md:su-text-18';
+        break;
+
       case 'minimal':
         classes = 'su-p-0';
         break;
 
       case 'default':
         classes = 'su-px-26 su-pt-10 su-pb-11 su-text-16 md:su-text-20';
-        break;
-    }
-
-    return classes;
-  };
-
-  var getIconOption = function getIconOption(icon) {
-    var heroicon = '';
-
-    switch (icon) {
-      case 'more':
-        heroicon = 'arrow-narrow-right';
-        break;
-
-      case 'external':
-        heroicon = 'arrow-up';
-        break;
-
-      case 'lock':
-        heroicon = 'lock-closed';
-        break;
-
-      case 'download':
-        heroicon = 'download';
-        break;
-
-      case 'video':
-        heroicon = 'play';
-        break;
-
-      case 'email':
-        heroicon = 'mail';
-        break;
-
-      case 'jump':
-        heroicon = 'chevron-down';
-        break;
-
-      case 'action':
-        heroicon = 'chevron-right';
-        break;
-    }
-
-    return heroicon;
-  };
-
-  var getIconClasses = function getIconClasses(icon) {
-    var classes = '';
-
-    switch (icon) {
-      case 'more':
-        classes = 'su-h-09em su-w-09em su-ml-5 su--mt-2';
-        break;
-
-      case 'external':
-        classes = 'su-h-08em su-w-08em su-ml-4 su--mt-2 su-transform su-rotate-45 group-hocus:su-rotate-45';
-        break;
-
-      case 'lock':
-        classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
-        break;
-
-      case 'download':
-        classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
-        break;
-
-      case 'video':
-        classes = 'su-h-08em su-w-08em su-ml-6 su--mt-3';
-        break;
-
-      case 'email':
-        classes = 'su-h-08em su-w-08em su-ml-7 su--mt-2';
-        break;
-
-      case 'jump':
-        classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
-        break;
-
-      case 'action':
-        classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
         break;
     }
 
@@ -184,7 +345,157 @@
     return classes;
   };
 
-  var _excluded = ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"],
+  var getIconClasses = function getIconClasses(icon) {
+    var classes = '';
+
+    switch (icon) {
+      case 'more':
+        classes = 'su-h-09em su-w-09em su-ml-5 su--mt-2';
+        break;
+
+      case 'external':
+        classes = 'su-w-08em su-ml-02em su--rotate-45 group-hocus:su--rotate-45';
+        break;
+
+      case 'lock':
+        classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
+        break;
+
+      case 'download':
+        classes = 'su-h-08em su-w-08em su-ml-4 su--mt-3';
+        break;
+
+      case 'play':
+        classes = 'su-w-08em su-ml-7 su--mt-3';
+        break;
+
+      case 'podcast':
+        classes = 'su-w-08em su-mt-[-0.25em] su-ml-4';
+        break;
+
+      case 'video':
+        classes = 'su-h-08em su-w-08em su-ml-6 su--mt-3';
+        break;
+
+      case 'email':
+        classes = 'su-h-08em su-w-08em su-ml-7 su--mt-2';
+        break;
+
+      case 'jump':
+        classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+        break;
+
+      case 'action':
+        classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+        break;
+
+      case 'info':
+        classes = 'su-h-1em su-w-1em su-ml-4 su--mt-2';
+        break;
+    }
+
+    return classes;
+  };
+
+  var iconOptions = ['action', 'more', 'external', 'lock', 'download', 'play', 'podcast', 'video', 'jump', 'email', 'info', 'none'];
+  var iconAnimations = ['right', 'top-right', 'down', 'none'];
+
+  var SrOnlyText = function SrOnlyText(_ref) {
+    var srText = _ref.srText;
+    var txt = srText != null ? srText : '(link is external)';
+    return /*#__PURE__*/React__default.createElement("span", {
+      className: "su-sr-only"
+    }, txt);
+  };
+  SrOnlyText.propTypes = {
+    srText: PropTypes.string
+  };
+  SrOnlyText.defaultProps = {
+    srText: '(link is external)'
+  };
+
+  var _excluded = ["icon", "srText", "className"];
+  var HeroIcon = function HeroIcon(_ref) {
+    var icon = _ref.icon,
+        srText = _ref.srText,
+        className = _ref.className,
+        props = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+    var Icon;
+    var baseStyle;
+
+    if (icon && iconOptions.includes(icon)) {
+      baseStyle = getIconClasses(icon);
+
+      switch (icon) {
+        case 'video':
+          Icon = VideoCameraIcon;
+          break;
+
+        case 'play':
+          Icon = PlayIcon;
+          break;
+
+        case 'podcast':
+          Icon = MicrophoneIcon;
+          break;
+
+        case 'external':
+          Icon = ArrowRightIcon;
+          break;
+
+        case 'arrow-narrow-right':
+        case 'more':
+          Icon = ArrowRightIcon;
+          break;
+
+        case 'download':
+          Icon = DownloadIcon;
+          break;
+
+        case 'email':
+          Icon = MailIcon;
+          break;
+
+        case 'chevron-down':
+        case 'jump':
+          Icon = ChevronDownIcon;
+          break;
+
+        case 'chevron-right':
+        case 'action':
+          Icon = ChevronRightIcon;
+          break;
+
+        case 'lock':
+          Icon = LockClosedIcon;
+          break;
+
+        case 'info':
+          Icon = InformationCircleIcon;
+          break;
+      }
+    }
+
+    var heroIconStyle = cnbuilder.dcnb('su-transition', baseStyle);
+    return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, Icon && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Icon, _extends({
+      "aria-hidden": "true",
+      className: cnbuilder.dcnb(heroIconStyle, className)
+    }, props)), srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
+      srText: srText
+    })));
+  };
+  HeroIcon.propTypes = {
+    icon: PropTypes.oneOf(iconOptions),
+    srText: PropTypes.string,
+    className: PropTypes.string
+  };
+  HeroIcon.defaultProps = {};
+
+  var buttonVariants = ['solid', 'primary', 'secondary', 'primary-lagunita', 'secondary-lagunita', 'outline', 'ghost', 'unset'];
+  var buttonTypes = ['button', 'submit', 'reset'];
+
+  var _excluded$1 = ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"],
       _excluded2 = ["className"];
   var Button = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
     var className = _ref.className,
@@ -197,7 +508,7 @@
         iconProps = _ref.iconProps,
         animate = _ref.animate,
         isDisabled = _ref.isDisabled,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
     var levers = {};
 
@@ -205,6 +516,22 @@
       switch (variant) {
         case 'solid':
           levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
+          break;
+
+        case 'primary':
+          levers.variant = 'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue active:su-border-digital-blue hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-digital-blue-light focus:su-ring-digital-blue-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'primary-lagunita':
+          levers.variant = 'su-bg-lagunita hocus:su-bg-lagunita-dark active:su-bg-lagunita su-text-white hocus:su-text-white su-border su-rounded su-border-lagunita-light su-border-solid hocus:su-border-lagunita active:su-border-lagunita hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-lagunita-light focus:su-ring-lagunita-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'secondary':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-digital-blue-light active:su-ring-digital-blue-light active:su-no-underline';
+          break;
+
+        case 'secondary-lagunita':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-lagunita hocus:su-text-lagunita-dark su-border hocus:su-border su-border-solid su-rounded su-border-lagunita-light hocus:su-border-lagunita-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-lagunita-light active:su-ring-lagunita-light active:su-no-underline';
           break;
 
         case 'outline':
@@ -228,7 +555,7 @@
     var heroicon = '';
 
     if (icon && iconOptions.includes(icon)) {
-      heroicon = getIconOption(icon);
+      heroicon = icon;
       levers.icon = getIconClasses(icon);
     }
 
@@ -241,7 +568,11 @@
       levers.variant = cnbuilder.dcnb(levers.variant, {
         'su-bg-digital-red': false,
         'su-bg-white': false,
+        'su-bg-digital-blue': false,
+        'su-bg-lagunita': false,
         'su-text-digital-red': false,
+        'su-text-digital-blue': false,
+        'su-text-lagunita': false,
         'su-border-digital-red': false,
         'hover:su-border-black': false,
         'focus:su-border-black': false,
@@ -259,11 +590,10 @@
       type: type,
       disabled: isDisabled,
       ref: ref
-    }, props), children, icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+    }, props), children, icon && /*#__PURE__*/React__default.createElement(HeroIcon, _extends({
       icon: heroicon,
-      type: "solid",
       "aria-hidden": true,
-      className: cnbuilder.dcnb('su-inline-block', levers.icon, levers.animate, iconClasses)
+      className: cnbuilder.dcnb('su-inline-block', levers.animate, iconClasses)
     }, iProps)));
   });
   Button.propTypes = {
@@ -289,21 +619,11 @@
     isDisabled: false
   };
 
-  var SrOnlyText = function SrOnlyText(_ref) {
-    var srText = _ref.srText;
-    var txt = srText != null ? srText : '(link is external)';
-    return /*#__PURE__*/React__default.createElement("span", {
-      className: "su-sr-only"
-    }, txt);
-  };
-  SrOnlyText.propTypes = {
-    srText: PropTypes.string
-  };
-  SrOnlyText.defaultProps = {
-    srText: '(link is external)'
-  };
+  var dismissIconColors = ['black', 'white', 'red', 'unset'];
+  var dismissIconOptions = ['x-circle', 'x', 'none'];
+  var dismissIconTypes = ['solid', 'outline'];
 
-  var _excluded$1 = ["className", "text", "srText", "color", "icon", "iconType", "iconSize", "iconProps", "customIcon", "onClick"];
+  var _excluded$2 = ["className", "text", "srText", "color", "icon", "iconType", "iconSize", "iconProps", "customIcon", "onClick"];
   var DismissButton = function DismissButton(_ref) {
     var className = _ref.className,
         text = _ref.text,
@@ -315,7 +635,7 @@
         iconProps = _ref.iconProps,
         customIcon = _ref.customIcon,
         onClick = _ref.onClick,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
 
     var levers = {};
     iconProps = _extends({
@@ -332,26 +652,48 @@
         case 'white':
           levers.color = 'su-text-white hocus:su-text-white';
           break;
+
+        case 'red':
+          levers.color = 'su-text-digital-red hocus:su-text-digital-red';
+          break;
       }
     }
 
-    var heroicon = '';
+    var Icon;
+    var defaultIcon;
 
     if (icon && dismissIconOptions.includes(icon)) {
-      heroicon = icon;
+      if (iconType === 'solid') {
+        switch (icon) {
+          case 'x-circle':
+            Icon = XCircleIcon$1;
+            break;
+
+          case 'x':
+            Icon = XIcon$1;
+            break;
+        }
+      }
+
+      if (iconType === 'outline') {
+        switch (icon) {
+          case 'x-circle':
+            Icon = XCircleIcon;
+            break;
+
+          case 'x':
+            Icon = XIcon;
+            break;
+        }
+      }
     }
 
-    var heroiconType = 'solid';
-
-    if (iconType && dismissIconTypes.includes(iconType)) {
-      heroiconType = iconType;
+    if (Icon) {
+      defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
+        "aria-hidden": "true"
+      }, iconProps));
     }
 
-    var defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
-      icon: heroicon,
-      type: heroiconType,
-      "aria-hidden": "true"
-    }, iconProps));
     var dismissIcon = customIcon != null ? customIcon : defaultIcon;
     return /*#__PURE__*/React__default.createElement(Button, _extends({
       variant: "unset",
@@ -380,14 +722,20 @@
     iconType: 'solid'
   };
 
-  var _excluded$2 = ["classes", "children"];
+  var alertTypes = ['info', 'warning', 'error', 'success', 'errorSummary'];
+  var alignment = ['top', 'center', 'bottom'];
+  var lightText = 'su-text-white children:children:!su-text-white children:children:hocus:!su-text-white';
+  var darkText = 'su-text-black';
+  var redText = 'su-text-digital-red';
+
+  var _excluded$3 = ["classes", "children"];
   var Alert = function Alert(_ref) {
     var _props$icon, _props$dismissBtn, _props$label, _props$label2;
 
     var _ref$classes = _ref.classes,
         classes = _ref$classes === void 0 ? {} : _ref$classes,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
 
     var levers = {};
     var iconProps = {
@@ -399,17 +747,19 @@
         isDismissed = _useState[0],
         setDismissed = _useState[1];
 
-    levers.wrapper = 'su-bg-foggy-light';
+    levers.wrapper = 'sm:su-items-center su-bg-foggy-light';
     levers.dismiss = 'black';
+    levers.container = 'sm:su-items-center';
+    levers.dismissWrapper = 'su-rs-ml-1 su-mt-15 sm:su-mt-0 su-w-full sm:su-w-auto';
+    levers.headerWrapper = 'su-rs-mr-1 su-w-full md:su-w-max';
+    levers.bodyWrapper = 'su-w-full';
 
     if (props.isLargeIcon) {
       iconProps.height = 60;
       iconProps.width = 60;
     }
 
-    var defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
-      icon: "bell",
-      type: "outline",
+    var defaultIcon = /*#__PURE__*/React__default.createElement(BellIcon, _extends({
       "aria-hidden": "true",
       className: classes.icon
     }, iconProps));
@@ -420,9 +770,8 @@
           levers.wrapper = 'su-bg-digital-green su-text-white';
           levers.body = lightText;
           levers.dismiss = 'white';
-          defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
-            icon: "check-circle",
-            type: "solid",
+          levers.dismissText = 'Dismiss';
+          defaultIcon = /*#__PURE__*/React__default.createElement(CheckCircleIcon, _extends({
             "aria-hidden": "true",
             className: classes.icon
           }, iconProps));
@@ -432,9 +781,8 @@
           levers.wrapper = 'su-bg-illuminating-dark';
           levers.body = darkText;
           levers.dismiss = 'black';
-          defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
-            icon: "exclamation-circle",
-            type: "solid",
+          levers.dismissText = 'Dismiss';
+          defaultIcon = /*#__PURE__*/React__default.createElement(ExclamationCircleIcon, _extends({
             "aria-hidden": "true",
             className: classes.icon
           }, iconProps));
@@ -444,9 +792,8 @@
           levers.wrapper = 'su-bg-digital-blue su-text-white';
           levers.body = lightText;
           levers.dismiss = 'white';
-          defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
-            icon: "information-circle",
-            type: "solid",
+          levers.dismissText = 'Dismiss';
+          defaultIcon = /*#__PURE__*/React__default.createElement(InformationCircleIcon$1, _extends({
             "aria-hidden": "true",
             className: classes.icon
           }, iconProps));
@@ -456,8 +803,22 @@
           levers.wrapper = 'su-bg-digital-red su-text-white';
           levers.body = lightText;
           levers.dismiss = 'white';
-          defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
-            icon: "ban",
+          levers.dismissText = 'Dismiss';
+          defaultIcon = /*#__PURE__*/React__default.createElement(BanIcon, _extends({
+            "aria-hidden": "true",
+            className: classes.icon
+          }, iconProps));
+          break;
+
+        case 'errorSummary':
+          levers.wrapper = 'su-bg-digital-red su-bg-opacity-20 su-text-digital-red';
+          levers.body = redText;
+          levers.dismiss = 'red';
+          levers.dismissIcon = 'x';
+          levers.container = 'su-flex-row su-flex-nowrap';
+          levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
+          levers.headerWrapper = 'su-w-auto su-mt-0 su-mr-01em';
+          defaultIcon = /*#__PURE__*/React__default.createElement(ExclamationCircleIcon, _extends({
             type: "solid",
             "aria-hidden": "true",
             className: classes.icon
@@ -466,9 +827,30 @@
       }
     }
 
+    if (props.alignContent && alignment.includes(props.alignContent)) {
+      switch (props.alignContent) {
+        case 'top':
+          levers.container = cnbuilder.dcnb(levers.container, 'sm:su-items-start');
+          break;
+
+        case 'center':
+          levers.container = cnbuilder.dcnb(levers.container, 'sm:su-items-center');
+          break;
+
+        case 'bottom':
+          levers.container = cnbuilder.dcnb(levers.container, 'sm:su-items-end');
+          break;
+
+        default:
+          levers.container = cnbuilder.dcnb(levers.container, 'sm:su-items-center');
+          break;
+      }
+    }
+
     var icon = (_props$icon = props.icon) != null ? _props$icon : defaultIcon;
     var DefaultDismiss = /*#__PURE__*/React__default.createElement(DismissButton, {
-      text: "Dismiss",
+      icon: levers.dismissIcon || 'x-circle',
+      text: levers.dismissText,
       srText: "alert",
       onClick: function onClick() {
         setDismissed(true);
@@ -488,11 +870,11 @@
     return /*#__PURE__*/React__default.createElement("div", {
       className: cnbuilder.dcnb('su-alert', levers.wrapper, classes.wrapper)
     }, /*#__PURE__*/React__default.createElement("div", {
-      className: cnbuilder.dcnb('su-cc su-flex su-flex-wrap su-rs-py-1 sm:su-items-center', levers.container, classes.container)
+      className: cnbuilder.dcnb('su-cc su-flex su-flex-wrap su-rs-py-1', levers.container, classes.container)
     }, props.hasDismiss && /*#__PURE__*/React__default.createElement("div", {
-      className: cnbuilder.dcnb('su-order-3 su-rs-ml-1 su-mt-15 sm:su-mt-0 su-items-center su-flex-shrink su-text-right su-w-full sm:su-w-auto', levers.dismissWrapper, classes.dismissWrapper)
+      className: cnbuilder.dcnb('su-order-3 su-flex-shrink su-text-right', levers.dismissWrapper, classes.dismissWrapper)
     }, dismissBtn), (props.hasIcon && !props.isIconTop || props.hasLabel && !props.isLabelTop) && /*#__PURE__*/React__default.createElement("h2", {
-      className: cnbuilder.dcnb('su-order-1 su-rs-mr-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink su-items-center su-w-full md:su-w-max', levers.headerWrapper, classes.headerWrapper)
+      className: cnbuilder.dcnb('su-order-1 su-mb-15 md:su-mb-0 su-flex su-flex-shrink', levers.headerWrapper, classes.headerWrapper)
     }, props.hasIcon && !props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
       className: cnbuilder.dcnb('su-mr-5 su-inline-block', levers.headerIcon, classes.headerIcon)
     }, icon), props.hasLabel && !props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
@@ -500,7 +882,7 @@
     }, (_props$label = props.label) != null ? _props$label : 'Alert:')), /*#__PURE__*/React__default.createElement("div", {
       className: cnbuilder.dcnb('su-order-2 su-flex-1 su-flex-grow', levers.bodyWrapper, classes.bodyWrapper)
     }, (props.hasIcon && props.isIconTop || props.hasLabel && props.isLabelTop) && /*#__PURE__*/React__default.createElement("h2", {
-      className: "su-flex su-items-center su-rs-mb-0"
+      className: "su-flex su-rs-mb-0"
     }, props.hasIcon && props.isIconTop && /*#__PURE__*/React__default.createElement("span", {
       className: cnbuilder.dcnb('su-inline-block su-mr-5 su-text-left su-ml-0', levers.headerIcon, classes.headerIcon)
     }, icon), props.hasLabel && props.isLabelTop && /*#__PURE__*/React__default.createElement("span", {
@@ -563,13 +945,13 @@
     '4x3': 'su-aspect-w-4 su-aspect-h-3'
   };
 
-  var _excluded$3 = ["weight", "className", "children", "isUppercase"];
+  var _excluded$4 = ["weight", "className", "children", "isUppercase"];
   var Superhead = function Superhead(_ref) {
     var weight = _ref.weight,
         className = _ref.className,
         children = _ref.children,
         isUppercase = _ref.isUppercase,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$4);
 
     var superheadWeight = superheadWeights[weight];
     var uppercase = '';
@@ -640,7 +1022,7 @@
     return int;
   });
 
-  var _excluded$4 = ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children"];
+  var _excluded$5 = ["className", "level", "font", "weight", "tracking", "align", "size", "uppercase", "italic", "srOnly", "children"];
   var Heading = function Heading(_ref) {
     var className = _ref.className,
         level = _ref.level,
@@ -653,7 +1035,7 @@
         italic = _ref.italic,
         srOnly = _ref.srOnly,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$4);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
 
     var levers = {};
     var HeadingTag = 'h2';
@@ -718,7 +1100,7 @@
     weight: 'bold'
   };
 
-  var _excluded$5 = ["children", "level", "size", "weight", "font", "className"];
+  var _excluded$6 = ["children", "level", "size", "weight", "font", "className"];
   var Headline = function Headline(_ref) {
     var children = _ref.children,
         level = _ref.level,
@@ -726,7 +1108,7 @@
         weight = _ref.weight,
         font = _ref.font,
         className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$5);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
 
     return /*#__PURE__*/React__default.createElement(Heading, _extends({
       level: level,
@@ -799,7 +1181,7 @@
     stretch: 'su-items-stretch'
   };
 
-  var _excluded$6 = ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"];
+  var _excluded$7 = ["element", "direction", "wrap", "gap", "justifyContent", "justifyItems", "alignContent", "alignItems", "className", "children", "ref"];
   var FlexBox = function FlexBox(_ref) {
     var element = _ref.element,
         direction = _ref.direction,
@@ -812,7 +1194,7 @@
         className = _ref.className,
         children = _ref.children,
         ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$6);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
 
     var levers = {};
     var Element = 'div';
@@ -875,12 +1257,12 @@
     gap: false
   };
 
-  var _excluded$7 = ["children", "className", "align"];
+  var _excluded$8 = ["children", "className", "align"];
   var Content = function Content(_ref) {
     var children = _ref.children,
         className = _ref.className,
         align = _ref.align,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$7);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
 
     var bodyAlign = 'su-items-start';
     var contentClass = '';
@@ -944,14 +1326,14 @@
     aspectRatio: '2x1'
   };
 
-  var _excluded$8 = ["className", "children", "element", "isMinimal"];
+  var _excluded$9 = ["className", "children", "element", "isMinimal"];
 
   var CardRoot = function CardRoot(_ref) {
     var className = _ref.className,
         children = _ref.children,
         element = _ref.element,
         isMinimal = _ref.isMinimal,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$8);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
 
     var Element = 'div';
 
@@ -990,14 +1372,14 @@
   var containerElements = ['div', 'section', 'article', 'main', 'footer', 'aside', 'header', 'nav', 'form'];
   var containerWidths = ['full', 'screen', 'site'];
 
-  var _excluded$9 = ["className", "element", "width", "children", "ref"];
+  var _excluded$a = ["className", "element", "width", "children", "ref"];
   var Container = function Container(_ref) {
     var className = _ref.className,
         element = _ref.element,
         width = _ref.width,
         children = _ref.children,
         ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$9);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
 
     var levers = {};
     var Element = 'div';
@@ -1041,9 +1423,9 @@
     width: 'site'
   };
 
-  var ctaButtonVariants = ['solid', 'outline', 'ghost', 'unset'];
+  var ctaButtonVariants = ['solid', 'primary', 'secondary', 'primary-lagunita', 'secondary-lagunita', 'outline', 'ghost', 'unset'];
 
-  var _excluded$a = ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"],
+  var _excluded$b = ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"],
       _excluded2$1 = ["className"];
   var CtaButton = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
     var className = _ref.className,
@@ -1054,7 +1436,7 @@
         icon = _ref.icon,
         iconProps = _ref.iconProps,
         animate = _ref.animate,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$a);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
 
     var levers = {};
 
@@ -1062,6 +1444,22 @@
       switch (variant) {
         case 'solid':
           levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+          break;
+
+        case 'primary':
+          levers.variant = 'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue active:su-border-digital-blue hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-digital-blue-light focus:su-ring-digital-blue-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'primary-lagunita':
+          levers.variant = 'su-bg-lagunita hocus:su-bg-lagunita-dark active:su-bg-lagunita su-text-white hocus:su-text-white su-border su-rounded su-border-lagunita-light su-border-solid hocus:su-border-lagunita active:su-border-lagunita hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-lagunita-light focus:su-ring-lagunita-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'secondary':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-digital-blue-light active:su-ring-digital-blue-light active:su-no-underline';
+          break;
+
+        case 'secondary-lagunita':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-lagunita hocus:su-text-lagunita-dark su-border hocus:su-border su-border-solid su-rounded su-border-lagunita-light hocus:su-border-lagunita-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-lagunita-light active:su-ring-lagunita-light active:su-no-underline';
           break;
 
         case 'outline':
@@ -1081,7 +1479,7 @@
     var heroicon = '';
 
     if (icon && iconOptions.includes(icon)) {
-      heroicon = getIconOption(icon);
+      heroicon = icon;
       levers.icon = getIconClasses(icon);
     }
 
@@ -1098,7 +1496,7 @@
       ref: ref
     }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
       srText: " " + srText
-    }), icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+    }), icon && /*#__PURE__*/React__default.createElement(HeroIcon, _extends({
       icon: heroicon,
       type: "solid",
       "aria-hidden": true,
@@ -1120,9 +1518,9 @@
     variant: 'solid'
   };
 
-  var ctaLinkColors = ['red', 'blue', 'white', 'unset'];
+  var ctaLinkColors = ['red', 'blue', 'white', 'green', 'unset'];
 
-  var _excluded$b = ["className", "text", "srText", "color", "icon", "iconProps", "animate"],
+  var _excluded$c = ["className", "text", "srText", "color", "icon", "iconProps", "animate"],
       _excluded2$2 = ["className"];
   var CtaLink = /*#__PURE__*/React__default.forwardRef(function (_ref, ref) {
     var className = _ref.className,
@@ -1132,7 +1530,7 @@
         icon = _ref.icon,
         iconProps = _ref.iconProps,
         animate = _ref.animate,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$b);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
 
     var levers = {};
 
@@ -1149,13 +1547,17 @@
         case 'white':
           levers.color = 'su-text-white hocus:su-text-white';
           break;
+
+        case 'green':
+          levers.color = 'su-text-digital-green hocus:su-text-digital-blue';
+          break;
       }
     }
 
     var heroicon = '';
 
     if (icon && iconOptions.includes(icon)) {
-      heroicon = getIconOption(icon);
+      heroicon = icon;
       levers.icon = getIconClasses(icon);
     }
 
@@ -1172,7 +1574,7 @@
       ref: ref
     }, props), text, srText && /*#__PURE__*/React__default.createElement(SrOnlyText, {
       srText: " " + srText
-    }), icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+    }), icon && /*#__PURE__*/React__default.createElement(HeroIcon, _extends({
       icon: heroicon,
       type: "solid",
       "aria-hidden": true,
@@ -1320,7 +1722,7 @@
     none: 'su-order-none'
   };
 
-  var _excluded$c = ["className", "children", "ref", "flex", "grow", "shrink", "order", "element"],
+  var _excluded$d = ["className", "children", "ref", "flex", "grow", "shrink", "order", "element"],
       _excluded2$3 = ["xs", "sm", "md", "lg", "xl", "xxl"];
   var FlexCell = function FlexCell(_ref) {
     var className = _ref.className,
@@ -1331,7 +1733,7 @@
         shrink = _ref.shrink,
         order = _ref.order,
         element = _ref.element,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$c);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
 
     var levers = {};
 
@@ -1417,10 +1819,10 @@
   var logoColors = ['cardinal-red', 'black', 'white'];
   var logoTypes = ['short', 'full', 'stacked'];
 
-  var _excluded$d = ["className"];
+  var _excluded$e = ["className"];
   var Logo = function Logo(_ref) {
     var className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
 
     var levers = {};
     var logoText;
@@ -1482,10 +1884,10 @@
     isLink: true
   };
 
-  var _excluded$e = ["className"];
+  var _excluded$f = ["className"];
   var GlobalFooter = function GlobalFooter(_ref) {
     var className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
 
     var levers = {};
 
@@ -1684,7 +2086,7 @@
     }
   };
 
-  var _excluded$f = ["element", "gap", "className", "children", "ref"],
+  var _excluded$g = ["element", "gap", "className", "children", "ref"],
       _excluded2$4 = ["xs", "sm", "md", "lg", "xl", "xxl"];
   var Grid = function Grid(_ref) {
     var element = _ref.element,
@@ -1692,7 +2094,7 @@
         className = _ref.className,
         children = _ref.children,
         ref = _ref.ref,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
 
     var levers = {};
 
@@ -1895,7 +2297,7 @@
     auto: 'su-row-start-auto'
   };
 
-  var _excluded$g = ["className", "children", "ref", "colStart", "rowStart", "row"],
+  var _excluded$h = ["className", "children", "ref", "colStart", "rowStart", "row"],
       _excluded2$5 = ["xs", "sm", "md", "lg", "xl", "xxl"];
   var GridCell = function GridCell(_ref) {
     var className = _ref.className,
@@ -1904,7 +2306,7 @@
         colStart = _ref.colStart,
         rowStart = _ref.rowStart,
         row = _ref.row,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
 
     var levers = {};
 
@@ -1978,10 +2380,10 @@
 
   var identityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
 
-  var _excluded$h = ["className"];
+  var _excluded$i = ["className"];
   var IdentityBar = function IdentityBar(_ref) {
     var className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$i);
 
     var levers = {};
 
@@ -2026,17 +2428,131 @@
     color: 'cardinal-red'
   };
 
-  var localFooterColors = ['light grey', 'white', 'black'];
-  var localFooterLinkColors = ['blue', 'red', 'white'];
+  var InlineError = function InlineError(_ref) {
+    var className = _ref.className,
+        errorText = _ref.errorText,
+        icon = _ref.icon;
+    var iconProps = {
+      height: 20,
+      width: 20
+    };
+    var defaultIcon = /*#__PURE__*/React__default.createElement(XIcon$1, _extends({
+      "aria-hidden": "true",
+      className: "su-text-digital-red su-inline su-mr-3"
+    }, iconProps));
+
+    if (icon) {
+      var Icon = icon;
+      defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
+        "aria-hidden": "true",
+        className: "su-text-digital-red su-inline su-mr-3"
+      }, iconProps));
+    }
+
+    if (errorText) {
+      return /*#__PURE__*/React__default.createElement("div", {
+        className: cnbuilder.dcnb('su-text-digital-red', className)
+      }, /*#__PURE__*/React__default.createElement("p", {
+        className: "su-text-16"
+      }, defaultIcon, errorText));
+    }
+
+    return null;
+  };
+  InlineError.propTypes = {
+    className: PropTypes.string,
+    errorText: PropTypes.string,
+    icon: PropTypes.string
+  };
+  InlineError.defaultProps = {};
+
+  var InlineValid = function InlineValid(_ref) {
+    var className = _ref.className,
+        validText = _ref.validText,
+        icon = _ref.icon,
+        iconType = _ref.iconType;
+    var iconProps = {
+      height: 20,
+      width: 20
+    };
+    var defaultIcon = /*#__PURE__*/React__default.createElement(CheckIcon, _extends({
+      "aria-hidden": "true",
+      className: "su-text-digital-green su-inline su-mr-3"
+    }, iconProps));
+
+    if (icon) {
+      var Icon = icon;
+      defaultIcon = /*#__PURE__*/React__default.createElement(Icon, _extends({
+        icon: icon,
+        type: iconType,
+        "aria-hidden": "true",
+        className: "su-text-digital-green su-inline su-mr-3"
+      }, iconProps));
+    }
+
+    if (validText) {
+      return /*#__PURE__*/React__default.createElement("div", {
+        className: cnbuilder.dcnb('su-text-digital-green', className)
+      }, /*#__PURE__*/React__default.createElement("p", {
+        className: "su-text-16"
+      }, defaultIcon, validText));
+    }
+
+    return null;
+  };
+  InlineValid.propTypes = {
+    className: PropTypes.string,
+    validText: PropTypes.string,
+    icon: PropTypes.string
+  };
+  InlineValid.defaultProps = {};
+
+  var labelWeights = {
+    light: 'su-font-light',
+    regular: 'su-font-regular',
+    semibold: 'su-font-semibold',
+    bold: 'su-font-bold'
+  };
+
+  var Label = function Label(_ref) {
+    var className = _ref.className,
+        children = _ref.children,
+        id = _ref.id,
+        labelText = _ref.labelText,
+        helpText = _ref.helpText,
+        fontWeight = _ref.fontWeight;
+    var weight = 'regular';
+
+    if (fontWeight && fontWeight in labelWeights) {
+      weight = labelWeights[fontWeight];
+    }
+
+    return /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("label", {
+      className: cnbuilder.dcnb('su-label su-mb-5 su-text-18', weight, className),
+      htmlFor: id
+    }, labelText), /*#__PURE__*/React__default.createElement("p", {
+      className: "su-text-cool-grey su-mb-5 su-text-18 su-sans"
+    }, helpText), children);
+  };
+  Label.propTypes = {
+    className: PropTypes.string,
+    fontWeight: PropTypes.oneOf(Object.keys(labelWeights)),
+    labelText: PropTypes.string,
+    helpText: PropTypes.string,
+    id: PropTypes.string
+  };
+  Label.defaultProps = {
+    fontWeight: 'regular'
+  };
 
   var lockupColors = ['default', 'white'];
 
-  var _excluded$i = ["classes", "line1"];
+  var _excluded$j = ["classes", "line1"];
   var Lockup = function Lockup(_ref) {
     var _ref$classes = _ref.classes,
         classes = _ref$classes === void 0 ? {} : _ref$classes,
         line1 = _ref.line1,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$i);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
 
     var levers = {};
 
@@ -2096,14 +2612,17 @@
     isLink: true
   };
 
-  var _excluded$j = ["classes", "children"];
+  var localFooterColors = ['light grey', 'white', 'black'];
+  var localFooterLinkColors = ['blue', 'red', 'white'];
+
+  var _excluded$k = ["classes", "children"];
   var LocalFooter = function LocalFooter(_ref) {
     var _props$buttonText;
 
     var _ref$classes = _ref.classes,
         classes = _ref$classes === void 0 ? {} : _ref$classes,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
 
     var levers = {};
 
@@ -2162,8 +2681,8 @@
     }, /*#__PURE__*/React__default.createElement("a", {
       href: props.buttonUrl,
       className: cnbuilder.dcnb('su-inline-block su-bg-digital-red su-text-white su-text-18 hocus:su-text-white hocus:su-bg-archway-dark su-py-9 su-px-20 su-no-underline su-font-regular hover:su-underline focus:su-underline su-rounded-7 su-shadow-md', classes.button)
-    }, (_props$buttonText = props.buttonText) != null ? _props$buttonText : 'Web Login', /*#__PURE__*/React__default.createElement(Icon, {
-      icon: "lock-closed",
+    }, (_props$buttonText = props.buttonText) != null ? _props$buttonText : 'Web Login', /*#__PURE__*/React__default.createElement(HeroIcon, {
+      icon: "lock",
       type: "solid",
       className: cnbuilder.dcnb('su-inline-block su-h-08em su-w-08em su-ml-4 su--mt-2', classes.icon)
     })))), /*#__PURE__*/React__default.createElement(Grid, {
@@ -2200,7 +2719,7 @@
 
   var layoutOptions = ['left', 'center'];
 
-  var _excluded$k = ["children", "level", "size", "weight", "font", "className"];
+  var _excluded$l = ["children", "level", "size", "weight", "font", "className"];
   var Headline$1 = function Headline(_ref) {
     var children = _ref.children,
         level = _ref.level,
@@ -2208,7 +2727,7 @@
         weight = _ref.weight,
         font = _ref.font,
         className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
 
     return /*#__PURE__*/React__default.createElement(Heading, _extends({
       level: level,
@@ -2237,11 +2756,11 @@
     font: 'serif'
   };
 
-  var _excluded$l = ["children", "className"];
+  var _excluded$m = ["children", "className"];
   var Content$1 = function Content(_ref) {
     var children = _ref.children,
         className = _ref.className,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
 
     return /*#__PURE__*/React__default.createElement(FlexBox, _extends({
       direction: "col",
@@ -2255,11 +2774,11 @@
   };
   Content$1.defaultProps = {};
 
-  var _excluded$m = ["className", "children"];
+  var _excluded$n = ["className", "children"];
   var Image$1 = function Image(_ref) {
     var className = _ref.className,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
 
     return /*#__PURE__*/React__default.createElement("div", _extends({
       className: cnbuilder.dcnb('su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min', className),
@@ -2342,12 +2861,12 @@
     isGradient: false
   };
 
-  var _excluded$n = ["anchorLink", "className", "children"];
+  var _excluded$o = ["anchorLink", "className", "children"];
   var Skiplink = function Skiplink(_ref) {
     var anchorLink = _ref.anchorLink,
         className = _ref.className,
         children = _ref.children,
-        props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$o);
 
     return /*#__PURE__*/React__default.createElement("a", _extends({
       href: anchorLink != null ? anchorLink : '#main-content',
@@ -2360,6 +2879,49 @@
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node])
   };
   Skiplink.defaultProps = {};
+
+  var _excluded$p = ["className", "labelText", "fontWeight", "helpText", "id", "errorText", "validText"];
+  var TextFieldRoot = function TextFieldRoot(_ref) {
+    var className = _ref.className,
+        labelText = _ref.labelText,
+        fontWeight = _ref.fontWeight,
+        helpText = _ref.helpText,
+        id = _ref.id,
+        errorText = _ref.errorText,
+        validText = _ref.validText,
+        props = _objectWithoutPropertiesLoose(_ref, _excluded$p);
+
+    return /*#__PURE__*/React__default.createElement("div", {
+      className: cnbuilder.dcnb('su-w-400', className)
+    }, /*#__PURE__*/React__default.createElement(Label, {
+      labelText: labelText,
+      helpText: helpText,
+      id: id,
+      fontWeight: fontWeight
+    }, /*#__PURE__*/React__default.createElement("input", _extends({}, props, {
+      className: "su-input su-border su-border-black su-border-b-2 su-rounded su-pt-19 su-pb-20 su-px-19 su-w-full",
+      id: id
+    })), /*#__PURE__*/React__default.createElement(InlineError, {
+      errorText: errorText
+    }), /*#__PURE__*/React__default.createElement(InlineValid, {
+      validText: validText
+    })));
+  };
+  TextFieldRoot.displayName = 'Text Field';
+  var TextField = Object.assign(TextFieldRoot, {
+    Label: Label,
+    InlineError: InlineError
+  });
+  TextFieldRoot.propTypes = {
+    fontWeight: PropTypes.oneOf(Object.keys(labelWeights)),
+    className: PropTypes.string,
+    labelText: PropTypes.string,
+    helpText: PropTypes.string,
+    id: PropTypes.string,
+    errorText: PropTypes.string,
+    validText: PropTypes.string
+  };
+  TextFieldRoot.defaultProps = {};
 
   exports.Alert = Alert;
   exports.Button = Button;
@@ -2374,12 +2936,17 @@
   exports.Grid = Grid;
   exports.GridCell = GridCell;
   exports.Heading = Heading;
+  exports.HeroIcon = HeroIcon;
   exports.IdentityBar = IdentityBar;
+  exports.InlineError = InlineError;
+  exports.InlineValid = InlineValid;
+  exports.Label = Label;
   exports.LocalFooter = LocalFooter;
   exports.Lockup = Lockup;
   exports.Logo = Logo;
   exports.Poster = Poster;
   exports.Skiplink = Skiplink;
   exports.SrOnlyText = SrOnlyText;
+  exports.TextField = TextField;
 
 })));

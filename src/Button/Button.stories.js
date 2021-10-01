@@ -127,6 +127,16 @@ NarrowSmall.args = {
   children: 'Narrow Small Button',
 };
 
+export const IconOnly = ButtonTemplate.bind({});
+IconOnly.args = {
+  variant: 'unset',
+  size: 'unset',
+  className:
+    'su-leading-trim su-shadow-none hocus:su-shadow-none su-rounded-full su-p-0 children:su-m-0 children:su-text-black hocus:children:su-text-digital-blue active:children:su-text-digital-blue',
+  icon: 'info',
+};
+IconOnly.storyName = 'Icon Only Button';
+
 export const Action = ButtonTemplate.bind({});
 Action.args = {
   variant: 'solid',
