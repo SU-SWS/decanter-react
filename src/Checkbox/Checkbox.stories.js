@@ -3,7 +3,7 @@ import { Checkbox } from './Checkbox';
 import { checkboxPosition, checkboxSize } from './Checkbox.levers';
 
 export default {
-  title: 'Simple/Checkbox',
+  title: 'Form Elements/Checkbox',
   component: Checkbox,
   argTypes: {
     position: {
