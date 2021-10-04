@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createFilterOptions } from '@material-ui/lab/Autocomplete';
-import useAutocomplete from '@material-ui/lab/useAutocomplete';
-import Icon from 'react-hero-icon';
+import { useAutocomplete } from '@mui/core/AutocompleteUnstyled';
+import { createFilterOptions } from '@mui/material/Autocomplete';
 import { dcnb } from 'cnbuilder';
+import { XIcon } from '@heroicons/react/outline';
+import { styled } from '@mui/material/styles';
 
 /**
  * Autocomplete Component
@@ -32,13 +33,19 @@ export const AutocompleteField = React.forwardRef(
     ref
   ) => {
     const [values, setValues] = React.useState([]);
-
     const clearTerm = (term) => {
       setValues(values.filter((item) => item.value !== term.value));
     };
     const filterOptions = createFilterOptions({
       limit: 10,
     });
+
+    const Item = styled('li')(() => ({
+      '&.Mui-focused': {
+        backgroundColor: '#006CB8',
+        color: "#fff"
+      },
+    }));
 
     const {
       getRootProps,
@@ -127,10 +134,8 @@ export const AutocompleteField = React.forwardRef(
                 className="su-flex su-absolute su-items-center su-top-1/2 su-right-[20px] su-text-digital-blue su-text-19 su-font-semibold su-transform su--translate-y-1/2"
               >
                 Clear
-                <Icon
-                  icon="x"
-                  type="solid"
-                  className="su-ml-3 su-w-27 su-h-27"
+                <XIcon
+                  className="su-ml-3 su-w-[27px] su-h-[27px]"
                   aria-hidden
                 />
               </button>
@@ -143,7 +148,7 @@ export const AutocompleteField = React.forwardRef(
               className="su-bg-white su-absolute su-top-full su-left-0 su-min-w-full su-border su-border-solid su-border-[#0597FF] su-rounded-b su-list-none su-p-0 su-overflow-auto su-max-h-[100vh] su-py-10"
             >
               {groupedOptions.map((option, index) => (
-                <li
+                <Item
                   {...getOptionProps({ option, index })}
                   className={dcnb(
                     'su-autocomplete-option su-flex su-items-center su-whitespace-nowrap su-cursor-pointer su-px-20 su-py-10 su-m-0 focus:su-bg-digital-blue-dark focus:su-text-white focus:su-ring-[5px] focus:su-ring-digital-blue-light focus:su-ring-opacity-60 focus:su-z-10',
@@ -153,7 +158,7 @@ export const AutocompleteField = React.forwardRef(
                   )}
                 >
                   {option.value}
-                </li>
+                </Item>
               ))}
             </ul>
           ) : (
@@ -175,10 +180,13 @@ export const AutocompleteField = React.forwardRef(
                     clearTerm(term);
                   }
                 }}
-                className="su-flex su-text-20 su-py-9 su-px-26 su-text-digital-blue su-text-20 su-rounded-full su-border-2 su-border-solid su-border-digital-blue su-mr-18 su-mt-26"
+                className="su-flex su-items-center su-text-20 su-py-9 su-px-26 su-text-digital-blue su-text-20 su-rounded-full su-border-2 su-border-solid su-border-digital-blue su-mr-18 su-mt-26"
               >
                 {term.value}
-                <Icon icon="x" className="su-cursor-pointer" />
+                <XIcon
+                  className="su-ml-3 su-w-[21px] su-h-[21px]"
+                  aria-hidden
+                />
               </button>
             ))}
           </div>

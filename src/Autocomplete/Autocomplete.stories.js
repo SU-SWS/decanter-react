@@ -2,7 +2,7 @@ import React from 'react';
 import { AutocompleteField } from './Autocomplete';
 
 export default {
-  title: 'Composite/Autocomplete',
+  title: 'Forms/Autocomplete',
   component: AutocompleteField,
 };
 
@@ -53,14 +53,6 @@ const options = [
 
 const AutocompleteTemplate = ({ ...rest }) => (
   <AutocompleteField options={options} {...rest} />
-  // // Or using with react-hook-form:
-  // <Controller
-  //   name="autocompleteField"
-  //   control={control}
-  //   render={({ field }) => {
-  //     return <AutocompleteField options={options} {...rest} {...field} />;
-  //   }}
-  // />
 );
 
 export const Single = AutocompleteTemplate.bind({});
