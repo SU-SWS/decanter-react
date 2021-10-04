@@ -43,7 +43,7 @@ export const AutocompleteField = React.forwardRef(
     const Item = styled('li')(() => ({
       '&.Mui-focused': {
         backgroundColor: '#006CB8',
-        color: "#fff"
+        color: '#fff',
       },
     }));
 
