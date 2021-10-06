@@ -1,9 +1,10 @@
 import React from 'react';
-import { TextField } from './TextField';
-import { Label } from '../Label/Label';
-import { labelWeights } from '../Label/Label.levers';
 import { InlineError } from '../InlineError/InlineError';
 import { InlineValid } from '../InlineValid/InlineValid';
+import { Label } from '../Label/Label';
+import { labelWeights } from '../Label/Label.levers';
+import { TextField } from './TextField';
+import { iconAlignment } from './TextField.levers';
 
 export default {
   title: 'Form Elements/Text Field',
@@ -25,6 +26,12 @@ export default {
       control: {
         type: 'inline-radio',
         options: Object.keys(labelWeights),
+      },
+    },
+    iconPosition: {
+      control: {
+        type: 'select',
+        options: iconAlignment,
       },
     },
   },
@@ -79,3 +86,13 @@ Valid.args = {
   placeholder: 'Placeholder Text',
 };
 Valid.storyName = 'Valid Message';
+
+export const Icon = TextFieldTemplate.bind({});
+Icon.args = {
+  className: '',
+  labelText: 'Email Icon Input',
+  id: 'input__text',
+  placeholder: 'Jane@stanford.edu',
+  isIcon: true,
+};
+Icon.storyName = 'Leading Icon Input';
