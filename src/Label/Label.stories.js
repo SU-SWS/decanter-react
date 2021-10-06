@@ -34,16 +34,6 @@ Default.args = {
 };
 Default.storyName = 'Default';
 
-export const Bold = LabelTemplate.bind({});
-Bold.args = {
-  id: 'input__text',
-  labelText: 'Label',
-  helpText:
-    'Help text Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl.',
-  fontWeight: 'bold',
-};
-Bold.storyName = 'Bold Label';
-
 export const Light = LabelTemplate.bind({});
 Light.args = {
   id: 'input__text',
@@ -53,3 +43,13 @@ Light.args = {
   fontWeight: 'light',
 };
 Light.storyName = 'Light Label';
+
+export const Bold = LabelTemplate.bind({});
+Bold.args = {
+  id: 'input__text',
+  labelText: 'Label',
+  helpText:
+    'Help text Vestibulum turpis sem, aliquet eget, lobortis pellentesque, rutrum eu, nisl.',
+  fontWeight: 'bold',
+};
+Bold.storyName = 'Bold Label';

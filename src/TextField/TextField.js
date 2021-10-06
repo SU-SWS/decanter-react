@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
-import { Label } from '../Label/Label';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { InlineError } from '../InlineError/InlineError';
-import { labelWeights } from '../Label/Label.levers';
 import { InlineValid } from '../InlineValid/InlineValid';
+import { Label } from '../Label/Label';
+import { labelWeights } from '../Label/Label.levers';
 
 export const TextFieldRoot = ({
   className,
@@ -25,7 +25,7 @@ export const TextFieldRoot = ({
     >
       <input
         {...props}
-        className="su-input su-border su-border-black su-border-b-2 su-rounded su-pt-19 su-pb-20 su-px-19 su-w-full"
+        className="su-input su-border su-border-black-20 su-border-b-2 su-border-b-black-70 su-rounded su-pt-19 su-pb-20 su-px-19 su-w-full focus-visible:su-border-2 focus-visible:su-border-b-digital-blue focus-visible:su-border-opacity-40"
         id={id}
       />
       <InlineError errorText={errorText} />

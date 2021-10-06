@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { labelWeights } from './Label.levers';
 
 export const Label = ({
@@ -22,13 +22,17 @@ export const Label = ({
 
   return (
     <div>
-      <label
-        className={dcnb('su-label su-mb-5 su-text-18', weight, className)}
-        htmlFor={id}
-      >
-        {labelText}
-      </label>
-      <p className="su-text-cool-grey su-mb-5 su-text-18 su-sans">{helpText}</p>
+      <div className="su-mb-12">
+        <label
+          className={dcnb('su-label su-text-18', weight, className)}
+          htmlFor={id}
+        >
+          {labelText}
+        </label>
+        <p className="su-text-cool-grey su-mt-2 su-text-18 su-sans">
+          {helpText}
+        </p>
+      </div>
       {children}
     </div>
   );
