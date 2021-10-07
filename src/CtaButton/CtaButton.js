@@ -1,10 +1,12 @@
 import { dcnb } from 'cnbuilder';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { iconAlignment } from '../Button/Button.levers';
 import { buttonSizes } from '../common/button/button.levers';
 import getButtonSize from '../common/button/getButtonSize';
 import getIconAnimation from '../common/icon/getIconAnimation';
 import getIconClasses from '../common/icon/getIconClasses';
+import getIconPosition from '../common/icon/getIconPosition';
 import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
@@ -24,6 +26,7 @@ export const CtaButton = React.forwardRef(
       size,
       icon,
       iconProps,
+      iconPosition,
       animate,
       ...props
     },
@@ -70,6 +73,7 @@ export const CtaButton = React.forwardRef(
     if (icon && iconOptions.includes(icon)) {
       heroicon = icon;
       levers.icon = getIconClasses(icon);
+      levers.iconPositionStyles = getIconPosition(icon, iconPosition);
     }
 
     // animate
@@ -92,9 +96,22 @@ export const CtaButton = React.forwardRef(
         ref={ref}
         {...props}
       >
+        {icon && iconPosition === 'left' ? (
+          <HeroIcon
+            icon={heroicon}
+            aria-hidden
+            className={dcnb(
+              'su-inline-block',
+              levers.animate,
+              levers.iconPositionStyles,
+              iconClasses
+            )}
+            {...iProps}
+          />
+        ) : null}
         {text}
         {srText && <SrOnlyText srText={` ${srText}`} />}
-        {icon && (
+        {icon && iconPosition === 'right' ? (
           <HeroIcon
             icon={heroicon}
             type="solid"
@@ -103,11 +120,12 @@ export const CtaButton = React.forwardRef(
               'su-inline-block',
               levers.icon,
               levers.animate,
+              levers.iconPositionStyles,
               iconClasses
             )}
             {...iProps}
           />
-        )}
+        ) : null}
       </a>
     );
   }
@@ -135,9 +153,14 @@ CtaButton.propTypes = {
   icon: PropTypes.oneOf(iconOptions),
 
   /**
-   * Icon options
+   * Icon Properties
    */
   iconProps: PropTypes.objectOf(PropTypes.any),
+
+  /**
+   * Icon Position options
+   */
+  iconPosition: PropTypes.oneOf(iconAlignment),
 
   /**
    * Icon animation on hover/focus
@@ -168,4 +191,5 @@ CtaButton.propTypes = {
 // -----------------------------------------------------------------------------
 CtaButton.defaultProps = {
   variant: 'solid',
+  iconPosition: 'right',
 };

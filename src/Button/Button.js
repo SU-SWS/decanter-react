@@ -5,6 +5,7 @@ import { buttonSizes } from '../common/button/button.levers';
 import getButtonSize from '../common/button/getButtonSize';
 import getIconAnimation from '../common/icon/getIconAnimation';
 import getIconClasses from '../common/icon/getIconClasses';
+import getIconPosition from '../common/icon/getIconPosition';
 import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { buttonTypes, buttonVariants, iconAlignment } from './Button.levers';
@@ -38,10 +39,6 @@ export const Button = React.forwardRef(
 
     // Levers
     // ---------------------------------------------------------------------------
-
-    if (iconPosition === 'left') {
-      levers.iconLeadingStyles = '!su-ml-0 su-mr-7';
-    }
 
     // variant
     if (variant && buttonVariants.includes(variant)) {
@@ -82,6 +79,7 @@ export const Button = React.forwardRef(
     if (icon && iconOptions.includes(icon)) {
       heroicon = icon;
       levers.icon = getIconClasses(icon);
+      levers.iconPositionStyles = getIconPosition(icon, iconPosition);
     }
 
     // animate
@@ -130,7 +128,7 @@ export const Button = React.forwardRef(
             className={dcnb(
               'su-inline-block',
               levers.animate,
-              levers.iconLeadingStyles,
+              levers.iconPositionStyles,
               iconClasses
             )}
             {...iProps}
@@ -141,7 +139,12 @@ export const Button = React.forwardRef(
           <HeroIcon
             icon={heroicon}
             aria-hidden
-            className={dcnb('su-inline-block', levers.animate, iconClasses)}
+            className={dcnb(
+              'su-inline-block',
+              levers.animate,
+              levers.iconPositionStyles,
+              iconClasses
+            )}
             {...iProps}
           />
         ) : null}

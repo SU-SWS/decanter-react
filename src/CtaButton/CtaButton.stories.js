@@ -1,9 +1,13 @@
 import React from 'react';
-import { CtaButton } from './CtaButton';
-import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
-import { ctaButtonVariants } from './CtaButton.levers';
 import { buttonSizes } from '../common/button/button.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
+import {
+  iconAlignment,
+  iconAnimations,
+  iconOptions,
+} from '../common/icon/icon.levers';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { CtaButton } from './CtaButton';
+import { ctaButtonVariants } from './CtaButton.levers';
 
 export default {
   title: 'Simple/CTA Link Button',
@@ -32,6 +36,12 @@ export default {
       control: {
         type: 'inline-radio',
         options: iconAnimations,
+      },
+    },
+    iconPosition: {
+      control: {
+        type: 'select',
+        options: iconAlignment,
       },
     },
   },

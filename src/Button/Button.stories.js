@@ -1,9 +1,13 @@
 import DOMPurify from 'dompurify';
 import React from 'react';
 import { buttonSizes } from '../common/button/button.levers';
-import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
+import {
+  iconAlignment,
+  iconAnimations,
+  iconOptions,
+} from '../common/icon/icon.levers';
 import { Button } from './Button';
-import { buttonTypes, buttonVariants, iconAlignment } from './Button.levers';
+import { buttonTypes, buttonVariants } from './Button.levers';
 
 export default {
   title: 'Simple/Button',

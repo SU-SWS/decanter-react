@@ -22,3 +22,8 @@ export const iconOptions = [
  * CTA Icon animation options
  */
 export const iconAnimations = ['right', 'top-right', 'down', 'none'];
+
+/**
+ * Icon alignment
+ */
+export const iconAlignment = ['left', 'right'];

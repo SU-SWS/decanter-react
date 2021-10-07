@@ -1,8 +1,12 @@
 import React from 'react';
-import { CtaLink } from './CtaLink';
+import {
+  iconAlignment,
+  iconAnimations,
+  iconOptions,
+} from '../common/icon/icon.levers';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { CtaLink } from './CtaLink';
 import { ctaLinkColors } from './CtaLink.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
 
 export default {
   title: 'Simple/CTA Link',
@@ -25,6 +29,12 @@ export default {
       control: {
         type: 'inline-radio',
         options: iconAnimations,
+      },
+    },
+    iconPosition: {
+      control: {
+        type: 'select',
+        options: iconAlignment,
       },
     },
   },

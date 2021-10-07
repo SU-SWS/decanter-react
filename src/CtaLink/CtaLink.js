@@ -1,12 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
-import { ctaLinkColors } from './CtaLink.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
-import getIconClasses from '../common/icon/getIconClasses';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { iconAlignment } from '../Button/Button.levers';
 import getIconAnimation from '../common/icon/getIconAnimation';
-import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import getIconClasses from '../common/icon/getIconClasses';
+import getIconPosition from '../common/icon/getIconPosition';
+import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { ctaLinkColors } from './CtaLink.levers';
 
 /**
  * CTA Link Component
@@ -14,7 +16,17 @@ import { HeroIcon } from '../HeroIcon/HeroIcon';
  */
 export const CtaLink = React.forwardRef(
   (
-    { className, text, srText, color, icon, iconProps, animate, ...props },
+    {
+      className,
+      text,
+      srText,
+      color,
+      icon,
+      iconProps,
+      iconPosition,
+      animate,
+      ...props
+    },
     ref
   ) => {
     // Defaults & Variables.
@@ -50,6 +62,7 @@ export const CtaLink = React.forwardRef(
     if (icon && iconOptions.includes(icon)) {
       heroicon = icon;
       levers.icon = getIconClasses(icon);
+      levers.iconPositionStyles = getIconPosition(icon, iconPosition);
     }
 
     // animate
@@ -73,9 +86,22 @@ export const CtaLink = React.forwardRef(
         ref={ref}
         {...props}
       >
+        {icon && iconPosition === 'left' ? (
+          <HeroIcon
+            icon={heroicon}
+            aria-hidden
+            className={dcnb(
+              'su-inline-block',
+              levers.animate,
+              levers.iconPositionStyles,
+              iconClasses
+            )}
+            {...iProps}
+          />
+        ) : null}
         {text}
         {srText && <SrOnlyText srText={` ${srText}`} />}
-        {icon && (
+        {icon && iconPosition === 'right' ? (
           <HeroIcon
             icon={heroicon}
             type="solid"
@@ -84,11 +110,12 @@ export const CtaLink = React.forwardRef(
               'su-inline-block',
               levers.icon,
               levers.animate,
+              levers.iconPositionStyles,
               iconClasses
             )}
             {...iProps}
           />
-        )}
+        ) : null}
       </a>
     );
   }
@@ -111,9 +138,14 @@ CtaLink.propTypes = {
   icon: PropTypes.oneOf(iconOptions),
 
   /**
-   * Icon options
+   * Icon Properties
    */
   iconProps: PropTypes.objectOf(PropTypes.any),
+
+  /**
+   * Icon Position options
+   */
+  iconPosition: PropTypes.oneOf(iconAlignment),
 
   /**
    * Icon animation on hover/focus
@@ -144,4 +176,5 @@ CtaLink.propTypes = {
 // -----------------------------------------------------------------------------
 CtaLink.defaultProps = {
   icon: 'action',
+  iconPosition: 'right',
 };
