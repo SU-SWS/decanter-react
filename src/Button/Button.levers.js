@@ -9,3 +9,8 @@ export const buttonVariants = ['solid', 'outline', 'ghost', 'unset'];
  * Type of the button HTML element
  */
 export const buttonTypes = ['button', 'submit', 'reset'];
+
+/**
+ * Button icon alignment
+ */
+export const iconAlignment = ['left', 'right'];

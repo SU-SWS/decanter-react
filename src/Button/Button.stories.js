@@ -3,7 +3,7 @@ import React from 'react';
 import { buttonSizes } from '../common/button/button.levers';
 import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
 import { Button } from './Button';
-import { buttonTypes, buttonVariants } from './Button.levers';
+import { buttonTypes, buttonVariants, iconAlignment } from './Button.levers';
 
 export default {
   title: 'Simple/Button',
@@ -46,6 +46,12 @@ export default {
     },
     onClick: {
       action: 'clicked',
+    },
+    iconPosition: {
+      control: {
+        type: 'select',
+        options: iconAlignment,
+      },
     },
   },
 };
@@ -119,6 +125,15 @@ Download.args = {
   children: 'Download Button',
 };
 Download.storyName = 'With Download Icon';
+
+export const Email = ButtonTemplate.bind({});
+Email.args = {
+  variant: 'solid',
+  icon: 'email',
+  children: 'Email Button',
+  iconPosition: 'left',
+};
+Email.storyName = 'With Leading Email Icon';
 
 export const Disabled = ButtonTemplate.bind({});
 Disabled.args = {

@@ -7,7 +7,7 @@ import getIconAnimation from '../common/icon/getIconAnimation';
 import getIconClasses from '../common/icon/getIconClasses';
 import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
-import { buttonTypes, buttonVariants } from './Button.levers';
+import { buttonTypes, buttonVariants, iconAlignment } from './Button.levers';
 
 /**
  * Button Component
@@ -25,6 +25,7 @@ export const Button = React.forwardRef(
       type,
       icon,
       iconProps,
+      iconPosition,
       animate,
       isDisabled,
       ...props
@@ -37,6 +38,10 @@ export const Button = React.forwardRef(
 
     // Levers
     // ---------------------------------------------------------------------------
+
+    if (iconPosition === 'left') {
+      levers.iconLeadingStyles = '!su-ml-0 su-mr-7';
+    }
 
     // variant
     if (variant && buttonVariants.includes(variant)) {
@@ -118,15 +123,28 @@ export const Button = React.forwardRef(
         ref={ref}
         {...props}
       >
+        {icon && iconPosition === 'left' ? (
+          <HeroIcon
+            icon={heroicon}
+            aria-hidden
+            className={dcnb(
+              'su-inline-block',
+              levers.animate,
+              levers.iconLeadingStyles,
+              iconClasses
+            )}
+            {...iProps}
+          />
+        ) : null}
         {children}
-        {icon && (
+        {icon && iconPosition === 'right' ? (
           <HeroIcon
             icon={heroicon}
             aria-hidden
             className={dcnb('su-inline-block', levers.animate, iconClasses)}
             {...iProps}
           />
-        )}
+        ) : null}
       </button>
     );
   }
@@ -157,6 +175,11 @@ Button.propTypes = {
    * Icon Properties
    */
   iconProps: PropTypes.objectOf(PropTypes.any),
+
+  /**
+   * Icon Position options
+   */
+  iconPosition: PropTypes.oneOf(iconAlignment),
 
   /**
    * Icon animation on hover/focus
@@ -200,4 +223,5 @@ Button.defaultProps = {
   variant: 'solid',
   size: 'default',
   isDisabled: false,
+  iconPosition: 'right',
 };
