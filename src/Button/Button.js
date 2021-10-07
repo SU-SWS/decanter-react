@@ -6,9 +6,13 @@ import getButtonSize from '../common/button/getButtonSize';
 import getIconAnimation from '../common/icon/getIconAnimation';
 import getIconClasses from '../common/icon/getIconClasses';
 import getIconPosition from '../common/icon/getIconPosition';
-import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
+import {
+  iconAlignment,
+  iconAnimations,
+  iconOptions,
+} from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
-import { buttonTypes, buttonVariants, iconAlignment } from './Button.levers';
+import { buttonTypes, buttonVariants } from './Button.levers';
 
 /**
  * Button Component

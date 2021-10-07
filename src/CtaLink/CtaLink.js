@@ -1,11 +1,14 @@
 import { dcnb } from 'cnbuilder';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { iconAlignment } from '../Button/Button.levers';
 import getIconAnimation from '../common/icon/getIconAnimation';
 import getIconClasses from '../common/icon/getIconClasses';
 import getIconPosition from '../common/icon/getIconPosition';
-import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
+import {
+  iconAlignment,
+  iconAnimations,
+  iconOptions,
+} from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
 import { ctaLinkColors } from './CtaLink.levers';
