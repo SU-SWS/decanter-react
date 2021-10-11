@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../Button/Button';
 import { Tooltip } from './Tooltip';
+import { tooltipAlignment } from './Tooltip.levers';
 
 const infoButton = (
   <Button
@@ -18,6 +19,14 @@ export default {
     docs: {
       description: {
         component: 'Tooltip component',
+      },
+    },
+  },
+  argTypes: {
+    alignment: {
+      control: {
+        type: 'select',
+        options: tooltipAlignment,
       },
     },
   },
