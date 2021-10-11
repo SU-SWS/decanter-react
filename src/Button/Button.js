@@ -125,7 +125,8 @@ export const Button = React.forwardRef(
         ref={ref}
         {...props}
       >
-        {icon && iconPosition === 'left' ? (
+        {iconPosition === 'right' ? <>{children}</> : null}
+        {icon && (
           <HeroIcon
             icon={heroicon}
             aria-hidden
@@ -137,21 +138,8 @@ export const Button = React.forwardRef(
             )}
             {...iProps}
           />
-        ) : null}
-        {children}
-        {icon && iconPosition === 'right' ? (
-          <HeroIcon
-            icon={heroicon}
-            aria-hidden
-            className={dcnb(
-              'su-inline-block',
-              levers.animate,
-              levers.iconPositionStyles,
-              iconClasses
-            )}
-            {...iProps}
-          />
-        ) : null}
+        )}
+        {iconPosition === 'left' ? <>{children}</> : null}
       </button>
     );
   }

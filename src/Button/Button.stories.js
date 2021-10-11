@@ -53,7 +53,7 @@ export default {
     },
     iconPosition: {
       control: {
-        type: 'select',
+        type: 'inline-radio',
         options: iconAlignment,
       },
     },

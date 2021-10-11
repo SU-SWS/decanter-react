@@ -89,35 +89,30 @@ export const CtaLink = React.forwardRef(
         ref={ref}
         {...props}
       >
-        {icon && iconPosition === 'left' ? (
-          <HeroIcon
-            icon={heroicon}
-            aria-hidden
-            className={dcnb(
-              'su-inline-block',
-              levers.animate,
-              levers.iconPositionStyles,
-              iconClasses
-            )}
-            {...iProps}
-          />
+        {iconPosition === 'right' ? (
+          <>
+            {text}
+            {srText && <SrOnlyText srText={` ${srText}`} />}
+          </>
         ) : null}
-        {text}
-        {srText && <SrOnlyText srText={` ${srText}`} />}
-        {icon && iconPosition === 'right' ? (
+        {icon && (
           <HeroIcon
             icon={heroicon}
-            type="solid"
             aria-hidden
             className={dcnb(
               'su-inline-block',
-              levers.icon,
               levers.animate,
               levers.iconPositionStyles,
               iconClasses
             )}
             {...iProps}
           />
+        )}
+        {iconPosition === 'left' ? (
+          <>
+            {text}
+            {srText && <SrOnlyText srText={` ${srText}`} />}
+          </>
         ) : null}
       </a>
     );
