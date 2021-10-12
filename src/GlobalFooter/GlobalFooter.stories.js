@@ -14,9 +14,9 @@ export default {
   subcomponents: { SrOnlyText, Logo, Container, FlexBox },
   argTypes: {
     color: {
+      options: globalFooterColors,
       control: {
         type: 'select',
-        options: globalFooterColors,
       },
     },
   },

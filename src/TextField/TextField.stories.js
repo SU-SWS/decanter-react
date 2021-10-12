@@ -22,9 +22,9 @@ export default {
   },
   argTypes: {
     fontWeight: {
+      options: Object.keys(labelWeights),
       control: {
         type: 'inline-radio',
-        options: Object.keys(labelWeights),
       },
     },
   },

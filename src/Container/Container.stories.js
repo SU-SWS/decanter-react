@@ -8,15 +8,15 @@ export default {
   component: Container,
   argTypes: {
     element: {
+      options: containerElements,
       control: {
         type: 'select',
-        options: containerElements,
       },
     },
     width: {
+      options: containerWidths,
       control: {
         type: 'select',
-        options: containerWidths,
       },
     },
   },

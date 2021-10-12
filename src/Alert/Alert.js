@@ -36,6 +36,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
   // ---------------------------------------------------------------------------
   levers.wrapper = 'sm:su-items-center su-bg-foggy-light';
   levers.dismiss = 'black';
+  levers.dismissText = 'Dismiss';
   levers.container = 'sm:su-items-center';
   levers.dismissWrapper =
     'su-rs-ml-1 su-mt-15 sm:su-mt-0 su-w-full sm:su-w-auto';
@@ -60,7 +61,6 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.wrapper = 'su-bg-digital-green su-text-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        levers.dismissText = 'Dismiss';
         defaultIcon = (
           <CheckCircleIcon
             aria-hidden="true"
@@ -74,7 +74,6 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.wrapper = 'su-bg-illuminating-dark';
         levers.body = darkText;
         levers.dismiss = 'black';
-        levers.dismissText = 'Dismiss';
         defaultIcon = (
           <ExclamationCircleIcon
             aria-hidden="true"
@@ -102,7 +101,6 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.wrapper = 'su-bg-digital-red su-text-white';
         levers.body = lightText;
         levers.dismiss = 'white';
-        levers.dismissText = 'Dismiss';
         defaultIcon = (
           <BanIcon aria-hidden="true" className={classes.icon} {...iconProps} />
         );
@@ -114,6 +112,7 @@ export const Alert = ({ classes = {}, children, ...props }) => {
         levers.body = redText;
         levers.dismiss = 'red';
         levers.dismissIcon = 'x';
+        levers.dismissText = '';
         levers.container = 'su-flex-row su-flex-nowrap';
         levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
         levers.headerWrapper = 'su-w-auto su-mt-0 su-mr-01em';

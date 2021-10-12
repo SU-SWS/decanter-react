@@ -14,21 +14,21 @@ export default {
   subcomponents: { Button, SrOnlyText },
   argTypes: {
     color: {
+      options: dismissIconColors,
       control: {
         type: 'inline-radio',
-        options: dismissIconColors,
       },
     },
     icon: {
+      options: dismissIconOptions,
       control: {
         type: 'inline-radio',
-        options: dismissIconOptions,
       },
     },
     iconType: {
+      options: dismissIconTypes,
       control: {
         type: 'inline-radio',
-        options: dismissIconTypes,
       },
     },
     iconSize: {
