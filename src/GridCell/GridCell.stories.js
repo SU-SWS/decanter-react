@@ -14,63 +14,63 @@ export default {
   component: GridCell,
   argTypes: {
     element: {
+      options: gridCellElements,
       control: {
         type: 'select',
-        options: gridCellElements,
       },
     },
     xs: {
+      options: Object.keys(gridColSpan.xs),
       control: {
         type: 'select',
-        options: Object.keys(gridColSpan.xs),
       },
     },
     sm: {
+      options: Object.keys(gridColSpan.sm),
       control: {
         type: 'select',
-        options: Object.keys(gridColSpan.sm),
       },
     },
     md: {
+      options: Object.keys(gridColSpan.md),
       control: {
         type: 'select',
-        options: Object.keys(gridColSpan.md),
       },
     },
     lg: {
+      options: Object.keys(gridColSpan.lg),
       control: {
         type: 'select',
-        options: Object.keys(gridColSpan.lg),
       },
     },
     xl: {
+      options: Object.keys(gridColSpan.xl),
       control: {
         type: 'select',
-        options: Object.keys(gridColSpan.xl),
       },
     },
     xxl: {
+      options: Object.keys(gridColSpan.xxl),
       control: {
         type: 'select',
-        options: Object.keys(gridColSpan.xxl),
       },
     },
     colStart: {
+      options: Object.keys(gridColLine),
       control: {
         type: 'select',
-        options: Object.keys(gridColLine),
       },
     },
     row: {
+      options: Object.keys(gridRowSpan),
       control: {
         type: 'select',
-        options: Object.keys(gridRowSpan),
       },
     },
     rowStart: {
+      options: Object.keys(gridRowLine),
       control: {
         type: 'select',
-        options: Object.keys(gridRowLine),
       },
     },
   },
