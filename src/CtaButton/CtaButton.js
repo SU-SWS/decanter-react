@@ -99,12 +99,12 @@ export const CtaButton = React.forwardRef(
         ref={ref}
         {...props}
       >
-        {iconPosition === 'right' ? (
+        {iconPosition === 'right' && (
           <>
             {text}
             {srText && <SrOnlyText srText={` ${srText}`} />}
           </>
-        ) : null}
+        )}
         {icon && (
           <HeroIcon
             icon={heroicon}
@@ -118,12 +118,12 @@ export const CtaButton = React.forwardRef(
             {...iProps}
           />
         )}
-        {iconPosition === 'left' ? (
+        {iconPosition === 'left' && (
           <>
             {text}
             {srText && <SrOnlyText srText={` ${srText}`} />}
           </>
-        ) : null}
+        )}
       </a>
     );
   }

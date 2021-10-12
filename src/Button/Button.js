@@ -125,7 +125,7 @@ export const Button = React.forwardRef(
         ref={ref}
         {...props}
       >
-        {iconPosition === 'right' ? <>{children}</> : null}
+        {iconPosition === 'right' && children}
         {icon && (
           <HeroIcon
             icon={heroicon}
@@ -139,7 +139,7 @@ export const Button = React.forwardRef(
             {...iProps}
           />
         )}
-        {iconPosition === 'left' ? <>{children}</> : null}
+        {iconPosition === 'left' && children}
       </button>
     );
   }
