@@ -725,6 +725,7 @@
 
     levers.wrapper = 'sm:su-items-center su-bg-foggy-light';
     levers.dismiss = 'black';
+    levers.dismissText = 'Dismiss';
     levers.container = 'sm:su-items-center';
     levers.dismissWrapper = 'su-rs-ml-1 su-mt-15 sm:su-mt-0 su-w-full sm:su-w-auto';
     levers.headerWrapper = 'su-rs-mr-1 su-w-full md:su-w-max';
@@ -746,7 +747,6 @@
           levers.wrapper = 'su-bg-digital-green su-text-white';
           levers.body = lightText;
           levers.dismiss = 'white';
-          levers.dismissText = 'Dismiss';
           defaultIcon = /*#__PURE__*/React__default.createElement(CheckCircleIcon, _extends({
             "aria-hidden": "true",
             className: classes.icon
@@ -757,7 +757,6 @@
           levers.wrapper = 'su-bg-illuminating-dark';
           levers.body = darkText;
           levers.dismiss = 'black';
-          levers.dismissText = 'Dismiss';
           defaultIcon = /*#__PURE__*/React__default.createElement(ExclamationCircleIcon, _extends({
             "aria-hidden": "true",
             className: classes.icon
@@ -779,7 +778,6 @@
           levers.wrapper = 'su-bg-digital-red su-text-white';
           levers.body = lightText;
           levers.dismiss = 'white';
-          levers.dismissText = 'Dismiss';
           defaultIcon = /*#__PURE__*/React__default.createElement(BanIcon, _extends({
             "aria-hidden": "true",
             className: classes.icon
@@ -791,6 +789,7 @@
           levers.body = redText;
           levers.dismiss = 'red';
           levers.dismissIcon = 'x';
+          levers.dismissText = '';
           levers.container = 'su-flex-row su-flex-nowrap';
           levers.dismissWrapper = 'su-w-auto su-mt-0 su-rs-ml-0';
           levers.headerWrapper = 'su-w-auto su-mt-0 su-mr-01em';

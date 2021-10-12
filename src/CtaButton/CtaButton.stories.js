@@ -11,27 +11,27 @@ export default {
   subcomponents: { SrOnlyText },
   argTypes: {
     variant: {
+      options: ctaButtonVariants,
       control: {
         type: 'inline-radio',
-        options: ctaButtonVariants,
       },
     },
     size: {
+      options: buttonSizes,
       control: {
         type: 'inline-radio',
-        options: buttonSizes,
       },
     },
     icon: {
+      options: iconOptions,
       control: {
         type: 'select',
-        options: iconOptions,
       },
     },
     animate: {
+      options: iconAnimations,
       control: {
         type: 'inline-radio',
-        options: iconAnimations,
       },
     },
   },
@@ -41,7 +41,6 @@ const CtaButtonTemplate = ({ ...rest }) => <CtaButton {...rest} />;
 
 export const Solid = CtaButtonTemplate.bind({});
 Solid.args = {
-  isButton: true,
   variant: 'solid',
   size: 'default',
   icon: 'none',
@@ -176,7 +175,8 @@ const ctaButtonRef = React.createRef();
 
 export const ForwardRef = (args) => {
   /* eslint-disable */
-  const setFocus = () => {
+  const setFocus = (e) => {
+    e.preventDefault();
     ctaButtonRef.current.focus();
   };
 
@@ -184,7 +184,7 @@ export const ForwardRef = (args) => {
     <div>
       <CtaButton {...args} />
       <div>
-        <a href="javascript:void(0);" onClick={setFocus}>
+        <a href="#" onClick={setFocus}>
           Clicking here will set focus using ctaButtonRef.current.focus()
         </a>
       </div>

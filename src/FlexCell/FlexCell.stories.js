@@ -13,51 +13,51 @@ export default {
   component: FlexCell,
   argTypes: {
     element: {
+      options: flexCellElements,
       control: {
         type: 'select',
-        options: flexCellElements,
       },
     },
     xs: {
+      options: Object.keys(flexCellWidth.xs),
       control: {
         type: 'select',
-        options: Object.keys(flexCellWidth.xs),
       },
     },
     sm: {
+      options: Object.keys(flexCellWidth.sm),
       control: {
         type: 'select',
-        options: Object.keys(flexCellWidth.sm),
       },
     },
     md: {
+      options: Object.keys(flexCellWidth.md),
       control: {
         type: 'select',
-        options: Object.keys(flexCellWidth.md),
       },
     },
     lg: {
+      options: Object.keys(flexCellWidth.lg),
       control: {
         type: 'select',
-        options: Object.keys(flexCellWidth.lg),
       },
     },
     xl: {
+      options: Object.keys(flexCellWidth.xl),
       control: {
         type: 'select',
-        options: Object.keys(flexCellWidth.xl),
       },
     },
     xxl: {
+      options: Object.keys(flexCellWidth.xxl),
       control: {
         type: 'select',
-        options: Object.keys(flexCellWidth.xxl),
       },
     },
     flex: {
+      options: Object.keys(flexCellFlex),
       control: {
         type: 'select',
-        options: Object.keys(flexCellFlex),
       },
     },
     grow: {
@@ -71,9 +71,9 @@ export default {
       },
     },
     order: {
+      options: Object.keys(flexCellOrder),
       control: {
         type: 'select',
-        options: Object.keys(flexCellOrder),
       },
     },
   },

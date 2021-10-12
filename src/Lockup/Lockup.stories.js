@@ -11,9 +11,9 @@ export default {
   subcomponents: { Logo },
   argTypes: {
     color: {
+      options: lockupColors,
       control: {
         type: 'inline-radio',
-        options: lockupColors,
       },
     },
   },

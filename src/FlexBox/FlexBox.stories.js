@@ -16,51 +16,51 @@ export default {
   component: FlexBox,
   argTypes: {
     element: {
+      options: flexElements,
       control: {
         type: 'select',
-        options: flexElements,
       },
     },
     direction: {
+      options: Object.keys(flexDirection),
       control: {
         type: 'inline-radio',
-        options: Object.keys(flexDirection),
       },
     },
     wrap: {
+      options: Object.keys(flexWrap),
       control: {
         type: 'inline-radio',
-        options: Object.keys(flexWrap),
       },
     },
     gap: {
+      options: flexGap,
       control: {
         type: 'boolean',
-        options: flexGap,
       },
     },
     justifyContent: {
+      options: Object.keys(flexJustifyContent),
       control: {
         type: 'select',
-        options: Object.keys(flexJustifyContent),
       },
     },
     justifyItems: {
+      options: Object.keys(flexJustifyItems),
       control: {
         type: 'select',
-        options: Object.keys(flexJustifyItems),
       },
     },
     alignContent: {
+      options: Object.keys(flexAlignContent),
       control: {
         type: 'select',
-        options: Object.keys(flexAlignContent),
       },
     },
     alignItems: {
+      options: Object.keys(flexAlignItems),
       control: {
         type: 'select',
-        options: Object.keys(flexAlignItems),
       },
     },
   },
