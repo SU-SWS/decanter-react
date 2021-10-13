@@ -12,6 +12,8 @@ import {
   LockClosedIcon,
   MailIcon,
   PlayIcon,
+  UploadIcon,
+  XIcon,
 } from '@heroicons/react/solid';
 import { dcnb } from 'cnbuilder';
 import PropTypes from 'prop-types';
@@ -56,6 +58,10 @@ export const HeroIcon = ({ icon, srText, className, ...props }) => {
         Icon = DownloadIcon;
         break;
 
+      case 'upload':
+        Icon = UploadIcon;
+        break;
+
       case 'email':
         Icon = MailIcon;
         break;
@@ -68,6 +74,10 @@ export const HeroIcon = ({ icon, srText, className, ...props }) => {
       case 'chevron-right':
       case 'action':
         Icon = ChevronRightIcon;
+        break;
+
+      case 'close':
+        Icon = XIcon;
         break;
 
       case 'lock':

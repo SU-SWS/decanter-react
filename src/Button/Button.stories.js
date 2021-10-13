@@ -130,6 +130,16 @@ Download.args = {
 };
 Download.storyName = 'With Download Icon';
 
+export const Upload = ButtonTemplate.bind({});
+Upload.args = {
+  variant: 'solid',
+  icon: 'upload',
+  animate: 'up',
+  children: 'Upload Button',
+  iconPosition: 'right',
+};
+Upload.storyName = 'With Upload Icon';
+
 export const Email = ButtonTemplate.bind({});
 Email.args = {
   variant: 'solid',

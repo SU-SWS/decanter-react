@@ -18,10 +18,12 @@ const getIconPosition = (icon, position) => {
 
       case 'lock':
       case 'download':
+      case 'upload':
         classes = 'su-ml-4';
         break;
 
       case 'play':
+      case 'close':
         classes = 'su-ml-7';
         break;
 
@@ -59,10 +61,12 @@ const getIconPosition = (icon, position) => {
 
       case 'lock':
       case 'download':
+      case 'upload':
         classes = 'su-mr-4';
         break;
 
       case 'play':
+      case 'close':
         classes = 'su-mr-7';
         break;
 

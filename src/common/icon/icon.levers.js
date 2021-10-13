@@ -15,13 +15,15 @@ export const iconOptions = [
   'jump',
   'email',
   'info',
+  'upload',
+  'close',
   'none',
 ];
 
 /**
  * CTA Icon animation options
  */
-export const iconAnimations = ['right', 'top-right', 'down', 'none'];
+export const iconAnimations = ['right', 'top-right', 'down', 'up', 'none'];
 
 /**
  * Icon alignment

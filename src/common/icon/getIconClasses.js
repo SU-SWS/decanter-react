@@ -16,9 +16,8 @@ const getIconClasses = (icon) => {
       break;
 
     case 'lock':
-      classes = 'su-h-08em su-w-08em su--mt-3';
-      break;
-
+    case 'close':
+    case 'upload':
     case 'download':
       classes = 'su-h-08em su-w-08em su--mt-3';
       break;

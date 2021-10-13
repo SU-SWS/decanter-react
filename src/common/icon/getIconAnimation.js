@@ -25,6 +25,10 @@ const getIconAnimation = (animate) => {
       classes = dcnb(classes, 'group-hocus:su-translate-y-02em');
       break;
 
+    case 'up':
+      classes = dcnb(classes, 'group-hocus:su--translate-y-02em');
+      break;
+
     case 'right':
       classes = dcnb(classes, 'group-hocus:su-translate-x-02em');
       break;
