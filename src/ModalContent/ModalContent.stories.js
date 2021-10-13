@@ -89,10 +89,11 @@ const InModalTemplate = () => {
           >
             <Heading level={2}>Title</Heading>
             <ModalContent.Body>
-            <span className="su-font-bold su-text-22">
-                Your username donec venenatis vulputate lorem. Lorem ipsum dolor.
+              <span className="su-font-bold su-text-22">
+                Your username donec venenatis vulputate lorem. Lorem ipsum
+                dolor.
               </span>{' '}
-                <span className="su-subheading">
+              <span className="su-subheading">
                 Click “Continue” to be redirected to your account management
               </span>
             </ModalContent.Body>
@@ -106,7 +107,8 @@ const InModalTemplate = () => {
               </Button>
             </ModalContent.Cta>
             <ModalContent.Footer>
-              If the problem persists, please <a href="">submit a help ticket.</a>
+              If the problem persists, please{' '}
+              <a href="">submit a help ticket.</a>
             </ModalContent.Footer>
           </ModalContent>
         </div>
