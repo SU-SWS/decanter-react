@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from '@mui/material/Modal';
+import Modal from '@mui/core/ModalUnstyled';
 import { ModalContent } from './ModalContent';
 import { Button } from '../Button/Button';
 import { Heading } from '../Heading/Heading';
@@ -19,14 +19,20 @@ export default {
     },
     docs: {
       description: {
-        component: 'More information coming soon...',
+        component:
+          "This component is the inner content of the modal and doesn't include the modal functionality. <br /> To add the modal functionality, please refer to https://mui.com/components/modal/ and add ModalContent component as the content for the MUI modal.",
       },
     },
   },
 };
 
 const ModalContentTemplate = ({ onClose, ...rest }) => (
-  <ModalContent {...rest} onClose={onClose}>
+  <ModalContent
+    {...rest}
+    onClose={onClose}
+    dismissText="Close"
+    dismissSrText="Close"
+  >
     <Heading level={2}>Title</Heading>
     <ModalContent.Body>
       <span className="su-font-bold su-text-22">
@@ -55,27 +61,50 @@ Default.storyName = 'Default';
 
 const InModalTemplate = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const close = () => {
+  const onClose = () => {
     setIsOpen(false);
   };
   return (
     <div>
-      <button type="button" onClick={() => setIsOpen(true)}>
+      <Button type="button" onClick={() => setIsOpen(true)}>
         Open modal
-      </button>
+      </Button>
       <Modal
         open={isOpen}
-        onClose={close}
+        onClose={onClose}
         aria-labelledby="child-modal-title"
         aria-describedby="child-modal-description"
+        BackdropComponent={() => (
+          <div className="su-bg-black su-bg-opacity-50 su-fixed su-inset-0" />
+        )}
       >
-        <div>
-          <ModalContentTemplate
-            dismissText="Close"
-            dismissSrText="Close"
-            onClose={close}
-          />
-        </div>
+        <ModalContent
+          onClose={onClose}
+          dismissText="Close"
+          dismissSrText="Close"
+        >
+          <Heading level={2}>Title</Heading>
+          <ModalContent.Body>
+            <span className="su-font-bold su-text-22">
+              Your username donec venenatis vulputate lorem. Lorem ipsum dolor.
+            </span>{' '}
+            <span className="su-subheading">
+              Click “Continue” to be redirected to your account management
+            </span>
+          </ModalContent.Body>
+          <ModalContent.Cta>
+            <Button onClick={onClose} variant="outline" className="su-mr-26">
+              Close
+            </Button>
+
+            <Button animate="right" icon="action">
+              Continue
+            </Button>
+          </ModalContent.Cta>
+          <ModalContent.Footer>
+            If the problem persists, please <a href="">submit a help ticket.</a>
+          </ModalContent.Footer>
+        </ModalContent>
       </Modal>
     </div>
   );

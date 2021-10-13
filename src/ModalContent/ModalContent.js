@@ -69,7 +69,8 @@ ModalContentRoot.propTypes = {
   ]),
 
   /**
-   * Optional click handler.
+   * Dismiss button props
    */
-  onClose: PropTypes.func,
+  dismissText: PropTypes.string,
+  dismissSrText: PropTypes.string,
 };
