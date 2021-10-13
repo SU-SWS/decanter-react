@@ -22,7 +22,7 @@ export const ModalContentRoot = ({
 }) => (
   <div
     className={dcnb(
-      'su-bg-white su-flex su-flex-col su-rs-pt-2 su-rs-pr-3 su-rs-pb-4 su-rs-pl-5 su-absolute su-left-1/2 su-top-1/2 su-transform su--translate-x-1/2 su--translate-y-1/2',
+      'su-bg-white su-flex su-flex-col su-rs-pt-2 su-rs-pr-3 su-rs-pb-4 su-rs-pl-5 su-absolute su-left-1/2 su-top-1/2 su-transform su--translate-x-1/2 su--translate-y-1/2 su-z-50',
       className
     )}
     {...props}
