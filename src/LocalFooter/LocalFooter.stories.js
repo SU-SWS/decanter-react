@@ -17,15 +17,15 @@ export default {
   subcomponents: { Lockup },
   argTypes: {
     color: {
+      options: localFooterColors,
       control: {
         type: 'inline-radio',
-        options: localFooterColors,
       },
     },
     link: {
+      options: localFooterLinkColors,
       control: {
         type: 'inline-radio',
-        options: localFooterLinkColors,
       },
     },
     isLogoLink: {

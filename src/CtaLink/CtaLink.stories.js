@@ -10,21 +10,21 @@ export default {
   subcomponents: { SrOnlyText },
   argTypes: {
     color: {
+      options: ctaLinkColors,
       control: {
         type: 'inline-radio',
-        options: ctaLinkColors,
       },
     },
     icon: {
+      options: iconOptions,
       control: {
         type: 'select',
-        options: iconOptions,
       },
     },
     animate: {
+      options: iconAnimations,
       control: {
         type: 'inline-radio',
-        options: iconAnimations,
       },
     },
   },
@@ -164,7 +164,8 @@ const linkRef = React.createRef();
 export const ForwardRef = (args) => {
   /* eslint-disable no-script-url */
   /* eslint-disable jsx-a11y/anchor-is-valid */
-  const setFocus = () => {
+  const setFocus = (e) => {
+    e.preventDefault();
     linkRef.current.focus();
   };
 
@@ -172,7 +173,7 @@ export const ForwardRef = (args) => {
     <div>
       <CtaLink {...args} />
       <div>
-        <a href="javascript:void(0);" onClick={setFocus}>
+        <a href="#" onClick={setFocus}>
           Clicking here will set focus using linkRef.current.focus()
         </a>
       </div>

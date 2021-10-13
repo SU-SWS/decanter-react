@@ -1,16 +1,16 @@
 /* eslint-disable import/no-unresolved */
 import {
+  ChevronRightIcon,
   InformationCircleIcon,
+  MailIcon,
   MicrophoneIcon,
   VideoCameraIcon,
 } from '@heroicons/react/outline';
 import {
   ArrowRightIcon,
   ChevronDownIcon,
-  ChevronRightIcon,
   DownloadIcon,
   LockClosedIcon,
-  MailIcon,
   PlayIcon,
 } from '@heroicons/react/solid';
 import { dcnb } from 'cnbuilder';
