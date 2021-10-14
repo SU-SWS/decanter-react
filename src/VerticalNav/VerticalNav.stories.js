@@ -1,13 +1,13 @@
 import React from 'react';
 import { withDesign } from 'storybook-addon-designs';
 import { VerticalNav } from './VerticalNav';
-import { Link } from './exampleLink';
 
 export default {
   title: 'Navigation/Vertical Nav',
   decorators: [withDesign],
   component: VerticalNav,
   subcomponents: {
+    'VerticalNav.Group': VerticalNav.Group,
     'VerticalNav.Item': VerticalNav.Item,
   },
   parameters: {
@@ -24,231 +24,148 @@ export default {
   },
 };
 
+// Example link.
+const Link = ({ children, href = '#', ...props }) => (
+  <a href={href} {...props}>
+    {children}
+  </a>
+);
+
+const LinkGatsby = ({ children, to = '#', ...props }) => (
+  <Link href={to} {...props}>
+    {children}
+  </Link>
+);
+
+const LinkNext = ({ children, href = '#', ...props }) => (
+  <Link href={href} {...props}>
+    {children}
+  </Link>
+);
+
 // Default State
 // /////////////////////////////////////////////////////////////////////////////
 
 const menuTree = [
   {
-    id: '1',
-    link: {
-      cached_url: '/i-0',
-    },
-    Link: <Link href="/i-0" name="Item One" type="Link" />,
-    childItems: [
-      {
-        id: '2',
-        link: {
-          cached_url: '/i-0-0',
-        },
+    link: (
+      <LinkGatsby to="/" name="Home">
+        Home
+      </LinkGatsby>
+    ),
+  },
+  {
+    link: (
+      <LinkNext href="/about" name="About">
+        About
+      </LinkNext>
+    ),
 
-        Link: <Link href="/i-0-0" name="Item One - One" type="Link" />,
-        childItems: [
+    children: [
+      {
+        link: (
+          <LinkGatsby to="/about/page-1" name="About Page 1">
+            About Page 1
+          </LinkGatsby>
+        ),
+        children: [
           {
-            id: '3',
-            link: {
-              cached_url: '/i-0-0-0',
-            },
-            Link: (
-              <Link href="/i-0-0-0" name="Item One - One - One" type="Link" />
+            link: (
+              <LinkGatsby
+                to="/about/page-1/level-3"
+                name="About Page Level 3 - Page 1"
+              >
+                About Page Level 3 - Page 1
+              </LinkGatsby>
             ),
           },
           {
-            id: '4',
-            link: {
-              cached_url: '/i-0-0-1',
-            },
-            Link: (
-              <Link href="/i-0-0-1" name="Item One - One - Two" type="Link" />
-            ),
-          },
-          {
-            id: '5',
-            link: {
-              cached_url: '/i-0-0-2',
-            },
-            Link: (
-              <Link href="/i-0-0-2" name="Item One - One - Three" type="Link" />
-            ),
-          },
-          {
-            id: '6',
-            link: {
-              cached_url: '/i-0-0-3',
-            },
-            Link: (
-              <Link href="/i-0-0-3" name="Item One - One - Four" type="Link" />
+            link: (
+              <LinkNext
+                href="/about/page-1/level-3-2"
+                name="About Page Level 3 - Page 2"
+              >
+                About Page Level 3 - Page 2
+              </LinkNext>
             ),
           },
         ],
       },
       {
-        id: '7',
-        link: {
-          cached_url: '/i-0-1',
-        },
-        Link: <Link href="/i-0-1" name="Item One - Two" type="Link" />,
-      },
-      {
-        id: '8',
-        link: {
-          cached_url: '/i-0-2',
-        },
-        Link: <Link href="/i-0-2" name="Item One - Three" type="Link" />,
-      },
-      {
-        id: '9',
-        link: {
-          cached_url: '/i-0-3',
-        },
-        Link: <Link href="/i-0-3" name="Item One - Four" type="Link" />,
+        link: (
+          <LinkNext href="/about/page-2" name="About Page 2">
+            About Page 2
+          </LinkNext>
+        ),
       },
     ],
   },
   {
-    id: '10',
-    link: {
-      cached_url: '/i-2',
-    },
-    Link: <Link href="/i-0-3" name="Item One - Two" type="Link" />,
+    link: (
+      <LinkGatsby to="/resources" name="Resources">
+        Resources
+      </LinkGatsby>
+    ),
   },
   {
-    id: '11',
-    link: {
-      cached_url: '/i-2',
-    },
-    Link: <Link href="/i-2" name="Item Three" type="Link" />,
-    childItems: [
+    link: (
+      <LinkNext href="/contact" name="Contact">
+        Contact
+      </LinkNext>
+    ),
+
+    children: [
       {
-        id: '12',
-        link: {
-          cached_url: '/i-2-0',
-        },
-        Link: <Link href="/i-2-0" name="Item Three - One" type="Link" />,
-        childItems: [
+        link: (
+          <LinkGatsby to="/contact/page-1" name="Contact Page 1">
+            Contact Page 1
+          </LinkGatsby>
+        ),
+        children: [
           {
-            id: '13',
-            link: {
-              cached_url: '/i-2-0-0',
-            },
-            Link: (
-              <Link href="/i-2-0-0" name="Item Three - One - One" type="Link" />
+            link: (
+              <LinkGatsby
+                to="/contact/page-1/level-3"
+                name="Contact Page Level 3 - Page 1"
+              >
+                Contact Page Level 3 - Page 1
+              </LinkGatsby>
             ),
+            active: true,
           },
           {
-            id: '14',
-            link: {
-              cached_url: '/i-2-0-1',
-            },
-            Link: (
-              <Link href="/i-2-0-1" name="Item Three - One - Two" type="Link" />
-            ),
-          },
-          {
-            id: '15',
-            link: {
-              cached_url: '/i-2-0-2',
-            },
-            Link: (
-              <Link
-                href="/i-2-0-2"
-                name="Item Three - One - Three"
-                type="Link"
-              />
-            ),
-            childItems: [
-              {
-                id: '16',
-                link: {
-                  cached_url: '/i-2-0-2-0',
-                },
-                Link: (
-                  <Link
-                    href="/i-2-0-2-0"
-                    name="Item Three - One - Three - One"
-                    type="Link"
-                  />
-                ),
-              },
-              {
-                id: '17',
-                link: {
-                  cached_url: '/i-2-0-2-1',
-                },
-                Link: (
-                  <Link
-                    href="/i-2-0-2-1"
-                    name="Item Three - One - Three - Two"
-                    type="Link"
-                  />
-                ),
-              },
-            ],
-          },
-          {
-            id: '18',
-            link: {
-              cached_url: '/i-2-0-3',
-            },
-            Link: (
-              <Link
-                href="/i-2-0-3"
-                name="Item Three - One - Four"
-                type="Link"
-              />
+            link: (
+              <LinkNext
+                href="/contact/page-1/level-3-2"
+                name="Contact Page Level 3 - Page 2"
+              >
+                Contact Page Level 3 - Page 2
+              </LinkNext>
             ),
           },
         ],
       },
       {
-        id: '19',
-        link: {
-          cached_url: '/i-2-1',
-        },
-        Link: <Link href="/i-2-1" name="Item Three - Two" type="Link" />,
-      },
-      {
-        id: '20',
-        link: {
-          cached_url: '/i-2-2',
-        },
-        Link: <Link href="/i-2-2" name="Item Three - Three" type="Link" />,
-      },
-      {
-        id: '21',
-        link: {
-          cached_url: '/i-2-3',
-        },
-        Link: <Link href="/i-2-3" name="Item Three - Four" type="Link" />,
+        link: (
+          <LinkNext href="/contact/page-2" name="Contact Page 2">
+            Contact Page 2
+          </LinkNext>
+        ),
       },
     ],
   },
 ];
 
 const VerticalNavTemplate = ({ ...rest }) => (
-  <VerticalNav {...rest} menu={menuTree} pageLink="/i-0-0" />
+  <VerticalNav {...rest} menu={menuTree} />
 );
 export const Default = VerticalNavTemplate.bind({});
-
-Default.args = {
-  classes: {
-    rootList: '',
-    rootGroup: '',
-    childLists: '',
-    childListItems: '',
-  },
-};
+Default.args = {};
 
 // Deep Nesting
 // /////////////////////////////////////////////////////////////////////////////
 const VerticalNavDeepNesting = ({ children, ...rest }) => (
-  <VerticalNav {...rest} menu={menuTree} pageLink="/i-0-0" showNestedLevels />
+  <VerticalNav {...rest} menu={menuTree} showNestedLevels />
 );
 export const DeepNesting = VerticalNavDeepNesting.bind({});
-DeepNesting.args = {
-  classes: {
-    rootList: '',
-    rootGroup: '',
-    childLists: '',
-    childListItems: '',
-  },
-};
+DeepNesting.args = {};

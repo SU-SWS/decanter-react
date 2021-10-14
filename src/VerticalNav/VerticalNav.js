@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
-import { VerticalNavStateProvider } from './VerticalNav.context';
-import useTreeWalker from '../hooks/useTreeWalker';
 import { Group } from './VerticalNav.Group';
 import { Item } from './VerticalNav.Item';
 
@@ -11,47 +9,15 @@ import { Item } from './VerticalNav.Item';
  *
  * For displaying sidebar navigation.
  */
-const VerticalNavRoot = ({
-  menu,
-  pageLink,
-  classes = {},
-  navOpened = false,
-  showNestedLevels = false,
-  ...props
-}) => {
-  const menuTree = useTreeWalker(menu, pageLink, showNestedLevels);
-  return (
-    <VerticalNavStateProvider tree={menuTree}>
-      <nav
-        className={dcnb(
-          'su-relative',
-          navOpened ? 'su-shadow-xl' : '',
-          classes.rootList ? classes.rootList : ''
-        )}
-        {...props}
-        aria-label="Section Menu"
-      >
-        {/* Desktop */}
-        <Group
-          menuTree={menuTree}
-          pageLink={pageLink}
-          className="su-hidden lg:su-block"
-          showNestedLevels={showNestedLevels}
-          classes={classes}
-        />
-        {/* Mobile */}
-        <Group
-          menuTree={menuTree}
-          pageLink={pageLink}
-          className="lg:su-hidden su-absolute su-z-20 su-shadow-xl su-bg-white su-w-full"
-          aria-hidden={!navOpened}
-          showNestedLevels={showNestedLevels}
-          classes={classes}
-        />
-      </nav>
-    </VerticalNavStateProvider>
-  );
-};
+const VerticalNavRoot = ({ menu, className, showNestedLevels, ...props }) => (
+  <nav
+    className={dcnb('su-vertical-nav su-relative', className)}
+    {...props}
+    aria-label="Section Menu"
+  >
+    <Group menuTree={menu} showNestedLevels={showNestedLevels} />
+  </nav>
+);
 VerticalNavRoot.displayName = 'VerticalNav';
 
 // Bind them.
@@ -63,5 +29,11 @@ export const VerticalNav = Object.assign(VerticalNavRoot, { Item });
 // -----------------------------------------------------------------------------
 
 VerticalNavRoot.propTypes = {
-  classes: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  className: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.string,
+  ]),
+  menu: PropTypes.arrayOf(PropTypes.object).isRequired,
+  showNestedLevels: PropTypes.bool,
 };
