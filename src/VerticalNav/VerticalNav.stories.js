@@ -18,7 +18,7 @@ export default {
     docs: {
       description: {
         component:
-          'For displaying an heirachical sidebar nav in a vertical nested list.',
+          'For displaying an heirachical sidebar nav in a vertical nested list. This navigation only shows an expanded tree of navigation down to the active item. It does not expand the tree on non active path branches. This navigation structure also allows you to "bring your own link" component.',
       },
     },
   },
@@ -49,9 +49,9 @@ const LinkNext = ({ children, href = '#', ...props }) => (
 const menuTree = [
   {
     link: (
-      <LinkGatsby to="/" name="Home">
+      <a href="/" name="Home">
         Home
-      </LinkGatsby>
+      </a>
     ),
   },
   {
@@ -70,6 +70,7 @@ const menuTree = [
         ),
         children: [
           {
+            id: 'about-page-1-lvl3-1',
             link: (
               <LinkGatsby
                 to="/about/page-1/level-3"
@@ -155,7 +156,8 @@ const menuTree = [
     ],
   },
 ];
-
+// Default State
+// /////////////////////////////////////////////////////////////////////////////
 const VerticalNavTemplate = ({ ...rest }) => (
   <VerticalNav {...rest} menu={menuTree} />
 );
@@ -169,3 +171,14 @@ const VerticalNavDeepNesting = ({ children, ...rest }) => (
 );
 export const DeepNesting = VerticalNavDeepNesting.bind({});
 DeepNesting.args = {};
+
+// Custom hover classes.
+// /////////////////////////////////////////////////////////////////////////////
+const VerticalNavCustomActive = ({ children, ...rest }) => (
+  <VerticalNav menu={menuTree} {...rest} />
+);
+export const CustomActiveClasses = VerticalNavCustomActive.bind({});
+CustomActiveClasses.args = {
+  activeClasses:
+    'hocus:su-text-spirited hocus:su-bg-plum su-border-cardinal-red hocus:su-border-spirited su-text-cardinal-red',
+};
