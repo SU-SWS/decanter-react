@@ -34,8 +34,8 @@ export const ModalContentRoot = ({
       iconProps={{
         className: 'su-ml-02em',
       }}
-      srText={dismissText}
-      text={dismissSrText}
+      srText={dismissSrText}
+      text={dismissText}
     />
 
     {children}
