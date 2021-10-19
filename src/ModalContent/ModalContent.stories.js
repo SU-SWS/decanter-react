@@ -25,8 +25,8 @@ export default {
         component:
           "This component is the inner content of the modal and doesn't include the modal functionality. <br /> To add the modal functionality, please refer to https://mui.com/components/modal/ and add ModalContent component as the content for the MUI modal. <br />" +
           "The 'In Modal' story shows an example of usage. <br /> <br />" +
-          '<strong>Note:</strong> Modal needs to be imported from ModalUnstyled for the modal functionality to work: <br />' +
-          "<strong>import Modal from '@mui/core/ModalUnstyled';</strong>",
+          '<strong>Note:</strong> ModalUnstyled needs to be imported from MUI Core for the modal functionality to work: <br />' +
+          "<strong>import ModalUnstyled from '@mui/core/ModalUnstyled';</strong>",
       },
     },
   },
