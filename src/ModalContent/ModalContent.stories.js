@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Modal from '@mui/core/ModalUnstyled';
+import ModalUnstyled from '@mui/core/ModalUnstyled';
 import { ModalContent } from './ModalContent';
 import { Button } from '../Button/Button';
 import { Heading } from '../Heading/Heading';
+import { DismissButton } from '../DismissButton/DismissButton';
 
 export default {
   title: 'Composite/Modal Content',
@@ -11,6 +12,8 @@ export default {
     'ModalContent.Body': ModalContent.Body,
     'ModalContent.Cta': ModalContent.Cta,
     'ModalContent.Footer': ModalContent.Footer,
+    Button,
+    DismissButton,
   },
   parameters: {
     design: {
@@ -72,11 +75,10 @@ const InModalTemplate = () => {
       <Button type="button" onClick={() => setIsOpen(true)}>
         Open modal
       </Button>
-      <Modal
+      <ModalUnstyled
         open={isOpen}
         onClose={onClose}
         aria-labelledby="child-modal-title"
-        aria-describedby="child-modal-description"
         BackdropComponent={() => (
           <div className="su-bg-black su-bg-opacity-50 su-fixed su-inset-0 su-z-50" />
         )}
@@ -87,7 +89,9 @@ const InModalTemplate = () => {
             dismissText="Close"
             dismissSrText="Close"
           >
-            <Heading level={2}>Title</Heading>
+            <Heading level={2} id="child-modal-title">
+              Title
+            </Heading>
             <ModalContent.Body>
               <span className="su-font-bold su-text-22">
                 Your username donec venenatis vulputate lorem. Lorem ipsum
@@ -112,7 +116,7 @@ const InModalTemplate = () => {
             </ModalContent.Footer>
           </ModalContent>
         </div>
-      </Modal>
+      </ModalUnstyled>
     </div>
   );
 };
