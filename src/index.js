@@ -7,11 +7,12 @@ import { CtaLink } from './CtaLink/CtaLink';
 import { DismissButton } from './DismissButton/DismissButton';
 import { FlexBox } from './FlexBox/FlexBox';
 import { FlexCell } from './FlexCell/FlexCell';
-import { Heading } from './Heading/Heading';
-import { HeroIcon } from './HeroIcon/HeroIcon';
 import { GlobalFooter } from './GlobalFooter/GlobalFooter';
 import { Grid } from './Grid/Grid';
 import { GridCell } from './GridCell/GridCell';
+import { Heading } from './Heading/Heading';
+import { Hero } from './Hero/Hero';
+import { HeroIcon } from './HeroIcon/HeroIcon';
 import { IdentityBar } from './IdentityBar/IdentityBar';
 import { InlineError } from './InlineError/InlineError';
 import { InlineValid } from './InlineValid/InlineValid';
@@ -19,6 +20,7 @@ import { Label } from './Label/Label';
 import { LocalFooter } from './LocalFooter/LocalFooter';
 import { Lockup } from './Lockup/Lockup';
 import { Logo } from './Logo/Logo';
+import { ModalContent } from './ModalContent/ModalContent';
 import { Poster } from './Poster/Poster';
 import { Skiplink } from './Skiplink/Skiplink';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
@@ -38,6 +40,7 @@ export {
   Grid,
   GridCell,
   Heading,
+  Hero,
   HeroIcon,
   IdentityBar,
   InlineError,
@@ -46,6 +49,7 @@ export {
   LocalFooter,
   Lockup,
   Logo,
+  ModalContent,
   Poster,
   Skiplink,
   SrOnlyText,

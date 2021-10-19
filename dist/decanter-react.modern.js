@@ -49,6 +49,20 @@ function BellIcon(props) {
   }));
 }
 
+function ChevronRightIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M9 5l7 7-7 7"
+  }));
+}
+
 function InformationCircleIcon(props) {
   return /*#__PURE__*/createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
@@ -60,6 +74,20 @@ function InformationCircleIcon(props) {
     strokeLinejoin: "round",
     strokeWidth: 2,
     d: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+  }));
+}
+
+function MailIcon(props) {
+  return /*#__PURE__*/createElement("svg", Object.assign({
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor"
+  }, props), /*#__PURE__*/createElement("path", {
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 2,
+    d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
   }));
 }
 
@@ -179,18 +207,6 @@ function ChevronDownIcon(props) {
   }));
 }
 
-function ChevronRightIcon(props) {
-  return /*#__PURE__*/createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 20 20",
-    fill: "currentColor"
-  }, props), /*#__PURE__*/createElement("path", {
-    fillRule: "evenodd",
-    d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z",
-    clipRule: "evenodd"
-  }));
-}
-
 function DownloadIcon(props) {
   return /*#__PURE__*/createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
@@ -236,18 +252,6 @@ function LockClosedIcon(props) {
     fillRule: "evenodd",
     d: "M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z",
     clipRule: "evenodd"
-  }));
-}
-
-function MailIcon(props) {
-  return /*#__PURE__*/createElement("svg", Object.assign({
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 20 20",
-    fill: "currentColor"
-  }, props), /*#__PURE__*/createElement("path", {
-    d: "M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-  }), /*#__PURE__*/createElement("path", {
-    d: "M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
   }));
 }
 
@@ -2329,6 +2333,31 @@ GridCell.propTypes = {
 };
 GridCell.defaultProps = {};
 
+var HeroRoot = function HeroRoot(_ref) {
+  var bgImage = _ref.bgImage,
+      className = _ref.className,
+      children = _ref.children,
+      imgClasses = _ref.imgClasses;
+  return /*#__PURE__*/React__default.createElement("div", {
+    className: dcnb('hero su-basefont-23 su-relative', className)
+  }, /*#__PURE__*/React__default.createElement("div", {
+    className: dcnb('su-h-full su-w-full su-overflow-hidden', imgClasses)
+  }, /*#__PURE__*/React__default.createElement("img", {
+    className: "su-h-full su-w-full su-object-cover su-object-center",
+    src: bgImage,
+    alt: ""
+  })), children);
+};
+
+HeroRoot.displayName = 'Hero';
+var Hero = Object.assign(HeroRoot, {});
+HeroRoot.propTypes = {
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  bgImage: PropTypes.string
+};
+HeroRoot.defaultProps = {};
+
 var identityBarColors = ['cardinal-red', 'digital-red', 'black', 'white'];
 
 var _excluded$i = ["className"];
@@ -2668,9 +2697,92 @@ LocalFooter.defaultProps = {
   link: 'blue'
 };
 
+var _excluded$l = ["children", "className"];
+var Body = function Body(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
+
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: dcnb('su-rs-mb-3', className)
+  }, props), children);
+};
+Body.displayName = 'ModalContent.Body';
+Body.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+};
+
+var _excluded$m = ["children", "className"];
+var Cta = function Cta(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
+
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: dcnb('su-flex su-items-center su-justify-center su-flex su-justify-center su-rs-mb-2', className)
+  }, props), children);
+};
+Cta.displayName = 'ModalContent.Cta';
+Cta.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+};
+
+var _excluded$n = ["children", "className"];
+var Footer = function Footer(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
+
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: dcnb('su-text-center', className)
+  }, props), children);
+};
+Footer.displayName = 'ModalContent.Footer';
+Footer.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.array, PropTypes.object])
+};
+
+var _excluded$o = ["className", "children", "onClose", "dismissText", "dismissSrText"];
+var ModalContentRoot = function ModalContentRoot(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      onClose = _ref.onClose,
+      dismissText = _ref.dismissText,
+      dismissSrText = _ref.dismissSrText,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$o);
+
+  return /*#__PURE__*/React__default.createElement("div", _extends({
+    className: dcnb('su-bg-white su-flex su-flex-col su-rs-pt-2 su-rs-pr-3 su-rs-pb-4 su-rs-pl-5 su-absolute su-left-1/2 su-top-1/2 su-transform su--translate-x-1/2 su--translate-y-1/2 su-z-50', className)
+  }, props), /*#__PURE__*/React__default.createElement(DismissButton, {
+    icon: "x",
+    className: "su-ml-auto su-rs-mb-2 su-text-digital-blue hocus:su-text-black",
+    onClick: onClose,
+    iconProps: {
+      className: 'su-ml-02em'
+    },
+    srText: dismissSrText,
+    text: dismissText
+  }), children);
+};
+ModalContentRoot.displayName = 'ModalContent';
+var ModalContent = Object.assign(ModalContentRoot, {
+  Body: Body,
+  Cta: Cta,
+  Footer: Footer
+});
+ModalContentRoot.propTypes = {
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.node]),
+  dismissText: PropTypes.string,
+  dismissSrText: PropTypes.string
+};
+
 var layoutOptions = ['left', 'center'];
 
-var _excluded$l = ["children", "level", "size", "weight", "font", "className"];
+var _excluded$p = ["children", "level", "size", "weight", "font", "className"];
 var Headline$1 = function Headline(_ref) {
   var children = _ref.children,
       level = _ref.level,
@@ -2678,7 +2790,7 @@ var Headline$1 = function Headline(_ref) {
       weight = _ref.weight,
       font = _ref.font,
       className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$l);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$p);
 
   return /*#__PURE__*/React__default.createElement(Heading, _extends({
     level: level,
@@ -2707,11 +2819,11 @@ Headline$1.defaultProps = {
   font: 'serif'
 };
 
-var _excluded$m = ["children", "className"];
+var _excluded$q = ["children", "className"];
 var Content$1 = function Content(_ref) {
   var children = _ref.children,
       className = _ref.className,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$m);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$q);
 
   return /*#__PURE__*/React__default.createElement(FlexBox, _extends({
     direction: "col",
@@ -2725,11 +2837,11 @@ Content$1.propTypes = {
 };
 Content$1.defaultProps = {};
 
-var _excluded$n = ["className", "children"];
+var _excluded$r = ["className", "children"];
 var Image$1 = function Image(_ref) {
   var className = _ref.className,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$r);
 
   return /*#__PURE__*/React__default.createElement("div", _extends({
     className: dcnb('su-w-140 su-h-140 su-rounded-full su-overflow-hidden su-min-w-min', className),
@@ -2812,12 +2924,12 @@ PosterRoot.defaultProps = {
   isGradient: false
 };
 
-var _excluded$o = ["anchorLink", "className", "children"];
+var _excluded$s = ["anchorLink", "className", "children"];
 var Skiplink = function Skiplink(_ref) {
   var anchorLink = _ref.anchorLink,
       className = _ref.className,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$o);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$s);
 
   return /*#__PURE__*/React__default.createElement("a", _extends({
     href: anchorLink != null ? anchorLink : '#main-content',
@@ -2831,7 +2943,7 @@ Skiplink.propTypes = {
 };
 Skiplink.defaultProps = {};
 
-var _excluded$p = ["className", "labelText", "fontWeight", "helpText", "id", "errorText", "validText"];
+var _excluded$t = ["className", "labelText", "fontWeight", "helpText", "id", "errorText", "validText"];
 var TextFieldRoot = function TextFieldRoot(_ref) {
   var className = _ref.className,
       labelText = _ref.labelText,
@@ -2840,7 +2952,7 @@ var TextFieldRoot = function TextFieldRoot(_ref) {
       id = _ref.id,
       errorText = _ref.errorText,
       validText = _ref.validText,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$p);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$t);
 
   return /*#__PURE__*/React__default.createElement("div", {
     className: dcnb('su-w-400', className)
@@ -2874,4 +2986,4 @@ TextFieldRoot.propTypes = {
 };
 TextFieldRoot.defaultProps = {};
 
-export { Alert, Button, Card, Container, CtaButton, CtaLink, DismissButton, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, HeroIcon, IdentityBar, InlineError, InlineValid, Label, LocalFooter, Lockup, Logo, Poster, Skiplink, SrOnlyText, TextField };
+export { Alert, Button, Card, Container, CtaButton, CtaLink, DismissButton, FlexBox, FlexCell, GlobalFooter, Grid, GridCell, Heading, Hero, HeroIcon, IdentityBar, InlineError, InlineValid, Label, LocalFooter, Lockup, Logo, ModalContent, Poster, Skiplink, SrOnlyText, TextField };
