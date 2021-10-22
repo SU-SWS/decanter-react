@@ -43,7 +43,8 @@ function BellIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 24 24",
-    stroke: "currentColor"
+    stroke: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -57,7 +58,8 @@ function ChevronRightIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 24 24",
-    stroke: "currentColor"
+    stroke: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -71,7 +73,8 @@ function InformationCircleIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 24 24",
-    stroke: "currentColor"
+    stroke: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -85,7 +88,8 @@ function MailIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 24 24",
-    stroke: "currentColor"
+    stroke: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -99,7 +103,8 @@ function MicrophoneIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 24 24",
-    stroke: "currentColor"
+    stroke: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -113,7 +118,8 @@ function VideoCameraIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 24 24",
-    stroke: "currentColor"
+    stroke: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -127,7 +133,8 @@ function XCircleIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 24 24",
-    stroke: "currentColor"
+    stroke: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -141,7 +148,8 @@ function XIcon(props) {
     xmlns: "http://www.w3.org/2000/svg",
     fill: "none",
     viewBox: "0 0 24 24",
-    stroke: "currentColor"
+    stroke: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     strokeLinecap: "round",
     strokeLinejoin: "round",
@@ -154,7 +162,8 @@ function ArrowRightIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z",
@@ -166,7 +175,8 @@ function BanIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z",
@@ -178,7 +188,8 @@ function CheckCircleIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z",
@@ -190,7 +201,8 @@ function CheckIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z",
@@ -202,7 +214,8 @@ function ChevronDownIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z",
@@ -214,7 +227,8 @@ function DownloadIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z",
@@ -226,7 +240,8 @@ function ExclamationCircleIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z",
@@ -238,7 +253,8 @@ function InformationCircleIcon$1(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z",
@@ -250,7 +266,8 @@ function LockClosedIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z",
@@ -262,7 +279,8 @@ function PlayIcon(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z",
@@ -274,7 +292,8 @@ function XCircleIcon$1(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z",
@@ -286,7 +305,8 @@ function XIcon$1(props) {
   return /*#__PURE__*/React.createElement("svg", Object.assign({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 20 20",
-    fill: "currentColor"
+    fill: "currentColor",
+    "aria-hidden": "true"
   }, props), /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z",
@@ -2989,6 +3009,154 @@ TextFieldRoot.propTypes = {
 };
 TextFieldRoot.defaultProps = {};
 
+var findActiveInItems = function findActiveInItems(items) {
+  if (Array.isArray(items) === false) {
+    return false;
+  }
+
+  var results = items.map(function (item) {
+    if (item.active) {
+      return true;
+    }
+
+    if (Array.isArray(item.children)) {
+      return findActiveInItems(item.children);
+    }
+
+    return false;
+  });
+  return results.includes(true);
+};
+
+var useActivePath = (function (items) {
+  return findActiveInItems(items);
+});
+
+var _excluded$u = ["element", "items", "active", "isRoot", "showNestedLevels", "className", "elementClasses", "activeClasses"];
+var Item = function Item(_ref) {
+  var element = _ref.element,
+      items = _ref.items,
+      active = _ref.active,
+      showNestedLevels = _ref.showNestedLevels,
+      className = _ref.className,
+      elementClasses = _ref.elementClasses,
+      activeClasses = _ref.activeClasses,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$u);
+
+  var activeClass = [];
+
+  if (active) {
+    if (activeClasses) {
+      activeClass.push(activeClasses);
+    } else {
+      activeClass.push('su-text-black su-border-black-90 hocus:su-border-digital-blue-dark');
+    }
+  } else {
+    activeClass.push('su-border-white');
+  }
+
+  var linkClasses = cnbuilder.dcnb('su-group su-no-underline hocus:su-underline su-border-l-5 su-py-14 su-block su-pl-10 su-transition-all hocus:su-text-digital-blue-dark hocus:su-border-digital-blue-dark', activeClass, elementClasses);
+  linkClasses = element.props.className || linkClasses;
+  var LinkObj = /*#__PURE__*/React__default.cloneElement(element, {
+    className: linkClasses
+  });
+  var inPath = useActivePath(items);
+  return /*#__PURE__*/React__default.createElement("li", _extends({
+    className: cnbuilder.dcnb('su-nav-item su-m-0', className)
+  }, props), LinkObj, Array.isArray(items) && (inPath || showNestedLevels) && /*#__PURE__*/React__default.createElement(Group, {
+    menuTree: items,
+    showNestedLevels: showNestedLevels,
+    activeClasses: activeClasses,
+    className: "su-list-none su-pb-15 su-pl-20 children:children:su-py-6 children:children:su-text-20"
+  }));
+};
+Item.displayName = 'VerticalNav.Item';
+Item.propTypes = {
+  className: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  activeClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  elementClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  element: PropTypes.element,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    link: PropTypes.node.isRequired,
+    children: PropTypes.arrayOf(PropTypes.object),
+    active: PropTypes.bool
+  })),
+  active: PropTypes.bool,
+  showNestedLevels: PropTypes.bool
+};
+
+var _excluded$v = ["menuTree", "className", "showNestedLevels", "activeClasses"];
+var Group = function Group(_ref) {
+  var menuTree = _ref.menuTree,
+      className = _ref.className,
+      showNestedLevels = _ref.showNestedLevels,
+      activeClasses = _ref.activeClasses,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$v);
+
+  return /*#__PURE__*/React__default.createElement("ul", _extends({
+    className: className || 'su-nav-group su-list-none su-p-0 children:su-border-t children:su-border-solid children:su-border-black-20 children:children:su-text-21'
+  }, props), menuTree.map(function (group) {
+    return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, group.link && /*#__PURE__*/React__default.createElement(Item, {
+      key: group.id || group.link.href || group.link.to,
+      element: group.link,
+      active: group.active,
+      items: group.children,
+      showNestedLevels: showNestedLevels,
+      activeClasses: activeClasses
+    }));
+  }));
+};
+Group.displayName = 'VerticalNav.Group';
+Group.propTypes = {
+  className: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  activeClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  menuTree: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    link: PropTypes.node.isRequired,
+    children: PropTypes.arrayOf(PropTypes.object),
+    active: PropTypes.bool
+  })).isRequired,
+  showNestedLevels: PropTypes.bool
+};
+
+var _excluded$w = ["menu", "className", "showNestedLevels", "activeClasses"];
+
+var VerticalNavRoot = function VerticalNavRoot(_ref) {
+  var menu = _ref.menu,
+      className = _ref.className,
+      showNestedLevels = _ref.showNestedLevels,
+      activeClasses = _ref.activeClasses,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$w);
+
+  return /*#__PURE__*/React__default.createElement("nav", _extends({
+    className: cnbuilder.dcnb('su-vertical-nav su-relative', className)
+  }, props, {
+    "aria-label": "Section Menu"
+  }), /*#__PURE__*/React__default.createElement(Group, {
+    menuTree: menu,
+    showNestedLevels: showNestedLevels,
+    activeClasses: activeClasses
+  }));
+};
+
+VerticalNavRoot.displayName = 'VerticalNav';
+var VerticalNav = Object.assign(VerticalNavRoot, {
+  Item: Item,
+  Group: Group
+});
+VerticalNavRoot.propTypes = {
+  className: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  activeClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string]),
+  menu: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    link: PropTypes.node.isRequired,
+    children: PropTypes.arrayOf(PropTypes.object),
+    active: PropTypes.bool
+  })).isRequired,
+  showNestedLevels: PropTypes.bool
+};
+
 exports.Alert = Alert;
 exports.Button = Button;
 exports.Card = Card;
@@ -3016,3 +3184,4 @@ exports.Poster = Poster;
 exports.Skiplink = Skiplink;
 exports.SrOnlyText = SrOnlyText;
 exports.TextField = TextField;
+exports.VerticalNav = VerticalNav;

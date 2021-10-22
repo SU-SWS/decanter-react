@@ -25,6 +25,7 @@ import { Poster } from './Poster/Poster';
 import { Skiplink } from './Skiplink/Skiplink';
 import { SrOnlyText } from './SrOnlyText/SrOnlyText';
 import { TextField } from './TextField/TextField';
+import { VerticalNav } from './VerticalNav/VerticalNav';
 
 export {
   Alert,
@@ -54,4 +55,5 @@ export {
   Skiplink,
   SrOnlyText,
   TextField,
+  VerticalNav,
 };
