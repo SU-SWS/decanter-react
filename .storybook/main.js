@@ -20,7 +20,14 @@ module.exports = {
     // https://storybook.js.org/addons/storybook-addon-pseudo-states
     "storybook-addon-pseudo-states",
     // https://storybook.js.org/addons/@storybook/addon-postcss
-    "@storybook/addon-postcss"
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
   ],
   reactOptions: {
     fastRefresh: true,
