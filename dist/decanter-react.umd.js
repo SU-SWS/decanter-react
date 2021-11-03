@@ -315,7 +315,7 @@
     }));
   }
 
-  var buttonSizes = ['default', 'big', 'small', 'minimal', 'unset'];
+  var buttonSizes = ['default', 'big', 'small', 'narrow-small', 'minimal', 'unset'];
 
   var getButtonSize = function getButtonSize(size) {
     var classes = '';
@@ -327,6 +327,10 @@
 
       case 'small':
         classes = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
+        break;
+
+      case 'narrow-small':
+        classes = 'su-px-12 su-py-9 su-text-16 md:su-text-18';
         break;
 
       case 'minimal':
@@ -512,7 +516,7 @@
   };
   HeroIcon.defaultProps = {};
 
-  var buttonVariants = ['solid', 'outline', 'ghost', 'unset'];
+  var buttonVariants = ['solid', 'primary', 'secondary', 'primary-lagunita', 'secondary-lagunita', 'outline', 'ghost', 'unset'];
   var buttonTypes = ['button', 'submit', 'reset'];
 
   var _excluded$1 = ["className", "children", "onClick", "variant", "size", "type", "icon", "iconProps", "animate", "isDisabled"],
@@ -536,6 +540,22 @@
       switch (variant) {
         case 'solid':
           levers.variant = 'su-bg-digital-red su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black su-transition-colors';
+          break;
+
+        case 'primary':
+          levers.variant = 'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue active:su-border-digital-blue hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-digital-blue-light focus:su-ring-digital-blue-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'primary-lagunita':
+          levers.variant = 'su-bg-lagunita hocus:su-bg-lagunita-dark active:su-bg-lagunita su-text-white hocus:su-text-white su-border su-rounded su-border-lagunita-light su-border-solid hocus:su-border-lagunita active:su-border-lagunita hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-lagunita-light focus:su-ring-lagunita-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'secondary':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-digital-blue-light active:su-ring-digital-blue-light active:su-no-underline';
+          break;
+
+        case 'secondary-lagunita':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-lagunita hocus:su-text-lagunita-dark su-border hocus:su-border su-border-solid su-rounded su-border-lagunita-light hocus:su-border-lagunita-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-lagunita-light active:su-ring-lagunita-light active:su-no-underline';
           break;
 
         case 'outline':
@@ -572,7 +592,11 @@
       levers.variant = cnbuilder.dcnb(levers.variant, {
         'su-bg-digital-red': false,
         'su-bg-white': false,
+        'su-bg-digital-blue': false,
+        'su-bg-lagunita': false,
         'su-text-digital-red': false,
+        'su-text-digital-blue': false,
+        'su-text-lagunita': false,
         'su-border-digital-red': false,
         'hover:su-border-black': false,
         'focus:su-border-black': false,
@@ -1422,7 +1446,7 @@
     width: 'site'
   };
 
-  var ctaButtonVariants = ['solid', 'outline', 'ghost', 'unset'];
+  var ctaButtonVariants = ['solid', 'primary', 'secondary', 'primary-lagunita', 'secondary-lagunita', 'outline', 'ghost', 'unset'];
 
   var _excluded$b = ["className", "text", "srText", "variant", "size", "icon", "iconProps", "animate"],
       _excluded2$1 = ["className"];
@@ -1443,6 +1467,22 @@
       switch (variant) {
         case 'solid':
           levers.variant = 'su-bg-digital-red hocus:su-bg-archway-dark su-text-white hocus:su-text-white su-border-2 su-border-digital-red su-border-solid hover:su-border-black focus:su-border-black';
+          break;
+
+        case 'primary':
+          levers.variant = 'su-bg-digital-blue hocus:su-bg-digital-blue-dark su-text-white hocus:su-text-white su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue active:su-border-digital-blue hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-digital-blue-light focus:su-ring-digital-blue-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'primary-lagunita':
+          levers.variant = 'su-bg-lagunita hocus:su-bg-lagunita-dark active:su-bg-lagunita su-text-white hocus:su-text-white su-border su-rounded su-border-lagunita-light su-border-solid hocus:su-border-lagunita active:su-border-lagunita hover:su-shadow-xl active:su-ring focus:su-ring active:su-ring-lagunita-light focus:su-ring-lagunita-light hocus:su-no-underline active:su-no-underline';
+          break;
+
+        case 'secondary':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-digital-blue hocus:su-text-digital-blue-dark su-border hocus:su-border su-rounded su-border-digital-blue-light su-border-solid hocus:su-border-digital-blue-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-digital-blue-light active:su-ring-digital-blue-light active:su-no-underline';
+          break;
+
+        case 'secondary-lagunita':
+          levers.variant = 'su-bg-white hocus:su-bg-white su-text-lagunita hocus:su-text-lagunita-dark su-border hocus:su-border su-border-solid su-rounded su-border-lagunita-light hocus:su-border-lagunita-dark hover:su-shadow-xl focus:su-ring active:su-ring focus:su-ring-lagunita-light active:su-ring-lagunita-light active:su-no-underline';
           break;
 
         case 'outline':
@@ -1501,7 +1541,7 @@
     variant: 'solid'
   };
 
-  var ctaLinkColors = ['red', 'blue', 'white', 'unset'];
+  var ctaLinkColors = ['red', 'blue', 'white', 'green', 'unset'];
 
   var _excluded$c = ["className", "text", "srText", "color", "icon", "iconProps", "animate"],
       _excluded2$2 = ["className"];
@@ -1529,6 +1569,10 @@
 
         case 'white':
           levers.color = 'su-text-white hocus:su-text-white';
+          break;
+
+        case 'green':
+          levers.color = 'su-text-digital-green hocus:su-text-digital-blue';
           break;
       }
     }

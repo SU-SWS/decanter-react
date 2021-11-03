@@ -16,6 +16,10 @@ const getButtonSize = (size) => {
       classes = 'su-px-19 su-py-9 su-text-16 md:su-text-18';
       break;
 
+    case 'narrow-small':
+      classes = 'su-px-12 su-py-9 su-text-16 md:su-text-18';
+      break;
+
     case 'minimal':
       classes = 'su-p-0';
       break;

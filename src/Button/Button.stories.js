@@ -66,6 +66,34 @@ Solid.args = {
   children: 'Solid Button',
 };
 
+export const Primary = ButtonTemplate.bind({});
+Primary.args = {
+  variant: 'primary',
+  children: 'Form Primary Button',
+};
+Primary.storyName = 'Form Primary';
+
+export const Secondary = ButtonTemplate.bind({});
+Secondary.args = {
+  variant: 'secondary',
+  children: 'Form Secondary Button',
+};
+Secondary.storyName = 'Form Secondary';
+
+export const PrimaryLagunita = ButtonTemplate.bind({});
+PrimaryLagunita.args = {
+  variant: 'primary-lagunita',
+  children: 'Form Lagunita Button',
+};
+PrimaryLagunita.storyName = 'Form Primary Lagunita';
+
+export const SecondaryLagunita = ButtonTemplate.bind({});
+SecondaryLagunita.args = {
+  variant: 'secondary-lagunita',
+  children: 'Form Lagunita Button',
+};
+SecondaryLagunita.storyName = 'Form Secondary Lagunita';
+
 export const Outline = ButtonTemplate.bind({});
 Outline.args = {
   variant: 'outline',
@@ -90,6 +118,13 @@ Small.args = {
   variant: 'solid',
   size: 'small',
   children: 'Small Button',
+};
+
+export const NarrowSmall = ButtonTemplate.bind({});
+NarrowSmall.args = {
+  variant: 'primary',
+  size: 'narrow-small',
+  children: 'Narrow Small Button',
 };
 
 export const IconOnly = ButtonTemplate.bind({});

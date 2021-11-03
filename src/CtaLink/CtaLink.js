@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { dcnb } from 'cnbuilder';
-import { ctaLinkColors } from './CtaLink.levers';
-import { iconOptions, iconAnimations } from '../common/icon/icon.levers';
-import getIconClasses from '../common/icon/getIconClasses';
+import PropTypes from 'prop-types';
+import React from 'react';
 import getIconAnimation from '../common/icon/getIconAnimation';
-import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import getIconClasses from '../common/icon/getIconClasses';
+import { iconAnimations, iconOptions } from '../common/icon/icon.levers';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
+import { SrOnlyText } from '../SrOnlyText/SrOnlyText';
+import { ctaLinkColors } from './CtaLink.levers';
 
 /**
  * CTA Link Component
@@ -37,6 +37,10 @@ export const CtaLink = React.forwardRef(
 
         case 'white':
           levers.color = 'su-text-white hocus:su-text-white';
+          break;
+
+        case 'green':
+          levers.color = 'su-text-digital-green hocus:su-text-digital-blue';
           break;
 
         default:
