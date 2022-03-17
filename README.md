@@ -32,7 +32,7 @@ class Example extends Component {
 
 ## Demo and Documentation
 
-Please see our storybook build website at [Decanter React - Stoybook](https://decanter-react.netlify.app). It is full of wonderful tools, markup, examples, and information about the components in this package.
+Please see our storybook build website at [Decanter React - Storybook](https://decanter-react.netlify.app). It is full of wonderful tools, markup, examples, and information about the components in this package.
 
 ## Accessibility
 
